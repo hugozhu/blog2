@@ -2,7 +2,7 @@
 date: 2024-02-20
 layout: post
 title: Ubuntu 22 Remote Desktop Sharing Without Real Monitor
-description: Ubuntu 22 remote desktop sharing without monitor.
+summary: Ubuntu 22 remote desktop sharing without monitor.
 categories:
 - Blog
 tags:

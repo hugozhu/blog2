@@ -2,7 +2,7 @@
 date: 2015-03-15
 layout: post
 title:  自己搭建Airplay高清音乐播放系统
-description: DIY airplay HIFI audio system
+summary: DIY airplay HIFI audio system
 categories:
 - Blog
 tags:
@@ -15,6 +15,8 @@ tags:
 
 
 先看一下在iPhone 6 plus上用虾米播放高音质音乐的效果：
+
+<!--more-->
 
 ![Airplay](https://www.evernote.com/shard/s26/sh/5d6ddb93-220e-4c1d-a042-87a8835199dc/5e8345944ca4f948ee84636dacc77358/deep/0/77fa703f-71bc-40ac-8f65-861689fc2085-720-1,280-pixels.png)
 

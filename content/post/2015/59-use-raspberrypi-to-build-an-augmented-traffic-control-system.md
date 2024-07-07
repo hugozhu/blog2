@@ -2,7 +2,7 @@
 date: 2015-03-28
 layout: post
 title:  使用树莓派搭建低成本，便携，多用户的弱网模拟器：高效测试手机App在弱网下的可用性
-description: Use Raspberry Pi to build low cost augmented traffic control system
+summary: Use Raspberry Pi to build low cost augmented traffic control system
 categories:
 - Blog
 tags:
@@ -19,6 +19,8 @@ tags:
 我们的手机经常会处于弱网情况下，电梯里，高铁上，在地铁站，电影院里。。。如果手机应用不针对弱网做优化，就会出现：白屏页面刷不出来，界面卡死，错误提示一堆，菊花转不停，用户抓狂。。。
 
 移动应用开发团队应该将App在弱网下的可用性作为一个重要的性能指标，在设计和开发阶段考虑在弱网下的体验。
+
+<!--more-->
 
 Linux可以使用[`netem`](http://www.linuxfoundation.org/collaborate/workgroups/networking/netem)或`iptables`来实现以下网络模拟：
 

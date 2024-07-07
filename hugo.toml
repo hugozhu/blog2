@@ -24,9 +24,9 @@ googleAnalytics = "GTM-W88HDMN"
       unsafe = true
 
 [Params]
-  homeTitle = "All about Raspberry Pi"
+  homeTitle = "Hugo Zhu's Blog"
   tableOfContents = true
-  subtitle = "Hugo Zhu's Blog"
+  subtitle = ""
   mainSections = ["post", "posts"]
   logo = "img/pi.png" # Expecting square dimensions
   favicon = "img/pi.ico"

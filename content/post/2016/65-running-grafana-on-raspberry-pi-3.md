@@ -10,10 +10,10 @@ tags:
 
 ---
 
-
-
 [Grafana](http://grafana.org)是一个优秀的开源图表系统，支持多种数据源，其中包括
 [InfluxDB](https://influxdata.com)和[Prometheus](http://hugozhu.myalert.info/2016/04/17/64-set-up-monitor-system-with-prometheus-on-raspberry.html)
+
+<!--more-->
 
 <a href="http://grafana.org/assets/img/features/dashboard_ex.png"><img src="http://grafana.org/assets/img/features/dashboard_ex.png" width="500"/></a>
 

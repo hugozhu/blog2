@@ -14,6 +14,9 @@ tags:
 
 iPad的创作能力越来越强，直接修改Github上的文件就可以写Blog了，方法是在Github上建一个自动更新网站的Workflow
 
+<!--more-->
+
+
 ```
 name: Blog of hugozhu.myalert.info
 

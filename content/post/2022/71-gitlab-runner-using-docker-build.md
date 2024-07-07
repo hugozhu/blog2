@@ -13,6 +13,7 @@ tags:
 
 https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
 
+<!--more-->
 
 # docker-compose.yaml
 

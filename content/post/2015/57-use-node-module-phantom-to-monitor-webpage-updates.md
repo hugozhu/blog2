@@ -2,7 +2,7 @@
 date: 2015-03-07
 layout: post
 title: 在树莓派上用Node.js监视网页变化并通知手机
-description: Use Node.js module phantom to monitor webpage updates on Raspberry Pi
+summary: Use Node.js module phantom to monitor webpage updates on Raspberry Pi
 categories:
 - Blog
 tags:
