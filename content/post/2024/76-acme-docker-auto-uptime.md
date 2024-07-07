@@ -1,7 +1,6 @@
 ---
 date: 2024-07-07
-layout: post
-title: 使用acme docker来自动化3个月需要更新的免费域名证书
+title: 使用acme_docker自动更新免费域名证书
 description: Use acme docker to renew ssls on apisix
 tags:
 - apisix
