@@ -75,8 +75,8 @@ jobs:
         uses: hugozhu/dingtalk-github-action@v1
         with:
           token: ${{ secrets.DINGTALK_TOKEN }}
-          title: 'Blog updated from Github action'
+          title: 'https://blog.hugozhu.site just updated!'
           type: text
           content: |
-            ## blog.hugozhu.site just updated!
+            > ${{ github.event.head_commit.message }}
             > from github action message.           
