@@ -107,9 +107,21 @@ googleAnalytics = "GTM-W88HDMN"
 
 [[menu.main]]
     parent = "tools"
-    name = "H5 Tools"
-    url = "page/tools/"
+    name = "HTML Tools"
+    url = "https://nddapp.com/json-encoder.html"
     weight = 1
+
+[[menu.main]]
+    parent = "tools"
+    name = "Imaeg Resizing"
+    url = "https://www.birme.net/"
+    weight = 2
+
+[[menu.main]]
+    parent = "tools"
+    name = "JWT Token Tool"
+    url = "https://jwt.io/"
+    weight = 3
 
 #[[menu.main]]
 #    parent = "samples"
