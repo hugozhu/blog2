@@ -50,6 +50,8 @@ jobs:
           HUGO_ENVIRONMENT: production
           TZ: Asia/Shanghai
         run: |
+          rm -rf public
+          git clone https://github.com/hugozhu/hugozhu.github.com public
           hugo \
             --gc \
             --minify \
@@ -60,10 +62,7 @@ jobs:
           git status
           git config --global user.name "Hugo Zhu"
           git config --global user.email "hugozhu@gmail.com"
-          git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/hugozhu/hugozhu.github.com          
-          git config pull.rebase true
-          #git pull origin
-          echo "adding files"
+          git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/hugozhu/hugozhu.github.com
           git add *
           git commit -m "Updated ${{ env.GITHUB_RUN_ID }}" .
           git push origin main
