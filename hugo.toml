@@ -13,6 +13,7 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentOptions = "linenos=inline"
 disqusShortname = "hugozhu"
 googleAnalytics = "GTM-W88HDMN"
+enableRobotsTXT = true
 
 [markup]
   [markup.tableOfContents]
