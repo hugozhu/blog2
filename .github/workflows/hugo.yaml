@@ -62,7 +62,8 @@ jobs:
           git config --global user.email "hugozhu@gmail.com"
           git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/hugozhu/hugozhu.github.com          
           git config pull.rebase true
-          git pull origin
+          #git pull origin
+          echo "adding files"
           git add *
           git commit -m "Updated ${{ env.GITHUB_RUN_ID }}" .
           git push origin main
