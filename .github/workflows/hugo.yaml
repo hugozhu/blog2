@@ -53,19 +53,27 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"          
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+      - name: Deploy to Github Pages
+        run: |
+          cd public
+          git status
+          git config --global user.name "Hugo Zhu"
+          git config --global user.email "hugozhu@gmail.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/hugozhu/hugozhu.github.com        
+          git add *
+          git commit -m "Updated ${{ env.GITHUB_RUN_ID }}" .
+          git push origin main
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  notify:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: DingTalk Notification     
+        uses: hugozhu/dingtalk-github-action@v1
+        with:
+          token: ${{ secrets.DINGTALK_TOKEN }}
+          title: 'Blog updated from Github action'
+          type: text
+          content: |
+            ## blog.hugozhu.site just updated!
+            > from github action message.           
