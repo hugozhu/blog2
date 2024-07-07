@@ -10,8 +10,8 @@ tags:
 ---
 
 ## 问题和解决方案
-免费域名证书需要三个月更新一次。
-解决方案：apisix, docker, acme.sh, dnspod
+1. 免费域名证书需要三个月更新一次
+2. 解决方案：apisix, docker, acme.sh, dnspod
 
 ## Apisix
 https://apisix.org
