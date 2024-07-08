@@ -23,7 +23,8 @@ Armbian 是一款基于 Debian 或 Ubuntu 的开源操作系统，专门针对�
 ## 方案
 基于最小化配置改动，尽量用docker来部署的原则。
 
-openwrt的docker-compose文件如下，网络设置采用docker的macvlan，使得openwrt看上去像网络上的一个独立主机
+openwrt的docker-compose文件如下，网络设置采用docker的macvlan，使得openwrt看上去像网络上的一个独立主机，相同网络的其他机器都可以ping，并可设置openwrt为路由器（这也是通常说的旁路由）
+
 ```
 version: '2.4'
 services: 
