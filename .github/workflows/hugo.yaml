@@ -54,8 +54,7 @@ jobs:
           git clone https://github.com/hugozhu/hugozhu.github.com public
           hugo \
             --gc \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+            --minify          
       - name: Deploy to Github Pages
         run: |
           cd public
