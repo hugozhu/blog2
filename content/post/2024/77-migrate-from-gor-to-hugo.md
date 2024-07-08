@@ -9,14 +9,12 @@ tags: ["blog", "hugo", "github"]
 
 <!--more-->
 
-迁移前的blog代码在： https://github.com/hugozhu/blog
-迁移后的blog在： https://github.com/hugozhu/blog2
+1. 迁移前的blog代码在： https://github.com/hugozhu/blog
+2. 迁移后的blog在： https://github.com/hugozhu/blog2
 
-还有一个变化是， 实际的网站github pages仓库： https://github.com/hugozhu/hugozhu.github.io 迁移前默认主分支是master，迁移后是main。See： https://pages.carm.cc/doc/branch-main.html
+两个仓库都支持代码提交后，github actions自动发布，这很方便。
 
-都支持代码提交后，github actions自动发布。
-
-实际过程比较顺利，除了目录的支持花了点时间，其他都能兼容原Blog的做法，鲁棒性不错。
+还有一个变化是， 实际的网站github pages仓库： https://github.com/hugozhu/hugozhu.github.com 迁移前默认主分支是master，迁移后是main。See： https://pages.carm.cc/doc/branch-main.html
 
 新的Blog对代码渲染支持的不错，👍
 
