@@ -11,10 +11,12 @@ tags:
 
 ---
 
-# 必要的集群内部通讯端口要在防火墙上打开
-2379, 2380, 80, 443, 22, 6443, 10250
+How to use Rancher to manage k8s cluster?
 
 <!--more-->
+
+# 必要的集群内部通讯端口要在防火墙上打开
+2379, 2380, 80, 443, 22, 6443, 10250
 
 
 # 清理干净 https://rancher.com/docs/rancher/v2.5/en/cluster-admin/cleaning-cluster-nodes/
