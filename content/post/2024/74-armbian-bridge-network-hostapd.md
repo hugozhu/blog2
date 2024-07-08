@@ -1,13 +1,15 @@
 ---
 date: 2024-06-30
 layout: post
-title: R2S使用场景：基础系统Armbian，Docker安装openwrt，USB网卡做热点，无线接入通过openwrt做路由
+title: R2S妙用：Armbian + docker + openwrt + hostapd，用USB网卡做热点，无线有线接入都通过openwrt做路由
 description: Armbian Hostapd with bridge network sharing same IP range as host.
 categories:
 - Blog
 tags:
 - Armbian
 - Linux
+- Docker
+- Openwrt
 
 ---
 
