@@ -18,6 +18,8 @@ tags:
 
 在阿里云中国和美国都购买一个VPS，用同样的操作系统，都安装好 `shadowsocks-libev` ( https://github.com/shadowsocks/shadowsocks-libev )
 
+<!--more-->
+
 ## 编辑配置文件 `config.json` 如下：
 
 ```
