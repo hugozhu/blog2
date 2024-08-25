@@ -44,9 +44,10 @@ Airflow 的主要特点包括：
 conda create -n airflow
 conda activate airflow
 conda install pip
-pip install google-re2==1.1
+pip install google-re2==1.1 #解决安装包依赖问题
 pip install apache-airflow
 pip install pandas
+pip install apache-airflow-providers-dingding
 ```
 
 这些步骤将创建一个新的 Conda 环境并安装 Airflow 及其依赖项。确保你使用的是兼容的 Python 版本，以避免兼容性问题。
@@ -55,7 +56,22 @@ pip install pandas
 
 安装完成后，可以通过以下命令启动本地 Airflow 实例：
 
+环境变量定义
+cat .env
+```text
+PYTHONWARNINGS=ignore::DeprecationWarning:cgitb
+NO_PROXY="*"
+AIRFLOW__CORE__DAGS_FOLDER=./
+AIRFLOW__CORE__LOAD_EXAMPLES=False
+AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE=Asia/Shanghai
+#AIRFLOW__CORE__HOSTNAME_CALLABLE=airflow.utils.net.get_host_ip_address
+AIRFLOW__CORE__HOSTNAME_CALLABLE=airflow.utils.net.getfqdn
+```
+
+启动
 ```bash
+conda activate airflow
+export $(grep -v '^#' .env | xargs)
 airflow standalone
 ```
 
@@ -121,6 +137,7 @@ with DAG(
 ```
 
 这个简单的 DAG 示例创建了三个任务：打印日期、等待 5 秒、打印 "Hello World"。这些任务按顺序执行。
+
 
 # 结论
 
