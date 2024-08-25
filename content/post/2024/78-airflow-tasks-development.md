@@ -1,12 +1,8 @@
 ---
-date: 2024-08-24
-layout: post
 title: 使用Airflow开发大数据生产任务
-description: Use airflow to develop big data task
-categories:
-- Blog
-tags:
-- airflow, python
+subtitle: Use airflow to develop big data task
+date: 2024-08-24
+tags: ["airflow", "python"]
 ---
 
 在大数据领域，任务调度和工作流管理是核心需求。无论是数据的抽取、转化、加载（ETL），还是数据分析任务，管理复杂的任务依赖性、监控任务执行情况并确保任务按时完成都十分重要。Apache Airflow 是一个开源的工作流管理平台，能够帮助你解决这些问题。
