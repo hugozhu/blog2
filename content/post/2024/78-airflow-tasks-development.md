@@ -56,7 +56,8 @@ pip install apache-airflow-providers-dingding
 
 安装完成后，可以通过以下命令启动本地 Airflow 实例：
 
-环境变量定义
+环境变量定义，注意在苹果M1上需要设置NO_PROXY="*" https://github.com/apache/airflow/discussions/24463
+
 cat .env
 ```text
 PYTHONWARNINGS=ignore::DeprecationWarning:cgitb
