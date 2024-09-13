@@ -7,7 +7,7 @@ tags: ["postgres", "Seatunnel"]
 
 将杭州的一张表每天定时增量同步一次到新加坡的同一张表，如何稳定可靠的解决问题呢？
 
-首先这个场景不需要准时同步，所以并不考虑CDC方案，postgres内置的复制功能对网络要求比较高，容错性不够好。查阅资料后决定尝试下 Seatunnel: https://seatunnel.apache.org/ 过程比较简单，2个小时内完成了任务，中间遇到了字段格式的问题，花了点时间找解决方案， 最终达到了预期的效果。
+首先这个场景不需要准时同步，所以并不考虑CDC方案，postgres内置的复制功能对网络要求比较高，容错性不够好。查阅资料后决定尝试下 Seatunnel: https://seatunnel.apache.org/ 过程比较简单，2个小时内完成了任务，中间遇到了字段格式的问题，花了点时间找解决方案， 但最终达到了预期的效果。
 
 <!--more-->
 # 解决方案
@@ -85,7 +85,7 @@ java.sql.BatchUpdateException: Batch entry 0 INSERT INTO ... was aborted: ERROR:
 ```
 2. **support_upsert_by_query_primary_key_exist**
 
-避免插入时重复报错，要结合**primary_keys**正确使用。
+避免插入重复记录报错，但要注意结合**primary_keys**来正确使用。
 
 ## 本地执行同步任务
 ```
