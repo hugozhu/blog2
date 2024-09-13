@@ -5,15 +5,14 @@ date: 2024-09-13
 tags: ["postgres", "Seatunnel"]
 ---
 
-# 问题和解决方案
-
 将杭州的一张表每天定时增量同步一次到新加坡的同一张表，如何稳定可靠的解决问题呢？
 
 首先这个场景不需要准时同步，所以并不考虑CDC方案，postgres内置的复制功能对网络要求比较高，容错性不够好。查阅资料后决定尝试下 Seatunnel: https://seatunnel.apache.org/ 过程比较简单，2个小时内完成了任务，中间遇到了字段格式的问题，花了点时间找解决方案， 最终达到了预期的效果。
 
 <!--more-->
+# 解决方案
 
-# 安装同步工具
+## 安装同步工具
 ```bash
 
 #安装JDK
@@ -35,7 +34,7 @@ wget https://jdbc.postgresql.org/download/postgresql-42.2.29.jre7.jar
 
 ```
 
-# 同步任务配置
+## 同步任务配置
 cms_contents.job
 ```
 env {
@@ -74,10 +73,10 @@ sink {
 }
 ```
 
-比较关键的两处配置：
+### 比较关键的两处配置：
 1. **stringtype=unspecified**
 
-If stringtype is set to unspecified , parameters will be sent to the server as untyped values, and the server will attempt to infer an appropriate type.
+>If stringtype is set to unspecified , parameters will be sent to the server as untyped values, and the server will attempt to infer an appropriate type.
 
 不加这个配置，uuid，json字段都会报错
 ```
@@ -88,9 +87,14 @@ java.sql.BatchUpdateException: Batch entry 0 INSERT INTO ... was aborted: ERROR:
 
 避免插入时重复报错，要结合**primary_keys**正确使用。
 
-# 执行同步任务
+## 本地执行同步任务
 ```
 ./bin/seatunnel.sh --config cms_contents.job -m local
 ```
 
-# 用Airflow来每天调度一次
+## 用Airflow来每天调度一次
+因为任务还比较轻，暂时不搞集群，定时同步可以用Airflow来实现
+Dag如下：
+1. 用python通过Jina模板生成Seatunnel的任务
+2. 远程登录到部署了Seatunnel的worker机器上执行任务，并让Airflow收集执行的输出日志
+3. 报警用Airflow上的钉钉来实现
