@@ -58,6 +58,35 @@ WHERE events.event_time > now() - INTERVAL 7 DAY;
 
 在这个查询中，我们将ClickHouse中的clickhouse_events表与Postgres中的postgres_users表通过user_id和id进行关联，从而获取每个事件对应的用户信息。由于ClickHouse的查询引擎优化得当，即使Postgres中的表数据量较大，查询也能在保持较高性能的情况下完成。
 
+
+在clickhouse集群中：
+```
+DROP TABLE IF EXISTS <db>.s_<instance>_pg_fcm_messages_dist on cluster '<cluster>' sync;
+
+CREATE TABLE IF NOT EXISTS <db>.s_<instance>pg_fcm_messages_dist on cluster '<cluster>'
+(
+    id Int64,
+    created_at DateTime,
+    updated_at DateTime,
+    biz_id String,
+    title String,
+    schedule_time DateTime,
+    badge Int64,
+    status Int64,
+    meta_data String,   -- JSON 数据可以作为 String 类型处理
+    report_data String, -- JSON 数据可以作为 String 类型处理
+    body String,
+    target_url String,
+    image_url String,
+    sent Int16,
+    sent_response String,
+    topic String
+) ENGINE = PostgreSQL('host:port', 'database_name', 'schema_name.users', 'username', 'password');
+
+select * from <db>.s_<instance>pg_fcm_messages_dist
+;
+```
+
 # 性能优化
 尽管ClickHouse查询Postgres数据非常方便，但由于它涉及外部数据源，可能会受到网络延迟和Postgres查询效率的影响。为了进一步优化性能，可以考虑以下几种方法：
 
