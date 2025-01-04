@@ -49,7 +49,8 @@ tags: ["tailscale", "openwrt", "docker"]
    
    docker-compose.yaml
 
-   ```bash   
+```bash
+
 version: '2.4'
 services: 
   openwrt:
@@ -65,7 +66,6 @@ services:
         ipv4_address: 192.168.1.11
     sysctls:
       - net.ipv4.ip_forward=1
-      # - net.ipv4.conf.all.rp_filter=0
     restart: unless-stopped          
     logging:
       driver: "json-file"
