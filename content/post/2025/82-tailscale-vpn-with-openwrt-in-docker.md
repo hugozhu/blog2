@@ -47,6 +47,7 @@ tags: ["tailscale", "openwrt", "docker"]
    ```
    
    docker-compose.yaml
+   
    ```bash
 version: '2.4'
 services: 
@@ -83,7 +84,8 @@ networks:
     driver_opts:
       parent: end0   
       macvlan_mode: bridge
-   ```
+
+```
 
 4. **配置 OpenWrt 网络**：
 
@@ -140,7 +142,7 @@ config device
    /etc/init.d/network restart
    ```
 
-4. **测试验证**：
+5. **测试验证**：
 
 找台机器把缺省网关设置为192.168.1.11，测试 `curl https://ifconfig.me` 正确返回出口IP。
 
@@ -183,7 +185,10 @@ config device
    ```bash
    export TS_DEBUG_FIREWALL_MODE=nftables
    nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
-   sudo ./tailscale up --accept-dns=false --accept-routes  --reset  # --exit-node=100.100.41.70 --advertise-routes=192.168.1.0/24
+   sudo ./tailscale up --accept-dns=false --accept-routes  --reset  # --exit-node=100.100.41.70 --advertise-routes=192.168.1.0/24 --exit-node-allow-lan-access
+
+
+   sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59 --exit-node-allow-lan-access
    ```
 
    保存并退出。
