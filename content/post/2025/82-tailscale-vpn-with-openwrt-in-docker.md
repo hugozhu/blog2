@@ -42,13 +42,14 @@ tags: ["tailscale", "openwrt", "docker"]
 3. **创建 macvlan 网络并启动 OpenWrt 容器**：
 
    使用docker-compose根据下面的配置创建 macvlan 网络并启动 OpenWrt 容器，假设主路由ip: `192.168.1.1` ，openwrt容器ip: `192.168.1.11`
+   
    ```bash
    docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=end0 macnet
    ```
    
    docker-compose.yaml
-   
-   ```bash
+
+   ```bash   
 version: '2.4'
 services: 
   openwrt:
