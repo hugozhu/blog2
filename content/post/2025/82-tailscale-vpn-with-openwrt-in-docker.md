@@ -7,6 +7,8 @@ tags: ["tailscale", "openwrt", "docker"]
 
 在现代网络环境中，将位于不同地理位置的两个数据中心组成一个虚拟局域网，可以有效提升资源共享和管理效率。本文将介绍如何在 Docker 中使用 macvlan 网络模式安装 OpenWrt，并通过 Tailscale 实现异地数据中心的互联。
 
+<!--more-->
+
 ## 工具简介
 
 - **Docker**：开源的容器化平台，用于自动化应用程序的部署和管理。
@@ -83,14 +85,12 @@ networks:
       macvlan_mode: bridge
    ```
 
-
-   ```
-
 4. **配置 OpenWrt 网络**：
 
-   `docker exec -it openwrt_2025 /bin/sh` 进入 OpenWrt 容器，编辑网络配置文件 `/etc/config/network`，设置 LAN 接口的 IP 地址、子网掩码和网关。例如：
+   `docker exec -it openwrt_2025 /bin/sh` 进入 OpenWrt 容器，编辑网络配置文件 `/etc/config/network` ， 设置 LAN 接口的 IP 地址、子网掩码和网关。
 
    /etc/config/network 
+
    ```bash
 config interface 'loopback'
 	option device 'lo'
