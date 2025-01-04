@@ -1,7 +1,7 @@
 ---
 title: StreamPi - 低成本快速响应系统监控工具
 subtitle: the Low-Cost Fast Response System Monitoring Tool
-date: 2025-01-04
+date: 2025-01-03
 tags: ["streamdeck", "streamdock", "mirabox", "raspberry pi"]
 ---
 

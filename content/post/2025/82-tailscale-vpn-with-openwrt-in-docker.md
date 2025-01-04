@@ -183,7 +183,7 @@ config device
    ```bash
    export TS_DEBUG_FIREWALL_MODE=nftables
    nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
-   sudo ./tailscale up  # --exit-node=100.100.41.70 --advertise-routes=192.168.1.0/24
+   sudo ./tailscale up --accept-dns=false --accept-routes  --reset  # --exit-node=100.100.41.70 --advertise-routes=192.168.1.0/24
    ```
 
    保存并退出。
@@ -205,6 +205,29 @@ config device
 2. **配置防火墙**：
 
    确保防火墙允许来自 Tailscale 网络的流量访问内网资源。在 OpenWrt 的防火墙设置中，添加相关规则，允许 Tailscale 分配的 IP 范围访问内网。
+
+   nftable
+
+   ```bash
+#!/usr/sbin/nft -f
+
+table inet nat {
+    chain postrouting {
+        type nat hook postrouting priority 100; policy accept;
+        oif "tailscale0" masquerade
+    }
+}
+
+table inet filter {
+    chain forward {
+        type filter hook forward priority 0; policy accept;
+        iif "eth0" oif "tailscale0" accept
+        iif "tailscale0" oif "eth0" accept
+    }
+}
+   ```
+
+   然后执行 `nft -f ./nftables.conf` 使配置生效。     
 
 3. **在 Tailscale 管理控制台中启用子网路由**：
 
