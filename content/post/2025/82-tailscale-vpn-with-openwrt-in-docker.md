@@ -153,44 +153,31 @@ config device
 
    在 OpenWrt 容器中，下载并解压 Tailscale 软件包：
 
-   ```bash
-   cd /tmp
-   wget https://pkgs.tailscale.com/stable/tailscale_1.12.3_mipsle.tgz
-   tar xzf tailscale_1.12.3_mipsle.tgz
-   ```
+```bash
+wget https://pkgs.tailscale.com/stable/tailscale_1.78.1_arm.tgz
+tar xzf tailscale_1.78.1_arm.tgz
+```
 
-2. **安装依赖包**：
-
-   确保系统安装了必要的依赖包：
-
-   ```bash
-   opkg update
-   opkg install kmod-tun ca-bundle
-   ```
-
-3. **启动并配置 Tailscale**：
+2. **启动并配置 Tailscale**：
 
    启动 Tailscale 服务，并进行初始配置：
 
-   ```bash
-   ./tailscaled --state=tailscaled.state &
-   ./tailscale up --advertise-routes=192.168.1.0/24
-   ```
+```bash
+./tailscaled --state=tailscaled.state &
+./tailscale up --advertise-routes=192.168.1.0/24
+```
 
    执行 `tailscale up` 命令后，会生成一个用于授权的链接。在浏览器中打开该链接，登录 Tailscale 账户，完成设备的添加。
 
-4. **设置开机自启**：
+3. **设置开机自启**：
 
    为了确保 Tailscale 在系统重启后自动启动，可以将启动命令添加到 OpenWrt 的启动脚本中。编辑 `/etc/rc.local` 文件，在 `exit 0` 之前添加：
 
-   ```bash
-   export TS_DEBUG_FIREWALL_MODE=nftables
-   nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
-   sudo ./tailscale up --accept-dns=false --accept-routes  --reset  # --exit-node=100.100.41.70 --advertise-routes=192.168.1.0/24 --exit-node-allow-lan-access
-
-
-   sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59 --exit-node-allow-lan-access
-   ```
+```bash
+export TS_DEBUG_FIREWALL_MODE=nftables
+nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
+sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59 --exit-node-allow-lan-access
+```
 
    保存并退出。
 
@@ -214,18 +201,18 @@ config device
 
    iptables 配置
 
-   ```bash
+```bash
 # 启用 NAT 转换
 iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
 
 # 允许流量从本地网络转发到 Tailscale 隧道
 iptables -A FORWARD -i eth0 -o tailscale0 -j ACCEPT
 iptables -A FORWARD -i tailscale0 -o eth0 -j ACCEPT
-   ```
+```
 
    nftable 配置
 
-   ```bash
+```bash
 #!/usr/sbin/nft -f
 
 table inet nat {
@@ -242,7 +229,7 @@ table inet filter {
         iif "tailscale0" oif "eth0" accept
     }
 }
-   ```
+```
 
    然后执行 `nft -f ./nftables.conf` 使配置生效。     
 
