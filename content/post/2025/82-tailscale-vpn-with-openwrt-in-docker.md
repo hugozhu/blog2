@@ -206,7 +206,18 @@ config device
 
    确保防火墙允许来自 Tailscale 网络的流量访问内网资源。在 OpenWrt 的防火墙设置中，添加相关规则，允许 Tailscale 分配的 IP 范围访问内网。
 
-   nftable
+   iptables 配置
+
+   ```bash
+# 启用 NAT 转换
+iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
+
+# 允许流量从本地网络转发到 Tailscale 隧道
+iptables -A FORWARD -i eth0 -o tailscale0 -j ACCEPT
+iptables -A FORWARD -i tailscale0 -o eth0 -j ACCEPT
+   ```
+
+   nftable 配置
 
    ```bash
 #!/usr/sbin/nft -f
@@ -232,3 +243,8 @@ table inet filter {
 3. **在 Tailscale 管理控制台中启用子网路由**：
 
    登录 Tailscale 管理控制台，找到对应的设备，启用其广告的子网路由，以确保其他设备可以通过 Tailscale 访问该子网。 
+
+
+
+## See also:
+* https://www.dongvps.com/2022-11-07/tailscale-exit-node-route/
