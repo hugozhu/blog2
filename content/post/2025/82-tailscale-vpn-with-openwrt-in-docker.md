@@ -94,7 +94,7 @@ networks:
 
    /etc/config/network 
 
-   ```bash
+```bash
 config interface 'loopback'
 	option device 'lo'
 	option proto 'static'
@@ -118,7 +118,7 @@ config device
 	option name 'eth0'
 	option promisc '1'
 	option ipv6 '0'
-   ```
+```
 
    注意lan网络配置要修改： 
    * 不要用桥接设备br-lan，而要使用eth0 
@@ -135,13 +135,13 @@ config device
 		option output 'ACCEPT'
 		option forward 'ACCEPT'   
 		option masq '1'
-    ```
+```
       
    保存并重启网络服务：
 
-   ```bash
+```bash
    /etc/init.d/network restart
-   ```
+```
 
 5. **测试验证**：
 
