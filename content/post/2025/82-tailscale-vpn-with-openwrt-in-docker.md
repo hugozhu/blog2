@@ -50,7 +50,6 @@ tags: ["tailscale", "openwrt", "docker"]
    docker-compose.yaml
 
 ```bash
-
 version: '2.4'
 services: 
   openwrt:
@@ -128,20 +127,20 @@ config device
    ```bash
    cat /etc/config/firewall
 
-	config zone
-		option name 'lan'
-		list network 'lan'
-		option input 'ACCEPT'
-		option output 'ACCEPT'
-		option forward 'ACCEPT'   
-		option masq '1'
-```
+   config zone
+      option name 'lan'
+      list network 'lan'
+      option input 'ACCEPT'
+      option output 'ACCEPT'
+      option forward 'ACCEPT'   
+      option masq '1'
+   ```
       
    保存并重启网络服务：
 
-```bash
-   /etc/init.d/network restart
-```
+   ```bash
+      /etc/init.d/network restart
+   ```
 
 5. **测试验证**：
 
@@ -153,19 +152,19 @@ config device
 
    在 OpenWrt 容器中，下载并解压 Tailscale 软件包：
 
-```bash
-wget https://pkgs.tailscale.com/stable/tailscale_1.78.1_arm.tgz
-tar xzf tailscale_1.78.1_arm.tgz
-```
+   ```bash
+   wget https://pkgs.tailscale.com/stable/tailscale_1.78.1_arm.tgz
+   tar xzf tailscale_1.78.1_arm.tgz
+   ```
 
 2. **启动并配置 Tailscale**：
 
    启动 Tailscale 服务，并进行初始配置：
 
-```bash
-./tailscaled --state=tailscaled.state &
-./tailscale up --advertise-routes=192.168.1.0/24
-```
+   ```bash
+   ./tailscaled --state=tailscaled.state &
+   ./tailscale up --advertise-routes=192.168.1.0/24
+   ```
 
    执行 `tailscale up` 命令后，会生成一个用于授权的链接。在浏览器中打开该链接，登录 Tailscale 账户，完成设备的添加。
 
@@ -173,11 +172,11 @@ tar xzf tailscale_1.78.1_arm.tgz
 
    为了确保 Tailscale 在系统重启后自动启动，可以将启动命令添加到 OpenWrt 的启动脚本中。编辑 `/etc/rc.local` 文件，在 `exit 0` 之前添加：
 
-```bash
-export TS_DEBUG_FIREWALL_MODE=nftables
-nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
-sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59 --exit-node-allow-lan-access
-```
+   ```bash
+   export TS_DEBUG_FIREWALL_MODE=nftables
+   nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
+   sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59 --exit-node-allow-lan-access
+   ```
 
    保存并退出。
 
@@ -201,35 +200,35 @@ sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59
 
    iptables 配置
 
-```bash
-# 启用 NAT 转换
-iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
+   ```bash
+   # 启用 NAT 转换
+   iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
 
-# 允许流量从本地网络转发到 Tailscale 隧道
-iptables -A FORWARD -i eth0 -o tailscale0 -j ACCEPT
-iptables -A FORWARD -i tailscale0 -o eth0 -j ACCEPT
-```
+   # 允许流量从本地网络转发到 Tailscale 隧道
+   iptables -A FORWARD -i eth0 -o tailscale0 -j ACCEPT
+   iptables -A FORWARD -i tailscale0 -o eth0 -j ACCEPT
+   ```
 
    nftable 配置
 
-```bash
-#!/usr/sbin/nft -f
+   ```bash
+   #!/usr/sbin/nft -f
 
-table inet nat {
-    chain postrouting {
-        type nat hook postrouting priority 100; policy accept;
-        oif "tailscale0" masquerade
-    }
-}
+   table inet nat {
+      chain postrouting {
+         type nat hook postrouting priority 100; policy accept;
+         oif "tailscale0" masquerade
+      }
+   }
 
-table inet filter {
-    chain forward {
-        type filter hook forward priority 0; policy accept;
-        iif "eth0" oif "tailscale0" accept
-        iif "tailscale0" oif "eth0" accept
-    }
-}
-```
+   table inet filter {
+      chain forward {
+         type filter hook forward priority 0; policy accept;
+         iif "eth0" oif "tailscale0" accept
+         iif "tailscale0" oif "eth0" accept
+      }
+   }
+   ```
 
    然后执行 `nft -f ./nftables.conf` 使配置生效。     
 
