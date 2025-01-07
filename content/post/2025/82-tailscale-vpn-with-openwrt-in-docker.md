@@ -119,7 +119,7 @@ config device
 	option ipv6 '0'
 ```
 
-   注意lan网络配置要修改： 
+   注意lan网络配置要修改，否则不一定能正常工作： 
    * 不要用桥接设备br-lan，而要使用eth0 
    * 关掉lan的DHCP服务
    * 打开firewall设置中lan的ip伪装，启用转发 
@@ -155,6 +155,21 @@ config device
    ```bash
    wget https://pkgs.tailscale.com/stable/tailscale_1.78.1_arm.tgz
    tar xzf tailscale_1.78.1_arm.tgz
+   ```
+   
+   Ubuntu 20 LTS可以用下面的命令安装和启动：
+   
+   ```bash
+   curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+   curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+   sudo apt-get update
+   sudo apt-get install tailscale
+
+   echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.conf
+   echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.conf
+   sudo sysctl -p /etc/sysctl.conf
+
+   sudo tailscale up --advertise-exit-node
    ```
 
 2. **启动并配置 Tailscale**：
