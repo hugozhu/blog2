@@ -190,7 +190,24 @@ config device
    ```bash
    export TS_DEBUG_FIREWALL_MODE=nftables
    nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
+   ```
+
+   # 阿里云上的exit node
+   ```bash
    sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59 --exit-node-allow-lan-access
+   ```
+
+   # 阿里云上的exit node设置
+   ```bash
+   sudo tailscale up --accept-routes=false --accept-dns=false --advertise-exit-node --netfilter-mode=off
+   ```
+   
+   ** 去掉Tailscale和阿里云内置DNS网段的冲突 **
+
+   ```bash
+   sudo iptables -I INPUT 1 -s 100.100.2.0/24 -j ACCEPT
+   or
+   sudo iptables -D ts-input -s 100.64.0.0/10 ! -i tailscale0 -j DROP
    ```
 
    保存并退出。
