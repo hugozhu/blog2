@@ -46,9 +46,12 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="5500", GROUP="users", TAG+="uaccess",ATTR{i
 sudo udevadm control --reload-rules
 ```
 
+代码库在： `https://github.com/hugozhu/streampi`
+
 ```bash
 conda create -n streampi
 conda install pip
+git clone https://github.com/hugozhu/streampi
 pip -r reqirements.txt --upgrade
 fastapi --version
 ```
