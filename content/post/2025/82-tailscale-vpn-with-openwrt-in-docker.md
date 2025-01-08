@@ -177,7 +177,12 @@ config device
    启动 Tailscale 服务，并进行初始配置：
 
    ```bash
-   ./tailscaled --state=tailscaled.state &
+   ./tailscaled --state=tailscaled.state > /dev/null 2>&1 &
+   ```bash
+
+   声明自己是网段192.168.1.0/24子网路由节点：
+
+   ```bash
    ./tailscale up --advertise-routes=192.168.1.0/24
    ```
 
@@ -187,22 +192,26 @@ config device
 
    为了确保 Tailscale 在系统重启后自动启动，可以将启动命令添加到 OpenWrt 的启动脚本中。编辑 `/etc/rc.local` 文件，在 `exit 0` 之前添加：
 
-   ```bash
+   较新的openwrt只内置了性能更好的nft，而不带iptables，需要通过以下环境变量配置
+   ```bash   
    export TS_DEBUG_FIREWALL_MODE=nftables
-   nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
    ```
 
-   # 阿里云上的exit node
+   ```bash   
+   nohup sudo ./tailscaled --state=tailscaled.state >/dev/null 2>&1 &
+   ```
+4. **设置出口节点**：
+   **阿里云上的exit node**
    ```bash
    sudo ./tailscale up --accept-routes --accept-dns=false --exit-node=100.105.13.59 --exit-node-allow-lan-access
    ```
 
-   # 阿里云上的exit node设置
+   **阿里云上的exit node设置**
    ```bash
    sudo tailscale up --accept-routes=false --accept-dns=false --advertise-exit-node --netfilter-mode=off
    ```
    
-   ** 去掉Tailscale和阿里云内置DNS网段的冲突 **
+   **去掉Tailscale和阿里云内置DNS网段的冲突**
 
    ```bash
    sudo iptables -I INPUT 1 -s 100.100.2.0/24 -j ACCEPT
@@ -232,17 +241,17 @@ config device
 
    iptables 配置
 
-   ```bash
-   # 启用 NAT 转换
+   **启用 NAT 转换**
+   ```bash   
    iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
-
-   # 允许流量从本地网络转发到 Tailscale 隧道
+   ```
+   **允许流量从本地网络转发到 Tailscale 隧道**
+   ```bash      
    iptables -A FORWARD -i eth0 -o tailscale0 -j ACCEPT
    iptables -A FORWARD -i tailscale0 -o eth0 -j ACCEPT
    ```
 
-   nftable 配置
-
+   **nftable 配置**
    ```bash
    #!/usr/sbin/nft -f
 
