@@ -86,8 +86,11 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="5500", GROUP="users", TAG+="uaccess",ATTR{i
 sudo udevadm control --reload-rules
 ```
 
-代码库在： `https://github.com/hugozhu/streampi`
+## Streampi工程
 
+代码库地址：https://github.com/hugozhu/streampi
+
+**创建streampi运行环境，这里使用conda工具**
 ```bash
 conda create -n streampi
 conda install pip
