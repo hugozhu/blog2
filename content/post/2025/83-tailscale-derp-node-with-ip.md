@@ -11,11 +11,11 @@ derp节点可用加速tailscale网络的连通性能
 
 ## 实现步骤
 
-### 1. 用docker来启动
+### 用docker-compose来编排
 
 1. **docker-compose.yaml**：
 
-   ```bash
+```bash
 version: "3"
 services:
   tailscale:
@@ -65,11 +65,11 @@ services:
 networks:
   tailscale_network:
     external: true
-   ```
+```
 
 2. **build/Dockerfile**
 
-   ```bash
+```bash
 # 编译
 FROM golang:alpine AS builder
 
@@ -113,9 +113,11 @@ RUN openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes -keyout /ssl/<y
 
 
 CMD ./derper -hostname <your_domain> -certmode manual -certdir /ssl --verify-clients=false
-   ```
+```
+3. 验证
+   1. 用 `curl -k https://<ip>/` 验证Derp服务正常
+   2. 用 `echo "Hello, Server" | nc -u <host> 3478` 验证UTUN端口正常，`nc -u -l 3478` 可以打开一个仿真的UDP Server来验证防火墙是否打开
 
-    用 ```curl -k https://<ip>/``` 验证
 
 ### 添加新增derp节点到Tailscale
 
