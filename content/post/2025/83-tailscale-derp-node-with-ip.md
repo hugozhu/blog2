@@ -1,17 +1,19 @@
 ---
 title: 构建可通过IP访问的tailscale的derp relay节点
-subtitle: create derp relay node for tailscale
+subtitle: create ip access derp relay node for tailscale
 date: 2025-01-10
-tags: ["tailscale", "docker", "derp"]
+tags: ["tailscale", "docker", "derper"]
 ---
 
-derp节点可用加速tailscale网络的连通性能
+虽然tailscale用了很多NAT穿透 [NAT traversal](https://zh.wikipedia.org/zh-cn/NAT%E7%A9%BF%E9%80%8F)技术，但仍然会有不能P2P自连的情况，这时候tailscale就会使用最近的derp节点来建立连接，自建derper可用于加速tailscale网络的连通性能
 
 <!--more-->
 
 ## 实现步骤
 
-### 用docker-compose来编排
+### 用docker-compose来编排和运行derper服务
+
+
 
 1. **docker-compose.yaml**：
 
@@ -112,7 +114,7 @@ RUN apk add openssl && mkdir /ssl
 RUN openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes -keyout /ssl/<your_domain>.key -out /ssl/<your_domain>.crt -subj "/CN=<your_domain>" -addext "subjectAltName=DNS:<your_domain>"
 
 
-CMD ./derper -hostname <your_domain> -certmode manual -certdir /ssl --verify-clients=false
+CMD ./derper -hostname <your_domain> -certmode manual -certdir /ssl --verify-clients=true
 ```
 3. 验证
    1. 用 `curl -k https://<ip>/` 验证Derp服务正常
