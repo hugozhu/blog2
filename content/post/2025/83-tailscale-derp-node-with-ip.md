@@ -1,7 +1,7 @@
 ---
 title: 构建可通过IP访问的tailscale的derp relay节点
 subtitle: create derp relay node for tailscale
-date: 2025-01-04
+date: 2025-01-10
 tags: ["tailscale", "docker", "derp"]
 ---
 
