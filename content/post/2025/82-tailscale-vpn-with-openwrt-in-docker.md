@@ -1,5 +1,5 @@
 ---
-title: 使用tailscale+openwrt+docker将异地两机房组成一个局域网
+title: 使用tailscale+openwrt+docker+macvlan将异地两机房组成一个局域网
 subtitle: build intranet with tailscale and openwrt
 date: 2025-01-04
 tags: ["tailscale", "openwrt", "docker"]
@@ -33,7 +33,7 @@ tags: ["tailscale", "openwrt", "docker"]
 
 2. **设置网卡混杂模式**：
 
-   启用宿主机网卡的混杂模式，以允许 macvlan 正常工作：
+   启用宿主机网卡的混杂模式，以允许 macvlan 正常工作，注意这个方法不能使用无线网卡，得有线。
 
    ```bash
    ip link set eth0 promisc on   
@@ -208,14 +208,17 @@ config device
 
    **阿里云上的exit node设置**
    ```bash
-   sudo tailscale up --accept-routes=false --accept-dns=false --advertise-exit-node --netfilter-mode=off
+   sudo tailscale up --accept-routes=false --accept-dns=false --advertise-exit-node --reset #-netfilter-mode=off
    ```
    
    **去掉Tailscale和阿里云内置DNS网段的冲突**
 
    ```bash
    sudo iptables -I INPUT 1 -s 100.100.2.0/24 -j ACCEPT
+   ```
    or
+
+   ```bash   
    sudo iptables -D ts-input -s 100.64.0.0/10 ! -i tailscale0 -j DROP
    ```
 
