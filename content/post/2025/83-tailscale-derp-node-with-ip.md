@@ -115,7 +115,7 @@ RUN echo "Building derper for $HOST_NAME"
 RUN openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes -keyout /ssl/$HOST_NAME.key -out /ssl/$HOST_NAME.crt -subj "/CN=$HOST_NAME" -addext "subjectAltName=DNS:$HOST_NAME"
 
 
-CMD ./derper -hostname $HOST_NAME -certmode manual -certdir /ssl --verify-clients=tru
+CMD ./derper -hostname $HOST_NAME -certmode manual -certdir /ssl --verify-clients=true
 ```
 3. 验证
    1. 用 `curl -k https://<ip>/` 验证Derp服务正常
