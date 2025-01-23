@@ -34,3 +34,11 @@ iptables -A FORWARD -i tailscale0 -o eth0 -j ACCEPT
 
 ## 主路由设置DHCP下发的DNS
 要设置为openwrt的dnsmasq地址，这样就能解析内网的域名了。
+
+## 主路由设置路由策略
+
+```
+1. 源地址: 本地内网网段
+2. 目标地址: 异地内网网段
+3. 下一跳网关： 192.168.100.1
+```
