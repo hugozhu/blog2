@@ -1,5 +1,5 @@
 ---
-title: 通过主路由的智能路由策略和内置tailscale的openwrt打通异地内网
+title: 通过主路由的智能路由分流策略将异地内网流量转发到docker里的openwrt
 subtitle: redirect traffic to intranet with tailscale in openwrt with route rules
 date: 2025-01-24
 tags: ["tailscale", "openwrt", "docker"]
