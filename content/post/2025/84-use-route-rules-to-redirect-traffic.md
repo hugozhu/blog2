@@ -42,3 +42,6 @@ iptables -A FORWARD -i tailscale0 -o eth0 -j ACCEPT
 2. 目标地址: 异地内网网段
 3. 下一跳网关： 192.168.100.1
 ```
+
+## 其他
+如果是硬路由，还可以把wan口用其他出口线路，lan口和主路由的wan口，将openwrt作为主路由的上一级路由。
