@@ -15,6 +15,10 @@ disqusShortname = "hugozhu"
 googleAnalytics = "GTM-W88HDMN"
 enableRobotsTXT = true
 
+[Services]
+  [Disqus]
+    Shortname = "hugozhu"
+
 [markup]
   [markup.tableOfContents]
     endLevel = 3
