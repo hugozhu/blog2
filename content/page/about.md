@@ -15,4 +15,5 @@ https://www.linkedin.com/in/hugozhu/
 
 # Friend Links:
 1. 7sGood: https://www.7sgood.com
-2. VidHub: https://apps.apple.com/app/apple-store/id1659622164?pt=118612019&ct=hugo&mt=8
+2. 1688Japan: https://1688japan.co.jp
+3. VidHub: https://apps.apple.com/app/apple-store/id1659622164?pt=118612019&ct=hugo&mt=8
