@@ -1,7 +1,7 @@
 ---
-title: 用coredns做为主DNS，解析内网的短域名
-subtitle: use coredns to resolve short dns name
-date: 2025-01-25
+title: 用coredns做为主DNS解析内网的短域名
+subtitle: Use Coredns to Resolve Short DNS Name
+date: 2025-01-24
 tags: ["coredns", "dns"]
 ---
 
@@ -9,13 +9,12 @@ tags: ["coredns", "dns"]
 
 <!--more-->
 
-# 什么是CoreDNS？
+## 什么是CoreDNS？
 
 CoreDNS是一个高可配置的软件DNS解析器，他支持多样化的插件，通过配置文件可以实现对各种DNS请求的自定义处理。运行软件较轻量，实现快速安装和配置，非常适合小型内网和小型服务器环境。
 
-# 使用rewrite插件实现
-
-、、、yaml
+## 使用rewrite插件实现
+```bash
 . {
     log . {combined} {
         class denial error
@@ -36,7 +35,8 @@ CoreDNS是一个高可配置的软件DNS解析器，他支持多样化的插件�
         policy sequential
     }
 }
-、、、
+```
 
-原理，如果查询域名包含两个字符.，则不改写切不在执行其他规则，如果只有1个字符.，则加上hugozhu.site后缀
+## 原理
+如果查询域名包含两个字符.，则不改写切不在执行其他规则，如果只有1个字符.，则加上hugozhu.site后缀
 类似DHCP下发的search domain功能，因为某些路由器不支持DHCP 120功能，所以出此下策。
