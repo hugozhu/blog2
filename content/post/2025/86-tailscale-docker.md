@@ -103,7 +103,7 @@ networks:
 
 ## 配置主路由器转发
 
-看前面的文章介绍，两边的主路由，可以把目标地址为对方网段的流量路由到这个docker容器的IP。
+[前面已有介绍](https://blog.hugozhu.site/post/2025/84-use-route-rules-to-redirect-traffic/#gsc.tab=0): 两边的主路由可以把目标地址为对方网段的流量路由到这个docker容器的IP，这样子网内的设备都能访问异地服务。
 
 
 ## 生成热点AP转发
