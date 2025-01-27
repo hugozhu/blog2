@@ -109,3 +109,24 @@ networks:
 ## 生成热点AP转发
 
 通过hostapd发射热点（AP）的dhcp配置将网关和DNS下发到接入的设备，这些设备将使用tailscale docker容器作为网关，tailscale的智能DNS服务器：100.100.100.100做为dns，这样设备不用安装tailscale也能连通异地网络。
+
+启动脚本：
+```bash
+#!/bin/bash
+
+docker-compose up -d
+
+export interface=end0
+ip link set $interface promisc on
+#docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=$interface macnet
+ip link add macvlan-br link $interface type macvlan mode bridge
+#ip addr add 192.168.1.223/32 dev macvlan-br
+ip link set macvlan-br up
+ip route add 192.168.1.10/32 dev macvlan-br
+
+# enable ipforwarding and 
+# docker exec -it tailscale echo 'net.ipv4.ip_forward = 1' | tee -a /etc/sysctl.d/99-tailscale.conf
+# docker exec -it tailscale sysctl -p /etc/sysctl.d/99-tailscale.conf
+docker exec -it tailscale iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+docker exec -it tailscale iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
+```
