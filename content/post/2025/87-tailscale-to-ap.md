@@ -23,7 +23,7 @@ tailscale docker容器做为局域网的网关，可以让局域网内的设备�
 #!/bin/bash
 
 if [ -f .env ]; then
-    export $(cat .env | xargs)
+    export $(grep -v '^#' .env | xargs) 
 fi
 
 # 打开网卡混杂模式，接收所有数据包，无论目的 MAC 地址是什么
