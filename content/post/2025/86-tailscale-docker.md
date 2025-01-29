@@ -1,11 +1,11 @@
 ---
-title: 简化版本的异地组网
+title: 最简单的异地组网方案
 subtitle: Use tailscale docker image to simplify networking
 date: 2025-01-26
 tags: ["tailscale", "docker"]
 ---
 
-前面介绍了使用openwrt来跑tailscale，比较合适硬路由。更简单的方法是官方的用tailscale docker镜像来搭建。
+前面介绍了使用openwrt来跑tailscale，比较合适硬路由，更简单更通用的方法是官方的用tailscale docker镜像来搭建。
 
 <!--more-->
 
@@ -106,7 +106,7 @@ networks:
 [前面已有介绍](https://blog.hugozhu.site/post/2025/84-use-route-rules-to-redirect-traffic/#gsc.tab=0): 两边的主路由可以把目标地址为对方网段的流量路由到这个docker容器的IP，这样子网内的设备都能访问异地服务。
 
 
-## 生成热点AP转发
+## 通过WIFI热点（AP）转发
 
 通过hostapd发射热点（AP）的dhcp配置将网关和DNS下发到接入的设备，这些设备将使用tailscale docker容器作为网关，tailscale的智能DNS服务器：100.100.100.100做为dns，这样设备不用安装tailscale也能连通异地网络。
 
