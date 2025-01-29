@@ -14,7 +14,11 @@ tailscale docker容器做为局域网的网关，可以让局域网内的设备�
 
 <!--more-->
 
-## 启动脚本：startup.sh
+## 启动脚本和配置文件
+
+这里不展开hostapd的配置，有需要可以翻看前面的文章。
+
+### 启动脚本：startup.sh
 ```bash
 #!/bin/bash
 
@@ -61,8 +65,10 @@ docker exec -it tailscale iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 # 让本机或其他 Docker 容器访问 Tailscale 网络
 docker exec -it tailscale iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
 
+# 列出所有出口节点
 docker exec -it tailscale tailscale status | grep "exit node"
 
+# 选择其中一个出口节点，除局域网流量外，所有流量将通过这个出口节点
 docker exec -it tailscale tailscale set --exit-node=<your-exit-node-host> --exit-node-allow-lan-access
 ```
 
@@ -116,7 +122,7 @@ services:
       options:
         max-size: "20m"
         max-file: "2"        
-# ip link set end0 promisc on          
+
 networks:
   macnet:
     name: macnet
@@ -131,18 +137,21 @@ networks:
       macvlan_mode: bridge
 ```
 
-### 环境变量定义： .env
+### 环境变量文件： .env
 ```bash
 
 OUTGOING_INTERFACE=end0
 WLAN_INTERFACE=wlxe84e066f6aa3
 
-
-TS_HOSTNAME=hugo-tailscale-vpn
+TS_HOSTNAME=hugo-tailscale-01
 #TS_ROUTES=192.168.1.0/24
 TS_AUTHKEY=<your_tskey-auth>
 TS_ACCEPT_DNS=true
+
+#socks5代理端口，方便使用代理访问tailscale网络
 TS_SOCKS5_SERVER=:1080
 TS_EXTRA_ARGS=--accept-routes --reset
-TS_USERSPACE=false #使用内核网络，性能较好，兼容性差一些
+
+#使用内核网络，性能较好，兼容性差一些
+TS_USERSPACE=false
 ```
