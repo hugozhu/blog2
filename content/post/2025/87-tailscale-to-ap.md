@@ -66,7 +66,7 @@ docker exec -it tailscale tailscale status | grep "exit node"
 docker exec -it tailscale tailscale set --exit-node=<your-exit-node-host> --exit-node-allow-lan-access
 ```
 
-### docker-compose.yaml：
+### 容器编排文件： docker-compose.yaml：
 ```bash
 ---
 services: 
@@ -131,7 +131,7 @@ networks:
       macvlan_mode: bridge
 ```
 
-### .env
+### 环境变量定义： .env
 ```bash
 
 OUTGOING_INTERFACE=end0
