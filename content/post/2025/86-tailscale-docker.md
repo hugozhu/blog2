@@ -21,6 +21,7 @@ services:
     container_name: tailscale
     image: tailscale/tailscale:latest
     environment:
+      - TS_HOST_IP=192.168.1.10
       - TS_HOSTNAME=tailscale-node
       - TS_ROUTES=192.168.1.0/24
       - TS_AUTHKEY=<your_key>
@@ -36,12 +37,37 @@ services:
     privileged: true
     cap_add:
       - net_admin
-    restart: unless-stopped
+    restart: on-failure
     networks:
       macnet:
-        ipv4_address: 192.168.1.10
+        ipv4_address: $TS_HOST_IP
     sysctls:
-      - net.ipv4.ip_forward=1 
+      - net.ipv4.ip_forward=1
+    command:
+      - /bin/sh
+      - -c
+      - |
+        iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+        iptables -t nat -A POSTROUTING -o tailscale0 -j MASQUERADE
+        /usr/local/bin/containerboot
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "https://www.google.com/"
+        ]
+      timeout: 5s
+      interval: 5s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "2"
 
 networks:
   macnet:
