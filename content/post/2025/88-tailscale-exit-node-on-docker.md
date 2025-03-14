@@ -1,6 +1,7 @@
 ---
 title: Tailscale Exit Node
 subtitle: Tailscale Exit Node
+date: 2025-03-12
 tags: ["tailscale", "docker"]
 ---
 
