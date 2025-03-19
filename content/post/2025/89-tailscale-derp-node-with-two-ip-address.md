@@ -22,7 +22,7 @@ Tailscale 是一个基于 WireGuard 的零配置 VPN 方案，使用官方 Derp�
         "900": {
             "RegionID": 900,
             "RegionCode": "hk1",
-            "RegionName": "HHO HK CEN",
+            "RegionName": "HK1",
             "Nodes": [
                 {
                     "Name": "derp01",
