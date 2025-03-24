@@ -48,7 +48,11 @@ tcpdump -v -n -i eth0  port 3478
    - 该配置确保所有节点只使用自定义 Derp 服务器，而不会使用 Tailscale 官方的 Derp 节点。
 2. **`derp01.yourmain.com` 解析控制**
    - A 网络中的机器解析该域名时，返回 `172.25.1.1`（内网 IP）。
-   - B 网络中的机器解析时，返回 `114.114.114.100`（公网 IP）。
+   - B 网络中的机器解析时，返回 `8.8.8.100`（公网 IP）。
+   - 如果启用magic dns，且yourmain.com解析将通过A网络的coredns来解析
+   - 1. 注意A网络TS_ACCEPT_DNS要设为false，这将使用本地coredns来解析，也就是会解析为内网IP
+   - 2. tailscale中要override一条derp01.yourmain.com解析规则，用8.8.8.8公网解析服务器
+   - 3. B网络TS_ACCEPT_DNS要设置为true，使用公网解析
 3. **STUN 端口**
    - `STUNPort` 用于 NAT 穿透，若网络条件允许，可优化为直接 P2P 连接。
 
