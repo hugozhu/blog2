@@ -79,10 +79,21 @@ TS_LOCAL_ADDR_PORT=0.0.0.0:9002
 TS_SOCKS5_SERVER=:1080
 
 TS_ENABLE_HEALTH_CHECK=true
-TS_USERSPACE=true
+TS_USERSPACE=false
 TS_ACCEPT_DNS=true
 TS_ENABLE_METRICS=true
 TS_EXTRA_ARGS=--accept-routes --accept-dns=true --reset
+```
+
+## Corefile
+
+```toml
+.:53 {
+    #forward . 100.100.100.100  # Tailscale 提供的 DNS 解析, TS_USERSPACE=false
+    forward . 127.0.0.11  # Tailscale 提供的 DNS 解析, TS_USERSPACE=true
+    log
+    errors
+}
 ```
 
 ## 运行
