@@ -32,7 +32,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.142.0
+      HUGO_VERSION: 0.145.0
     steps:
       - name: Install Hugo CLI
         run: |
@@ -51,7 +51,7 @@ jobs:
           TZ: Asia/Shanghai
         run: |
           rm -rf public
-          git clone https://github.com/hugozhu/hugozhu.github.com public
+          git clone --depth=1 https://github.com/hugozhu/hugozhu.github.com public
           hugo \
             --gc \
             --minify          
