@@ -7,7 +7,6 @@ tags: ["AppleScript", "shortcut"]
 
 很多开发者在使用外接显示器时，希望可以快速恢复特定窗口布局，比如：将 `Cursor` 和 `iTerm2` 按照一定比例排列在副屏上。手动拖动窗口太麻烦？让我们用一段 AppleScript 自动化搞定它。
 
----
 
 ## 🎯 目标：自动将两个 App 排列到副屏
 
@@ -28,7 +27,6 @@ tags: ["AppleScript", "shortcut"]
 └────────────────────────────────────────────┘
 ```
 
----
 
 ## 🧠 技术实现：AppleScript + System Events + 辅助功能权限
 
@@ -38,7 +36,6 @@ tags: ["AppleScript", "shortcut"]
 - 设置目标位置与大小；
 - 最后把两个窗口依次调到前台。
 
----
 
 ## 🧩 脚本代码如下
 
@@ -89,7 +86,6 @@ tell application "System Events"
 end tell
 ```
 
----
 
 ## ⚙️ 权限设置（重要）
 
@@ -99,7 +95,6 @@ end tell
 - 将「Script Editor」或你运行脚本的 `.app` 加进去；
 - 勾选权限。
 
----
 
 ## 🚀 快捷触发方式推荐
 
@@ -112,7 +107,6 @@ end tell
 | ✅ Raycast、Alfred 等工具 | 输入命令即刻布局 |
 | ✅ 配合 Hammerspoon | 高阶窗口自动化（Lua） |
 
----
 
 ## 🔁 可拓展：双模式切换（主屏 / 副屏）
 
@@ -125,7 +119,6 @@ end tell
 
 我将这个功能打包为 [`WindowLayoutSwitcher`](https://github.com/hugozhu/WindowLayoutSwitcher) 工具，支持自定义图标、快捷键调用，一键切换多布局模式。
 
----
 
 ## 🧼 总结
 
@@ -135,4 +128,4 @@ end tell
 
 如果你喜欢这类小工具或脚本自动化内容，欢迎 ⭐️、Fork 我的仓库：[github.com/yourname/WindowLayoutSwitcher](https://github.com/yourname/WindowLayoutSwitcher)
 
-也欢迎留言告诉我你是怎么布置工作区的 👇
+也欢迎留言告诉我你是怎么布置工作区的 👇g
