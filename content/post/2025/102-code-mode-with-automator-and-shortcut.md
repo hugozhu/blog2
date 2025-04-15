@@ -123,9 +123,3 @@ end tell
 ## 🧼 总结
 
 用 AppleScript 实现窗口定位，是 macOS 上简单又强大的自动化方式。配合快捷键、快捷指令或 Raycast 等工具，可以极大提升你的窗口管理效率。希望这篇文章对你的工作流有所帮助！
-
----
-
-如果你喜欢这类小工具或脚本自动化内容，欢迎 ⭐️、Fork 我的仓库：[github.com/yourname/WindowLayoutSwitcher](https://github.com/yourname/WindowLayoutSwitcher)
-
-也欢迎留言告诉我你是怎么布置工作区的 👇g
