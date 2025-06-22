@@ -5,9 +5,16 @@ date: 2025-06-22
 tags: ["e2b", "docker", "python"]
 ---
 
-使用docker容器来实现动态执行AI生成的代码
+E2B是一个专为AI代码执行设计的沙盒环境，通过Docker容器提供安全隔离的代码运行空间。相比传统执行方式，E2B具有显著优势：
+**安全性**方面完全隔离宿主机，防止恶意代码损害
+**便捷性**上提供开箱即用的Python环境和丰富的预装库
+**稳定性**强，支持长时间运行和状态保持
+**可扩展性**好，支持多语言和自定义环境配置。
+特别适合AI助手、代码生成工具、在线编程教育等场景，让AI生成的代码能够安全、快速地验证和执行。
 
 <!--more-->
+
+服务器docker-compose.yaml配置，关键是`E2B_LOCAL=True`
 
 ```yaml
 version: '3.8'
@@ -18,14 +25,15 @@ services:
     container_name: e2b-sandbox
     ports:
       - "49999:49999"  # 本地端口映射，供 Python SDK 连接
-      - "49983:49983"  # 本地端口映射，供 Python SDK 连接
     environment:
-      - TOKEN=dev  # 跳过验证
+      - TOKEN=dev
       - E2B_LOCAL=True
     volumes:
       - ./workspace:/home/user/workspace  # 可选，挂载工作目录
     restart: unless-stopped
 ```
+
+客户端代码：关键是`debug=True`
 
 ```python
 # pip install e2b-code-interpreter
