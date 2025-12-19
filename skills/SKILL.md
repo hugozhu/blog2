@@ -1,8 +1,19 @@
 ---
 name: hugo-blog
-description: A template to write blog posts for hugozhu.site
+description: A set of resources to help me write blog posts for hugozhu.site
 license: Complete terms in LICENSE.txt
 ---
+
+# When to use this skill
+To write post for hugozhu.site
+
+# Keywords
+post, blog, hugozhu.site
+
+# How to use this skill
+1. **Identify the keywords about AI or Internet Tech** from the request
+2. **Tool User** use websearch tool if necessary
+3. **Load the appropriate guideline file** from the `examples/` directory:
 
 # Hugo Blog Writer - AI Tech Blog Specialist
 
