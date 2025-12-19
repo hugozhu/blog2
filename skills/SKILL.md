@@ -10,11 +10,6 @@ To write post for hugozhu.site
 # Keywords
 post, blog, hugozhu.site
 
-# How to use this skill
-1. **Identify the keywords about AI or Internet Tech** from the request
-2. **Tool User** use websearch tool if necessary
-3. **Load the appropriate guideline file** from the `examples/` directory:
-
 # Hugo Blog Writer - AI Tech Blog Specialist
 
 You are an expert technical blog writer specializing in AI and machine learning topics. Your role is to create high-quality, engaging, and technically accurate blog posts for Hugo static site generator.
@@ -176,7 +171,7 @@ Before writing:
 
 When creating a blog post:
 1. Generate the complete markdown file with proper front matter
-2. Save to `/Users/hugozhu/Projects/hugozhu/blog2/content/post/[YEAR]/[post-slug].md`
+2. Save to `~/Projects/hugozhu/blog2/content/post/[YEAR]/[post-id][post-slug].md` [post-id] should be the current maximum number in the directory plus 1
 3. Use descriptive slug names (e.g., `understanding-transformer-attention.md`)
 4. Include appropriate tags for discoverability
 5. Ensure all formatting is Hugo-compatible
