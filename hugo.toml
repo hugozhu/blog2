@@ -1,4 +1,4 @@
-baseurl = "https://blog.hugozhu.site"
+baseurl = "https://hugozhu.site"
 DefaultContentLanguage = "en"
 title = "All about Raspberry Pi"
 # Using theme as git submodule 
