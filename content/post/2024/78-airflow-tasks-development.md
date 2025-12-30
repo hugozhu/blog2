@@ -138,3 +138,6 @@ with DAG(
 Apache Airflow 是一个功能强大且灵活的工作流管理平台，非常适合用于大数据任务的调度和管理。通过本地安装、创建管理员账户和编写第一个 DAG，您已经掌握了 Airflow 的基础使用方法。
 
 接下来，您可以探索 Airflow 的更多高级特性，例如使用不同的执行器（Executor）在分布式环境中运行任务、集成各种数据源和目标以及实现复杂的任务调度逻辑。Airflow 的强大功能将为您的大数据项目提供强有力的支持。
+
+# 参考
+1. https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html
