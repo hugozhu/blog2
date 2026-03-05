@@ -1,5 +1,5 @@
 ---
-title: "All You Need Is Attention：专注力才是人和大模型共同的底层算法"
+title: "Attention is All You Need：专注力才是人和大模型共同的底层算法"
 subtitle: "Google 那篇论文改变了 AI，但它揭示的道理对人同样成立"
 date: 2026-03-05
 tags: ["AI", "transformer", "attention", "personal-growth", "deep-learning", "thinking"]
