@@ -72,22 +72,44 @@ autossh -M 0 -N -L 9222:127.0.0.1:9222 user@100.x.x.x
 
 `-M 0` 禁用 autossh 自带的监控端口（依赖 SSH 自身的 keepalive），`-N` 表示不执行远程命令只做端口转发。autossh 会在连接断开时自动重连。
 
-建议配合 systemd 做成服务，保证开机自启：
+为了保证 autossh 隧道的稳定性，用 systemd 管理它。先在 SSH config 中配置好连接别名（避免在 systemd 中写一长串参数），然后创建 service 文件：
 
 ```ini
 # /etc/systemd/system/autossh-browser.service
 [Unit]
-Description=AutoSSH tunnel for remote browser
+Description=Stable SSH Tunnel to dev2
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/autossh -M 0 -N -L 9222:127.0.0.1:9222 user@100.x.x.x
+User=hugo
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -M 0 -N dev2
 Restart=always
 RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
 ```
+
+其中 `AUTOSSH_GATETIME=0` 让 autossh 在首次连接失败时也会持续重试，不会直接退出。`dev2` 是 SSH config 中定义的 Host 别名，包含了目标地址、端口转发规则等配置。
+
+安装并启动服务：
+
+```bash
+# 重新加载 systemd 配置
+sudo systemctl daemon-reload
+
+# 启用开机自启
+sudo systemctl enable autossh-browser.service
+
+# 立即启动
+sudo systemctl start autossh-browser.service
+
+# 检查运行状态
+sudo systemctl status autossh-browser.service
+```
+
+确认状态为 `active (running)` 即可。如果需要排查问题，用 `journalctl -u autossh-browser.service -f` 查看实时日志。
 
 ## 第四步：启动 OpenClaw 节点服务
 
