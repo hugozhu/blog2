@@ -212,6 +212,16 @@ openclaw browser status
 - 定期检查浏览器的 Session，清理不再需要的登录态
 - 建议为 AI 浏览器使用独立的账号，与你的主力账号隔离
 
+## 为什么不直接用 Tailscale 替代 autossh？
+
+你可能会问：两台机器已经在同一个 Tailscale 网络里，OpenClaw 能不能直接通过 Tailscale IP 访问 Ubuntu 上的浏览器端口，省掉 autossh 这一层？
+
+理论上可以——只要浏览器监听地址从默认的 `127.0.0.1` 改为 `0.0.0.0`，Tailscale IP 就能直接访问。但实际上 **OpenClaw 只认 localhost**，它连接浏览器时固定使用 `127.0.0.1`，不支持配置远程地址。所以我们仍然需要 autossh 把远程端口映射到本地。
+
+这也是为什么前面强调「端口号保持一致」——autossh 把远程的端口原样映射到本地同一端口，对 OpenClaw 来说浏览器就像跑在本地一样，零配置。
+
+最终的分工很清晰：**Tailscale 负责网络连通和加密，autossh 负责端口映射到 localhost**，各司其职。
+
 ## 总结
 
 远程浏览器是 AI Agent 能力的一个重要补充。通过 Tailscale 组网 + autossh 端口映射这套方案，你可以在不暴露任何端口到公网的情况下，让 AI 安全地访问你的个性化互联网。整个方案的维护成本很低——一台闲置的 Ubuntu 机器（甚至可以是树莓派加桌面环境）就够了。
