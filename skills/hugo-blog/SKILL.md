@@ -112,6 +112,12 @@ Forbidden:
 
 ---
 
+## Markdown Formatting Rules
+
+- Bold syntax (`**text**`) MUST have a space or boundary (punctuation, line start/end) on both sides
+- FORBIDDEN: `abc**bcd**efg` — bold text must not be glued to adjacent words
+- CORRECT: `abc **bcd** efg`
+
 ## Anti-Patterns (STRICTLY FORBIDDEN)
 
 - generic_opening

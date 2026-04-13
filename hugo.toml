@@ -1,7 +1,7 @@
 baseurl = "https://hugozhu.site"
 DefaultContentLanguage = "en"
 title = "All about Raspberry Pi"
-# Using theme as git submodule 
+# Using theme as git submodule
 theme = "beautifulhugo"
 # Or when using theme as hugo module
 # theme = "github.com/halogenica/beautifulhugo"
@@ -15,9 +15,9 @@ disqusShortname = "hugozhu"
 googleAnalytics = "GTM-W88HDMN"
 enableRobotsTXT = true
 
-[Services]
-  [Disqus]
-    Shortname = "hugozhu"
+[services]
+  [services.disqus]
+    shortname = "hugozhu"
 
 [markup]
   [markup.tableOfContents]
