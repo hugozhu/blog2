@@ -204,7 +204,7 @@ tags: []
 
 ## File Naming & ID
 
-- Path: `~/Projects/hugozhu/blog2/content/post/[YEAR]/[id]-[slug].md`
+- Path: `content/post/[YEAR]/[id]-[slug].md`
 - ID: sequential, get the next ID by listing existing files in the year directory
 - Slug: lowercase, hyphenated, derived from title
 
