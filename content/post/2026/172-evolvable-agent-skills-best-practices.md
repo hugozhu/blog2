@@ -226,6 +226,413 @@ Skill 不是百科全书。只写影响输出的关键规则，不写显而易�
 
 这和软件架构的原则一样：**每个 Skill 只对一个关注点负责，通过依赖关系组合能力。**
 
+## 附录：两个 Skill 的完整源代码
+
+以下是这两个 Skill 的完整 SKILL.md 文件原文。
+
+### writing-style
+
+路径：`skills/productivity/writing-style/SKILL.md`
+
+```yaml
+---
+name: writing-style
+description: Hugo Zhu's blog writing style guide for hugozhu.site — style characteristics, structural templates, weaknesses, and improvement roadmap. Evolves with each use.
+version: 1.0.0
+author: hugozhu
+license: MIT
+dependencies: []
+metadata:
+  hermes:
+    tags: [blog, writing, content-strategy, hugo, chinese, english]
+    related_skills: []
+---
+```
+
+```markdown
+# Hugo Zhu's Blog Writing Style Guide
+
+## Trigger
+When writing new blog posts for hugozhu.site, reviewing existing posts, or analyzing blog content strategy.
+
+## Author Profile
+- **Name:** Hugo Zhu
+- **Blog:** hugozhu.site (Hugo + beautifulhugo theme)
+- **Content languages:** Primarily Chinese (2026+), previously English
+- **Topics:** AI/ML thinking, product methodology, personal cloud infrastructure (Tailscale, CoreDNS, Armbian), Raspberry Pi, networking, software engineering
+- **Audience:** Chinese-speaking tech professionals, engineers transitioning to AI, product-minded technologists
+- **Publishing rhythm:** ~2-3 posts/week in 2026
+
+## Core Writing Identity: 务实的思考型工程师
+
+Three facets:
+- **Engineer:** Deep technical understanding, writes from hands-on experience
+- **Product thinker:** User-centric, problem-first, frames things in terms of value and trade-offs
+- **Philosopher:** Abstract thinking, first principles, willing to question assumptions
+
+## Style Characteristics (Strengths to Maintain)
+
+### 1. 场景驱动开篇 (Scenario-Driven Openings)
+Open with concrete stories, not abstract concepts.
+- **Good:** "上周有个做运营的朋友拿着一个 AI 帮他建的销量预测模型来找我，特别兴奋：'你看，R² = 0.89，是不是挺准的？'"
+- **Good:** "上周，一个做 ToB SaaS 的朋友跟我吐槽：他花了两周让 AI 帮忙写了一套完整的 CRM 后端..."
+- **Pattern:** Real person + specific situation + dialogue → reveals the problem
+
+### 2. 框架构建者 (Framework Builder)
+Don't just describe — structure into reusable mental models.
+- **Examples:** "任务委托四要素"、"Token 能力边界"、"万物皆可建模吗"
+- **Goal:** Create frameworks readers can apply to their own situations
+
+### 3. 反直觉但接地气 (Contrarian But Grounded)
+Challenge conventional wisdom with clear reasoning.
+- **Examples:** "AI 落地的瓶颈不是技术，是你不会派活"、"不是所有东西都值得建模"
+- **Rule:** Back every contrarian claim with real examples AND logical chains
+
+### 4. 结构清晰 (Clear Structure & Logical Flow)
+- Numbered sections (一、二、三)
+- Bold key takeaway sentences
+- Pattern: Problem -> Analysis -> Framework -> Implications/Action items
+- Use `<!--more-->` after opening paragraph(s) for Hugo excerpt
+
+### 5. 中英双语标题 (Bilingual Titles)
+- Chinese main title + English subtitle (or vice versa)
+- Body language: Chinese primary with English technical terms
+- This is the established style since 2025
+
+### 6. 有辨识度的文风 (Distinctive Voice)
+- Conversational but rigorous — like a smart colleague explaining something
+- Uses "我" (first person) and direct address "你" to create intimacy
+- Ends with thought-provoking questions or philosophical extensions
+- Not afraid of being wrong — values the thinking process over authority
+
+## Post Structure Templates
+
+### For Opinion/Thinking Posts (观点文)
+```
+1. Hook: Real scenario/story (2-4 paragraphs) that illustrates the problem
+2. Thesis: Clear statement of the core argument (1-2 sentences)
+3. <!--more-->
+4. Section 一: Problem definition / conventional wisdom / why this matters
+5. Section 二: Analysis / why conventional view is incomplete
+6. Section 三: Framework or new mental model (the core contribution)
+7. Section 四: Practical implications / how to apply / examples
+8. Conclusion: Memorable closing thought, question, or philosophical extension
+```
+
+### For Technical/Infrastructure Posts (技术文)
+```
+1. Hook: What problem am I solving and why? (2-3 paragraphs with context)
+2. What alternatives were considered? Why this approach?
+3. <!--more-->
+4. Background: Brief intro to the tool/technology (only if not widely known)
+5. Solution: Step-by-step with code/config blocks
+   - Each code block preceded by WHY, not just WHAT
+6. Caveats: Known limitations, edge cases, gotchas
+7. References: Related posts on this blog, official docs
+```
+
+## Current Weaknesses (Areas to Improve)
+
+### W1. 技术帖缺乏问题上下文
+Some infrastructure posts are too thin — e.g., tailscale-hostapd post is 26 lines with zero "why".
+- **Fix:** Always add "为什么需要这个方案" paragraph before code
+- **Good example:** The CoreDNS short DNS post already does this naturally
+
+### W2. 零可视化内容
+174 posts with almost no diagrams, screenshots, or architecture visuals.
+- **Fix:** Add at least one visual per post
+- For technical posts: network topology diagram, terminal screenshot
+- For opinion posts: framework diagram (2x2 matrix, flow chart, conceptual model)
+
+### W3. 缺少交叉引用和主题聚合
+Overlapping topics don't reference each other — Tailscale, CoreDNS, AI Agent posts are scattered.
+- **Fix:** Create topic series ("个人云基础设施"系列, "AI 思考录"系列)
+- Add related-post links at the bottom of each article
+
+### W4. AI 生成代码标注
+Some posts contain `# generated by AI` comments, undermining credibility.
+- **Fix:** Remove generation markers; verify and rewrite any AI-generated code
+- If referencing AI-generated concepts, integrate them naturally without attribution
+
+## Improvement Roadmap
+
+### Phase 1: Consistency (Immediate)
+- [ ] Apply "problem context" paragraph to ALL technical posts going forward
+- [ ] Remove AI generation markers from existing posts
+- [ ] Ensure every post has `<!--more-->` in the right place
+
+### Phase 2: Visuals (Near-term)
+- [ ] Add at least one diagram/screenshot per new post
+- [ ] Retrofit visuals to top 10 most-viewed existing posts
+- [ ] Create reusable diagram templates (network topology, framework 2x2, flow chart)
+
+### Phase 3: Knowledge System (Medium-term)
+- [ ] Create "个人云基础设施" series page
+- [ ] Create "AI 思考录" series page
+- [ ] Add related-posts links to existing articles
+- [ ] Consider creating topic tags that map to series
+
+## Code Example Conventions
+- Python code blocks: use `python` language tag
+- Bash/config: use appropriate language tag (bash, yaml, toml)
+- Code should illustrate a concept, not just exist — add a 1-line explanation before each block
+
+## Evolution Log
+
+| Date | Change |
+|------|--------|
+| 2026-04-10 | Initial creation. Analyzed 174 posts across 2013-2026. Identified 6 style strengths, 4 weaknesses, 3 improvement areas. |
+
+## How to Evolve This Skill
+
+After writing or reviewing blog posts:
+1. If a new pattern emerges (successful or unsuccessful), add it to Style Characteristics or Current Weaknesses
+2. If a weakness is resolved, move it from Current Weaknesses to a "Resolved" section
+3. If a new improvement is identified, add it to Improvement Roadmap
+4. Update the Evolution Log with the date and what changed
+5. Use `skill_manage(action='patch')` to update — never let this skill go stale
+```
+
+### meeting-minutes
+
+路径：`skills/productivity/meeting-minutes/SKILL.md`
+
+```yaml
+---
+name: meeting-minutes
+description: 从 ASR 录音转写文本整理会议纪要 — 噪声清洗、结构化提取、按 Hugo 写作风格输出。适用于飞书妙记、Whisper、通义听悟等 ASR 产物。
+version: 1.0.0
+author: hugozhu
+license: MIT
+dependencies: ["writing-style"]
+metadata:
+  hermes:
+    tags: [meeting, minutes, ASR, transcription, summarization, chinese, agenda, action-items]
+    related_skills: [writing-style, lark-minutes]
+---
+```
+
+```markdown
+# 会议纪要整理 Skill
+
+## Trigger
+当用户提供 ASR 转写文本（飞书妙记、Whisper、通义听悟、讯飞等），要求整理会议纪要时加载。
+
+## 核心设计哲学
+
+会议纪要不是录音的文字搬运，而是**信息压缩 + 决策提取**。这和 Hugo 的博客写作风格一致：框架化、结构化、可执行。
+
+> **好纪要的标准：没参会的人看一遍就知道发生了什么、决定了什么、接下来要做什么。**
+
+## ASR 转写文本的典型问题
+
+### 噪声类型
+1. **无标点/错标点**：ASR 输出往往没有正确断句
+2. **专有名词错误**：人名、产品名、技术术语经常被识别错
+3. **口语化冗余**：嗯、啊、这个、那个、重复表达
+4. **多人交叉发言**：没有明确 speaker 标识，或标识混乱
+5. **中英混杂**：技术讨论中大量英文术语夹杂
+6. **跑题和闲聊**：会议中常有偏离主题的讨论
+7. **上下文缺失**：参会人都知道但没明说的背景知识
+
+### 处理原则
+- **保留原意，改写表达**：不改写核心信息，但大幅改写表达方式（去口语化、补逻辑）
+- **不确定就标注**：人名、数字等关键信息不确定时用 `[?]` 标注，不瞎猜
+- **区分事实和观点**：明确哪些是共识决定，哪些是某人观点
+- **跑题内容直接删**：不记录闲聊、不相关的讨论
+
+## 会议纪要结构模板
+
+### 标准模板（适用于大多数会议）
+
+```markdown
+# [会议主题] 会议纪要
+
+**时间：** YYYY-MM-DD HH:MM
+**时长：** XX 分钟
+**参会人：** 人名列表
+**转写来源：** [ASR 工具名称]
+
+---
+
+## 一、核心结论（TL;DR）
+
+用 3-5 条 bullet points 概括本次会议最重要的结论和决定。
+没参会的人只看这一节应该就能知道发生了什么。
+
+- 决定：XXX
+- 风险：XXX
+- 变更：XXX
+
+## 二、议题讨论
+
+### 议题 1：[标题]
+
+**背景：** 一句话说明为什么要讨论这个。
+
+**讨论要点：**
+- [论点/发现/数据]
+- [不同意见，如有]
+
+**结论/决定：** 明确的结论或下一步方向。
+
+### 议题 2：[标题]
+
+...
+
+## 三、待办事项（Action Items）
+
+| # | 事项 | 负责人 | 截止时间 | 备注 |
+|---|------|--------|----------|------|
+| 1 | [具体可执行的动作] | @人名 | YYYY-MM-DD | 可选 |
+| 2 | ... | ... | ... | ... |
+
+## 四、遗留问题（Open Questions）
+
+- [ ] 需要后续确认/研究的问题 1
+- [ ] 需要后续确认/研究的问题 2
+
+## 五、下次会议
+
+- 时间：[如有]
+- 议题：[如有]
+```
+
+### 轻量模板（适用于站会/简短对齐会）
+
+```markdown
+# [会议主题] 纪要 — YYYY-MM-DD
+
+## 结论
+- 结论 1
+- 结论 2
+
+## 待办
+- @人名：事项（截止 XX）
+- @人名：事项（截止 XX）
+
+## 待确认
+- 待确认事项 1
+```
+
+## 处理流程
+
+### Step 1：信息提取
+从 ASR 文本中提取：
+- 会议主题、日期（如果文本中包含）
+- 参会人（从发言内容推断）
+- 讨论的议题数量及切换点
+- 关键决策点和结论
+- 明确的待办事项（谁、做什么、什么时候）
+- 遗留问题和未决事项
+
+### Step 2：结构化整理
+- 按议题分组相关内容（ASR 文本通常是线性的，需要把同一议题的碎片拼起来）
+- 识别并标记决策 vs 讨论 vs 待确认
+- 合并重复讨论，消除冗余
+
+### Step 3：语言重写
+- 按 Hugo 写作风格重写：简洁、结构化、逻辑递进
+- 去除口语化表达，保留技术术语
+- 中英文混写：中文为主，技术术语保留英文
+- 每段加粗关键句
+
+### Step 4：校验
+- 检查待办事项是否有明确负责人和截止时间（如果有）
+- 检查结论是否有事实依据（不是推断）
+- 检查不确定信息是否标注 `[?]`
+- 确认没有遗漏重要议题
+
+## 输出风格规范
+
+### 语言风格
+- **中文为主，技术术语保留英文**：和博客写作风格一致
+- **简洁直接**：不用"可能"、"大概"、"似乎"等模糊词（除非原文确实不确定）
+- **动词优先**："决定采用 X 方案" 比 "关于 X 方案的讨论达成了采用 X 的共识" 更好
+- **编号结构**：一、二、三 的层级和博客一致
+
+### 决策记录规则
+- 明确写了"决定"、"定了"、"就这样" -> 记录为 **决定**
+- 表达了倾向但没最终确定 -> 记录为 **倾向**
+- 只讨论了没有结论 -> 记录为 **讨论** 并标注未决
+- 如果有分歧 -> 记录双方论点和最终结论
+
+### 待办事项提取规则
+- 必须包含：动作描述 + 负责人
+- 如果有明确时间：加上截止时间
+- 没有明确负责人的 -> 标注 `[待分配]`
+- 模糊的"后续再看看" -> 移到"遗留问题"，不算待办
+
+### 不确定信息标注
+- 人名不确定：`张三[?]`
+- 数字不确定：`500万[?]`
+- 产品/项目名不确定：`Project X[?]`
+- 不确定就不编，宁可标注 `[?]` 也不写错
+
+## ASR 工具适配
+
+### 飞书妙记
+- 有 speaker 标识和标点，质量较高
+- 直接使用即可，重点关注议题切分
+- 飞书妙记 URL 格式：`https://applink.feishu.cn/client/minutes/detail?token=xxx`
+
+### Whisper / OpenAI Whisper
+- 无 speaker 标识，标点可能不准
+- 需要根据内容推断说话人切换
+- 专有名词错误率较高，需要特别注意
+
+### 通义听悟
+- 有 speaker 标识，中文识别好
+- 可能有 AI 摘要，但通常不够结构化
+- 需要重新按模板整理
+
+### 讯飞听见
+- 标点较准，speaker 标识一般
+- 长会议可能有分段
+- 注意口语化冗余较多
+
+## 特殊场景处理
+
+### 技术方案评审会
+- 重点关注：技术选型结论、架构变更、风险评估
+- 代码/架构讨论要提取核心结论，不记录逐行讨论
+
+### 产品需求讨论
+- 重点关注：需求优先级变更、用户反馈、上线计划
+- 需求描述要结构化，用 bullet points 而非段落
+
+### 项目进度同步
+- 重点关注：进度偏差、阻塞项、资源调整
+- 用表格对比"计划 vs 实际"
+
+### Brainstorm / 创意讨论
+- 重点关注：产生的创意、筛选标准、下一步验证计划
+- 不记录发散过程，只记录收敛结果
+
+## 长度控制
+
+- 30 分钟会议 -> 纪要不超过 500 字
+- 60 分钟会议 -> 纪要不超过 800 字
+- 2 小时+ 会议 -> 纪要不超过 1500 字
+- **核心原则：信息密度 > 篇幅**。宁可删掉不重要的，也不要让纪要太长没人看。
+
+## Evolution Log
+
+| Date | Change |
+|------|--------|
+| 2026-04-10 | 初始创建。基于 Hugo 写作风格，适配 ASR 转写场景。定义标准模板、处理流程、输出规范。 |
+
+## How to Evolve This Skill
+
+After generating meeting minutes:
+1. If a new ASR tool is used, add its characteristics to "ASR 工具适配"
+2. If a new meeting type is encountered, add a "特殊场景处理" entry
+3. If the user provides feedback on format/style, update the templates
+4. If a better extraction pattern is discovered, add it to the processing flow
+5. Update the Evolution Log with the date and what changed
+6. Use `skill_manage(action='patch')` to update — keep it current
+```
+
 ## 结语
 
 AI 时代的"知识管理"不是建 Notion 文档库，也不是写 5000 字的 system prompt。是训练可执行的、能自我更新的 Skill——它们像肌肉记忆一样，在每次使用中积累反馈，在每次反馈中进化。
