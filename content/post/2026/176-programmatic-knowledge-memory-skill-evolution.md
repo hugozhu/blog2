@@ -1,0 +1,337 @@
+---
+title: "用 LLM 构建程序化知识系统：记忆、技能与进化"
+subtitle: "从静态 Prompt 到持续生长的数字大脑"
+date: 2026-04-14
+tags: ["ai-agent", "llm", "knowledge-graph", "memory-management", "agent-architecture", "skill-evolution"]
+---
+
+上周我让 AI Agent 帮我写博客。它干得不错——风格、结构、代码规范都对。因为我之前花了一个下午，让它读完我的 174 篇旧文，把写作风格提炼成了一份可执行的 Skill 文件。
+
+第二天我让它再写一篇，它又对了。第三天，还是对的。到第四天，我发现了一件有意思的事：**它自己改了 Skill 文件**。它在"反模式"列表里新增了一条——"不要用'随着 AI 的发展'开头"——这是前几次我手动纠正过的，但我从来没有明确要求它把这个规则写进去。
+
+那一刻我意识到，这个 Agent 已经不是在"执行指令"了。它在**积累经验**。
+
+但紧接着我遇到了下一个问题：它记住了"怎么写文章"，却不记得"上次写了什么"。我让它写一篇关于 Agent 进化的文章，它洋洋洒洒写了 800 行——和三天前那篇重复了 60%。技能在进化，记忆在归零，知识没有沉淀。**三条腿，只长了一条。**
+
+这个经历让我重新审视了一个问题：我们到底需要怎样的知识架构，才能让 Agent 真正"越用越强"？不是靠更大的上下文窗口，不是靠更贵的模型，而是一套**程序化的记忆、知识与技能管理系统**。
+
+Karpathy 最近的两个项目——让 Agent 一晚自主迭代 100 次实验的 [autoresearch](https://github.com/karpathy/autoresearch)，和把任意文件夹变成可查询知识图谱的 [graphify](https://github.com/safishamsi/graphify)（25k+ stars）——也在指向同一个方向。
+
+<!--more-->
+
+## 一、为什么传统知识管理不够用？
+
+传统知识库（Wiki、Notion、Confluence）的核心范式是"人写人读"。它有三个天然缺陷：
+
+1. **维护成本高**：知识会过期，但没有人主动更新。三个月后打开的文档可能已经和代码库对不上。
+2. **检索维度单一**：关键词匹配只能回答"有什么"，无法回答"为什么"或"怎么用"。
+3. **无法参与推理**：知识库是静态的，不能根据当前任务动态组装信息，更不能给出下一步建议。
+
+LLM 不是更好的搜索引擎，它是**信息理解器 + 逻辑组合器**。当知识管理从"存储"转向"程序化调用"，整个架构需要重构。
+
+## 二、核心架构：记忆 · 知识 · 技能
+
+一个可进化的 LLM 知识系统应该由三个正交但相互联动的模块组成：
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     LLM Orchestrator                        │
+│  (理解意图 / 规划路径 / 调用模块 / 评估结果 / 触发进化)      │
+└──────────┬──────────────────────┬──────────────────┬────────┘
+           │                      │                  │
+   ┌───────▼───────┐    ┌────────▼────────┐   ┌─────▼──────┐
+   │  记忆引擎     │    │   知识图谱      │   │  技能注册表 │
+   │ Memory Engine │    │ Knowledge Graph │   │ Skill Reg. │
+   ├───────────────┤    ├─────────────────┤   ├────────────┤
+   │ • 短期/长期   │    │ • 实体/关系     │   │ • 步骤模板  │
+   │ • 向量/结构化 │    │ • Schema 自动演化│   │ • 工具绑定  │
+   │ • 压缩/遗忘   │    │ • 冲突解决      │   │ • 版本/测试 │
+   │ • TTL/权重    │    │ • 图查询增强    │   │ • 动态加载  │
+   └───────────────┘    └─────────────────┘   └────────────┘
+           │                      │                  │
+           └──────────────────────┼──────────────────┘
+                                  ▼
+                        ┌─────────────────┐
+                        │  执行环境/外部工具 │
+                        │  (DB/API/Shell)  │
+                        └─────────────────┘
+```
+
+三个模块的职责边界必须清晰：
+- **记忆（Memory）** 记录"发生了什么"（交互历史、偏好、上下文状态）
+- **知识（Knowledge）** 沉淀"什么是真的"（事实、规则、架构、依赖关系）
+- **技能（Skills）** 封装"怎么做"（操作流程、工具调用链、最佳实践）
+
+## 三、记忆管理：从被动存储到主动演化
+
+### 3.1 记忆的三层结构
+
+不要把所有东西都塞进向量数据库。有效的记忆系统需要分层：
+
+| 层级 | 存储介质 | 生命周期 | 典型内容 | 淘汰策略 |
+|------|---------|---------|---------|---------|
+| **短期记忆** | Redis / In-Memory | 会话级 / 分钟级 | 当前对话上下文、临时变量 | 自动过期，超出窗口丢弃 |
+| **工作记忆** | SQLite / LiteFS | 任务级 / 天级 | 当前任务进度、中间结果、用户反馈 | 任务完成后压缩归档 |
+| **长期记忆** | Weaviate / PGVector | 月级 / 永久 | 核心偏好、历史决策、已验证知识 | 低访问频次 + 低价值分 → 压缩或归档 |
+
+### 3.2 记忆压缩与遗忘机制
+
+记忆不是越多越好。未经整理的记忆会变成噪声。程序化记忆管理的核心是**主动整理**：
+
+```python
+from dataclasses import dataclass, field
+from datetime import datetime
+from typing import Any
+import json
+
+@dataclass
+class MemoryItem:
+    """标准化的记忆单元"""
+    id: str
+    content: str
+    embedding: list[float]
+    access_count: int = 0
+    last_accessed: datetime = field(default_factory=datetime.utcnow)
+    created_at: datetime = field(default_factory=datetime.utcnow)
+    metadata: dict = field(default_factory=dict)
+    value_score: float = 1.0  # 由 LLM 评估的长期价值
+
+@dataclass
+class MemoryManager:
+    db: Any  # 向量数据库或关系型 DB
+    llm: Any
+    retention_days: int = 30
+
+    def decay_scores(self) -> None:
+        """定期执行记忆价值衰减"""
+        stale_ids = self._query_stale_memories()
+        for mid in stale_ids:
+            mem = self._fetch(mid)
+            days_inactive = (datetime.utcnow() - mem.last_accessed).days
+            # 指数衰减：未访问的记忆价值随时间下降
+            mem.value_score *= 0.95 ** days_inactive
+            self._update(mem)
+
+    def compress_batch(self, batch: list[MemoryItem]) -> MemoryItem:
+        """将多条低价值记忆压缩为一条高层摘要"""
+        raw_texts = [m.content for m in batch]
+        prompt = (
+            "Summarize the following memory entries into a single concise paragraph. "
+            "Preserve key facts, decisions, and outcomes. Discard redundant details.\n"
+            f"Entries: {json.dumps(raw_texts, ensure_ascii=False)}"
+        )
+        summary = self.llm.chat(prompt)
+        return MemoryItem(
+            id=f"compressed_{datetime.utcnow().isoformat()}",
+            content=summary,
+            embedding=self.llm.embed(summary),
+            value_score=max(m.value_score for m in batch),
+            metadata={"compressed_from": [m.id for m in batch], "type": "summary"}
+        )
+
+    def evict_low_value(self, threshold: float = 0.1) -> None:
+        """清除低于阈值的记忆"""
+        self.decay_scores()
+        low_value = self._query_by_score(threshold)
+        for mem in low_value:
+            self.db.delete(mem.id)
+    # generated by hugo AI
+```
+
+记忆压缩的本质是**信息蒸馏**。系统定期扫描低频访问的记忆，用 LLM 提取共性规律，合并为高层摘要，原始碎片化记录归档。这保证了长期记忆库的"信噪比"。
+
+## 四、知识图谱构建：让机器理解关系
+
+### 4.1 为什么需要图谱而不是纯向量检索？
+
+向量检索擅长"相似性匹配"，但无法表达**结构性关系**。例如：
+- "A 服务依赖 B 数据库，B 数据库部署在 C 节点"
+- "这个 bug 的上次修复是由 D 工程师在 E 版本中完成的，当时引入了 F 配置"
+
+这类信息需要实体和边的拓扑结构。LLM 天然适合做**信息抽取（Information Extraction）**。
+
+### 4.2 graphify：生产级知识图谱工具
+
+2026 年初，社区项目 [graphify](https://github.com/safishamsi/graphify)（25k+ stars）展示了 LLM 驱动知识图谱的完整工作流：
+
+```
+任意文件夹（代码 + 文档 + 论文 + 截图 + 白板照片）
+    │
+    ├─ 代码文件 → tree-sitter AST 解析 + call-graph
+    ├─ 文档/论文 → LLM 概念提取 + 关系推理
+    ├─ 图片/截图 → 多模态视觉理解
+    │
+    ▼
+知识图谱（graph.json）
+    ├── 实体节点（概念、函数、类、数据集）
+    ├── 关系边（EXTRACTED / INFERRED / AMBIGUOUS）
+    ├── God nodes（最高连接度的核心概念）
+    └── Surprising connections（跨领域的意外关联）
+    │
+    ├─→ graph.html  交互式可视化
+    ├─→ obsidian/   Obsidian 知识库
+    ├─→ wiki/       每个社区自动生成 Wikipedia 风格文章
+    └─→ GRAPH_REPORT.md  分析报告 + 建议问题
+```
+
+关键设计亮点：
+- **多模态支持**：不仅处理代码和文本，还能用视觉模型理解架构图、截图、白板照片（甚至是其他语言的图片内容）
+- **边的置信度分级**：每条关系都标记为 `EXTRACTED`（从原文直接找到）、`INFERRED`（推理出的关联）或 `AMBIGUOUS`（不确定），让使用者知道哪些是事实、哪些是猜测
+- **71.5x token 压缩**：在 Karpathy 的 repos + 5 篇论文 + 4 张图片（52 个文件）的测试集中，构建图谱后每次查询只需原始文件 1/71.5 的 token
+- **自动同步**（`--watch`）：代码变更时通过 AST 即时重建图谱，文档变更时通知 LLM 重新分析
+- **Git 提交钩子**：每次 commit 后自动更新图谱，确保知识永远和代码同步
+
+这正是"程序化知识管理"的理想形态——知识不再需要人工维护，它随着项目的演进而自动生长。
+
+### 4.3 知识图谱的持续维护
+
+图谱不是一次性构建的。它需要**增量更新**：
+1. **新文档入库** → 触发抽取 → 实体/关系 upsert
+2. **冲突检测** → 同一实体不同属性？触发 LLM 仲裁或标记待人工确认
+3. **过期知识标记** → 如果关联代码已删除/服务已下线，LLM 识别并标记 `deprecated`
+4. **关系推理** → 通过图遍历发现隐含关系（如 A→B, B→C 自动推导 A 间接依赖 C）
+
+## 五、技能进化：从静态 Prompt 到可版本化资产
+
+### 5.1 什么是"技能"？
+
+在程序化知识系统中，**技能（Skill）** 是一段可独立管理、可测试、可版本化的操作模板。它包含：
+- 触发条件（什么时候该用这个技能）
+- 执行步骤（LLM 需要做什么）
+- 工具绑定（需要调用哪些 API/命令）
+- 成功标准（怎么判断执行成功了）
+- 版本历史（谁改的，为什么改，回滚点在哪）
+
+### 5.2 autoresearch：技能进化的最佳实践
+
+2026 年 3 月，Karpathy 发布了 [autoresearch](https://github.com/karpathy/autoresearch)，这个项目完美展示了"技能进化"的完整闭环：
+
+```
+program.md (人类写的指令)
+    │
+    ▼
+┌─────────────────────────────────────┐
+│  Claude / Codex Agent               │
+│                                     │
+│  1. 阅读 program.md 了解实验方向      │
+│  2. 修改 train.py（架构/超参/优化器）  │
+│  3. 训练 5 分钟（固定时间预算）        │
+│  4. 评估 val_bpb（越低越好）          │
+│  5. 记录实验结果                     │
+│  6. 根据结果决定下一步方向            │
+│  7. 回到第 2 步继续循环               │
+└─────────────────────────────────────┘
+    │
+    ▼
+一晚上 ~100 次实验
+每次迭代都是"技能"的自我进化
+```
+
+只有 3 个文件：
+- `prepare.py` — 固定不变（数据准备、tokenizer 训练）
+- `train.py` — **Agent 修改**（模型架构、优化器、训练循环，一切皆可改）
+- `program.md` — **人类修改**（Agent 的指令和实验方向）
+
+Karpathy 在 README 中说："`program.md` 本质上就是一个超轻量级的 'skill'"。
+
+这揭示了一个关键洞察：**技能进化的核心不是改模型，而是改"操作程序"**。模型权重完全不需要更新，所有的"进化"都发生在 `program.md`（指令）和 `train.py`（实现）这两个文本文件中。这意味着：
+- 进化成本极低（不需要 GPU 算力来做微调）
+- 进化可解释（每次 diff 都是人类可读的）
+- 进化可回滚（git revert 就能撤销）
+- 进化可迁移（program.md 可以在不同团队间共享）
+
+### 5.3 技能的生命周期
+
+```
+任务成功 → LLM 反推抽象模板 → 生成候选 Skill → 自动化测试验证
+       → 注册到 Skill Registry → 后续任务自动匹配调用
+       → 收集反馈 → 发现缺陷/新场景 → LLM 生成 Patch → 版本迭代
+```
+
+### 5.4 技能版本化与灰度发布
+
+```yaml
+# skill-example-v2.1.yaml
+name: deploy-hugo-blog
+version: 2.1
+trigger_patterns: ["*push*blog*", "*deploy*site*"]
+description: "Automated Hugo blog build and deploy pipeline"
+steps:
+  - type: shell
+    command: "hugo --gc --minify -b {{base_url}}"
+    timeout: 120
+  - type: git
+    command: "git add public && git commit -m 'deploy' && git push"
+    retry: 2
+success_criteria:
+  - http_check: "https://hugozhu.site" status=200
+  - log_contains: "Deployment successful"
+evolution_log:
+  - v2.0: "Added retry logic for network flakiness"
+  - v2.1: "Switched to incremental build for large posts"
+  # generated by hugo AI
+```
+
+技能进化的核心是**反馈闭环**。系统需要记录每次技能执行的：
+- 成功率
+- 平均耗时
+- 失败原因分布
+- 人工干预次数
+
+当某项指标偏离基线时，自动触发"技能优化"任务：LLM 分析失败日志，生成 patch 建议，人类审核（或自动测试通过）后发布新版本。
+
+## 六、进化闭环：系统如何自我驱动
+
+单一模块的优化只是改良，真正的价值在于**三个模块的联动进化**：
+
+```mermaid
+graph TD
+    A[新任务到达] --> B{记忆中有类似经验?}
+    B -->|Yes| C[检索长期记忆 + 知识图谱上下文]
+    B -->|No| D[冷启动推理]
+    C --> E[加载最匹配技能]
+    D --> E
+    E --> F[执行任务]
+    F --> G{成功?}
+    G -->|Yes| H[提炼新技能/更新知识/压缩记忆]
+    G -->|No| I[记录错误/触发调试技能/请求人工]
+    I --> H
+    H --> J[系统能力 +1]
+    J --> A
+```
+
+这个闭环的关键在于**自动化评估**。没有准确的评估，进化就是盲目的。评估体系应该包含：
+1. **任务完成率**（硬性指标）
+2. **资源消耗**（Token 用量、执行时间、API 调用次数）
+3. **知识新鲜度**（图谱中过期实体的比例）
+4. **记忆健康度**（低价值记忆占比、压缩率）
+
+Karpathy 的 autoresearch 提供了一个极简但有效的评估范式：**固定时间预算 + 单一指标（val_bpb）**。不管 Agent 怎么改模型架构、调超参数，每次实验都用同样的 5 分钟跑完，用同样的验证集打分。这种设计确保了实验之间的**直接可比性**，也让进化方向始终收敛到"在给定算力下找到最优方案"这个目标上。
+
+## 七、工程实践与避坑指南
+
+| 陷阱 | 表现 | 解法 |
+|------|------|------|
+| **记忆膨胀** | 向量库越来越大，检索越来越慢，无关结果干扰推理 | 强制 TTL + 定期压缩 + 权重衰减 |
+| **图谱幻觉** | LLM 抽取了不存在的实体或关系，污染知识库 | 引入置信度阈值（graphify 的 EXTRACTED/INFERRED/AMBIGUOUS） + 人类仲裁队列 |
+| **技能漂移** | 自动优化的技能改变了原有语义，导致下游任务失败 | 技能变更必须附带回归测试集 + 版本号严格管理 |
+| **循环进化** | 系统反复在两个配置之间切换，无法收敛 | 引入进化锁（evolution cooldown）+ autoresearch 式的固定评估指标 |
+| **评估偏差** | LLM 自己评估自己，给出虚高分数 | 引入独立 Judge 模型 + 客观指标（测试通过率、HTTP 状态码、val_bpb） |
+
+## 八、结语：从"用工具"到"养系统"
+
+回到开头的故事。我的博客 Agent 现在已经不只有技能了——它有记忆（知道我写过哪些主题、哪些观点已经表达过），有知识（理解文章之间的引用关系和技术栈依赖），有技能（掌握从选题到发布的完整流程）。三条腿终于都长出来了。
+
+但更有意思的是接下来发生的事：当我让它写一篇新文章时，它会先查记忆确认"这个话题上周是否写过"，再查知识图谱找到相关的技术概念和历史文章，最后加载写作技能生成内容。**三个模块不再是独立运行的，它们开始互相喂养。**
+
+传统的软件架构是"人写代码，机器执行"。LLM 时代的知识系统正在转向"人定义目标，系统自主积累、组织、优化执行路径"。
+
+记忆让系统有历史，知识让系统有逻辑，技能让系统有手段。当这三者形成闭环，我们就不再是"每次重新调教一个 AI"，而是在"培养一个持续进化的数字协作者"。
+
+它不需要一开始就很完美。它只需要：**记住教训，沉淀规律，优化动作，下一次做得更好**。
+
+这大概就是"程序化知识管理"最朴素的定义。
+
+---
+
+> 你的 Agent 有长期记忆吗？还是每次都在从零开始？欢迎在评论区聊聊你的实践或踩过的坑。
