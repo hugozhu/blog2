@@ -19,6 +19,9 @@ enableRobotsTXT = true
   [services.disqus]
     shortname = "hugozhu"
 
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+
 [markup]
   [markup.tableOfContents]
     endLevel = 3
@@ -46,7 +49,7 @@ enableRobotsTXT = true
   delayDisqus = true
   showRelatedPosts = true
   hideAuthor = true
-  gcse = "617d351a633194d48" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+  #gcse = "617d351a633194d48" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
   disclaimerText = "The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way."
 
 #[[Params.bigimg]]
