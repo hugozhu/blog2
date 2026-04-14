@@ -4,6 +4,26 @@
 
 ---
 
+## v2.3.0 — 2026-04-14
+
+**GoAT diagrams 替代 ASCII 作为首选：**
+- Hugo 0.108+ 原生支持 GoAT 渲染器（```goat 代码块自动转为 SVG）
+- 将 GoAT 提升为流程图/架构图的首选格式，ASCII text 降级为 fallback
+- SKILL.md 中 Visual Elements 部分更新：GoAT preferred, ASCII fallback
+- 移除 GoAT 的 FORBIDDEN 标记
+
+---
+
+## v2.2.0 — 2026-04-14
+
+**Visual Elements 精确化：**
+- ASCII 流程图使用 ` ```text ` 代码块（不是 ` ```goat `，主题不支持 GoAT shortcode）
+- ASCII 使用 box-drawing 字符 (┌─┐│└┘) 构建框线和箭头
+- Mermaid 仅在需要交互式渲染时使用，主题是内置支持的
+- 在 SKILL.md 中明确标注 GoAT 语法为 FORBIDDEN
+
+---
+
 ## v2.1.0 — 2026-04-13 (全面优化)
 
 **与 memory 对齐：**

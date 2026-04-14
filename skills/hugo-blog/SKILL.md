@@ -193,10 +193,11 @@ tags: []
 
 ## Visual Elements (MANDATORY for technical/hybrid)
 
-- Include at least one: ASCII architecture diagram, mermaid diagram, OR comparison table
-- ASCII diagrams for system architecture / data flow
-- Mermaid for process flow / state transitions
-- Comparison tables for方案对比 (pros/cons, trade-offs)
+- Include at least one: GoAT diagram, mermaid diagram, OR comparison table
+- **GoAT diagrams** (` ```goat ` blocks) — preferred for system architecture, data flow, and process flowcharts. Hugo 0.108+ has native GoAT renderer (renders to SVG). Use box-drawing characters (`.----.`, `'----'`, `|`, `/`, `\`, `v`).
+- **ASCII diagrams** (` ```text ` blocks) — fallback when GoAT syntax is not suitable. Use box-drawing characters (┌─┐│└┘).
+- **Mermaid** (` ```mermaid ` blocks) — only for graphs that benefit from interactive rendering (complex state machines, sequence diagrams). Theme has built-in mermaid.js support via shortcode.
+- **Comparison tables** — for 方案对比 (pros/cons, trade-offs)
 
 ## Length Guide
 
