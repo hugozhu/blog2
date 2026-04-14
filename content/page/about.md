@@ -5,7 +5,7 @@ date: 2024-09-13
 tags: ["about"]
 ---
 
-My name is Hugo Zhu (朱宏). I'm currently the CTO of DingTalk at Alibaba, based in Hangzhou and Seattle.
+My name is Hugo Zhu (朱鸿). I'm currently the CTO of DingTalk at Alibaba, based in Hangzhou and Seattle.
 
 This blog is where I share my thoughts and hands-on experience in:
 
