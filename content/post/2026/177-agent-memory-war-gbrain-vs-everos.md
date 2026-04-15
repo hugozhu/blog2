@@ -5,7 +5,7 @@ date: 2026-04-14
 tags: ["ai-agent", "long-term-memory", "llm-architecture", "everos", "gbrain", "knowledge-management"]
 ---
 
-上周我写了一篇《用 LLM 构建程序化知识系统》，提出「记忆 · 知识 · 技能」三层架构。文章发出后不到 48 小时，两个重量级项目几乎同时进入我的视野——YC 总裁 Garry Tan 开源了 **GBrain**，EverMind 团队发布了 **EverOS**。
+昨天我写了一篇《用 LLM 构建程序化知识系统》，提出「记忆 · 知识 · 技能」三层架构。文章发出后不到 48 小时，两个重量级项目几乎同时进入我的视野——YC 总裁 Garry Tan 开源了 **GBrain**，EverMind 团队发布了 **EverOS**。
 
 更巧的是，这两个项目恰好代表了 AI Agent 长期记忆的两条截然不同的技术路线：一条是"用自然语言指令驱动 LLM 自行理解"，另一条是"用工程架构确定性落地"。它们互为镜像，又互相矛盾。
 
