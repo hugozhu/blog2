@@ -1,6 +1,6 @@
 ---
 title: "Agent 的记忆战争：GBrain vs EverOS，两条路线的终局"
-subtitle: "从 Prompt 指令到记忆操作系统，谁能真正解决 Agent 的无状态困境？"
+subtitle: "From Prompt Instructions to Memory OS: Who Can Truly Solve the Agent's Stateless Dilemma?"
 date: 2026-04-14
 tags: ["ai-agent", "long-term-memory", "llm-architecture", "everos", "gbrain", "knowledge-management"]
 ---
@@ -61,7 +61,7 @@ GBrain 最吸引人的地方在于它的**「梦境循环」**（Dream Cycle）�
 
 如果说 GBrain 是"用想法驱动 Agent"，那么 EverOS 就是"用架构保证结果"。
 
-EverMind 团队（阿里通义实验室体系）发布的 EverOS 是一个完整的 AI Agent 长期记忆操作系统，包含两套核心方法和两个基准测试，已有 3 篇 arXiv 论文，其中 HyperMem 已被 **ACL 2026** 接收。
+EverMind 团队发布的 EverOS 是一个完整的 AI Agent 长期记忆操作系统，包含两套核心方法和两个基准测试，已有 3 篇 arXiv 论文，其中 HyperMem 已被 **ACL 2026** 接收。
 
 ### 整体架构
 
