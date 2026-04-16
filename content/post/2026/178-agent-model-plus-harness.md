@@ -84,7 +84,7 @@ Managed Agents 也是这个思路：把 Agent 组件抽象为稳定接口，实�
 
 ## 核心架构模式：解耦 Brain 和 Hands
 
-### 从"宠物"到"牲口"
+### 从 Pet 到 Cattle
 
 Anthropic 最初把所有组件塞进一个容器：
 
