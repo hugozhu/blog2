@@ -7,9 +7,9 @@ tags: ["ai-agent", "web-scraping", "cli-tools", "system-design", "rust"]
 
 上周给 DingTalk 的一个内部项目做技术调研，需要从知乎、B站、小红书几个平台拉热榜数据做竞品分析。同事的第一反应是写爬虫——打开 Playwright，找 CSS 选择器，处理登录态，和 Cloudflare 斗智斗勇，折腾了两小时还没跑通。我看了看他的代码，说："换个思路，试试 OpenCLI，`opencli zhihu hot` 一行命令就完了。"
 
-我顺手查了一下这个项目——GitHub 上 16K stars。再一看 AutoCLI（OpenCLI 的 Rust 重写版），性能数据让我直接放下手里的 Playwright：`bilibili hot` 命令，OpenCLI 要 20 秒，AutoCLI 只要 1.66 秒，**12 倍加速**。
+一查这个项目——GitHub 上 16K stars。再看 AutoCLI（OpenCLI 的 Rust 重写版）的性能数据：`bilibili hot` 命令，OpenCLI 要 20 秒，AutoCLI 只要 1.66 秒，**12 倍加速**。
 
-更让我震惊的不是性能数字，而是这两个项目背后的**技术范式转变**——它们不是在"做更好的爬虫"，而是在**重新定义怎么从网站获取数据**。
+更令人震惊的不是性能数字，而是这两个项目背后的**技术范式转变**——它们不是在"做更好的爬虫"，而是在**重新定义怎么从网站获取数据**。
 
 <!--more-->
 
