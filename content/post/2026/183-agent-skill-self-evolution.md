@@ -21,12 +21,12 @@ tags: ["ai-agent", "llm", "system-design", "hermes", "skill-management"]
 
 在 Agent 系统中，记忆（Memory）和技能（Skills）是两种截然不同的存在。
 
-**Memory（声明式记忆）**是"我知道什么"：
+**Memory（声明式记忆）** 是"我知道什么"：
 - "我的博客在 `~/Projects/blog2`"
 - "用户喜欢中文写作"
 - "Qwen 有 1M 上下文窗口"
 
-**Skill（程序化记忆）**是"我会做什么"：
+**Skill（程序化记忆）** 是"我会做什么"：
 - "写博客的 5 步流程"
 - "遇到 `permission denied` 时先检查权限再重试"
 - "Rust 项目用 `cargo build`，不要用 `make`"
@@ -79,7 +79,7 @@ Hermes 的设计哲学是：**"Skills that aren't maintained become liabilities"
 - 缺少了关键信息
 - 有更好的实现方式
 
-它会**立即**调用 `patch` 修正，不等待用户反馈，不等待定期检查：
+它会 **立即** 调用 `patch` 修正，不等待用户反馈，不等待定期检查：
 
 ```python
 skill_manage(
