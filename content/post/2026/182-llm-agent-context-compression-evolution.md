@@ -1,5 +1,5 @@
 ---
-title: "LLM Agent 上下文压缩算法的进化之路"
+title: "LLM Agent 上下文压缩算法"
 subtitle: "How Modern LLM Agents Manage Context Windows Without Losing Track of Your Task"
 date: 2026-04-18
 tags: ["ai-agent", "llm", "context-management", "system-design", "hermes"]
