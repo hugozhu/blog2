@@ -1,11 +1,11 @@
 ---
-title: "AI 时代的核心竞争力：为什么提问能力决定你的 AI 天花板"
+title: "AI 时代的核心竞争力：提问能力"
 subtitle: "The Art of Asking — How Question Quality Predicts AI Talent"
 date: 2026-04-20
 tags: ["ai-literacy", "dual-system", "prompt-engineering", "cognitive-science", "ai-talent"]
 ---
 
-上周钉钉内部做了一次 AI 能力摸底。结果出乎很多人意料——那些平时代码写得最溜、技术栈最广的工程师，在 AI 协同效率上反而不如几个产品同学。
+最近钉钉内部做了一次 AI 能力摸底。结果出乎很多人意料——那些平时代码写得最溜、技术栈最广的工程师，在解决客户问题的 AI 协同效率上反而不如几个产品同学和前线服务客户的同学。
 
 我观察了一个细节：**区分高下最明显的指标，不是 prompt 写得有多长多花哨，而是他们向 AI 提出的问题本身的质量。**
 
