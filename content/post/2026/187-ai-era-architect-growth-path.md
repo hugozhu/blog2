@@ -1,7 +1,7 @@
 ---
 title: "AI 时代，校招生如何成为好架构师"
 subtitle: "The AI-Native Architect: A Growth Path for Fresh Graduates"
-date: 2026-04-21
+date: 2026-04-20
 tags: ["ai-literacy", "career-growth", "system-design", "architecture", "dual-system"]
 ---
 
