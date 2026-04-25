@@ -1,33 +1,37 @@
 ---
-title: "通用桌面 Agent 的 Query 分类与智能调度：四层意图漏斗设计"
-subtitle: "Four-Stage Intent Funnel for Desktop Agent Routing"
+title: "上线 1 个月的桌面 Agent，路由架构应该怎么演进？"
+subtitle: "Phased Routing Evolution for a One-Month-Old Desktop Agent"
 date: 2026-04-25
 tags: ["desktop-agent", "intent-classification", "agent-routing", "system-design", "llm-agent"]
 ---
 
-上周和一位做企业桌面 Agent 的朋友聊天，他甩过来一组数据：他们的系统接了 30+ 个 tools，用户 query 从“打开上周的周报”到“帮我把这 15 张截图里的表格数据提取出来汇总成 Excel”都有。当前方案是每个 query 直接扔给 GPT-4o 做 function calling 选 tool——平均延迟 1.8 秒，P99 干到 4 秒，用户抱怨“比我自己干还慢”。
+上周三晚上 11 点，老王给我发消息：他们的桌面 Agent 上线刚满 30 天，DAU 爬到 8000，团队 4 个人。他翻了一周用户行为日志，发现一个反直觉的事实——**用过 3 次以上的用户里，62% 只把它当"自然语言版的快捷启动器"用，真正让它做跨应用编排的不到 13%**。但他们的技术栈正按"复杂编排"在搭：每个 query 直接扔给 GPT-4o 做 function calling，P50 延迟 1.6 秒，P99 干到 3.8 秒。
 
-他问我：“是不是换个更快的模型就行？”
+老王问："我看了你之前那个四层意图漏斗，要不要现在就全套上？团队就 4 个人，老板说三个月内要把日活做到 5 万，怕 over-engineering。"
 
-不是模型的问题。**是架构的问题。**
+我的答案：要上，但**不是一次上四层**。1 个月的 Agent 团队最缺的不是模型层数，是**能让你做对决策的数据**。
 
 <!--more-->
 
-## 问题不在于“模型不够快”
+## 本质问题：你不缺架构，你缺标注数据
 
-桌面 Agent 的 query 分类天然是一个**长尾分布**：
+我看到太多团队在月 1 就照搬"规则 + 缓存 + 微调小模型 + LLM"的完整方案，最后掉进同一个坑：**为了那个还没有训练数据的微调小模型，提前搭了一堆基础设施**，结果两个月过去线上跑的还是单 LLM，团队精力全耗在调框架上。
 
-- 头部 50%：高度重复、意图明确的指令（“打开文件”、“搜索 XX”、“运行脚本”）
-- 中部 35%：有一些变化但语义清晰的指令（“帮我把 Downloads 里的 PDF 都移到 Documents”）
-- 尾部 15%：复合意图、模糊指令、跨应用编排（“从上周的会议纪要里提取 action items，发邮件给相关人，并在 Calendar 里创建 deadline”）
+桌面 Agent 这类系统，决定演进顺序的不是技术复杂度，是**数据成熟度**：
 
-拿同一个 LLM 处理这三类 query，就像让一个大学教授去回答“1+1 等于几”还要收一样的钱——浪费且愚蠢。
+```text
+阶段       Query 日志量    标注覆盖    分布稳定性    可做的事
+─────────────────────────────────────────────────────────────
+月 1-2    < 50k           0%         很不稳定       规则 + LLM
+月 3-4    50k-500k        > 60%      逐步收敛       + 缓存 + 小模型
+月 6+     > 1M            > 80%      接近稳定       + 自进化闭环
+```
 
-核心问题是**延迟预算的分配**。桌面 Agent 的用户体验有一个硬性阈值：acknowledgment < 50ms，首动作 < 1000ms。超过这个阈值，用户感知不是“AI 在思考”，而是“卡住了”。
+老王的团队卡在月 1-2，但他想按月 6+ 的架构搭。这就是问题。
 
-## 四层意图漏斗
+## 四层漏斗：方向对，但要分批上
 
-我给他的建议是一套分层分类架构，我管它叫**四层意图漏斗（Four-Stage Intent Funnel）**：
+先把目标架构摆在这里——这是未来 6 个月的终态，不是 1 个月的起点：
 
 ```text
 User Query
@@ -43,14 +47,14 @@ User Query
 ┌──────────────────────────────────────┐
 │ Stage 2: Embedding 缓存               │
 │ FAISS 内存索引，< 20ms                 │
-│ 命中率 ~25%（累计划 75%）              │
+│ 命中率 ~25%（累计 75%）                │
 └────────────┬─────────────────────────┘
              │ 置信度 < 0.92
              ▼
 ┌──────────────────────────────────────┐
 │ Stage 3: 微调小模型                    │
 │ DistilBERT 领域微调，< 50ms            │
-│ 命中率 ~15%（累计划 90%）              │
+│ 命中率 ~15%（累计 90%）                │
 └────────────┬─────────────────────────┘
              │ 模糊 / 复合意图
              ▼
@@ -61,25 +65,32 @@ User Query
 └──────────────────────────────────────┘
 ```
 
-每一层都是一个滤网，只把兜不住的问题往下传。关键不是“替代 LLM”，而是**让 LLM 只做它值得做的事**。
+加权后平均延迟从 1800ms 压到 100ms 左右。但这是**有了 50 万条标注数据之后**的样子。月 1 团队上来就建 Stage 3 小模型，相当于在没有水的河床上修水电站。
 
-### 延迟预算的实际分布
+## 三阶段实施路径
+
+我给老王画了一张时间轴。每个阶段只做这个阶段最该做的事：
 
 ```text
-                        延迟（ms）   累计覆盖率   每次成本
-Stage 1: 规则引擎         < 1         ~50%        $0
-Stage 2: Embedding 缓存   < 20        ~75%        $0.0001
-Stage 3: DistilBERT      < 50        ~90%        $0.0003
-Stage 4: LLM 兜底         < 800       ~100%       $0.005
+                月 1-2 (现在)        月 3-4              月 6+
+              ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+现在该做     │ 规则引擎      │    │ Embedding   │    │ 微调小模型   │
+              │ + 数据管道    │    │ 缓存         │    │ + 自进化     │
+              │ + LLM 兜底    │    │              │    │              │
+              └─────────────┘    └─────────────┘    └─────────────┘
+触发条件      上线即做           日 query > 5k       日 query > 50k
+              已经有用户          + 标注 > 30%        + 分布稳定
 ```
 
-加权平均延迟：~100ms。对比单 LLM 方案的 ~1800ms——**快了 18 倍**。
+接下来一节一节讲：每一阶段做什么、为什么是这个顺序、什么时候可以进下一阶段。
 
-## 每一层怎么实现
+## 阶段 A（月 1-2）：规则 + LLM + 数据管道
 
-### Stage 1：规则引擎
+**做这三件事，别的先别碰。**
 
-规则引擎的价值在于**零延迟封堵高频确定性 query**。不要试图覆盖所有情况，只 cover 那些没有歧义的模式：
+### A.1 规则引擎：覆盖头部 30% 就够
+
+不要追求"覆盖 50%"。月 1 的 query 分布还在剧烈变化，你今天写的规则下个月可能就过时。只兜那些**绝对不会有歧义**的 pattern：
 
 ```python
 import re
@@ -89,56 +100,114 @@ from typing import Optional
 
 
 class Intent(Enum):
-    FILE_READ = "file_read"
-    FILE_WRITE = "file_write"
-    WEB_SEARCH = "web_search"
-    CODE_EXECUTE = "code_execute"
     APP_LAUNCH = "app_launch"
-    SYSTEM_CONTROL = "system_control"
+    FILE_OPEN = "file_open"
+    WEB_SEARCH = "web_search"
 
 
 @dataclass
 class RuleMatch:
     intent: Intent
     confidence: float
-    extracted_args: dict
+    raw_query: str
 
 
-RULES: list[tuple[str, Intent, dict]] = [
-    # 文件操作
-    (r"\b(?:打开|读|查看|显示)\s*(?:一下)?\s*(?:这个|那个|的)?\s*文件\b", Intent.FILE_READ, {}),
-    (r"\b(?:创建|新建|写入|保存)\s*(?:一个|新的)?\s*文件\b", Intent.FILE_WRITE, {}),
-    # Web 搜索
-    (r"\b(?:搜索|搜|查|百度|Google)\s+(?:一下|一下)?", Intent.WEB_SEARCH, {}),
-    # 代码执行
-    (r"\b(?:运行|执行|跑)\s*(?:一下|这个)?\s*(?:脚本|代码|python|bash|命令)\b", Intent.CODE_EXECUTE, {}),
-    # 应用启动
-    (r"\b(?:打开|启动|运行)\s+(?:VS Code|Chrome|Terminal|Excel|Word)\b", Intent.APP_LAUNCH, {}),
+# 月 1 只需要 5-10 条规则，覆盖头部场景
+RULES: list[tuple[str, Intent]] = [
+    (r"^(?:打开|启动|open)\s+(VS Code|Chrome|Terminal|Excel|Word|微信)", Intent.APP_LAUNCH),
+    (r"^(?:搜索|搜|google|百度)\s+\S+", Intent.WEB_SEARCH),
+    (r"^(?:打开|查看)\s+.{1,20}\.(pdf|docx?|xlsx?|md|txt)$", Intent.FILE_OPEN),
 ]
 
 
 def rule_classify(query: str) -> Optional[RuleMatch]:
-    for pattern, intent, args_template in RULES:
-        if match := re.search(pattern, query, re.IGNORECASE):
-            return RuleMatch(
-                intent=intent,
-                confidence=0.95,
-                extracted_args=args_template | match.groupdict(),
-            )
+    for pattern, intent in RULES:
+        if re.search(pattern, query.strip(), re.IGNORECASE):
+            return RuleMatch(intent=intent, confidence=0.98, raw_query=query)
     return None
 # generated by hugo AI
 ```
 
-关键原则：规则只写高度确信的模式，宁可漏过也不要误判。规则引擎的 precision 必须接近 100%，recall 低一点没关系——漏掉的交给后面几层。
+**为什么不写更多？** 月 1 你不知道哪些 pattern 会持续存在。写 50 条规则，3 个月后可能 30 条已经不再匹配真实分布，维护成本反而高。**规则要后置补充**，不是前置铺满。
 
-### Stage 2：Embedding 缓存
+### A.2 数据管道：这才是月 1 最值钱的事
 
-用 FAISS 做内存级向量索引，将历史分类结果缓存下来。新的 query 如果和历史 query 的余弦相似度 > 0.92，直接复用分类结果：
+老王听到这一步说："就埋点呗，能有多复杂？" 我让他打开自己的代码看了一眼——他们现在只记了 `query + response`，没有记**意图标注、tool 选择、执行结果、用户后续行为**。这种日志后面想做小模型微调，全得人工重标。
+
+月 1-2 必须先把这套结构落下来：
 
 ```python
+import time
+import uuid
+from dataclasses import dataclass, asdict, field
+from typing import Optional
+
+
+@dataclass
+class QueryTrace:
+    trace_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    timestamp: float = field(default_factory=time.time)
+
+    # 输入侧
+    query: str = ""
+    active_app: str = ""
+    user_id_hash: str = ""
+
+    # 路由决策
+    classifier_stage: str = ""        # "rule" | "llm"
+    predicted_intent: str = ""
+    intent_confidence: float = 0.0
+    selected_tool: str = ""
+
+    # 执行结果
+    tool_success: Optional[bool] = None
+    latency_ms: int = 0
+
+    # 隐式反馈（最重要！）
+    user_undid: bool = False           # 用户是否撤销
+    user_retried_within_30s: bool = False
+    user_rephrased: bool = False       # 30s 内换了说法重问
+
+
+def log_trace(trace: QueryTrace) -> None:
+    # 写入你现有的日志系统：Loki / ClickHouse / S3 都行
+    # 关键是 schema 必须从月 1 就稳定下来
+    pass
+# generated by hugo AI
+```
+
+**为什么这是月 1 最重要的事？** 因为月 3 你想训小模型时，能不能省掉 80% 的人工标注成本，全看月 1-2 这套日志结构合不合格。隐式反馈（undo、重试、改述）是最廉价、最准确的标注源——用户用脚投票了。
+
+### A.3 LLM 兜底：分类与执行解耦
+
+老王现在的做法是把 query 直接交给 GPT-4o 做 function calling。我让他改成两步：
+
+```text
+原方案：query → GPT-4o(function calling) → 直接执行
+                ─────────────────────────
+                一个调用同时做：意图识别 + 参数抽取 + tool 选择
+                问题：决策不可缓存、不可审计、换模型成本高
+
+新方案：query → GPT-4o(intent classification) → Router(规则+成功率) → tool
+                ──────────────────────                ──────────────
+                只做意图分类，结果可缓存              选 tool 的逻辑独立可测
+```
+
+为什么要拆？**因为 Stage 2（embedding 缓存）能缓存的是"意图"，不是"执行"**。query "把这个 PDF 翻译成中文" 和 "翻译这份 PDF 成中文" 是同一个意图，但参数（文件路径）不同，缓存意图就能命中，缓存执行结果就不行。这一步不拆，月 3 想加缓存层时整个链路都得重写。
+
+## 阶段 B（月 3-4）：加 Embedding 缓存
+
+进入这一阶段的触发条件：**日 query 量稳定 > 5k，且 A 阶段日志里至少 30% 的 query 已经被规则或 LLM 自动打上了高置信度意图标签**。
+
+为什么是这两个条件？
+- 日 query < 5k 时，缓存命中率会很低（毕竟用户说法千奇百怪），加这一层 ROI 不划算。
+- 标注覆盖 < 30% 时，缓存里塞的都是 LLM 标注的"伪标签"，错误会扩散。
+
+```python
+import time
 import faiss
 import numpy as np
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 
 @dataclass
@@ -146,11 +215,12 @@ class CachedClassification:
     query: str
     intent: Intent
     timestamp: float
+    hit_count: int = 0
 
 
 class EmbeddingCache:
-    def __init__(self, embedding_dim: int = 768, max_size: int = 10000):
-        self.index = faiss.IndexFlatIP(embedding_dim)  # inner product for cosine
+    def __init__(self, embedding_dim: int = 384, max_size: int = 20000):
+        self.index = faiss.IndexFlatIP(embedding_dim)
         self.entries: list[CachedClassification] = []
         self.max_size = max_size
 
@@ -158,226 +228,143 @@ class EmbeddingCache:
         if self.index.ntotal == 0:
             return None
         scores, indices = self.index.search(query_embedding.reshape(1, -1), k=1)
-        return self.entries[indices[0][0]].intent if scores[0][0] > threshold else None
+        if scores[0][0] > threshold:
+            entry = self.entries[indices[0][0]]
+            entry.hit_count += 1
+            return entry.intent
+        return None
 
     def add(self, query: str, query_embedding: np.ndarray, intent: Intent) -> None:
         self.entries.append(CachedClassification(query=query, intent=intent, timestamp=time.time()))
         self.index.add(query_embedding.reshape(1, -1))
-        # LRU 淘汰
         if len(self.entries) > self.max_size:
-            oldest_idx = min(range(len(self.entries)), key=lambda i: self.entries[i].timestamp)
-            self.index.remove_ids(np.array([oldest_idx]))
-            del self.entries[oldest_idx]
+            # 淘汰策略：LFU 优于 LRU，因为高频 query 才是缓存的本体价值
+            victim = min(range(len(self.entries)), key=lambda i: self.entries[i].hit_count)
+            self.index.remove_ids(np.array([victim]))
+            del self.entries[victim]
 # generated by hugo AI
 ```
 
-这个缓存有两层作用：一是直接加速重复 query，二是为后续的自进化提供数据基础——缓存里的 query 分布变化可以作为 drift 检测的输入。
+**月 1 团队常踩的坑**：用 OpenAI text-embedding-3-small。每次缓存查询都要 API 调用，延迟 50-150ms，比缓存本身的 20ms 慢得多。**月 3 上 embedding 缓存时一定要本地化**，用 `all-MiniLM-L6-v2`（22M 参数，CPU 上 5ms）或 BGE-small。
 
-### Stage 3：微调小模型
+这一阶段还有一件事可以同步做：**把规则引擎从 5-10 条扩到 30-50 条**。这时候你已经有 2 个月日志，能看清哪些 pattern 是真实存在的高频长尾。
 
-DistilBERT 在 5k-10k 条桌面 Agent 领域数据上微调后，可以在 CPU 上跑到 ~20ms，5-10 分类场景的准确率能达到 92-95%。
+## 阶段 C（月 6+）：微调小模型 + 自进化闭环
 
-微调数据的构造是关键。不是手工标注，而是用 Stage 4 的 LLM 产出自动标注：
+进入这一阶段的触发条件：**累计 query 量 > 50 万，标注覆盖 > 60%，且头部 100 个意图的分布在最近一个月波动 < 15%**。
 
-```text
-生产环境 query 日志
-    → Stage 4 LLM 分类（离线批量，不要求实时）
-    → 人工抽样校验（抽 5% 检查准确率）
-    → 达标后作为 DistilBERT 微调数据
-    → 部署，持续监控 Stage 3 vs Stage 4 的一致率
-```
+第三个条件最容易被忽视。**分布还在剧烈变化时去微调小模型，等于追着尾巴跑**——刚训好模型，分布又变了。
 
-如果一致率下降到 90% 以下，说明 query 分布发生了变化，触发重新微调。
-
-### Stage 4：LLM 兜底
-
-到了这一层的 query，才是 LLM 真正值得发挥的场景——复合意图、跨应用编排、需要上下文理解。这时候 system prompt 的质量至关重要：
-
-```python
-CLASSIFIER_SYSTEM_PROMPT = """You are an intent classifier for a desktop AI agent.
-Given a user query, classify it into EXACTLY ONE primary intent.
-
-Available intents and their definitions:
-- file_read: Read or access file contents
-- file_write: Create, write, or modify files
-- file_organize: Move, rename, delete, or batch-process files
-- web_search: Search or browse the internet
-- web_action: Fill forms, submit, interact with web pages
-- code_execute: Run scripts, execute commands, git operations
-- app_automation: Launch and interact with desktop applications
-- system_control: Change system settings, manage processes
-- communication: Send emails, messages, schedule meetings
-- media_process: Screenshots, image/video editing, OCR
-
-For ambiguous queries, choose the most likely primary intent.
-Reply with ONLY the intent name, nothing else.
-"""
-# generated by hugo AI
-```
-
-注意：这里不是让 LLM 直接做 function calling，而是先做**意图分类**，再交给专门的 Router 去选 tool。分类和选 tool 解耦的好处是：分类结果可以缓存和审计，选 tool 逻辑可以独立优化（如基于历史成功率做加权）。
-
-## 路由：意图分类只是第一步
-
-有了意图，下一步是把 query 派发到真正干活的模块。这里三条经验值得强调：
-
-### 1. 上下文感知的路由
-
-同样的“打开那个文件”，在 VS Code 里说的是当前项目文件，在 Finder 里说的是选中的文件。路由必须感知**活跃应用**：
-
-```python
-@dataclass
-class RouteContext:
-    active_app: str
-    recent_actions: list[str]
-    user_preferences: dict
-
-
-class ContextAwareRouter:
-    def route(self, intent: Intent, query: str, ctx: RouteContext) -> str:
-        # 根据活跃应用微调工具选择
-        tool_priority = self._compute_priority(intent, ctx.active_app)
-        # 根据历史成功率加权
-        best_tool = max(
-            tool_priority,
-            key=lambda t: self.tool_success_rates.get(t, {}).get(intent.value, 0.5),
-        )
-        return best_tool
-# generated by hugo AI
-```
-
-### 2. 并行执行 vs 串行执行
-
-不是所有子任务都必须串行。UFO3 Galaxy 的方案是用 DAG 描述子任务依赖，在依赖满足时立即并行执行：
-
-| 场景 | 执行方式 | 原因 |
-|---|---|---|
-| “打开三个文件” | 三个并行 file_read | 无依赖关系 |
-| “搜到结果 → 打开第一个链接” | 串行 | 第二步依赖第一步结果 |
-| “从 Excel 提取数据 → 生成 PPT” | 串行 | 产出物依赖 |
-| “同时搜 A 和搜 B，然后对比” | 先并行再串行 | 搜索并行，对比依赖两路结果 |
-
-### 3. API 优先，GUI 兜底
-
-这是 UFO 的一个关键设计：能用原生 API（文件系统、AppleScript、Win32 COM）完成的，绝不用 GUI 点击。GUI 自动化只有在没有 API 可用时才介入：
+到这一阶段，微调数据的构造可以走自动化：
 
 ```text
-Action selection:
-    ├── 有 API？→ 直接调用（< 50ms，确定性 100%）
-    ├── 有 URL Scheme？→ deep link 调用
-    └── 都没有 → 走 GUI 自动化（500ms-2000ms，非确定性）
+A 阶段日志（已有意图标签）
+    ├── LLM 高置信度标注（confidence > 0.9）→ 直接进训练集
+    ├── 规则命中标注 → 直接进训练集
+    └── 用户隐式反馈纠正过的 → 高权重进训练集
+        ↓
+    DistilBERT / ModernBERT 微调
+        ↓
+    线上 shadow mode 跑 1 周（不影响用户，对比 Stage 4 LLM 的结果）
+        ↓
+    一致率 > 92% → 切流量到 Stage 3
 ```
 
-这个分层在不同平台上的 API 可用性差异很大——macOS 的 AppleScript + Shortcuts 覆盖率高，Windows 的 COM/UIA 次之，Linux 的 D-Bus 覆盖最弱。
-
-## 分类方法的对比
-
-| 方案 | 延迟 | 准确率 | 维护成本 | 适用场景 |
-|---|---|---|---|---|
-| 纯 LLM function calling | 500-2000ms | 85-95% | 低 | tool < 20，低并发 |
-| Embedding 相似度 | 10-50ms | 75-85% | 中 | 高并发简单 query |
-| 规则引擎 | < 1ms | 90-99%* | 高 | 高频确定性 query |
-| 微调小模型 | 20-100ms | 92-95% | 高（需标注） | 中等复杂度 |
-| 四层混合（推荐） | < 100ms 平均 | 90-95%+ | 中 | 生产环境全场景 |
-
-*规则引擎的准确率前提是只 cover 高确信 pattern，precision 优先于 recall
-
-## 自进化：让系统从错误中学习
-
-架构设计里最容易忽略的是反馈闭环。没有反馈的分类系统是一个注定腐烂的系统——query 分布在变，用户习惯在变，工具的成功率也在变。
-
-我建议的实现分四步走：
-
-```text
-┌─────────────────────────────────────────────┐
-│              自进化反馈闭环                    │
-│                                              │
-│  用户纠错 / 隐式反馈（undo、重试）              │
-│      │                                       │
-│      ▼                                       │
-│  记录 (query, 预测意图, 实际意图, 成功/失败)    │
-│      │                                       │
-│      ▼                                       │
-│  每 N 次检查：准确率 < 85%？                   │
-│      │                                       │
-│      ├── 是 → 触发分析                        │
-│      │      ├── 同 pattern 3+ 次 → 更新规则   │
-│      │      ├── Embedding 漂移 → 重建缓存     │
-│      │      └── 分布整体偏移 → 重新微调        │
-│      │                                       │
-│      └── 否 → 继续监控                        │
-└─────────────────────────────────────────────┘
-```
-
-具体实现上，OS-Copilot 的双记忆模型是一个很好的参照：声明式记忆存用户的长期偏好（“我习惯用 VS Code 而不是 Vim”），程序性记忆存成功的执行轨迹（“处理 PDF 提取 → 汇总到 Excel 这条链路已验证”）。前者用于路由偏好，后者用于跳过重复推理。
+自进化闭环的核心是**让规则引擎自己长大**。每当某个 LLM 分类结果连续 N 次（比如 10 次）出现在相似 query 上，就提议生成一条新规则，人工 review 后入库。
 
 ```python
 from collections import defaultdict
 
 
-class SelfEvolvingRouter:
-    def __init__(self, drift_check_interval: int = 100, accuracy_threshold: float = 0.85):
-        self.history: list[dict] = []
-        self.drift_check_interval = drift_check_interval
-        self.accuracy_threshold = accuracy_threshold
-        # pattern → 纠错计数
-        self.correction_patterns: defaultdict[str, int] = defaultdict(int)
+class RuleProposer:
+    def __init__(self, threshold: int = 10):
+        self.pattern_counter: defaultdict[tuple[str, Intent], int] = defaultdict(int)
+        self.threshold = threshold
 
-    def record(self, query: str, predicted: Intent, actual: Intent, success: bool) -> None:
-        self.history.append({
-            "query": query,
-            "predicted": predicted,
-            "actual": actual,
-            "success": success,
-        })
+    def observe(self, query: str, llm_intent: Intent) -> Optional[str]:
+        # 提取 query 的关键词模板（去除文件名、URL 等变量）
+        template = self._extract_template(query)
+        key = (template, llm_intent)
+        self.pattern_counter[key] += 1
 
-        if not success and predicted != actual:
-            pattern_key = f"{predicted.value}→{actual.value}"
-            self.correction_patterns[pattern_key] += 1
+        if self.pattern_counter[key] >= self.threshold:
+            return self._propose_rule(template, llm_intent)
+        return None
 
-        if len(self.history) % self.drift_check_interval == 0:
-            self._check_drift()
+    def _extract_template(self, query: str) -> str:
+        # 实现细节：用 spaCy / jieba 提取动词 + 名词骨架
+        # 例如 "打开 Chrome 浏览器" → "打开 ${APP}"
+        return query  # 简化示意
 
-    def _check_drift(self) -> None:
-        recent = self.history[-self.drift_check_interval:]
-        accuracy = sum(1 for r in recent if r["success"]) / len(recent)
-
-        if accuracy < self.accuracy_threshold:
-            # 分析高频纠错 pattern
-            for pattern, count in self.correction_patterns.items():
-                if count >= 3:
-                    predicted_intent, actual_intent = pattern.split("→")
-                    self._update_rules(predicted_intent, actual_intent)
-            self.correction_patterns.clear()
-
-    def _update_rules(self, wrong: str, correct: str) -> None:
-        # 基于高频纠错模式自动更新规则引擎的优先级
-        # 实现细节取决于具体规则引擎的设计
-        pass
+    def _propose_rule(self, template: str, intent: Intent) -> str:
+        return f"建议规则: {template} → {intent.value}"
 # generated by hugo AI
 ```
 
-## 推荐技术栈
+## 为什么是这个顺序：三个反直觉点
 
-| 组件 | 推荐方案 | 备选 |
-|---|---|---|
-| 快速分类器 | DistilBERT 领域微调 | ModernBERT-base（更准但更慢） |
-| Embedding 模型 | text-embedding-3-small | all-MiniLM-L6-v2（本地跑免费） |
-| 向量索引 | FAISS 内存模式 | Chroma（持久化需求） |
-| LLM 兜底 | Claude Sonnet 4.6 / GPT-4o | Qwen2.5-VL（多模态支持） |
-| 屏幕解析 | OmniParser v2 | Windows UIA / macOS Accessibility |
-| Agent 编排 | LangGraph | OpenAI Agents SDK |
-| 可观测性 | LangSmith / 自建 tracing | 自研埋点系统 |
+老王看完路线图问了三个问题，正好对应三个常见误区。
 
-## 总结
+### 误区一：先上小模型，能省 LLM 钱
 
-这套方案的本质是把“快、准、省”拆解到不同层级上——规则和缓存负责“快”，微调小模型负责“准”，LLM 负责“处理复杂”。所谓智能调度，不是选一个最聪明的模型处理所有问题，而是让每个问题找到**恰好够用**的执行路径。
+错。月 1-2 你的 LLM 调用量大概率不到 100 万次/月，按 GPT-4o $5/M token 算，意图分类那点 token，**总成本不超过 $300/月**。一个工程师一周的工资足够烧三个月 LLM。
 
-如果你在构建桌面 Agent，一个具体的迁移路径是：
+但维护一个微调模型——数据清洗、训练、评估、版本管理、回滚机制——是一个**长期占用 0.5 个工程师**的活。月 1 团队 4 个人，掏不起这 12.5% 的人力。
 
-1. 先把现有 LLM 分类日志攒起来，分析 query 分布
-2. 从顶部高频 pattern 开始建立规则引擎和 embedding 缓存
-3. 用 LLM 日志作为标注数据微调小模型
-4. 接上反馈闭环，让它自己持续优化
+### 误区二：缓存月 1 就能上，反正不复杂
 
-你实际做桌面 Agent 的时候，最大的延迟瓶颈在哪一层？欢迎留言讨论。
+也错。Embedding 缓存的命中率取决于 query 重复度。日活 8000、日 query 1.5 万的产品，前 100 个高频 query 大概只能覆盖 8-12% 的总流量，剩下 88% 是各种低频长尾。**这种分布下缓存命中率不到 15%**，加进来还要扛额外的 embedding 调用延迟，划不来。
+
+要等用户量上去、行为模式收敛后，缓存才有 ROI。
+
+### 误区三：先把规则铺满，能少调 LLM
+
+最容易栽的一个。规则的真实成本不在写，而在维护。30 条规则的回归测试集合大概有 200-500 条 case，每改一条规则都要全跑一遍。**你愿意为了省 30% 的 LLM 调用，多养一份持续维护的回归测试吗？**
+
+正确顺序是：先用 LLM 兜底，让数据告诉你哪些 pattern 真的高频且稳定，再把规则**精准地**加上去。
+
+## 路由决策的两条经验（不分阶段，从月 1 就该做）
+
+有两件事不分阶段，从第一天就要做对：
+
+### 1. 上下文感知
+
+同样的"打开那个文件"，在 VS Code 里和 Finder 里指的不是同一个东西。任何阶段的 Router 都必须感知 `active_app + 最近 5 次操作`。这个上下文上线第一天就要采集，否则后面所有路由决策都是瞎子。
+
+### 2. API 优先，GUI 兜底
+
+```text
+Action selection:
+    ├── 有原生 API？→ 直接调用（< 50ms，确定性 100%）
+    ├── 有 URL Scheme / deep link？→ scheme 调用
+    └── 都没有 → GUI 自动化（500-2000ms，非确定性）
+```
+
+UFO 团队的实践经验：能用 AppleScript / Win32 COM / D-Bus 完成的，绝不用 GUI 点击。这条原则月 1 就要立，因为如果你前期所有 tool 都是 GUI 自动化封装的，等到月 6 想换成 API 时，**整个 tool 库都要重写**。
+
+## 总结：这才是 1 个月团队的实施清单
+
+```text
+月 1-2 必做：
+  □ 规则引擎（5-10 条高置信度规则）
+  □ 数据管道（QueryTrace schema + 隐式反馈）
+  □ LLM 调用拆成 "意图分类 → Router → tool"
+  □ 上下文采集（active_app + 操作历史）
+  □ tool 抽象层（API 优先 GUI 兜底的接口）
+
+月 3-4 触发条件达成后做：
+  □ Embedding 缓存（本地模型，LFU 淘汰）
+  □ 规则扩展到 30-50 条（基于真实日志）
+
+月 6+ 触发条件达成后做：
+  □ 微调小模型（DistilBERT / ModernBERT）
+  □ Shadow mode 验证
+  □ 规则自动提议机制
+  □ 完整自进化闭环
+```
+
+四层漏斗是终态，不是起点。**月 1 团队的核心决策不是"要不要上完整架构"，而是"现在该把 1 个月后能加架构的地基打哪些"**。地基打错（比如 LLM 调用没解耦、日志没结构化），后面每一阶段都要付重写代价。
+
+老王的团队最后选了这条路径：第一周补完了 QueryTrace 日志，第二周拆了 LLM 调用，规则只写了 6 条。延迟从 P50 1.6 秒降到 1.2 秒（拆解后并行了一些操作），但更重要的是——他们月 3 想上小模型时，**有干净的 30 万条标注数据**可以直接用。
+
+你的桌面 Agent 现在在哪个阶段？最大的瓶颈是延迟、数据，还是工程人力？欢迎留言讨论。
