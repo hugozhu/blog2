@@ -9,8 +9,9 @@ tags:
 - Rancher
 - K8s
 
+ingested: 2026-05-04
+sha256: 3a1da49346306bf997593468304ff2e4784502e7344576d6f8937a15a9c09a14
 ---
-
 How to use Rancher to manage k8s cluster?
 
 <!--more-->

@@ -3,8 +3,9 @@ title: "Agent 设计最佳实践：Memory"
 subtitle: "从每日日志到向量检索，深入解析 OpenClaw 如何让 AI 真正「记住」你"
 date: 2026-02-28
 tags: ["AI", "AI-agents", "OpenClaw", "memory", "RAG", "embeddings", "vector-database", "architecture"]
+ingested: 2026-05-04
+sha256: ed4ee9765873f90752d4a76c014bb0f9c3a286d943274ca01d60ca356d34f6fa
 ---
-
 想象这样一个场景：你花了半小时向 AI 助手解释你的项目架构、编码偏好和团队规范，得到了一次满意的协作体验。第二天再打开对话——它全忘了。你又得从头来一遍。这不是 AI 不够聪明的问题，而是**记忆架构缺失**的问题。OpenClaw 的 Memory 系统试图从根本上解决这个痛点：让 AI Agent 拥有持久、可检索、可自维护的记忆能力。
 
 <!--more-->

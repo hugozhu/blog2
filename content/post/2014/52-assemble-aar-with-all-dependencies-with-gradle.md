@@ -9,8 +9,9 @@ tags:
 - Android
 
 
+ingested: 2026-05-04
+sha256: dacd743471b569adcd34e7f0e2873c87bee7089cd0844b043b78aecc129810ec
 ---
-
 Android Library项目中如果使用Android Gradle plugin打aar包，通过maven依赖的库，或者是local依赖的aar都不会包含在生成的aar包里，如果项目是发布一个SDK，为了方便开发者使用，我们倾向于生成一个包含所有依赖库以及.so等文件的aar包。
 
 通过反复研究和测试，以下Gradle脚本能满足需求，如果需要对代码运行ProGuard混淆，则需要使用Gradle 2.1

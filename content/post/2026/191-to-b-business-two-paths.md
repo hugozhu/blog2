@@ -3,8 +3,9 @@ title: "To B 的生意只有两种"
 subtitle: "The Two Paths of B2B Business"
 date: 2026-04-27
 tags: ["business-strategy", "b2b", "ai-agent", "saas", "startup", "product-thinking"]
+ingested: 2026-05-04
+sha256: cd5d2da1047a0e62148a606e2ed78e7234108cd6554b2c159f6d5c21d17fd3d2
 ---
-
 上周和两个做 To B 的朋友吃饭，一个在 Salesforce 生态里做 ISV，一个在做面向中小商家的 SaaS。
 
 做 ISV 的朋友说："我们今年的策略很简单，盯住那些已经用 Salesforce 用得很好的大客户，帮他们把最后 10% 的定制化需求补齐。客户预算充足，决策链清晰，签一单够吃半年。"

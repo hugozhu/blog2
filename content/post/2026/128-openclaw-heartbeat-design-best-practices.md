@@ -3,8 +3,9 @@ title: "Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计"
 subtitle: "让 AI 助手主动做事的心跳机制——从被动应答到主动巡检"
 date: 2026-02-28
 tags: ["AI", "AI-agents", "OpenClaw", "architecture", "heartbeat", "self-hosted"]
+ingested: 2026-05-04
+sha256: 38f2368f31f81fc1d4cc80461dd1053e4dc64068cfc55cb3dbf0a46285d39d38
 ---
-
 绝大多数 AI 助手都是被动的——用户不说话，它就沉默。这在"问答"场景下没问题，但如果你想让 AI 助手真正成为助手，它需要**主动意识**：定期检查收件箱有没有紧急邮件、日历上有没有即将到来的会议、GitHub 上有没有需要关注的 PR。OpenClaw 的 Heartbeat（心跳）机制正是为此设计的。本文将深入解析这一设计的工程细节和最佳实践。
 
 <!--more-->

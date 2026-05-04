@@ -8,8 +8,9 @@ categories:
 tags:
 - Android
 
+ingested: 2026-05-04
+sha256: 03d55a46997bbd37d79025bfb78ad068d21491032692b01489f98191ff89ae91
 ---
-
 # 查看日志 adb logcat
 
 下面命令将只显示错误日志，和所有Tag＝mytag的调试日志，-C 会用不同颜色区分不同级别的日志，但只有Android 4.3以后才支持。

@@ -3,8 +3,9 @@ title: 实现docker中的Tailscale做为路由器
 subtitle: Implementing Tailscale as a Router in Docker
 date: 2025-04-28
 tags: ["tailscale", "docker", "hostapd"]
+ingested: 2026-05-04
+sha256: 45d02102c3a3224b258c4621839a8491dabefcf65477682054e1bc6f83107669
 ---
-
 tailscale docker容器做为局域网的网关，前面有介绍用macvlan来实现，这次介绍bridge来实现的方案，适合不允许创建macvlan的机器。
 
 ! docker 28后似乎不行了，不能做为路由器。

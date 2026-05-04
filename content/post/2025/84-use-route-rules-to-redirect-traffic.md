@@ -3,8 +3,9 @@ title: 通过主路由的路由分流策略将异地内网流量转发到docker�
 subtitle: Redirect Traffic to Intranet with Tailscale in OpenWrt Using Route Rules 
 date: 2025-01-24
 tags: ["tailscale", "openwrt", "docker"]
+ingested: 2026-05-04
+sha256: 5bec5163f798f9e4f9dde1f7ea323e99c3754e4e6964862baf1ca1958d2d97ad
 ---
-
 在之前的文章中，我们已经介绍了如何通过 Docker 启动一个内置 Tailscale 的 OpenWrt。本文将进一步介绍如何结合主路由的智能路由策略，将异地内网流量高效转发到这个 OpenWrt 实例中，实现异地内网的无缝互联。
 
 <!--more-->

@@ -3,8 +3,9 @@ title: "上线 1 个月的桌面 Agent，路由架构应该怎么演进？"
 subtitle: "Phased Routing Evolution for a One-Month-Old Desktop Agent"
 date: 2026-04-25
 tags: ["desktop-agent", "intent-classification", "agent-routing", "system-design", "llm-agent"]
+ingested: 2026-05-04
+sha256: 8b790fb78169a4c02eabd69bd83850ad36b91633f9973e7013237a059e8e3d5b
 ---
-
 上周三晚上 11 点，老王给我发消息：他们的桌面 Agent 上线刚满 30 天，DAU 爬到 8000，团队 4 个人。他翻了一周用户行为日志，发现一个反直觉的事实——**用过 3 次以上的用户里，62% 只把它当"自然语言版的快捷启动器"用，真正让它做跨应用编排的不到 13%**。但他们的技术栈正按"复杂编排"在搭：每个 query 直接扔给 GPT-4o 做 function calling，P50 延迟 1.6 秒，P99 干到 3.8 秒。
 
 老王问："我看了你之前那个四层意图漏斗，要不要现在就全套上？团队就 4 个人，老板说三个月内要把日活做到 5 万，怕 over-engineering。"

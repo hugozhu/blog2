@@ -3,8 +3,9 @@ title: "模型和Agent的边界：模型决定上限，Agent决定你能不能�
 subtitle: "别让Agent更像人思考，让系统更像机器可靠执行"
 date: 2026-03-27
 tags: ["AI-agents", "LLM", "架构", "AI"]
+ingested: 2026-05-04
+sha256: 5166a51bc07f848c311d760b7c5ef351478cc74de4497f4c3e7bbc6ad4f6e66d
 ---
-
 每个Agent开发者都绕不过一个灵魂拷问：**模型一直在进化，Agent的价值到底在哪？**
 
 GPT-5比GPT-4强，Claude 4比Claude 3强，Gemini 2比Gemini 1强。模型按周迭代、按月跨代，推理更深、上下文更长、幻觉更少。如果模型本身就在变强，我们在模型之上搭的这一层"Agent"——到底是在创造价值，还是在制造冗余？

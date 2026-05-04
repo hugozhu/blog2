@@ -3,8 +3,9 @@ title: "别再卷模型了：To B Agent 创业，用户反馈才是生死线"
 subtitle: "模型训练已成系统工程，单点突破不再构成壁垒——能替代初级岗位的 Agent 产品，靠场景数据和反馈闭环赢得市场"
 date: 2026-03-23
 tags: ["AI", "AI-agents", "enterprise", "startup", "product", "feedback-loop", "agent-optimization"]
+ingested: 2026-05-04
+sha256: 86ce91b785e2e1586bb89b7c14759466f4aabd54ab70e6b37aaddb6316db52a7
 ---
-
 2026 年，一个事实已经无法忽视：**模型训练不再是一项研究活动，而是一项系统工程。**
 
 预训练需要万卡集群和 PB 级数据管线，强化学习需要奖励模型和 RLHF/DPO 的工程化流水线，推理优化涉及量化、蒸馏、speculative decoding 等一整套工具链，Agent 能力构建则横跨 function calling、长上下文、规划与工具使用的多维调优。任何一个方向的突破，如果不能在其他环节配合落地，就只是一篇论文，不是一个产品。

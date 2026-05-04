@@ -3,8 +3,9 @@ title: "NotebookLM的核心能力与构建之道"
 subtitle: "深入解析Google AI笔记应用的关键技术与实现架构"
 date: 2026-01-03
 tags: ["AI", "LLM", "RAG", "NotebookLM", "Google", "NLP", "TTS", "多模态"]
+ingested: 2026-05-04
+sha256: 203ccbae94407d21e36ceb8872e2d6134f1365f5637e7157243a21f6df3c6f8d
 ---
-
 当Google在2023年推出NotebookLM时，它重新定义了我们与知识交互的方式。这款AI驱动的笔记应用不仅仅是一个文档管理工具，更是一个能够理解、总结、对话和创作的智能助手。那么，NotebookLM究竟具备哪些关键能力？我们如何构建类似的系统？本文将深入剖析其核心技术架构。
 
 <!--more-->

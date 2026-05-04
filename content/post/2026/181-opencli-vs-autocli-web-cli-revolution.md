@@ -3,8 +3,9 @@ title: "OpenCLI vs AutoCLI：把网站变成 CLI 的技术革命"
 subtitle: "Why OpenCLI and AutoCLI Are Reinventing Web Data Access for AI Agents"
 date: 2026-04-18
 tags: ["ai-agent", "web-scraping", "cli-tools", "system-design", "rust"]
+ingested: 2026-05-04
+sha256: 7777b2265924feca9365b27a9569e7a86f6d3303f86391206bdb444660d5eab4
 ---
-
 上周给 DingTalk 的一个内部项目做技术调研，需要从知乎、B站、小红书几个平台拉热榜数据做竞品分析。同事的第一反应是写爬虫——打开 Playwright，找 CSS 选择器，处理登录态，和 Cloudflare 斗智斗勇，折腾了两小时还没跑通。我看了看他的代码，说："换个思路，试试 OpenCLI，`opencli zhihu hot` 一行命令就完了。"
 
 一查这个项目——GitHub 上 16K stars。再看 AutoCLI（OpenCLI 的 Rust 重写版）的性能数据：`bilibili hot` 命令，OpenCLI 要 20 秒，AutoCLI 只要 1.66 秒，**12 倍加速**。

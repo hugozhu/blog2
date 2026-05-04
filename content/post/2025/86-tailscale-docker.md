@@ -3,8 +3,9 @@ title: 最简单的异地组网方案
 subtitle: Use tailscale docker image to simplify networking
 date: 2025-01-26
 tags: ["tailscale", "docker"]
+ingested: 2026-05-04
+sha256: 59a2f68800ab222b2f2ed82c2ef9920ee8e01cd326e60f336422e9fbc1aea8c5
 ---
-
 前面介绍了使用openwrt来跑tailscale，比较合适硬路由，更简单更通用的方法是官方的用tailscale docker镜像来搭建。
 
 <!--more-->

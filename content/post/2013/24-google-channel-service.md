@@ -8,8 +8,9 @@ categories:
 tags:
 - Golang
 
+ingested: 2026-05-04
+sha256: abe91e586164d1c615eca8e6287c39b945959e386403a352fce1c0b797da825e
 ---
-
 前面提到了有关个人网站的[实时在线人数](http://hugozhu.myalert.info/2013/03/27/21-realtime-online-user-counter.html)问题，本文要讨论的是如何自己来实现一个这样的统计服务。因为网站也同时部署在Github上，海外用户访问Github镜像网站的访问日志Pi是拿不到的，这怎么办？
 
 # Google Channel Service

@@ -3,8 +3,9 @@ title: 如何用 AI 将个人网站转化为专业的 Google 求职简历
 subtitle: 利用 AI 工具打造吸引 Google 招聘人员的简历
 date: 2025-12-23
 tags: ["AI", "career", "resume", "Google", "job-search", "prompt-engineering", "LLM"]
+ingested: 2026-05-04
+sha256: c6e2b4c1b8655eb65b4fc90c8205c2c63835d4866abc1f3b911d2d239727b73a
 ---
-
 在科技行业求职，特别是向 Google 这样的顶级科技公司投递简历时，如何将个人网站上丰富的项目经验、技术博客和开源贡献转化为一份专业、精准的简历是关键。传统方式需要手动整理、提炼和格式化，既费时又容易遗漏重点。本文将介绍如何利用 AI 工具，特别是大语言模型（LLM），智能地将个人网站内容转化为符合 Google 招聘标准的专业简历。
 
 <!--more-->

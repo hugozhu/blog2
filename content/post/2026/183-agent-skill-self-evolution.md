@@ -3,8 +3,9 @@ title: "Agent 的 Skill 自进化机制：它是如何自己长记性的"
 subtitle: "How LLM Agents Self-Improve Through Procedural Memory Evolution"
 date: 2026-04-18
 tags: ["ai-agent", "llm", "system-design", "hermes", "skill-management"]
+ingested: 2026-05-04
+sha256: c5225a33e525650b9454624ff566bbf9da274b0afb1eb59e7959862010b4ca34
 ---
-
 昨天我用 Agent 处理一个棘手的部署任务。它第一次跑的时候踩了个坑——少了一步 `docker login`，推送镜像时报错了。Agent 发现问题，自己补上登录步骤，重试后跑通了。
 
 但最让我惊讶的不是它跑通了，而是它**默默更新了自己的操作手册**。

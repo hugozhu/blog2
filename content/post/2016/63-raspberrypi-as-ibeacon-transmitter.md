@@ -9,10 +9,9 @@ tags:
 - Raspberry Pi
 - Bluetooth
 
+ingested: 2026-05-04
+sha256: c7fdf6a3a55e052c7d1e3d4ddc45d20de27446fd02dcd9cc0da5a066b23a3e75
 ---
-
-
-
 iBeacon是apple公司提出的“一种可以让附近手持电子设备检测到的一种新的低功耗、低成本信号传送器”的一套可用于室内定位系统的协议。iBeacon技术通过低功耗蓝牙（BLE），也就是我们所说的智能蓝牙来实现。
 
 <!--more-->

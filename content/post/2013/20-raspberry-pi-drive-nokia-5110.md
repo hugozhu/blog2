@@ -8,11 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: 8e76a52e2608efdd142795445b58cfa247b73833d6bcace521f6bb89bde93365
 ---
-
-
-
-
 Nokia 5110屏比前面介绍过的[1602液晶屏](http://hugozhu.myalert.info/2013/03/23/19-raspberry-pi-drive-1602-lcd.html)功能好很多，淘宝上买价格相差不大（二手5110 12块左右, 全新1602 8块左右），Nokia 5110最少只需要占用4个GPIO引脚：
 
 1. 带蓝色背光

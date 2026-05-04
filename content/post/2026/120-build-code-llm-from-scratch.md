@@ -3,8 +3,9 @@ title: "Step-by-Step 实现一个能编程的大模型"
 subtitle: "从零开始训练一个专注于 Python 代码生成的小型 LLM"
 date: 2026-02-09
 tags: ["LLM", "deep-learning", "python", "transformer", "code-generation", "pytorch"]
+ingested: 2026-05-04
+sha256: e5478c03a6fab93aff0a5db79744a6f9de256ba4450625208fca1b24930546fb
 ---
-
 你是否好奇过 GitHub Copilot、CodeLlama 这些代码生成模型是如何工作的？本文将带你从零开始，一步步实现一个专注于 Python 代码生成的小型语言模型。通过这个项目，你将深入理解 Transformer 架构、代码 tokenization、以及如何让模型学会"写代码"。
 
 <!--more-->

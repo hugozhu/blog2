@@ -8,10 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: d4b5e1c97a210c33c752e786e255c1b9de4c08b089e0dca683e91e0b7fb2ebde
 ---
-
-
-
 # 介绍
 之前买的Raspberry Pi因为要跑[这个网站](http://hugozhu.myalert.info)，不能经常拔下来玩别的，所以又买了一个，这次安装的是[Arch Linux](https://www.archlinux.org)。这个发行版安装好后非常基础，占用的空间也只有600M不到，比较合适已有Linux基础的同学玩。初学者可以玩官方推荐的[Raspbian](http://www.raspbian.org)。
 

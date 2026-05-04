@@ -8,10 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: 72df2b41a203ece2883ee23373f0d3f5eba8b51b9472c16206a6ed01bf078a77
 ---
-
-
-
 树莓派基金会今年推出的新品Raspberry Pi 3已经到手，官方宣传性能比树莓派2代快50%，比树莓派1代快10倍，第一次使用的64位四核处理器（博通BCM2837）配备了ARM Cortex-A53处理器，内置了802.11 b/g/n 2.4GHz WIFI和蓝牙4.1，显卡没变，还是双核VideoCore IV（并不支持4K视频）。CPU升级也对能耗有了更高的要求，官方说法最好是使用5V 2.5A的电源输入（iPad充电器），实测在无外设的情况下，2A的电流输出也可以让Pi 3正常运行。价格和树莓派2也一样，官方售价税前35美金，国内可以在淘宝上买到，238元一枚，[点此购买](https://item.taobao.com/item.htm?spm=a230r.1.14.19.82ysfy&id=527525039334&ns=1&abbucket=18#detail)
 
 ![image](http://ww4.sinaimg.cn/bmiddle/6bc40342jw1f1vev06fbij20rs0hkn2a.jpg)

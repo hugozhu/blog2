@@ -3,8 +3,9 @@ title: 构建可通过IP访问的tailscale的derp relay节点
 subtitle: create ip access derp relay node for tailscale
 date: 2025-01-10
 tags: ["tailscale", "docker", "derper"]
+ingested: 2026-05-04
+sha256: 4e03c8aa94a03555cf7a7ee599aa9419f6b15a37d945519e706b8563c7aa00d5
 ---
-
 虽然tailscale用了很多NAT穿透 [NAT traversal](https://zh.wikipedia.org/zh-cn/NAT%E7%A9%BF%E9%80%8F)技术，但仍然会有不能P2P自连的情况，这时候tailscale就会使用最近的derp节点来建立连接，自建derper可用于加速tailscale网络的连通性能
 
 <!--more-->

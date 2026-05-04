@@ -3,8 +3,9 @@ title: "当 AI Agent 被拉进多个群：会话隔离与 Agent 隔离的生死�
 subtitle: "企业级 Agent Runtime 接入 IM 多群场景下的安全架构设计"
 date: 2026-03-15
 tags: ["AI", "AI-agents", "security", "OpenClaw", "architecture", "IM", "session-management", "best-practices"]
+ingested: 2026-05-04
+sha256: c04f10b0ce74611919b887a69baf23c90a8e13c14fad6430efa843248b11da0d
 ---
-
 把一个 AI Agent 拉进钉钉的多个群，是一件非常容易的事情——群管理员点一下"添加机器人"就完成了。但这也是一件**极其危险的事情**——如果 Agent Runtime 没有做好隔离，你可能正在制造一个企业级的安全事故。
 
 想象这个场景：你的 AI Agent 同时服务于"核心技术架构群"和"外部合作伙伴群"。有人在合作伙伴群里问了一个问题，Agent 的回答中不小心带出了它在架构群里学到的技术方案细节。**信息就这样泄露了，而且没有任何人会收到告警。**

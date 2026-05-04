@@ -3,8 +3,9 @@ title: "AI 时代的企业数字化 = 工作 Agent 化 + 知识 AI Ready 化 + �
 subtitle: "一个简洁的公式，三个可落地的方向，重新定义企业的 AI 转型路径"
 date: 2026-03-11
 tags: ["AI", "AI-agents", "enterprise", "digital-transformation", "CLI", "knowledge-management", "best-practices"]
+ingested: 2026-05-04
+sha256: 8763247be4927045f7b20f24a4e0cd1746f74ae295f64d66f98e97bacf6e09d6
 ---
-
 过去两年，几乎每家企业都在谈"拥抱 AI"。但你去看看大多数企业的 AI 落地项目，会发现一个尴尬的现实：**聊天机器人做了一堆，效率提升约等于零。** 问题出在哪？不是 AI 不够强，而是企业的数字化基座根本不是为 AI 设计的。
 
 我越来越确信一个判断：AI 时代的企业数字化，可以浓缩成一个公式——

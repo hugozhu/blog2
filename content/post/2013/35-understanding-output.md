@@ -8,10 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: cc019e58f347c6de710c49f1a2c6de857738d887ca93c4dc3a7cebe253535327
 ---
-
-
-
 树莓派提供了一个连接头让我们访问CPU的17个GPIO接口，如下图
 
 <img src="https://www.evernote.com/shard/s26/sh/92d52938-5bd9-46a7-9b05-478e9f30f5d7/b29dcc510983784a07472c8282330b30/deep/0/Screenshot%205/14/13%208:51%20PM.png"/>

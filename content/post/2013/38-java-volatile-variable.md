@@ -8,9 +8,9 @@ categories:
 tags:
 - Concurrency
 
+ingested: 2026-05-04
+sha256: a970178ee0ed0bda61fafb38f3271afe20b2d423a09b7d181ac5f842a98f3797
 ---
-
-
 前几天并发编程群里有同学对volatile的用法提出了疑问，刚好我记得Twitter有关实时搜索的这个[PPT](http://2011.lucene-eurocon.org/attachments/0002/8787/Busch_twitter_realtime_search_eurocon_11.pdf)对这个问题解释的很清晰并有一个实际的应用场景，于是周末把这个问题摘录了一些和并发相关的内容如下：
 
 

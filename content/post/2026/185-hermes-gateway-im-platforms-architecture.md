@@ -3,8 +3,9 @@ title: "Agent 如何同时活在钉钉、Telegram、Discord 和微信里？"
 subtitle: "How Hermes Agent Gateway Unifies 18 IM Platforms with a Single Codebase"
 date: 2026-04-19
 tags: ["ai-agent", "system-design", "hermes", "messaging", "gateway", "architecture"]
+ingested: 2026-05-04
+sha256: 713cb9df15bc65033d5e13a2134da5dcc7153bbc0f9381779792684fa1d88aed
 ---
-
 上周团队在规划 Agent 的多渠道接入方案。有人说"每个 IM 写一套 adapter"，有人说"统一用 Webhook 接收然后标准化"。
 
 我打开 Hermes Agent 的代码仓库，`gateway/platforms/` 目录下躺着 **18 个平台适配器**——从 Telegram、Discord 到钉钉、飞书、企业微信、QQ 机器人，甚至还有 iMessage（BlueBubbles）、Signal 和 Home Assistant。

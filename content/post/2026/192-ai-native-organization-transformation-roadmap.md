@@ -3,8 +3,9 @@ title: "企业打造AI原生组织：六维转型模型的落地路径"
 subtitle: "From AI-Enabled to AI-Native: A Practical Roadmap for Enterprise Transformation"
 date: 2026-04-27
 tags: ["ai-native", "organization-design", "digital-transformation", "ai-strategy", "management"]
+ingested: 2026-05-04
+sha256: 587280743cd4492d594047d10123fe56506854002a6d031e0c2d36fa59e9fa06
 ---
-
 上周三，一家头部互联网公司的CTO在季度复盘会上盯着一组数据沉默了整整两分钟。
 
 Q1 的 AI 投入报表显示：工程团队 token 消耗同比增长 400%，人均 AI 工具支出逼近 20 万美元/年——已经和一个高级工程师的人力成本持平。但业务端呢？营收增长 35%，客户满意度提升了 8 个百分点。

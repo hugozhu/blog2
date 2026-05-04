@@ -3,8 +3,9 @@ title: "用 LLM 构建程序化知识系统：记忆、技能与进化"
 subtitle: "从静态 Prompt 到持续生长的数字大脑"
 date: 2026-04-14
 tags: ["ai-agent", "llm", "knowledge-graph", "memory-management", "agent-architecture", "skill-evolution"]
+ingested: 2026-05-04
+sha256: bdc3bb9a08b1bc9eb5befe533cf4b91821ab3383d0aadf0e85416ab7e38206e1
 ---
-
 上周我让 AI Agent 帮我写博客。它干得不错——风格、结构、代码规范都对。因为我之前花了一个下午，让它读完我的 174 篇旧文，把写作风格提炼成了一份可执行的 Skill 文件。
 
 第二天我让它再写一篇，它又对了。第三天，还是对的。到第四天，我发现了一件有意思的事：**它自己改了 Skill 文件**。它在"反模式"列表里新增了一条——"不要用'随着 AI 的发展'开头"——这是前几次我手动纠正过的，但我从来没有明确要求它把这个规则写进去。

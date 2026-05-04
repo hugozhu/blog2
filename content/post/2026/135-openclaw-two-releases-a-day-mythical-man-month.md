@@ -3,8 +3,9 @@ title: "OpenClaw 一天发布两个版本，打破了人月神话法则吗？"
 subtitle: "从 Brooks 定律的正反两面，看 AI Agent 时代的软件工程新范式"
 date: 2026-03-10
 tags: ["AI", "AI-agents", "software-engineering", "OpenClaw", "developer-tools", "best-practices"]
+ingested: 2026-05-04
+sha256: c825bcd224a7765994769c1a46b380ad7dbe5c223c1a3a9805fe5be90ce7e032
 ---
-
 OpenClaw 一天发布了两个版本。消息传开后，有人兴奋地说"AI 时代人月神话终于被打破了"，也有人冷静地问"这真的算打破了吗？"
 
 这个问题值得认真回答。因为它触及的不是某个产品的发布节奏，而是软件工程最根本的规律之一——**加人到底能不能加速交付？** 在 AI Agent 成为新型"开发者"的今天，这条规律是否需要被重新审视？

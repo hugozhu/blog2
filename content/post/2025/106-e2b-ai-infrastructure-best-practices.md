@@ -3,8 +3,9 @@ title: "E2B：构建安全可靠的 AI 代理执行环境最佳实践"
 subtitle: "深入探讨 E2B 云沙箱在 AI 基础设施中的应用与实践"
 date: 2025-12-19
 tags: ["AI", "infrastructure", "E2B", "AI-agents", "sandbox", "code-execution", "devops"]
+ingested: 2026-05-04
+sha256: 225938a8b67163a6c298400dd3ecc69afd72515874c86f5a4a9005f4448a8c10
 ---
-
 当你构建一个能够自主编写和执行代码的 AI 代理时，安全性和隔离性成为了首要考虑的问题。如何让 AI 安全地运行用户或自身生成的代码，而不会影响主系统？E2B（Execute to Build）正是为解决这个问题而生的云沙箱平台。本文将深入探讨 E2B 在 AI 基础设施中的最佳实践。
 
 <!--more-->

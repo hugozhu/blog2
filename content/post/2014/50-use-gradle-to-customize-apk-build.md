@@ -8,10 +8,9 @@ categories:
 tags:
 - Android
 
+ingested: 2026-05-04
+sha256: 68fe03de9e54397b53811b3b8c3f550581054c7fe2eebff9eae64d8b5c655d4f
 ---
-
-
-
 # 背景
 开发一个App一般会生成内测版和正式版，甚至还会有不同渠道的版本，不同版本的配置可能会不一样，比如内测版会需要记录完整的日志。
 

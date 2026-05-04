@@ -8,11 +8,9 @@ categories:
 tags:
 - Android
 
+ingested: 2026-05-04
+sha256: 011d317565e36ebf5e2c35f25ed85f6e4a4d1e76e99373216ec07d3d3579b361
 ---
-
-
-
-
 # Android的线程和内存模型
 
 Android操作系统在boot后，会启动一个Zygote(受精卵)进程，Zygote进程负责创建大部分应用程序进程。Zygote进程启动加载核心程序库和数据结构到内存后会创建一个Dalvik虚拟机（DVM）进程－-SystemServer，此进程会包含大部分的系统服务（包括管理Activity的服务ActivityManagerService），SystemServer初始化后，Zygote进程会侦听本地的socket端口, 等待进一步的指令。当新的app被启动时，Zygote会为这个app创建一个DVM----直接fork出一个子进程，这种架构的好处是同时启动多个App时，多个App进程可以访问共享内存。

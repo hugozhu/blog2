@@ -3,8 +3,9 @@ title: "任何省 Token 的做法都不是大模型的最佳实践"
 subtitle: "别让「省钱思维」毁掉你使用 AI 的上限"
 date: 2026-02-25
 tags: ["AI", "LLM", "best-practice", "prompt-engineering", "thinking"]
+ingested: 2026-05-04
+sha256: 7b77603c46567ce59a991896f3a036008fb00557ce79d11f8de9673351592b1b
 ---
-
 最近看到很多文章在教人如何"省 Token"——压缩 prompt、缩短上下文、用更小的模型替代、砍掉 system prompt……这些技巧看似精明，但我越来越确信一个观点：**任何以省 Token 为目标的做法，都不是大模型的最佳实践。**
 
 这不是因为我不在乎成本。恰恰相反，正是因为我在乎投入产出比，所以我认为"省 Token"是一个错误的优化方向。

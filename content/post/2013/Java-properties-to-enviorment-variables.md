@@ -7,8 +7,9 @@ categories:
 - Blog
 tags:
 - Java
+ingested: 2026-05-04
+sha256: e36f0ce338ae95f0f21ca76e768801ad6af0424c84fcc92b118c5938aff72d56
 ---
-
 ## Overview
 
 在Java程序中使用properties文件很方便，但有时候需要和脚本配合使用时，需要把properties文件内的多个变量转换成环境变量，本文提供一个转换脚本示范：

@@ -9,10 +9,9 @@ tags:
 - Android
 - Gradle
 
+ingested: 2026-05-04
+sha256: eea4e578ee5ba31bb356ea170e5bc10c55129469f4de51b907a238088a5e9998
 ---
-
-
-
 # 问题背景
 
 团队一起在开发一个Android项目，工程师有的使用Eclipse，有个使用Intellij IDEA，有的使用Android Studio。每个人安装的Android SDK build-tools可能都不一样，有的是19.0.3，有的是19.1.0，不同版本的build-tools对Gradle Plugin也有相应的要求，如19.0.3对应的是com.android.tools.build:gradle:0.10.+，19.1.0对应的是com.android.tools.build:gradle:0.12.+，下面是一个典型的build.gradle配置文件。

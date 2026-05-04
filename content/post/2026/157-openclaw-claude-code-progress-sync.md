@@ -3,8 +3,9 @@ title: "OpenClaw + Claude Code 协同：用 Sub-Agent 执行编程任务并实�
 subtitle: "从 stream-json 到钉钉通知，打通 AI 编程任务的全链路可观测性"
 date: 2026-03-28
 tags: ["AI", "AI-agents", "OpenClaw", "Claude-Code", "architecture", "developer-tools", "DingTalk"]
+ingested: 2026-05-04
+sha256: 697b08a17fb7c571bd891f81192fa87c36b9b0f25bb91ba58ed59b39f2821f17
 ---
-
 你在钉钉里对 AI 助手说："帮我写一个博客文章"，然后 Agent 回复"好的"——接下来呢？你等了 3 分钟、5 分钟、10 分钟，不知道它在干什么、进展到哪了、是不是卡住了。这是所有 Agent 系统面临的共同问题：**编程类耗时任务的进度黑洞**。
 
 OpenClaw 通过 Sub-Agent 机制调用 Claude Code 执行编程任务，再借助 `stream-json` 输出格式和一个轻量级的监控脚本，将任务进度实时同步到钉钉。本文完整拆解这套方案的架构设计和实现细节。

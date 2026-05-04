@@ -3,8 +3,9 @@ title: "Agent Context Roaming：桌面Agent与云端Agent协同的理想方式"
 subtitle: "问题不是谁来跑任务，而是上下文能不能跟着人走"
 date: 2026-04-13
 tags: ["ai-agent", "context-roaming", "mcp", "developer-experience", "multi-device"]
+ingested: 2026-05-04
+sha256: 63e2b4c7e88592dbec4125b95624c847a240d44fcf4ebecf8bd21f163d817a67
 ---
-
 上周五晚上，我在公司用 Claude Code 调了一个小时的部署脚本，Agent 帮我定位了问题、改了三个文件、跑通了测试。周六早上我打开家里的笔记本，想继续收尾——打开终端，Claude Code 启动，干干净净，什么都不记得。
 
 我得重新描述问题、重新贴日志、重新解释上下文。那种感觉，就像你跟一个同事讨论了一下午方案，第二天他失忆了。

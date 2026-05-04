@@ -8,8 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: ab9cbdfa07aefdb373344efc8a789eb20e75b32d6755c708c1749aaf2ee94f46
 ---
-
 ## 介绍
 
 首先高清播放器功能只是Raspberry Pi的一个小功能，如果你只需要高清播放功能又不想折腾，那还是买个[山寨的](http://s.taobao.com/search?q=%B8%DF%C7%E5%B2%A5%B7%C5%C6%F7&commend=all&ssid=s5-e&search_type=item&sourceId=tb.index&initiative_id=tbindexz_20130306)的更简单。。。

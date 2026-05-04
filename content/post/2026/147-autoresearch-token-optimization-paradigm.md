@@ -3,8 +3,9 @@ title: "人写规则，Token做实验：从Karpathy的autoresearch看AI应用优
 subtitle: "把人从试错循环中解放出来，用Token一夜跑完500轮实验"
 date: 2026-03-21
 tags: ["AI", "AI-agents", "LLM", "prompt-engineering", "best-practices", "autoresearch"]
+ingested: 2026-05-04
+sha256: 99d9b40cf7a29bc366175b97900b6758899abfe8e89d26012b8c5a0e91af110c
 ---
-
 Karpathy 在 2026 年 3 月开源了 [autoresearch](https://github.com/karpathy/autoresearch)，两周内收获近 5 万 Star。项目本身很简单——让 AI Agent 自动修改 LLM 训练代码、跑实验、看指标、保留好的、丢弃差的，一夜循环 100 轮。但简单的背后藏着一个深刻的范式转移：**在 AI 时代，人的角色从"做实验的人"变成了"设计实验规则的人"，而试错循环本身，交给 Token 去完成。**
 
 这不只是 AI 研究的事。任何可以量化评估、快速迭代的业务场景，都可以套用这个范式。

@@ -9,10 +9,9 @@ tags:
 - Ubuntu
 - Linux
 
+ingested: 2026-05-04
+sha256: a00fe87a8f72ff91399fff6ae329b4dfa5eb8bfcc44184304022bfa4b8a01ccb
 ---
-
-
-
 ## xrdp solution
 ```
 sudo apt-get install xserver-xorg-video-dummy

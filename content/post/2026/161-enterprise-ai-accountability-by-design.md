@@ -3,8 +3,9 @@ title: "企业级 AI 必须设计成出错后可以追责到人"
 subtitle: "从'AI 做的'到'谁让 AI 这么做的'——构建可追责的 AI 系统"
 date: 2026-03-29
 tags: ["AI-agents", "enterprise", "安全", "治理", "架构设计", "accountability"]
+ingested: 2026-05-04
+sha256: 6a25aa1e56689e17939d105856ff7b4cedacd6fb3c327474ad30fb005baecb48
 ---
-
 上周一个真实案例：某电商公司的 AI Agent 自动调整了 2000 个 SKU 的定价策略，导致部分商品以成本价以下售出，一天亏了 80 万。复盘会上，所有人面面相觑——
 
 运营说："我没动过，是 AI 自动调的。"

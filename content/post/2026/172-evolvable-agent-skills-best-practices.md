@@ -3,8 +3,9 @@ title: "让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践"
 subtitle: "Why procedural memory beats static prompts, and how to build skills that improve over time."
 date: 2026-04-10
 tags: ["AI", "AI-agents", "skill-design", "agent-architecture", "知识管理", "最佳实践"]
+ingested: 2026-05-04
+sha256: 85afd2f7b4f7e0fb5abcfd3f416306a94b856173a40923053781a46a2c1c112d
 ---
-
 今天下午我做了一件听起来有点奇怪的事——让 AI 读完了我自己的 174 篇博客，提炼出写作风格，写成了一份可执行的配置文件，然后告诉它："以后每次写文章就按这个标准来，写完还要自己更新它。"
 
 它真的照做了。不仅生成了一份包含六大风格特征、两种文章模板、四个薄弱环节和改进路线图的 Skill 文档，还自动附加了一条"进化协议"——每次使用完毕后检查是否需要更新。

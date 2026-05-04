@@ -3,8 +3,9 @@ title: 通过Tailscale Derp节点的公网和私网IP高性能打通网络
 subtitle: Tailscale Derp Node with public and private IP
 date: 2025-03-18
 tags: ["tailscale", "derp"]
+ingested: 2026-05-04
+sha256: 3a4dc9ab143eeb640ec2fdd571819dbb52f09162453111a1833b03bb0b9210b7
 ---
-
 Tailscale 是一个基于 WireGuard 的零配置 VPN 方案，使用官方 Derp（Distributed Exit Relay Protocol）中继服务器可以轻松穿透 NAT 进行设备互联。但在特定场景下，例如企业内网或跨地域机房互联时，默认的 Derp 可能不是最优解。本文介绍如何通过配置自建 Derp 服务器，使 A 网络解析为内网 IP，B 网络解析为公网 IP，实现高性能互联。
 
 <!--more-->

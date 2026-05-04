@@ -3,8 +3,9 @@ title: "用 Claude Code 从零构建离线记事本 PWA 应用"
 subtitle: "探索如何使用 AI 编程助手逐步开发一个功能完整的渐进式 Web 应用"
 date: 2026-02-03
 tags: ["Claude-Code", "PWA", "JavaScript", "AI-Coding", "Web-Development"]
+ingested: 2026-05-04
+sha256: c7d321941cf091793d1f9b514aebe4d71f39cab409642b350a289fe6dfb44a84
 ---
-
 在 AI 辅助编程的时代,我们如何利用 Claude Code 这样的智能工具来构建一个完整的 Web 应用?本文将详细记录使用 Claude Code 开发一个功能完整的离线记事本 PWA (Progressive Web App) 的全过程,展示 AI 编程助手如何帮助我们快速实现从需求到部署的完整开发流程。
 
 这个项目的特别之处在于:它是一个**零依赖框架**的纯 JavaScript 应用,支持 **Markdown 渲染**和 **JSON 可视化**,并且可以完全**离线工作**。更重要的是,整个开发过程展示了如何与 AI 编程助手高效协作。

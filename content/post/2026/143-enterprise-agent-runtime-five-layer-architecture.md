@@ -3,8 +3,9 @@ title: "构建企业级Agent Runtime：从Skill到Workspace的五层架构"
 subtitle: "Agent 负责规划，Sub-Agent 负责执行，Skill 负责方法，MCP 负责连接，Workspace 负责上下文"
 date: 2026-03-16
 tags: ["AI", "AI-agents", "architecture", "enterprise", "best-practices", "MCP"]
+ingested: 2026-05-04
+sha256: 5a8d164e177a7773bb8be06829c92e02834f5fe16d2eb3a6e2fa33b1629d6d2c
 ---
-
 很多团队对 Agent 的理解还停留在"LLM + Prompt + 几个工具调用"。这种理解能跑通 Demo，但一旦进入企业级场景——多任务并行、多系统集成、多角色协作、安全审计——就会发现：**Agent 系统的核心挑战不是让 LLM 更聪明，而是构建一个可扩展、可治理、可审计的运行时架构。**
 
 Agent 系统本质上在解决五个问题：用户要做什么（Agent）、谁来执行（Sub-Agent）、如何执行（Skill）、从哪里获取数据（MCP）、执行过程的状态存在哪里（Workspace）。这五个问题对应了系统的五个核心层次。

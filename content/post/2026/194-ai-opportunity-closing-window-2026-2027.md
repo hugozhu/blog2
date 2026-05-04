@@ -3,8 +3,9 @@ title: "AI 机会在变少：2026-2027 是最后的关键期"
 subtitle: "The Closing Window of AI Opportunity: Why 2026-2027 Matters Most"
 date: 2026-04-28
 tags: ["ai-trends", "startup", "opportunity-window", "ai-native", "strategy"]
+ingested: 2026-05-04
+sha256: 194bb4a8fff77526bf3702054665a48c3d2c8bc6deba87a2c228e39039cbdec8
 ---
-
 上周和一个刚从大厂出来创业的朋友聊天。他去年还在犹豫要不要做 AI 应用，今年终于下定决心，却发现赛道已经变了：
 
 > "半年前我觉得自己能做一个 AI 写作工具，现在发现 Notion、飞书、钉钉全内置了。半年前我觉得 AI 客服是个机会，现在发现大厂已经把价格打到了几分钱一次调用。我出来晚了？"

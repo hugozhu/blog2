@@ -3,8 +3,9 @@ title: tailscale是事实上的个人弹性云基础网络
 subtitle: Tailscale is the de fact of elastic cloud infrastructure for personal cloud.
 date: 2025-03-27
 tags: ["tailscale", "coredns"]
+ingested: 2026-05-04
+sha256: 772e9c86641d5b106a3d68371b34b6438a49f07759ad14b8f04d6f7798776290
 ---
-
 从软件能力和易用性来说，tailscale已经是事实上的个人弹性云基础网络软件。在这个软件的支撑下，个人智能设备的算力，带宽和网络资源都能被充分利用和挖掘，智能体持续发展，“挖矿”（用知识训练AI，获得相应报酬）将成为职业。
 
 <!--more-->

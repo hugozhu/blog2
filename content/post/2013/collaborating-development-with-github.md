@@ -7,8 +7,9 @@ categories:
 - Blog
 tags:
 - Github
+ingested: 2026-05-04
+sha256: fcdda56e00464e55a27cab5c7a9d1d4fe6f60f5800dd0104c2b231dc9e0c5b7c
 ---
-
 本文大部分内容来自： https://help.github.com/categories/63/articles
 
 Github上合作开发最好的方式是“**Fork + Pull Request**”。比如我最近需要一个静态Blog生成器，市面上有很多Ruby实现的，但我想要一个Go语言的实现，Github上找到了一个 https://github.com/wendal/gor ，测试了一下已有的功能基本能满足了，就用上了。

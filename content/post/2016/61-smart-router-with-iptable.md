@@ -10,10 +10,9 @@ tags:
 - iptables
 
 
+ingested: 2026-05-04
+sha256: 05b63870009d0d8025816a5b7171f4d05d16182d5660f58c4cff3e91a824f73a
 ---
-
-
-
 # 设置步骤
 
 在阿里云中国和美国都购买一个VPS，用同样的操作系统，都安装好 `shadowsocks-libev` ( https://github.com/shadowsocks/shadowsocks-libev )

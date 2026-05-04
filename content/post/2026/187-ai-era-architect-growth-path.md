@@ -3,8 +3,9 @@ title: "AI 时代，校招生如何成为好架构师"
 subtitle: "The AI-Native Architect: A Growth Path for Fresh Graduates"
 date: 2026-04-20
 tags: ["ai-literacy", "career-growth", "system-design", "architecture", "dual-system"]
+ingested: 2026-05-04
+sha256: 9363d1202ee3c0b2b7f3fcc76480e16e5938d6de414347588dbe65c25b6179f7
 ---
-
 上周一个计算机大四学生加我钉钉问："朱老师，我们宿舍最近吵翻了。一个室友说现在 Cursor 能秒写算法题，刷 LeetCode 是浪费时间，应该去学系统设计；另一个说大厂面试还在考八股，老老实实刷题才靠谱。我已经拿了 offer，再过 4 个月入职——我现在应该学什么？"
 
 这个问题很典型。它背后其实藏着一个更深的认知误区——把"写代码"和"做架构"看作两个独立的阶段，仿佛 AI 替代了前者，后者就可以直接上手。

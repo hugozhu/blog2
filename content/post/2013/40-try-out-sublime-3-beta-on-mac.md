@@ -8,8 +8,9 @@ categories:
 tags:
 - Sublime
 
+ingested: 2026-05-04
+sha256: 02f33216d5406f0c85991a648005ecaefa0ffa60bb5b728d79a63fe1b56fc5ad
 ---
-
 <img src="http://www.sublimetext.com/anim/rename2_packed.png" width="540"/>
 
 [Sublime](http://www.sublimetext.com) 是一个相当好用的文本编辑器，界面简洁，功能强大。最近[Sublime 3 Beta](http://www.sublimetext.com/3) 出来了, 体验了一下，发现启动速度比之前快了很多。

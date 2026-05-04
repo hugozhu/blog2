@@ -3,8 +3,9 @@ title: 构建高质量订单文档分类器：智能导流到专业Agent
 subtitle: 从意图识别到精准路由的完整解决方案
 date: 2025-12-20
 tags: ["AI", "LLM", "document-classification", "agent-routing", "NLP", "prompt-engineering", "workflow-automation"]
+ingested: 2026-05-04
+sha256: 73047ecfd006eacbacdaa1e523eb93face08a0793347341ba82df83fcc82bc51
 ---
-
 在现代企业的订单处理流程中，不同类型的订单文档往往需要不同的处理逻辑和专业知识。传统的人工分类方式效率低下且容易出错，而基于规则的自动化系统又难以应对复杂多变的业务场景。本文将介绍如何利用大语言模型（LLM）构建一个高质量的订单文档分类器，实现智能路由到专业Agent的完整解决方案。
 
 <!--more-->

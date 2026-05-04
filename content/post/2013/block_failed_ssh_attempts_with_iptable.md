@@ -9,8 +9,9 @@ tags:
 - Linux
 - Network
 
+ingested: 2026-05-04
+sha256: 85c8ab1446a75559495af3bd13533d7b2913a9005a1c2e2d537d48e74891b11c
 ---
-
 Raspberry Pi整天开着，如果用缺省SSH端口对外开放，就会经常遇到扫描SSH密码的肉鸡。虽然密码不是很简单，但还是感觉很不安全的。
 
 系统的ssh登录日志文件在：/var/log/auth.log，登录失败时会记录以下格式的日志：

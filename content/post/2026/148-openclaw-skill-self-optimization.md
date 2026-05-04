@@ -3,8 +3,9 @@ title: "自我进化的AI助手：OpenClaw如何用Heartbeat实现Skill自动优
 subtitle: "从autoresearch到Agent自闭环优化——执行产生数据，数据驱动优化，优化改善执行"
 date: 2026-03-21
 tags: ["AI", "AI-agents", "OpenClaw", "architecture", "autoresearch", "prompt-engineering", "best-practices"]
+ingested: 2026-05-04
+sha256: e9bdd5e918a875c001d7f3e998451c5cfd273bb9c23fbdf31d88cdb9e37e81c7
 ---
-
 在[上一篇文章](/post/2026/147-autoresearch-token-optimization-paradigm/)中，我从 Karpathy 的 autoresearch 项目提炼了一个范式：**人写规则，Token 做实验**。我们用 AI 客服 Prompt 优化作为案例，验证了这个范式在业务场景中的可行性。但那个方案有一个前提——你需要预先准备评估数据集。
 
 OpenClaw 的场景让我意识到，还有一种更彻底的可能：**Agent 用自己的真实执行数据作为评估信号，在用户无感知的情况下持续自我优化。** 不需要人工标注测试集，不需要离线批处理，每一次真实使用都是一条训练数据。

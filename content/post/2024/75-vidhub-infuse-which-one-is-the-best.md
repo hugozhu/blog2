@@ -9,8 +9,9 @@ tags:
 - VidHub
 - Infuse
 
+ingested: 2026-05-04
+sha256: 15066090ed6114415f20c33e89cc439ec209dff81bf63c50baaf697c19c2acc8
 ---
-
 Compare VidHub vs Infuse
 
 <!--more-->

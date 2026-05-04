@@ -3,8 +3,9 @@ title: "让 Agent 更准确地完成任务，关键不在模型，而在环境"
 subtitle: "干净环境、充足上下文、探索空间、工具能力——Agent 质量的四根支柱"
 date: 2026-03-05
 tags: ["AI", "AI-agents", "best-practices", "architecture", "LLM", "tool-use", "prompt-engineering"]
+ingested: 2026-05-04
+sha256: f78829df74fb09dbd8fd7b519afd1fd189705107ad68bec662378169b5385846
 ---
-
 做了一年多 AI Agent 开发，我逐渐形成了一个核心观点：**让 Agent 更准确更高质量地完成任务，最关键的不是换一个更强的模型，而是给它一个正确的执行环境。**
 
 具体来说，这个"正确的执行环境"包含四个要素：干净的执行环境、充足且正确的上下文、允许自我探索的空间、以及学会使用工具解决问题的能力。

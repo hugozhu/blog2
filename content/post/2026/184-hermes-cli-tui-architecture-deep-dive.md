@@ -3,8 +3,9 @@ title: "解构 Agent CLI：从 React 子进程到 Python 回调的通信协议"
 subtitle: "How Hermes Agent TUI and CLI Communicate with the Agent Loop — Architecture Deep Dive"
 date: 2026-04-19
 tags: ["ai-agent", "system-design", "hermes", "cli", "tui", "json-rpc", "architecture"]
+ingested: 2026-05-04
+sha256: ef0bdec0b3e94a18038ddba145f2126d41ecdb2269a8919082cb8dd8b66a1724
 ---
-
 上周团队在讨论 Agent 产品的交互方案。前端同学主张用 Web UI + WebSocket，理由是现代、可扩展、支持多端。后端同学说那不如直接嵌到现有产品里，用 HTTP REST API。
 
 我打开了我们自己的 Agent 代码仓库，给他们看了两套实现——一套是纯 Python 的同进程架构，另一套是 React + Python 子进程通过 JSON-RPC 通信。

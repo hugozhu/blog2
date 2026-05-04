@@ -8,10 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: efc467f13147fdd67803e00dace535753f60b3f016096f7df06744354d3ae4ab
 ---
-
-
-
 之前用过[tsar](https://github.com/alibaba/tsar)做监控，但没有基于浏览器的图表展示，而且tsar收集数据很频繁，容易写坏SD卡。后来一直用[Xively](https://personal.xively.com) SaaS服务，但因为服务在国外，访问速度一直不尽人意。直到今天早上读到InfoQ的一篇文章才知道了[Prometheus](https://prometheus.io)，看了一下介绍后发现Prometheus的以下特点非常合适在树莓派上部署：
 
 1. 采用Go实现支持，天然支持跨平台，配置相当简单，维护和二次开发的成本小；

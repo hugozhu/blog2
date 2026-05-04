@@ -9,8 +9,9 @@ tags:
 - Gitlab
 - Docker
 
+ingested: 2026-05-04
+sha256: b274db1886e5d401db1df93fde52a1c2a2a780ef72cad9d5b80c3850b9198fbd
 ---
-
 https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
 
 <!--more-->

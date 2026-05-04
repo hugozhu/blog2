@@ -3,8 +3,9 @@ title: "AI 原生产品增长打法：你的预算在烧钱，还是在训练产
 subtitle: "Growth equals how fast your agent gets smarter, not how much you spend on ads"
 date: 2026-04-29
 tags: ["ai-native", "growth", "agent", "product", "rlhf"]
+ingested: 2026-05-04
+sha256: e83aba744b1ae34201f73900ed7c7b78677f8e4c1a69c096470c4460cb2838b0
 ---
-
 两周前，一个做 AI 写作 Agent 的朋友约我吃饭，他刚拿了 A 轮，准备砸 200 万投放抖音和小红书。
 
 我顺嘴问了一句：你们 Agent 的复杂任务成功率是多少？

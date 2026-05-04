@@ -8,10 +8,9 @@ categories:
 tags:
 - Arduino
 
+ingested: 2026-05-04
+sha256: 7d8b21e32f8e4df47f4761233f73c521826e937b42e9ecaccd53ac493e014e3c
 ---
-
-
-
 夏普[GP2Y1010AU0F](http://item.taobao.com/item.htm?spm=a230r.1.14.1.X4yMiN&id=25584528001&_u=oqa3375a)灰尘传感器价格较便宜，能检测出室内空气中的灰尘和烟尘含量。另外还有韩国SYHITECH生产的[DSM501A](http://item.taobao.com/item.htm?spm=a230r.1.14.9.NNhRMO&id=15543884159)粉尘传感器也有类似功能。
 
 

@@ -8,8 +8,9 @@ categories:
 tags:
 - Android
 
+ingested: 2026-05-04
+sha256: dea1eaa79ecfab4933931be22990aa4fe7c591486b3cbc28a6e2223ad495d242
 ---
-
 # 有root权限
 
 ```

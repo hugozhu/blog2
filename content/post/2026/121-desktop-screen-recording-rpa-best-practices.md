@@ -3,8 +3,9 @@ title: "通过桌面录屏实现自动化 RPA 的最佳实践"
 subtitle: "从屏幕录制到 AI 驱动的智能自动化流程构建"
 date: 2026-02-09
 tags: ["RPA", "AI", "automation", "computer-vision", "multimodal", "screen-recording"]
+ingested: 2026-05-04
+sha256: 36d296aa5e85b1d9bf75210a8c81fd9aa7d83392e5b6cc2c0947c71216c5cbbf
 ---
-
 传统的 RPA（Robotic Process Automation）工具通常需要手动编写脚本或使用可视化编排工具，学习成本高且维护困难。随着多模态 AI 的发展，一种新的范式正在兴起：通过录制用户的桌面操作，让 AI 自动理解并复现这些操作。这种方式大大降低了自动化的门槛，让业务人员也能快速构建自动化流程。
 
 <!--more-->

@@ -3,8 +3,9 @@ title: "以前人给 AI 造工具，现在 AI 自己造工具"
 subtitle: "从声明式工具调用到程序化工具调用（PTC），AI Agent 的工具范式正在发生根本性转变"
 date: 2026-03-04
 tags: ["AI", "AI-agents", "tool-use", "PTC", "Claude", "LLM", "architecture"]
+ingested: 2026-05-04
+sha256: 9042dbb80d24927cf3066feb978b650ca0f63c54823257b77276fa039e7266fd
 ---
-
 做 AI Agent 开发这一年多来，我经历了一个认知上的转变：以前的默认思路是"我要给 AI 准备好一切工具，让它去调用"；而现在，越来越多的场景让我意识到——**AI 为了完成任务，会自己造工具**。这不是一个隐喻，而是一个正在发生的技术事实。
 
 <!--more-->

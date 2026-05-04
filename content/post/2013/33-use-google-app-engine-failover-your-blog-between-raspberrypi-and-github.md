@@ -9,9 +9,9 @@ tags:
 - Golang
 - Google App Engine
 
+ingested: 2026-05-04
+sha256: 63f560dd7b22ec1199829603cb45514c52cd68a7b5735d869ac8bc4706c80a7c
 ---
-
-
 # 背景介绍
 [把网站托管在树莓派上](http://hugozhu.myalert.info/2013/02/27/在Pi和Github上搭建自己的个人博客.html)后如果家里停电或是宽带故障，会造成网站中断。本文提供一个免费的解决方案（前提是你需要有自己的一个域名，并由DNSPod解析）
 

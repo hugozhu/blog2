@@ -8,9 +8,9 @@ categories:
 tags:
 - Android
 
+ingested: 2026-05-04
+sha256: a0a59928c9e585bd03f5385c8b688cf8fd86ebb39c87088a4acc6de6017920de
 ---
-
-
 # 安装第三方App方法1
 
 1. 准备一个U盘，注意用FAT格式（Windows能读写就OK）

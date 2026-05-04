@@ -3,8 +3,9 @@ title: "从写代码到定义目标：软件 1.0 到 3.0 的进化论"
 subtitle: "From Code Writing to Goal Setting: The Evolution from Software 1.0 to 3.0"
 date: 2026-04-17
 tags: ["software-engineering", "ai-agent", "paradigm-shift", "software-3.0"]
+ingested: 2026-05-04
+sha256: c0cc4fa7c5eb3020db859a62a32f715831bb8598a3d7171374b61556a3d90d63
 ---
-
 2023 年，你需要写一个爬虫：`requests` 发请求 → 正则解析 HTML → 异常处理 + 重试，300 行代码，每行都是你写的。
 
 2025 年，你告诉 Agent：「把某网站上最近 100 篇文章的标题和链接存到 CSV 里」，它自己写代码、调试、跑通、交付结果。

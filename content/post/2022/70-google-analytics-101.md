@@ -8,8 +8,9 @@ categories:
 tags:
 - Google Analytics
 
+ingested: 2026-05-04
+sha256: bfad3f493a4985ec1b4b0a10782e01e0b5913cfff017eff4e53f6c80cdface0d
 ---
-
 ## Google Analytics 4 简介
 Google Analytics（分析）可帮助您了解人们使用您的 Web、Apple 或 Android 应用的方式。SDK 会自动收集大量事件和用户属性，您也可以定义自定义事件，以便衡量对您的业务有特殊影响的因素。收集到数据后，可通过 Firebase 控制台到信息中心中查看。通过此信息中心，您可以深入、详细地了解您的数据，包括摘要数据（如活跃用户和受众特征）和更详细的数据（如识别您最畅销的商品）。
 

@@ -3,8 +3,9 @@ title: 使用clickhouse来关联查询postgres数据库
 subtitle: Use clickhouse to query postgres database
 date: 2024-09-13
 tags: ["postgres", "clickhouse"]
+ingested: 2026-05-04
+sha256: e0cf34e2971cff789da962a589cf8c08d6ce17eb992f42059755b8fa15e1b598
 ---
-
 在现代数据分析领域，不同的数据库系统各有优点。PostgreSQL（Postgres）因其强大的事务处理和灵活的查询功能而备受欢迎，而ClickHouse则以其超高速的OLAP查询性能著称。虽然Postgres擅长处理关系型数据并提供强大的ACID支持，但在大规模分析查询场景中，ClickHouse显然更具优势。如果我们能在分析过程中将两者结合起来，就能同时利用Postgres的数据管理和ClickHouse的查询性能。
 
 本文将介绍如何通过ClickHouse来关联查询Postgres数据库的数据，实现两种数据库的无缝对接。

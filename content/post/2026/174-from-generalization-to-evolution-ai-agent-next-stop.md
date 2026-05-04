@@ -3,8 +3,9 @@ title: "从泛化到进化：AI Agent 的下一站"
 subtitle: "泛化是空间维度的适应能力，进化是时间维度的适应能力"
 date: 2026-04-11
 tags: ["AI", "AI-agents", "LLM", "self-evolving", "泛化", "进化", "AGI"]
+ingested: 2026-05-04
+sha256: b7658aa1c08da94c386cff088193837a7ffde29c6b76e90bba3e2a406413ae5d
 ---
-
 前几天跟一个做 Agent 平台的朋友聊天，他说了一句让我印象很深的话："我们花了半年调 prompt，好不容易让 Agent 在电商客服场景跑到了 90 分。结果客户说要扩到金融场景，我们一测——40 分都不到。"
 
 我问他打算怎么办。

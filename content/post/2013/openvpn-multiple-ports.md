@@ -9,8 +9,9 @@ tags:
 - Linux
 - VPN
 
+ingested: 2026-05-04
+sha256: 84effad270b4b942b953b0aa1b94f27a64b784ade19d2576ab22bbef945f152f
 ---
-
 Openvpn本身不能设置多个端口，使用iptables可以解决这个问题 （假设openvpn本来56788端口）：
 
     for port in {56780..56787}

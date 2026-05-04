@@ -8,10 +8,9 @@ categories:
 tags:
 - iPad
 
+ingested: 2026-05-04
+sha256: 7a416c72e448f2c9d17377e2af78949f162d2c4927586fbac764a2173a6de80f
 ---
-
-
-
 iPad的创作能力越来越强，直接修改Github上的文件就可以写Blog了，方法是在Github上建一个自动更新网站的Workflow
 
 <!--more-->

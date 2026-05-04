@@ -3,8 +3,9 @@ title: "Workspace + Git + Agent：AI 时代的工作操作系统"
 subtitle: "Everything is file——当所有 AI 工件都是文件，Workspace 的结构设计就是你的竞争力"
 date: 2026-03-06
 tags: ["AI", "AI-agents", "workspace", "git", "architecture", "best-practices", "developer-tools"]
+ingested: 2026-05-04
+sha256: 43c3716bd07ad478ff9ab7d4a257bdaeee6c414a8ec258a579adf3c13fa414eb
 ---
-
 过去一年，我越来越确信一个判断：**AI 时代真正的工作操作系统，不是某个 App，不是某个平台，而是 Workspace + Git + Agent 这个三位一体的组合。**
 
 为什么？因为 AI Agent 的一切——输入、输出、系统提示词、上下文、执行过程、临时生成的代码、图片、文档，甚至应用程序本身——本质上都是文件。既然 everything is file，那么管理这些文件的方式，就决定了你驾驭 AI 的效率和上限。

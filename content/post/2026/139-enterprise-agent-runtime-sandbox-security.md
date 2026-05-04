@@ -3,8 +3,9 @@ title: "企业级 Agent Runtime 的第一道防线：安全沙箱"
 subtitle: "文件系统隔离 + 网络访问隔离——从 macOS Seatbelt 到 Windows AppContainer 的操作系统级安全实践"
 date: 2026-03-15
 tags: ["AI", "AI-agents", "security", "sandbox", "macOS", "Windows", "architecture", "best-practices"]
+ingested: 2026-05-04
+sha256: fbf75ef0d76433094069879d7e4ab1acf914ea3ec39114eb129e66b99d9de33d
 ---
-
 当我们谈论企业级 AI Agent Runtime 时，第一个需要解决的问题不是"模型有多聪明"，而是"Agent 执行的代码有多安全"。一个能读写文件、执行命令、访问网络的 Agent，如果没有安全边界，就是一颗不知道什么时候会爆炸的定时炸弹。
 
 **企业级的 Agent Runtime 首先需要一个安全沙箱：文件系统隔离 + 网络访问隔离。**

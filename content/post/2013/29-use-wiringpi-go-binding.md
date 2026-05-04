@@ -8,8 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: 42b233dd941540bbdb32295e908fc7af9dc2f825531ae794f9b77561bf8de567
 ---
-
 [WiringPi](https://projects.drogon.net/raspberry-pi/wiringpi/)是树莓派上比较好的一个开发库，是用C语言写的。使用cgo，我们可以在Go语言里方便的调用WiringPI的函数，于是我包装了一个[WiringPi-Go](https://github.com/hugozhu/rpi)，目前支持wiringPi的基本功能，硬件SPI协议驱动Nokia 5110屏幕，以及中断，未来还会增加PWM和I2C协议的支持。
 
 下面是一个完整的使用例子，结合了之前的两个电路：[链接1](http://hugozhu.myalert.info/2013/04/08/27-interrupts-with-gpio-pins.html)，[链接2](http://hugozhu.myalert.info/2013/04/05/25-get-spi-working-on-raspberry-pi-spi.html)

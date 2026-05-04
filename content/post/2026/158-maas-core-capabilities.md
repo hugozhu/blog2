@@ -3,8 +3,9 @@ title: "AI的MaaS层最核心的能力：把一个不稳定的概率接口，变
 subtitle: "Model as a Service不是套壳API，而是AI应用从Demo到生产的关键基础设施"
 date: 2026-03-28
 tags: ["AI", "MaaS", "architecture", "LLM", "infrastructure"]
+ingested: 2026-05-04
+sha256: 708a4b993965322a656473aded0664cfbaa0946ff2c68f58fb69f88add983148
 ---
-
 很多人对MaaS（Model as a Service）的理解停留在"套一层API"——把OpenAI的接口包一下，加个Key管理，做个用量统计，就叫MaaS了。如果这就是MaaS的全部，那它确实没什么技术含量，随便一个API Gateway就能干。
 
 但现实是：**几乎所有在生产环境跑AI应用的团队，最终都会自建或依赖一个MaaS层。** 不是因为他们闲，而是因为裸调模型API在生产环境里根本撑不住。

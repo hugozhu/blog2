@@ -3,8 +3,9 @@ title: "AI Test Ready：把 Tauri 应用改造成可被 AI Agent 测试的系统
 subtitle: "Engineering Practices for Making Desktop Apps Testable by AI Agents"
 date: 2026-04-17
 tags: ["ai-testing", "tauri", "agent-engineering", "test-automation", "desktop-app", "observability"]
+ingested: 2026-05-04
+sha256: eb0ff55a8cbd55586ece3dbb674dfd1f931550e03c116e6bd006110c46ae8de1
 ---
-
 上周我让 Claude Code 帮我跑一遍我的 Tauri 笔记应用的回归测试。给它的任务很简单：「新建一条笔记，输入'hello'，保存，重启应用，验证笔记还在」。
 
 它失败了。不是因为应用有 bug，而是因为它根本看不见这个应用——它能启动进程、能截屏，但屏幕里的「新建按钮」对它来说是一团像素；它知道「保存」这个动词，但不知道怎么把这个动词翻译成 IPC 调用；它甚至不知道「重启之后笔记是否还在」这件事该去哪里查证。

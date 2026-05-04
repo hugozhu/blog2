@@ -6,10 +6,9 @@ description: Use Free Google Cloud Service to deliver Github webhook events to D
 categories:
 - Blog
 
+ingested: 2026-05-04
+sha256: d5ce013f38b7fa5082c8a267ce4c6ee3b521ded6213de091afd4cb359826861a
 ---
-
-
-
 本教程使用`Go`语言来实现
 
 ![image](http://static.dingtalk.com/media/lALOAQ6nfSvM5Q_229_43.png)

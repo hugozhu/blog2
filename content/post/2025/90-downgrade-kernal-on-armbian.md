@@ -3,9 +3,9 @@ title: Armbian 内核降级指南：恢复系统正常启动的完整流程
 subtitle: Tailscale Derp Node with public and private IP
 date: 2025-03-18
 tags: ["tailscale", "derp"]
+ingested: 2026-05-04
+sha256: 3cd68ef75bac58eaf88fa9e5a75c95c9ebe68bc1b0870f22ec9a476a8aebef9d
 ---
-
-
 R2S常规apt upgrade升级后重启，系统就启动不了了。怀疑是内核不兼容，把TF卡取出后通过USB转换器插入到树莓派USB口，尝试降级内核后解决了。
 
 <!--more-->

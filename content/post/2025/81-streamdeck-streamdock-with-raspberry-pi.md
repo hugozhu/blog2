@@ -3,8 +3,9 @@ title: StreamPi - 低成本快速响应系统监控工具
 subtitle: the Low-Cost Fast Response System Monitoring Tool
 date: 2025-01-03
 tags: ["streamdeck", "streamdock", "mirabox", "raspberry pi"]
+ingested: 2026-05-04
+sha256: a3acea4246edb1f88eaaea0556fa257a77472037247f90dc6577be76f25fb37f
 ---
-
 在云原生时代，应用的稳定性至关重要。本文将介绍如何利用树莓派和国产StreamDeck 这两个低成本的硬件来灵活监控云原生应用的稳定性，提高运维效率。
 
 本文介绍如何使用Raspberry Pi和Streamdeck，以及Uptime Kuma监控线上系统的稳定性。

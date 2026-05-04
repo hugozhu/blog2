@@ -3,8 +3,9 @@ title: "大模型 Tool Use 准确率可达 99%，但前提是工具足够简单"
 subtitle: "为什么平台服务 Tools 化的最佳实践是写 CLI"
 date: 2026-03-02
 tags: ["AI", "LLM", "tool-use", "CLI", "AI-agents", "architecture", "best-practices"]
+ingested: 2026-05-04
+sha256: 82606a44ff121bcd67f80f7bd6811834285ec34e3c07a04abee497ccf277adb6
 ---
-
 最近在做 Agent 开发时，我发现一个有意思的现象：大模型调用工具的准确率其实可以非常高，达到 99% 甚至更高——但这有一个关键前提：**工具本身要足够简单**。这也解释了一个行业趋势：越来越多的平台服务在做 Tools 化时，选择的路径是写 CLI，而不是暴露复杂的 SDK 或 REST API。
 
 <!--more-->

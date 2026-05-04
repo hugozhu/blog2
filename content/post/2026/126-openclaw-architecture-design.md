@@ -3,8 +3,9 @@ title: "OpenClaw 架构解析：如何构建一个有记忆、有灵魂的个人
 subtitle: "从文件即记忆到多 Agent 协作，深入理解 OpenClaw 的设计哲学"
 date: 2026-02-25
 tags: ["AI", "AI-agents", "OpenClaw", "architecture", "personal-assistant", "self-hosted"]
+ingested: 2026-05-04
+sha256: 539fffac5bda41f5ca263883cfcc1b4771cc6348f7c7db16532d57427bd0b29b
 ---
-
 大多数 AI 助手是无状态的——你关掉窗口，它就忘了你是谁。OpenClaw 试图解决一个更本质的问题：**能不能让 AI 助手像一个真正的助手一样，记住你、理解你、主动帮你？** 经过几周的实际使用，我想分享一下 OpenClaw 的架构设计和背后的思考。
 
 <!--more-->

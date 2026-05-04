@@ -3,8 +3,9 @@ title: 通过wifi热点接入tailscale网络
 subtitle: tailscale to ap
 date: 2025-01-27
 tags: ["tailscale", "docker", "wifi"]
+ingested: 2026-05-04
+sha256: b8cdac71d5fb9b24107b382fc86bc23938ff396f755605fc313796f123de12c2
 ---
-
 tailscale docker容器做为局域网的网关，可以让局域网内的设备无需安装tailscale客户端即可访问tailscale网络内的其他设备。
 提升了便利性，安全性通过局域网访问控制来保障。
 

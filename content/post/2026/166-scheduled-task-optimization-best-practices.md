@@ -3,8 +3,9 @@ title: "当 10 万个定时任务同时敲门：MaaS 平台调度优化实战"
 subtitle: "从整点风暴到分布式调度——平台视角的六个关键策略"
 date: 2026-04-03
 tags: ["定时任务", "MaaS", "distributed-systems", "best-practices", "系统架构", "capacity-planning", "OpenClaw"]
+ingested: 2026-05-04
+sha256: 8034f0a07befeb00e329cd05103eab02665dfcb0c025d3d6cfd3626a3aafbf78
 ---
-
 上周五下午 3 点，告警群炸了：MaaS 层的 GPU 推理集群 QPS 在 60 秒内从 1200 飙到 18000，p99 延迟从 800ms 打到 45 秒，大量请求 429。
 
 排查发现原因很"朴素"——**大约 3 万个 OpenClaw 实例的定时任务都跑在整点**。每个实例可能只有 1-3 个 cron job（数据摘要、定时巡检、报表生成），但所有人的 cron 都写着 `0 * * * *` 或 `0 0 * * *`。三万乘以三，就是整点瞬间涌来的近十万个 LLM 推理请求。

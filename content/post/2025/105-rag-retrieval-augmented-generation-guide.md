@@ -3,8 +3,9 @@ title: "深入理解RAG：检索增强生成技术的原理与实践"
 subtitle: "从零开始构建高效的RAG系统"
 date: 2025-12-19
 tags: ["AI", "RAG", "LLM", "machine-learning", "NLP", "embeddings", "vector-database", "prompt-engineering"]
+ingested: 2026-05-04
+sha256: 1f6f7758897cd4ed2c833390cfe410ea41319b75509de7b41370c2e58a68d558
 ---
-
 在大语言模型(LLM)快速发展的今天，我们面临一个核心挑战：如何让模型能够访问和利用实时、专业或私有的知识？纯粹依赖预训练的模型往往会出现知识过时、幻觉问题，或者无法回答特定领域的问题。这就是检索增强生成(Retrieval-Augmented Generation, RAG)技术应运而生的原因。
 
 RAG通过将外部知识库的检索能力与LLM的生成能力相结合，为这个问题提供了一个优雅的解决方案。它不需要重新训练模型，就能让AI系统访问最新的、特定领域的知识，同时显著降低幻觉问题。本文将深入探讨RAG的核心原理、架构设计以及实际应用中的最佳实践。

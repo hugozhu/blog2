@@ -3,8 +3,9 @@ title: "LLM Agent 上下文压缩算法"
 subtitle: "How Modern LLM Agents Manage Context Windows Without Losing Track of Your Task"
 date: 2026-04-18
 tags: ["ai-agent", "llm", "context-management", "system-design", "hermes"]
+ingested: 2026-05-04
+sha256: 6cca3825fe703336acb6358d7cc69b1710c76318057f0886a815d4e7361b0bb5
 ---
-
 跑了一个长对话 session，agent 帮我重构了一个模块，修了三个 bug，又加了一组测试——最后触发了 context compression，屏幕上显示："Compressed: 347 -> 18 messages (~89,000 tokens saved, 74%)"。
 
 我好奇它是怎么做到的：压缩了 89K tokens 后，agent 继续干活，居然还记得之前改过的文件路径、失败的测试用例、我说过"不要用 `==` 要用 `is` 比较 None"这种细节。

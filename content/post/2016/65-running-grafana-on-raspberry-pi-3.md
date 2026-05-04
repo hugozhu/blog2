@@ -8,8 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: e748efc68010fb5bdbe00e1249cdc258243594b8deac5d0ef4c5f6a5f19a2565
 ---
-
 [Grafana](http://grafana.org)是一个优秀的开源图表系统，支持多种数据源，其中包括
 [InfluxDB](https://influxdata.com)和[Prometheus](http://hugozhu.myalert.info/2016/04/17/64-set-up-monitor-system-with-prometheus-on-raspberry.html)
 

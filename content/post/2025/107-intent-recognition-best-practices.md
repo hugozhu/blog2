@@ -3,8 +3,9 @@ title: "意图识别模块实现的最佳实践"
 subtitle: "构建高效、可扩展的 AI 意图识别系统"
 date: 2025-12-19
 tags: ["AI", "NLP", "intent-recognition", "machine-learning", "LLM", "best-practices"]
+ingested: 2026-05-04
+sha256: 7a54986306ad53f124234d045b93ddef5f9109697a93e93f25b2b921beb6c0b6
 ---
-
 在构建智能对话系统、聊天机器人或语音助手时，意图识别（Intent Recognition）是最核心的组件之一。一个设计良好的意图识别模块不仅能准确理解用户需求，还能随着业务发展灵活扩展。本文将深入探讨意图识别模块实现的最佳实践，帮助你构建生产级的意图识别系统。
 
 <!--more-->

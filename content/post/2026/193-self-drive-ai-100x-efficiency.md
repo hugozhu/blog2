@@ -3,8 +3,9 @@ title: "自驱力 × AI = 100倍效率：AI原生组织的人性博弈"
 subtitle: "When Self-Drive Meets AI Amplifier: The 100x Efficiency Equation"
 date: 2026-04-28
 tags: ["ai-native-organization", "self-drive", "efficiency", "management", "human-nature"]
+ingested: 2026-05-04
+sha256: 9fc3fcb8e939e21868c449089cbdfbe5672f2025b54c8b257baaebc735a40df1
 ---
-
 上周和一个做 AI 创业的朋友吃饭，他说了这样一段话：
 
 > "当一个 3.75 的同学收到超预期的即时奖励时，他爆发出来的效率是 10 倍的提高。再加上 AI 这个放大器，一个人绝对有可能达到 100 倍的效率提升。"

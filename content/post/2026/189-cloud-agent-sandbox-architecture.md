@@ -3,8 +3,9 @@ title: "云端大规模 Agent 沙箱：多租户隔离、持久化、弹性调�
 subtitle: "Cloud-Scale Agent Sandbox Architecture: Isolation, Persistence, Elasticity, and Compliance"
 date: 2026-04-24
 tags: ["agent-sandbox", "multi-tenant", "system-design", "cloud-native", "security"]
+ingested: 2026-05-04
+sha256: 8af88c0f7a0c0471ba2c22344f5ed1f70b4857e49ad4d690f41ff6ba6ceeb060
 ---
-
 上周，一个做 AI 编程助手平台的架构师朋友找我喝咖啡。他们的产品增长很快，企业客户越来越多，但工程团队正被四个问题折磨得焦头烂额：
 
 > "我们最初用 Docker 给每个用户起一个容器做代码执行沙箱，几十个人跑没问题。现在上千并发，问题全暴露了——

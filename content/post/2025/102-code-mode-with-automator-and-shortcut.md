@@ -3,9 +3,9 @@ title: 在Mac上用AppleScript一键排列窗口：打造高效副屏工作区
 subtitle: Arrange Windows with One Click Using AppleScript on Mac.
 date: 2025-04-15
 tags: ["AppleScript", "shortcuts"]
+ingested: 2026-05-04
+sha256: a8950c9866699f20aff0f5d07ac5bdc46fd8973466071df0ef469ebd053bb773
 ---
-
-
 很多开发者在使用外接显示器时，希望可以快速恢复特定窗口布局，比如：将 `Cursor` 和 `iTerm2` 按照一定比例排列在副屏上。手动拖动窗口太麻烦？让我们用一段 AppleScript 自动化搞定它。
 
 <!--more-->

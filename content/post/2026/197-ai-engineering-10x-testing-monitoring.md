@@ -3,8 +3,9 @@ title: AI 工程的 10X 生产力，藏在测试和监控里
 subtitle: Why Testing and Monitoring Are the Real Multipliers in AI Engineering
 date: 2026-05-02
 tags: [ai-engineering, testing, monitoring, fault-recovery, system-governance, data-compliance, llm-ops]
+ingested: 2026-05-04
+sha256: 126684f31a648a64fc67febf7fda22658345078f7e994abb6770693f20faa0a3
 ---
-
 上周，隔壁组的小天在周会上很兴奋："用 Cursor 一天写了 3000 行代码，这周迭代速度提升了一倍！"
 
 同一周，他的服务触发了 4 次线上告警。

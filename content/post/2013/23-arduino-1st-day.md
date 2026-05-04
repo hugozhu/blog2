@@ -8,8 +8,9 @@ categories:
 tags:
 - Arduino
 
+ingested: 2026-05-04
+sha256: 3c5671da577b2f0dcedb87c58a7d371dd73b585daa95eb13d1c496248e5bfed6
 ---
-
 今天拿到一块Arduino UNO R3板，迫不及待就开始试用了。相比Raspberry Pi是一个全能的电脑，Arduino则是个硬件开源的单片机，因为开源，资料和配件网上就很很多了，也就容易让初学者上手了。
 
 Arduino特点:

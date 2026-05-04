@@ -3,8 +3,9 @@ title: 使用Apache Seatunnel跨境（低带宽丢包率高网络）同步postgr
 subtitle: sync postgres dataa cross-border with apache seatunnel
 date: 2024-09-13
 tags: ["postgres", "Seatunnel"]
+ingested: 2026-05-04
+sha256: 7a9993a7b0ad7a9fbe78c4b052d0baf810c58dac5189dacb94b4e83073348c1a
 ---
-
 将杭州的一张表每天定时增量同步一次到新加坡的同一张表，如何稳定可靠的解决问题呢？
 
 首先这个场景不需要准时同步，所以并不考虑CDC方案，postgres内置的复制功能对网络要求比较高，容错性不够好。查阅资料后决定尝试下 Seatunnel: https://seatunnel.apache.org/ 过程比较简单，2个小时内完成了任务，中间遇到了字段格式的问题，花了点时间找解决方案， 但最终达到了预期的效果。

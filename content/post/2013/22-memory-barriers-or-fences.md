@@ -10,8 +10,9 @@ tags:
 - Concurrent Programming
 - 文章翻译
 
+ingested: 2026-05-04
+sha256: 883b87856b51f0d0d3e954c2a45b057345b799cd9e7785faa4da43688dabec9b
 ---
-
 原文地址：[`http://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html`](http://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html) 或 [`http://ifeve.com/memory-barriersfences/`](http://ifeve.com/memory-barriersfences/)
 
 关键词：Load Barrier, Store Barrier, Full Barrier

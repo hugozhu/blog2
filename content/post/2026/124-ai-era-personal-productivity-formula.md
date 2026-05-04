@@ -3,8 +3,9 @@ title: "AI时代的个人生产力公式：思考深度 × 资源调度广度"
 subtitle: "每天用光可支配的 token，衡量个人产出是否在不断提升"
 date: 2026-02-25
 tags: ["AI", "productivity", "LLM", "thinking", "personal-growth"]
+ingested: 2026-05-04
+sha256: 03dc533ccae6df72dcdec20440d42c1d13deac910793af37e241a756c2648a01
 ---
-
 最近我一直在思考一个问题：在 AI 时代，个人生产力的本质到底是什么？经过大半年高强度使用各类 AI 工具的实践，我得出了一个公式：
 
 **个人生产力 = 思考深度 × 资源调度广度**

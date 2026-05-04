@@ -3,9 +3,9 @@ title: Tailscale Exit Node
 subtitle: Tailscale Exit Node
 date: 2025-03-12
 tags: ["tailscale", "docker"]
+ingested: 2026-05-04
+sha256: 09f8225000b0ad7d42ce60590477d3ede74d6c548e1992544b43f79dbe04416f
 ---
-
-
 [Tailscale](https://tailscale.com/) 是基于 WireGuard 的零配置 VPN 解决方案，可以轻松创建私有网络，让设备之间实现安全连接。而 **Exit Node（出口节点）** 功能允许你将某台设备作为所有流量的出口，就像 VPN 一样，帮助你绕过网络限制或访问受地理位置限制的内容。
 
 <!--more-->

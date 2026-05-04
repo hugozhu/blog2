@@ -3,8 +3,9 @@ title: "AI Agent 架构的终局，是 Unix 哲学的回归"
 subtitle: "Skill CLI = Unix Command，Agent Workspace = Unix Filesystem——我们正在重新发明 Unix"
 date: 2026-03-15
 tags: ["AI", "AI-agents", "Unix", "architecture", "CLI", "workspace", "best-practices"]
+ingested: 2026-05-04
+sha256: 8caa926eee0c858c6ccf1f2546d14abc56246224fb7bb7e5d805a19311d1aec5
 ---
-
 最近在梳理各种 AI Agent 框架和 Runtime 的架构时，我产生了一个越来越强烈的感觉：**我们正在重新发明 Unix。**
 
 不是比喻。是字面意义上的重新发明。当你把今天主流的 Agent 架构摊开来看——Skill、Workspace、Tool、Pipeline、Orchestrator——你会发现，这些概念和 50 年前 Unix 的设计哲学几乎一一对应。区别只是换了一层 AI 的皮。

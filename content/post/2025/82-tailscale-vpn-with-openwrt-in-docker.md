@@ -3,8 +3,9 @@ title: 使用tailscale+openwrt+docker+macvlan将异地两机房组成一个局�
 subtitle: build intranet with tailscale and openwrt
 date: 2025-01-04
 tags: ["tailscale", "openwrt", "docker"]
+ingested: 2026-05-04
+sha256: 357bfdcef1a9314dad80888ecdf32302b3f1c2c4a364fefbe46314252e716c28
 ---
-
 在现代网络环境中，将位于不同地理位置的两个数据中心组成一个虚拟局域网，可以有效提升资源共享和管理效率。本文将介绍如何在 Docker 中使用 macvlan 网络模式安装 OpenWrt，并通过 Tailscale 实现异地数据中心的互联。
 
 <!--more-->

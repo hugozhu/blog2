@@ -8,8 +8,9 @@ categories:
 tags:
 - Rasperry Pi
 
+ingested: 2026-05-04
+sha256: e073ed179ac0890ceb55813de1ee7a9aa10b4d4fdeb5099bf0b2b1f0e0062884
 ---
-
 树莓派的操作系统安装在SD卡，使用一段时间后还是很有必要备份一下，以防哪天SD卡就坏了。
 
 备份的目的地最方便的还是使用网络存储，我使用的是西部数据的[MyBooklive](http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.Cz5Mlq&id=13865367896&is_b=1&cat_id=50099232&q=mybooklive&rn=638aa11bdda81f8d589bb0e052c57187)3T网络硬盘。挺不错的一个产品，功能基本满足我的需求。

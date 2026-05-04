@@ -8,8 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: 7fa79c389a603275c69e697cef57caa36b25ecb9090464e23dbe210ff017bcb9
 ---
-
 ![image](http://static.dingtalk.com/media/lALOAQ6nfSvM5Q_229_43.png)
 
 钉钉是阿里巴巴专为中小企业和团队打造的沟通、协同的多端平台，钉钉开放平台旨在为企业提供更为丰富的办公协同解决方案。通过钉钉开放平台，企业或第三方合作伙伴可以帮助企业快速、低成本的实现高质量的移动微应用，实现生产、管理、协作、运营的移动化。

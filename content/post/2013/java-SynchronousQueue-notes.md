@@ -9,8 +9,9 @@ tags:
 - Java
 - Concurrent Programming
 
+ingested: 2026-05-04
+sha256: 1d5431cefad686b2eeefe0aa6f121796bb7c455dd9356700f37207991a9c8947
 ---
-
 ## 介绍
 
 Java 6的并发编程包中的[SynchronousQueue](http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/SynchronousQueue.html)是一个没有数据缓冲的[BlockingQueue](http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/BlockingQueue.html)，生产者线程对其的插入操作put必须等待消费者的移除操作take，反过来也一样。

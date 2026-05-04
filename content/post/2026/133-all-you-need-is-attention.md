@@ -3,8 +3,9 @@ title: "Attention is All You Need：专注力才是人和大模型共同的底�
 subtitle: "Google 那篇论文改变了 AI，但它揭示的道理对人同样成立"
 date: 2026-03-05
 tags: ["AI", "transformer", "attention", "personal-growth", "deep-learning", "thinking"]
+ingested: 2026-05-04
+sha256: aefca4c74c800e932d7ca1fc10d406d0bf37d3e6dc6c1c9002e855382c39e2a1
 ---
-
 2017 年，Google 发表了那篇改变世界的论文——*"Attention Is All You Need"*。八位作者可能没想到，这篇论文不仅催生了 GPT、Claude、Gemini 等一系列大模型，也在某种意义上揭示了一个关于人类自身的深刻隐喻：**不论是大模型还是人，决定产出质量的底层机制都是注意力（Attention）。**
 
 专注力是人做事质量和效率的基础。这不是心灵鸡汤，而是一个可以从技术原理出发、严肃论证的观点。

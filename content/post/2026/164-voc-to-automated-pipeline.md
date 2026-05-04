@@ -4,8 +4,9 @@ subtitle: "从原始用户声音到产品 Backlog，一套可落地的端到端�
 date: 2026-03-31
 tags: ["AI", "VOC", "automation", "product", "agent", "enterprise", "tutorial"]
 categories: ["AI Engineering"]
+ingested: 2026-05-04
+sha256: 21ecb49c701281e5b4b62bf93a30e25a35f4154c33763b8e5b9b3dadd56bc0b0
 ---
-
 每家公司都说"以用户为中心"，但 90% 的用户声音（Voice of Customer, VOC）最终的归宿是——躺在某个 Excel 表里，等着某个产品经理"有空的时候"去翻一翻。
 
 问题不是团队不重视用户反馈。问题是：**从原始反馈到可执行的产品动作之间，隔着太多手工活。** 收集、清洗、分类、归因、优先级排序、写进 Backlog——每一步都在消耗人的精力，而人的精力是有限的。

@@ -3,8 +3,9 @@ title: "同一个生意做了四遍：从搜索到Agent，万物皆排序"
 subtitle: "搜索、广告、推荐、Agent——四代系统的底层逻辑和商业本质，从未改变"
 date: 2026-03-30
 tags: ["AI", "AI-agents", "architecture", "search", "recommendation", "advertising", "思考"]
+ingested: 2026-05-04
+sha256: 99adba9f18a3529970af32ab0c471462f14b2ceb0eed4aea5571412fcdc4293f
 ---
-
 如果你在过去二十年里分别做过搜索引擎、广告系统、推荐系统，再到今天做AI Agent，你可能会有一个越来越强烈的感觉：**这不就是同一个生意吗？**
 
 表面上看，Google做搜索、Meta做广告、抖音做推荐、OpenAI做Agent，四个完全不同的产品形态，四个不同的技术栈，甚至四个不同的行业叙事。但如果你把外壳剥掉，盯着底层看，会发现一个令人不安的事实：**这四代系统的核心逻辑，从来没有变过。**

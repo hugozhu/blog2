@@ -3,8 +3,9 @@ title: "OpenClaw使用远程浏览器——让AI读懂你的个性化互联网"
 subtitle: "通过Tailscale + autossh，将Ubuntu桌面浏览器变成AI的眼睛"
 date: 2026-03-22
 tags: ["AI", "OpenClaw", "Tailscale", "Raspberry-Pi", "browser", "infrastructure"]
+ingested: 2026-05-04
+sha256: 98d188f756371ec0efd3d714c12c8f0e7b84f7db9c16db5ca57857c10167666b
 ---
-
 AI Agent 能搜索、能总结、能写代码，但有一件事它做不好：**读你的互联网**。你的 Twitter Timeline、你的 YouTube 推荐、你的 Hacker News 首页——这些个性化内容藏在登录态背后，普通的 API 调用拿不到。
 
 OpenClaw 的远程浏览器方案解决了这个问题：在一台带桌面的 Ubuntu 服务器上运行真实浏览器，保存各大网站的登录信息，然后通过网络让 AI Agent 直接操控这个浏览器。AI 看到的就是你看到的。

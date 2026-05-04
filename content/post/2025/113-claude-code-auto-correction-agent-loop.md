@@ -3,8 +3,9 @@ title: "Claude Code自动修正生成代码的原理解析：Agent Loop最佳实
 subtitle: "深入理解AI代码助手如何通过反馈循环实现自我修正与持续优化"
 date: 2025-12-24
 tags: ["AI", "claude-code", "agent-loop", "LLM", "code-generation", "prompt-engineering", "best-practices", "AI-agents"]
+ingested: 2026-05-04
+sha256: f74988b4acddb332222dbdbc4cafb3fb338c87046906bf2f0f0e05745399a9ed
 ---
-
 在AI辅助编程的时代，Claude Code等智能代码助手已经成为开发者的得力助手。但你是否好奇过：为什么Claude Code能够自动发现并修正生成代码中的错误？这背后的"Agent Loop"机制究竟是如何工作的？本文将深入剖析Claude Code的自动修正原理，并分享Agent Loop的最佳实践。
 
 <!--more-->

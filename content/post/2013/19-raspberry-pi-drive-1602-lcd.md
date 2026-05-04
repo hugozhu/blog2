@@ -8,10 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: 2925b4166a73c71dd65762b0eb36a293fc4a57f177f95c639b6a233235e9be5b
 ---
-
-
-
 # 硬件准备
 
 需要以下硬件：

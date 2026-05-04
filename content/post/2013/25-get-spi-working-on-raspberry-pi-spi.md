@@ -8,8 +8,9 @@ categories:
 tags:
 - Rasperry Pi
 
+ingested: 2026-05-04
+sha256: 2f6874fde298e7d6498d434294e883b79450fd48014ad5c5f99be085b70e2299
 ---
-
 # 什么是SPI
 SPI (Serial Peripheral Interface)，是一种高速，全双工，同步的通信总线协议，基于SPI的设备需要4根线：
 

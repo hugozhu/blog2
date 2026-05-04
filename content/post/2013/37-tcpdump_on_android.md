@@ -8,8 +8,9 @@ categories:
 tags:
 - Android
 
+ingested: 2026-05-04
+sha256: 9ed25e3419fe5bde173b8c0a76f1606a1cd6588c4710272551337de2f8dce60a
 ---
-
 tcpdump工具是分析网络协议和数据包的利器，也可以在Android上使用（需要root）。
 
 首先在android上安装tcpdump

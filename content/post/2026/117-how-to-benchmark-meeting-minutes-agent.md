@@ -3,8 +3,9 @@ title: "如何对会议纪要 Agent 进行 Benchmark？完整指南与实践"
 subtitle: "从评估指标设计到自动化测试的全流程实战"
 date: 2026-01-07
 tags: ["AI", "LLM", "benchmark", "meeting-minutes", "AI-agents", "evaluation", "NLP"]
+ingested: 2026-05-04
+sha256: 990f7931d67cbf07edb2cfa6f7eeba1bb9b0c5e5e7430f1039676478b9e176b1
 ---
-
 在 AI Agent 应用日益普及的今天,会议纪要生成是最常见的落地场景之一。然而,如何科学地评估一个会议纪要 Agent 的性能,却是许多开发者面临的难题。本文将详细介绍如何构建一个完整的 benchmark 体系,包括评估维度设计、数据集准备、指标计算和自动化测试流程。
 
 <!--more-->

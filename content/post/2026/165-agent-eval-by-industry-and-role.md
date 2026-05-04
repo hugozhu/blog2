@@ -3,8 +3,9 @@ title: "别用同一把尺子量所有 Agent：按行业和岗位设计评测体
 subtitle: "通用任务型 Agent 评测的核心矛盾——以及一套可落地的分层评测框架设计"
 date: 2026-03-31
 tags: ["AI-agents", "evaluation", "benchmark", "enterprise", "Agent评测", "product"]
+ingested: 2026-05-04
+sha256: f91508a0b1625d38e1b4ab9d518cd1b90158f4db002af0284b44521e8872b007
 ---
-
 上个月参加一个 Agent 产品的内部评审，产品经理拿出一张 benchmark 表格：准确率 92%、响应时间 1.2 秒、幻觉率 3%。数字很漂亮，领导很满意。
 
 然后我问了一个问题：**"这个 92% 的准确率，是在什么任务上测的？"**

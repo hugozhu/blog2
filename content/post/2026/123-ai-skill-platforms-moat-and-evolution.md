@@ -3,8 +3,9 @@ title: "Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的�
 subtitle: "当 AI 平台的护城河不再是技术本身，而是生态、用户规模和沉淀下来的数据"
 date: 2026-02-22
 tags: ["AI", "LLM", "AI-agents", "Manus", "Lovable", "Dify", "Coze", "AI-platform", "skills"]
+ingested: 2026-05-04
+sha256: 61832858f534007804edf892599bdc0c131e42d418349e883e63f482cb010c7e
 ---
-
 2025 年以来，AI 应用层出现了一波令人眼花缭乱的平台：Manus 主打通用 AI Agent，Lovable 专注 AI 驱动的应用生成，Dify 提供 LLM 应用编排框架，Coze（扣子）让用户可以可视化地构建 AI Bot。它们看起来各有侧重，产品形态也不尽相同，但如果你退后一步观察，会发现它们在做的事情本质上是一样的——**为大模型开发 Skills**。
 
 <!--more-->

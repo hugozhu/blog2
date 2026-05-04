@@ -3,8 +3,9 @@ title: 用coredns做为主DNS解析内网的短域名
 subtitle: Use Coredns to Resolve Short DNS Name
 date: 2025-01-24
 tags: ["coredns", "dns"]
+ingested: 2026-05-04
+sha256: 7af16c26ceb00535818d4b86501f355f4a8ddbf3d928b0398a7629c3baf10bae
 ---
-
 在内网环境中，我们常常需要使用简单易记的短域名，而不是一些严格符合域名规范的全域名。通过CoreDNS，我们可以实现对短域名的自动解析，使内网运营更加高效和便捷。这篇文章将记录如何配置CoreDNS来支持这一功能。
 
 <!--more-->

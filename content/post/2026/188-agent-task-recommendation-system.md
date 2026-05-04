@@ -3,8 +3,9 @@ title: "能做事的 Agent，需要一个推荐系统"
 subtitle: "Building a Task-Model-Sandbox Recommendation Engine for AI Agents"
 date: 2026-04-23
 tags: ["llm-agent", "recommendation-system", "system-design", "task-routing", "ai-engineering"]
+ingested: 2026-05-04
+sha256: 99af26208a98d6c9421f31586fe071ffef07f0485fba1fead3c0454b80cd7bcf
 ---
-
 上周团队里的某同事给他的 AI Agent 加了一个"帮我总结这个网页"的功能。用户发一个 URL，Agent 自动打开、提取内容、生成摘要。听起来很简单对吧？
 
 结果上线第一天就翻车了。

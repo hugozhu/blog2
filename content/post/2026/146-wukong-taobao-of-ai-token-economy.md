@@ -3,8 +3,9 @@ title: "悟空是AI时代的淘宝：Token消费的多快好省"
 subtitle: "Agent工程的终极目标，是对模型Token消耗的多快好省优化"
 date: 2026-03-20
 tags: ["AI", "AI-agents", "LLM", "architecture", "token-optimization", "best-practices"]
+ingested: 2026-05-04
+sha256: 860d99f6f6dac1856c771d0c481a910703376b1d598d2a47b7665300b7b85046
 ---
-
 1962年，一位伟人为中国工业发展题写了"鼓足干劲，力争上游，多快好省地建设社会主义"。六十多年后，当我们审视AI Agent工程的核心挑战时，会发现一个惊人的对称：**Agent工程的终极优化目标，本质上就是对模型Token消耗的"多快好省"。**
 
 淘宝用十五年把"多快好省"刻进了中国零售的DNA——商品要多、物流要快、品质要好、价格要省。而今天的AI Agent Runtime，正在用同一套逻辑重塑Token消费——模型类型要**多**、响应速度要**快**、完成效果要**好**、使用成本要**省**。

@@ -3,8 +3,9 @@ title: Clawdbot：运行在你自己设备上的个人AI助手
 subtitle: 支持多平台消息通道，本地优先的AI助手框架
 date: 2026-01-27
 tags: ["AI", "chatbot", "personal-assistant", "Node.js", "typescript", "claude", "openai"]
+ingested: 2026-05-04
+sha256: 955032a626a6b75d4fc5cfb44d5cf63182a6cadb286e903642e870ed7e3f20eb
 ---
-
 在AI助手日益普及的今天，我们往往需要依赖云端服务来使用这些智能工具。但如果你想要一个完全由自己控制、运行在本地的AI助手呢？今天要介绍的 **Clawdbot** 就是这样一个开源项目——一个真正属于你的个人AI助手。
 
 <!--more-->

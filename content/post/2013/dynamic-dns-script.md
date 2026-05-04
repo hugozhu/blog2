@@ -8,8 +8,9 @@ categories:
 tags:
 - Linux
 - Network
+ingested: 2026-05-04
+sha256: 160e4084711802f01250932cbcd2b86205c550ea23cbede0b5a20d8667109b5a
 ---
-
 动态根据宽带public ip更新dnspod登记的域名
 -------------------------------------
 按照 https://gist.github.com/833369 逻辑重新用Go实现了，用更少的内存开销在Raspberry Pi上跑。

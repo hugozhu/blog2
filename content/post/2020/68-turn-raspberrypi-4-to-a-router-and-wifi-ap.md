@@ -8,9 +8,9 @@ categories:
 tags:
 - Raspberry Pi
 
+ingested: 2026-05-04
+sha256: d978da7e2fdab1ebffefc5714ee285ab42f0a6df114b0172eac9575c06129987
 ---
-
-
 树莓派4的性能非常好，内置千兆网卡和AC无线，非常合适做路由器和热点，加上USB 3.0的接口，做NAS也绰绰有余。
 
 <!--more-->

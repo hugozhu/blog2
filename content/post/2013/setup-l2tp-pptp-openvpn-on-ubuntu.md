@@ -8,8 +8,9 @@ categories:
 tags:
 - VPN
 
+ingested: 2026-05-04
+sha256: 7b332845ce2da42ec6018fafb3996eaecedda6ed5cad5444b8740fa9c57b1971
 ---
-
 ## Overview
 
 MacOS, Windows, iOS都内置支持PPTP，L2TP；OpenVPN需要安装客户端，手机上一般不支持。

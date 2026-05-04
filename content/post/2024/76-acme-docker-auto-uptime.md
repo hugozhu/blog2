@@ -7,8 +7,9 @@ tags:
 - docker
 - acme.sh
 - dnspod
+ingested: 2026-05-04
+sha256: aa55fb8f93878db982ec660c0f5cf434bded3b37194a67ddf89091ccf119a15b
 ---
-
 ## 问题和解决方案
 1. 免费域名证书需要三个月更新一次
 2. 解决方案：apisix, docker, acme.sh, dnspod

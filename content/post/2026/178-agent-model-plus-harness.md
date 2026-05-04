@@ -3,8 +3,9 @@ title: "Agent = Model + Harness：从 Anthropic Managed Agents 看 Agent 架构�
 subtitle: "Why Agent Architecture is About Stable Interfaces, Not Just Better Models"
 date: 2026-04-16
 tags: ["ai-agents", "agent-loop", "system-architecture", "anthropic", "LLM", "managed-agents", "harness-design", "context-engineering"]
+ingested: 2026-05-04
+sha256: 374b09b9d7f02c46a23896db9ae86df37d21fb6a437d5990097763108608dd13
 ---
-
 如果把 Agent 拆解成一个公式，最简单的表达就是：
 
 **Agent = Model + Harness**

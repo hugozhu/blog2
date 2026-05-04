@@ -3,8 +3,9 @@ title: "LLM 押注在 Coding Agent 上是正确的"
 subtitle: "当每个人都能写代码，IT 系统的瓶颈不再是技术，而是想象力"
 date: 2026-04-04
 tags: ["AI", "Coding-Agent", "LLM", "Productivity", "Agent", "Engineering"]
+ingested: 2026-05-04
+sha256: 117f82cbf2bd2ef11512aac20887c9517c567faafb7146c87d9f1abb6bba16b1
 ---
-
 三个月前，我用 Claude Code 花了一个下午搭了一套完整的钉钉消息监控系统：自动抓取指定群的消息、按关键词分类、生成每日摘要、定时推送到我的私聊。整套流程从数据采集到定时任务，大约 500 行 TypeScript。
 
 同样的事情，如果走公司正规 IT 流程——提需求、排期、开发、测试、上线——保守估计三个月，还不一定能排上。

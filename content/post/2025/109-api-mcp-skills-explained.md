@@ -3,8 +3,9 @@ title: "API、MCP和Skills：三个概念的本质区别"
 subtitle: "用餐厅的故事，理解AI时代的三种交互模式"
 date: 2025-12-19
 tags: ["AI", "API", "MCP", "Skills", "Agent", "技术科普"]
+ingested: 2026-05-04
+sha256: 3eabfe168be10b40055cb7134f96442a58fd9e0626b5b113973e56e70d9bef3c
 ---
-
 当我们谈论AI应用开发时，经常会听到API、MCP（Model Context Protocol）和Skills这三个词。它们看起来都是让程序之间"对话"的方式，但究竟有什么不同？让我用一个简单的餐厅比喻来解释。
 
 想象你要解决"吃饭"这个问题，有三种不同的方式可以选择。每种方式代表了不同的技术范式，适用于不同的场景。

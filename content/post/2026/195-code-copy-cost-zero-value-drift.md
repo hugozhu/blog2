@@ -3,8 +3,9 @@ title: "代码复制成本归零：工程师的价值正在向上漂移"
 subtitle: "When copying code costs nothing, taste becomes the new moat"
 date: 2026-04-28
 tags: ["ai-coding", "engineering", "career", "claude-code", "value-drift"]
+ingested: 2026-05-04
+sha256: 2e4b3c2aaf34a1365962540bb56ddeb203d729bc4e26d48531b5e1dc1e122a80
 ---
-
 上周六下午，我在 GitHub 上刷到一个 5k star 的开源 CLI 工具——一个看起来挺漂亮的本地日志聚合器。我心血来潮：能不能用 Claude Code 复刻一个？
 
 三个小时后，核心功能跑起来了。彩色输出、文件 watch、正则过滤、多源合并，一应俱全。我兴奋了大概五分钟，然后意识到一件让我心里一沉的事：

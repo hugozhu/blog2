@@ -9,11 +9,9 @@ tags:
 - Golang
 - Concurrent Programming
 
+ingested: 2026-05-04
+sha256: fb6ab09eeef8f3453b4b616d89b808b90fab4cd084d7b7bde5d9d56cd8a0f866
 ---
-
-
-
-
 # 名词定义
 执行体 - Go里的Goroutine或Java中的Thread
 
