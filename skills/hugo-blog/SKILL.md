@@ -110,9 +110,12 @@ Forbidden:
 - Chinese as primary language + English technical terms
 - Tone: like a smart colleague explaining clearly
 
-## Subtitle Rule (STRICT)
+## Title & Subtitle Rule (STRICT)
 
 - Front matter `subtitle` field MUST be English only — no Chinese, no bilingual
+- Front matter `title` and `subtitle` values MUST NOT contain double quotes (`"`) inside the string — they break YAML parsing and Hugo rendering. Use Chinese punctuation (「」、《》、：) or rephrase instead.
+  - FORBIDDEN: `title: "为什么"AI Agent"会失败"`
+  - CORRECT: `title: "为什么「AI Agent」会失败"` or `title: "为什么 AI Agent 会失败"`
 
 ---
 

@@ -4,6 +4,15 @@
 
 ---
 
+## v2.4.0 — 2026-05-07
+
+**Title & Subtitle 双引号禁用：**
+- `title` 和 `subtitle` 字段值内部不允许出现双引号 `"`，否则破坏 YAML 解析和 Hugo 渲染
+- 改用中文标点（「」、《》、：）或重写句子规避
+- 原 Subtitle Rule 升级为 Title & Subtitle Rule，覆盖两个字段
+
+---
+
 ## v2.3.0 — 2026-04-14
 
 **GoAT diagrams 替代 ASCII 作为首选：**

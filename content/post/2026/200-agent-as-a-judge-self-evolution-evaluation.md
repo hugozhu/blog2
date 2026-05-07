@@ -1,5 +1,5 @@
 ---
-title: "Agent-as-a-Judge：自进化Agent的"眼睛""
+title: "Agent-as-a-Judge：自进化Agent的眼睛"
 subtitle: "Why self-evolving agents need automated evaluation to survive long-horizon tasks"
 date: 2026-05-07
 tags: ["ai-agent", "self-evolution", "agent-evaluation", "recursive-self-improvement", "agent-as-a-judge"]

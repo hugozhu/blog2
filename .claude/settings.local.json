@@ -4,7 +4,8 @@
       "WebFetch(domain:github.com)",
       "Bash(git add:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nadded a new post about desktop screen recording RPA best practices\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
