@@ -302,6 +302,8 @@ Note: The working directory may not be the repo root. Always `cd` to the repo or
 
 # HOW TO USE
 
+## Mode A: One-shot generation
+
 Input example:
 
 写一篇：为什么大多数AI Agent落地失败？
@@ -313,6 +315,28 @@ Execution:
 3. Generate full structured blog
 4. Evaluate score
 5. If not good enough → rewrite
+
+## Mode B: Iterative section-by-section (for complex posts)
+
+When the user wants to discuss and refine each section:
+
+1. Write Part 1 (opening + first major section) → user reviews
+2. Write Part 2 based on user feedback → integrate into same file via `patch`
+3. Fix section numbering cascade (一→二→三, 1.1→2.1, etc.)
+4. Update ending (remove "下一篇" references if consolidated into single post)
+5. Final review → user confirms → publish
+
+Key pitfalls:
+- When inserting a new section at the beginning, ALL subsequent section numbers must be updated (一→二, 1.1→2.1, 二→三, 2.1→3.1, etc.)
+- Use `patch` mode with `replace` for each numbering change — do NOT rewrite the whole file
+- If the original draft referenced "下一篇", update the ending to be self-contained
+
+## Writing patterns that work well
+
+- **Metaphor-driven explanation**: Use concrete animal/object metaphors for abstract concepts (e.g., 🐰兔子/🐢乌龟 for System 1/System 2). Makes complex cognitive science accessible.
+- **Interactive hook**: Include a classic test or puzzle that lets the reader experience the concept firsthand (e.g., bat-and-ball problem for System 1 trap).
+- **Accessible conceptual sections**: When explaining theory/frameworks, keep it "浅显易懂" — use life-like examples, avoid academic jargon, keep sections short.
+- **Single complete post preferred**: Even if the topic is large, consolidate into one post with clear sections rather than splitting into 系列.
 
 ---
 
