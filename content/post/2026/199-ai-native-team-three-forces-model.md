@@ -3,6 +3,8 @@ title: "AI 原生团队的三力模型：远见、流动、补位"
 subtitle: "Three Operating Layers Behind a True AI-Native Team"
 date: 2026-05-06
 tags: ["ai-native", "team-building", "product-management", "organization-design"]
+ingested: 2026-05-08
+sha256: 34679da0df22e4a2600acda71ef6a4cc9b56d046a897b7c39c86760fe9deacb1
 ---
 
 上周一个朋友（某 SaaS 公司的产品 lead）发我一段视频：他们公司请来了一位"AI 转型顾问"，PPT 上密密麻麻写着 30 多项行动——成立 AI 委员会、设立 AI OKR、采购 AI 工具矩阵、推行 AI 培训计划、设置 AI Champion……

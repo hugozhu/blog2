@@ -3,6 +3,8 @@ title: "Agent-as-a-Judge：自进化Agent的眼睛"
 subtitle: "Why self-evolving agents need automated evaluation to survive long-horizon tasks"
 date: 2026-05-07
 tags: ["ai-agent", "self-evolution", "agent-evaluation", "recursive-self-improvement", "agent-as-a-judge"]
+ingested: 2026-05-08
+sha256: be77fb1f395b685dd3a6234db8e992110ddc511a6847a2953fd2e18699de9ccb
 ---
 
 上周，一个朋友的团队遇到了这样一件事：他们部署了一个 Coding Agent，让它独立完成一个微服务模块的重构。Agent 跑了整整 6 个小时，提交了 47 个 commit，改了 2000 多行代码。第二天早上，Tech Lead 打开 PR，看着满屏的 diff，沉默了五分钟，说了一句："我怎么知道它中间做对了什么、做错了什么？"
