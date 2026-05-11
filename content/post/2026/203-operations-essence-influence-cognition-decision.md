@@ -3,6 +3,8 @@ title: "AI 时代运营的本质：影响人群价值观"
 subtitle: "The essence of operations in the AI era: influencing collective values"
 date: 2026-05-08
 tags: ["operations", "ai-agent", "value-influence", "automation", "growth-strategy"]
+ingested: 2026-05-11
+sha256: 9656438ecfce47888d50bea67b162c1ca03579f4d806e099ef480f8b58385137
 ---
 
 上个月和一个做电商运营的朋友聊天。她团队有 8 个人，每天忙的事情是：拉数据、做报表、调投放参数、写推送文案、设计活动页面。
