@@ -1,7 +1,7 @@
 ---
 title: 如果你现在在做的系统不能自主进化，你已经落后了
 subtitle: Why Static Systems Are Already Obsolete
-date: 2025-06-18
+date: 2025-05-13
 tags: [system-design, ai-engineering, evolutionary-architecture, reinforcement-learning, programmatic-workflows]
 ---
 
