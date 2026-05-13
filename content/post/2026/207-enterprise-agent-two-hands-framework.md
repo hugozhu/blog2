@@ -1,5 +1,5 @@
 ---
-title: 企业级 Agent 落地：为什么「套个聊天框」注定失败
+title: 企业级 Agent 落地：要抓好左右手
 subtitle: The Two-Hand Framework for Enterprise AI Agents
 date: 2026-05-13
 tags: ["ai-agent", "enterprise-ai", "reinforcement-learning", "system-design", "llm"]
