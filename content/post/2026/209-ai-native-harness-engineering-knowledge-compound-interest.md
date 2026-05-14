@@ -597,3 +597,13 @@ AI Native 不是"用 AI 写代码更快"。AI Native 是**让团队的隐性知�
 ---
 
 你的团队在 AI 落地中遇到过什么"隐性知识缺失"的坑？知识是怎么沉淀的？欢迎留言讨论。
+
+---
+
+## 参考文献
+
+1. 许晓斌，《AI Native 时代 —— 研发组织何去何从》，阿里技术，2026  
+   https://mp.weixin.qq.com/s/Xf3C60jCxR4ppMi4HuAnVA
+
+2. 《Harness 不是目的，知识才是护城河》，腾讯技术工程，2026  
+   https://mp.weixin.qq.com/s/JV4-oPP0jjsBCZ4tW3Gy1g
