@@ -1,5 +1,5 @@
 ---
-title: "AI Native 研发实战：一个 Notion 类团队的 Harness 工程与知识复利"
+title: "AI Native 研发实战：一个类 Notion 笔记的创业团队的 Harness 工程与知识复利"
 subtitle: "How a 5-Person Startup Built an AI-Native Execution Graph for Complex Collaborative Editing"
 date: 2026-05-14
 tags: ["ai-native", "harness-engineering", "knowledge-management", "execution-graph", "notion-clone", "crdt"]
