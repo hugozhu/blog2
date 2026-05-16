@@ -110,6 +110,15 @@ Forbidden:
 - Chinese as primary language + English technical terms
 - Tone: like a smart colleague explaining clearly
 
+## Cross-Reference (MANDATORY)
+
+- Before writing, search existing posts in `content/post/` for related topics
+- Naturally reference 2-4 relevant past posts within the body text where contextually appropriate
+- Integration must be organic — reference when explaining a concept, providing a case study, or contrasting approaches
+- FORBIDDEN: dumping links at the end without in-text context, or forcing irrelevant references
+- Format: `[文章标题](https://hugozhu.site/post/{YEAR}/{ID}-{slug}/)` with brief context explaining why it's relevant
+- Example: "我在 [小学标准化试卷 AI 批改 Agent 最佳工程实践](https://hugozhu.site/post/2025/110-ai-exam-grading-agent-best-practices/) 中，也经历了类似过程。"
+
 ## Title & Subtitle Rule (STRICT)
 
 - Front matter `subtitle` field MUST be English only — no Chinese, no bilingual
