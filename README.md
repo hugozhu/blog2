@@ -19,6 +19,8 @@
 git clone git@github.com:hugozhu/blog2.git
 git submodule update --init --recursive
 
+#更新模版
+git submodule update --recursive --remote
 # 本地开发
 hugo server -D
 
