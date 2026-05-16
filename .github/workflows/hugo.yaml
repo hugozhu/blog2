@@ -46,7 +46,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.161.1
+      HUGO_VERSION: 0.160.1
     steps:
       - name: Install Hugo CLI
         run: |
@@ -85,15 +85,6 @@ jobs:
     needs: build
     if: always()
     steps:
-      - name: Get failed step name
-        if: needs.build.result != 'success'
-        id: failed_step
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          failed=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs \
-            --jq '.jobs[] | select(.name=="build") | .steps[] | select(.conclusion=="failure") | .name' | head -1)
-          echo "name=${failed:-unknown}" >> "$GITHUB_OUTPUT"
       - name: DingTalk Notification
         uses: hugozhu/dingtalk-github-action@v1
         with:
@@ -103,5 +94,4 @@ jobs:
           content: |
             > ${{ github.event.head_commit.message }}
             > Status: **${{ needs.build.result }}**
-            ${{ needs.build.result != 'success' && format('> Failed step: **{0}**', steps.failed_step.outputs.name) || '' }}
             > Run: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
