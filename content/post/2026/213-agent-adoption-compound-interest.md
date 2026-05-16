@@ -1,6 +1,6 @@
 ---
 title: AI Agent 采纳的复利效应：为什么第二步的「无用功」最值得投入
-subtitle: The Compound Interest of Agent Adoption: Why Step 2's Redundant Work Pays Off Exponentially
+subtitle: "The Compound Interest of Agent Adoption: Why Redundant Work Pays Off Exponentially"
 date: 2026-05-16
 tags: [ai-agent, workflow-automation, harness-engineering, system-design, best-practices]
 ---
