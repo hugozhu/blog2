@@ -5,7 +5,7 @@ date: 2026-05-16
 tags: [ai-agent, workflow-automation, harness-engineering, system-design, best-practices]
 ---
 
-Mitchell 把自己的 AI 使用历程分成六个阶段。他不是那种用了就觉得好的人，每个阶段都带着怀疑和验证。六步走完后，他得出了一个反直觉的结论：**最痛苦、看起来最「无用」的第二步，恰恰是后续一切复利的起点。**
+从Hashcorp出来后的 Mitchell 把自己的 AI 使用历程分成六个阶段。他不是那种用了就觉得好的人，每个阶段都带着怀疑和验证。六步走完后，他得出了一个反直觉的结论：**最痛苦、看起来最「无用」的第二步，恰恰是后续一切复利的起点。**
 
 大多数人从第一步直接跳到第四步 —— 觉得 AI 好用就开始委托任务。Mitchell 却在第二步花了大量时间做冗余工作：已经手动完成的事，再让 Agent 做一遍。原文说「I literally did the work twice」。目的不是省时间，是建立对 Agent 能力边界的真实认知。
 
