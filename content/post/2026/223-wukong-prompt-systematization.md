@@ -177,21 +177,81 @@ team-prompts/
 
 **效果**：新员工入职第一天就能复用团队最佳实践，无需从零摸索。AI 协作能力成为团队的基础设施，而非个人的隐性技能。
 
+### 技巧五：Skill 化封装（Skill-based Packaging）
+
+当 Prompt 模板进化到一定复杂度，单纯的 Markdown 文本已经无法满足需求。你需要绑定脚本、管理依赖、定义元数据、支持自动发现。
+
+此时，Prompt 模板应该升级为 **Skill（技能包）**。
+
+**Skill 是 Prompt 工程化的终极形态：从「文本片段」进化为「可执行软件包」。**
+
+一个标准的 Skill 不仅包含 Prompt 文本，还包含：
+- **元数据（Metadata）**：名称、描述、版本、作者、标签、依赖关系。
+- **可执行脚本（Scripts）**：与 Prompt 配合的 Python/Shell 脚本，实现自动化预处理或后处理。
+- **参考资源（References）**：绑定的文档、示例数据、配置文件。
+- **自动发现（Discovery）**：通过 CLI 或 Agent Runtime 自动加载、搜索和路由。
+
+**Skill 目录结构示例**：
+```text
+skills/hugo-blog/
+├── SKILL.md              # 核心 Prompt 指令与元数据
+├── scripts/
+│   └── validate_post.py  # 自动化校验脚本（检查 Frontmatter/标签/格式）
+└── references/
+    └── style_guide.md    # 团队写作规范参考
+```
+
+**SKILL.md 元数据规范（Frontmatter）**：
+```yaml
+---
+name: hugo-blog
+description: 统一的博客写作系统，包含规划、风格控制、生成、评估和发布流程
+version: 2.0.0
+author: hugozhu
+dependencies: []
+tags: [blog, writing, ai, content-os]
+---
+
+# Hugo Blog Agent
+
+## When to use this skill
+- Writing new blog posts for hugozhu.site
+- Improving or reviewing existing posts
+
+## Core Identity
+You are writing as: 务实的思考型工程师...
+...
+```
+
+**Prompt Template vs Skill 对比**：
+
+| 维度 | Prompt 模板 | Skill 技能包 |
+|:---|:---|:---|
+| **形态** | 纯文本片段 / Markdown 文件 | 结构化目录（Prompt + 脚本 + 配置） |
+| **管理方式** | 手动复制粘贴 / 剪贴板 | CLI 自动加载 / Agent Runtime 路由 |
+| **能力边界** | 仅限文本生成 | 可绑定脚本执行、API 调用、文件操作 |
+| **复用粒度** | 代码片段（Snippet） | 软件包 / 库（Package / Library） |
+| **适用场景** | 个人高频场景、轻量级任务 | 团队标准化流程、复杂工作流、跨项目复用 |
+
+**效果**：用户只需输入意图（如「写一篇关于 X 的博客」），Agent Runtime 自动匹配并加载 `hugo-blog` Skill，注入上下文、执行校验脚本、遵循规范生成。Skill 让 Prompt 从「手抄本」变成了「npm package」，实现了真正的工业化复用。
+
 ## 📊 案例对比：手工作坊 vs 工程化流水线
 
 | 维度 | 手工作坊（模式 A） | 工程化流水线（模式 B） |
 |:---|:---|:---|
-| **启动成本** | 每次从零编写或翻聊天记录 | 选择模板 → 填入参数 → 一键启动 |
-| **质量一致性** | 依赖个人经验，波动大 | 模板固化最佳实践，输出稳定 |
+| **启动成本** | 每次从零编写或翻聊天记录 | 选择模板/Skill → 填入参数 → 一键启动 |
+| **质量一致性** | 依赖个人经验，波动大 | 模板/Skill 固化最佳实践，输出稳定 |
 | **知识沉淀** | 散落在个人大脑/剪贴板 | 集中管理，版本控制，全员共享 |
 | **迭代效率** | 凭感觉微调，容易改坏 | 记录变更原因，A/B 测试，持续优化 |
-| **新人上手** | 需要老员工手把手教 | 阅读模板文档，即刻复用 |
+| **新人上手** | 需要老员工手把手教 | 阅读文档/安装 Skill，即刻复用 |
+| **能力边界** | 仅限纯文本生成 | 绑定脚本/API/工具，端到端闭环 |
 
 ## ⚙️ 为什么工程化有效？
 
-1. **降低认知负荷**：用户只需关注业务输入（参数），无需记忆复杂的 Prompt 结构。
-2. **质量基线保障**：模板内置了前七篇技巧的精华（澄清、分步、示例、约束），确保输出下限。
-3. **规模化复用**：一次探索，全员受益。团队 AI 协作水平呈指数级提升，而非线性增长。
+1. **降低认知负荷**：用户只需关注业务输入（参数），无需记忆复杂的 Prompt 结构或 Skill 内部逻辑。
+2. **质量基线保障**：模板和 Skill 内置了前七篇技巧的精华（澄清、分步、示例、约束），确保输出下限。
+3. **规模化复用**：一次探索，全员受益。Skill 像 npm package 一样可跨项目安装和升级，团队 AI 协作水平呈指数级提升。
+4. **能力扩展**：Skill 打破了纯文本的限制，通过绑定脚本和工具，实现了从「建议生成」到「端到端执行」的跃迁。
 
 ## 🔄 在系列中的定位
 
@@ -226,16 +286,16 @@ team-prompts/
 | [五：迭代优化](https://hugozhu.site/post/2026/220-wukong-prompt-iterative-refinement/) | Iteration | 结构化反馈 | Code Review |
 | [六：上下文管理](https://hugozhu.site/post/2026/221-wukong-prompt-context-management/) | Stability | GC/快照/分片 | 内存管理 |
 | [七：工具协同](https://hugozhu.site/post/2026/222-wukong-prompt-tool-augmented/) | Action | 显式调度工具 | API 网关 |
-| **八：工程化** | **Scale** | **模板/SOP/资产化** | **CI/CD / 组件库** |
+| **八：工程化** | **Scale** | **模板/Skill/资产化** | **CI/CD / npm Package** |
 
 ## 🧠 本质思考：AI 协作是组织能力的延伸
 
 很多人以为 AI 时代的核心竞争力是「会写 Prompt」。但 Prompt 只是表象，**背后的结构化思维、流程设计能力、知识管理意识，才是真正的护城河。**
 
-当团队能够把优秀员工的 AI 协作经验，抽象为模板、沉淀为 SOP、共享为资产时，AI 就不再是个人的效率工具，而是组织的**能力放大器**。
+当团队能够把优秀员工的 AI 协作经验，抽象为模板、封装为 Skill、沉淀为 SOP、共享为资产时，AI 就不再是个人的效率工具，而是组织的**能力放大器**。
 
 - **个人技巧** 决定了 AI 协作的上限。
-- **工程化体系** 决定了 AI 协作的下限和规模。
+- **工程化体系（模板 + Skill）** 决定了 AI 协作的下限和规模。
 
 只有当下限足够高、规模足够大时，AI 转型才能真正从「试点 Demo」走向「全面落地」。
 
