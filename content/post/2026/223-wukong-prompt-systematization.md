@@ -177,39 +177,31 @@ team-prompts/
 
 **效果**：新员工入职第一天就能复用团队最佳实践，无需从零摸索。AI 协作能力成为团队的基础设施，而非个人的隐性技能。
 
-### 技巧五：Skill 化封装（Skill-based Packaging）
+### 技巧五：Skill 化封装（基于 Anthropic Agent Skills 标准）
 
 当 Prompt 模板进化到一定复杂度，单纯的 Markdown 文本已经无法满足需求。你需要绑定脚本、管理依赖、定义元数据、支持自动发现。
 
 此时，Prompt 模板应该升级为 **Skill（技能包）**。
 
-**Skill 是 Prompt 工程化的终极形态：从「文本片段」进化为「可执行软件包」。**
+**Skill 不是某个框架的私有发明，而是 Anthropic 官方定义并开源的 [Agent Skills 标准](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)。** 它的核心理念是：将专业知识打包为结构化的文件夹，让 AI Agent 能够自动发现、按需加载、动态执行。
 
-一个标准的 Skill 不仅包含 Prompt 文本，还包含：
-- **元数据（Metadata）**：名称、描述、版本、作者、标签、依赖关系。
-- **可执行脚本（Scripts）**：与 Prompt 配合的 Python/Shell 脚本，实现自动化预处理或后处理。
-- **参考资源（References）**：绑定的文档、示例数据、配置文件。
-- **自动发现（Discovery）**：通过 CLI 或 Agent Runtime 自动加载、搜索和路由。
+一个符合 Anthropic 标准的 Skill 目录结构如下：
 
-**Skill 目录结构示例**：
 ```text
 skills/hugo-blog/
-├── SKILL.md              # 核心 Prompt 指令与元数据
+├── SKILL.md              # 核心入口（必须精确拼写）
 ├── scripts/
-│   └── validate_post.py  # 自动化校验脚本（检查 Frontmatter/标签/格式）
+│   └── validate_post.py  # 自动化校验脚本
 └── references/
     └── style_guide.md    # 团队写作规范参考
 ```
 
-**SKILL.md 元数据规范（Frontmatter）**：
+**SKILL.md 规范（YAML Frontmatter + 指令）**：
+
 ```yaml
 ---
 name: hugo-blog
-description: 统一的博客写作系统，包含规划、风格控制、生成、评估和发布流程
-version: 2.0.0
-author: hugozhu
-dependencies: []
-tags: [blog, writing, ai, content-os]
+description: 统一的博客写作系统。用于规划、生成、评估和发布 hugozhu.site 技术博文，内置风格约束与校验流程。
 ---
 
 # Hugo Blog Agent
@@ -223,17 +215,25 @@ You are writing as: 务实的思考型工程师...
 ...
 ```
 
-**Prompt Template vs Skill 对比**：
+Anthropic 官方规范的关键约束：
+- `SKILL.md` 文件名必须精确（全大写，无后缀变体）
+- `name` 字段使用 `kebab-case`（小写+连字符，无空格/大写）
+- `description` 必须包含 **WHAT**（做什么）和 **WHEN**（何时触发）
+- 禁止使用 XML 标签（`< >`），保持纯 Markdown
+- 指令必须可操作（actionable），包含错误处理和示例
 
-| 维度 | Prompt 模板 | Skill 技能包 |
+**Prompt Template vs Anthropic Skill 对比**：
+
+| 维度 | Prompt 模板 | Anthropic Skill |
 |:---|:---|:---|
-| **形态** | 纯文本片段 / Markdown 文件 | 结构化目录（Prompt + 脚本 + 配置） |
-| **管理方式** | 手动复制粘贴 / 剪贴板 | CLI 自动加载 / Agent Runtime 路由 |
-| **能力边界** | 仅限文本生成 | 可绑定脚本执行、API 调用、文件操作 |
-| **复用粒度** | 代码片段（Snippet） | 软件包 / 库（Package / Library） |
+| **形态** | 纯文本片段 / Markdown 文件 | 标准化文件夹（SKILL.md + 脚本 + 资源） |
+| **管理方式** | 手动复制粘贴 / 剪贴板 | Agent 自动发现 / 按需加载 / 动态路由 |
+| **能力边界** | 仅限文本生成 | 可绑定可执行脚本、API 调用、文件操作 |
+| **复用粒度** | 代码片段（Snippet） | 软件包 / 插件（Package / Plugin） |
+| **触发机制** | 用户手动粘贴 | Agent 根据 description 自动匹配并注入上下文 |
 | **适用场景** | 个人高频场景、轻量级任务 | 团队标准化流程、复杂工作流、跨项目复用 |
 
-**效果**：用户只需输入意图（如「写一篇关于 X 的博客」），Agent Runtime 自动匹配并加载 `hugo-blog` Skill，注入上下文、执行校验脚本、遵循规范生成。Skill 让 Prompt 从「手抄本」变成了「npm package」，实现了真正的工业化复用。
+**效果**：用户只需输入意图（如「写一篇关于 X 的博客」），Agent Runtime 自动扫描 `skills/` 目录，匹配 `hugo-blog` 的 description，将 `SKILL.md` 注入上下文。如果任务需要校验，Agent 会自动调用 `scripts/validate_post.py`。Skill 让 Prompt 从「手抄本」变成了符合工业标准的「可插拔模块」，实现了真正的自动化复用。
 
 ## 📊 案例对比：手工作坊 vs 工程化流水线
 
