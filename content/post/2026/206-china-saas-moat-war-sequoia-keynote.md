@@ -3,6 +3,8 @@ title: "中国 SaaS 厂商的护城河应该怎么建"
 subtitle: "Building Durable Moats for China SaaS in the Agent Era"
 date: 2026-05-12
 tags: ["saas", "ai-agent", "strategy", "moat", "china-enterprise"]
+ingested: 2026-05-13
+sha256: 2f933f570ff301f2baeb15067685a1153ff6d210e9d1088ec512adcf995fbc64
 ---
 
 上周和一位做 HR SaaS 的创始人吃饭。他抛出一个困扰了很久的问题：

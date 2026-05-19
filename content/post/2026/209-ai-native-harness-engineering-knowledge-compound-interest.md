@@ -3,6 +3,8 @@ title: "AI Native 研发实战：一个类 Notion 笔记的创业团队的 Harne
 subtitle: "How a 5-Person Startup Built an AI-Native Execution Graph for Complex Collaborative Editing"
 date: 2026-05-14
 tags: ["ai-native", "harness-engineering", "knowledge-management", "execution-graph", "notion-clone", "crdt"]
+ingested: 2026-05-17
+sha256: 0276d1e17335be8e171efd168ad06909f10179a0c6b3fc67e051a16649b46fbe
 ---
 
 上周和一位做 Notion 类产品的创业朋友 Hugo 深聊。他们团队 5 个人，技术栈很现代：Rust 后端 + CRDT 协作引擎 + React 前端。全员配了 Cursor/Copilot，编码效率确实起飞了。

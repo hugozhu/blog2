@@ -3,6 +3,8 @@ title: "通用桌面 Agent 新用户激活：首次任务推荐引擎设计"
 subtitle: "Designing High-Conversion First Task Recommendations for Desktop AI Agents"
 date: 2026-05-18
 tags: ["AI Agent", "User Activation", "Recommendation Engine", "Product Growth", "Desktop Automation"]
+ingested: 2026-05-19
+sha256: 898784b92d9e8be6278323c2f11423476b2683afeb90f2a883bc782a64567d1f
 ---
 
 通用桌面 Agent（Desktop AI Agent）的推广面临一个经典的增长难题：用户安装后，面对一个"什么都能做"的空白界面，往往不知道该让它做什么，最终流失。

@@ -3,6 +3,8 @@ title: "AI 时代的一万小时定律：从战术精通到系统思维"
 subtitle: "The 10,000-Hour Rule in the Age of AI: From Tactical Mastery to Systems Thinking"
 date: 2026-05-16
 tags: ["AI", "Deliberate Practice", "Learning", "Systems Thinking", "Career Development"]
+ingested: 2026-05-19
+sha256: 6060132767ff82bfe987587376a742cd9783c74a27d0def32ad0835805410109
 ---
 
 马尔科姆·格拉德威尔（Malcolm Gladwell）在《异类》中普及的"一万小时定律"曾是无数人自我提升的圣经：只要投入一万小时的刻意练习，任何人都能成为世界级专家。然而，随着 AI 技术的爆发式增长，这一定律正面临前所未有的挑战。

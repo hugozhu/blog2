@@ -4,7 +4,7 @@ subtitle: "Automated knowledge graph with Hermes Agent and Obsidian"
 date: 2026-05-04
 tags: ["llm-agent", "knowledge-management", "obsidian", "automation", "personal-productivity"]
 ingested: 2026-05-04
-sha256: fd12539fd510a34ee392f00b1431e5eeb32f34169afe7b42b0bb7027be37598f
+sha256: fc297a5cfa30f0697aa957890ad4e1b9cebedfbcb37d1cef26009475fa3c536d
 ---
 
 去年年底，我做了一个实验：把过去十年写的 190 多篇博客、Obsidian 里的读书笔记、还有悟空 Agent 的实践记录，全部扔给 Hermes Agent，让它按照 Karpathy 的 LLM Wiki 模式自动整理。

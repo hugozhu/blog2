@@ -3,6 +3,8 @@ title: 企业级 Agent 落地：要抓好左右手
 subtitle: The Two-Hand Framework for Enterprise AI Agents
 date: 2026-05-13
 tags: ["ai-agent", "enterprise-ai", "reinforcement-learning", "system-design", "llm"]
+ingested: 2026-05-13
+sha256: a656dfb7f0a4a3961fe1247a1f497372d958fb278badf227aadb10f31887f326
 ---
 
 上周和一个做企业数字化的朋友吃饭。他公司去年花了两百多万，引入了一套"AI Agent 平台"。

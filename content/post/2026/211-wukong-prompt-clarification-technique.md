@@ -3,6 +3,8 @@ title: "悟空使用技巧：让 AI 向你提问，需求越明确执行效果�
 subtitle: "Interactive Prompt Clarification: Why Asking Questions Back Makes AI Agents Smarter"
 date: 2026-05-16
 tags: ["AI", "Prompt Engineering", "Wukong", "Agent", "Best Practices"]
+ingested: 2026-05-17
+sha256: 471ea59330ec32961875f0b62ffe6d9095143f19fdf2fb8204f92dc9b3817c52
 ---
 
 向 AI 提出需求后，不要急着让它立刻执行。一个简单却常被忽略的技巧是：**让 AI 先向你提问，把模糊的需求打磨清晰**。需求越明确，AI 的执行效果就越好。这不是理论，而是每天和 AI 协作的工程实践中，投入产出比最高的习惯。

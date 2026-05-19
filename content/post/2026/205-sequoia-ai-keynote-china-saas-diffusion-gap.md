@@ -4,7 +4,7 @@ subtitle: Sequoia AI Keynote insights on China SaaS market and agent-driven tran
 date: 2026-05-11
 tags: ["ai-agent", "saas", "system-design", "enterprise-software", "diffusion-gap"]
 ingested: 2026-05-11
-sha256: 8aa328370fca208700b39a8420fab8e2b4e1857a155dde5b658bdd40bf6b3ae9
+sha256: 61e916c6757f91984648e6cf322731e0f5813db526f4e997b198316264cea6d9
 ---
 
 上周六深夜，我通过钉钉听记完整记录了红杉资本 2026 AI Keynote。35 分钟的演讲中，有一个词反复刺痛了我：**Diffusion Gap（扩散差距）**。

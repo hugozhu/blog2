@@ -3,6 +3,8 @@ title: "基础设施比模型更重要：Stripe Minions 给 AI Agent 落地的�
 subtitle: "Why Engineering Infrastructure Matters More Than Model Choice for AI Agents"
 date: 2026-05-16
 tags: ["ai-agent", "infrastructure", "system-design", "devops", "stripe"]
+ingested: 2026-05-19
+sha256: e839c0e3bc0a15f3ccbd31d39ff53f4a4b29295a3b0a967d6349515bfaee5e7b
 ---
 
 昨晚在电子书上读到一段关于 Stripe Minions 的文字，让我停下来想了很久。

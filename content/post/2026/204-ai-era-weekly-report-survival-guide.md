@@ -4,7 +4,7 @@ subtitle: "How to feed DingTalk so AI can generate your weekly release report"
 date: 2026-05-10
 tags: ["ai-productivity", "dingtalk", "project-management", "weekly-report", "dws-cli"]
 ingested: 2026-05-11
-sha256: ddee3df73a09ae81fae1bfe883f748a073ccb47c84fd3b3b9481ce9ef567e4c8
+sha256: aec296b9f9052d152601afe85a8fc9bf771851142825153eb10fa550101b2f8b
 ---
 
 周五下午 5 点，App v2.5.0 刚刚发版。你合上测试报告，长舒一口气，准备迎接周末。
