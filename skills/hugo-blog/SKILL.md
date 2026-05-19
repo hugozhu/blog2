@@ -130,9 +130,33 @@ Forbidden:
 
 ## Markdown Formatting Rules
 
-- Bold syntax (`**text**`) MUST have a space or boundary (punctuation, line start/end) on both sides
-- FORBIDDEN: `abc**bcd**efg` — bold text must not be glued to adjacent words
-- CORRECT: `abc **bcd** efg`
+### Bold Syntax (`**text**`)
+
+**Outer spacing (MANDATORY):** Add a space between `**` and adjacent Chinese characters.
+- FORBIDDEN: `中文**内容**中文`
+- CORRECT: `中文 **内容** 中文`
+
+**Inner spacing (MANDATORY):** No space between `**` and the bold content.
+- FORBIDDEN: `** 内容 **`
+- CORRECT: `**内容**`
+
+**Punctuation placement:** Punctuation marks (。！？，；：) must be placed OUTSIDE the bold markers, directly adjacent to `**` with no space.
+- FORBIDDEN: `** 内容 ** 。` or `**内容 。**`
+- CORRECT: `**内容**。`
+
+**Complete examples:**
+- FORBIDDEN: `核心假设是：** 人的记忆有限 ** 。`
+- CORRECT: `核心假设是： **人的记忆有限**。`
+- FORBIDDEN: `而是** 可复用的工作流 **。`
+- CORRECT: `而是 **可复用的工作流**。`
+- FORBIDDEN: `-** 实体 ** ：人、项目`
+- CORRECT: `- **实体**：人、项目`
+
+### Chinese Typography
+
+- Use Chinese quotes 「」 instead of English quotes "" for Chinese text
+- Add space between Chinese and English/numbers: `AI 时代` not `AI时代`, `5000 篇` not `5000篇`
+- No space between English words and Chinese parentheses: `Workflow（工作流）` not `Workflow （工作流）`
 
 ## Anti-Patterns (STRICTLY FORBIDDEN)
 
