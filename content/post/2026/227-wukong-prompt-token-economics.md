@@ -3,6 +3,8 @@ title: "悟空技巧十二：Token 经济学，用工程手段优化 AI 协作�
 subtitle: "Wukong Tip #12: Token Economics and Performance Optimization at Scale"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "token-economics", "performance", "cost-optimization"]
+ingested: 2026-05-19
+sha256: 04a898e5f2ea285d4a017ec586d0ea4c69e11383f53e42f0c606b714629546c7
 ---
 
 你的团队全面接入悟空（或企业级 AI 平台）三个月后，CTO 把两份报告拍在了你的桌上。

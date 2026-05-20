@@ -5,7 +5,7 @@ date: 2026-05-14T10:00:00+08:00
 tags: ["AI", "Software Engineering", "Future of Work", "Generative AI", "Career", "Jevons Paradox"]
 draft: false
 ingested: 2026-05-17
-sha256: b45f97b8f8b18b953d6dcdd13e07e6f3af3a1c2ec1c17151a34eb8a346530b0e
+sha256: 847fa08e1ae0edea29cfa8d1e4f0bf9602fe3cbb060e9c66d29e51bde8e1a7aa
 ---
 
 2024 年，GitHub 上产生了 **2560 亿行** 代码，其中 **41%** 由 AI 生成。

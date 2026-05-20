@@ -3,6 +3,8 @@ title: "悟空技巧十四：AI Agent 生产环境调试与可观测性，当 AI
 subtitle: "Wukong Tip #14: Production Debugging and Observability for AI Agents"
 date: 2026-05-19
 tags: ["wukong", "prompt-engineering", "ai-productivity", "observability", "debugging", "tracing", "production", "best-practices"]
+ingested: 2026-05-19
+sha256: 932c9666adf8794e133bf63cde1b60761b712f0d3846285742219c50608e9417
 ---
 
 你的团队已经把悟空（或企业级 AI Agent）接入了核心业务流。

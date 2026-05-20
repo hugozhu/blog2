@@ -3,6 +3,8 @@ title: "悟空技巧七：工具协同，让 AI 从「聊天」走向「行动�
 subtitle: "Wukong Tip #7: Tool-Augmented Prompting for Actionable Workflows"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "tool-use", "ai-agents"]
+ingested: 2026-05-19
+sha256: 11354260fba31d323add6cb6249a056a0c5b031881355fc0745c90a82bdac2b7
 ---
 
 你让悟空对比两个刚发布不久的开源框架，它自信满满地输出了三千字分析，但你一查官网，发现核心特性全是幻觉；你让它分析一份 CSV 销售数据，它用纯文本「心算」了一堆增长率，结果和你用 Excel 拉出来的数字对不上；你让它帮你建一个钉钉待办，它给你写了一段完美的 API 调用建议，但就是没真正执行。

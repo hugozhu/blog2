@@ -3,6 +3,8 @@ title: "悟空技巧十：评估与度量，用数据驱动 AI 协作持续进�
 subtitle: "Wukong Tip #10: Evaluation, Metrics, and Data-Driven Continuous Improvement"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "evaluation", "llm-as-a-judge", "observability"]
+ingested: 2026-05-19
+sha256: 7f086776823f25527818127dc42b84f0237990eeadb534e0e1c87000ee3c46ff
 ---
 
 你让悟空生成了一份技术方案，通读一遍觉得「逻辑清晰、结构完整」，直接交给了研发团队。一周后，架构师反馈：方案里 30% 的接口定义缺少边界条件说明，两个核心组件的选型缺乏压测数据支撑，根本无法进入开发排期。

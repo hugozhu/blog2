@@ -3,6 +3,8 @@ title: "悟空技巧三：示例驱动，用 Few-shot 对齐 AI 输出标准"
 subtitle: "Wukong Tip #3: Example-Driven Prompting for Style and Quality Alignment"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "few-shot"]
+ingested: 2026-05-19
+sha256: 2b520684148e797c34345efb157199274486bc009c92afce018cc7e467a10146
 ---
 
 当你对 AI 说「用 Pythonic 的方式写」或「写一封委婉的拒绝邮件」时，AI 对「Pythonic」和「委婉」的理解可能和你完全不同。

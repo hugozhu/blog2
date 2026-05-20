@@ -4,7 +4,7 @@ subtitle: "Best Practices for Personal Knowledge Management in the AI Era: From 
 date: 2026-05-19
 tags: ["personal-knowledge-management", "ai-agent", "context-engineering", "productivity", "cognitive-os", "rag", "workflow-automation"]
 ingested: 2026-05-19
-sha256: ee18db161d4563c6a508929b91635d116954d2e47678548458c47df935660af1
+sha256: eeceb8a18df7d3f719e462f5cfd818f71218e85f01bb8c1d6d32ed95ebc455d6
 ---
 
 AI 时代，个人知识管理（PKM）正在经历一场根本性的范式转移。

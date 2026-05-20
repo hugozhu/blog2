@@ -3,6 +3,8 @@ title: "悟空技巧十五：从「记录系统」到「经营系统」，企业
 subtitle: "Wukong Tip #15: From Systems of Record to Systems of Operation — The Ultimate Form of Enterprise AI Agents"
 date: 2026-05-19
 tags: ["wukong", "ai-agent", "enterprise-ai", "business-strategy", "reinforcement-learning", "operating-system", "dingtalk"]
+ingested: 2026-05-19
+sha256: ef394cb2de855ecd603813cfeff46143fc0b432f158fde02cdf54a8f0862942c
 ---
 
 过去二十年，企业软件的核心使命是**「记录」**。

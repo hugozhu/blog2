@@ -3,6 +3,8 @@ title: "悟空技巧六：上下文管理，用「状态控制」避免长对话
 subtitle: "Wukong Tip #6: Context Management for Long-Session Stability"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "context-management"]
+ingested: 2026-05-19
+sha256: 61ed2341f46e584786fcb549f1e29deff822e73da8d3c73b7fd0371469cd1e6b
 ---
 
 你是否经历过这样的崩溃时刻：

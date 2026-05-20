@@ -3,6 +3,8 @@ title: "悟空技巧四：分步执行，用 Planning 思维驾驭复杂任务"
 subtitle: "Wukong Tip #4: Step-by-Step Execution for Complex Tasks"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "planning"]
+ingested: 2026-05-19
+sha256: 4e02b1bc452455c90fd98690a2284a462226a36ba583834e4b717fc170184fa8
 ---
 
 当你让悟空「设计一个高并发电商系统架构」或「重构这段 500 行的遗留代码」时，你是否遇到过这样的崩溃时刻：

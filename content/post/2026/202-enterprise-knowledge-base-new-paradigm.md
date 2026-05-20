@@ -3,8 +3,8 @@ title: "企业知识库新范式：从一亿预算到人在回路"
 subtitle: "The paradigm shift from billion-yuan knowledge graphs to human-in-the-loop LLM orchestration"
 date: 2026-05-08
 tags: ["knowledge-management", "llm-agent", "enterprise-ai", "human-in-the-loop", "dingtalk"]
-ingested: 2026-05-11
-sha256: cbd083e53c0932e0fcb5faebab43477b205f773d3e972ae305bcf5c94b92ea34
+ingested: 2026-05-19
+sha256: 0400c714ef364292f48448f7b17ef1761edd9b73ee5a7fad112ac4881c38924f
 ---
 
 上周和一位创业者吃饭，他刚帮一家大型企业做完知识图谱项目的评估。结论让人倒吸一口凉气：要达到替代中级岗位能力的水平，算上数据采集、清洗、标注、图谱构建和持续维护，预算需要一个亿。

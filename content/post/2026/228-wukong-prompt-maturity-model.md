@@ -3,6 +3,8 @@ title: "悟空技巧十三：AI 协作成熟度模型，从个人玩具到企业
 subtitle: "Wukong Tip #13: AI Collaboration Maturity Model and Evolution Roadmap"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "maturity-model", "strategy", "roadmap"]
+ingested: 2026-05-19
+sha256: b836fbff8c86b9d21447e86390d88fa781cae614220bb4b84832d14b9e3821dd
 ---
 
 你的团队引入悟空（或企业级 AI 平台）已经半年了。

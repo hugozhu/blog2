@@ -4,7 +4,7 @@ subtitle: "How a 5-Person Startup Built an AI-Native Execution Graph for Complex
 date: 2026-05-14
 tags: ["ai-native", "harness-engineering", "knowledge-management", "execution-graph", "notion-clone", "crdt"]
 ingested: 2026-05-17
-sha256: 0276d1e17335be8e171efd168ad06909f10179a0c6b3fc67e051a16649b46fbe
+sha256: cec254565a56f78f0dfe43108820fdcd6496db4fcfd25d9f451a2675407f3151
 ---
 
 上周和一位做 Notion 类产品的创业朋友 Hugo 深聊。他们团队 5 个人，技术栈很现代：Rust 后端 + CRDT 协作引擎 + React 前端。全员配了 Cursor/Copilot，编码效率确实起飞了。

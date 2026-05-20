@@ -4,7 +4,7 @@ subtitle: "The Compound Interest of Agent Adoption: Why Redundant Work Pays Off 
 date: 2026-05-16
 tags: [ai-agent, workflow-automation, harness-engineering, system-design, best-practices]
 ingested: 2026-05-17
-sha256: 177c9331815ac76017ed20ad8e0f85b2bde233343fe75d9704c9838ef6a1b9e8
+sha256: f4ace13c71fde9172b0dc6e64de51701482a289b45e7ba6209be5d1d62a2ec60
 ---
 
 HashiCorp 的 Mitchell 把自己的 AI 使用历程分成六个阶段。他不是那种用了就觉得好的人，每个阶段都带着怀疑和验证。六步走完后，他得出了一个反直觉的结论：**最痛苦、看起来最「无用」的第二步，恰恰是后续一切复利的起点。**

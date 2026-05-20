@@ -3,6 +3,8 @@ title: "悟空技巧十一：安全与合规，构建企业级 AI 协作的防�
 subtitle: "Wukong Tip #11: Security, Privacy, and Compliance for Production AI"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "security", "compliance", "zero-trust"]
+ingested: 2026-05-19
+sha256: b445e297cc250a91796516ad2cf0ad636d79899ef6f0c5e735af54305e571cfe
 ---
 
 某公司的智能客服 AI 上线不到一周，被安全团队紧急叫停。

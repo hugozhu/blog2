@@ -5,7 +5,7 @@ date: 2026-05-16T04:50:00+08:00
 tags: ["ai-engineering", "harness-engineering", "software-architecture", "llm-agents", "design-patterns", "control-theory"]
 draft: false
 ingested: 2026-05-17
-sha256: 0a1e341d3dff599b2c9266637e31621c60c928cbfc69196e3ad57e9ec1c577a9
+sha256: bae17e748f5a0dca427f6c6bc6e2db4554bbf2b70f00f2ace12bfa4a292b2780
 ---
 
 2026 年初，"Harness Engineering" 突然成为 AI 工程圈的热词。顶会论文、技术博客、框架文档都在反复强调同一个公式：`Agent = Model + Harness`。斯坦福 IRIS 实验室的对照实验表明，固定模型仅更换 Harness 架构，任务完成率可产生 **6 倍** 的性能差距。

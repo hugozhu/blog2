@@ -3,6 +3,8 @@ title: "悟空技巧九：多 Agent 协同，从单兵作战到虚拟团队"
 subtitle: "Wukong Tip #9: Multi-Agent Orchestration for Complex Workflows"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "multi-agent", "orchestration"]
+ingested: 2026-05-19
+sha256: b5ff239a18bc903882ade4de4181bbae24c63e367e394b7af281174ebdc37327
 ---
 
 当你让悟空独立完成一份「系统架构设计方案」时，它可能会给出一个逻辑自洽但缺乏安全视角的方案；当你让它写一段核心业务代码时，它可能实现了功能但忽略了边界条件和性能瓶颈。

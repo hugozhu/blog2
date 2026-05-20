@@ -3,6 +3,8 @@ title: "悟空技巧五：迭代优化，用结构化反馈替代「重写」"
 subtitle: "Wukong Tip #5: Iterative Refinement with Structured Feedback"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "iteration"]
+ingested: 2026-05-19
+sha256: 3556f0fc8a5b5172b3317486a5a6600f66c98d394c82570eaaf21ab01e998b5f
 ---
 
 AI 第一次输出往往只有 70-80% 可用。

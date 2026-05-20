@@ -3,6 +3,8 @@ title: "悟空技巧八：提示词工程化，把个人经验变成团队资产
 subtitle: "Wukong Tip #8: Prompt Systematization and Team Asset Management"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm", "sop", "knowledge-management"]
+ingested: 2026-05-19
+sha256: 698d496cc23052296a7152a90028219253c58ed0d02eb7c38294b9b5af67987d
 ---
 
 你花了两周时间，终于摸索出了一套让悟空写技术方案「一次可用」的 Prompt 组合：包含提问澄清、交付物定义、示例对齐和工具调度。你觉得自己简直是 AI 协作大师。

@@ -3,6 +3,8 @@ title: "悟空技巧二：交付物先行，先定义格式再生成内容"
 subtitle: "Wukong Tip #2: Deliverable-First Prompting for Zero-Rework Output"
 date: 2026-05-18
 tags: ["wukong", "prompt-engineering", "ai-productivity", "best-practices", "llm"]
+ingested: 2026-05-19
+sha256: b72c052819148a3106a2cb5ee4e89c0926295025e57c4176a5ff48d94be4a699
 ---
 
 你在用悟空（或其他 AI 助手）时，是否经常遇到这样的场景：
