@@ -8,8 +8,8 @@ tags:
   - Human-AI Collaboration
   - 钉钉实践
   - 悟空Agent
-ingested: 2026-05-20
-sha256: 992c8a5cb8fc7da35798d008580c98f6f9ce228b50b77ef5d4fe21aa5fa97620
+ingested: 2026-05-22
+sha256: 70e0ba87691f33fa8a720265279dfa5facad43fc177124522fa8d9281b9f0b1c
 ---
 
 过去两年，AI 行业经历了一场静悄悄的范式转移。

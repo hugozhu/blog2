@@ -3,8 +3,8 @@ title: "用 Git Hook 自动修复中文 Markdown 排版问题"
 subtitle: "Automating Chinese Typography in Markdown with Pre-commit Hooks"
 date: 2026-05-20
 tags: ["Markdown", "Git Hooks", "Python", "中文排版", "博客工程化"]
-ingested: 2026-05-20
-sha256: 5437288c620e4369a904d9395f50339ebcf705a9a5662fb5de64ca2fc986f9a0
+ingested: 2026-05-22
+sha256: f1328ae8d85fdf1e90875aeb28a05f7e3a6454aee69fde7d201d7a680431a20f
 ---
 
 大语言模型生成的 Markdown 文本常常存在排版不规范的问题，尤其是中英文混排场景。本文介绍如何通过 Python 脚本和 Git Pre-commit Hook 实现中文排版的自动修复，让博客发布流程更加工程化。

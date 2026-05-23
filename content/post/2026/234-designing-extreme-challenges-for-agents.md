@@ -3,8 +3,8 @@ title: "为 Agent 设计极限挑战任务：AI 时代 Agent 架构师的新价�
 subtitle: "Designing Extreme Challenge Tasks for Agents: The New Value of AI Architects"
 date: 2026-05-20
 tags: ["ai-agents", "architecture", "chaos-engineering", "agent-evaluation", "prompt-engineering"]
-ingested: 2026-05-20
-sha256: aca1956afc230d74bf06576d78c04dda3d7ad9513b208155ff8e98c19b75092b
+ingested: 2026-05-22
+sha256: 17b0b85b03b68b6b40187584c1e0e138d17588a6cb28019788cfc7b72a8ac5a0
 ---
 
 当 AI Agent 能够自主编写代码、调用工具、完成任务时，架构师的价值在哪里？
