@@ -1,7 +1,7 @@
 ---
 title: "Context, is Control"
 subtitle: "From Prompt Engineering to Harness Engineering in Agent Management"
-date: 2025-05-23
+date: 2026-05-23
 tags: ["agent", "management", "harness-engineering", "ai"]
 ---
 
@@ -207,7 +207,7 @@ Agent Memory (unreliable)          Harness State (reliable)
                                       value: retention
                                       priority: hard
                                       source: CEO
-                                      created: 2025-Q2-W1
+                                      created: 2026-Q2-W1
 ```
 
 每次执行前，Harness 把当前有效的约束注入 Agent context。不靠记忆，靠系统。
@@ -217,7 +217,7 @@ Agent Memory (unreliable)          Harness State (reliable)
 每个 Agent 执行周期都应该产出可审计的 trace：
 
 ```
-[2025-Q2-W5] OKR Tracking Run
+[2026-Q2-W5] OKR Tracking Run
 ├── Input: 3 data sources (project_mgmt, docs, dashboard)
 ├── Constraint Check: 7 constraints evaluated
 │   ├── ✅ focus_area: retention (pass)
