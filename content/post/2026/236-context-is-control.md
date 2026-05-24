@@ -3,6 +3,8 @@ title: "Context, is Control"
 subtitle: "From Prompt Engineering to Harness Engineering in Agent Management"
 date: 2026-05-23
 tags: ["agent", "management", "harness-engineering", "ai"]
+ingested: 2026-05-24
+sha256: cffb57ed2256c9a295a44c78b5fe732af6823c2f4dd4c6a5697c50479c8b7d39
 ---
 
 Netflix 的「Context, not Control」曾经是最有影响力的管理理念之一。
