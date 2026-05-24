@@ -9,19 +9,19 @@ tags: ["AI", "AI-agents", "enterprise", "SOP", "knowledge-management", "harness-
 
 但如果你换一个角度看，SOP 沉淀的真正价值不是「把经验存起来」，而是 **把经验变成可执行的系统行为**。
 
-这篇文章用一个完整案例来说明：一位 Windows 用户打开悟空发起任务，悟空报错「任务执行环境未准备好」，到 AI 定位根因、修复代码、验证、发布，全程 4 小时。每个环节 AI 做什么、人做什么、知识如何在这个过程中自然沉淀。
+这篇文章用一个完整案例来说明：一位 Windows 用户打开悟空发起任务，悟空报错「任务执行环境准备失败」，到 AI 定位根因、修复代码、验证、发布，全程 4 小时。每个环节 AI 做什么、人做什么、知识如何在这个过程中自然沉淀。
 
 <!--more-->
 
 ## 一个真实的 VOC
 
-周二上午 10:17，某企业用户（Windows 11，悟空 v2.3.1）打开悟空，输入：
+周二上午 10:17，某企业用户（Windows，悟空 v0.9.43）打开悟空，输入：
 
 > 「帮我整理本周的项目进度，生成周报」
 
 悟空返回：
 
-> ❌ 任务执行环境未准备好，请检查系统权限后重试。
+> ❌ 任务执行环境准备失败，请检查系统权限后重试。
 
 用户点了一下「重试」，还是同样的报错。用户关掉悟空，在内部群里说了一句：「悟空又挂了，Windows 用不了。」
 
@@ -118,11 +118,11 @@ class VOCSignal:
 
     # 原始上下文
     user_input: str                          # "帮我整理本周的项目进度，生成周报"
-    error_message: str                       # "任务执行环境未准备好，请检查系统权限后重试"
+    error_message: str                       # "任务执行环境准备失败，请检查系统权限后重试"
     user_actions: list[str]                  # ["重试", "关闭悟空", "在群内反馈"]
 
     # 运行上下文 —— 这是后续归因的关键
-    agent_version: str                       # "v2.3.1"
+    agent_version: str                       # "v0.9.43"
     platform: str                            # "windows_11"
     model_name: str                          # 使用的模型
     skill_name: str | None = None            # 触发的 Skill
@@ -146,8 +146,8 @@ class VOCSignal:
 signal_id:     VOC-2026-0524-0037
 severity:      CRITICAL（阻断主流程）
 user_input:    "帮我整理本周的项目进度，生成周报"
-error_message: "任务执行环境未准备好，请检查系统权限后重试"
-agent_version: v2.3.1
+error_message: "任务执行环境准备失败，请检查系统权限后重试"
+agent_version: v0.9.43
 platform:      windows_11
 error_code:    SANDBOX_INIT_FAILED
 error_stacktrace: PermissionError: [WinError 5] Access is denied:
@@ -207,19 +207,18 @@ AI 分析 Agent 首先拉取近期 VOC 数据，做聚类：
 AI 对环境初始化失败的 22 条 VOC 做细分：
 
 ```
-环境初始化失败 22 条，按平台分布：
-├── Windows 11（17 条，77%）⛔ ← 高度集中
-├── Windows 10（3 条，14%）
-└── macOS（2 条，9%）
+环境初始化失败 22 条，按操作系统分布：
+├── Windows（19 条，86%）⛔ ← 高度集中
+└── macOS（3 条，14%）
 
-Windows 11 的 17 条，按错误码分布：
+Windows 的 19 条，按错误码分布：
 ├── SANDBOX_INIT_FAILED（14 条，82%）
 │   └── 堆栈共同特征：PermissionError → .wukong\sandbox\workspace
 ├── RUNTIME_TIMEOUT（2 条，12%）
 └── DEPENDENCY_MISSING（1 条，6%）
 ```
 
-**问题锁定**：Windows 11 上，沙箱初始化时访问 `.wukong\sandbox\workspace` 目录被拒绝。
+**问题锁定**：Windows 上，沙箱初始化时访问 `.wukong\sandbox\workspace` 目录被拒绝。
 
 ### Layer 3：根因归因
 
@@ -231,16 +230,16 @@ AI 分析 Agent 读取错误堆栈，结合沙箱引擎代码做根因分析：
 1. 沙箱引擎 wukong-sandbox-v2 在初始化 workspace 时，
    使用了 os.mkdir() 创建目录。
 
-2. 在 Windows 11 上，如果用户通过 OneDrive 同步用户目录，
+2. 在 Windows 上，如果用户通过 OneDrive 同步用户目录，
    .wukong\sandbox\ 会被 OneDrive 接管。
 
 3. OneDrive 的 ACL 策略会在同步过程中临时锁定文件，
    导致 os.mkdir() 抛出 PermissionError。
 
-4. v2.3.1 版本的 sandbox 模块没有处理这个异常，
+4. v0.9.43 版本的 sandbox 模块没有处理这个异常，
    直接向上层抛出了 SANDBOX_INIT_FAILED。
 
-影响范围：所有 Windows 11 + OneDrive 用户（约占 Windows 用户的 34%）
+影响范围：所有 Windows + OneDrive 用户（约占 Windows 用户的 34%）
 ```
 
 **从用户说「悟空又挂了」到定位到「OneDrive ACL 冲突导致沙箱初始化失败」，AI 用了 12 分钟。** 传统流程这一步需要开发拿到工单、复现问题、调试排查——通常 2-3 天。
@@ -272,7 +271,7 @@ Q3: 修复会影响哪些模块？
 ──────────────────────────────
 直接影响：sandbox/workspace.py（沙箱初始化逻辑）
 间接影响：sandbox/config.py（沙箱路径配置）
-需要回归：Windows 10/11 沙箱初始化、macOS 沙箱初始化（确认不受影响）
+需要回归：Windows 沙箱初始化（有/无 OneDrive）、macOS 沙箱初始化（确认不受影响）
 ```
 
 **这一步是关键分水岭**：没有知识关联，开发会重新发明轮子。有了知识关联，AI 直接告诉修复者：「macOS 上 3 月份遇到过一样的问题（iCloud 版本），当时的修复方案有效。Windows 上的 OneDrive 是同样的机制，可以复用同样的修复思路。」
@@ -287,7 +286,7 @@ Q3: 修复会影响哪些模块？
 ┌─────────────────────────────────────────────────────────┐
 │          修复方案 #VOC-2026-0524-0037                    │
 │                                                          │
-│  问题: Windows 11 + OneDrive 用户沙箱初始化失败          │
+│  问题: Windows + OneDrive 用户沙箱初始化失败          │
 │  根因: OneDrive ACL 锁定 .wukong\sandbox\ 目录          │
 │  影响: 约 34% 的 Windows 用户                           │
 │                                                          │
@@ -312,9 +311,8 @@ Q3: 修复会影响哪些模块？
 │  - sandbox/migration.py: 新增迁移模块                   │
 │                                                          │
 │  回归测试:                                                │
-│  - Windows 10 沙箱初始化（确认不受影响）                 │
-│  - Windows 11 + OneDrive 沙箱初始化（核心修复场景）     │
-│  - Windows 11 + 无 OneDrive 沙箱初始化（确认不受影响）  │
+│  - Windows + OneDrive 沙箱初始化（核心修复场景）         │
+│  - Windows + 无 OneDrive 沙箱初始化（确认不受影响）      │
 │  - macOS 沙箱初始化（确认不受影响）                      │
 │                                                          │
 │  历史参考: VOC-2026-0328（macOS iCloud，同因，修复有效）│
@@ -340,7 +338,7 @@ class FixHarness:
     """Agent 修复代码时的 Harness 约束"""
 
     # Goal: 可验证的修复目标
-    fix_objective: str = "修复 Windows 11 + OneDrive 用户的沙箱初始化权限问题"
+    fix_objective: str = "修复 Windows + OneDrive 用户的沙箱初始化权限问题"
     acceptance_criteria: list[str] = field(default_factory=lambda: [
         "sandbox workspace 默认路径改为 %LOCALAPPDATA%/.wukong/sandbox",
         "首次启动自动迁移旧 workspace 到新路径",
@@ -369,9 +367,8 @@ class FixHarness:
         "pytest tests/sandbox/test_migration.py -v",  # 迁移测试
     ])
     regression_scenarios: list[str] = field(default_factory=lambda: [
-        "windows11_onedrive_init",        # 核心修复场景
-        "windows11_no_onedrive_init",     # 无 OneDrive 不受影响
-        "windows10_init",                 # Win10 不受影响
+        "windows_onedrive_init",          # 核心修复场景
+        "windows_no_onedrive_init",       # 无 OneDrive 不受影响
         "macos_init",                     # macOS 不受影响
     ])
 
@@ -402,10 +399,9 @@ Agent 在 Harness 约束内执行：
        └── pytest tests/sandbox/test_migration.py -v .. 6 passed ✅
        ↓
 11:08  回归场景测试：
-       ├── windows11_onedrive_init .......... PASS ✅
-       ├── windows11_no_onedrive_init ....... PASS ✅
-       ├── windows10_init ................... PASS ✅
-       └── macos_init ....................... PASS ✅
+       ├── windows_onedrive_init .......... PASS ✅
+       ├── windows_no_onedrive_init ....... PASS ✅
+       └── macos_init .................... PASS ✅
        ↓
 11:10  Agent 提交 PR #1847:
        "fix: migrate sandbox workspace to %LOCALAPPDATA% to avoid OneDrive ACL conflicts"
@@ -418,7 +414,7 @@ Agent 在 Harness 约束内执行：
 | 指标 | 无 Harness | 有 Harness |
 |------|-----------|-----------|
 | 修改范围 | 可能改到 core/ 引入副作用 | 严格限制在 sandbox/ |
-| 回归测试 | 开发记得跑哪些 | 自动执行 4 个回归场景 |
+| 回归测试 | 开发记得跑 | 自动执行 3 个回归场景 |
 | 修复一次通过率 | ~40% | ~85%（有知识关联加持） |
 | 人工 review 时间 | 30-60 min | 5 min（只看 diff） |
 
@@ -434,7 +430,7 @@ PR 生成后，进入验证和发布流程：
        ├── 单元测试：42/42 passed ✅
        ├── 集成测试：12/12 passed ✅
        ├── 回归场景：4/4 passed ✅
-       └── VOC 复现测试：用原始 VOC 输入在 Windows 11 + OneDrive 环境重跑 ✅
+       └── VOC 复现测试：用原始 VOC 输入在 Windows + OneDrive 环境重跑 ✅
        │
        ▼
 11:30  人工决策
@@ -452,11 +448,11 @@ PR 生成后，进入验证和发布流程：
        │   └── 14:00 监控 1 小时：0 条 SANDBOX_INIT_FAILED ✅
        │
        ▼
-14:15  全量发布 v2.3.2
+14:15  全量发布 v0.9.44
        │
        ▼
 14:30  闭环验证
-       ├── 原始 VOC 场景：Windows 11 + OneDrive + 「生成周报」→ 成功 ✅
+       ├── 原始 VOC 场景：Windows + OneDrive + 「生成周报」→ 成功 ✅
        └── 同类 VOC 趋势：发布后 2 小时，SANDBOX_INIT_FAILED 归零 ✅
 ```
 
