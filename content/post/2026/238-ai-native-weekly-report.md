@@ -11,7 +11,7 @@ tags: ["AI", "management", "scrum", "automation", "dingtalk", "productivity"]
 
 这篇文章用一个 War Room Scrum 的完整案例，说明怎么用 AI 原生思维重构日报和周报流程。核心转变： **不是让 AI 帮你润色周报，而是让 AI 从日常运转的数据中自动聚合出周报**。
 
-<!--more--
+<!--more-->
 
 ## 先搞清楚问题在哪
 
