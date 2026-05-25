@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Hugo static site blog (blog.hugozhu.site) using the **beautifulhugo** theme (as a git submodule). Posts cover Raspberry Pi, networking (Tailscale, OpenWrt), AI/ML, and software development topics. Posts are written in both English and Chinese.
+Hugo static site blog (hugozhu.site) using the **beautifulhugo** theme (as a git submodule). Posts cover Raspberry Pi, networking (Tailscale, OpenWrt), AI/ML, and software development topics. Posts are written in both English and Chinese.
 
 ## Common Commands
 
