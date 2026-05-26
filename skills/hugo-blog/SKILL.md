@@ -480,7 +480,7 @@ Gemini only accepts specific sizes. Smaller dimensions return 400 errors:
 
 | aspect_ratio | Size | Status |
 |:---|:---|:---|
-| landscape | `1536x1024` | ✅ Works |
+| landscape | `1280x896` | ✅ Works |
 | square | `1024x1024` | ✅ Works |
 | portrait | `1024x1536` | ✅ Works |
 | landscape | `1280x720` | ❌ 400 error |
@@ -532,7 +532,7 @@ Requires `/restart` to reload plugin. **Default**: `gemini-image`.
  - Specify style keywords: 未来感、科技感、深色背景、蓝紫色光效、电影级 UI、干净克制
  - Explicitly state: **超宽横版 Banner，16:9 构图**
  - Add negative constraints: 不要卡通风、不要低幼、不要赛博朋克脏乱感
-3. **Generate with `image_generate`** — call with `aspect_ratio=「landscape」`, `size=「1536x1024」`
+3. **Generate with `image_generate`** — call with `aspect_ratio=「landscape」`, `size=「1280x896」`
 4. **Crop to 16:9** — Gemini API always returns 2048×2048 square. MUST center-crop with Pillow:
    ```python
    from PIL import Image
@@ -626,7 +626,7 @@ Use the `MEDIA:` prefix with the local file path. The platform delivers it as a 
 - **Do not use `landscape` as default for Wan2.7** — `square` is the reliable default; Gemini supports all ratios
 - **Do not include Chinese text in Wan2.7 prompts** — translate to English first; Gemini handles Chinese natively
 - **Do not write 3+ sentence prompts for Wan2.7** — keep it concise; Gemini handles long narrative prompts fine
-- **Gemini 400 errors are almost always size-related** — verify size is 1536x1024 / 1024x1024 / 1024x1536
+- **Gemini 400 errors are almost always size-related** — verify size is 1280x896 / 1024x1024 / 1024x1536
 - **Always upload thumbnail to shareable link after generating** — litterbox with 24h expiry, present URL immediately
 - **Never skip illustration generation** — every blog post needs a header illustration
 
@@ -879,7 +879,7 @@ After each use, update `evolution-log.md` with:
 
 - `references/case-study-templates.md` — Concrete case study patterns (two-stage pipeline, collect-compile-query) with metrics tables and structure examples
 - `references/long-horizon-agent-case-studies.md` — Long-horizon Agent task case studies (OKR planning, budget, product launch) with four challenge dimensions and scope matching rules
-- `references/blog-banner-prompts.md` — Reusable Gemini prompt patterns for futuristic wide-format tech banners (1536x1024)
+- `references/blog-banner-prompts.md` — Reusable Gemini prompt patterns for futuristic wide-format tech banners (1280x896)
 - `scripts/crop-to-ratio.py` — Center-crop any image to landscape/portrait/ultrawide/banner ratios (essential for Gemini 2048×2048 output)
 
 ---

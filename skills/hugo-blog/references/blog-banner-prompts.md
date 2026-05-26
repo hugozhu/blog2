@@ -1,6 +1,6 @@
 # Blog Banner Illustration Prompts
 
-Reusable Gemini image generation prompt patterns for blog post banner illustrations. These are wide-format (1536x1024) tech-themed illustrations suitable as post headers.
+Reusable Gemini image generation prompt patterns for blog post banner illustrations. These are wide-format (1280x896) tech-themed illustrations suitable as post headers.
 
 ## General Structure
 
@@ -25,7 +25,7 @@ Sharp details, depth of field effect.
 
 ## Key Prompt Engineering Tips
 
-1. **Always specify size 1536x1024** — this is the landscape ratio that works with Gemini and fits blog headers well.
+1. **Always specify size 1280x896** — this is the landscape ratio that works with Gemini and fits blog headers well.
 2. **Use 「dark deep-blue background」** — avoids the common AI tendency toward busy cyberpunk or overly bright scenes.
 3. **Explicitly say 「No cartoon, no anime, no cluttered cyberpunk」** — Gemini defaults toward these without negative guidance.
 4. **Describe scenes as physical spaces** — 「a person sitting in a café」 works better than 「mobile usage scenario」.

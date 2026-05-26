@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="'SF Pro Display', 'PingFang SC', 'Noto Sans SC', sans-serif">
+  <!-- Background -->
+  <rect width="1200" height="480" fill="#FAF7F2" rx="12"/>
+  
+  <!-- Title -->
+  <text x="600" y="42" text-anchor="middle" font-size="20" fill="#5C4A3A" font-weight="600">SKILL.md 六阶段流水线</text>
+  
+  <!-- Input label -->
+  <text x="68" y="230" text-anchor="middle" font-size="13" fill="#8B7355">一句话</text>
+  <text x="68" y="250" text-anchor="middle" font-size="13" fill="#8B7355">方向</text>
+  
+  <!-- Input arrow -->
+  <line x1="100" y1="240" x2="138" y2="240" stroke="#C4956A" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Stage 1: Planner -->
+  <rect x="148" y="190" width="120" height="100" rx="10" fill="#FFFFFF" stroke="#CC785C" stroke-width="2.5"/>
+  <text x="208" y="222" text-anchor="middle" font-size="14" fill="#CC785C" font-weight="700">① Planner</text>
+  <text x="208" y="246" text-anchor="middle" font-size="12" fill="#5C4A3A">分类 · 定向</text>
+  <text x="208" y="266" text-anchor="middle" font-size="11" fill="#8B7355">opinion / tech / hybrid</text>
+  
+  <!-- Arrow 1→2 -->
+  <line x1="268" y1="240" x2="308" y2="240" stroke="#C4956A" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Stage 2: Style -->
+  <rect x="318" y="190" width="120" height="100" rx="10" fill="#FFFFFF" stroke="#CC785C" stroke-width="2.5"/>
+  <text x="378" y="222" text-anchor="middle" font-size="14" fill="#CC785C" font-weight="700">② Style</text>
+  <text x="378" y="246" text-anchor="middle" font-size="12" fill="#5C4A3A">加载约束</text>
+  <text x="378" y="266" text-anchor="middle" font-size="11" fill="#8B7355">FORBIDDEN 清单</text>
+  
+  <!-- Arrow 2→3 -->
+  <line x1="438" y1="240" x2="478" y2="240" stroke="#C4956A" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Stage 3: Generator -->
+  <rect x="488" y="190" width="120" height="100" rx="10" fill="#FFFFFF" stroke="#CC785C" stroke-width="2.5"/>
+  <text x="548" y="222" text-anchor="middle" font-size="14" fill="#CC785C" font-weight="700">③ Generator</text>
+  <text x="548" y="246" text-anchor="middle" font-size="12" fill="#5C4A3A">生成全文</text>
+  <text x="548" y="266" text-anchor="middle" font-size="11" fill="#8B7355">代码 · 表格 · 图</text>
+  
+  <!-- Arrow 3→4 -->
+  <line x1="608" y1="240" x2="648" y2="240" stroke="#C4956A" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Stage 4: Illustration -->
+  <rect x="658" y="190" width="120" height="100" rx="10" fill="#FFFFFF" stroke="#CC785C" stroke-width="2.5"/>
+  <text x="718" y="222" text-anchor="middle" font-size="14" fill="#CC785C" font-weight="700">④ 配图</text>
+  <text x="718" y="246" text-anchor="middle" font-size="12" fill="#5C4A3A">自动生图</text>
+  <text x="718" y="266" text-anchor="middle" font-size="11" fill="#8B7355">Gemini + 裁切</text>
+  
+  <!-- Arrow 4→5 -->
+  <line x1="778" y1="240" x2="818" y2="240" stroke="#C4956A" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Stage 5: Evaluator -->
+  <rect x="828" y="190" width="120" height="100" rx="10" fill="#FFFFFF" stroke="#CC785C" stroke-width="2.5"/>
+  <text x="888" y="222" text-anchor="middle" font-size="14" fill="#CC785C" font-weight="700">⑤ Evaluator</text>
+  <text x="888" y="246" text-anchor="middle" font-size="12" fill="#5C4A3A">打分 · 修复</text>
+  <text x="888" y="266" text-anchor="middle" font-size="11" fill="#8B7355">hook·insight·框架·技术</text>
+  
+  <!-- Arrow 5→6 -->
+  <line x1="948" y1="240" x2="988" y2="240" stroke="#C4956A" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Stage 6: Publisher -->
+  <rect x="998" y="190" width="120" height="100" rx="10" fill="#CC785C" stroke="#B5654A" stroke-width="2"/>
+  <text x="1058" y="222" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">⑥ Publisher</text>
+  <text x="1058" y="246" text-anchor="middle" font-size="12" fill="#FAF7F2">人机确认</text>
+  <text x="1058" y="266" text-anchor="middle" font-size="11" fill="#FAF7F2">git push → 部署</text>
+  
+  <!-- Output arrow -->
+  <line x1="1118" y1="240" x2="1155" y2="240" stroke="#C4956A" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Output label -->
+  <text x="1172" y="234" text-anchor="start" font-size="13" fill="#8B7355">已</text>
+  <text x="1172" y="254" text-anchor="start" font-size="13" fill="#8B7355">发布</text>
+  
+  <!-- Bottom annotation bar -->
+  <line x1="148" y1="330" x2="1118" y2="330" stroke="#E8DFD3" stroke-width="1"/>
+  
+  <!-- Phase labels -->
+  <rect x="148" y="345" width="290" height="28" rx="6" fill="#FFF5EE"/>
+  <text x="293" y="364" text-anchor="middle" font-size="12" fill="#CC785C" font-weight="500">想清楚（定义 + 约束）</text>
+  
+  <rect x="488" y="345" width="290" height="28" rx="6" fill="#FFF5EE"/>
+  <text x="633" y="364" text-anchor="middle" font-size="12" fill="#CC785C" font-weight="500">写出来（生成 + 配图）</text>
+  
+  <rect x="828" y="345" width="290" height="28" rx="6" fill="#FFF5EE"/>
+  <text x="973" y="364" text-anchor="middle" font-size="12" fill="#CC785C" font-weight="500">改到位（评估 + 发布）</text>
+  
+  <!-- Vertical dotted connectors from phase labels to stages -->
+  <line x1="293" y1="290" x2="293" y2="345" stroke="#E8DFD3" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="633" y1="290" x2="633" y2="345" stroke="#E8DFD3" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="973" y1="290" x2="973" y2="345" stroke="#E8DFD3" stroke-width="1" stroke-dasharray="4,3"/>
+  
+  <!-- Feedback loop from Evaluator back -->
+  <path d="M 888,290 L 888,310 Q 888,320 878,320 L 558,320 Q 548,320 548,310 L 548,290" 
+        fill="none" stroke="#CC785C" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowRed)"/>
+  <text x="718" y="316" text-anchor="middle" font-size="10" fill="#CC785C">分数 &lt; 18 → 重写</text>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#C4956A"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#CC785C"/>
+    </marker>
+  </defs>
+  
+  <!-- Subtle top-left label -->
+  <text x="30" y="460" font-size="10" fill="#C4B8A8">hugo-blog Skill v3.1</text>
+</svg>
