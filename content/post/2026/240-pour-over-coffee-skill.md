@@ -11,6 +11,8 @@ tags: ["ai-agent", "skill", "pour-over-coffee", "engineering"]
 
 这篇文章本身就是一份 Skill。它的格式遵循 `SKILL.md` 规范，它的内容是手冲咖啡与 AI Skill 设计之间的深层同构。
 
+![Brew Notes — 手冲咖啡 Skill 方法论全景图](/img/2026/brew-notes-skill.png)
+
 <!--more-->
 
 ## Overview
