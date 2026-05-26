@@ -13,6 +13,8 @@ tags: ["AI", "ClaudeCode", "HarnessEngineering", "TDD", "engineering"]
 
 <!--more-->
 
+[![AI Harness Engineering](/img/2026/harness-engineering-thumb.jpg)](/img/2026/harness-engineering.png)
+
 ## 什么是 Harness
 
 先对齐概念。LangChain 的定义最精准：
