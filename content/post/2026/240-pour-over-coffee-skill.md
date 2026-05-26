@@ -1,5 +1,5 @@
 ---
-title: "手冲咖啡 Skill"
+title: "手冲咖啡.SKILL"
 subtitle: "Pour-Over Coffee as Agent Skill"
 date: 2026-05-26
 tags: ["ai-agent", "skill", "pour-over-coffee", "engineering"]
