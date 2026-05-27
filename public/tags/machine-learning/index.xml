@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine-Learning on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/machine-learning/</link>
+    <description>Recent content in Machine-Learning on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 时代，人人都能建模了吗？</title>
+      <link>http://localhost:45445/post/2026/171-ai-era-can-everyone-build-models/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/171-ai-era-can-everyone-build-models/</guid>
+      <description>&lt;p&gt;上周有个做运营的朋友拿着一个 AI 帮他建的销量预测模型来找我，特别兴奋：&amp;ldquo;你看，R² = 0.89，是不是挺准的？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;我看了一眼，模型确实跑得不错。历史数据拟合得很好，特征工程也挺合理——用了过去 30 天的销量趋势、星期几、是否节假日。&lt;/p&gt;&#xA;&lt;p&gt;我问他：&amp;ldquo;下周要下一整周的雨，你的模型知道吗？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;他愣了一下。&lt;/p&gt;&#xA;&lt;p&gt;我又问：&amp;ldquo;竞品下周搞 618 预热大促，你的模型考虑了吗？你们市场部刚换了投放渠道，从抖音换到了小红书，这个变量在哪？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;他沉默了。&lt;/p&gt;&#xA;&lt;p&gt;模型没有错。R² = 0.89 是真的。但这个模型不知道自己不知道什么。更要命的是，用这个模型的人也不知道。&lt;/p&gt;&#xA;&lt;p&gt;这就是我今天想聊的事：AI 让建模的门槛低了，但这不等于人人都能建好模。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>高质量数据越多，大模型表现越优秀</title>
+      <link>http://localhost:45445/post/2026/127-data-quality-llm-performance/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/127-data-quality-llm-performance/</guid>
+      <description>&lt;p&gt;最近和几个做 AI 的朋友聊天，发现一个有趣的现象：很多人对大模型的信仰是&amp;quot;因为相信所以看见&amp;quot;——相信 AGI 会来，相信 scaling law 会继续有效，相信未来的模型会更强大。&lt;/p&gt;&#xA;&lt;p&gt;但我的观点恰恰相反：&lt;strong&gt;AI 信仰应该建立在&amp;quot;因为看见所以相信&amp;quot;&lt;/strong&gt;。而我们能看见什么？最直观的就是——&lt;strong&gt;高质量数据越多，大模型表现越优秀&lt;/strong&gt;。这不是信仰，是已经被反复验证的事实。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent强化学习的最佳实践：并行任务处理与性能优化</title>
+      <link>http://localhost:45445/post/2026/114-agent-reinforcement-learning-best-practices/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/114-agent-reinforcement-learning-best-practices/</guid>
+      <description>&lt;p&gt;在2026年的AI应用场景中，Agent系统已经成为解决复杂任务的核心技术。无论是代码生成助手、自动化运维系统，还是智能客服机器人，如何让Agent高效地处理多个任务并从经验中学习，直接决定了系统的实用性和用户体验。本文将深入探讨Agent强化学习的工程实践，重点解决一个关键问题：&lt;strong&gt;如何让Agent并行处理任务以提升性能？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>压缩即智能：从信息论看机器学习的本质</title>
+      <link>http://localhost:45445/post/2025/108-compression-is-intelligence/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/108-compression-is-intelligence/</guid>
+      <description>&lt;p&gt;如果我告诉你，ChatGPT 本质上是一个文本压缩器，你会相信吗？如果我说，智能的核心就是找到更好的压缩算法，这听起来是不是过于简化了？然而，这个看似激进的观点——&amp;ldquo;压缩即智能&amp;rdquo;（Compression is Intelligence）——正在成为理解机器学习和人工智能本质的一个关键视角。&lt;/p&gt;&#xA;&lt;p&gt;这不仅仅是一个比喻。从信息论的角度看，压缩、预测和理解本质上是同一件事的不同侧面。当我们深入探讨这个观点时，会发现它不仅优雅地解释了为什么深度学习如此有效，还为我们思考通用人工智能（AGI）提供了一个全新的框架。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>意图识别模块实现的最佳实践</title>
+      <link>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</guid>
+      <description>&lt;p&gt;在构建智能对话系统、聊天机器人或语音助手时，意图识别（Intent Recognition）是最核心的组件之一。一个设计良好的意图识别模块不仅能准确理解用户需求，还能随着业务发展灵活扩展。本文将深入探讨意图识别模块实现的最佳实践，帮助你构建生产级的意图识别系统。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深入理解RAG：检索增强生成技术的原理与实践</title>
+      <link>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</guid>
+      <description>&lt;p&gt;在大语言模型(LLM)快速发展的今天，我们面临一个核心挑战：如何让模型能够访问和利用实时、专业或私有的知识？纯粹依赖预训练的模型往往会出现知识过时、幻觉问题，或者无法回答特定领域的问题。这就是检索增强生成(Retrieval-Augmented Generation, RAG)技术应运而生的原因。&lt;/p&gt;&#xA;&lt;p&gt;RAG通过将外部知识库的检索能力与LLM的生成能力相结合，为这个问题提供了一个优雅的解决方案。它不需要重新训练模型，就能让AI系统访问最新的、特定领域的知识，同时显著降低幻觉问题。本文将深入探讨RAG的核心原理、架构设计以及实际应用中的最佳实践。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

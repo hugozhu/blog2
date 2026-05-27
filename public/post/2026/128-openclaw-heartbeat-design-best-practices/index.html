@@ -1,0 +1,816 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="让 AI 助手主动做事的心跳机制——从被动应答到主动巡检"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计",
+  "@id": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/",
+  "url": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/",
+      "name": "Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计",
+  "description": "绝大多数 AI 助手都是被动的——用户不说话，它就沉默。这在\u0026quot;问答\u0026quot;场景下没问题，但如果你想让 AI 助手真正成为助手，它需要主动意识：定期检查收件箱有没有紧急邮件、日历上有没有即将到来的会议、GitHub 上有没有需要关注的 PR。OpenClaw 的 Heartbeat（心跳）机制正是为此设计的。本文将深入解析这一设计的工程细节和最佳实践。\n",
+  "inLanguage": "en",
+  "wordCount":  589 ,
+  "dateCreated": "2026-02-28T00:00:00+00:00",
+  "datePublished": "2026-02-28T00:00:00+00:00",
+  "dateModified": "2026-02-28T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "AI, AI-agents, OpenClaw, architecture, heartbeat, self-hosted" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计" />
+<meta property="og:description" content="让 AI 助手主动做事的心跳机制——从被动应答到主动巡检" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计" />
+  <meta name="twitter:description" content="让 AI 助手主动做事的心跳机制——从被动应答到主动巡检">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">让 AI 助手主动做事的心跳机制——从被动应答到主动巡检</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 28, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;589&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>绝大多数 AI 助手都是被动的——用户不说话，它就沉默。这在&quot;问答&quot;场景下没问题，但如果你想让 AI 助手真正成为助手，它需要<strong>主动意识</strong>：定期检查收件箱有没有紧急邮件、日历上有没有即将到来的会议、GitHub 上有没有需要关注的 PR。OpenClaw 的 Heartbeat（心跳）机制正是为此设计的。本文将深入解析这一设计的工程细节和最佳实践。</p>
+<h2 id="为什么需要-heartbeat">为什么需要 Heartbeat</h2>
+<p>传统 AI 助手的交互模式是&quot;请求-响应&quot;：用户发消息，AI 回复，对话结束。这种模式下，AI 永远不会主动联系你。但一个好的助手应该像人类助理一样，会在合适的时间主动告诉你：&ldquo;老板，下午三点有个会议，资料我已经准备好了。&rdquo;</p>
+<p>Heartbeat 解决的就是这个问题。它在 Agent 的主会话中周期性地触发一个 Agent Turn，让模型有机会审视当前状态，决定是否需要主动通知用户。</p>
+<p>关键设计约束是：<strong>不打扰用户</strong>。如果没什么值得说的，心跳应该完全静默。</p>
+<h2 id="heartbeat-的工作原理">Heartbeat 的工作原理</h2>
+<p>Heartbeat 的核心流程可以用下图表示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                   Gateway 定时器                   │
+</span></span><span class="line"><span class="cl">│              每 30m 触发一次心跳                     │
+</span></span><span class="line"><span class="cl">└──────────────────────┬───────────────────────────┘
+</span></span><span class="line"><span class="cl">                       │
+</span></span><span class="line"><span class="cl">                       ▼
+</span></span><span class="line"><span class="cl">              ┌────────────────┐
+</span></span><span class="line"><span class="cl">              │ 检查 activeHours │ ── 不在活跃时段 ──→ 跳过
+</span></span><span class="line"><span class="cl">              └────────┬───────┘
+</span></span><span class="line"><span class="cl">                       │ 在时段内
+</span></span><span class="line"><span class="cl">                       ▼
+</span></span><span class="line"><span class="cl">              ┌────────────────┐
+</span></span><span class="line"><span class="cl">              │  发送心跳 Prompt  │ ──→ Agent 读取 HEARTBEAT.md
+</span></span><span class="line"><span class="cl">              │  到 Agent 主会话  │     + 审视当前上下文
+</span></span><span class="line"><span class="cl">              └────────┬───────┘
+</span></span><span class="line"><span class="cl">                       │
+</span></span><span class="line"><span class="cl">                ┌──────┴──────┐
+</span></span><span class="line"><span class="cl">                │             │
+</span></span><span class="line"><span class="cl">                ▼             ▼
+</span></span><span class="line"><span class="cl">         没有需要通知      发现紧急事项
+</span></span><span class="line"><span class="cl">         回复 HEARTBEAT_OK   回复告警内容
+</span></span><span class="line"><span class="cl">                │             │
+</span></span><span class="line"><span class="cl">                ▼             ▼
+</span></span><span class="line"><span class="cl">           静默丢弃        发送到目标通道
+</span></span><span class="line"><span class="cl">         (用户无感知)     (WhatsApp/Telegram/等)
+</span></span></code></pre></div><p>整个流程的关键是 <strong>Response Contract</strong>：如果没有需要关注的事项，Agent 必须回复 <code>HEARTBEAT_OK</code>。Gateway 看到这个标记后会静默丢弃消息，用户完全无感知。只有真正需要通知的内容才会被投递。</p>
+<h2 id="快速上手">快速上手</h2>
+<p>最简配置只需要三步：</p>
+<p><strong>1. 启用心跳</strong>（默认已开启，间隔 30 分钟）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;agents&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;defaults&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;heartbeat&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;every&#34;</span><span class="p">:</span> <span class="s2">&#34;30m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;last&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// generated by hugo&#39;s coding agent
+</span></span></span></code></pre></div><p><code>target: &quot;last&quot;</code> 表示将心跳消息投递到用户最后使用的通道（比如你最近在 Telegram 上和 Agent 聊天，那心跳消息就发到 Telegram）。默认值 <code>&quot;none&quot;</code> 表示心跳运行但不投递，适合只想做内部状态更新的场景。</p>
+<p><strong>2. 创建 HEARTBEAT.md 清单</strong>（可选但推荐）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gh"># Heartbeat checklist
+</span></span></span><span class="line"><span class="cl"><span class="k">-</span> Quick scan: anything urgent in inboxes?
+</span></span><span class="line"><span class="cl"><span class="k">-</span> If it&#39;s daytime, do a lightweight check-in if nothing else is pending.
+</span></span><span class="line"><span class="cl"><span class="k">-</span> If a task is blocked, write down <span class="ge">_what is missing_</span> and ask Peter next time.
+</span></span></code></pre></div><p>这个文件就是 Agent 的&quot;巡检清单&quot;。每次心跳触发时，默认 Prompt 会告诉 Agent 去读这个文件并严格按照清单执行。</p>
+<p><strong>3. 可选：限制活跃时段</strong>，避免半夜被 AI 叫醒：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;agents&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;defaults&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;heartbeat&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;every&#34;</span><span class="p">:</span> <span class="s2">&#34;30m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;last&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;activeHours&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;start&#34;</span><span class="p">:</span> <span class="s2">&#34;09:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;end&#34;</span><span class="p">:</span> <span class="s2">&#34;22:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;timezone&#34;</span><span class="p">:</span> <span class="s2">&#34;Asia/Shanghai&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// generated by hugo&#39;s coding agent
+</span></span></span></code></pre></div><p>早上 9 点到晚上 10 点之间，心跳正常运行；其他时间自动跳过。</p>
+<h2 id="response-contract静默协议">Response Contract：静默协议</h2>
+<p>Heartbeat 设计中最精妙的部分是它的静默协议。规则很简单：</p>
+<table>
+  <thead>
+      <tr>
+          <th>场景</th>
+          <th>Agent 行为</th>
+          <th>Gateway 行为</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>没有需要关注的事项</td>
+          <td>回复 <code>HEARTBEAT_OK</code></td>
+          <td>静默丢弃，用户无感知</td>
+      </tr>
+      <tr>
+          <td>发现需要通知的内容</td>
+          <td>回复告警文本（不含 <code>HEARTBEAT_OK</code>）</td>
+          <td>投递到目标通道</td>
+      </tr>
+      <tr>
+          <td><code>HEARTBEAT_OK</code> + 少量文本</td>
+          <td>例如 <code>HEARTBEAT_OK，已检查完毕</code></td>
+          <td>如果附加文本 ≤ 300 字符，仍然静默丢弃</td>
+      </tr>
+  </tbody>
+</table>
+<p><code>ackMaxChars</code>（默认 300）控制了 <code>HEARTBEAT_OK</code> 之后允许保留多少字符。这个阈值避免了 Agent &ldquo;HEARTBEAT_OK，但我想说一下……&rdquo; 这种冗长回复被意外投递的问题。</p>
+<p>一个重要细节：<code>HEARTBEAT_OK</code> 只在回复的<strong>开头或结尾</strong>才会被识别。如果它出现在中间，不会被特殊处理。这防止了误截断正常内容。</p>
+<h2 id="多-agent-心跳精细控制">多 Agent 心跳：精细控制</h2>
+<p>在多 Agent 架构中，心跳可以按 Agent 粒度配置。一个常见模式是：主 Agent 不需要心跳（它是被动响应的），运维 Agent 需要定期巡检。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;agents&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;defaults&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;heartbeat&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;every&#34;</span><span class="p">:</span> <span class="s2">&#34;30m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;last&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;list&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;main&#34;</span><span class="p">,</span> <span class="nt">&#34;default&#34;</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;ops&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;heartbeat&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;every&#34;</span><span class="p">:</span> <span class="s2">&#34;1h&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;whatsapp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;to&#34;</span><span class="p">:</span> <span class="s2">&#34;+15551234567&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;prompt&#34;</span><span class="p">:</span> <span class="s2">&#34;Read HEARTBEAT.md if it exists. Check system health and pending alerts. If nothing needs attention, reply HEARTBEAT_OK.&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// generated by hugo&#39;s coding agent
+</span></span></span></code></pre></div><p>这里的优先级规则是：<strong>如果任何 <code>agents.list[]</code> 条目包含 <code>heartbeat</code> 块，只有这些 Agent 运行心跳</strong>。上面的配置中，<code>main</code> Agent 没有 <code>heartbeat</code> 块，所以它不会运行心跳；只有 <code>ops</code> Agent 每小时执行一次心跳，并通过 WhatsApp 投递结果。</p>
+<p>Per-Agent 的 <code>heartbeat</code> 配置会与 <code>agents.defaults.heartbeat</code> 合并（merge），所以你可以在 defaults 中设置共享默认值，只在具体 Agent 中覆盖需要差异化的字段。</p>
+<h2 id="投递通道与可见性控制">投递通道与可见性控制</h2>
+<p>Heartbeat 的投递机制分为两层：<strong>去哪</strong>和<strong>给谁看</strong>。</p>
+<h3 id="去哪target--to">去哪（target + to）</h3>
+<ul>
+<li><code>target: &quot;none&quot;</code> — 运行心跳但不投递（默认）</li>
+<li><code>target: &quot;last&quot;</code> — 投递到上次对话的通道</li>
+<li><code>target: &quot;whatsapp&quot;</code> / <code>&quot;telegram&quot;</code> / <code>&quot;slack&quot;</code> 等 — 指定通道</li>
+<li><code>to</code> — 通道内的具体接收者（如 WhatsApp 手机号、Telegram chat ID）</li>
+</ul>
+<h3 id="给谁看visibility-controls">给谁看（Visibility Controls）</h3>
+<p>可以按通道甚至按账号控制心跳消息的可见性：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">channels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">defaults</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">heartbeat</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">showOk</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">       </span><span class="c"># 隐藏 HEARTBEAT_OK（默认）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">showAlerts</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="c"># 显示告警消息（默认）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">useIndicator</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">   </span><span class="c"># 发出指示器事件（默认）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">telegram</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">heartbeat</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">showOk</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">         </span><span class="c"># Telegram 上也显示 OK 确认</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">whatsapp</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">accounts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">work</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">heartbeat</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">showAlerts</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">  </span><span class="c"># 工作账号不接收告警</span><span class="w">
+</span></span></span></code></pre></div><p>一个重要的优化：如果 <code>showOk</code>、<code>showAlerts</code>、<code>useIndicator</code> 三个全为 <code>false</code>，OpenClaw 会直接跳过心跳运行——不调用模型，节省 Token。</p>
+<h2 id="heartbeatmd心跳清单的设计要点">HEARTBEAT.md：心跳清单的设计要点</h2>
+<p><code>HEARTBEAT.md</code> 是心跳系统的灵魂，但它的设计有几个关键要点：</p>
+<p><strong>保持精简</strong>。这个文件每 30 分钟被读一次，写太多会造成 Prompt 膨胀和 Token 浪费。短清单或几条提醒就够了。</p>
+<p><strong>空文件 = 跳过心跳</strong>。如果 <code>HEARTBEAT.md</code> 存在但内容只有空行和标题（如 <code># Heading</code>），OpenClaw 会跳过心跳运行以节省 API 调用。</p>
+<p><strong>文件缺失也没关系</strong>。如果文件不存在，心跳仍然运行，模型自行判断该做什么。</p>
+<p><strong>Agent 可以自更新</strong>。你可以在正常对话中告诉 Agent：&ldquo;更新 HEARTBEAT.md，加一条每日检查日历。&rdquo; Agent 会直接修改这个文件。你甚至可以在心跳 Prompt 中写：&ldquo;如果清单过时了，用更好的内容更新 HEARTBEAT.md。&rdquo;</p>
+<p><strong>不要放敏感信息</strong>。<code>HEARTBEAT.md</code> 会成为 Prompt 上下文的一部分，不要往里面写 API Key、密码或私人 Token。</p>
+<h2 id="手动唤醒与即时心跳">手动唤醒与即时心跳</h2>
+<p>除了定时触发，你还可以手动触发一次立即心跳：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw system event --text <span class="s2">&#34;Check for urgent follow-ups&#34;</span> --mode now
+</span></span></code></pre></div><p><code>--mode now</code> 立即触发所有配置了心跳的 Agent。如果你想等到下一个自然周期再触发，用 <code>--mode next-heartbeat</code>。</p>
+<p>这在&quot;我感觉有什么事需要处理，但不想自己去查&quot;的场景下很有用。</p>
+<h2 id="heartbeat-vs-cron什么时候用哪个">Heartbeat vs Cron：什么时候用哪个</h2>
+<p>OpenClaw 同时提供 Heartbeat 和 Cron 两种定时机制，它们的适用场景不同：</p>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>Heartbeat</th>
+          <th>Cron</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>运行上下文</td>
+          <td>主会话（有完整对话历史）</td>
+          <td>独立会话（隔离环境）</td>
+      </tr>
+      <tr>
+          <td>适合场景</td>
+          <td>批量巡检、需要上下文的周期任务</td>
+          <td>精确时间触发、独立任务</td>
+      </tr>
+      <tr>
+          <td>时间精度</td>
+          <td>粗粒度（30m/1h）</td>
+          <td>精确到分钟</td>
+      </tr>
+      <tr>
+          <td>模型选择</td>
+          <td>可独立配置</td>
+          <td>可独立配置</td>
+      </tr>
+      <tr>
+          <td>会话影响</td>
+          <td>不重置会话空闲计时器</td>
+          <td>在独立 Session 中运行</td>
+      </tr>
+  </tbody>
+</table>
+<p>简单总结：<strong>需要&quot;看看有什么事&quot;用 Heartbeat，需要&quot;在特定时间做特定事&quot;用 Cron</strong>。</p>
+<h2 id="成本控制">成本控制</h2>
+<p>心跳每次运行都是一个完整的 Agent Turn，会消耗 Token。控制成本的几种方式：</p>
+<ul>
+<li><strong>加长间隔</strong>：把 <code>every</code> 从 <code>&quot;30m&quot;</code> 改成 <code>&quot;1h&quot;</code> 或 <code>&quot;2h&quot;</code></li>
+<li><strong>限制活跃时段</strong>：<code>activeHours</code> 让非工作时间不触发心跳</li>
+<li><strong>使用便宜模型</strong>：通过 <code>model</code> 字段为心跳指定一个成本更低的模型</li>
+<li><strong>精简 HEARTBEAT.md</strong>：清单越短，消耗的输入 Token 越少</li>
+<li><strong>用 <code>target: &quot;none&quot;</code></strong>：如果你只需要内部状态更新而不需要投递</li>
+</ul>
+<h2 id="设计启示">设计启示</h2>
+<p>OpenClaw 的 Heartbeat 设计给 Agent 系统设计者的几点启示：</p>
+<p><strong>主动性不等于打扰</strong>。通过 <code>HEARTBEAT_OK</code> 静默协议和可见性控制，心跳做到了&quot;有事说事、没事静默&quot;。这是 Agent 从工具变成助手的关键一步。</p>
+<p><strong>配置的层级化设计</strong>。从 <code>agents.defaults</code> → <code>agents.list[]</code> → <code>channels.defaults</code> → <code>channels.&lt;channel&gt;</code> → <code>channels.&lt;channel&gt;.accounts.&lt;id&gt;</code>，每一层都可以覆盖上一层。这种设计在多 Agent、多通道的复杂场景下非常灵活，同时保持了简单场景下的零配置体验。</p>
+<p><strong>文件即协议</strong>。<code>HEARTBEAT.md</code> 的设计延续了 OpenClaw &ldquo;文件即状态&quot;的哲学——不需要额外的数据库或 API，一个 Markdown 文件就定义了 Agent 的巡检行为。透明、可编辑、可版本控制。</p>
+<p><strong>成本意识内建于设计</strong>。空文件跳过、三 flag 全关跳过、可配置模型和间隔——这些都不是事后打补丁，而是从设计之初就考虑的约束。在 Token 即成本的 LLM 应用中，这种意识至关重要。</p>
+<p>如果你正在设计自己的 Agent 系统，Heartbeat 的&quot;定期巡检 + 静默协议 + 层级配置&quot;模式值得借鉴。它用最小的复杂度，赋予了 AI 助手真正的主动性。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/openclaw/">OpenClaw</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/architecture/">architecture</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/heartbeat/">heartbeat</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/self-hosted/">self-hosted</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f128-openclaw-heartbeat-design-best-practices%2f&amp;text=Agent%20%e8%ae%be%e8%ae%a1%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%ef%bc%9aOpenClaw%20%e7%9a%84%20Heartbeat%20%e8%ae%be%e8%ae%a1&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f128-openclaw-heartbeat-design-best-practices%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f128-openclaw-heartbeat-design-best-practices%2f&amp;title=Agent%20%e8%ae%be%e8%ae%a1%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%ef%bc%9aOpenClaw%20%e7%9a%84%20Heartbeat%20%e8%ae%be%e8%ae%a1" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f128-openclaw-heartbeat-design-best-practices%2f&amp;title=Agent%20%e8%ae%be%e8%ae%a1%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%ef%bc%9aOpenClaw%20%e7%9a%84%20Heartbeat%20%e8%ae%be%e8%ae%a1" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f128-openclaw-heartbeat-design-best-practices%2f&amp;title=Agent%20%e8%ae%be%e8%ae%a1%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%ef%bc%9aOpenClaw%20%e7%9a%84%20Heartbeat%20%e8%ae%be%e8%ae%a1" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f128-openclaw-heartbeat-design-best-practices%2f&amp;description=Agent%20%e8%ae%be%e8%ae%a1%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%ef%bc%9aOpenClaw%20%e7%9a%84%20Heartbeat%20%e8%ae%be%e8%ae%a1" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f128-openclaw-heartbeat-design-best-practices%2f&amp;subject=Agent%20%e8%ae%be%e8%ae%a1%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%ef%bc%9aOpenClaw%20%e7%9a%84%20Heartbeat%20%e8%ae%be%e8%ae%a1" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/187-ai-era-architect-growth-path/">AI 时代，校招生如何成为好架构师</a></li>
+                
+                    <li><a href="/post/2026/185-hermes-gateway-im-platforms-architecture/">Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</a></li>
+                
+                    <li><a href="/post/2026/184-hermes-cli-tui-architecture-deep-dive/">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2026/127-data-quality-llm-performance/" data-toggle="tooltip" data-placement="top" title="高质量数据越多，大模型表现越优秀">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2026/129-openclaw-memory-design-best-practices/" data-toggle="tooltip" data-placement="top" title="Agent 设计最佳实践：Memory">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2026/128-openclaw-heartbeat-design-best-practices">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2026\/128-openclaw-heartbeat-design-best-practices';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

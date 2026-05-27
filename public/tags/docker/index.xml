@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/docker/</link>
+    <description>Recent content in Docker on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用docker容器来实现动态执行AI生成的代码</title>
+      <link>http://localhost:45445/post/2025/104-e2b-with-self-host-docker-container/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/104-e2b-with-self-host-docker-container/</guid>
+      <description>&lt;p&gt;E2B是一个专为AI代码执行设计的沙盒环境，通过Docker容器提供安全隔离的代码运行空间。相比传统执行方式，E2B具有显著优势：&#xA;&lt;strong&gt;安全性&lt;/strong&gt;方面完全隔离宿主机，防止恶意代码损害&#xA;&lt;strong&gt;便捷性&lt;/strong&gt;上提供开箱即用的Python环境和丰富的预装库&#xA;&lt;strong&gt;稳定性&lt;/strong&gt;强，支持长时间运行和状态保持&#xA;&lt;strong&gt;可扩展性&lt;/strong&gt;好，支持多语言和自定义环境配置。&#xA;特别适合AI助手、代码生成工具、在线编程教育等场景，让AI生成的代码能够安全、快速地验证和执行。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>实现docker中的Tailscale做为路由器</title>
+      <link>http://localhost:45445/post/2025/103-wifi-to-tailscale-in-docker-bridge/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/103-wifi-to-tailscale-in-docker-bridge/</guid>
+      <description>&lt;p&gt;tailscale docker容器做为局域网的网关，前面有介绍用macvlan来实现，这次介绍bridge来实现的方案，适合不允许创建macvlan的机器。&lt;/p&gt;&#xA;&lt;p&gt;! docker 28后似乎不行了，不能做为路由器。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tailscale Exit Node</title>
+      <link>http://localhost:45445/post/2025/88-tailscale-exit-node-on-docker/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/88-tailscale-exit-node-on-docker/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://tailscale.com/&#34;&gt;Tailscale&lt;/a&gt; 是基于 WireGuard 的零配置 VPN 解决方案，可以轻松创建私有网络，让设备之间实现安全连接。而 &lt;strong&gt;Exit Node（出口节点）&lt;/strong&gt; 功能允许你将某台设备作为所有流量的出口，就像 VPN 一样，帮助你绕过网络限制或访问受地理位置限制的内容。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>通过wifi热点接入tailscale网络</title>
+      <link>http://localhost:45445/post/2025/87-tailscale-to-ap/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/87-tailscale-to-ap/</guid>
+      <description>&lt;p&gt;tailscale docker容器做为局域网的网关，可以让局域网内的设备无需安装tailscale客户端即可访问tailscale网络内的其他设备。&#xA;提升了便利性，安全性通过局域网访问控制来保障。&lt;/p&gt;&#xA;&lt;p&gt;适用场景：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;你的 Tailscale 容器充当 VPN 代理，让设备通过它访问互联网。&lt;/li&gt;&#xA;&lt;li&gt;你希望本机（或其他 Docker 容器）能够访问 Tailscale 网络中的设备。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>最简单的异地组网方案</title>
+      <link>http://localhost:45445/post/2025/86-tailscale-docker/</link>
+      <pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/86-tailscale-docker/</guid>
+      <description>&lt;p&gt;前面介绍了使用openwrt来跑tailscale，比较合适硬路由，更简单更通用的方法是官方的用tailscale docker镜像来搭建。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>通过主路由的路由分流策略将异地内网流量转发到docker里的openwrt</title>
+      <link>http://localhost:45445/post/2025/84-use-route-rules-to-redirect-traffic/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/84-use-route-rules-to-redirect-traffic/</guid>
+      <description>&lt;p&gt;在之前的文章中，我们已经介绍了如何通过 Docker 启动一个内置 Tailscale 的 OpenWrt。本文将进一步介绍如何结合主路由的智能路由策略，将异地内网流量高效转发到这个 OpenWrt 实例中，实现异地内网的无缝互联。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建可通过IP访问的tailscale的derp relay节点</title>
+      <link>http://localhost:45445/post/2025/83-tailscale-derp-node-with-ip/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/83-tailscale-derp-node-with-ip/</guid>
+      <description>&lt;p&gt;虽然tailscale用了很多NAT穿透 &lt;a href=&#34;https://zh.wikipedia.org/zh-cn/NAT%E7%A9%BF%E9%80%8F&#34;&gt;NAT traversal&lt;/a&gt;技术，但仍然会有不能P2P自连的情况，这时候tailscale就会使用最近的derp节点来建立连接，自建derper可用于加速tailscale网络的连通性能&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用tailscale&#43;openwrt&#43;docker&#43;macvlan将异地两机房组成一个局域网</title>
+      <link>http://localhost:45445/post/2025/82-tailscale-vpn-with-openwrt-in-docker/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/82-tailscale-vpn-with-openwrt-in-docker/</guid>
+      <description>&lt;p&gt;在现代网络环境中，将位于不同地理位置的两个数据中心组成一个虚拟局域网，可以有效提升资源共享和管理效率。本文将介绍如何在 Docker 中使用 macvlan 网络模式安装 OpenWrt，并通过 Tailscale 实现异地数据中心的互联。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用acme_docker自动更新免费域名证书</title>
+      <link>http://localhost:45445/post/2024/76-acme-docker-auto-uptime/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2024/76-acme-docker-auto-uptime/</guid>
+      <description>&lt;h2 id=&#34;问题和解决方案&#34;&gt;问题和解决方案&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;免费域名证书需要三个月更新一次&lt;/li&gt;&#xA;&lt;li&gt;解决方案：apisix, docker, acme.sh, dnspod&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>R2S妙用：Armbian &#43; docker &#43; openwrt &#43; hostapd，用USB网卡做热点，无线有线接入都通过openwrt做路由</title>
+      <link>http://localhost:45445/post/2024/74-armbian-bridge-network-hostapd/</link>
+      <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2024/74-armbian-bridge-network-hostapd/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;p&gt;Armbian 是一款基于 Debian 或 Ubuntu 的开源操作系统，专门针对嵌入式 ARM 平台进行优化和定制。它可以运行在多种不同的嵌入式设备上，例如树莓派、R2S，R4S，玩客云等等。Armbian 针对不同的嵌入式平台，提供了相应的硬件支持，可以让用户轻松地在这些平台上搭建自己的嵌入式系统。&lt;/p&gt;&#xA;&lt;p&gt;刚好有一块闲置了几年的R2S卡片机和树莓派2时代的无线网卡。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>用Gitlab Runner来打包并上传Harbor</title>
+      <link>http://localhost:45445/post/2022/71-gitlab-runner-using-docker-build/</link>
+      <pubDate>Mon, 16 May 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2022/71-gitlab-runner-using-docker-build/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.gitlab.com/ee/ci/docker/using_docker_build.html&#34;&gt;https://docs.gitlab.com/ee/ci/docker/using_docker_build.html&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>在树莓派上运行Docker</title>
+      <link>http://localhost:45445/post/2015/60-run-docker-on-raspberry-pi/</link>
+      <pubDate>Sun, 12 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2015/60-run-docker-on-raspberry-pi/</guid>
+      <description>&lt;h1 id=&#34;docker&#34;&gt;Docker&lt;/h1&gt;&#xA;&lt;p&gt;Docker是目前非常流行的代码运行容器，操作系统虚拟化，运维自动化架构和开源的解决方案。&lt;/p&gt;&#xA;&lt;p&gt;Docker的基础是Linux容器（LXC）技术，相比传统的VM虚拟化技术, LXC更轻量，性能更好。&lt;/p&gt;&#xA;&lt;p&gt;Docker采用Golang语言开发，在LXC基础上Docker进行了封装，简化了容器的管理。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

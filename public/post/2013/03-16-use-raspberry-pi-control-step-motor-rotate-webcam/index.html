@@ -1,0 +1,800 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>如何使用Raspberry Pi控制步进电机旋转高清摄像头并拍照 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="后续利用OpenCV还可以合成多张照片成全景图，或者多角度连续视频录制"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "如何使用Raspberry Pi控制步进电机旋转高清摄像头并拍照",
+  "@id": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/",
+  "url": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/",
+      "name": "如何使用Raspberry Pi控制步进电机旋转高清摄像头并拍照",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "如何使用Raspberry Pi控制步进电机旋转高清摄像头并拍照",
+  "description": "后续利用OpenCV还可以合成多张照片成全景图，或者多角度连续视频录制",
+  "inLanguage": "en",
+  "wordCount":  438 ,
+  "dateCreated": "2013-03-16T00:00:00+00:00",
+  "datePublished": "2013-03-16T00:00:00+00:00",
+  "dateModified": "2013-03-16T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "Raspberry Pi" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="如何使用Raspberry Pi控制步进电机旋转高清摄像头并拍照" />
+<meta property="og:description" content="后续利用OpenCV还可以合成多张照片成全景图，或者多角度连续视频录制" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="如何使用Raspberry Pi控制步进电机旋转高清摄像头并拍照" />
+  <meta name="twitter:description" content="后续利用OpenCV还可以合成多张照片成全景图，或者多角度连续视频录制">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>如何使用Raspberry Pi控制步进电机旋转高清摄像头并拍照</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 16, 2013
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;438&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="硬件准备">硬件准备</h1>
+<p>需要以下硬件：</p>
+<ol>
+<li>可以工作的<a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB07S4%2FK0CITy7klxxrJ35Nnc0iO6niAHo44Chb01aWIu4ho12MwdcCLV6ff8kJMg0iz0FTGXaJAqMvt94sTe0NIrCAdd8LW">树莓派</a>一个</li>
+<li><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB07S4%2FK0CITy7klxxrJ35Nnc0iO6niAHoWKV0kwS8Wy16Cg6qBM%2BZAOnJCqNG%2BPJAy9U15g8TwJiq5U3GGcJ8eTvC7%2F6APShw%3D%3D">母对母1P杜邦线</a>6根</li>
+<li><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB07S4%2FK0CFcRfH0GoT805sipKjxjSLt%2BsmFEpvY8zQ4WXjoTHsLWTKD4gnL0sndE3qVPXd4UC6NUEZOQAryYUWhO7gt10i%2FUQ%3D%3D">DC 5V4相28YBJ-48步进电机</a>一个</li>
+<li><a href="http://s.click.taobao.com/t?e=zGU34CA7K%2BPkqB07S4%2FK0CFcRfH0GoT805sipKjxjSLuXQmw2TUIlWTNRCvS2wo483pjZyXspPuvkTH5pg4vQUqrztOAoNz2Gfp8MmwKPg%2FbQb8%3D">UL2003芯片步进电机驱动板</a>一块</li>
+</ol>
+<h1 id="安装">安装</h1>
+<p>按下图将步进电机接到驱动板上，也就是白色的接口</p>
+<img src="http://img04.taobaocdn.com/bao/uploaded/i4/T10lS4XnXfXXaZhKrX_115008.jpg_310x310.jpg"/>
+<img src="http://img02.taobaocdn.com/imgextra/i2/49873130/T2534HXoBXXXXXXXXX_!!49873130.jpg" width="600"/>
+<h2 id="步进电机电源">步进电机电源</h2>
+<p>步进电机需要5V电压驱动，而树莓派的<a href="http://elinux.org/RPi_Low-level_peripherals">GPIO接口</a>中已有5V输出，将图中的Pin 2（最右上角那个）5V，接到驱动板的5V正极，Pin 6接到5V负级，电源部分则搞定。</p>
+<img src="http://trouch.com/wp-content/uploads/2012/08/webiopi-chrome.png" width="600"/>
+<h2 id="步进电机驱动线路">步进电机驱动线路</h2>
+<p>驱动板上有IN1, IN2, IN3, IN4四个接口，根据资料得知这四个接口依次设置为低电平就可以驱动，我们分别用杜邦线将GPIO 17（Pin 11），GPIO 18（Pin 12）, GPIO 21（Pin 13）, GPIO 22（Pin 15）和IN1，IN2，IN3，IN4一一相连。 <strong>注意不同的GPIO驱动程序对端口的编号不一定一样（至少有三种叫法：Board，Broadcom，GPIO）</strong></p>
+<p>驱动原理：（每次将四个GPIO端口按下表依次设置好电平后，可以sleep几十毫秒来控制转速）</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>序列</strong></th>
+          <th><strong>GPIO 17</strong></th>
+          <th><strong>GPIO 18</strong></th>
+          <th><strong>GPIO 21</strong></th>
+          <th><strong>GPIO 22</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td><strong>LOW</strong></td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>HIGH</td>
+          <td><strong>LOW</strong></td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+          <td><strong>LOW</strong></td>
+          <td>HIGH</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+          <td><strong>LOW</strong></td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td><strong>LOW</strong></td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+          <td>HIGH</td>
+      </tr>
+      <tr>
+          <td>…</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="安装摄像头">安装摄像头</h2>
+<p>本来是希望用3D打印机来制作齿轮和支架来完成这部分工作的，但因为打印机还没到货，所以先用乐高积木来做了, 刚好乐高积木可以插在步进电机中轴上，而且很牢靠，还不用密封带了。</p>
+<p>摄像头如下图用两根导线固定在乐高积木上：</p>
+<img src="http://ww1.sinaimg.cn/bmiddle/6bc40342jw1e2rqxrtrd2j.jpg"/>
+<p>然后用各种积木搭个底座把电机固定起来，并留两个洞口可以将驱动线和摄像头的USB线穿出，这样表面上比较整齐，USB线也不会因为牵扯影响转动。</p>
+<img src="http://ww4.sinaimg.cn/bmiddle/6bc40342jw1e2rqt5b23rj.jpg"/>
+<p><a href="http://photo.weibo.com/1808008002/wbphotos/large/photo_id/3556528869320348?refer=weibofeedv5">点击看大图</a></p>
+<h1 id="驱动示例代码">驱动示例代码</h1>
+<p>这里使用的是Python GPIO库，注意这里的端口命名是按树莓派的Board叫法（Pin 11, 12, 13, 15）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@raspberrypi2 ~/projects/step_motor # cat motor.py
+</span></span><span class="line"><span class="cl">import RPi.GPIO as GPIO
+</span></span><span class="line"><span class="cl">import time
+</span></span><span class="line"><span class="cl">import sys
+</span></span><span class="line"><span class="cl">from array import *
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GPIO.setwarnings(False) 
+</span></span><span class="line"><span class="cl">GPIO.setmode(GPIO.BOARD)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">steps    = int(sys.argv[1]);
+</span></span><span class="line"><span class="cl">clockwise = int(sys.argv[2]);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">arr = [0,1,2,3];
+</span></span><span class="line"><span class="cl">if clockwise!=1:
+</span></span><span class="line"><span class="cl">    arr = [3,2,1,0];
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ports = [11,12,13,15]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for p in ports:
+</span></span><span class="line"><span class="cl">    GPIO.setup(p,GPIO.OUT)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for x in range(0,steps):
+</span></span><span class="line"><span class="cl">    for j in arr:
+</span></span><span class="line"><span class="cl">        time.sleep(0.01)
+</span></span><span class="line"><span class="cl">        for i in range(0,4):
+</span></span><span class="line"><span class="cl">            if i == j:            
+</span></span><span class="line"><span class="cl">                GPIO.output(ports[i],True)
+</span></span><span class="line"><span class="cl">            else:
+</span></span><span class="line"><span class="cl">                GPIO.output(ports[i],False)
+</span></span></code></pre></div><p>执行<code>python motor.py  90 0</code> 可以顺时针转动大约80度。</p>
+<p>执行<code>python motor.py  90 1</code> 则可逆时针转动大约80度。</p>
+<h2 id="转动效果视频">转动效果视频</h2>
+<p><embed src="http://player.youku.com/player.php/sid/XNTI3MzU1MjIw/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></p>
+<h1 id="连续转动拍摄代码实现">连续转动拍摄代码实现</h1>
+<p>这次使用<a href="http://code.google.com/p/webiopi/">webiopi</a>把控制程序转换成REST API，这样方便网页调用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zed" data-lang="zed"><span class="line"><span class="cl"><span class="n">root</span><span class="err">@</span><span class="n">raspberrypi2</span><span class="w"> </span><span class="o">~/</span><span class="nn">projects/</span><span class="n">gpio_server</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">webiopi_custom</span><span class="p">.</span><span class="n">py</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Imports</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">import</span><span class="w"> </span><span class="n">webiopi</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">import</span><span class="w"> </span><span class="n">time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Retrieve</span><span class="w"> </span><span class="n">GPIO</span><span class="w"> </span><span class="n">lib</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">GPIO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">webiopi</span><span class="p">.</span><span class="n">GPIO</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Macro</span><span class="w"> </span><span class="kt">definition</span><span class="w"> </span><span class="n">part</span><span class="w">                              </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arg</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">OK</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">def</span><span class="w"> </span><span class="n">myMacroWithArgs</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="n">arg3</span><span class="p">)</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="err">&#34;</span><span class="n">myMacroWithArgs</span><span class="p">(</span><span class="o">%</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">s</span><span class="p">)</span><span class="err">&#34;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="n">arg3</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="err">&#34;</span><span class="n">OK</span><span class="err">&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">nothing</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">def</span><span class="w"> </span><span class="n">myMacroWithoutArgs</span><span class="p">()</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="err">&#34;</span><span class="n">myMacroWithoutArgs</span><span class="p">()</span><span class="err">&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Example</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">toggle</span><span class="w"> </span><span class="n">GPIO</span><span class="w"> </span><span class="err">7</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="err">5</span><span class="w"> </span><span class="n">seconds</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">def</span><span class="w"> </span><span class="n">loop</span><span class="p">()</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="err">5</span><span class="p">)</span><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">def</span><span class="w"> </span><span class="n">turnLed</span><span class="p">(</span><span class="n">port_str</span><span class="p">,</span><span class="w"> </span><span class="n">ms</span><span class="p">)</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">(</span><span class="n">port_str</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">GPIO</span><span class="p">.</span><span class="n">setFunction</span><span class="p">(</span><span class="n">port</span><span class="p">,</span><span class="n">GPIO</span><span class="p">.</span><span class="n">OUT</span><span class="p">)</span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">GPIO</span><span class="p">.</span><span class="n">output</span><span class="p">(</span><span class="n">port</span><span class="p">,</span><span class="n">GPIO</span><span class="p">.</span><span class="n">LOW</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">float</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span><span class="o">/</span><span class="err">1000</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">GPIO</span><span class="p">.</span><span class="n">output</span><span class="p">(</span><span class="n">port</span><span class="p">,</span><span class="n">GPIO</span><span class="p">.</span><span class="n">HIGH</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">def</span><span class="w"> </span><span class="n">turnWebcam</span><span class="p">(</span><span class="n">steps_str</span><span class="p">,</span><span class="w"> </span><span class="n">clockwise_str</span><span class="p">)</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">(</span><span class="n">steps_str</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">clockwise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">(</span><span class="n">clockwise_str</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="err">0</span><span class="p">,</span><span class="err">1</span><span class="p">,</span><span class="err">2</span><span class="p">,</span><span class="err">3</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">if</span><span class="w"> </span><span class="n">clockwise</span><span class="o">!=</span><span class="err">1</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="err">3</span><span class="p">,</span><span class="err">2</span><span class="p">,</span><span class="err">1</span><span class="p">,</span><span class="err">0</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="err">17</span><span class="p">,</span><span class="err">18</span><span class="p">,</span><span class="err">27</span><span class="p">,</span><span class="err">22</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">for</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">ports</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">GPIO</span><span class="p">.</span><span class="n">setFunction</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">GPIO</span><span class="p">.</span><span class="n">OUT</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="err">0</span><span class="p">,</span><span class="n">steps</span><span class="p">)</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">arr</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="err">0</span><span class="p">.</span><span class="err">01</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="err">0</span><span class="p">,</span><span class="err">4</span><span class="p">)</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">j</span><span class="o">:</span><span class="w">            
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">GPIO</span><span class="p">.</span><span class="n">output</span><span class="p">(</span><span class="n">ports</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">GPIO</span><span class="p">.</span><span class="n">LOW</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">else</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">GPIO</span><span class="p">.</span><span class="n">output</span><span class="p">(</span><span class="n">ports</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">GPIO</span><span class="p">.</span><span class="n">HIGH</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Initialization</span><span class="w"> </span><span class="n">part</span><span class="w">                                </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Setup</span><span class="w"> </span><span class="n">GPIOs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Main</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">part</span><span class="w">                                   </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Instantiate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="err">8000</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">immediately</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="n">thread</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">webiopi</span><span class="p">.</span><span class="n">Server</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="err">8001</span><span class="p">,</span><span class="w"> </span><span class="n">login</span><span class="o">=</span><span class="err">&#34;</span><span class="n">pi</span><span class="err">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="o">=</span><span class="err">&#34;</span><span class="n">pi</span><span class="err">&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">or</span><span class="w">     </span><span class="n">webiopi</span><span class="p">.</span><span class="n">Server</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="err">8000</span><span class="p">,</span><span class="w"> </span><span class="n">passwdfile</span><span class="o">=</span><span class="err">&#34;</span><span class="o">/</span><span class="nn">etc/webiopi/</span><span class="n">passwd</span><span class="err">&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Register</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">macros</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">Javascript</span><span class="w"> </span><span class="nn">and/</span><span class="n">or</span><span class="w"> </span><span class="n">REST</span><span class="w"> </span><span class="n">API</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">server</span><span class="p">.</span><span class="n">addMacro</span><span class="p">(</span><span class="n">turnWebcam</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">server</span><span class="p">.</span><span class="n">addMacro</span><span class="p">(</span><span class="n">turnLed</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Loop</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">part</span><span class="w">                                </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Run</span><span class="w"> </span><span class="n">our</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">CTRL</span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">pressed</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">SIGTERM</span><span class="w"> </span><span class="n">received</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">webiopi</span><span class="p">.</span><span class="n">runLoop</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">above</span><span class="p">,</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">use</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">webiopi</span><span class="p">.</span><span class="n">runLoop</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="n">instead</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Termination</span><span class="w"> </span><span class="n">part</span><span class="w">                                   </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="o">--------------------------------------------------</span><span class="w"> </span><span class="err">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">Cleanly</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">server</span><span class="p">.</span><span class="n">stop</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p>执行<code>python webiopi_custom.py</code> 后启动GPIO REST API服务器</p>
+<p>转动命令是：<code>curl --data &quot;&quot; &quot;http://pi:pi@raspberrypi2:8001/macros/turnWebcam/90,0</code></p>
+<p>拍照命令是：<code>/usr/bin/fswebcam -v -r 640x480 --no-banner /var/www/fswebcam/foo.jpg</code></p>
+<p>于是我们可以用以下方法来实现连续拍摄：</p>
+<ol>
+<li>执行拍照命令, 生成right.jpg</li>
+<li>顺时转80度</li>
+<li>执行拍照命令, 生成middle.jpg</li>
+<li>顺时转80度</li>
+<li>执行拍照命令, 生成left.jpg</li>
+<li>逆时针转160度归位</li>
+</ol>
+<p>将命令通过网页执行后，就可以在外面看房间里的情况了，今天出去外面采草莓在iPhone上试了一下，结果符合预期。</p>
+<h1 id="拍摄图片效果">拍摄图片效果</h1>
+<p>在手机上看到的页面：点Reload会重新连拍三张
+<img src="http://ww3.sinaimg.cn/large/6bc40342jw1e2r069hyhsj.jpg"/></p>
+<p>总共花了不到2小时就可以搞定这个了，还是非常好玩的~ 后面还可以用OpenCV库来合成照片到真正的全景图</p>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/raspberry-pi/">Raspberry Pi</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f03-16-use-raspberry-pi-control-step-motor-rotate-webcam%2f&amp;text=%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e6%8e%a7%e5%88%b6%e6%ad%a5%e8%bf%9b%e7%94%b5%e6%9c%ba%e6%97%8b%e8%bd%ac%e9%ab%98%e6%b8%85%e6%91%84%e5%83%8f%e5%a4%b4%e5%b9%b6%e6%8b%8d%e7%85%a7&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f03-16-use-raspberry-pi-control-step-motor-rotate-webcam%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f03-16-use-raspberry-pi-control-step-motor-rotate-webcam%2f&amp;title=%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e6%8e%a7%e5%88%b6%e6%ad%a5%e8%bf%9b%e7%94%b5%e6%9c%ba%e6%97%8b%e8%bd%ac%e9%ab%98%e6%b8%85%e6%91%84%e5%83%8f%e5%a4%b4%e5%b9%b6%e6%8b%8d%e7%85%a7" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f03-16-use-raspberry-pi-control-step-motor-rotate-webcam%2f&amp;title=%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e6%8e%a7%e5%88%b6%e6%ad%a5%e8%bf%9b%e7%94%b5%e6%9c%ba%e6%97%8b%e8%bd%ac%e9%ab%98%e6%b8%85%e6%91%84%e5%83%8f%e5%a4%b4%e5%b9%b6%e6%8b%8d%e7%85%a7" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f03-16-use-raspberry-pi-control-step-motor-rotate-webcam%2f&amp;title=%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e6%8e%a7%e5%88%b6%e6%ad%a5%e8%bf%9b%e7%94%b5%e6%9c%ba%e6%97%8b%e8%bd%ac%e9%ab%98%e6%b8%85%e6%91%84%e5%83%8f%e5%a4%b4%e5%b9%b6%e6%8b%8d%e7%85%a7" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f03-16-use-raspberry-pi-control-step-motor-rotate-webcam%2f&amp;description=%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e6%8e%a7%e5%88%b6%e6%ad%a5%e8%bf%9b%e7%94%b5%e6%9c%ba%e6%97%8b%e8%bd%ac%e9%ab%98%e6%b8%85%e6%91%84%e5%83%8f%e5%a4%b4%e5%b9%b6%e6%8b%8d%e7%85%a7" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f03-16-use-raspberry-pi-control-step-motor-rotate-webcam%2f&amp;subject=%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e6%8e%a7%e5%88%b6%e6%ad%a5%e8%bf%9b%e7%94%b5%e6%9c%ba%e6%97%8b%e8%bd%ac%e9%ab%98%e6%b8%85%e6%91%84%e5%83%8f%e5%a4%b4%e5%b9%b6%e6%8b%8d%e7%85%a7" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2020/68-turn-raspberrypi-4-to-a-router-and-wifi-ap/">把树莓派4设置成路由器和热点</a></li>
+                
+                    <li><a href="/post/2016/66-use-dingtalk-golang-sdk-to-send-message-on-pi/">从树莓派上发消息到手机或桌面钉钉</a></li>
+                
+                    <li><a href="/post/2016/65-running-grafana-on-raspberry-pi-3/">用Grafana制作树莓派上的监控大盘</a></li>
+                
+                    <li><a href="/post/2016/63-raspberrypi-as-ibeacon-transmitter/">树莓派3变身iBeacon发射器</a></li>
+                
+                    <li><a href="/post/2016/64-set-up-monitor-system-with-prometheus-on-raspberry/">在树莓派3上搭建监控系统</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2013/vistor-on-homepage-led-indicator/" data-toggle="tooltip" data-placement="top" title="如何在Raspberry Pi上用LED闪烁提示网站首页新访客">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2013/03-17-interfacing-temperature-and-humidity-sensor-with-raspberry-pi/" data-toggle="tooltip" data-placement="top" title="如何使用Raspberry Pi测量室内温度和湿度并绘制曲线">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2013/03-16-use-raspberry-pi-control-step-motor-rotate-webcam">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2013\/03-16-use-raspberry-pi-control-step-motor-rotate-webcam';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

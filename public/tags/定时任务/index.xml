@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>定时任务 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+    <description>Recent content in 定时任务 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>当 10 万个定时任务同时敲门：MaaS 平台调度优化实战</title>
+      <link>http://localhost:45445/post/2026/166-scheduled-task-optimization-best-practices/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/166-scheduled-task-optimization-best-practices/</guid>
+      <description>&lt;p&gt;上周五下午 3 点，告警群炸了：MaaS 层的 GPU 推理集群 QPS 在 60 秒内从 1200 飙到 18000，p99 延迟从 800ms 打到 45 秒，大量请求 429。&lt;/p&gt;&#xA;&lt;p&gt;排查发现原因很&amp;quot;朴素&amp;quot;——&lt;strong&gt;大约 3 万个 OpenClaw 实例的定时任务都跑在整点&lt;/strong&gt;。每个实例可能只有 1-3 个 cron job（数据摘要、定时巡检、报表生成），但所有人的 cron 都写着 &lt;code&gt;0 * * * *&lt;/code&gt; 或 &lt;code&gt;0 0 * * *&lt;/code&gt;。三万乘以三，就是整点瞬间涌来的近十万个 LLM 推理请求。&lt;/p&gt;&#xA;&lt;p&gt;这不是应用层的 bug，而是&lt;strong&gt;平台设计的缺陷&lt;/strong&gt;。当你的平台承载成千上万个租户的定时任务时，&amp;ldquo;整点风暴&amp;quot;不是意外——它是必然。问题是：&lt;strong&gt;作为平台设计者，你该怎么办？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

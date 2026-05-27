@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Browser on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/browser/</link>
+    <description>Recent content in Browser on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/browser/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenClaw使用远程浏览器——让AI读懂你的个性化互联网</title>
+      <link>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</guid>
+      <description>&lt;p&gt;AI Agent 能搜索、能总结、能写代码，但有一件事它做不好：&lt;strong&gt;读你的互联网&lt;/strong&gt;。你的 Twitter Timeline、你的 YouTube 推荐、你的 Hacker News 首页——这些个性化内容藏在登录态背后，普通的 API 调用拿不到。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的远程浏览器方案解决了这个问题：在一台带桌面的 Ubuntu 服务器上运行真实浏览器，保存各大网站的登录信息，然后通过网络让 AI Agent 直接操控这个浏览器。AI 看到的就是你看到的。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

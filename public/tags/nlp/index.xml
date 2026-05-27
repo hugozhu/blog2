@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/nlp/</link>
+    <description>Recent content in NLP on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何对会议纪要 Agent 进行 Benchmark？完整指南与实践</title>
+      <link>http://localhost:45445/post/2026/117-how-to-benchmark-meeting-minutes-agent/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/117-how-to-benchmark-meeting-minutes-agent/</guid>
+      <description>&lt;p&gt;在 AI Agent 应用日益普及的今天,会议纪要生成是最常见的落地场景之一。然而,如何科学地评估一个会议纪要 Agent 的性能,却是许多开发者面临的难题。本文将详细介绍如何构建一个完整的 benchmark 体系,包括评估维度设计、数据集准备、指标计算和自动化测试流程。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NotebookLM的核心能力与构建之道</title>
+      <link>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</guid>
+      <description>&lt;p&gt;当Google在2023年推出NotebookLM时，它重新定义了我们与知识交互的方式。这款AI驱动的笔记应用不仅仅是一个文档管理工具，更是一个能够理解、总结、对话和创作的智能助手。那么，NotebookLM究竟具备哪些关键能力？我们如何构建类似的系统？本文将深入剖析其核心技术架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建高质量订单文档分类器：智能导流到专业Agent</title>
+      <link>http://localhost:45445/post/2025/111-order-document-classifier-agent-routing/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/111-order-document-classifier-agent-routing/</guid>
+      <description>&lt;p&gt;在现代企业的订单处理流程中，不同类型的订单文档往往需要不同的处理逻辑和专业知识。传统的人工分类方式效率低下且容易出错，而基于规则的自动化系统又难以应对复杂多变的业务场景。本文将介绍如何利用大语言模型（LLM）构建一个高质量的订单文档分类器，实现智能路由到专业Agent的完整解决方案。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>意图识别模块实现的最佳实践</title>
+      <link>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</guid>
+      <description>&lt;p&gt;在构建智能对话系统、聊天机器人或语音助手时，意图识别（Intent Recognition）是最核心的组件之一。一个设计良好的意图识别模块不仅能准确理解用户需求，还能随着业务发展灵活扩展。本文将深入探讨意图识别模块实现的最佳实践，帮助你构建生产级的意图识别系统。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深入理解RAG：检索增强生成技术的原理与实践</title>
+      <link>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</guid>
+      <description>&lt;p&gt;在大语言模型(LLM)快速发展的今天，我们面临一个核心挑战：如何让模型能够访问和利用实时、专业或私有的知识？纯粹依赖预训练的模型往往会出现知识过时、幻觉问题，或者无法回答特定领域的问题。这就是检索增强生成(Retrieval-Augmented Generation, RAG)技术应运而生的原因。&lt;/p&gt;&#xA;&lt;p&gt;RAG通过将外部知识库的检索能力与LLM的生成能力相结合，为这个问题提供了一个优雅的解决方案。它不需要重新训练模型，就能让AI系统访问最新的、特定领域的知识，同时显著降低幻觉问题。本文将深入探讨RAG的核心原理、架构设计以及实际应用中的最佳实践。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

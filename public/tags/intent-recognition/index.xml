@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intent-Recognition on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/intent-recognition/</link>
+    <description>Recent content in Intent-Recognition on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/intent-recognition/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>意图识别模块实现的最佳实践</title>
+      <link>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</guid>
+      <description>&lt;p&gt;在构建智能对话系统、聊天机器人或语音助手时，意图识别（Intent Recognition）是最核心的组件之一。一个设计良好的意图识别模块不仅能准确理解用户需求，还能随着业务发展灵活扩展。本文将深入探讨意图识别模块实现的最佳实践，帮助你构建生产级的意图识别系统。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

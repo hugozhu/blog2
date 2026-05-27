@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/devops/</link>
+    <description>Recent content in Devops on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>E2B：构建安全可靠的 AI 代理执行环境最佳实践</title>
+      <link>http://localhost:45445/post/2025/106-e2b-ai-infrastructure-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/106-e2b-ai-infrastructure-best-practices/</guid>
+      <description>&lt;p&gt;当你构建一个能够自主编写和执行代码的 AI 代理时，安全性和隔离性成为了首要考虑的问题。如何让 AI 安全地运行用户或自身生成的代码，而不会影响主系统？E2B（Execute to Build）正是为解决这个问题而生的云沙箱平台。本文将深入探讨 E2B 在 AI 基础设施中的最佳实践。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

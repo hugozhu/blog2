@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>电商 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/%E7%94%B5%E5%95%86/</link>
+    <description>Recent content in 电商 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/%E7%94%B5%E5%95%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>To B Agent 失败的根本原因：不是能力问题，是没有把 Agent 变成默认路径</title>
+      <link>http://localhost:45445/post/2026/154-tob-agent-failure-not-capability-but-closed-loop/</link>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/154-tob-agent-failure-not-capability-but-closed-loop/</guid>
+      <description>&lt;p&gt;回顾过去两年，无数 To B Agent 项目的墓碑上都刻着同一句话：&lt;strong&gt;&amp;ldquo;技术很好，但业务没用起来。&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;技术团队困惑——模型能力明明够了，准确率也达标了，为什么运营就是不用？是培训不够？是界面不好？是 Prompt 没调好？&lt;/p&gt;&#xA;&lt;p&gt;都不是。&lt;strong&gt;真正的原因是：你给了运营&amp;quot;用不用随便&amp;quot;的选择权。而只要有选择权，理性人就会选择不用。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

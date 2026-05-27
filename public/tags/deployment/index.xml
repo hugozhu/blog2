@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deployment on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/deployment/</link>
+    <description>Recent content in Deployment on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>企业专属模型：让企业放心调用大模型的架构最佳实践</title>
+      <link>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</guid>
+      <description>&lt;p&gt;和企业客户聊 AI 落地，十次有九次会被问到同一个问题：&lt;strong&gt;&amp;ldquo;我们调用你们的大模型，数据会不会被拿去训练？&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这个问题背后的焦虑是真实的。企业的客户数据、商业机密、内部文档、代码仓库——这些是企业的核心资产。把它们发送给一个外部的大模型 API，本质上就是把家底给别人看了一遍。如果这些数据还被用来训练模型，那等于是在免费帮竞争对手提升 AI 能力。&lt;/p&gt;&#xA;&lt;p&gt;好消息是，这个问题在 2026 年已经有了成熟的解决方案。坏消息是，大多数企业还不知道该怎么选。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

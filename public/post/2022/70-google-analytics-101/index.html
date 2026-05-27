@@ -1,0 +1,708 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Google Analytics 4 简介 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="How to use Google Analytics to measure shopping app"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Google Analytics 4 简介",
+  "@id": "https://hugozhu.site/post/2022/70-google-analytics-101/",
+  "url": "https://hugozhu.site/post/2022/70-google-analytics-101/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2022/70-google-analytics-101/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2022/70-google-analytics-101/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2022/70-google-analytics-101/",
+      "name": "Google Analytics 4 简介",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2022/70-google-analytics-101/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2022/70-google-analytics-101/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "Google Analytics 4 简介",
+  "description": "How to use Google Analytics to measure shopping app",
+  "inLanguage": "en",
+  "wordCount":  288 ,
+  "dateCreated": "2022-03-10T00:00:00+00:00",
+  "datePublished": "2022-03-10T00:00:00+00:00",
+  "dateModified": "2022-03-10T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "Google Analytics" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2022/70-google-analytics-101/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Google Analytics 4 简介" />
+<meta property="og:description" content="How to use Google Analytics to measure shopping app" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2022/70-google-analytics-101/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Google Analytics 4 简介" />
+  <meta name="twitter:description" content="How to use Google Analytics to measure shopping app">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Google Analytics 4 简介</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 10, 2022
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;288&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="google-analytics-4-简介">Google Analytics 4 简介</h2>
+<p>Google Analytics（分析）可帮助您了解人们使用您的 Web、Apple 或 Android 应用的方式。SDK 会自动收集大量事件和用户属性，您也可以定义自定义事件，以便衡量对您的业务有特殊影响的因素。收集到数据后，可通过 Firebase 控制台到信息中心中查看。通过此信息中心，您可以深入、详细地了解您的数据，包括摘要数据（如活跃用户和受众特征）和更详细的数据（如识别您最畅销的商品）。</p>
+<p>Analytics 还集成了 Firebase 的一些其他功能。例如，它自动记录与通过通知编辑器发送的通知消息相对应的事件，并就每个广告系列的影响提供报告。</p>
+<p>Analytics 可帮助您了解用户的行为方式，以便您就如何推广您的应用制定明智的决策。您可以查看您的广告系列在自然渠道和付费渠道的效果，以了解哪些方法对于吸引高价值用户最为有效。如果您需要执行自定义分析或者将您的数据与其他源数据联接，您可以将自己的 Analytics 数据关联到 BigQuery，从而进行更复杂的分析，例如查询大型数据集以及联接多个数据源。</p>
+<h2 id="网站和app用户行为跟踪技术的演进">网站和App用户行为跟踪技术的演进</h2>
+<p>UA （Google Universal Analytics, GA3) -&gt; GA4（Google  Analytics 4)
+<a href="https://support.google.com/analytics/answer/10270783?hl=zh-Hans">https://support.google.com/analytics/answer/10270783?hl=zh-Hans</a></p>
+<p>GA4是UA（GA3）的一次全新的升级，测量模型从以传统的基于会话（Session）转变为事件（Event）驱动，GA3专注于在一次会话中收集和处理用户的各种行为数据（如页面展现，事件，交易），在GA4中，一次页面展现（Pageview）也被认为是一个事件，而页面的标题（Page Title）和路径（Page Path）则是事件的参数。</p>
+<p>三种实现方案：analytics.js -&gt; gtag.js -&gt; GTM (Google Tag Manager)</p>
+<p>analytics.js已不被推荐使用，<strong>GTM</strong>是目前的最佳实践。</p>
+<p>GTM的三个优势：</p>
+<ul>
+<li>可以填入第三方追踪代码，例如 Facebook/Tiktok Pixel</li>
+<li>追踪事件 (转化) 或其他项目时候，不用工程师改代码</li>
+<li>有代码预览，审核发布流程，适合团队协作</li>
+</ul>
+<p>UA（GA3）只有一种跟踪代码类型，但GA4有两种代码类型：GA4配置代码和GA4事件代码，其中GA4配置代码的作用域范围是页面全局，用户在页面上所有交互事件共享相同的配置。运行期GA4配置代码要在事件代码触发前执行。</p>
+<p>如果网站页面上既有gtag.js，又有GTM跟踪代码，理论上这并不会产生问题，但要注意GTM重复配置事件触发可能导致多次同一事件多次触发；另外，gtag.js的事件参数如 “cookie_prefix”, or “allow_ad_personalization_signals”会传递到GTM里配置的GA4事件。</p>
+<h2 id="重要概念">重要概念</h2>
+<h3 id="segments受众">Segments（受众）</h3>
+<p>建立起产品受众分层是产品精准营销的基础。受众分层是使用产品用户的具体分类，可根据地区，访问设备，年龄等用户属性来分类，每一个产品都有一个目标获取的受众群体，具体的营销活动应该根据目标受众的喜好来追求ROI最大化，用户增长首先要找到最易获取的受众群体。</p>
+<p>Segment示例：</p>
+<ul>
+<li>(客层/年龄：18-24)「AND」(客层/性别：女性)</li>
+<li>行为：工作阶段 &gt; 1「AND」行为：每位使用者交易次数 &gt; 1</li>
+<li>电子商务：每位使用者收益 &gt; 10「AND」电子商务：产品 = T恤</li>
+</ul>
+<h3 id="event事件">Event（事件）</h3>
+<p><a href="https://support.google.com/analytics/answer/9322688?hl=zh-Hans&amp;ref_topic=9756175">https://support.google.com/analytics/answer/9322688?hl=zh-Hans&amp;ref_topic=9756175</a>
+用户在你的网站或App中通过互动而触发的各种事件参数的数据，比如当打开一个网页时会触发一个“page_view”事件。</p>
+<p>GA4内置了近500种事件，包含了电商网站，游戏App，旅游网站，视频网站等常见的事件类型，其中增强型衡量事件需要通过配置打开来生效，推荐的事件需要工程师编写代码来实现（注：事件名称和事件参数和参数值的规范要符合GA4的数据模型）</p>
+<ul>
+<li>
+<p>自动收集的事件 <a href="https://support.google.com/analytics/answer/9234069?hl=zh-Hans&amp;ref_topic=9756175">https://support.google.com/analytics/answer/9234069?hl=zh-Hans&amp;ref_topic=9756175</a></p>
+</li>
+<li>
+<p>增强型衡量事件 <a href="https://support.google.com/analytics/answer/9216061?hl=zh-Hans&amp;ref_topic=9756175">https://support.google.com/analytics/answer/9216061?hl=zh-Hans&amp;ref_topic=9756175</a></p>
+</li>
+<li>
+<p>推荐的事件 <a href="https://support.google.com/analytics/answer/9267735?hl=zh-Hans&amp;ref_topic=9756175">https://support.google.com/analytics/answer/9267735?hl=zh-Hans&amp;ref_topic=9756175</a></p>
+</li>
+</ul>
+<p><strong>如果以上的事件和事件参数还无法满足跟踪需求，那么你还可以采用自定义事件（尽量少用）</strong></p>
+<ul>
+<li>自定义事件 <a href="https://support.google.com/analytics/answer/11262438?hl=zh-Hans&amp;ref_topic=9756175">https://support.google.com/analytics/answer/11262438?hl=zh-Hans&amp;ref_topic=9756175</a></li>
+</ul>
+<h3 id="dimension-维度">Dimension （维度）</h3>
+<p>通过用户在你的网站或App中触发的各种事件（Event）收集而来的数据的属性或特征，如UserId，日期，流量来源，用户所属地域，用户使用的设备等</p>
+<h3 id="metrics-指标">Metrics （指标）</h3>
+<p>指标是量化可衡量的，通过指标你可以知道什么事件发生了多少次，</p>
+<p>这里有一份常用的术语和指标:
+<a href="https://www.niaogebiji.com/article-16403-1.html">https://www.niaogebiji.com/article-16403-1.html</a></p>
+<h3 id="conversion-转化">Conversion （转化）</h3>
+<p>Conversion是高价值的事件（Event），借助转化跟踪，你可以了解你投放的广告获得的点击是否有效转化为你网站上有价值的客户活动，例如购买、注册，喜欢，加购等，不同的事件有不同的价值。
+<a href="https://support.google.com/google-ads/answer/6095821?hl=zh-Hans">https://support.google.com/google-ads/answer/6095821?hl=zh-Hans</a></p>
+<h3 id="attribution-models-归因模型">Attribution models (归因模型)</h3>
+<p><a href="https://support.google.com/analytics/answer/1033861?hl=zh-Hans#AttributionModels&amp;zippy=%2C%E6%9C%AC%E6%96%87%E5%8C%85%E5%90%AB%E7%9A%84%E4%B8%BB%E9%A2%98">https://support.google.com/analytics/answer/1033861?hl=zh-Hans#AttributionModels&amp;zippy=%2C%E6%9C%AC%E6%96%87%E5%8C%85%E5%90%AB%E7%9A%84%E4%B8%BB%E9%A2%98</a></p>
+<p>为了解答有关用户行为的各种网站分析问题，Google Analytics（分析）会使用各种计算类型或归因模型来得出您在报告中看到的数据。请将每份 Google Analytics（分析）报告视为对某类用户分析问题的解答。通常，这些问题可以划分为以下几类：</p>
+<ul>
+<li>内容：特定网页被浏览的次数。</li>
+<li>目标：哪些网页网址对目标转化率的贡献最大。</li>
+<li>电子商务：给定网页为交易贡献多少价值。</li>
+<li>内部搜索：哪些内部搜索字词促成了交易。</li>
+</ul>
+<p>对于以上各种主要类别及其包含的报告，Google Analytics（分析）会使用不同的归因模型。由于每种归因模型都是专为计算一组已知指标而设计的，您可能会注意到某些指标（例如，网页浏览量）只在某些报告中显示而不在其他报告中显示。这是由该报告所使用的归因模型决定的。</p>
+<p>Google Analytics（分析）报告使用 3 种归因模型：</p>
+<ul>
+<li>依据请求</li>
+<li>网页价值</li>
+<li>网站搜索归因</li>
+</ul>
+<h2 id="ga4-和-gtm-事件跟踪使用指南">GA4 和 GTM 事件跟踪使用指南</h2>
+<p><strong>重要！！！请工程师阅读并完成一次流程，从GA4报表数据确认配置正确</strong></p>
+<p><a href="https://www.optimizesmart.com/event-tracking-in-google-tag-manager-v2-complete-guide/">https://www.optimizesmart.com/event-tracking-in-google-tag-manager-v2-complete-guide/</a></p>
+<h3 id="datalayer">DataLayer</h3>
+<p>用于传递Event数据给GTM的一个Javascript对象。
+<a href="https://support.google.com/tagmanager/answer/6164391?hl=zh-Hans#:~:text=A%20data%20layer%20is%20a,developer%20documentation%20for%20more%20information">https://support.google.com/tagmanager/answer/6164391?hl=zh-Hans#:~:text=A%20data%20layer%20is%20a,developer%20documentation%20for%20more%20information</a>.</p>
+<h3 id="set-user-properties-设置用户属性">Set User Properties 设置用户属性</h3>
+<p><a href="https://firebase.google.com/docs/analytics/user-properties?platform=android">https://firebase.google.com/docs/analytics/user-properties?platform=android</a></p>
+<h3 id="logging-event-记录事件">Logging Event 记录事件</h3>
+<p><a href="https://firebase.google.com/docs/analytics/events?platform=android">https://firebase.google.com/docs/analytics/events?platform=android</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">以登录界面为例：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">通用屏幕打点：
+</span></span><span class="line"><span class="cl">logEvent({
+</span></span><span class="line"><span class="cl">  name: &#34;screen_view&#34;,
+</span></span><span class="line"><span class="cl">  params: {
+</span></span><span class="line"><span class="cl">    screen_name:  &#34;login_view&#34;, //iOS和Android保持一致
+</span></span><span class="line"><span class="cl">    screen_title: &#34;Login and Register&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">用户页面互动自定义打点：
+</span></span><span class="line"><span class="cl">logEvent({
+</span></span><span class="line"><span class="cl">  name: &#34;login_view&#34;,
+</span></span><span class="line"><span class="cl">  params: {
+</span></span><span class="line"><span class="cl">    click : &#34;tab_signin | tab_register | btn_signin | btn_register | link_forget_password | link_bottom_privacy | link_bottom_service&#34;,
+</span></span><span class="line"><span class="cl">    input: &#34;email ｜ password&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">})
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">在部署了gtag.js的页面中logEvent的实现如下：
+</span></span><span class="line"><span class="cl">function logEvent(name, params) {
+</span></span><span class="line"><span class="cl">  gtag(&#34;event&#34;, name, params)
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">在部署了GTM的页面中logEvent的实现如下：
+</span></span><span class="line"><span class="cl">function logEvent(name, params) {      
+</span></span><span class="line"><span class="cl">  params[&#34;event&#34;] = name
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  window.dataLayer = window.dataLayer || [];
+</span></span><span class="line"><span class="cl">  window.dataLayer.push(params)
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="电子商务-ga4-开发者指南">电子商务 (GA4) 开发者指南</h2>
+<p><strong>重要！！！，工程师和产品经理必看</strong></p>
+<p><a href="https://developers.google.com/tag-manager/ecommerce-ga4">https://developers.google.com/tag-manager/ecommerce-ga4</a></p>
+<p>电商网站iOS，Android App和H5 Web应用打点的event_name和event_parameter一定要按上面的指南来实施，切忌不规范的打点造成数据异常，分析困难效率低，得不出有效结论。</p>
+<h2 id="页面预加载请求如何打点">页面预加载请求如何打点</h2>
+<p><a href="https://support.google.com/analytics/answer/1033068#NonInteractionEvents&amp;zippy=%2Cin-this-article">https://support.google.com/analytics/answer/1033068#NonInteractionEvents&amp;zippy=%2Cin-this-article</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gtag(&#39;event&#39;, &#39;video_auto_play_start&#39;, {
+</span></span><span class="line"><span class="cl">  &#39;event_label&#39;: &#39;My promotional video&#39;,
+</span></span><span class="line"><span class="cl">  &#39;event_category&#39;: &#39;video_auto_play&#39;,
+</span></span><span class="line"><span class="cl">  &#39;non_interaction&#39;: true
+</span></span><span class="line"><span class="cl">});
+</span></span></code></pre></div><p>GTM同样可以标记非交互事件。</p>
+<h2 id="导出ga4数据到google-bigquery">导出GA4数据到Google BigQuery</h2>
+<p>GA3不能导出原始数据是最大的诟病，好在GA4支持导出了，免费额度每天有100万条事件。</p>
+<p>GA4事件原始表结构：https://support.google.com/analytics/answer/7029846?hl=en</p>
+<p>导出一天的event日志成json文件后就可以用 <strong>jq</strong> （https://stedolan.github.io/jq/manual/#Basicfilters） 命令快速过滤分析:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat results-20220316-111605.json | jq -r &#39;
+</span></span><span class="line"><span class="cl">.[] | [ 
+</span></span><span class="line"><span class="cl">  .event_timestamp, 
+</span></span><span class="line"><span class="cl">  .event_name, 
+</span></span><span class="line"><span class="cl">  (.event_params | .[] | select (.key == &#34;click&#34;) | .value.string_value) 
+</span></span><span class="line"><span class="cl">] | @csv&#39;
+</span></span></code></pre></div><p>同步GA4 Event Logs到自己的数据仓库的步骤：</p>
+<ul>
+<li>配置好 Google BigQuery API 访问权限</li>
+<li>调用Export接口，将数据导出到Google Cloud Storage（类似Aliyun OSS的服务）</li>
+<li>调用Storage API下载到Aliyun OSS，再通过ODPS倒入数据仓库</li>
+<li>如果需要实时数据，也可以定时Query GA4每天的实时表同步到MongoDB等数据库。</li>
+</ul>
+<h2 id="ga4-演示账号">GA4 演示账号</h2>
+<p><a href="https://support.google.com/analytics/answer/6367342?hl=en#zippy=%2Cin-this-article">https://support.google.com/analytics/answer/6367342?hl=en#zippy=%2Cin-this-article</a></p>
+<p>安装GA4演示账号后可以体验GA4内建的电商网站的流量获取渠道效率，成交转化漏斗等报表和数据洞察，这是最大的业务价值。</p>
+<p><strong>实现这个价值的前提是规范的使用GA打点。</strong></p>
+<h2 id="ab-test最小样本量">A/B Test最小样本量</h2>
+<p>用这个工具计算： <a href="https://www.evanmiller.org/ab-testing/sample-size.html">https://www.evanmiller.org/ab-testing/sample-size.html</a></p>
+<p>原理见：
+<a href="https://zhuanlan.zhihu.com/p/40919260">https://zhuanlan.zhihu.com/p/40919260</a>
+<a href="https://guessthetest.com/calculating-sample-size-in-a-b-testing-everything-you-need-to-know/#:~:text=A%20general%20rule%20of%20thumb,a%20high%20level%20of%20confidence">https://guessthetest.com/calculating-sample-size-in-a-b-testing-everything-you-need-to-know/#:~:text=A%20general%20rule%20of%20thumb,a%20high%20level%20of%20confidence</a>.</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/google-analytics/">Google Analytics</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2022%2f70-google-analytics-101%2f&amp;text=Google%20Analytics%204%20%e7%ae%80%e4%bb%8b&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2022%2f70-google-analytics-101%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2022%2f70-google-analytics-101%2f&amp;title=Google%20Analytics%204%20%e7%ae%80%e4%bb%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2022%2f70-google-analytics-101%2f&amp;title=Google%20Analytics%204%20%e7%ae%80%e4%bb%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2022%2f70-google-analytics-101%2f&amp;title=Google%20Analytics%204%20%e7%ae%80%e4%bb%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2022%2f70-google-analytics-101%2f&amp;description=Google%20Analytics%204%20%e7%ae%80%e4%bb%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2022%2f70-google-analytics-101%2f&amp;subject=Google%20Analytics%204%20%e7%ae%80%e4%bb%8b" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2020/69-write-your-blog-on-ipad/" data-toggle="tooltip" data-placement="top" title="在iPad上写Blog">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2022/71-gitlab-runner-using-docker-build/" data-toggle="tooltip" data-placement="top" title="用Gitlab Runner来打包并上传Harbor">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2022/70-google-analytics-101">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2022\/70-google-analytics-101';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

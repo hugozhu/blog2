@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MVP on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/mvp/</link>
+    <description>Recent content in MVP on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/mvp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>把组织当成产品来打造：AI 原生组织的 MVP 设计</title>
+      <link>http://localhost:45445/post/2026/173-ai-native-org-mvp-design/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/173-ai-native-org-mvp-design/</guid>
+      <description>&lt;p&gt;去年底，钉钉内部发生了一件事。一个做智能客服的产品经理发现，他给企业客户做的 AI 解决方案，从需求确认到方案交付平均要 14 天。他拉了一下链路：客户提需求给销售（1 天）→ 销售转给解决方案团队（等 2 天）→ 解决方案写 PRD 转给产品（等 1 天）→ 产品评审排期（等 3 天）→ 技术实现（5 天）→ 交付验收（2 天）。14 天里，真正在&amp;quot;干活&amp;quot;的时间不到 5 天，剩下 9 天全是等待——等人、等审批、等排期、等信息同步。&lt;/p&gt;&#xA;&lt;p&gt;他跑去找他的主管说：&lt;strong&gt;&amp;ldquo;我们给客户做 AI 提效工具，但我们自己的组织效率，比客户还低。&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这句话刺痛了人。但更刺痛的是——这不是钉钉一家的问题，这是几乎所有想做 AI 转型的公司都会撞上的墙。&lt;strong&gt;不是不知道终局应该长什么样，而是不知道第一个可用版本怎么做——像做产品一样，先跑起来，再迭代。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

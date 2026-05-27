@@ -1,0 +1,1349 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>E2B：构建安全可靠的 AI 代理执行环境最佳实践 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="深入探讨 E2B 云沙箱在 AI 基础设施中的应用与实践"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "E2B：构建安全可靠的 AI 代理执行环境最佳实践",
+  "@id": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/",
+  "url": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/",
+      "name": "E2B：构建安全可靠的 AI 代理执行环境最佳实践",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "E2B：构建安全可靠的 AI 代理执行环境最佳实践",
+  "description": "当你构建一个能够自主编写和执行代码的 AI 代理时，安全性和隔离性成为了首要考虑的问题。如何让 AI 安全地运行用户或自身生成的代码，而不会影响主系统？E2B（Execute to Build）正是为解决这个问题而生的云沙箱平台。本文将深入探讨 E2B 在 AI 基础设施中的最佳实践。\n",
+  "inLanguage": "en",
+  "wordCount":  1954 ,
+  "timeRequired": "PT10M",
+  "dateCreated": "2025-12-19T00:00:00+00:00",
+  "datePublished": "2025-12-19T00:00:00+00:00",
+  "dateModified": "2025-12-19T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "AI, infrastructure, E2B, AI-agents, sandbox, code-execution, devops" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="E2B：构建安全可靠的 AI 代理执行环境最佳实践" />
+<meta property="og:description" content="深入探讨 E2B 云沙箱在 AI 基础设施中的应用与实践" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="E2B：构建安全可靠的 AI 代理执行环境最佳实践" />
+  <meta name="twitter:description" content="深入探讨 E2B 云沙箱在 AI 基础设施中的应用与实践">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>E2B：构建安全可靠的 AI 代理执行环境最佳实践</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">深入探讨 E2B 云沙箱在 AI 基础设施中的应用与实践</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on December 19, 2025
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;10&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1954&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>当你构建一个能够自主编写和执行代码的 AI 代理时，安全性和隔离性成为了首要考虑的问题。如何让 AI 安全地运行用户或自身生成的代码，而不会影响主系统？E2B（Execute to Build）正是为解决这个问题而生的云沙箱平台。本文将深入探讨 E2B 在 AI 基础设施中的最佳实践。</p>
+<h2 id="什么是-e2b">什么是 E2B？</h2>
+<p>E2B 是一个专为 AI 代理设计的安全代码执行平台，它提供了隔离的云沙箱环境，让 AI 能够安全地执行代码、操作文件系统、安装依赖包，而不会对主系统造成任何影响。</p>
+<h3 id="核心特性">核心特性</h3>
+<ul>
+<li><strong>安全隔离</strong>：每个沙箱都是完全隔离的虚拟环境</li>
+<li><strong>快速启动</strong>：沙箱启动时间通常在 1-3 秒内</li>
+<li><strong>多语言支持</strong>：支持 Python、JavaScript、Bash 等多种编程语言</li>
+<li><strong>文件系统操作</strong>：完整的文件读写能力</li>
+<li><strong>网络访问</strong>：可以访问外部 API 和服务</li>
+<li><strong>可定制化</strong>：支持自定义 Docker 镜像</li>
+</ul>
+<h2 id="e2b-的典型应用场景">E2B 的典型应用场景</h2>
+<h3 id="1-ai-代码助手">1. AI 代码助手</h3>
+<p>最常见的应用是构建能够编写和执行代码的 AI 助手，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">e2b_code_interpreter</span> <span class="kn">import</span> <span class="n">CodeInterpreter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run_ai_generated_code</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Execute AI-generated code in a secure sandbox.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        code: Python code string generated by AI
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Execution results including stdout, stderr, and any errors
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Execute the code in isolated environment</span>
+</span></span><span class="line"><span class="cl">        <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="ow">not</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;results&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;logs&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;error&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Example: AI generates data analysis code</span>
+</span></span><span class="line"><span class="cl"><span class="n">ai_code</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">import pandas as pd
+</span></span></span><span class="line"><span class="cl"><span class="s2">import matplotlib.pyplot as plt
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"># Generate sample data
+</span></span></span><span class="line"><span class="cl"><span class="s2">data = pd.DataFrame({
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#39;month&#39;: [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;],
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#39;revenue&#39;: [10000, 12000, 11500, 13000]
+</span></span></span><span class="line"><span class="cl"><span class="s2">})
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"># Calculate statistics
+</span></span></span><span class="line"><span class="cl"><span class="s2">print(f&#34;Total Revenue: ${data[&#39;revenue&#39;].sum()}&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s2">print(f&#34;Average Revenue: ${data[&#39;revenue&#39;].mean():.2f}&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">run_ai_generated_code</span><span class="p">(</span><span class="n">ai_code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="2-数据分析和可视化">2. 数据分析和可视化</h3>
+<p>E2B 特别适合需要动态生成数据分析代码的场景：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">e2b_code_interpreter</span> <span class="kn">import</span> <span class="n">CodeInterpreter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">analyze_data_with_visualization</span><span class="p">(</span><span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">analysis_prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Perform data analysis and generate visualizations in sandbox.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        data_path: Path to data file
+</span></span></span><span class="line"><span class="cl"><span class="s2">        analysis_prompt: User&#39;s analysis request
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Analysis results and generated charts
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Upload data file to sandbox</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sandbox</span><span class="o">.</span><span class="n">filesystem</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;/tmp/data.csv&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Generate and execute analysis code</span>
+</span></span><span class="line"><span class="cl">        <span class="n">code</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">import pandas as pd
+</span></span></span><span class="line"><span class="cl"><span class="s2">import matplotlib.pyplot as plt
+</span></span></span><span class="line"><span class="cl"><span class="s2">import seaborn as sns
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"># Load data
+</span></span></span><span class="line"><span class="cl"><span class="s2">df = pd.read_csv(&#39;/tmp/data.csv&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"># Perform analysis based on prompt: </span><span class="si">{</span><span class="n">analysis_prompt</span><span class="si">}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">summary = df.describe()
+</span></span></span><span class="line"><span class="cl"><span class="s2">print(summary)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"># Create visualization
+</span></span></span><span class="line"><span class="cl"><span class="s2">plt.figure(figsize=(10, 6))
+</span></span></span><span class="line"><span class="cl"><span class="s2">sns.heatmap(df.corr(), annot=True, cmap=&#39;coolwarm&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s2">plt.savefig(&#39;/tmp/correlation.png&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Retrieve generated visualization</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chart_data</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">filesystem</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;/tmp/correlation.png&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;analysis&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;chart&#34;</span><span class="p">:</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">chart_data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></div><h3 id="3-自动化测试和验证">3. 自动化测试和验证</h3>
+<p>AI 可以生成测试代码并在沙箱中执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">validate_function_with_tests</span><span class="p">(</span><span class="n">function_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">test_cases</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Validate AI-generated function with automated tests.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        function_code: The function implementation
+</span></span></span><span class="line"><span class="cl"><span class="s2">        test_cases: List of test cases to run
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Test results and coverage information
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Install testing framework</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sandbox</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&#34;pip install pytest pytest-cov&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Write function and tests</span>
+</span></span><span class="line"><span class="cl">        <span class="n">test_code</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="si">{</span><span class="n">function_code</span><span class="si">}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">import pytest
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="si">{</span><span class="nb">chr</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_cases</span><span class="p">)</span><span class="si">}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"># Run tests with coverage
+</span></span></span><span class="line"><span class="cl"><span class="s2">if __name__ == &#39;__main__&#39;:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    pytest.main([&#39;-v&#39;, &#39;--cov&#39;])
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">sandbox</span><span class="o">.</span><span class="n">filesystem</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;/tmp/test_module.py&#39;</span><span class="p">,</span> <span class="n">test_code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Execute tests</span>
+</span></span><span class="line"><span class="cl">        <span class="n">process</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&#34;python /tmp/test_module.py&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">process</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;passed&#34;</span><span class="p">:</span> <span class="n">process</span><span class="o">.</span><span class="n">exit_code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;output&#34;</span><span class="p">:</span> <span class="n">process</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;errors&#34;</span><span class="p">:</span> <span class="n">process</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">stderr</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></div><h2 id="e2b-最佳实践">E2B 最佳实践</h2>
+<h3 id="1-资源管理与生命周期控制">1. 资源管理与生命周期控制</h3>
+<p>合理管理沙箱生命周期是保证性能和成本的关键：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">e2b_code_interpreter</span> <span class="kn">import</span> <span class="n">CodeInterpreter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SandboxPool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Manage a pool of E2B sandboxes for better resource utilization.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pool_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pool_size</span> <span class="o">=</span> <span class="n">pool_size</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">sandboxes</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">last_used</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@contextmanager</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_sandbox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Get an available sandbox from pool or create new one.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sandbox</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Try to reuse existing sandbox</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">sb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sandboxes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_used</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sandbox</span> <span class="o">=</span> <span class="n">sb</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Create new sandbox if pool not full</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">sandbox</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sandboxes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool_size</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sandbox</span> <span class="o">=</span> <span class="n">CodeInterpreter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">sandboxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sandbox</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Wait for available sandbox</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sandbox</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">last_used</span><span class="p">[</span><span class="n">sandbox</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">sandbox</span>
+</span></span><span class="line"><span class="cl">        <span class="k">finally</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Cleanup if timeout exceeded</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_used</span><span class="p">[</span><span class="n">sandbox</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sandbox</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">sandboxes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sandbox</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Usage</span>
+</span></span><span class="line"><span class="cl"><span class="n">pool</span> <span class="o">=</span> <span class="n">SandboxPool</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">execute_multiple_tasks</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Execute multiple tasks using sandbox pool.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="n">pool</span><span class="o">.</span><span class="n">get_sandbox</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">results</span>
+</span></span></code></pre></div><h3 id="2-错误处理和重试机制">2. 错误处理和重试机制</h3>
+<p>构建健壮的错误处理策略：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tenacity</span> <span class="kn">import</span> <span class="n">retry</span><span class="p">,</span> <span class="n">stop_after_attempt</span><span class="p">,</span> <span class="n">wait_exponential</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">e2b_code_interpreter</span> <span class="kn">import</span> <span class="n">CodeInterpreter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@retry</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stop</span><span class="o">=</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wait</span><span class="o">=</span><span class="n">wait_exponential</span><span class="p">(</span><span class="n">multiplier</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">execute_with_retry</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Execute code with automatic retry on transient failures.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        code: Code to execute
+</span></span></span><span class="line"><span class="cl"><span class="s2">        timeout: Execution timeout in seconds
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Execution results
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Raises:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Exception: If all retry attempts fail
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Execution error: </span><span class="si">{</span><span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># Distinguish between recoverable and non-recoverable errors</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="s2">&#34;timeout&#34;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&#34;Timeout - retryable&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span> <span class="s2">&#34;memory&#34;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&#34;Memory error - retryable&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># Non-retryable error (syntax, logic)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="s2">&#34;error&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="s2">&#34;retryable&#34;</span><span class="p">:</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;results&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;logs&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Sandbox error, will retry: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span>
+</span></span></code></pre></div><h3 id="3-安全性强化">3. 安全性强化</h3>
+<p>虽然 E2B 提供了隔离环境，但仍需要额外的安全措施：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CodeSecurityValidator</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Validate code before execution for additional security.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">DANGEROUS_PATTERNS</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;import\s+os\s*;\s*os\.system&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;__import__\s*\(\s*[&#34;</span><span class="se">\&#39;</span><span class="s1">]os[&#34;</span><span class="se">\&#39;</span><span class="s1">]\s*\)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;eval\s*\(&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;exec\s*\(&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;compile\s*\(&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;__builtins__&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;subprocess\.call&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sa">r</span><span class="s1">&#39;open\s*\([^)]*,\s*[&#34;</span><span class="se">\&#39;</span><span class="s1">]w&#39;</span><span class="p">,</span>  <span class="c1"># Write mode file operations</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ALLOWED_IMPORTS</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;seaborn&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;sklearn&#39;</span><span class="p">,</span> <span class="s1">&#39;scipy&#39;</span><span class="p">,</span> <span class="s1">&#39;requests&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@staticmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">validate_code</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Validate code for security risks.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            (is_valid, error_message)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Check for dangerous patterns</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">CodeSecurityValidator</span><span class="o">.</span><span class="n">DANGEROUS_PATTERNS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;Potentially dangerous code pattern detected: </span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Validate imports</span>
+</span></span><span class="line"><span class="cl">        <span class="n">import_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^\s*(?:from|import)\s+(\w+)&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">imports</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">import_pattern</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">imp</span> <span class="ow">in</span> <span class="n">imports</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">imp</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">CodeSecurityValidator</span><span class="o">.</span><span class="n">ALLOWED_IMPORTS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;Unauthorized import: </span><span class="si">{</span><span class="n">imp</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@staticmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">sanitize_output</span><span class="p">(</span><span class="n">output</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Sanitize and limit output length.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">output</span><span class="p">[:</span><span class="n">max_length</span><span class="p">]</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">... (truncated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">-</span> <span class="n">max_length</span><span class="si">}</span><span class="s2"> characters)&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">output</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">safe_execute</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Execute code with security validation.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Validate code first</span>
+</span></span><span class="line"><span class="cl">    <span class="n">is_valid</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">CodeSecurityValidator</span><span class="o">.</span><span class="n">validate_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&#34;error&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Security validation failed: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Execute in sandbox</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Sanitize output</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">CodeSecurityValidator</span><span class="o">.</span><span class="n">sanitize_output</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">stdout</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="ow">not</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;results&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;logs&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></div><h3 id="4-性能优化">4. 性能优化</h3>
+<p>优化沙箱性能和响应时间：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">e2b_code_interpreter</span> <span class="kn">import</span> <span class="n">CodeInterpreter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AsyncSandboxExecutor</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Asynchronous executor for parallel code execution.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_concurrent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">max_concurrent</span> <span class="o">=</span> <span class="n">max_concurrent</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">semaphore</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="n">max_concurrent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">def</span> <span class="nf">execute_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sandbox_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Execute code asynchronously with concurrency control.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            code: Code to execute
+</span></span></span><span class="line"><span class="cl"><span class="s2">            sandbox_id: Optional existing sandbox ID to reuse
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Execution results
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">semaphore</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Run synchronous E2B code in thread pool</span>
+</span></span><span class="line"><span class="cl">            <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="kc">None</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">_sync_execute</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">code</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sandbox_id</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_sync_execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sandbox_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Synchronous execution wrapper.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">(</span><span class="n">sandbox_id</span><span class="o">=</span><span class="n">sandbox_id</span><span class="p">)</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;sandbox_id&#34;</span><span class="p">:</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="ow">not</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;results&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;error&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">def</span> <span class="nf">execute_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Execute multiple code snippets in parallel.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            code_list: List of code snippets to execute
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            List of execution results
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">execute_async</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">code_list</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">,</span> <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">results</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Usage example</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">executor</span> <span class="o">=</span> <span class="n">AsyncSandboxExecutor</span><span class="p">(</span><span class="n">max_concurrent</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">code_snippets</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;print(sum(range(100)))&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;import pandas as pd; print(pd.__version__)&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;print([x**2 for x in range(10)])&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">executor</span><span class="o">.</span><span class="n">execute_batch</span><span class="p">(</span><span class="n">code_snippets</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Task </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run async execution</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># asyncio.run(main())</span>
+</span></span></code></pre></div><h3 id="5-监控和日志记录">5. 监控和日志记录</h3>
+<p>实现全面的监控和日志系统：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ExecutionMetrics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Track execution metrics for monitoring.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sandbox_id</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_time</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="cl">    <span class="n">end_time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="n">code_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">success</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">error_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="n">execution_time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;sandbox_id&#34;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sandbox_id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;timestamp&#34;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;execution_time_ms&#34;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">execution_time</span> <span class="o">*</span> <span class="mi">1000</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">execution_time</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;code_length&#34;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">code_length</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;error_type&#34;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_type</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MonitoredSandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Sandbox wrapper with monitoring and logging.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;/tmp/e2b_executions.log&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_setup_logger</span><span class="p">(</span><span class="n">log_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ExecutionMetrics</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_setup_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Setup structured logging.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&#34;e2b_monitor&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">logger</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">execute_with_monitoring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Execute code with comprehensive monitoring.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">metrics</span> <span class="o">=</span> <span class="n">ExecutionMetrics</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sandbox_id</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">start_time</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">code_length</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Starting execution: </span><span class="si">{</span><span class="n">code</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s2">...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">metrics</span><span class="o">.</span><span class="n">sandbox_id</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">metrics</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="n">metrics</span><span class="o">.</span><span class="n">execution_time</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">metrics</span><span class="o">.</span><span class="n">start_time</span>
+</span></span><span class="line"><span class="cl">                <span class="n">metrics</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">metrics</span><span class="o">.</span><span class="n">error_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="sa">f</span><span class="s2">&#34;Execution failed: </span><span class="si">{</span><span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">extra</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="s2">&#34;Execution succeeded&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">extra</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">success</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;results&#34;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;metrics&#34;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">metrics</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">metrics</span><span class="o">.</span><span class="n">execution_time</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">metrics</span><span class="o">.</span><span class="n">start_time</span>
+</span></span><span class="line"><span class="cl">            <span class="n">metrics</span><span class="o">.</span><span class="n">error_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&#34;Unexpected error during execution&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;success&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;error&#34;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;metrics&#34;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Get execution statistics.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;total_executions&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">successful</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">avg_time</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">execution_time</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">execution_time</span><span class="p">)</span> <span class="o">/</span> <span class="n">total</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;total_executions&#34;</span><span class="p">:</span> <span class="n">total</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;successful&#34;</span><span class="p">:</span> <span class="n">successful</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;failed&#34;</span><span class="p">:</span> <span class="n">total</span> <span class="o">-</span> <span class="n">successful</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;success_rate&#34;</span><span class="p">:</span> <span class="n">successful</span> <span class="o">/</span> <span class="n">total</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;average_execution_time_ms&#34;</span><span class="p">:</span> <span class="n">avg_time</span> <span class="o">*</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></div><h2 id="与-ai-框架集成">与 AI 框架集成</h2>
+<h3 id="与-langchain-集成">与 LangChain 集成</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain.tools</span> <span class="kn">import</span> <span class="n">Tool</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span><span class="p">,</span> <span class="n">AgentType</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">e2b_code_interpreter</span> <span class="kn">import</span> <span class="n">CodeInterpreter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">create_e2b_tool</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Create LangChain tool for E2B code execution.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">execute_python</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Execute Python code in E2B sandbox.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Error: </span><span class="si">{</span><span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">output</span> <span class="o">=</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">stdout</span> <span class="ow">or</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">output</span> <span class="o">+=</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">output</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Tool</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">name</span><span class="o">=</span><span class="s2">&#34;Python Executor&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">func</span><span class="o">=</span><span class="n">execute_python</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">description</span><span class="o">=</span><span class="s2">&#34;Execute Python code in a secure sandbox. Use this to run data analysis, calculations, or generate visualizations.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create agent with E2B tool</span>
+</span></span><span class="line"><span class="cl"><span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_e2b_tool</span><span class="p">()]</span>
+</span></span><span class="line"><span class="cl"><span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tools</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">llm</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use the agent</span>
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Calculate the sum of squares for numbers 1 to 100 and show me the result&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h3 id="与-autogen-集成">与 AutoGen 集成</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">autogen</span> <span class="kn">import</span> <span class="n">AssistantAgent</span><span class="p">,</span> <span class="n">UserProxyAgent</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">e2b_code_interpreter</span> <span class="kn">import</span> <span class="n">CodeInterpreter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">e2b_code_executor</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Code executor function for AutoGen using E2B.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        (exit_code, output)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;Error: </span><span class="si">{</span><span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">output</span> <span class="o">=</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">stdout</span> <span class="ow">or</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">output</span> <span class="o">+=</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">execution</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;Sandbox error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Configure AutoGen agents</span>
+</span></span><span class="line"><span class="cl"><span class="n">assistant</span> <span class="o">=</span> <span class="n">AssistantAgent</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="o">=</span><span class="s2">&#34;assistant&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">llm_config</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;model&#34;</span><span class="p">:</span> <span class="s2">&#34;gpt-4&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">user_proxy</span> <span class="o">=</span> <span class="n">UserProxyAgent</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="o">=</span><span class="s2">&#34;user_proxy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">code_execution_config</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;executor&#34;</span><span class="p">:</span> <span class="n">e2b_code_executor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;last_n_messages&#34;</span><span class="p">:</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start conversation</span>
+</span></span><span class="line"><span class="cl"><span class="n">user_proxy</span><span class="o">.</span><span class="n">initiate_chat</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assistant</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">message</span><span class="o">=</span><span class="s2">&#34;Analyze the correlation between two random datasets&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="成本优化策略">成本优化策略</h2>
+<h3 id="1-沙箱复用">1. 沙箱复用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SandboxCache</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Cache and reuse sandboxes to reduce startup costs.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ttl_minutes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">CodeInterpreter</span><span class="p">,</span> <span class="n">datetime</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ttl</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">ttl_minutes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_or_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;default&#34;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CodeInterpreter</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Get cached sandbox or create new one.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">cache_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sandbox</span><span class="p">,</span> <span class="n">created_at</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">cache_key</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># Check if sandbox is still valid</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">created_at</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ttl</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">sandbox</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># Expired, close and remove</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sandbox</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">cache_key</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Create new sandbox</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sandbox</span> <span class="o">=</span> <span class="n">CodeInterpreter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">cache_key</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">sandbox</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">sandbox</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;Clean up expired sandboxes.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">expired_keys</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="n">sandbox</span><span class="p">,</span> <span class="n">created_at</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">now</span> <span class="o">-</span> <span class="n">created_at</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ttl</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sandbox</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="n">expired_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">expired_keys</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</span></span></code></pre></div><h3 id="2-批量执行">2. 批量执行</h3>
+<p>将多个小任务合并为单次执行，减少沙箱启动开销：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">batch_execute</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Execute multiple tasks in a single sandbox session.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        tasks: List of tasks, each containing &#39;code&#39; and &#39;id&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        List of results with corresponding task IDs
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">CodeInterpreter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sandbox</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">execution</span> <span class="o">=</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">exec_cell</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;task_id&#39;</span><span class="p">:</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="ow">not</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">execution</span><span class="o">.</span><span class="n">error</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">results</span>
+</span></span></code></pre></div><h2 id="故障排查指南">故障排查指南</h2>
+<h3 id="常见问题和解决方案">常见问题和解决方案</h3>
+<ol>
+<li>
+<p><strong>沙箱启动超时</strong></p>
+<ul>
+<li>原因：网络问题或 E2B 服务负载高</li>
+<li>解决：实现重试机制，增加超时时间</li>
+</ul>
+</li>
+<li>
+<p><strong>内存不足错误</strong></p>
+<ul>
+<li>原因：代码处理大型数据集</li>
+<li>解决：分块处理数据，使用流式处理</li>
+</ul>
+</li>
+<li>
+<p><strong>执行超时</strong></p>
+<ul>
+<li>原因：代码包含无限循环或长时间计算</li>
+<li>解决：设置合理的超时时间，添加代码复杂度检查</li>
+</ul>
+</li>
+<li>
+<p><strong>依赖安装失败</strong></p>
+<ul>
+<li>原因：PyPI 网络问题或包不兼容</li>
+<li>解决：使用自定义 Docker 镜像预装依赖</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Troubleshooting helper</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">diagnose_execution_failure</span><span class="p">(</span><span class="n">error</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Provide diagnostic information for execution failures.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">error_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s2">&#34;timeout&#34;</span> <span class="ow">in</span> <span class="n">error_str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;Execution timeout. Consider: 1) Optimizing code complexity, 2) Increasing timeout limit, 3) Breaking into smaller tasks&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="s2">&#34;memory&#34;</span> <span class="ow">in</span> <span class="n">error_str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;Memory limit exceeded. Consider: 1) Processing data in chunks, 2) Using more memory-efficient algorithms, 3) Reducing data size&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="s2">&#34;connection&#34;</span> <span class="ow">in</span> <span class="n">error_str</span> <span class="ow">or</span> <span class="s2">&#34;network&#34;</span> <span class="ow">in</span> <span class="n">error_str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;Network error. Consider: 1) Implementing retry logic, 2) Checking E2B service status, 3) Verifying API credentials&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="s2">&#34;import&#34;</span> <span class="ow">in</span> <span class="n">error_str</span> <span class="ow">or</span> <span class="s2">&#34;module&#34;</span> <span class="ow">in</span> <span class="n">error_str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;Import error. Consider: 1) Installing missing dependencies, 2) Using custom Docker image with pre-installed packages&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Unknown error. Full error message: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><h2 id="总结">总结</h2>
+<p>E2B 为 AI 代理提供了强大的代码执行能力，但要充分发挥其价值，需要注意以下关键点：</p>
+<ol>
+<li><strong>安全第一</strong>：即使在隔离环境中，也要实施代码验证和输出清理</li>
+<li><strong>资源优化</strong>：通过沙箱复用和批量执行降低成本</li>
+<li><strong>错误处理</strong>：实现健壮的重试和降级机制</li>
+<li><strong>监控告警</strong>：建立完善的日志和指标收集系统</li>
+<li><strong>性能调优</strong>：使用异步执行和并发控制提升吞吐量</li>
+</ol>
+<p>通过遵循这些最佳实践，你可以构建一个安全、高效、可靠的 AI 代理执行环境，为用户提供卓越的代码生成和执行体验。</p>
+<p>E2B 正在成为 AI 基础设施的重要组成部分，随着 AI 代理能力的不断增强，安全可靠的代码执行环境将变得越来越关键。希望本文的最佳实践能够帮助你更好地使用 E2B，构建下一代智能应用。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/infrastructure/">infrastructure</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/e2b/">E2B</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/sandbox/">sandbox</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/code-execution/">code-execution</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/devops/">devops</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f106-e2b-ai-infrastructure-best-practices%2f&amp;text=E2B%ef%bc%9a%e6%9e%84%e5%bb%ba%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%20AI%20%e4%bb%a3%e7%90%86%e6%89%a7%e8%a1%8c%e7%8e%af%e5%a2%83%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f106-e2b-ai-infrastructure-best-practices%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f106-e2b-ai-infrastructure-best-practices%2f&amp;title=E2B%ef%bc%9a%e6%9e%84%e5%bb%ba%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%20AI%20%e4%bb%a3%e7%90%86%e6%89%a7%e8%a1%8c%e7%8e%af%e5%a2%83%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f106-e2b-ai-infrastructure-best-practices%2f&amp;title=E2B%ef%bc%9a%e6%9e%84%e5%bb%ba%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%20AI%20%e4%bb%a3%e7%90%86%e6%89%a7%e8%a1%8c%e7%8e%af%e5%a2%83%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f106-e2b-ai-infrastructure-best-practices%2f&amp;title=E2B%ef%bc%9a%e6%9e%84%e5%bb%ba%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%20AI%20%e4%bb%a3%e7%90%86%e6%89%a7%e8%a1%8c%e7%8e%af%e5%a2%83%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f106-e2b-ai-infrastructure-best-practices%2f&amp;description=E2B%ef%bc%9a%e6%9e%84%e5%bb%ba%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%20AI%20%e4%bb%a3%e7%90%86%e6%89%a7%e8%a1%8c%e7%8e%af%e5%a2%83%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f106-e2b-ai-infrastructure-best-practices%2f&amp;subject=E2B%ef%bc%9a%e6%9e%84%e5%bb%ba%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%20AI%20%e4%bb%a3%e7%90%86%e6%89%a7%e8%a1%8c%e7%8e%af%e5%a2%83%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+                    <li><a href="/post/2026/171-ai-era-can-everyone-build-models/">AI 时代，人人都能建模了吗？</a></li>
+                
+                    <li><a href="/post/2026/172-evolvable-agent-skills-best-practices/">让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践</a></li>
+                
+                    <li><a href="/post/2026/170-ai-native-voc-head-and-tail/">AI Native 流程的一头一尾：用户问题理解与自动验证</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2025/108-compression-is-intelligence/" data-toggle="tooltip" data-placement="top" title="压缩即智能：从信息论看机器学习的本质">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2025/109-api-mcp-skills-explained/" data-toggle="tooltip" data-placement="top" title="API、MCP和Skills：三个概念的本质区别">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2025/106-e2b-ai-infrastructure-best-practices">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2025\/106-e2b-ai-infrastructure-best-practices';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productivity on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/productivity/</link>
+    <description>Recent content in Productivity on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM 押注在 Coding Agent 上是正确的</title>
+      <link>http://localhost:45445/post/2026/168-llm-betting-on-coding-agent/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/168-llm-betting-on-coding-agent/</guid>
+      <description>&lt;p&gt;三个月前，我用 Claude Code 花了一个下午搭了一套完整的钉钉消息监控系统：自动抓取指定群的消息、按关键词分类、生成每日摘要、定时推送到我的私聊。整套流程从数据采集到定时任务，大约 500 行 TypeScript。&lt;/p&gt;&#xA;&lt;p&gt;同样的事情，如果走公司正规 IT 流程——提需求、排期、开发、测试、上线——保守估计三个月，还不一定能排上。&lt;/p&gt;&#xA;&lt;p&gt;这件事让我确信一个判断：&lt;strong&gt;LLM 厂商把重注押在 Coding Agent 上，是目前最正确的战略选择。&lt;/strong&gt; 不是因为 Coding Agent 能替代程序员，而是因为它把&amp;quot;用代码解决问题&amp;quot;这件事的门槛，从&amp;quot;需要一个工程团队&amp;quot;降到了&amp;quot;需要一个能清楚描述问题的人&amp;quot;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI 原生的思考方式：不能被 Token 解决的问题，才配叫问题</title>
+      <link>http://localhost:45445/post/2026/163-ai-native-work-token-problem-paradigm/</link>
+      <pubDate>Tue, 31 Mar 2026 12:00:00 +0800</pubDate>
+      <guid>http://localhost:45445/post/2026/163-ai-native-work-token-problem-paradigm/</guid>
+      <description>&lt;p&gt;上周，一个做 ToB SaaS 的朋友跟我吐槽：他花了两周让 AI 帮忙写了一套完整的 CRM 后端，代码质量不错，测试覆盖率也够。但上线三天就被叫停了——因为产品方向本身就是错的，客户根本不需要这个功能。&lt;/p&gt;&#xA;&lt;p&gt;两周的 Token 消耗，毁于一个没被认真思考过的问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI时代的个人生产力公式：思考深度 × 资源调度广度</title>
+      <link>http://localhost:45445/post/2026/124-ai-era-personal-productivity-formula/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/124-ai-era-personal-productivity-formula/</guid>
+      <description>&lt;p&gt;最近我一直在思考一个问题：在 AI 时代，个人生产力的本质到底是什么？经过大半年高强度使用各类 AI 工具的实践，我得出了一个公式：&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;个人生产力 = 思考深度 × 资源调度广度&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是一个数学公式，而是一个思维框架。它帮我重新理解了&amp;quot;人应该做什么&amp;quot;和&amp;quot;AI 应该做什么&amp;quot;这个根本问题。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

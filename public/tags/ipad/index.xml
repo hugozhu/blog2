@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IPad on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/ipad/</link>
+    <description>Recent content in IPad on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/ipad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在iPad上写Blog</title>
+      <link>http://localhost:45445/post/2020/69-write-your-blog-on-ipad/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2020/69-write-your-blog-on-ipad/</guid>
+      <description>&lt;p&gt;iPad的创作能力越来越强，直接修改Github上的文件就可以写Blog了，方法是在Github上建一个自动更新网站的Workflow&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

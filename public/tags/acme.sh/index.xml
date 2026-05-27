@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Acme.sh on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/acme.sh/</link>
+    <description>Recent content in Acme.sh on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/acme.sh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用acme_docker自动更新免费域名证书</title>
+      <link>http://localhost:45445/post/2024/76-acme-docker-auto-uptime/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2024/76-acme-docker-auto-uptime/</guid>
+      <description>&lt;h2 id=&#34;问题和解决方案&#34;&gt;问题和解决方案&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;免费域名证书需要三个月更新一次&lt;/li&gt;&#xA;&lt;li&gt;解决方案：apisix, docker, acme.sh, dnspod&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

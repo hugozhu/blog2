@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thinking on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/thinking/</link>
+    <description>Recent content in Thinking on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 31 Mar 2026 12:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/thinking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 原生的思考方式：不能被 Token 解决的问题，才配叫问题</title>
+      <link>http://localhost:45445/post/2026/163-ai-native-work-token-problem-paradigm/</link>
+      <pubDate>Tue, 31 Mar 2026 12:00:00 +0800</pubDate>
+      <guid>http://localhost:45445/post/2026/163-ai-native-work-token-problem-paradigm/</guid>
+      <description>&lt;p&gt;上周，一个做 ToB SaaS 的朋友跟我吐槽：他花了两周让 AI 帮忙写了一套完整的 CRM 后端，代码质量不错，测试覆盖率也够。但上线三天就被叫停了——因为产品方向本身就是错的，客户根本不需要这个功能。&lt;/p&gt;&#xA;&lt;p&gt;两周的 Token 消耗，毁于一个没被认真思考过的问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Attention is All You Need：专注力才是人和大模型共同的底层算法</title>
+      <link>http://localhost:45445/post/2026/133-all-you-need-is-attention/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/133-all-you-need-is-attention/</guid>
+      <description>&lt;p&gt;2017 年，Google 发表了那篇改变世界的论文——&lt;em&gt;&amp;ldquo;Attention Is All You Need&amp;rdquo;&lt;/em&gt;。八位作者可能没想到，这篇论文不仅催生了 GPT、Claude、Gemini 等一系列大模型，也在某种意义上揭示了一个关于人类自身的深刻隐喻：&lt;strong&gt;不论是大模型还是人，决定产出质量的底层机制都是注意力（Attention）。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;专注力是人做事质量和效率的基础。这不是心灵鸡汤，而是一个可以从技术原理出发、严肃论证的观点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI时代的个人生产力公式：思考深度 × 资源调度广度</title>
+      <link>http://localhost:45445/post/2026/124-ai-era-personal-productivity-formula/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/124-ai-era-personal-productivity-formula/</guid>
+      <description>&lt;p&gt;最近我一直在思考一个问题：在 AI 时代，个人生产力的本质到底是什么？经过大半年高强度使用各类 AI 工具的实践，我得出了一个公式：&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;个人生产力 = 思考深度 × 资源调度广度&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是一个数学公式，而是一个思维框架。它帮我重新理解了&amp;quot;人应该做什么&amp;quot;和&amp;quot;AI 应该做什么&amp;quot;这个根本问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>任何省 Token 的做法都不是大模型的最佳实践</title>
+      <link>http://localhost:45445/post/2026/125-stop-saving-tokens-llm-best-practice/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/125-stop-saving-tokens-llm-best-practice/</guid>
+      <description>&lt;p&gt;最近看到很多文章在教人如何&amp;quot;省 Token&amp;quot;——压缩 prompt、缩短上下文、用更小的模型替代、砍掉 system prompt……这些技巧看似精明，但我越来越确信一个观点：&lt;strong&gt;任何以省 Token 为目标的做法，都不是大模型的最佳实践。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是因为我不在乎成本。恰恰相反，正是因为我在乎投入产出比，所以我认为&amp;quot;省 Token&amp;quot;是一个错误的优化方向。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

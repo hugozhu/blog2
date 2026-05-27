@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heartbeat on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/heartbeat/</link>
+    <description>Recent content in Heartbeat on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/heartbeat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计</title>
+      <link>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</guid>
+      <description>&lt;p&gt;绝大多数 AI 助手都是被动的——用户不说话，它就沉默。这在&amp;quot;问答&amp;quot;场景下没问题，但如果你想让 AI 助手真正成为助手，它需要&lt;strong&gt;主动意识&lt;/strong&gt;：定期检查收件箱有没有紧急邮件、日历上有没有即将到来的会议、GitHub 上有没有需要关注的 PR。OpenClaw 的 Heartbeat（心跳）机制正是为此设计的。本文将深入解析这一设计的工程细节和最佳实践。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

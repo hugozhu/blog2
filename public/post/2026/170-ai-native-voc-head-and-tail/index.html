@@ -1,0 +1,1007 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>AI Native 流程的一头一尾：用户问题理解与自动验证 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="VOC 自动解决流程中，最难也最关键的两个环节"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Native 流程的一头一尾：用户问题理解与自动验证",
+  "@id": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/",
+  "url": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/",
+      "name": "AI Native 流程的一头一尾：用户问题理解与自动验证",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "AI Native 流程的一头一尾：用户问题理解与自动验证",
+  "description": "之前写过一篇用 AI 把 VOC 变成自动化流水线，讲的是整条流水线的架构——采集、分析、路由、执行。反馈不错，但也有读者指出一个关键问题：中间的部分（分类、路由）其实相对好做，真正难的是一头一尾。\n\u0026ldquo;头\u0026quot;是用户问题理解——用户说\u0026quot;页面打不开\u0026rdquo;，你能不能自动搞清楚是哪个页面、什么场景、能不能复现、根因是什么？\n\u0026ldquo;尾\u0026quot;是自动验证——修完 bug 之后，你能不能自动生成测试用例来证明\u0026quot;确实修好了，而且没有搞坏别的东西\u0026rdquo;？\n这两个环节恰好是 AI Native 流程区别于传统自动化的核心：传统自动化靠规则，处理的是确定性问题；AI Native 靠理解和推理，处理的是模糊性问题。这篇文章就把这一头一尾拆开讲透。\n",
+  "inLanguage": "en",
+  "wordCount":  1036 ,
+  "dateCreated": "2026-04-09T00:00:00+00:00",
+  "datePublished": "2026-04-09T00:00:00+00:00",
+  "dateModified": "2026-04-09T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "AI, AI-agents, VOC, 测试, LLM, 自动化" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="AI Native 流程的一头一尾：用户问题理解与自动验证" />
+<meta property="og:description" content="VOC 自动解决流程中，最难也最关键的两个环节" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="AI Native 流程的一头一尾：用户问题理解与自动验证" />
+  <meta name="twitter:description" content="VOC 自动解决流程中，最难也最关键的两个环节">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>AI Native 流程的一头一尾：用户问题理解与自动验证</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">VOC 自动解决流程中，最难也最关键的两个环节</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 9, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1036&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>之前写过一篇<a href="/post/2026/164-voc-to-automated-pipeline/">用 AI 把 VOC 变成自动化流水线</a>，讲的是整条流水线的架构——采集、分析、路由、执行。反馈不错，但也有读者指出一个关键问题：<strong>中间的部分（分类、路由）其实相对好做，真正难的是一头一尾。</strong></p>
+<p>&ldquo;头&quot;是<strong>用户问题理解</strong>——用户说&quot;页面打不开&rdquo;，你能不能自动搞清楚是哪个页面、什么场景、能不能复现、根因是什么？</p>
+<p>&ldquo;尾&quot;是<strong>自动验证</strong>——修完 bug 之后，你能不能自动生成测试用例来证明&quot;确实修好了，而且没有搞坏别的东西&rdquo;？</p>
+<p>这两个环节恰好是 AI Native 流程区别于传统自动化的核心：传统自动化靠规则，处理的是确定性问题；AI Native 靠理解和推理，处理的是模糊性问题。这篇文章就把这一头一尾拆开讲透。</p>
+<h2 id="一为什么一头一尾最难">一、为什么&quot;一头一尾&quot;最难</h2>
+<p>先看一条真实的用户反馈：</p>
+<blockquote>
+<p>&ldquo;你们最新版的导出功能是不是改了？我之前导出的报表里有客户联系方式的，现在导出来没有了，这个很影响我的工作。&rdquo;</p>
+</blockquote>
+<p>一个有经验的工程师看到这条反馈，脑子里会自动做这些事：</p>
+<ol>
+<li><strong>定位功能</strong>：&ldquo;导出功能&rdquo;——是哪个模块的导出？报表导出？客户列表导出？</li>
+<li><strong>还原场景</strong>：&ldquo;之前有，现在没有&rdquo;——是最近哪个版本改的？是字段被删了还是权限变了？</li>
+<li><strong>评估影响</strong>：&ldquo;客户联系方式&rdquo;——这是敏感数据，可能涉及隐私策略变更</li>
+<li><strong>制定验证标准</strong>：修完之后怎么确认？&ldquo;导出的 CSV 中包含联系方式列&rdquo; 就够了吗？要不要跑不同角色的权限组合？</li>
+</ol>
+<p>这四步中，<strong>第 1-3 步就是&quot;头&quot;</strong>——把模糊描述转化为精确的问题定义；<strong>第 4 步就是&quot;尾&quot;</strong>——把问题定义转化为可执行的验证用例。</p>
+<p>传统流水线在这两步上的处理方式基本是&quot;甩给人&quot;：前面甩给技术支持做人工分类，后面甩给 QA 写测试用例。AI Native 的做法是把这两步也自动化——不是用规则，而是用理解。</p>
+<h2 id="二头用户问题的深度理解">二、头：用户问题的深度理解</h2>
+<h3 id="21-从表面文本到结构化问题">2.1 从&quot;表面文本&quot;到&quot;结构化问题&quot;</h3>
+<p>用户反馈的最大挑战是：<strong>用户不会用工程师的语言描述问题。</strong> 他们说的是症状，不是原因；是感受，不是事实。</p>
+<p>一个 AI Native 的问题理解系统需要做四层转化：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用户原话        →  &#34;导出的报表里没有客户联系方式了&#34;
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">症状提取        →  数据丢失 / 字段缺失
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">上下文关联      →  最近版本变更 + 导出功能 + 联系方式字段
+</span></span><span class="line"><span class="cl">   ↓
+</span></span><span class="line"><span class="cl">工程化定义      →  报表导出模块的 CSV 生成逻辑在 v3.2 后
+</span></span><span class="line"><span class="cl">                    不再包含 contact_phone / contact_email 字段
+</span></span></code></pre></div><p>关键在于第三层和第四层。简单的 NLP 分类（&ldquo;这是一个 bug&rdquo;）只完成了第一层。真正有用的理解必须<strong>关联上下文</strong>——代码变更历史、配置变更、权限策略——才能从症状推导出可能的根因。</p>
+<h3 id="22-实现多轮推理--工具调用">2.2 实现：多轮推理 + 工具调用</h3>
+<p>一个设计良好的问题理解 Agent 不是&quot;一次性分析&quot;，而是像一个 L2 技术支持工程师一样，主动调查：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">anthropic</span> <span class="kn">import</span> <span class="n">Anthropic</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">client</span> <span class="o">=</span> <span class="n">Anthropic</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">INVESTIGATOR_SYSTEM</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;你是一个高级技术支持工程师。你的任务是将用户反馈转化为精确的工程问题定义。
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">你可以使用以下工具来调查问题：
+</span></span></span><span class="line"><span class="cl"><span class="s2">1. search_changelog(keyword) - 搜索最近的版本变更记录
+</span></span></span><span class="line"><span class="cl"><span class="s2">2. search_code(query) - 搜索代码库中的相关代码
+</span></span></span><span class="line"><span class="cl"><span class="s2">3. query_config(module) - 查询模块的当前配置
+</span></span></span><span class="line"><span class="cl"><span class="s2">4. get_error_logs(user_id, timerange) - 获取用户相关的错误日志
+</span></span></span><span class="line"><span class="cl"><span class="s2">5. check_permissions(user_id, feature) - 检查用户的功能权限
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">每一步都要说明你的推理过程。最终输出一个结构化的问题定义。&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TOOLS</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;search_changelog&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;搜索最近的版本变更日志，找出可能相关的代码改动&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;input_schema&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;object&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;properties&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;keyword&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span> <span class="s2">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;搜索关键词&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;since_version&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span> <span class="s2">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;起始版本号&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;required&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;keyword&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;search_code&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;搜索代码库中与问题相关的代码片段&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;input_schema&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;object&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;properties&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span> <span class="s2">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;搜索查询&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;required&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;query&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;get_error_logs&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;获取指定用户在指定时间范围内的错误日志&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;input_schema&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;object&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;properties&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;user_id&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;string&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;hours&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;integer&#34;</span><span class="p">,</span> <span class="s2">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;最近N小时&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;required&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="s2">&#34;hours&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">investigate_issue</span><span class="p">(</span><span class="n">user_feedback</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    对用户反馈进行多轮推理调查，输出结构化问题定义。
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Agent 会自主决定调用哪些工具来获取上下文。
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;用户反馈：</span><span class="si">{</span><span class="n">user_feedback</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;用户ID：</span><span class="si">{</span><span class="n">user_id</span> <span class="ow">or</span> <span class="s1">&#39;未知&#39;</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;请调查这个问题，给出精确的工程问题定义。&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Agent loop：让 LLM 自主决定调查步骤</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">max_tokens</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">system</span><span class="o">=</span><span class="n">INVESTIGATOR_SYSTEM</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tools</span><span class="o">=</span><span class="n">TOOLS</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果 LLM 不再调用工具，说明调查完成</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">stop_reason</span> <span class="o">==</span> <span class="s2">&#34;end_turn&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">extract_issue_definition</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 执行工具调用，把结果喂回去</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tool_results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&#34;tool_use&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span> <span class="o">=</span> <span class="n">execute_tool</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">block</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tool_results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;tool_result&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;tool_use_id&#34;</span><span class="p">:</span> <span class="n">block</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">result</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;assistant&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">tool_results</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by claude code</span>
+</span></span></code></pre></div><h3 id="23-案例agent-的调查过程">2.3 案例：Agent 的调查过程</h3>
+<p>以开头那条反馈为例，一个训练有素的 Agent 的调查过程是这样的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="err">第</span> <span class="mi">1</span> <span class="err">步：</span><span class="n">search_changelog</span><span class="p">(</span><span class="s2">&#34;导出&#34;</span> <span class="n">OR</span> <span class="s2">&#34;export&#34;</span> <span class="n">OR</span> <span class="s2">&#34;联系方式&#34;</span> <span class="n">OR</span> <span class="s2">&#34;contact&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="err">→</span> <span class="err">发现</span> <span class="n">v3</span><span class="o">.</span><span class="mi">2</span> <span class="err">的</span> <span class="n">changelog</span> <span class="err">中有一条：</span>
+</span></span><span class="line"><span class="cl">   <span class="s2">&#34;feat: 导出报表默认不再包含联系方式字段，需在导出设置中手动勾选（隐私合规）&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">第</span> <span class="mi">2</span> <span class="err">步：</span><span class="n">search_code</span><span class="p">(</span><span class="s2">&#34;export report contact field&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="err">→</span> <span class="err">找到</span> <span class="n">ReportExporter</span><span class="o">.</span><span class="n">java</span> <span class="err">中的变更：</span>
+</span></span><span class="line"><span class="cl">   <span class="n">contactFields</span> <span class="err">从</span> <span class="n">defaultIncluded</span> <span class="err">改为</span> <span class="n">optIn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">第</span> <span class="mi">3</span> <span class="err">步：</span><span class="n">check_permissions</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s2">&#34;export.include_contact&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="err">→</span> <span class="err">用户的导出设置中，</span><span class="n">include_contact_info</span> <span class="o">=</span> <span class="bp">false</span><span class="err">（新版本默认值）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">结论：这不是</span> <span class="n">Bug</span><span class="err">，是有意的产品变更（隐私合规）。</span>
+</span></span><span class="line"><span class="cl">      <span class="err">但用户未被通知这个变化，导致体验断裂。</span>
+</span></span></code></pre></div><p>最终输出的结构化问题定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;issue_type&#34;</span><span class="p">:</span> <span class="s2">&#34;expected_behavior_change&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;root_cause&#34;</span><span class="p">:</span> <span class="s2">&#34;v3.2 隐私合规改动将联系方式导出改为 opt-in，但未通知存量用户&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;affected_module&#34;</span><span class="p">:</span> <span class="s2">&#34;report_export&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;affected_versions&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;v3.2+&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;related_changes&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;commit abc123: privacy compliance for export&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;suggested_fix&#34;</span><span class="p">:</span> <span class="s2">&#34;为存量用户发送变更通知；在导出页面增加字段选择的引导提示&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;severity&#34;</span><span class="p">:</span> <span class="s2">&#34;medium&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;is_bug&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;requires_code_change&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;verification_hints&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;导出设置页面应展示联系方式字段的勾选入口&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;勾选后导出的 CSV 应包含 contact_phone 和 contact_email 列&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;未勾选时导出的 CSV 不应包含联系方式（隐私合规要求）&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="24-问题理解的三个最佳实践">2.4 问题理解的三个最佳实践</h3>
+<p><strong>实践一：让 Agent 带着工具去调查，而不是靠一次 prompt 猜答案。</strong></p>
+<p>最常见的错误是把用户反馈直接扔给 LLM，让它&quot;猜&quot;根因。这种做法准确率不会超过 40%。正确的做法是给 Agent 配备工具——changelog 搜索、代码搜索、日志查询、配置检查——让它像真人工程师一样主动调查。</p>
+<p><strong>实践二：区分&quot;症状&quot;和&quot;问题&quot;，最终输出必须是工程可执行的。</strong></p>
+<p>&ldquo;导出没有联系方式&quot;是症状。&ldquo;ReportExporter.java 中 contactFields 的默认值在 v3.2 被改为 optIn，需要增加存量用户迁移逻辑&quot;才是问题。你的 Agent 输出的 issue definition 必须精确到模块、文件、甚至行号，后续的修复和验证才能自动化。</p>
+<p><strong>实践三：把&quot;验证线索&quot;作为问题定义的一部分输出。</strong></p>
+<p>注意上面 JSON 中的 <code>verification_hints</code> 字段。问题理解阶段就应该产出验证的方向——因为此时 Agent 对问题的理解最完整。这些线索会直接传递给&quot;尾&quot;端的测试生成模块，形成闭环。</p>
+<h2 id="三尾自动生成测试用例验证修复">三、尾：自动生成测试用例验证修复</h2>
+<h3 id="31-为什么自动验证是-ai-native-的必选项">3.1 为什么自动验证是 AI Native 的必选项</h3>
+<p>传统流程中，验证靠 QA 手工测试。问题在于：</p>
+<ol>
+<li><strong>时间差</strong>：Bug 修完到 QA 验证，中间可能隔几小时甚至几天</li>
+<li><strong>信息损耗</strong>：QA 拿到的往往只有一个 Jira ticket 的标题，缺少复现步骤和边界条件</li>
+<li><strong>回归盲区</strong>：只测了修复点，没覆盖可能被影响的关联功能</li>
+</ol>
+<p>AI Native 的做法是：<strong>在修复完成的瞬间，自动生成验证用例并执行</strong>。这需要解决两个问题——生成什么用例、怎么验证。</p>
+<h3 id="32-从问题定义到测试用例">3.2 从问题定义到测试用例</h3>
+<p>测试用例的生成不是凭空创造，而是基于三个输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">问题定义（来自&#34;头&#34;的输出）
+</span></span><span class="line"><span class="cl">    +
+</span></span><span class="line"><span class="cl">代码变更（git diff 的内容）
+</span></span><span class="line"><span class="cl">    +
+</span></span><span class="line"><span class="cl">已有测试（项目中相关的测试文件）
+</span></span><span class="line"><span class="cl">    ↓
+</span></span><span class="line"><span class="cl">生成的测试用例
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate_test_cases</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">issue_definition</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">repo_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">commit_sha</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    基于问题定义和代码变更，自动生成验证测试用例。
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 1. 获取本次修复的代码变更</span>
+</span></span><span class="line"><span class="cl">    <span class="n">diff</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="s2">&#34;git&#34;</span><span class="p">,</span> <span class="s2">&#34;diff&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">commit_sha</span><span class="si">}</span><span class="s2">~1..</span><span class="si">{</span><span class="n">commit_sha</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cwd</span><span class="o">=</span><span class="n">repo_path</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 2. 获取相关的已有测试文件，作为风格参考</span>
+</span></span><span class="line"><span class="cl">    <span class="n">existing_tests</span> <span class="o">=</span> <span class="n">find_related_tests</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">repo_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">issue_definition</span><span class="p">[</span><span class="s2">&#34;affected_module&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 3. 让 LLM 生成测试用例</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34;基于以下信息，生成验证测试用例。
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">## 问题定义
+</span></span></span><span class="line"><span class="cl"><span class="si">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">issue_definition</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">## 代码变更（git diff）
+</span></span></span></code></pre></div><p>{diff}</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 已有相关测试（参考风格和约定）
+</span></span></code></pre></div><p>{existing_tests}</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 生成要求
+</span></span><span class="line"><span class="cl">1. **正向验证**：确认修复后的行为符合预期
+</span></span><span class="line"><span class="cl">2. **回归验证**：确认修复没有破坏已有功能
+</span></span><span class="line"><span class="cl">3. **边界条件**：覆盖问题定义中 verification_hints 提到的所有场景
+</span></span><span class="line"><span class="cl">4. 测试代码必须可直接运行，遵循项目已有的测试框架和命名约定
+</span></span><span class="line"><span class="cl">5. 每个测试方法要有清晰的 docstring 说明测试意图
+</span></span><span class="line"><span class="cl">&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    response = client.messages.create(
+</span></span><span class="line"><span class="cl">        model=&#34;claude-sonnet-4-6&#34;,
+</span></span><span class="line"><span class="cl">        max_tokens=4000,
+</span></span><span class="line"><span class="cl">        system=&#34;你是一个资深测试工程师，擅长根据 bug 修复的上下文生成高质量的自动化测试用例。&#34;,
+</span></span><span class="line"><span class="cl">        messages=[{&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: prompt}],
+</span></span><span class="line"><span class="cl">    )
+</span></span><span class="line"><span class="cl">    return response.content[0].text
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># generated by claude code
+</span></span></code></pre></div><h3 id="33-案例从修复到验证的完整链路">3.3 案例：从修复到验证的完整链路</h3>
+<p>继续上面导出功能的例子。假设开发者提交了修复（在导出页面增加联系方式字段的引导提示），Agent 会自动生成以下测试用例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pytest</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app.export</span> <span class="kn">import</span> <span class="n">ReportExporter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">app.models</span> <span class="kn">import</span> <span class="n">User</span><span class="p">,</span> <span class="n">ExportSettings</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TestExportContactFieldsFix</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;验证 v3.2 导出联系方式字段的引导提示修复&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">test_export_settings_shows_contact_field_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">login_user</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;正向验证：导出设置页面应展示联系方式字段的勾选入口&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/api/export/settings&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fields</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&#34;available_fields&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">contact_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="s2">&#34;category&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;contact&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">contact_fields</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;导出设置中应包含联系方式字段选项&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">any</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s2">&#34;key&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;contact_phone&#34;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">contact_fields</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">any</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s2">&#34;key&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;contact_email&#34;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">contact_fields</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">test_export_with_contact_fields_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">login_user</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;正向验证：勾选后导出的 CSV 应包含联系方式列&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 先启用联系方式导出</span>
+</span></span><span class="line"><span class="cl">        <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&#34;/api/export/settings&#34;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;include_fields&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;contact_phone&#34;</span><span class="p">,</span> <span class="s2">&#34;contact_email&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/api/export/report&#34;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;format&#34;</span><span class="p">:</span> <span class="s2">&#34;csv&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="n">csv_content</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">        <span class="n">header</span> <span class="o">=</span> <span class="n">csv_content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="s2">&#34;contact_phone&#34;</span> <span class="ow">in</span> <span class="n">header</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="s2">&#34;contact_email&#34;</span> <span class="ow">in</span> <span class="n">header</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">test_export_without_contact_fields_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">login_user</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;回归验证：默认不勾选时，CSV 不应包含联系方式（隐私合规）&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 使用默认设置（不包含联系方式）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/api/export/report&#34;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;format&#34;</span><span class="p">:</span> <span class="s2">&#34;csv&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="n">csv_content</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">        <span class="n">header</span> <span class="o">=</span> <span class="n">csv_content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="s2">&#34;contact_phone&#34;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">header</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="s2">&#34;contact_email&#34;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">header</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">test_existing_user_migration_prompt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">legacy_user</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;边界条件：存量用户首次访问导出页面时应看到引导提示&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/api/export/settings&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;show_migration_guide&#34;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">test_new_user_no_migration_prompt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">new_user</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;边界条件：新用户不应看到迁移引导&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;/api/export/settings&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;show_migration_guide&#34;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># generated by claude code</span>
+</span></span></code></pre></div><p>注意这组测试的设计逻辑：</p>
+<ol>
+<li><strong>测试 1-2</strong>：验证修复本身是否生效（正向）</li>
+<li><strong>测试 3</strong>：验证隐私合规的约束没被破坏（回归）</li>
+<li><strong>测试 4-5</strong>：覆盖边界条件——存量用户 vs 新用户的不同体验</li>
+</ol>
+<p>这些用例不是随机生成的，它们直接来源于&quot;头&quot;端输出的 <code>verification_hints</code> 和代码变更的 diff。</p>
+<h3 id="34-自动执行与结果判定">3.4 自动执行与结果判定</h3>
+<p>生成测试用例只是第一步。完整的验证闭环还需要自动执行和结果判定：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run_verification</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">test_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">repo_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;执行生成的测试用例，收集结果&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="s2">&#34;pytest&#34;</span><span class="p">,</span> <span class="n">test_file_path</span><span class="p">,</span> <span class="s2">&#34;-v&#34;</span><span class="p">,</span> <span class="s2">&#34;--tb=short&#34;</span><span class="p">,</span> <span class="s2">&#34;--json-report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="s2">&#34;--json-report-file=test_result.json&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cwd</span><span class="o">=</span><span class="n">repo_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 解析测试结果</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">repo_path</span><span class="si">}</span><span class="s2">/test_result.json&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">report</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">summary</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;total&#34;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&#34;summary&#34;</span><span class="p">][</span><span class="s2">&#34;total&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;passed&#34;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&#34;summary&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;passed&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;failed&#34;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&#34;summary&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;failed&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;errors&#34;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&#34;summary&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;error&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 如果有失败，收集详细信息</span>
+</span></span><span class="line"><span class="cl">    <span class="n">failures</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;tests&#34;</span><span class="p">,</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">test</span><span class="p">[</span><span class="s2">&#34;outcome&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;failed&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">failures</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;test_name&#34;</span><span class="p">:</span> <span class="n">test</span><span class="p">[</span><span class="s2">&#34;nodeid&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="n">test</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;call&#34;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;crash&#34;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;message&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">summary</span><span class="p">[</span><span class="s2">&#34;failures&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">failures</span>
+</span></span><span class="line"><span class="cl">    <span class="n">summary</span><span class="p">[</span><span class="s2">&#34;all_passed&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&#34;failed&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&#34;errors&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">summary</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">verify_and_report</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">issue_definition</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">test_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">repo_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;完整的验证流程：执行测试 → 判定结果 → 生成报告&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">run_verification</span><span class="p">(</span><span class="n">test_file_path</span><span class="p">,</span> <span class="n">repo_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s2">&#34;all_passed&#34;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verdict</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;verified&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;confidence&#34;</span><span class="p">:</span> <span class="s2">&#34;high&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;所有 </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> 个验证用例通过，修复确认有效&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 让 LLM 分析失败原因：是修复不完整，还是测试本身有问题</span>
+</span></span><span class="line"><span class="cl">        <span class="n">analysis</span> <span class="o">=</span> <span class="n">analyze_test_failures</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">issue_definition</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s2">&#34;failures&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">verdict</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;needs_review&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;confidence&#34;</span><span class="p">:</span> <span class="s2">&#34;medium&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;message&#34;</span><span class="p">:</span> <span class="n">analysis</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;failed_tests&#34;</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">&#34;failures&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">verdict</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by claude code</span>
+</span></span></code></pre></div><h3 id="35-测试生成的三个最佳实践">3.5 测试生成的三个最佳实践</h3>
+<p><strong>实践一：让测试&quot;抄&quot;项目已有的风格，不要生成&quot;外星代码&rdquo;。</strong></p>
+<p>把项目中已有的相关测试文件作为参考喂给 LLM，让它学习命名约定、fixture 用法、断言风格。生成的测试看起来应该像团队成员写的，而不是像从 Stack Overflow 上复制的。这不是审美问题——风格一致的测试更容易被团队接受并纳入 CI。</p>
+<p><strong>实践二：生成的测试必须区分&quot;正向验证&quot;&ldquo;回归验证&quot;&ldquo;边界条件&quot;三类。</strong></p>
+<p>大多数自动生成的测试只覆盖正向路径——&ldquo;修了之后能用了&rdquo;。但真正的价值在于后两类：回归验证确保没有引入新问题，边界条件覆盖用户没明确说但可能出问题的场景。要求 LLM 显式输出这三类，可以用 <code>verification_hints</code> 作为边界条件的种子。</p>
+<p><strong>实践三：测试失败时，让 AI 判断&quot;是修复不完整&quot;还是&quot;测试本身有问题&rdquo;。</strong></p>
+<p>自动生成的测试不是 100% 正确的。当测试失败时，不能盲目认为修复有问题——可能是测试的前置条件设置不对，或者断言逻辑有误。加一层 LLM 分析来区分这两种情况，可以减少误报带来的人力浪费。</p>
+<h2 id="四一头一尾的连接闭环设计">四、一头一尾的连接：闭环设计</h2>
+<p>&ldquo;头&quot;和&quot;尾&quot;不是独立的两个模块，它们通过 <code>verification_hints</code> 形成闭环：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                                                          │
+</span></span><span class="line"><span class="cl">│  用户反馈 ──→ 问题理解Agent ──→ 结构化问题定义             │
+</span></span><span class="line"><span class="cl">│                                    │                     │
+</span></span><span class="line"><span class="cl">│                                    │  verification_hints │
+</span></span><span class="line"><span class="cl">│                                    ▼                     │
+</span></span><span class="line"><span class="cl">│  修复代码 ──→ 测试生成Agent ──→ 自动化测试用例             │
+</span></span><span class="line"><span class="cl">│                                    │                     │
+</span></span><span class="line"><span class="cl">│                                    ▼                     │
+</span></span><span class="line"><span class="cl">│                              自动执行 &amp; 判定              │
+</span></span><span class="line"><span class="cl">│                                    │                     │
+</span></span><span class="line"><span class="cl">│                          ┌─────────┴──────────┐          │
+</span></span><span class="line"><span class="cl">│                          ▼                    ▼          │
+</span></span><span class="line"><span class="cl">│                     全部通过              存在失败         │
+</span></span><span class="line"><span class="cl">│                          │                    │          │
+</span></span><span class="line"><span class="cl">│                          ▼                    ▼          │
+</span></span><span class="line"><span class="cl">│                    自动关闭工单         通知开发者复查      │
+</span></span><span class="line"><span class="cl">│                    发送解决通知         附带失败分析        │
+</span></span><span class="line"><span class="cl">│                                                          │
+</span></span><span class="line"><span class="cl">└──────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><p>这个闭环的关键设计点是<strong>信息不断流</strong>：</p>
+<ul>
+<li>&ldquo;头&quot;端理解问题时产生的上下文（涉及哪些模块、影响哪些用户、根因是什么），完整传递给&quot;尾&quot;端</li>
+<li>&ldquo;尾&quot;端不需要重新理解问题，它只需要把已有的理解翻译成测试代码</li>
+<li>如果验证失败，失败信息又可以回流给&quot;头&quot;端，修正问题定义</li>
+</ul>
+<p>这就像一个好的工程团队：Tech Lead 理解完问题后写了一份清晰的 issue description（包含验证标准），QA 拿到之后知道该测什么。AI Native 流程做的是把这个协作过程自动化，关键是<strong>不丢信息</strong>。</p>
+<h2 id="五落地建议">五、落地建议</h2>
+<p>如果你想在自己的团队落地这套流程，建议分三步走：</p>
+<p><strong>第一步：先做&quot;头&rdquo;，单独跑两周。</strong></p>
+<p>只做问题理解，不做自动验证。让 Agent 把用户反馈转化为结构化 issue，人工 review 准确率。目标是 &gt;80% 的 issue definition 不需要人工修改。这一步的 ROI 最高——光是省掉工程师理解用户反馈的时间就够了。</p>
+<p><strong>第二步：加&quot;尾&rdquo;，从单元测试开始。</strong></p>
+<p>先不要尝试生成端到端测试，从单元测试和集成测试开始。这类测试的确定性高，生成质量更容易保证。等团队积累了信心之后，再逐步扩展到 API 测试和 UI 测试。</p>
+<p><strong>第三步：打通闭环，接入 CI/CD。</strong></p>
+<p>把测试生成和执行接入 CI pipeline，实现&quot;代码提交 → 自动生成验证用例 → 自动执行 → 自动判定&quot;的全流程。到这一步，从用户反馈到验证关闭的平均时间可以从几天缩短到几小时。</p>
+<h2 id="结语">结语</h2>
+<p>AI Native 流程和传统自动化的本质区别在于：传统自动化处理的是&quot;已知的确定性&rdquo;——你事先想好规则，代码去执行；AI Native 处理的是&quot;未知的模糊性&rdquo;——用户的描述是模糊的，问题的根因需要推理，验证的边界需要判断。</p>
+<p>在 VOC 自动解决这个场景里，一头一尾恰好覆盖了两种最核心的模糊性：</p>
+<ul>
+<li><strong>头</strong>——&ldquo;用户到底遇到了什么问题&rdquo;（理解的模糊性）</li>
+<li><strong>尾</strong>——&ldquo;怎么证明问题真的被解决了&rdquo;（验证的模糊性）</li>
+</ul>
+<p>把这两个环节做好，中间的分类、路由、派发反而是最简单的部分。这也是为什么我说，AI Native 不是在现有流程上&quot;加个 AI&rdquo;，而是<strong>用 AI 的理解能力重新定义流程中最难的环节</strong>。</p>
+<hr>
+<p><em>Note: 本文是 <a href="/post/2026/164-voc-to-automated-pipeline/">VOC 自动化流水线</a> 的续篇，聚焦于流水线中最有技术深度的两个环节。</em></p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/voc/">VOC</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/%E6%B5%8B%E8%AF%95/">测试</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/llm/">LLM</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f170-ai-native-voc-head-and-tail%2f&amp;text=AI%20Native%20%e6%b5%81%e7%a8%8b%e7%9a%84%e4%b8%80%e5%a4%b4%e4%b8%80%e5%b0%be%ef%bc%9a%e7%94%a8%e6%88%b7%e9%97%ae%e9%a2%98%e7%90%86%e8%a7%a3%e4%b8%8e%e8%87%aa%e5%8a%a8%e9%aa%8c%e8%af%81&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f170-ai-native-voc-head-and-tail%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f170-ai-native-voc-head-and-tail%2f&amp;title=AI%20Native%20%e6%b5%81%e7%a8%8b%e7%9a%84%e4%b8%80%e5%a4%b4%e4%b8%80%e5%b0%be%ef%bc%9a%e7%94%a8%e6%88%b7%e9%97%ae%e9%a2%98%e7%90%86%e8%a7%a3%e4%b8%8e%e8%87%aa%e5%8a%a8%e9%aa%8c%e8%af%81" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f170-ai-native-voc-head-and-tail%2f&amp;title=AI%20Native%20%e6%b5%81%e7%a8%8b%e7%9a%84%e4%b8%80%e5%a4%b4%e4%b8%80%e5%b0%be%ef%bc%9a%e7%94%a8%e6%88%b7%e9%97%ae%e9%a2%98%e7%90%86%e8%a7%a3%e4%b8%8e%e8%87%aa%e5%8a%a8%e9%aa%8c%e8%af%81" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f170-ai-native-voc-head-and-tail%2f&amp;title=AI%20Native%20%e6%b5%81%e7%a8%8b%e7%9a%84%e4%b8%80%e5%a4%b4%e4%b8%80%e5%b0%be%ef%bc%9a%e7%94%a8%e6%88%b7%e9%97%ae%e9%a2%98%e7%90%86%e8%a7%a3%e4%b8%8e%e8%87%aa%e5%8a%a8%e9%aa%8c%e8%af%81" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f170-ai-native-voc-head-and-tail%2f&amp;description=AI%20Native%20%e6%b5%81%e7%a8%8b%e7%9a%84%e4%b8%80%e5%a4%b4%e4%b8%80%e5%b0%be%ef%bc%9a%e7%94%a8%e6%88%b7%e9%97%ae%e9%a2%98%e7%90%86%e8%a7%a3%e4%b8%8e%e8%87%aa%e5%8a%a8%e9%aa%8c%e8%af%81" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f170-ai-native-voc-head-and-tail%2f&amp;subject=AI%20Native%20%e6%b5%81%e7%a8%8b%e7%9a%84%e4%b8%80%e5%a4%b4%e4%b8%80%e5%b0%be%ef%bc%9a%e7%94%a8%e6%88%b7%e9%97%ae%e9%a2%98%e7%90%86%e8%a7%a3%e4%b8%8e%e8%87%aa%e5%8a%a8%e9%aa%8c%e8%af%81" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/178-agent-model-plus-harness/">Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+                    <li><a href="/post/2026/171-ai-era-can-everyone-build-models/">AI 时代，人人都能建模了吗？</a></li>
+                
+                    <li><a href="/post/2026/172-evolvable-agent-skills-best-practices/">让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/169-good-colleague-model-for-human-ai-collaboration/" data-toggle="tooltip" data-placement="top" title="用「好同事」模型理解人与 AI 的协作">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/172-evolvable-agent-skills-best-practices/" data-toggle="tooltip" data-placement="top" title="让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/170-ai-native-voc-head-and-tail';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

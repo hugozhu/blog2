@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Developer-Tools on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/developer-tools/</link>
+    <description>Recent content in Developer-Tools on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/developer-tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenClaw &#43; Claude Code 协同：用 Sub-Agent 执行编程任务并实时同步进度</title>
+      <link>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</guid>
+      <description>&lt;p&gt;你在钉钉里对 AI 助手说：&amp;ldquo;帮我写一个博客文章&amp;rdquo;，然后 Agent 回复&amp;quot;好的&amp;quot;——接下来呢？你等了 3 分钟、5 分钟、10 分钟，不知道它在干什么、进展到哪了、是不是卡住了。这是所有 Agent 系统面临的共同问题：&lt;strong&gt;编程类耗时任务的进度黑洞&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 通过 Sub-Agent 机制调用 Claude Code 执行编程任务，再借助 &lt;code&gt;stream-json&lt;/code&gt; 输出格式和一个轻量级的监控脚本，将任务进度实时同步到钉钉。本文完整拆解这套方案的架构设计和实现细节。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 执行耗时任务时如何主动汇报进度？四种方案的实战选型</title>
+      <link>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</guid>
+      <description>&lt;p&gt;你让 AI Agent 帮你跑一个需要 30 分钟的数据迁移脚本，然后就没了下文——它在干嘛？卡住了？还是已经跑完了？你不知道，因为 Agent 只会在任务彻底完成或彻底失败时才告诉你结果。&lt;/p&gt;&#xA;&lt;p&gt;这是 Agent 系统中一个普遍的痛点：&lt;strong&gt;耗时任务的进度黑洞&lt;/strong&gt;。用户发出指令后陷入等待，没有进度条，没有中间反馈，只有最终的成功或失败。在 OpenClaw 的实际使用中，我总结了四种适用于不同场景的进度上报方案，每种都有其最佳适用场景。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw 一天发布两个版本，打破了人月神话法则吗？</title>
+      <link>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</guid>
+      <description>&lt;p&gt;OpenClaw 一天发布了两个版本。消息传开后，有人兴奋地说&amp;quot;AI 时代人月神话终于被打破了&amp;quot;，也有人冷静地问&amp;quot;这真的算打破了吗？&amp;quot;&lt;/p&gt;&#xA;&lt;p&gt;这个问题值得认真回答。因为它触及的不是某个产品的发布节奏，而是软件工程最根本的规律之一——&lt;strong&gt;加人到底能不能加速交付？&lt;/strong&gt; 在 AI Agent 成为新型&amp;quot;开发者&amp;quot;的今天，这条规律是否需要被重新审视？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Workspace &#43; Git &#43; Agent：AI 时代的工作操作系统</title>
+      <link>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</guid>
+      <description>&lt;p&gt;过去一年，我越来越确信一个判断：&lt;strong&gt;AI 时代真正的工作操作系统，不是某个 App，不是某个平台，而是 Workspace + Git + Agent 这个三位一体的组合。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;为什么？因为 AI Agent 的一切——输入、输出、系统提示词、上下文、执行过程、临时生成的代码、图片、文档，甚至应用程序本身——本质上都是文件。既然 everything is file，那么管理这些文件的方式，就决定了你驾驭 AI 的效率和上限。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openwrt on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/openwrt/</link>
+    <description>Recent content in Openwrt on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/openwrt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通过主路由的路由分流策略将异地内网流量转发到docker里的openwrt</title>
+      <link>http://localhost:45445/post/2025/84-use-route-rules-to-redirect-traffic/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/84-use-route-rules-to-redirect-traffic/</guid>
+      <description>&lt;p&gt;在之前的文章中，我们已经介绍了如何通过 Docker 启动一个内置 Tailscale 的 OpenWrt。本文将进一步介绍如何结合主路由的智能路由策略，将异地内网流量高效转发到这个 OpenWrt 实例中，实现异地内网的无缝互联。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用tailscale&#43;openwrt&#43;docker&#43;macvlan将异地两机房组成一个局域网</title>
+      <link>http://localhost:45445/post/2025/82-tailscale-vpn-with-openwrt-in-docker/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/82-tailscale-vpn-with-openwrt-in-docker/</guid>
+      <description>&lt;p&gt;在现代网络环境中，将位于不同地理位置的两个数据中心组成一个虚拟局域网，可以有效提升资源共享和管理效率。本文将介绍如何在 Docker 中使用 macvlan 网络模式安装 OpenWrt，并通过 Tailscale 实现异地数据中心的互联。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>R2S妙用：Armbian &#43; docker &#43; openwrt &#43; hostapd，用USB网卡做热点，无线有线接入都通过openwrt做路由</title>
+      <link>http://localhost:45445/post/2024/74-armbian-bridge-network-hostapd/</link>
+      <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2024/74-armbian-bridge-network-hostapd/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;p&gt;Armbian 是一款基于 Debian 或 Ubuntu 的开源操作系统，专门针对嵌入式 ARM 平台进行优化和定制。它可以运行在多种不同的嵌入式设备上，例如树莓派、R2S，R4S，玩客云等等。Armbian 针对不同的嵌入式平台，提供了相应的硬件支持，可以让用户轻松地在这些平台上搭建自己的嵌入式系统。&lt;/p&gt;&#xA;&lt;p&gt;刚好有一块闲置了几年的R2S卡片机和树莓派2时代的无线网卡。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

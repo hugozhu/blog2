@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>AI时代的个人生产力公式：思考深度 × 资源调度广度 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="每天用光可支配的 token，衡量个人产出是否在不断提升"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI时代的个人生产力公式：思考深度 × 资源调度广度",
+  "@id": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/",
+  "url": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/",
+      "name": "AI时代的个人生产力公式：思考深度 × 资源调度广度",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "AI时代的个人生产力公式：思考深度 × 资源调度广度",
+  "description": "最近我一直在思考一个问题：在 AI 时代，个人生产力的本质到底是什么？经过大半年高强度使用各类 AI 工具的实践，我得出了一个公式：\n个人生产力 = 思考深度 × 资源调度广度\n这不是一个数学公式，而是一个思维框架。它帮我重新理解了\u0026quot;人应该做什么\u0026quot;和\u0026quot;AI 应该做什么\u0026quot;这个根本问题。\n",
+  "inLanguage": "en",
+  "wordCount":  261 ,
+  "dateCreated": "2026-02-25T00:00:00+00:00",
+  "datePublished": "2026-02-25T00:00:00+00:00",
+  "dateModified": "2026-02-25T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "AI, productivity, LLM, thinking, personal-growth" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="AI时代的个人生产力公式：思考深度 × 资源调度广度" />
+<meta property="og:description" content="每天用光可支配的 token，衡量个人产出是否在不断提升" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="AI时代的个人生产力公式：思考深度 × 资源调度广度" />
+  <meta name="twitter:description" content="每天用光可支配的 token，衡量个人产出是否在不断提升">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>AI时代的个人生产力公式：思考深度 × 资源调度广度</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">每天用光可支配的 token，衡量个人产出是否在不断提升</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 25, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;261&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>最近我一直在思考一个问题：在 AI 时代，个人生产力的本质到底是什么？经过大半年高强度使用各类 AI 工具的实践，我得出了一个公式：</p>
+<p><strong>个人生产力 = 思考深度 × 资源调度广度</strong></p>
+<p>这不是一个数学公式，而是一个思维框架。它帮我重新理解了&quot;人应该做什么&quot;和&quot;AI 应该做什么&quot;这个根本问题。</p>
+<h2 id="为什么是乘法而不是加法">为什么是乘法而不是加法</h2>
+<p>很多人把 AI 当成一个&quot;加速器&quot;——原来写代码要 2 小时，现在 20 分钟。这是加法思维：原有产出 + AI 提效 = 更多产出。</p>
+<p>但真正用好 AI 的人会发现，产出的提升不是线性的，而是乘数级的。原因在于思考深度和资源调度广度之间存在相互放大的关系：</p>
+<ul>
+<li><strong>思考越深</strong>，你越能识别出哪些任务可以交给 AI、以什么方式交给 AI、如何验证 AI 的产出质量。你能调度的资源边界就越大。</li>
+<li><strong>调度越广</strong>，你获得的反馈信号就越多、越快，这些信号反过来又会加深你对问题的理解。</li>
+</ul>
+<p>一个只有思考深度但不会调度 AI 资源的人，就像一个优秀的建筑师手里只有一把锤子。一个只会调度 AI 但缺乏思考深度的人，就像一个拿着全套电动工具却看不懂图纸的工人。两者相乘才能产生真正的杠杆效应。</p>
+<h2 id="什么是思考深度">什么是&quot;思考深度&quot;</h2>
+<p>这里的&quot;思考深度&quot;不是指冥想或哲学思辨，而是一种工程化的深度思考能力：</p>
+<h3 id="1-问题定义的精确度">1. 问题定义的精确度</h3>
+<p>大多数人在使用 AI 时效果不好，根本原因不是 AI 不够强，而是他们没有想清楚自己到底要什么。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❌ &#34;帮我写一个爬虫&#34;
+</span></span><span class="line"><span class="cl">✅ &#34;我需要抓取某电商平台的商品评论数据，用于分析用户对&#39;续航&#39;这个维度的情感倾向。
+</span></span><span class="line"><span class="cl">    目标页面是商品详情页的评论区，需要处理懒加载和反爬机制。
+</span></span><span class="line"><span class="cl">    输出格式为 CSV，包含评论文本、评分、日期三个字段。
+</span></span><span class="line"><span class="cl">    数据量预计 5000 条，需要考虑限流和断点续爬。&#34;
+</span></span></code></pre></div><p>后者不仅仅是&quot;更详细的 prompt&quot;，它反映了你对问题本身的理解深度——你知道数据要用来做什么，所以你知道需要什么字段；你知道目标网站的技术特征，所以你知道要处理什么问题；你知道数据规模，所以你知道要考虑什么工程约束。</p>
+<h3 id="2-分解与编排能力">2. 分解与编排能力</h3>
+<p>真正复杂的任务，AI 无法一步完成。你需要把它拆解成多个子任务，设计执行顺序和依赖关系，定义每一步的输入输出接口。这就是架构师的核心能力——只不过现在你架构的不是代码模块，而是人机协作的工作流。</p>
+<h3 id="3-质量判断力">3. 质量判断力</h3>
+<p>AI 生成的内容可能是 90 分，也可能是 50 分。没有专业判断力的人无法区分这两者。更危险的是，AI 生成的内容往往&quot;看起来&quot;都很专业——格式工整、逻辑通顺、术语准确。但&quot;看起来对&quot;和&quot;真的对&quot;之间，可能隔着一个致命的 bug、一个错误的假设、或一个不适用的方案。</p>
+<p><strong>思考深度决定了你的天花板。</strong> 无论 AI 多强大，你的产出质量不会超过你的判断力上限。</p>
+<h2 id="什么是资源调度广度">什么是&quot;资源调度广度&quot;</h2>
+<p>&ldquo;资源调度广度&quot;是指你能同时调动和协调多少 AI 资源来为你工作。这不仅仅是&quot;会用 ChatGPT&rdquo;，而是一种系统性的能力：</p>
+<h3 id="1-工具矩阵">1. 工具矩阵</h3>
+<p>2026 年的 AI 工具生态已经足够丰富，一个高效的个体可以同时调度：</p>
+<table>
+  <thead>
+      <tr>
+          <th>任务类型</th>
+          <th>工具</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>代码工程</td>
+          <td>Claude Code, Cursor</td>
+          <td>写代码、调试、重构</td>
+      </tr>
+      <tr>
+          <td>研究分析</td>
+          <td>Claude, Deep Research</td>
+          <td>文献调研、数据分析</td>
+      </tr>
+      <tr>
+          <td>文档写作</td>
+          <td>Claude, NotebookLM</td>
+          <td>报告、文档、知识整理</td>
+      </tr>
+      <tr>
+          <td>设计与原型</td>
+          <td>Lovable, v0</td>
+          <td>UI 原型、设计稿</td>
+      </tr>
+      <tr>
+          <td>自动化</td>
+          <td>Manus, n8n + AI</td>
+          <td>工作流自动化</td>
+      </tr>
+  </tbody>
+</table>
+<p>关键不是你用了多少工具，而是你能否根据任务特征选择最合适的工具，并让它们的产出无缝衔接。</p>
+<h3 id="2-并行能力">2. 并行能力</h3>
+<p>传统工作方式是串行的：做完 A 再做 B。AI 时代的高效工作方式是并行的：你在思考 C 的方案时，A 和 B 已经在被 AI 执行。</p>
+<p>一个实际的例子：我在写这篇博客的时候，Claude Code 正在另一个 session 里帮我调试一个项目的构建问题。这在过去是不可能的——你不能同时写文章和调代码。但现在，你的&quot;思考带宽&quot;是稀缺资源，而&quot;执行带宽&quot;可以通过 AI 并行化来扩展。</p>
+<h3 id="3-上下文管理">3. 上下文管理</h3>
+<p>调度多个 AI 资源时，最大的挑战不是工具本身，而是上下文的管理。每个 AI session 都有独立的上下文窗口，你需要：</p>
+<ul>
+<li>为每个任务维护清晰的上下文（项目背景、技术约束、已完成的工作）</li>
+<li>在不同 AI session 之间传递关键信息</li>
+<li>把一个 AI 的产出有效地注入另一个 AI 的输入</li>
+</ul>
+<p>这本质上是一种&quot;分布式系统的协调能力&quot;——只不过你协调的节点是 AI agent 而不是微服务。</p>
+<h2 id="用光每天可支配的-token">用光每天可支配的 token</h2>
+<p>我有一个很朴素的自我衡量标准：<strong>每天是否用光了可支配的 token。</strong></p>
+<p>这里的&quot;token&quot;不只是字面意义上的 API 调用额度，更是一个隐喻——它代表你手边所有可用的 AI 资源。如果你每天还有大量的 AI 额度没用完，说明你要么没有足够的任务在推进，要么没有把足够多的任务交给 AI 来加速。</p>
+<p>当然，&ldquo;用光 token&quot;不是目的。目的是通过这个指标来反思：</p>
+<ol>
+<li><strong>我今天有没有识别出可以用 AI 加速的任务？</strong> 很多人每天做大量可以自动化的重复性工作，但从未想过交给 AI。</li>
+<li><strong>我交给 AI 的任务质量如何？</strong> 如果你的 prompt 质量不高，用再多 token 也是浪费。</li>
+<li><strong>我的产出是否在提升？</strong> 用了同样多的 token，这周的产出比上周多了吗？质量更好了吗？</li>
+</ol>
+<p>这就像一个运动员每天要消耗完训练计划里的所有卡路里一样。关键不是吃得多，而是确保你的训练强度配得上你的营养摄入。Token 就是 AI 时代知识工作者的&quot;卡路里&rdquo;——如果你每天摄入很多但运动量不够，那只是浪费；如果你训练强度很大但摄入不足，那就是没有充分利用可用资源。</p>
+<h2 id="如何持续提升这个乘积">如何持续提升这个乘积</h2>
+<h3 id="提升思考深度">提升思考深度</h3>
+<ul>
+<li><strong>刻意练习问题定义</strong>：每次使用 AI 之前，先花 5 分钟手写需求描述。写不清楚，说明你还没想清楚。</li>
+<li><strong>建立复盘机制</strong>：每周回顾 AI 交互记录，找出哪些对话效率特别低，分析原因。是问题不清晰？是上下文没给够？还是方向本身就错了？</li>
+<li><strong>保持领域学习</strong>：AI 能帮你执行，但领域知识和判断力只能靠你自己积累。越深的领域理解，越能产出高质量的 AI prompt 和更准确的产出评估。</li>
+</ul>
+<h3 id="扩大资源调度广度">扩大资源调度广度</h3>
+<ul>
+<li><strong>系统化地学习新工具</strong>：不要满足于只用一两个 AI 工具。每个月至少认真试用一个新的 AI 工具或工作流。</li>
+<li><strong>构建个人 Skill 库</strong>：把验证有效的 prompt 模板、工作流、自动化脚本沉淀下来，降低重复调度的成本。</li>
+<li><strong>提升并行工作的能力</strong>：练习同时跟踪多个 AI 任务的状态，学会在&quot;等待 AI 执行&quot;的间隙切换到其他任务。</li>
+</ul>
+<h3 id="衡量与迭代">衡量与迭代</h3>
+<p>给自己设一个简单的记分卡：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## 每日产出复盘
+</span></span></span><span class="line"><span class="cl"><span class="k">-</span> 今天消耗的 token/AI 使用时长：___
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 今天完成的关键产出：___
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 其中 AI 贡献比例：___
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 产出质量自评（1-10）：___
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 明天可以改进的一点：___
+</span></span></code></pre></div><p>不需要很精确，重要的是建立持续观测和迭代的习惯。就像跑步的人会记录配速和心率一样，AI 时代的知识工作者也需要建立自己的&quot;训练日志&quot;。</p>
+<h2 id="结语">结语</h2>
+<p>AI 时代的个人生产力竞争，本质上是<strong>思考质量</strong>和<strong>资源调度能力</strong>的竞争。模型在快速进步，工具在快速迭代，但人的思考深度和系统调度能力的提升需要刻意练习和持续积累。</p>
+<p>每天用光你可支配的 token，不是为了追求数字上的消耗量，而是逼自己去发现更多值得做的事、更好地定义问题、更高效地协调 AI 资源。当你发现同样的 token 消耗能带来越来越大的产出时，你就走在了正确的方向上。</p>
+<p><strong>思考深度 × 资源调度广度</strong>——这个乘积的大小，就是你在 AI 时代的真正竞争力。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/productivity/">productivity</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/llm/">LLM</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/thinking/">thinking</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/personal-growth/">personal-growth</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f124-ai-era-personal-productivity-formula%2f&amp;text=AI%e6%97%b6%e4%bb%a3%e7%9a%84%e4%b8%aa%e4%ba%ba%e7%94%9f%e4%ba%a7%e5%8a%9b%e5%85%ac%e5%bc%8f%ef%bc%9a%e6%80%9d%e8%80%83%e6%b7%b1%e5%ba%a6%20%c3%97%20%e8%b5%84%e6%ba%90%e8%b0%83%e5%ba%a6%e5%b9%bf%e5%ba%a6&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f124-ai-era-personal-productivity-formula%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f124-ai-era-personal-productivity-formula%2f&amp;title=AI%e6%97%b6%e4%bb%a3%e7%9a%84%e4%b8%aa%e4%ba%ba%e7%94%9f%e4%ba%a7%e5%8a%9b%e5%85%ac%e5%bc%8f%ef%bc%9a%e6%80%9d%e8%80%83%e6%b7%b1%e5%ba%a6%20%c3%97%20%e8%b5%84%e6%ba%90%e8%b0%83%e5%ba%a6%e5%b9%bf%e5%ba%a6" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f124-ai-era-personal-productivity-formula%2f&amp;title=AI%e6%97%b6%e4%bb%a3%e7%9a%84%e4%b8%aa%e4%ba%ba%e7%94%9f%e4%ba%a7%e5%8a%9b%e5%85%ac%e5%bc%8f%ef%bc%9a%e6%80%9d%e8%80%83%e6%b7%b1%e5%ba%a6%20%c3%97%20%e8%b5%84%e6%ba%90%e8%b0%83%e5%ba%a6%e5%b9%bf%e5%ba%a6" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f124-ai-era-personal-productivity-formula%2f&amp;title=AI%e6%97%b6%e4%bb%a3%e7%9a%84%e4%b8%aa%e4%ba%ba%e7%94%9f%e4%ba%a7%e5%8a%9b%e5%85%ac%e5%bc%8f%ef%bc%9a%e6%80%9d%e8%80%83%e6%b7%b1%e5%ba%a6%20%c3%97%20%e8%b5%84%e6%ba%90%e8%b0%83%e5%ba%a6%e5%b9%bf%e5%ba%a6" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f124-ai-era-personal-productivity-formula%2f&amp;description=AI%e6%97%b6%e4%bb%a3%e7%9a%84%e4%b8%aa%e4%ba%ba%e7%94%9f%e4%ba%a7%e5%8a%9b%e5%85%ac%e5%bc%8f%ef%bc%9a%e6%80%9d%e8%80%83%e6%b7%b1%e5%ba%a6%20%c3%97%20%e8%b5%84%e6%ba%90%e8%b0%83%e5%ba%a6%e5%b9%bf%e5%ba%a6" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f124-ai-era-personal-productivity-formula%2f&amp;subject=AI%e6%97%b6%e4%bb%a3%e7%9a%84%e4%b8%aa%e4%ba%ba%e7%94%9f%e4%ba%a7%e5%8a%9b%e5%85%ac%e5%bc%8f%ef%bc%9a%e6%80%9d%e8%80%83%e6%b7%b1%e5%ba%a6%20%c3%97%20%e8%b5%84%e6%ba%90%e8%b0%83%e5%ba%a6%e5%b9%bf%e5%ba%a6" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/178-agent-model-plus-harness/">Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+                    <li><a href="/post/2026/171-ai-era-can-everyone-build-models/">AI 时代，人人都能建模了吗？</a></li>
+                
+                    <li><a href="/post/2026/172-evolvable-agent-skills-best-practices/">让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2026/126-openclaw-architecture-design/" data-toggle="tooltip" data-placement="top" title="OpenClaw 架构解析：如何构建一个有记忆、有灵魂的个人 AI 助手">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2026/127-data-quality-llm-performance/" data-toggle="tooltip" data-placement="top" title="高质量数据越多，大模型表现越优秀">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2026/124-ai-era-personal-productivity-formula">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2026\/124-ai-era-personal-productivity-formula';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

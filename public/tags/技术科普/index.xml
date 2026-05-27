@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术科普 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/</link>
+    <description>Recent content in 技术科普 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API、MCP和Skills：三个概念的本质区别</title>
+      <link>http://localhost:45445/post/2025/109-api-mcp-skills-explained/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/109-api-mcp-skills-explained/</guid>
+      <description>&lt;p&gt;当我们谈论AI应用开发时，经常会听到API、MCP（Model Context Protocol）和Skills这三个词。它们看起来都是让程序之间&amp;quot;对话&amp;quot;的方式，但究竟有什么不同？让我用一个简单的餐厅比喻来解释。&lt;/p&gt;&#xA;&lt;p&gt;想象你要解决&amp;quot;吃饭&amp;quot;这个问题，有三种不同的方式可以选择。每种方式代表了不同的技术范式，适用于不同的场景。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

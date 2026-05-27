@@ -1,0 +1,668 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Raspberry Pi做BT下载机&#43;高清播放器 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="Raspberry Pi with XMBC"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Raspberry Pi做BT下载机+高清播放器",
+  "@id": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/",
+  "url": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/",
+      "name": "Raspberry Pi做BT下载机+高清播放器",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "Raspberry Pi做BT下载机+高清播放器",
+  "description": "Raspberry Pi with XMBC",
+  "inLanguage": "en",
+  "wordCount":  122 ,
+  "dateCreated": "2013-03-06T00:00:00+00:00",
+  "datePublished": "2013-03-06T00:00:00+00:00",
+  "dateModified": "2013-03-06T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "Raspberry Pi" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Raspberry Pi做BT下载机&#43;高清播放器" />
+<meta property="og:description" content="Raspberry Pi with XMBC" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Raspberry Pi做BT下载机&#43;高清播放器" />
+  <meta name="twitter:description" content="Raspberry Pi with XMBC">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Raspberry Pi做BT下载机&#43;高清播放器</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 6, 2013
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;122&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="介绍">介绍</h2>
+<p>首先高清播放器功能只是Raspberry Pi的一个小功能，如果你只需要高清播放功能又不想折腾，那还是买个<a href="http://s.taobao.com/search?q=%B8%DF%C7%E5%B2%A5%B7%C5%C6%F7&amp;commend=all&amp;ssid=s5-e&amp;search_type=item&amp;sourceId=tb.index&amp;initiative_id=tbindexz_20130306">山寨的</a>的更简单。。。</p>
+<p>Raspberry Pi的图形处理器规格：Broadcom VideoCore IV, OpenGL ES 2.0, 1080p 30 h.264/MPEG-4 AVC 高清解码器，内存和CPU共享（可设置成256M），性能还是很强劲的。HDMI支持640x350和1920×1200（1080P）的分辨率。安装了<a href="http://xbmc.org">XBMC</a>，基本上可以实现包括Airplay在内的Apple TV上的大部分功能，但价格只有其一半不到，可以播放下载的视频或观看在线视频，如<a href="http://yisou.com">一搜</a>，优酷，搜狐视频，奇艺等。</p>
+<h2 id="外设">外设</h2>
+<p>除了Pi单片机外，你还需要以下外设附件：</p>
+<ol>
+<li>5V-1A左右的电源，可以用iPhone或iPad的充电电源，或手机的充电器，电流最少要800毫安</li>
+<li>micro USB线一根，和Kindle以及大多数android手机充电USB线一样</li>
+<li>HDMI线一根，接电视机</li>
+<li>SD卡一张，最少2G</li>
+</ol>
+<h2 id="raspbmc">Raspbmc</h2>
+<p><a href="http://www.raspbmc.com/">Raspbmc</a> 是专为在Raspberry Pi上运行<a href="http://xbmc.org">XBMC</a>的定制Linux。最小化的安装，减少了不必要的软件和资源占用，简化了安装和配置，没有Linux知识也可以上手。这个版本的维护者是一个19岁的小朋友Sam Nazarko。有时间折腾的同学可以自己编译XMBC安装。</p>
+<h3 id="特点">特点：</h3>
+<ol>
+<li>免费，开源</li>
+<li>支持多语言</li>
+<li>支持1080P回放</li>
+<li>支持直接播放NFS，SMB，FTP,HTTP或USB硬盘的有视频文件，支持大多数格式</li>
+<li>支持AirPlay或AirTune功能，可以把iPhone/iPad上的视频或音乐通过Pi投放到电视上，这点和Apple TV功能一样</li>
+<li>支持GPIO</li>
+<li>基于Debian，可以从Debian的软件源安装其它软件</li>
+<li>支持1080P DTS软解，这个不少播放器是不支持的，需要额外License</li>
+<li>内置了以下服务:
+<ol>
+<li>Samba</li>
+<li>TVHeadend Server</li>
+<li>FTP Server</li>
+<li>SSH Server</li>
+</ol>
+</li>
+</ol>
+<h3 id="安装">安装</h3>
+<ol>
+<li>
+<p>Windows下载<a href="http://download.raspbmc.com/downloads/bin/installers/raspbmc-win32.zip">安装程序</a>，运行即可。</p>
+<p><img src="http://www.raspbmc.com/wp-content/uploads/2012/06/ins-300x165.jpg" alt="image"></p>
+</li>
+<li>
+<p>Linux/Mac:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl -O http://svn.stmlabs.com/svn/raspbmc/testing/installers/python/install.py
+</span></span><span class="line"><span class="cl">chmod +x install.py
+</span></span><span class="line"><span class="cl">sudo python install.py
+</span></span></code></pre></div><p><img src="http://www.raspbmc.com/wp-content/uploads/2012/06/installPython.png" alt="image"></p>
+</li>
+<li>
+<p>或直接下载<a href="http://download.raspbmc.com/downloads/bin/ramdistribution/installer.img.gz">安装包</a>安装</p>
+</li>
+</ol>
+<h3 id="下载">下载</h3>
+<p>你可以在Pi上外接一个USB移动硬盘，但要注意硬盘要有自己电源，也可以mount网络上的硬盘分区。然后运行transmission软件下载视频。</p>
+<h4 id="transmission">Transmission</h4>
+<ol>
+<li>
+<p>安装</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt-get install transmission-daemon
+</span></span><span class="line"><span class="cl">sudo /etc/init.d/transmission-daemon stop
+</span></span><span class="line"><span class="cl">sudo nano /etc/transmission-daemon/settings.json
+</span></span></code></pre></div></li>
+<li>
+<p>配置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="err">“</span><span class="n">rpc</span><span class="o">-</span><span class="n">whitelist</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="err">″</span><span class="p">,</span> <span class="n">to</span> <span class="err">“</span><span class="n">rpc</span><span class="o">-</span><span class="n">whitelist</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="o">*.*.*.*</span><span class="err">”</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="err">“</span><span class="n">rpc</span><span class="o">-</span><span class="n">password</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="n">password</span><span class="err">”</span><span class="p">,</span> <span class="n">to</span> <span class="err">“</span><span class="n">rpc</span><span class="o">-</span><span class="n">password</span><span class="err">”</span><span class="p">:</span> <span class="err">“替换成管理密码“</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="err">“</span><span class="n">rpc</span><span class="o">-</span><span class="n">username</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="n">username</span><span class="err">”</span><span class="p">,</span> <span class="n">to</span> <span class="err">“</span><span class="n">rpc</span><span class="o">-</span><span class="n">username</span><span class="err">”</span><span class="p">:</span> <span class="err">“替换成管理用户“</span><span class="p">,</span>   
+</span></span><span class="line"><span class="cl"> <span class="err">“</span><span class="n">download</span><span class="o">-</span><span class="n">dir</span><span class="err">”：“</span>\<span class="o">/</span><span class="n">home</span>\<span class="o">/</span><span class="n">xbmc</span>\<span class="o">/</span><span class="n">Videos</span>\<span class="o">/</span><span class="n">Downloads</span><span class="err">”</span><span class="p">,</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="n">sudo</span> <span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">rw</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">xbmc</span><span class="o">/</span><span class="n">Videos</span><span class="o">/</span><span class="n">Downloads</span>
+</span></span><span class="line"><span class="cl"> <span class="n">sudo</span> <span class="n">chgrp</span> <span class="o">-</span><span class="n">R</span> <span class="n">debian</span><span class="o">-</span><span class="n">transmission</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">xbmc</span><span class="o">/</span><span class="n">Videos</span><span class="o">/</span><span class="n">Downloads</span>   
+</span></span><span class="line"><span class="cl"> <span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">transmission</span><span class="o">-</span><span class="n">daemon</span> <span class="n">start</span>
+</span></span></code></pre></div></li>
+<li>
+<p>24x7开始下载，耗电量很低的，这是下载界面：
+<img src="https://pbs.twimg.com/media/BErnJ-6CcAEVYsV.jpg:large" alt="image"></p>
+</li>
+</ol>
+<h3 id="遥控和播放">遥控和播放</h3>
+<p>遥控方案有两种：</p>
+<ol>
+<li>
+<p>红外接收器 + 电视/DVD/VCD/EVD等已有遥控器，<a href="http://forum.stmlabs.com/showthread.php?tid=5549">这里</a>有一个实现方案</p>
+</li>
+<li>
+<p>通过网络用手机来遥控，其实就是用任何一个xmbc的客户端</p>
+<ol>
+<li>iPhone: <a href="https://itunes.apple.com/us/app/unofficial-official-xbmc-remote/id520480364?ls=1&amp;mt=8">Offical XBMC Remote</a> 免费的</li>
+<li>Android: <a href="http://code.google.com/p/android-xbmcremote/">Android XBMC Remote</a> 免费的</li>
+</ol>
+</li>
+</ol>
+<h3 id="参考文章">参考文章:</h3>
+<ol>
+<li><a href="http://www.raspbmc.com/about/">http://www.raspbmc.com/about/</a></li>
+</ol>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/raspberry-pi/">Raspberry Pi</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fraspberry-pi-with-xmbc%2f&amp;text=Raspberry%20Pi%e5%81%9aBT%e4%b8%8b%e8%bd%bd%e6%9c%ba%2b%e9%ab%98%e6%b8%85%e6%92%ad%e6%94%be%e5%99%a8&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fraspberry-pi-with-xmbc%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fraspberry-pi-with-xmbc%2f&amp;title=Raspberry%20Pi%e5%81%9aBT%e4%b8%8b%e8%bd%bd%e6%9c%ba%2b%e9%ab%98%e6%b8%85%e6%92%ad%e6%94%be%e5%99%a8" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fraspberry-pi-with-xmbc%2f&amp;title=Raspberry%20Pi%e5%81%9aBT%e4%b8%8b%e8%bd%bd%e6%9c%ba%2b%e9%ab%98%e6%b8%85%e6%92%ad%e6%94%be%e5%99%a8" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fraspberry-pi-with-xmbc%2f&amp;title=Raspberry%20Pi%e5%81%9aBT%e4%b8%8b%e8%bd%bd%e6%9c%ba%2b%e9%ab%98%e6%b8%85%e6%92%ad%e6%94%be%e5%99%a8" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fraspberry-pi-with-xmbc%2f&amp;description=Raspberry%20Pi%e5%81%9aBT%e4%b8%8b%e8%bd%bd%e6%9c%ba%2b%e9%ab%98%e6%b8%85%e6%92%ad%e6%94%be%e5%99%a8" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fraspberry-pi-with-xmbc%2f&amp;subject=Raspberry%20Pi%e5%81%9aBT%e4%b8%8b%e8%bd%bd%e6%9c%ba%2b%e9%ab%98%e6%b8%85%e6%92%ad%e6%94%be%e5%99%a8" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2020/68-turn-raspberrypi-4-to-a-router-and-wifi-ap/">把树莓派4设置成路由器和热点</a></li>
+                
+                    <li><a href="/post/2016/66-use-dingtalk-golang-sdk-to-send-message-on-pi/">从树莓派上发消息到手机或桌面钉钉</a></li>
+                
+                    <li><a href="/post/2016/65-running-grafana-on-raspberry-pi-3/">用Grafana制作树莓派上的监控大盘</a></li>
+                
+                    <li><a href="/post/2016/63-raspberrypi-as-ibeacon-transmitter/">树莓派3变身iBeacon发射器</a></li>
+                
+                    <li><a href="/post/2016/64-set-up-monitor-system-with-prometheus-on-raspberry/">在树莓派3上搭建监控系统</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2013/java-synchronousqueue-notes/" data-toggle="tooltip" data-placement="top" title="Java并发包中的同步队列SynchronousQueue实现原理">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2013/block_failed_ssh_attempts_with_iptable/" data-toggle="tooltip" data-placement="top" title="如何封杀尝试Raspberry Pi SSH密码的来源IP">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2013/raspberry-pi-with-xmbc">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2013\/raspberry-pi-with-xmbc';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

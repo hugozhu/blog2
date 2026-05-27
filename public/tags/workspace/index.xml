@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workspace on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/workspace/</link>
+    <description>Recent content in Workspace on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/workspace/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Agent 架构的终局，是 Unix 哲学的回归</title>
+      <link>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</guid>
+      <description>&lt;p&gt;最近在梳理各种 AI Agent 框架和 Runtime 的架构时，我产生了一个越来越强烈的感觉：&lt;strong&gt;我们正在重新发明 Unix。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;不是比喻。是字面意义上的重新发明。当你把今天主流的 Agent 架构摊开来看——Skill、Workspace、Tool、Pipeline、Orchestrator——你会发现，这些概念和 50 年前 Unix 的设计哲学几乎一一对应。区别只是换了一层 AI 的皮。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Workspace &#43; Git &#43; Agent：AI 时代的工作操作系统</title>
+      <link>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</guid>
+      <description>&lt;p&gt;过去一年，我越来越确信一个判断：&lt;strong&gt;AI 时代真正的工作操作系统，不是某个 App，不是某个平台，而是 Workspace + Git + Agent 这个三位一体的组合。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;为什么？因为 AI Agent 的一切——输入、输出、系统提示词、上下文、执行过程、临时生成的代码、图片、文档，甚至应用程序本身——本质上都是文件。既然 everything is file，那么管理这些文件的方式，就决定了你驾驭 AI 的效率和上限。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

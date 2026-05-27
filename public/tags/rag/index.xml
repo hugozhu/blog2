@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RAG on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/rag/</link>
+    <description>Recent content in RAG on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent 设计最佳实践：Memory</title>
+      <link>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</guid>
+      <description>&lt;p&gt;想象这样一个场景：你花了半小时向 AI 助手解释你的项目架构、编码偏好和团队规范，得到了一次满意的协作体验。第二天再打开对话——它全忘了。你又得从头来一遍。这不是 AI 不够聪明的问题，而是&lt;strong&gt;记忆架构缺失&lt;/strong&gt;的问题。OpenClaw 的 Memory 系统试图从根本上解决这个痛点：让 AI Agent 拥有持久、可检索、可自维护的记忆能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NotebookLM的核心能力与构建之道</title>
+      <link>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</guid>
+      <description>&lt;p&gt;当Google在2023年推出NotebookLM时，它重新定义了我们与知识交互的方式。这款AI驱动的笔记应用不仅仅是一个文档管理工具，更是一个能够理解、总结、对话和创作的智能助手。那么，NotebookLM究竟具备哪些关键能力？我们如何构建类似的系统？本文将深入剖析其核心技术架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深入理解RAG：检索增强生成技术的原理与实践</title>
+      <link>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</guid>
+      <description>&lt;p&gt;在大语言模型(LLM)快速发展的今天，我们面临一个核心挑战：如何让模型能够访问和利用实时、专业或私有的知识？纯粹依赖预训练的模型往往会出现知识过时、幻觉问题，或者无法回答特定领域的问题。这就是检索增强生成(Retrieval-Augmented Generation, RAG)技术应运而生的原因。&lt;/p&gt;&#xA;&lt;p&gt;RAG通过将外部知识库的检索能力与LLM的生成能力相结合，为这个问题提供了一个优雅的解决方案。它不需要重新训练模型，就能让AI系统访问最新的、特定领域的知识，同时显著降低幻觉问题。本文将深入探讨RAG的核心原理、架构设计以及实际应用中的最佳实践。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

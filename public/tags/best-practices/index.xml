@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Best-Practices on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/best-practices/</link>
+    <description>Recent content in Best-Practices on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>当 10 万个定时任务同时敲门：MaaS 平台调度优化实战</title>
+      <link>http://localhost:45445/post/2026/166-scheduled-task-optimization-best-practices/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/166-scheduled-task-optimization-best-practices/</guid>
+      <description>&lt;p&gt;上周五下午 3 点，告警群炸了：MaaS 层的 GPU 推理集群 QPS 在 60 秒内从 1200 飙到 18000，p99 延迟从 800ms 打到 45 秒，大量请求 429。&lt;/p&gt;&#xA;&lt;p&gt;排查发现原因很&amp;quot;朴素&amp;quot;——&lt;strong&gt;大约 3 万个 OpenClaw 实例的定时任务都跑在整点&lt;/strong&gt;。每个实例可能只有 1-3 个 cron job（数据摘要、定时巡检、报表生成），但所有人的 cron 都写着 &lt;code&gt;0 * * * *&lt;/code&gt; 或 &lt;code&gt;0 0 * * *&lt;/code&gt;。三万乘以三，就是整点瞬间涌来的近十万个 LLM 推理请求。&lt;/p&gt;&#xA;&lt;p&gt;这不是应用层的 bug，而是&lt;strong&gt;平台设计的缺陷&lt;/strong&gt;。当你的平台承载成千上万个租户的定时任务时，&amp;ldquo;整点风暴&amp;quot;不是意外——它是必然。问题是：&lt;strong&gt;作为平台设计者，你该怎么办？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>人写规则，Token做实验：从Karpathy的autoresearch看AI应用优化新范式</title>
+      <link>http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/</guid>
+      <description>&lt;p&gt;Karpathy 在 2026 年 3 月开源了 &lt;a href=&#34;https://github.com/karpathy/autoresearch&#34;&gt;autoresearch&lt;/a&gt;，两周内收获近 5 万 Star。项目本身很简单——让 AI Agent 自动修改 LLM 训练代码、跑实验、看指标、保留好的、丢弃差的，一夜循环 100 轮。但简单的背后藏着一个深刻的范式转移：&lt;strong&gt;在 AI 时代，人的角色从&amp;quot;做实验的人&amp;quot;变成了&amp;quot;设计实验规则的人&amp;quot;，而试错循环本身，交给 Token 去完成。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不只是 AI 研究的事。任何可以量化评估、快速迭代的业务场景，都可以套用这个范式。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自我进化的AI助手：OpenClaw如何用Heartbeat实现Skill自动优化</title>
+      <link>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</guid>
+      <description>&lt;p&gt;在&lt;a href=&#34;http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/&#34;&gt;上一篇文章&lt;/a&gt;中，我从 Karpathy 的 autoresearch 项目提炼了一个范式：&lt;strong&gt;人写规则，Token 做实验&lt;/strong&gt;。我们用 AI 客服 Prompt 优化作为案例，验证了这个范式在业务场景中的可行性。但那个方案有一个前提——你需要预先准备评估数据集。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的场景让我意识到，还有一种更彻底的可能：&lt;strong&gt;Agent 用自己的真实执行数据作为评估信号，在用户无感知的情况下持续自我优化。&lt;/strong&gt; 不需要人工标注测试集，不需要离线批处理，每一次真实使用都是一条训练数据。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>悟空是AI时代的淘宝：Token消费的多快好省</title>
+      <link>http://localhost:45445/post/2026/146-wukong-taobao-of-ai-token-economy/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/146-wukong-taobao-of-ai-token-economy/</guid>
+      <description>&lt;p&gt;1962年，一位伟人为中国工业发展题写了&amp;quot;鼓足干劲，力争上游，多快好省地建设社会主义&amp;quot;。六十多年后，当我们审视AI Agent工程的核心挑战时，会发现一个惊人的对称：&lt;strong&gt;Agent工程的终极优化目标，本质上就是对模型Token消耗的&amp;quot;多快好省&amp;quot;。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;淘宝用十五年把&amp;quot;多快好省&amp;quot;刻进了中国零售的DNA——商品要多、物流要快、品质要好、价格要省。而今天的AI Agent Runtime，正在用同一套逻辑重塑Token消费——模型类型要&lt;strong&gt;多&lt;/strong&gt;、响应速度要&lt;strong&gt;快&lt;/strong&gt;、完成效果要&lt;strong&gt;好&lt;/strong&gt;、使用成本要&lt;strong&gt;省&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;悟空——孙悟空七十二变（多）、筋斗云十万八千里（快）、金箍棒降妖除魔（好）、一根毫毛变千猴（省）。一个优秀的Agent Runtime，就是AI时代的淘宝，Token世界的悟空。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI时代的新代码大全：从McConnell的三大启示到Claude Skill编写指南</title>
+      <link>http://localhost:45445/post/2026/145-new-code-complete-for-ai-era/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/145-new-code-complete-for-ai-era/</guid>
+      <description>&lt;p&gt;二十年前，Steve McConnell 的《代码大全》(Code Complete 2nd) 以其近 900 页的体量，成为软件工程领域一座难以逾越的丰碑。二十年后，它依然是无数工程师书架上的必备经典。在一场&lt;a href=&#34;https://www.youtube.com/watch?v=iPKmcLxuS_A&#34;&gt;深度的访谈&lt;/a&gt;中，McConnell 分享了这部巨著背后的故事、对职业发展的深刻洞见，以及对 AI 时代的冷静思考。&lt;/p&gt;&#xA;&lt;p&gt;尽管技术浪潮已更迭数代，但 McConnell 的核心思想依然闪耀着永恒的光芒。我从中提炼出三大&amp;quot;启示&amp;quot;，它们穿越了语言和工具的变迁，直指软件开发的本质。而当我读完 Anthropic 刚刚发布的 &lt;a href=&#34;https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf&#34;&gt;The Complete Guide to Building Skills for Claude&lt;/a&gt; 时，我惊讶地发现：&lt;strong&gt;这份 AI 时代的&amp;quot;新代码大全&amp;quot;，正是 McConnell 理念的最佳实践者。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI Native 文档：会话即知识，过程即资产</title>
+      <link>http://localhost:45445/post/2026/144-ai-native-document-conversation-as-knowledge/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/144-ai-native-document-conversation-as-knowledge/</guid>
+      <description>&lt;p&gt;企业每天都在产生大量知识，但绝大多数知识从未被记录下来。不是因为没有文档系统，而是因为&lt;strong&gt;真正的知识不在文档里，而在产生文档的过程中&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;一份产品方案的最终版本只有 10 页，但写这 10 页的过程中，团队讨论了 20 个方案、否定了 15 个、在 3 个关键决策点上反复权衡。这些讨论、推理和决策——才是企业最有价值的知识。传统文档系统只保存了结论，丢掉了思考。&lt;/p&gt;&#xA;&lt;p&gt;AI Native 文档要解决的，就是这个问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建企业级Agent Runtime：从Skill到Workspace的五层架构</title>
+      <link>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</guid>
+      <description>&lt;p&gt;很多团队对 Agent 的理解还停留在&amp;quot;LLM + Prompt + 几个工具调用&amp;quot;。这种理解能跑通 Demo，但一旦进入企业级场景——多任务并行、多系统集成、多角色协作、安全审计——就会发现：&lt;strong&gt;Agent 系统的核心挑战不是让 LLM 更聪明，而是构建一个可扩展、可治理、可审计的运行时架构。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Agent 系统本质上在解决五个问题：用户要做什么（Agent）、谁来执行（Sub-Agent）、如何执行（Skill）、从哪里获取数据（MCP）、执行过程的状态存在哪里（Workspace）。这五个问题对应了系统的五个核心层次。&lt;/p&gt;&#xA;&lt;p&gt;本文将这套架构完整展开。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI Agent 架构的终局，是 Unix 哲学的回归</title>
+      <link>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</guid>
+      <description>&lt;p&gt;最近在梳理各种 AI Agent 框架和 Runtime 的架构时，我产生了一个越来越强烈的感觉：&lt;strong&gt;我们正在重新发明 Unix。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;不是比喻。是字面意义上的重新发明。当你把今天主流的 Agent 架构摊开来看——Skill、Workspace、Tool、Pipeline、Orchestrator——你会发现，这些概念和 50 年前 Unix 的设计哲学几乎一一对应。区别只是换了一层 AI 的皮。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>为 AI 重建的 IM 架构</title>
+      <link>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</guid>
+      <description>&lt;p&gt;传统 IM（即时通讯）解决的是一个简单的问题：&lt;strong&gt;让人和人高效地交换信息&lt;/strong&gt;。文本、图片、文件、语音——三十年来，IM 的核心架构围绕着&amp;quot;谁说了什么&amp;quot;展开，安全靠端到端加密，权限靠静态角色控制，审计靠消息日志。这套体系服务了几十亿用户，足够成熟。&lt;/p&gt;&#xA;&lt;p&gt;但当 AI Agent 成为 IM 中的活跃参与者——不仅接收消息，还理解意图、调用工具、执行任务、产生后果——传统 IM 的架构假设就被从根本上打破了。&lt;strong&gt;IM 不再只是信息传递的通道，而是 Agent 协作与执行的操作系统。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这需要一种全新的 IM 架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业专属模型：让企业放心调用大模型的架构最佳实践</title>
+      <link>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</guid>
+      <description>&lt;p&gt;和企业客户聊 AI 落地，十次有九次会被问到同一个问题：&lt;strong&gt;&amp;ldquo;我们调用你们的大模型，数据会不会被拿去训练？&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这个问题背后的焦虑是真实的。企业的客户数据、商业机密、内部文档、代码仓库——这些是企业的核心资产。把它们发送给一个外部的大模型 API，本质上就是把家底给别人看了一遍。如果这些数据还被用来训练模型，那等于是在免费帮竞争对手提升 AI 能力。&lt;/p&gt;&#xA;&lt;p&gt;好消息是，这个问题在 2026 年已经有了成熟的解决方案。坏消息是，大多数企业还不知道该怎么选。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业级 Agent Runtime 的第一道防线：安全沙箱</title>
+      <link>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</guid>
+      <description>&lt;p&gt;当我们谈论企业级 AI Agent Runtime 时，第一个需要解决的问题不是&amp;quot;模型有多聪明&amp;quot;，而是&amp;quot;Agent 执行的代码有多安全&amp;quot;。一个能读写文件、执行命令、访问网络的 Agent，如果没有安全边界，就是一颗不知道什么时候会爆炸的定时炸弹。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;企业级的 Agent Runtime 首先需要一个安全沙箱：文件系统隔离 + 网络访问隔离。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>当 AI Agent 被拉进多个群：会话隔离与 Agent 隔离的生死线</title>
+      <link>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</guid>
+      <description>&lt;p&gt;把一个 AI Agent 拉进钉钉的多个群，是一件非常容易的事情——群管理员点一下&amp;quot;添加机器人&amp;quot;就完成了。但这也是一件&lt;strong&gt;极其危险的事情&lt;/strong&gt;——如果 Agent Runtime 没有做好隔离，你可能正在制造一个企业级的安全事故。&lt;/p&gt;&#xA;&lt;p&gt;想象这个场景：你的 AI Agent 同时服务于&amp;quot;核心技术架构群&amp;quot;和&amp;quot;外部合作伙伴群&amp;quot;。有人在合作伙伴群里问了一个问题，Agent 的回答中不小心带出了它在架构群里学到的技术方案细节。&lt;strong&gt;信息就这样泄露了，而且没有任何人会收到告警。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是假设。这是没有隔离的 Agent Runtime 的默认行为。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI 时代的企业数字化 = 工作 Agent 化 &#43; 知识 AI Ready 化 &#43; 软件 CLI 化</title>
+      <link>http://localhost:45445/post/2026/137-enterprise-digitalization-in-ai-era/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/137-enterprise-digitalization-in-ai-era/</guid>
+      <description>&lt;p&gt;过去两年，几乎每家企业都在谈&amp;quot;拥抱 AI&amp;quot;。但你去看看大多数企业的 AI 落地项目，会发现一个尴尬的现实：&lt;strong&gt;聊天机器人做了一堆，效率提升约等于零。&lt;/strong&gt; 问题出在哪？不是 AI 不够强，而是企业的数字化基座根本不是为 AI 设计的。&lt;/p&gt;&#xA;&lt;p&gt;我越来越确信一个判断：AI 时代的企业数字化，可以浓缩成一个公式——&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;企业数字化 = 工作 Agent 化 + 知识 AI Ready 化 + 软件 CLI 化&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;这三项缺一不可，而且顺序很重要。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 执行耗时任务时如何主动汇报进度？四种方案的实战选型</title>
+      <link>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</guid>
+      <description>&lt;p&gt;你让 AI Agent 帮你跑一个需要 30 分钟的数据迁移脚本，然后就没了下文——它在干嘛？卡住了？还是已经跑完了？你不知道，因为 Agent 只会在任务彻底完成或彻底失败时才告诉你结果。&lt;/p&gt;&#xA;&lt;p&gt;这是 Agent 系统中一个普遍的痛点：&lt;strong&gt;耗时任务的进度黑洞&lt;/strong&gt;。用户发出指令后陷入等待，没有进度条，没有中间反馈，只有最终的成功或失败。在 OpenClaw 的实际使用中，我总结了四种适用于不同场景的进度上报方案，每种都有其最佳适用场景。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw 一天发布两个版本，打破了人月神话法则吗？</title>
+      <link>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</guid>
+      <description>&lt;p&gt;OpenClaw 一天发布了两个版本。消息传开后，有人兴奋地说&amp;quot;AI 时代人月神话终于被打破了&amp;quot;，也有人冷静地问&amp;quot;这真的算打破了吗？&amp;quot;&lt;/p&gt;&#xA;&lt;p&gt;这个问题值得认真回答。因为它触及的不是某个产品的发布节奏，而是软件工程最根本的规律之一——&lt;strong&gt;加人到底能不能加速交付？&lt;/strong&gt; 在 AI Agent 成为新型&amp;quot;开发者&amp;quot;的今天，这条规律是否需要被重新审视？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Workspace &#43; Git &#43; Agent：AI 时代的工作操作系统</title>
+      <link>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</guid>
+      <description>&lt;p&gt;过去一年，我越来越确信一个判断：&lt;strong&gt;AI 时代真正的工作操作系统，不是某个 App，不是某个平台，而是 Workspace + Git + Agent 这个三位一体的组合。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;为什么？因为 AI Agent 的一切——输入、输出、系统提示词、上下文、执行过程、临时生成的代码、图片、文档，甚至应用程序本身——本质上都是文件。既然 everything is file，那么管理这些文件的方式，就决定了你驾驭 AI 的效率和上限。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>让 Agent 更准确地完成任务，关键不在模型，而在环境</title>
+      <link>http://localhost:45445/post/2026/132-agent-clean-environment-best-practices/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/132-agent-clean-environment-best-practices/</guid>
+      <description>&lt;p&gt;做了一年多 AI Agent 开发，我逐渐形成了一个核心观点：&lt;strong&gt;让 Agent 更准确更高质量地完成任务，最关键的不是换一个更强的模型，而是给它一个正确的执行环境。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;具体来说，这个&amp;quot;正确的执行环境&amp;quot;包含四个要素：干净的执行环境、充足且正确的上下文、允许自我探索的空间、以及学会使用工具解决问题的能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>大模型 Tool Use 准确率可达 99%，但前提是工具足够简单</title>
+      <link>http://localhost:45445/post/2026/130-llm-tool-use-accuracy-cli-simplicity/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/130-llm-tool-use-accuracy-cli-simplicity/</guid>
+      <description>&lt;p&gt;最近在做 Agent 开发时，我发现一个有意思的现象：大模型调用工具的准确率其实可以非常高，达到 99% 甚至更高——但这有一个关键前提：&lt;strong&gt;工具本身要足够简单&lt;/strong&gt;。这也解释了一个行业趋势：越来越多的平台服务在做 Tools 化时，选择的路径是写 CLI，而不是暴露复杂的 SDK 或 REST API。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践</title>
+      <link>http://localhost:45445/post/2025/113-claude-code-auto-correction-agent-loop/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/113-claude-code-auto-correction-agent-loop/</guid>
+      <description>&lt;p&gt;在AI辅助编程的时代，Claude Code等智能代码助手已经成为开发者的得力助手。但你是否好奇过：为什么Claude Code能够自动发现并修正生成代码中的错误？这背后的&amp;quot;Agent Loop&amp;quot;机制究竟是如何工作的？本文将深入剖析Claude Code的自动修正原理，并分享Agent Loop的最佳实践。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>小学标准化试卷AI批改Agent最佳工程实践</title>
+      <link>http://localhost:45445/post/2025/110-ai-exam-grading-agent-best-practices/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/110-ai-exam-grading-agent-best-practices/</guid>
+      <description>&lt;p&gt;在教育科技领域,AI自动批改试卷已经从概念走向现实应用。本文通过一个小学标准化试卷高准确度批改的Agent实践案例,系统性地总结了如何将传统行业数据转化为AI-Ready格式的工程范式,为类似场景提供可复用的方法论。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>意图识别模块实现的最佳实践</title>
+      <link>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</guid>
+      <description>&lt;p&gt;在构建智能对话系统、聊天机器人或语音助手时，意图识别（Intent Recognition）是最核心的组件之一。一个设计良好的意图识别模块不仅能准确理解用户需求，还能随着业务发展灵活扩展。本文将深入探讨意图识别模块实现的最佳实践，帮助你构建生产级的意图识别系统。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

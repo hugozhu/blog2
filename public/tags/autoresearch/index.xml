@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Autoresearch on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/autoresearch/</link>
+    <description>Recent content in Autoresearch on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/autoresearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>人写规则，Token做实验：从Karpathy的autoresearch看AI应用优化新范式</title>
+      <link>http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/</guid>
+      <description>&lt;p&gt;Karpathy 在 2026 年 3 月开源了 &lt;a href=&#34;https://github.com/karpathy/autoresearch&#34;&gt;autoresearch&lt;/a&gt;，两周内收获近 5 万 Star。项目本身很简单——让 AI Agent 自动修改 LLM 训练代码、跑实验、看指标、保留好的、丢弃差的，一夜循环 100 轮。但简单的背后藏着一个深刻的范式转移：&lt;strong&gt;在 AI 时代，人的角色从&amp;quot;做实验的人&amp;quot;变成了&amp;quot;设计实验规则的人&amp;quot;，而试错循环本身，交给 Token 去完成。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不只是 AI 研究的事。任何可以量化评估、快速迭代的业务场景，都可以套用这个范式。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自我进化的AI助手：OpenClaw如何用Heartbeat实现Skill自动优化</title>
+      <link>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</guid>
+      <description>&lt;p&gt;在&lt;a href=&#34;http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/&#34;&gt;上一篇文章&lt;/a&gt;中，我从 Karpathy 的 autoresearch 项目提炼了一个范式：&lt;strong&gt;人写规则，Token 做实验&lt;/strong&gt;。我们用 AI 客服 Prompt 优化作为案例，验证了这个范式在业务场景中的可行性。但那个方案有一个前提——你需要预先准备评估数据集。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的场景让我意识到，还有一种更彻底的可能：&lt;strong&gt;Agent 用自己的真实执行数据作为评估信号，在用户无感知的情况下持续自我优化。&lt;/strong&gt; 不需要人工标注测试集，不需要离线批处理，每一次真实使用都是一条训练数据。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

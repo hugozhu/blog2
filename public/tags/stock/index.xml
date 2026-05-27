@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stock on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/stock/</link>
+    <description>Recent content in Stock on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 10 Feb 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/stock/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>零佣金的券商靠什么赚钱？</title>
+      <link>http://localhost:45445/post/2015/53-robinhood-zero-commission-brokerage/</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2015/53-robinhood-zero-commission-brokerage/</guid>
+      <description>&lt;p&gt;最近一家叫&lt;a href=&#34;https://www.robinhood.com/&#34;&gt;Robinhood&lt;/a&gt;的创业公司推出了零佣金的股票交易服务公测，用户可以通过iOS上的专用App交易。&lt;/p&gt;&#xA;&lt;p&gt;这家公司的两个创始人斯坦福大学毕业后去了纽约给华尔街的大型股票经济公司做交易系统，做了几年后突然有一天发现券商公司对每一笔交易付出的成本微乎其微，但要收取每个客户多达10美金的佣金。。。于是他们毅然决定辞职，回到硅谷创业去了。&lt;/p&gt;&#xA;&lt;p&gt;公司打出的口号是就是&lt;strong&gt;零佣金&lt;/strong&gt;，如果你交易的资金来源于自己，那么买入和卖出交易，以及银行转入和转出（不包括电汇）都是免费的。&lt;/p&gt;&#xA;&lt;p&gt;零佣金对资金不那么充裕的年轻人来说非常有吸引力。那么问题来了，这家公司靠什么赚钱呢？&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;交易过股票的人大概都知道，券商会提供融资服务给流动资金不充足的投资者，融资交易（Securities Margin Trading）就是投资者以资金或证券作为质押，向券商借入资金用于证券买卖，并在约定的期限内偿还借款本金和利息。相应的还有融券服务，融券交易是投资者以资金或证券作为质押，向券商借入证券卖出，在约定的期限内，买入相同数量和品种的证券归还券商并支付相应的融券费用。所以Robinhood首先可以通过融资融券服务盈利；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;对于投资者在Robinhood账户里的未购买股票的闲余资金，Robinhood可以通过金融市场获得一部分利息收入；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;提供收费接口给小型的量化和对冲基金；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;目前Robinhood已经完成了千万美元的风险投资，现阶段提供颠覆性的交易体验，吸引更多年轻的新投资者，赢得用户的信任显然更为重要。用户多了，盈利就不是问题了。。。&lt;/p&gt;&#xA;&lt;img src=&#34;http://files.techcrunch.cn/2014/09/robinhood-app.png?w=556&amp;amp;h=600&#34;/&gt;&#xA;&lt;p&gt;App界面&lt;/p&gt;&#xA;&lt;img src=&#34;http://files.techcrunch.cn/2014/09/baiju-and-vlad-2.jpg?w=600&amp;amp;h=400&#34;/&gt;&#xA;&lt;p&gt;创始人&lt;/p&gt;&#xA;&lt;h1 id=&#34;参考文档&#34;&gt;参考文档&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://techcrunch.cn/2014/09/25/robinhood-stock-app/&#34;&gt;http://techcrunch.cn/2014/09/25/robinhood-stock-app/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://robinhoodapp.zendesk.com/hc/en-us/articles/202853769-How-does-Robinhood-make-money-&#34;&gt;https://robinhoodapp.zendesk.com/hc/en-us/articles/202853769-How-does-Robinhood-make-money-&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://baike.baidu.com/view/431144.htm?fromtitle=&#34;&gt;http://baike.baidu.com/view/431144.htm?fromtitle=&lt;/a&gt;融资融券&amp;amp;fromid=1628138&amp;amp;type=syn&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

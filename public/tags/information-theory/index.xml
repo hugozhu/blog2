@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Information-Theory on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/information-theory/</link>
+    <description>Recent content in Information-Theory on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/information-theory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>压缩即智能：从信息论看机器学习的本质</title>
+      <link>http://localhost:45445/post/2025/108-compression-is-intelligence/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/108-compression-is-intelligence/</guid>
+      <description>&lt;p&gt;如果我告诉你，ChatGPT 本质上是一个文本压缩器，你会相信吗？如果我说，智能的核心就是找到更好的压缩算法，这听起来是不是过于简化了？然而，这个看似激进的观点——&amp;ldquo;压缩即智能&amp;rdquo;（Compression is Intelligence）——正在成为理解机器学习和人工智能本质的一个关键视角。&lt;/p&gt;&#xA;&lt;p&gt;这不仅仅是一个比喻。从信息论的角度看，压缩、预测和理解本质上是同一件事的不同侧面。当我们深入探讨这个观点时，会发现它不仅优雅地解释了为什么深度学习如此有效，还为我们思考通用人工智能（AGI）提供了一个全新的框架。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

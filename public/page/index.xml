@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on All about Raspberry Pi</title>
+    <link>http://localhost:45445/page/</link>
+    <description>Recent content in Pages on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:45445/page/about/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/page/about/</guid>
+      <description>&lt;p&gt;My name is Hugo Zhu (朱鸿). I&amp;rsquo;m currently the CTO of DingTalk at Alibaba, based in Hangzhou and Seattle.&lt;/p&gt;&#xA;&lt;p&gt;This blog is where I share my thoughts and hands-on experience in:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;AI / LLM engineering&lt;/strong&gt; — fine-tuning, inference optimization, AI agent workflows&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Networking &amp;amp; infrastructure&lt;/strong&gt; — Tailscale, OpenWrt, Docker, Kubernetes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Raspberry Pi &amp;amp; IoT&lt;/strong&gt; — GPIO programming, home automation, edge computing&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;System architecture &amp;amp; DevOps&lt;/strong&gt; — CI/CD, observability, cloud-native&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a polyglot engineer who has written production code in Go, Python, C, and AppleScript. On GitHub (&lt;a href=&#34;https://github.com/hugozhu&#34;&gt;github.com/hugozhu&lt;/a&gt;) you can find projects like &lt;a href=&#34;https://github.com/hugozhu/godingtalk&#34;&gt;godingtalk&lt;/a&gt; (DingTalk Open API Go SDK), &lt;a href=&#34;https://github.com/hugozhu/rpi&#34;&gt;WiringPi-Go&lt;/a&gt; (Raspberry Pi GPIO bindings), and various blog tooling.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Big Image Sample</title>
+      <link>http://localhost:45445/page/tools/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/page/tools/</guid>
+      <description>&lt;p&gt;The image banners at the top of the page are refered to as &amp;ldquo;bigimg&amp;rdquo; in this theme. They are optional, and one more more can be specified. If more than one is specified, the images rotate every 10 seconds. In the front matter, bigimgs are specified using an array of hashes.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

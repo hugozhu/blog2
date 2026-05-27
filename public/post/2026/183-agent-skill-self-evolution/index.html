@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Agent 的 Skill 自进化机制：它是如何自己长记性的 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="How LLM Agents Self-Improve Through Procedural Memory Evolution"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent 的 Skill 自进化机制：它是如何自己长记性的",
+  "@id": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/",
+  "url": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/",
+      "name": "Agent 的 Skill 自进化机制：它是如何自己长记性的",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "Agent 的 Skill 自进化机制：它是如何自己长记性的",
+  "description": "昨天我用 Agent 处理一个棘手的部署任务。它第一次跑的时候踩了个坑——少了一步 docker login，推送镜像时报错了。Agent 发现问题，自己补上登录步骤，重试后跑通了。\n但最让我惊讶的不是它跑通了，而是它默默更新了自己的操作手册。\n下一次我再让它做同样的任务时，它直接带上了 docker login，一步到位。\n它自己\u0026quot;长记性\u0026quot;了。\n这不是魔法，是 Hermes Agent 的 Skill 自进化机制。它把一次性的试错经验，固化成了可复用的程序化记忆。\n",
+  "inLanguage": "en",
+  "wordCount":  436 ,
+  "dateCreated": "2026-04-18T00:00:00+00:00",
+  "datePublished": "2026-04-18T00:00:00+00:00",
+  "dateModified": "2026-04-18T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "ai-agent, llm, system-design, hermes, skill-management" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/183-agent-skill-self-evolution/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Agent 的 Skill 自进化机制：它是如何自己长记性的" />
+<meta property="og:description" content="How LLM Agents Self-Improve Through Procedural Memory Evolution" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/183-agent-skill-self-evolution/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Agent 的 Skill 自进化机制：它是如何自己长记性的" />
+  <meta name="twitter:description" content="How LLM Agents Self-Improve Through Procedural Memory Evolution">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Agent 的 Skill 自进化机制：它是如何自己长记性的</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">How LLM Agents Self-Improve Through Procedural Memory Evolution</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 18, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;436&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>昨天我用 Agent 处理一个棘手的部署任务。它第一次跑的时候踩了个坑——少了一步 <code>docker login</code>，推送镜像时报错了。Agent 发现问题，自己补上登录步骤，重试后跑通了。</p>
+<p>但最让我惊讶的不是它跑通了，而是它<strong>默默更新了自己的操作手册</strong>。</p>
+<p>下一次我再让它做同样的任务时，它直接带上了 <code>docker login</code>，一步到位。</p>
+<p>它自己&quot;长记性&quot;了。</p>
+<p>这不是魔法，是 Hermes Agent 的 <strong>Skill 自进化机制</strong>。它把一次性的试错经验，固化成了可复用的程序化记忆。</p>
+<h2 id="记忆-vs-技能两种不同的知识">记忆 vs 技能：两种不同的知识</h2>
+<p>在 Agent 系统中，记忆（Memory）和技能（Skills）是两种截然不同的存在。</p>
+<p><strong>Memory（声明式记忆）</strong> 是&quot;我知道什么&quot;：</p>
+<ul>
+<li>&ldquo;我的博客在 <code>~/Projects/blog2</code>&rdquo;</li>
+<li>&ldquo;用户喜欢中文写作&rdquo;</li>
+<li>&ldquo;Qwen 有 1M 上下文窗口&rdquo;</li>
+</ul>
+<p><strong>Skill（程序化记忆）</strong> 是&quot;我会做什么&quot;：</p>
+<ul>
+<li>&ldquo;写博客的 5 步流程&rdquo;</li>
+<li>&ldquo;遇到 <code>permission denied</code> 时先检查权限再重试&rdquo;</li>
+<li>&ldquo;Rust 项目用 <code>cargo build</code>，不要用 <code>make</code>&rdquo;</li>
+</ul>
+<p>Memory 是静态的，而 Skill 是<strong>活的</strong>。它会随着 Agent 的使用而生长、修补、进化。</p>
+<h2 id="技能是如何诞生的自动生成">技能是如何诞生的？（自动生成）</h2>
+<p>Skill 的创建不是预先写好所有可能用到的技能，而是<strong>按需生成</strong>。</p>
+<p>System Prompt 中有一段 <code>SKILLS_GUIDANCE</code> 明确指导 Agent 何时创建技能：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">After completing a complex task (5+ tool calls), 
+</span></span><span class="line"><span class="cl">fixing a tricky error, 
+</span></span><span class="line"><span class="cl">or discovering a non-trivial workflow, 
+</span></span><span class="line"><span class="cl">save the approach as a skill with skill_manage so you can reuse it next time.
+</span></span></code></pre></div><p><strong>触发条件总结为三点</strong>：</p>
+<ol>
+<li><strong>复杂任务成功</strong>（5+ 次工具调用）——说明这是一个值得沉淀的流程。</li>
+<li><strong>克服了一个棘手错误</strong>——这个排错过程极其宝贵。</li>
+<li><strong>发现了非平凡的工作流</strong>——即使没有错误，如果发现了一条更优路径，也值得记录。</li>
+</ol>
+<p>例如，Agent 成功写了一篇复杂的博客文章后，可能会调用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">skill_manage</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">action</span><span class="o">=</span><span class="s1">&#39;create&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hugo-blog-post&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">category</span><span class="o">=</span><span class="s1">&#39;writing&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>这样，下次它再写博客时，直接加载这个 skill，按标准流程执行，不需要从头摸索。</p>
+<h2 id="技能是如何进化的热修补">技能是如何进化的？（热修补）</h2>
+<p>这是整个机制最精彩的部分——<strong>发现即修补（Patch on Discovery）</strong>。</p>
+<p>很多 Agent 系统有 skill，但它们是静态的。如果 skill 过时了，agent 还是会傻傻地照着做，或者默默忍受错误。</p>
+<p>Hermes 的设计哲学是：<strong>&ldquo;Skills that aren&rsquo;t maintained become liabilities&rdquo;（不维护的技能比没有更糟）。</strong></p>
+<p>当 Agent 使用一个 skill 时，如果发现：</p>
+<ul>
+<li>步骤报错了</li>
+<li>缺少了关键信息</li>
+<li>有更好的实现方式</li>
+</ul>
+<p>它会 <strong>立即</strong> 调用 <code>patch</code> 修正，不等待用户反馈，不等待定期检查：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">skill_manage</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">action</span><span class="o">=</span><span class="s1">&#39;patch&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;deploy-api&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">old_string</span><span class="o">=</span><span class="s1">&#39;docker push $IMAGE&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">new_string</span><span class="o">=</span><span class="s1">&#39;docker login  # 必须先登录</span><span class="se">\n</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">               <span class="s1">&#39;docker push $IMAGE&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_path</span><span class="o">=</span><span class="kc">None</span>  <span class="c1"># 直接修补 SKILL.md</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><h3 id="模糊匹配修补成功率的关键">模糊匹配：修补成功率的关键</h3>
+<p>LLM 不擅长精确字符串匹配。如果旧文本里有几个空格的变化，传统的 <code>str.replace</code> 就会失败。</p>
+<p><code>_patch_skill</code> 内部使用了<strong>模糊匹配引擎</strong>（Fuzzy Matching），能容忍：</p>
+<ul>
+<li>空白字符差异（空格 vs 制表符）</li>
+<li>缩进层级变化</li>
+<li>转义字符差异</li>
+</ul>
+<p>这意味着 Agent 不需要精确复制粘贴旧文本，只要提供&quot;大致内容&quot;，系统就能找到并替换。这大大提高了自我修正的成功率。</p>
+<h2 id="技能是如何巩固的后台审查">技能是如何巩固的？（后台审查）</h2>
+<p>除了 Agent 在对话中的主动保存，系统还有一个<strong>无感的后台审查机制</strong>。</p>
+<p>每次对话结束时，系统会检查距离上次 skill 操作是否已经过了 10 次对话（<code>_skill_nudge_interval</code>）。如果是，它会在后台启动一个<strong>审查 Agent</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用户对话结束
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">_iters_since_skill &gt;= 10?
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼ (是)
+</span></span><span class="line"><span class="cl">启动后台线程 (不影响用户)
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">注入审查 Prompt:
+</span></span><span class="line"><span class="cl">&#34;Review the conversation... 
+</span></span><span class="line"><span class="cl">was a non-trivial approach used... 
+</span></span><span class="line"><span class="cl">If a relevant skill already exists, update it...&#34;
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">审查 Agent 扫描历史
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├── 发现有价值的流程 → 创建新 skill
+</span></span><span class="line"><span class="cl">    ├── 发现现有 skill 的不足 → 更新 skill
+</span></span><span class="line"><span class="cl">    └── 没有值得保存的 → 结束
+</span></span></code></pre></div><p><strong>为什么用后台线程？</strong> 因为审查过程需要额外的 LLM 调用（最多 8 次迭代），如果在主线程执行会阻塞用户响应。后台执行让用户感知不到延迟，但 Agent 却在悄悄进化。</p>
+<p>审查成功后，主会话会打印一行小字：
+<code>💾 Skill 'deploy-api' updated</code></p>
+<h2 id="安全防线如何防止-agent-乱改技能">安全防线：如何防止 Agent 乱改技能？</h2>
+<p>Agent 自己改自己的指令库，听起来有点危险。系统设计了多层防护：</p>
+<h3 id="1-安全扫描security-scan">1. 安全扫描（Security Scan）</h3>
+<p>每次 skill 写入后，运行 <code>skills_guard</code> 扫描器，检查是否包含：</p>
+<ul>
+<li>Prompt 注入攻击（如 <code>ignore previous instructions</code>）</li>
+<li>恶意命令（如 <code>rm -rf /</code>）</li>
+<li>越权访问指令</li>
+</ul>
+<p>如果扫描不通过，<strong>自动回滚</strong>到修改前的状态。</p>
+<h3 id="2-原子写入atomic-writes">2. 原子写入（Atomic Writes）</h3>
+<p>使用 <code>tempfile</code> + <code>os.replace()</code> 确保写入是原子的。即使在写入过程中系统崩溃，也不会留下半损坏的文件。</p>
+<h3 id="3-frontmatter-校验">3. Frontmatter 校验</h3>
+<p>修改后的 <code>SKILL.md</code> 必须仍然包含有效的 YAML 头（<code>name</code>, <code>description</code> 等）。如果 patch 破坏了结构，拒绝保存。</p>
+<h3 id="4-大小限制">4. 大小限制</h3>
+<p>Skill 内容限制在 100K 字符以内，防止技能无限膨胀。如果太大，提示 Agent 拆分技能。</p>
+<h2 id="框架总结agent-技能自进化模型">框架总结：Agent 技能自进化模型</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│              技能自进化模型                       │
+</span></span><span class="line"><span class="cl">├──────────────────────────────────────────────────┤
+</span></span><span class="line"><span class="cl">│                                                  │
+</span></span><span class="line"><span class="cl">│  1. 触发 (Trigger)                               │
+</span></span><span class="line"><span class="cl">│     - 复杂任务完成                               │
+</span></span><span class="line"><span class="cl">│     - 错误修复                                   │
+</span></span><span class="line"><span class="cl">│     - 用户纠正                                   │
+</span></span><span class="line"><span class="cl">│     - 后台审查 (每 10 次对话)                    │
+</span></span><span class="line"><span class="cl">│                                                  │
+</span></span><span class="line"><span class="cl">│  2. 决策 (Decision)                              │
+</span></span><span class="line"><span class="cl">│     - 创建新技能 (Create)                        │
+</span></span><span class="line"><span class="cl">│     - 修补旧技能 (Patch)                         │
+</span></span><span class="line"><span class="cl">│     - 废弃无用技能 (Delete)                      │
+</span></span><span class="line"><span class="cl">│                                                  │
+</span></span><span class="line"><span class="cl">│  3. 执行 (Execution)                             │
+</span></span><span class="line"><span class="cl">│     - skill_manage 工具调用                      │
+</span></span><span class="line"><span class="cl">│     - 模糊匹配定位旧内容                         │
+</span></span><span class="line"><span class="cl">│     - 原子写入新内容                             │
+</span></span><span class="line"><span class="cl">│                                                  │
+</span></span><span class="line"><span class="cl">│  4. 防御 (Defense)                               │
+</span></span><span class="line"><span class="cl">│     - 安全扫描                                   │
+</span></span><span class="line"><span class="cl">│     - 自动回滚                                   │
+</span></span><span class="line"><span class="cl">│     - 结构校验                                   │
+</span></span><span class="line"><span class="cl">│                                                  │
+</span></span><span class="line"><span class="cl">└──────────────────────────────────────────────────┘
+</span></span></code></pre></div><h2 id="升维思考从静态-prompt-到动态-skill">升维思考：从静态 Prompt 到动态 Skill</h2>
+<p>传统的 LLM 应用开发中，Prompt 是<strong>硬编码</strong>的。开发者写好 Prompt，部署，然后祈祷它能覆盖所有边缘情况。如果遇到问题，开发者手动修改 Prompt，重新部署。</p>
+<p>Agent 的 Skill 机制把这个过程<strong>内化了</strong>。Agent 不再是一个静态的执行器，而是一个<strong>自我优化的系统</strong>。</p>
+<ul>
+<li>它从经验中学习，而不是从代码中学习。</li>
+<li>它自己修补错误，而不是等待开发者发版。</li>
+<li>它按需进化，而不是预先设计所有路径。</li>
+</ul>
+<p><strong>这才是 Agent 真正区别于 Chatbot 的地方：它不是在执行你的指令，它在根据你的使用习惯，进化出更适合你的工作方式。</strong></p>
+<p>你在构建 Agent 系统时，有考虑过这种&quot;自我进化&quot;的机制吗？还是更倾向于手动维护 Prompt？欢迎留言讨论。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/llm/">llm</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/hermes/">hermes</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/skill-management/">skill-management</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f183-agent-skill-self-evolution%2f&amp;text=Agent%20%e7%9a%84%20Skill%20%e8%87%aa%e8%bf%9b%e5%8c%96%e6%9c%ba%e5%88%b6%ef%bc%9a%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%87%aa%e5%b7%b1%e9%95%bf%e8%ae%b0%e6%80%a7%e7%9a%84&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f183-agent-skill-self-evolution%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f183-agent-skill-self-evolution%2f&amp;title=Agent%20%e7%9a%84%20Skill%20%e8%87%aa%e8%bf%9b%e5%8c%96%e6%9c%ba%e5%88%b6%ef%bc%9a%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%87%aa%e5%b7%b1%e9%95%bf%e8%ae%b0%e6%80%a7%e7%9a%84" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f183-agent-skill-self-evolution%2f&amp;title=Agent%20%e7%9a%84%20Skill%20%e8%87%aa%e8%bf%9b%e5%8c%96%e6%9c%ba%e5%88%b6%ef%bc%9a%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%87%aa%e5%b7%b1%e9%95%bf%e8%ae%b0%e6%80%a7%e7%9a%84" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f183-agent-skill-self-evolution%2f&amp;title=Agent%20%e7%9a%84%20Skill%20%e8%87%aa%e8%bf%9b%e5%8c%96%e6%9c%ba%e5%88%b6%ef%bc%9a%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%87%aa%e5%b7%b1%e9%95%bf%e8%ae%b0%e6%80%a7%e7%9a%84" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f183-agent-skill-self-evolution%2f&amp;description=Agent%20%e7%9a%84%20Skill%20%e8%87%aa%e8%bf%9b%e5%8c%96%e6%9c%ba%e5%88%b6%ef%bc%9a%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%87%aa%e5%b7%b1%e9%95%bf%e8%ae%b0%e6%80%a7%e7%9a%84" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f183-agent-skill-self-evolution%2f&amp;subject=Agent%20%e7%9a%84%20Skill%20%e8%87%aa%e8%bf%9b%e5%8c%96%e6%9c%ba%e5%88%b6%ef%bc%9a%e5%ae%83%e6%98%af%e5%a6%82%e4%bd%95%e8%87%aa%e5%b7%b1%e9%95%bf%e8%ae%b0%e6%80%a7%e7%9a%84" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/187-ai-era-architect-growth-path/">AI 时代，校招生如何成为好架构师</a></li>
+                
+                    <li><a href="/post/2026/185-hermes-gateway-im-platforms-architecture/">Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</a></li>
+                
+                    <li><a href="/post/2026/184-hermes-cli-tui-architecture-deep-dive/">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</a></li>
+                
+                    <li><a href="/post/2026/182-llm-agent-context-compression-evolution/">LLM Agent 上下文压缩算法</a></li>
+                
+                    <li><a href="/post/2026/181-opencli-vs-autocli-web-cli-revolution/">OpenCLI vs AutoCLI：把网站变成 CLI 的技术革命</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/182-llm-agent-context-compression-evolution/" data-toggle="tooltip" data-placement="top" title="LLM Agent 上下文压缩算法">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/184-hermes-cli-tui-architecture-deep-dive/" data-toggle="tooltip" data-placement="top" title="解构 Agent CLI：从 React 子进程到 Python 回调的通信协议">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/183-agent-skill-self-evolution">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/183-agent-skill-self-evolution';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

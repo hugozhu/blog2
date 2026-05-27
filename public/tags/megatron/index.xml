@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Megatron on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/megatron/</link>
+    <description>Recent content in Megatron on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/megatron/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>智谱开源Slime：企业AI应用的强化学习利器</title>
+      <link>http://localhost:45445/post/2026/115-zhipu-slime-enterprise-ai-value/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/115-zhipu-slime-enterprise-ai-value/</guid>
+      <description>&lt;p&gt;当企业决策者在考虑如何让AI真正产生业务价值时，一个核心挑战始终存在：&lt;strong&gt;如何让AI系统持续学习和优化，而不是停留在&amp;quot;静态模型&amp;quot;阶段？&lt;/strong&gt; 智谱AI开源的Slime框架，正是为解决这一痛点而生的强化学习后训练系统。&lt;/p&gt;&#xA;&lt;p&gt;如果说预训练模型是AI的&amp;quot;基础教育&amp;quot;，那么强化学习就是让AI在真实业务场景中&amp;quot;实战成长&amp;quot;的关键。Slime不仅仅是又一个开源框架，它代表着企业级AI应用从&amp;quot;能用&amp;quot;到&amp;quot;好用&amp;quot;的范式转变。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

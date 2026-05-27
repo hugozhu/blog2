@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PTC on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/ptc/</link>
+    <description>Recent content in PTC on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/ptc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>以前人给 AI 造工具，现在 AI 自己造工具</title>
+      <link>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</guid>
+      <description>&lt;p&gt;做 AI Agent 开发这一年多来，我经历了一个认知上的转变：以前的默认思路是&amp;quot;我要给 AI 准备好一切工具，让它去调用&amp;quot;；而现在，越来越多的场景让我意识到——&lt;strong&gt;AI 为了完成任务，会自己造工具&lt;/strong&gt;。这不是一个隐喻，而是一个正在发生的技术事实。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

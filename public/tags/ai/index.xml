@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/ai/</link>
+    <description>Recent content in AI on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>把组织当成产品来打造：AI 原生组织的 MVP 设计</title>
+      <link>http://localhost:45445/post/2026/173-ai-native-org-mvp-design/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/173-ai-native-org-mvp-design/</guid>
+      <description>&lt;p&gt;去年底，钉钉内部发生了一件事。一个做智能客服的产品经理发现，他给企业客户做的 AI 解决方案，从需求确认到方案交付平均要 14 天。他拉了一下链路：客户提需求给销售（1 天）→ 销售转给解决方案团队（等 2 天）→ 解决方案写 PRD 转给产品（等 1 天）→ 产品评审排期（等 3 天）→ 技术实现（5 天）→ 交付验收（2 天）。14 天里，真正在&amp;quot;干活&amp;quot;的时间不到 5 天，剩下 9 天全是等待——等人、等审批、等排期、等信息同步。&lt;/p&gt;&#xA;&lt;p&gt;他跑去找他的主管说：&lt;strong&gt;&amp;ldquo;我们给客户做 AI 提效工具，但我们自己的组织效率，比客户还低。&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这句话刺痛了人。但更刺痛的是——这不是钉钉一家的问题，这是几乎所有想做 AI 转型的公司都会撞上的墙。&lt;strong&gt;不是不知道终局应该长什么样，而是不知道第一个可用版本怎么做——像做产品一样，先跑起来，再迭代。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>从泛化到进化：AI Agent 的下一站</title>
+      <link>http://localhost:45445/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/</guid>
+      <description>&lt;p&gt;前几天跟一个做 Agent 平台的朋友聊天，他说了一句让我印象很深的话：&amp;ldquo;我们花了半年调 prompt，好不容易让 Agent 在电商客服场景跑到了 90 分。结果客户说要扩到金融场景，我们一测——40 分都不到。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;我问他打算怎么办。&lt;/p&gt;&#xA;&lt;p&gt;他苦笑：&amp;ldquo;重新调呗。再花半年。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;这个对话浓缩了当前 AI Agent 面临的最核心矛盾：&lt;strong&gt;我们造出了能力惊人但本质上是&amp;quot;静态&amp;quot;的系统&lt;/strong&gt;。它在训练过的分布上表现惊艳，换个分布就翻车；它部署的那一刻就被冻结，遇到新场景只能等人类手动干预、重新训练。&lt;/p&gt;&#xA;&lt;p&gt;这让我开始思考两个看似不同、实则紧密相连的问题：&lt;strong&gt;泛化（Generalization）&lt;/strong&gt; 和 &lt;strong&gt;进化（Evolution）&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI 时代，人人都能建模了吗？</title>
+      <link>http://localhost:45445/post/2026/171-ai-era-can-everyone-build-models/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/171-ai-era-can-everyone-build-models/</guid>
+      <description>&lt;p&gt;上周有个做运营的朋友拿着一个 AI 帮他建的销量预测模型来找我，特别兴奋：&amp;ldquo;你看，R² = 0.89，是不是挺准的？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;我看了一眼，模型确实跑得不错。历史数据拟合得很好，特征工程也挺合理——用了过去 30 天的销量趋势、星期几、是否节假日。&lt;/p&gt;&#xA;&lt;p&gt;我问他：&amp;ldquo;下周要下一整周的雨，你的模型知道吗？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;他愣了一下。&lt;/p&gt;&#xA;&lt;p&gt;我又问：&amp;ldquo;竞品下周搞 618 预热大促，你的模型考虑了吗？你们市场部刚换了投放渠道，从抖音换到了小红书，这个变量在哪？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;他沉默了。&lt;/p&gt;&#xA;&lt;p&gt;模型没有错。R² = 0.89 是真的。但这个模型不知道自己不知道什么。更要命的是，用这个模型的人也不知道。&lt;/p&gt;&#xA;&lt;p&gt;这就是我今天想聊的事：AI 让建模的门槛低了，但这不等于人人都能建好模。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践</title>
+      <link>http://localhost:45445/post/2026/172-evolvable-agent-skills-best-practices/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/172-evolvable-agent-skills-best-practices/</guid>
+      <description>&lt;p&gt;今天下午我做了一件听起来有点奇怪的事——让 AI 读完了我自己的 174 篇博客，提炼出写作风格，写成了一份可执行的配置文件，然后告诉它：&amp;ldquo;以后每次写文章就按这个标准来，写完还要自己更新它。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;它真的照做了。不仅生成了一份包含六大风格特征、两种文章模板、四个薄弱环节和改进路线图的 Skill 文档，还自动附加了一条&amp;quot;进化协议&amp;quot;——每次使用完毕后检查是否需要更新。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;这不是 prompt engineering，也不是 RAG。这是给 Agent 建程序性记忆（Procedural Memory）。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;很多人给 AI 配了知识库、写了几百行 system prompt，但用起来总觉得&amp;quot;不长进&amp;quot;。问题不在于模型，而在于记忆的结构。静态 prompt 是一次性指令，而可进化的 Skill 是活的——它会随着使用自动迭代、越用越准、越用越像你自己。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI Native 流程的一头一尾：用户问题理解与自动验证</title>
+      <link>http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/</guid>
+      <description>&lt;p&gt;之前写过一篇&lt;a href=&#34;http://localhost:45445/post/2026/164-voc-to-automated-pipeline/&#34;&gt;用 AI 把 VOC 变成自动化流水线&lt;/a&gt;，讲的是整条流水线的架构——采集、分析、路由、执行。反馈不错，但也有读者指出一个关键问题：&lt;strong&gt;中间的部分（分类、路由）其实相对好做，真正难的是一头一尾。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;头&amp;quot;是&lt;strong&gt;用户问题理解&lt;/strong&gt;——用户说&amp;quot;页面打不开&amp;rdquo;，你能不能自动搞清楚是哪个页面、什么场景、能不能复现、根因是什么？&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;尾&amp;quot;是&lt;strong&gt;自动验证&lt;/strong&gt;——修完 bug 之后，你能不能自动生成测试用例来证明&amp;quot;确实修好了，而且没有搞坏别的东西&amp;rdquo;？&lt;/p&gt;&#xA;&lt;p&gt;这两个环节恰好是 AI Native 流程区别于传统自动化的核心：传统自动化靠规则，处理的是确定性问题；AI Native 靠理解和推理，处理的是模糊性问题。这篇文章就把这一头一尾拆开讲透。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>用「好同事」模型理解人与 AI 的协作</title>
+      <link>http://localhost:45445/post/2026/169-good-colleague-model-for-human-ai-collaboration/</link>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/169-good-colleague-model-for-human-ai-collaboration/</guid>
+      <description>&lt;p&gt;想象你团队来了个新同事——聪明、勤快、知识面广，但对你们的业务一无所知。第一天上午你走过去说：&amp;ldquo;帮我整理一下那个项目的材料。&amp;rdquo; 没说哪个项目，没说给谁看，没说什么格式，没说什么时候要。&lt;/p&gt;&#xA;&lt;p&gt;他大概率会交出一份正确但平庸的文档。你看了一眼：&amp;ldquo;这也太模板了。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;这不是他能力不行，是你没把活派清楚。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;现在把&amp;quot;新同事&amp;quot;换成 AI。同样的场景，同样的结果。但大多数人的反应不是&amp;quot;我没说清楚&amp;quot;，而是&amp;quot;AI 不够聪明&amp;quot;。事实上，AI 落地的真正瓶颈不是模型能力，是&lt;strong&gt;任务委托能力&lt;/strong&gt;——一项被严重低估的管理技能。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LLM 押注在 Coding Agent 上是正确的</title>
+      <link>http://localhost:45445/post/2026/168-llm-betting-on-coding-agent/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/168-llm-betting-on-coding-agent/</guid>
+      <description>&lt;p&gt;三个月前，我用 Claude Code 花了一个下午搭了一套完整的钉钉消息监控系统：自动抓取指定群的消息、按关键词分类、生成每日摘要、定时推送到我的私聊。整套流程从数据采集到定时任务，大约 500 行 TypeScript。&lt;/p&gt;&#xA;&lt;p&gt;同样的事情，如果走公司正规 IT 流程——提需求、排期、开发、测试、上线——保守估计三个月，还不一定能排上。&lt;/p&gt;&#xA;&lt;p&gt;这件事让我确信一个判断：&lt;strong&gt;LLM 厂商把重注押在 Coding Agent 上，是目前最正确的战略选择。&lt;/strong&gt; 不是因为 Coding Agent 能替代程序员，而是因为它把&amp;quot;用代码解决问题&amp;quot;这件事的门槛，从&amp;quot;需要一个工程团队&amp;quot;降到了&amp;quot;需要一个能清楚描述问题的人&amp;quot;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 是复杂个性化需求的最优解：解决用户自己都说不清的问题</title>
+      <link>http://localhost:45445/post/2026/167-agent-solves-what-users-cannot-articulate/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/167-agent-solves-what-users-cannot-articulate/</guid>
+      <description>&lt;p&gt;上周帮一个客户上线了一个&amp;quot;智能周报助手&amp;quot;。需求方的原话是：&amp;ldquo;帮我们的销售团队自动生成周报。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;听起来很简单。但往下聊五分钟，你会发现这句话背后藏着至少二十个未定义的决策：周报包含哪些维度？数据从哪来？不同区域的销售负责人关注点一样吗？&amp;ldquo;好的周报&amp;quot;到底长什么样？客户自己也说不清。&lt;/p&gt;&#xA;&lt;p&gt;最终的解决方案不是一个固定模板的报表工具，而是一个 Agent——它能根据每个销售负责人的历史偏好、当周数据特征、团队上下文，动态决定周报的结构、重点和措辞。&lt;/p&gt;&#xA;&lt;p&gt;这件事让我重新思考一个问题：&lt;strong&gt;Agent 的核心价值到底是什么？&lt;/strong&gt; 不是&amp;quot;自动化&amp;rdquo;，不是&amp;quot;降本&amp;quot;，而是——&lt;strong&gt;它是目前唯一能规模化解决&amp;quot;复杂个性化需求&amp;quot;的技术方案&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI 原生的思考方式：不能被 Token 解决的问题，才配叫问题</title>
+      <link>http://localhost:45445/post/2026/163-ai-native-work-token-problem-paradigm/</link>
+      <pubDate>Tue, 31 Mar 2026 12:00:00 +0800</pubDate>
+      <guid>http://localhost:45445/post/2026/163-ai-native-work-token-problem-paradigm/</guid>
+      <description>&lt;p&gt;上周，一个做 ToB SaaS 的朋友跟我吐槽：他花了两周让 AI 帮忙写了一套完整的 CRM 后端，代码质量不错，测试覆盖率也够。但上线三天就被叫停了——因为产品方向本身就是错的，客户根本不需要这个功能。&lt;/p&gt;&#xA;&lt;p&gt;两周的 Token 消耗，毁于一个没被认真思考过的问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>别再手动整理用户反馈了：把 VOC 变成一条自动化生产线</title>
+      <link>http://localhost:45445/post/2026/164-voc-to-automated-pipeline/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/164-voc-to-automated-pipeline/</guid>
+      <description>&lt;p&gt;每家公司都说&amp;quot;以用户为中心&amp;quot;，但 90% 的用户声音（Voice of Customer, VOC）最终的归宿是——躺在某个 Excel 表里，等着某个产品经理&amp;quot;有空的时候&amp;quot;去翻一翻。&lt;/p&gt;&#xA;&lt;p&gt;问题不是团队不重视用户反馈。问题是：&lt;strong&gt;从原始反馈到可执行的产品动作之间，隔着太多手工活。&lt;/strong&gt; 收集、清洗、分类、归因、优先级排序、写进 Backlog——每一步都在消耗人的精力，而人的精力是有限的。&lt;/p&gt;&#xA;&lt;p&gt;这篇文章是一个完整的教程：&lt;strong&gt;如何用 AI + 自动化工具，把 VOC 变成一条可执行的生产线&lt;/strong&gt;——从原始数据采集，到最终输出结构化的产品需求，全程自动。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>同一个生意做了四遍：从搜索到Agent，万物皆排序</title>
+      <link>http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/</guid>
+      <description>&lt;p&gt;如果你在过去二十年里分别做过搜索引擎、广告系统、推荐系统，再到今天做AI Agent，你可能会有一个越来越强烈的感觉：&lt;strong&gt;这不就是同一个生意吗？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;表面上看，Google做搜索、Meta做广告、抖音做推荐、OpenAI做Agent，四个完全不同的产品形态，四个不同的技术栈，甚至四个不同的行业叙事。但如果你把外壳剥掉，盯着底层看，会发现一个令人不安的事实：&lt;strong&gt;这四代系统的核心逻辑，从来没有变过。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;它们都在做同一件事——&lt;strong&gt;在信息过载的世界里，帮用户匹配到最相关的东西，然后从匹配效率的提升中抽税。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent的架构之战：从Desktop到AI时代，架构决定平台的生死</title>
+      <link>http://localhost:45445/post/2026/160-agent-architecture-platform-competition/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/160-agent-architecture-platform-competition/</guid>
+      <description>&lt;p&gt;每一代平台级产品的竞争，最终都不是功能之争，而是&lt;strong&gt;架构之争&lt;/strong&gt;。Windows赢了OS/2，不是因为功能更多，而是因为它的架构让第三方开发者能更容易地构建应用。iOS赢了Symbian，不是因为初期功能更强，而是因为它的架构从第一天就为触控交互和应用生态设计。Chrome赢了IE，不是因为它一开始更快，而是因为多进程架构让它在页面崩溃时不会拖垮整个浏览器。&lt;/p&gt;&#xA;&lt;p&gt;现在，AI Agent正在成为从Desktop、Web、Mobile之后的第四代平台级产品。而历史正在重演：&lt;strong&gt;决定谁能赢的，不是谁的模型更强、谁的功能更多，而是谁的架构更对。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI的MaaS层最核心的能力：把一个不稳定的概率接口，变成一个可运营的服务</title>
+      <link>http://localhost:45445/post/2026/158-maas-core-capabilities/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/158-maas-core-capabilities/</guid>
+      <description>&lt;p&gt;很多人对MaaS（Model as a Service）的理解停留在&amp;quot;套一层API&amp;quot;——把OpenAI的接口包一下，加个Key管理，做个用量统计，就叫MaaS了。如果这就是MaaS的全部，那它确实没什么技术含量，随便一个API Gateway就能干。&lt;/p&gt;&#xA;&lt;p&gt;但现实是：&lt;strong&gt;几乎所有在生产环境跑AI应用的团队，最终都会自建或依赖一个MaaS层。&lt;/strong&gt; 不是因为他们闲，而是因为裸调模型API在生产环境里根本撑不住。&lt;/p&gt;&#xA;&lt;p&gt;MaaS层真正要解决的问题是：&lt;strong&gt;把一个概率性的、无状态的、昂贵的模型API调用，变成一个可靠的、可观测的、成本可控的服务。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw &#43; Claude Code 协同：用 Sub-Agent 执行编程任务并实时同步进度</title>
+      <link>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</guid>
+      <description>&lt;p&gt;你在钉钉里对 AI 助手说：&amp;ldquo;帮我写一个博客文章&amp;rdquo;，然后 Agent 回复&amp;quot;好的&amp;quot;——接下来呢？你等了 3 分钟、5 分钟、10 分钟，不知道它在干什么、进展到哪了、是不是卡住了。这是所有 Agent 系统面临的共同问题：&lt;strong&gt;编程类耗时任务的进度黑洞&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 通过 Sub-Agent 机制调用 Claude Code 执行编程任务，再借助 &lt;code&gt;stream-json&lt;/code&gt; 输出格式和一个轻量级的监控脚本，将任务进度实时同步到钉钉。本文完整拆解这套方案的架构设计和实现细节。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>素质之外，语言和数学仍然是教育的基础，是驾驭AI的底层能力</title>
+      <link>http://localhost:45445/post/2026/159-language-math-ai-education-foundation/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/159-language-math-ai-education-foundation/</guid>
+      <description>&lt;p&gt;AI时代的教育讨论，最常见的声音是：要培养批判性思维、创造力、跨学科能力、情商、沟通协作……这些当然重要。但一个危险的倾向正在蔓延——&lt;strong&gt;很多人把&amp;quot;素质教育&amp;quot;和&amp;quot;基础学科&amp;quot;对立起来了&lt;/strong&gt;，好像强调语文数学就是应试教育的残余，而AI时代只需要&amp;quot;软实力&amp;quot;。&lt;/p&gt;&#xA;&lt;p&gt;这是一个严重的误判。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;语言能力和数学能力，不是AI时代要淘汰的旧能力，恰恰是驾驭AI最底层的两项基础能力。&lt;/strong&gt; 没有它们，所谓的批判性思维、创造力、AI素养，全都是空中楼阁。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>微软的组织变革：从成长性思维到像AI一样自我进化的组织</title>
+      <link>http://localhost:45445/post/2026/155-microsoft-hr-restructuring-ai-era-organization/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/155-microsoft-hr-restructuring-ai-era-organization/</guid>
+      <description>&lt;p&gt;3月25日晚，微软首席人力官Amy Coleman在一份内部备忘录中，宣布对微软HR团队进行系统性调整。这不是一次普通的架构调整，而是AI时代组织进化的一次预演——微软正在把组织，从&amp;quot;管理系统&amp;quot;，升级为&amp;quot;计算系统&amp;quot;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模型和Agent的边界：模型决定上限，Agent决定你能不能稳定拿到这个上限</title>
+      <link>http://localhost:45445/post/2026/156-agent-vs-model-boundary/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/156-agent-vs-model-boundary/</guid>
+      <description>&lt;p&gt;每个Agent开发者都绕不过一个灵魂拷问：&lt;strong&gt;模型一直在进化，Agent的价值到底在哪？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;GPT-5比GPT-4强，Claude 4比Claude 3强，Gemini 2比Gemini 1强。模型按周迭代、按月跨代，推理更深、上下文更长、幻觉更少。如果模型本身就在变强，我们在模型之上搭的这一层&amp;quot;Agent&amp;quot;——到底是在创造价值，还是在制造冗余？&lt;/p&gt;&#xA;&lt;p&gt;这个问题不回答清楚，Agent开发就永远在焦虑中摇摆。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>别再卷模型了：To B Agent 创业，用户反馈才是生死线</title>
+      <link>http://localhost:45445/post/2026/151-tob-agent-user-feedback-loop/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/151-tob-agent-user-feedback-loop/</guid>
+      <description>&lt;p&gt;2026 年，一个事实已经无法忽视：&lt;strong&gt;模型训练不再是一项研究活动，而是一项系统工程。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;预训练需要万卡集群和 PB 级数据管线，强化学习需要奖励模型和 RLHF/DPO 的工程化流水线，推理优化涉及量化、蒸馏、speculative decoding 等一整套工具链，Agent 能力构建则横跨 function calling、长上下文、规划与工具使用的多维调优。任何一个方向的突破，如果不能在其他环节配合落地，就只是一篇论文，不是一个产品。&lt;/p&gt;&#xA;&lt;p&gt;这意味着什么？&lt;strong&gt;模型本身正在变成标准化基础设施。&lt;/strong&gt; 就像今天没有哪家 SaaS 公司拿&amp;quot;我们用了 PostgreSQL&amp;quot;当竞争优势一样，未来也不会有哪家 Agent 公司仅靠&amp;quot;我们微调了一个更好的模型&amp;quot;赢得市场。&lt;/p&gt;&#xA;&lt;p&gt;那么 To B Agent 创业的制胜变量到底是什么？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw使用远程浏览器——让AI读懂你的个性化互联网</title>
+      <link>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</guid>
+      <description>&lt;p&gt;AI Agent 能搜索、能总结、能写代码，但有一件事它做不好：&lt;strong&gt;读你的互联网&lt;/strong&gt;。你的 Twitter Timeline、你的 YouTube 推荐、你的 Hacker News 首页——这些个性化内容藏在登录态背后，普通的 API 调用拿不到。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的远程浏览器方案解决了这个问题：在一台带桌面的 Ubuntu 服务器上运行真实浏览器，保存各大网站的登录信息，然后通过网络让 AI Agent 直接操控这个浏览器。AI 看到的就是你看到的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>当钉钉变成命令行：办公协同 Skill 的 Token 交付时代</title>
+      <link>http://localhost:45445/post/2026/150-dingtalk-cli-office-skills-token-era/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/150-dingtalk-cli-office-skills-token-era/</guid>
+      <description>&lt;p&gt;软件行业有一个永恒的矛盾：&lt;strong&gt;标准化产品满足不了个性化需求，定制开发又贵得离谱&lt;/strong&gt;。每家企业都想要&amp;quot;适合自己的办公系统&amp;quot;，但 SaaS 只能给你 80% 的功能，剩下 20% 要么忍着，要么花十倍的钱去定制。&lt;/p&gt;&#xA;&lt;p&gt;钉钉的 CLI 化开放正在改变这个游戏规则。当钉钉的消息、日历、审批、文档、通讯录等能力都可以通过命令行接口被 AI Agent 直接调用时，一个新范式浮现了：&lt;strong&gt;过去需要写代码、做定制、走项目的办公需求，现在可以用自然语言描述，由 AI 用 Token 来交付。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>人写规则，Token做实验：从Karpathy的autoresearch看AI应用优化新范式</title>
+      <link>http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/</guid>
+      <description>&lt;p&gt;Karpathy 在 2026 年 3 月开源了 &lt;a href=&#34;https://github.com/karpathy/autoresearch&#34;&gt;autoresearch&lt;/a&gt;，两周内收获近 5 万 Star。项目本身很简单——让 AI Agent 自动修改 LLM 训练代码、跑实验、看指标、保留好的、丢弃差的，一夜循环 100 轮。但简单的背后藏着一个深刻的范式转移：&lt;strong&gt;在 AI 时代，人的角色从&amp;quot;做实验的人&amp;quot;变成了&amp;quot;设计实验规则的人&amp;quot;，而试错循环本身，交给 Token 去完成。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不只是 AI 研究的事。任何可以量化评估、快速迭代的业务场景，都可以套用这个范式。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自我进化的AI助手：OpenClaw如何用Heartbeat实现Skill自动优化</title>
+      <link>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</guid>
+      <description>&lt;p&gt;在&lt;a href=&#34;http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/&#34;&gt;上一篇文章&lt;/a&gt;中，我从 Karpathy 的 autoresearch 项目提炼了一个范式：&lt;strong&gt;人写规则，Token 做实验&lt;/strong&gt;。我们用 AI 客服 Prompt 优化作为案例，验证了这个范式在业务场景中的可行性。但那个方案有一个前提——你需要预先准备评估数据集。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的场景让我意识到，还有一种更彻底的可能：&lt;strong&gt;Agent 用自己的真实执行数据作为评估信号，在用户无感知的情况下持续自我优化。&lt;/strong&gt; 不需要人工标注测试集，不需要离线批处理，每一次真实使用都是一条训练数据。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>悟空是AI时代的淘宝：Token消费的多快好省</title>
+      <link>http://localhost:45445/post/2026/146-wukong-taobao-of-ai-token-economy/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/146-wukong-taobao-of-ai-token-economy/</guid>
+      <description>&lt;p&gt;1962年，一位伟人为中国工业发展题写了&amp;quot;鼓足干劲，力争上游，多快好省地建设社会主义&amp;quot;。六十多年后，当我们审视AI Agent工程的核心挑战时，会发现一个惊人的对称：&lt;strong&gt;Agent工程的终极优化目标，本质上就是对模型Token消耗的&amp;quot;多快好省&amp;quot;。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;淘宝用十五年把&amp;quot;多快好省&amp;quot;刻进了中国零售的DNA——商品要多、物流要快、品质要好、价格要省。而今天的AI Agent Runtime，正在用同一套逻辑重塑Token消费——模型类型要&lt;strong&gt;多&lt;/strong&gt;、响应速度要&lt;strong&gt;快&lt;/strong&gt;、完成效果要&lt;strong&gt;好&lt;/strong&gt;、使用成本要&lt;strong&gt;省&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;悟空——孙悟空七十二变（多）、筋斗云十万八千里（快）、金箍棒降妖除魔（好）、一根毫毛变千猴（省）。一个优秀的Agent Runtime，就是AI时代的淘宝，Token世界的悟空。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI时代的新代码大全：从McConnell的三大启示到Claude Skill编写指南</title>
+      <link>http://localhost:45445/post/2026/145-new-code-complete-for-ai-era/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/145-new-code-complete-for-ai-era/</guid>
+      <description>&lt;p&gt;二十年前，Steve McConnell 的《代码大全》(Code Complete 2nd) 以其近 900 页的体量，成为软件工程领域一座难以逾越的丰碑。二十年后，它依然是无数工程师书架上的必备经典。在一场&lt;a href=&#34;https://www.youtube.com/watch?v=iPKmcLxuS_A&#34;&gt;深度的访谈&lt;/a&gt;中，McConnell 分享了这部巨著背后的故事、对职业发展的深刻洞见，以及对 AI 时代的冷静思考。&lt;/p&gt;&#xA;&lt;p&gt;尽管技术浪潮已更迭数代，但 McConnell 的核心思想依然闪耀着永恒的光芒。我从中提炼出三大&amp;quot;启示&amp;quot;，它们穿越了语言和工具的变迁，直指软件开发的本质。而当我读完 Anthropic 刚刚发布的 &lt;a href=&#34;https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf&#34;&gt;The Complete Guide to Building Skills for Claude&lt;/a&gt; 时，我惊讶地发现：&lt;strong&gt;这份 AI 时代的&amp;quot;新代码大全&amp;quot;，正是 McConnell 理念的最佳实践者。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI Native 文档：会话即知识，过程即资产</title>
+      <link>http://localhost:45445/post/2026/144-ai-native-document-conversation-as-knowledge/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/144-ai-native-document-conversation-as-knowledge/</guid>
+      <description>&lt;p&gt;企业每天都在产生大量知识，但绝大多数知识从未被记录下来。不是因为没有文档系统，而是因为&lt;strong&gt;真正的知识不在文档里，而在产生文档的过程中&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;一份产品方案的最终版本只有 10 页，但写这 10 页的过程中，团队讨论了 20 个方案、否定了 15 个、在 3 个关键决策点上反复权衡。这些讨论、推理和决策——才是企业最有价值的知识。传统文档系统只保存了结论，丢掉了思考。&lt;/p&gt;&#xA;&lt;p&gt;AI Native 文档要解决的，就是这个问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建企业级Agent Runtime：从Skill到Workspace的五层架构</title>
+      <link>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</guid>
+      <description>&lt;p&gt;很多团队对 Agent 的理解还停留在&amp;quot;LLM + Prompt + 几个工具调用&amp;quot;。这种理解能跑通 Demo，但一旦进入企业级场景——多任务并行、多系统集成、多角色协作、安全审计——就会发现：&lt;strong&gt;Agent 系统的核心挑战不是让 LLM 更聪明，而是构建一个可扩展、可治理、可审计的运行时架构。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Agent 系统本质上在解决五个问题：用户要做什么（Agent）、谁来执行（Sub-Agent）、如何执行（Skill）、从哪里获取数据（MCP）、执行过程的状态存在哪里（Workspace）。这五个问题对应了系统的五个核心层次。&lt;/p&gt;&#xA;&lt;p&gt;本文将这套架构完整展开。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI Agent 架构的终局，是 Unix 哲学的回归</title>
+      <link>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</guid>
+      <description>&lt;p&gt;最近在梳理各种 AI Agent 框架和 Runtime 的架构时，我产生了一个越来越强烈的感觉：&lt;strong&gt;我们正在重新发明 Unix。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;不是比喻。是字面意义上的重新发明。当你把今天主流的 Agent 架构摊开来看——Skill、Workspace、Tool、Pipeline、Orchestrator——你会发现，这些概念和 50 年前 Unix 的设计哲学几乎一一对应。区别只是换了一层 AI 的皮。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>为 AI 重建的 IM 架构</title>
+      <link>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</guid>
+      <description>&lt;p&gt;传统 IM（即时通讯）解决的是一个简单的问题：&lt;strong&gt;让人和人高效地交换信息&lt;/strong&gt;。文本、图片、文件、语音——三十年来，IM 的核心架构围绕着&amp;quot;谁说了什么&amp;quot;展开，安全靠端到端加密，权限靠静态角色控制，审计靠消息日志。这套体系服务了几十亿用户，足够成熟。&lt;/p&gt;&#xA;&lt;p&gt;但当 AI Agent 成为 IM 中的活跃参与者——不仅接收消息，还理解意图、调用工具、执行任务、产生后果——传统 IM 的架构假设就被从根本上打破了。&lt;strong&gt;IM 不再只是信息传递的通道，而是 Agent 协作与执行的操作系统。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这需要一种全新的 IM 架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业专属模型：让企业放心调用大模型的架构最佳实践</title>
+      <link>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</guid>
+      <description>&lt;p&gt;和企业客户聊 AI 落地，十次有九次会被问到同一个问题：&lt;strong&gt;&amp;ldquo;我们调用你们的大模型，数据会不会被拿去训练？&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这个问题背后的焦虑是真实的。企业的客户数据、商业机密、内部文档、代码仓库——这些是企业的核心资产。把它们发送给一个外部的大模型 API，本质上就是把家底给别人看了一遍。如果这些数据还被用来训练模型，那等于是在免费帮竞争对手提升 AI 能力。&lt;/p&gt;&#xA;&lt;p&gt;好消息是，这个问题在 2026 年已经有了成熟的解决方案。坏消息是，大多数企业还不知道该怎么选。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业级 Agent Runtime 的第一道防线：安全沙箱</title>
+      <link>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</guid>
+      <description>&lt;p&gt;当我们谈论企业级 AI Agent Runtime 时，第一个需要解决的问题不是&amp;quot;模型有多聪明&amp;quot;，而是&amp;quot;Agent 执行的代码有多安全&amp;quot;。一个能读写文件、执行命令、访问网络的 Agent，如果没有安全边界，就是一颗不知道什么时候会爆炸的定时炸弹。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;企业级的 Agent Runtime 首先需要一个安全沙箱：文件系统隔离 + 网络访问隔离。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>当 AI Agent 被拉进多个群：会话隔离与 Agent 隔离的生死线</title>
+      <link>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</guid>
+      <description>&lt;p&gt;把一个 AI Agent 拉进钉钉的多个群，是一件非常容易的事情——群管理员点一下&amp;quot;添加机器人&amp;quot;就完成了。但这也是一件&lt;strong&gt;极其危险的事情&lt;/strong&gt;——如果 Agent Runtime 没有做好隔离，你可能正在制造一个企业级的安全事故。&lt;/p&gt;&#xA;&lt;p&gt;想象这个场景：你的 AI Agent 同时服务于&amp;quot;核心技术架构群&amp;quot;和&amp;quot;外部合作伙伴群&amp;quot;。有人在合作伙伴群里问了一个问题，Agent 的回答中不小心带出了它在架构群里学到的技术方案细节。&lt;strong&gt;信息就这样泄露了，而且没有任何人会收到告警。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是假设。这是没有隔离的 Agent Runtime 的默认行为。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI 时代的企业数字化 = 工作 Agent 化 &#43; 知识 AI Ready 化 &#43; 软件 CLI 化</title>
+      <link>http://localhost:45445/post/2026/137-enterprise-digitalization-in-ai-era/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/137-enterprise-digitalization-in-ai-era/</guid>
+      <description>&lt;p&gt;过去两年，几乎每家企业都在谈&amp;quot;拥抱 AI&amp;quot;。但你去看看大多数企业的 AI 落地项目，会发现一个尴尬的现实：&lt;strong&gt;聊天机器人做了一堆，效率提升约等于零。&lt;/strong&gt; 问题出在哪？不是 AI 不够强，而是企业的数字化基座根本不是为 AI 设计的。&lt;/p&gt;&#xA;&lt;p&gt;我越来越确信一个判断：AI 时代的企业数字化，可以浓缩成一个公式——&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;企业数字化 = 工作 Agent 化 + 知识 AI Ready 化 + 软件 CLI 化&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;这三项缺一不可，而且顺序很重要。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 执行耗时任务时如何主动汇报进度？四种方案的实战选型</title>
+      <link>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</guid>
+      <description>&lt;p&gt;你让 AI Agent 帮你跑一个需要 30 分钟的数据迁移脚本，然后就没了下文——它在干嘛？卡住了？还是已经跑完了？你不知道，因为 Agent 只会在任务彻底完成或彻底失败时才告诉你结果。&lt;/p&gt;&#xA;&lt;p&gt;这是 Agent 系统中一个普遍的痛点：&lt;strong&gt;耗时任务的进度黑洞&lt;/strong&gt;。用户发出指令后陷入等待，没有进度条，没有中间反馈，只有最终的成功或失败。在 OpenClaw 的实际使用中，我总结了四种适用于不同场景的进度上报方案，每种都有其最佳适用场景。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw 一天发布两个版本，打破了人月神话法则吗？</title>
+      <link>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</guid>
+      <description>&lt;p&gt;OpenClaw 一天发布了两个版本。消息传开后，有人兴奋地说&amp;quot;AI 时代人月神话终于被打破了&amp;quot;，也有人冷静地问&amp;quot;这真的算打破了吗？&amp;quot;&lt;/p&gt;&#xA;&lt;p&gt;这个问题值得认真回答。因为它触及的不是某个产品的发布节奏，而是软件工程最根本的规律之一——&lt;strong&gt;加人到底能不能加速交付？&lt;/strong&gt; 在 AI Agent 成为新型&amp;quot;开发者&amp;quot;的今天，这条规律是否需要被重新审视？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Workspace &#43; Git &#43; Agent：AI 时代的工作操作系统</title>
+      <link>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</guid>
+      <description>&lt;p&gt;过去一年，我越来越确信一个判断：&lt;strong&gt;AI 时代真正的工作操作系统，不是某个 App，不是某个平台，而是 Workspace + Git + Agent 这个三位一体的组合。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;为什么？因为 AI Agent 的一切——输入、输出、系统提示词、上下文、执行过程、临时生成的代码、图片、文档，甚至应用程序本身——本质上都是文件。既然 everything is file，那么管理这些文件的方式，就决定了你驾驭 AI 的效率和上限。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Attention is All You Need：专注力才是人和大模型共同的底层算法</title>
+      <link>http://localhost:45445/post/2026/133-all-you-need-is-attention/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/133-all-you-need-is-attention/</guid>
+      <description>&lt;p&gt;2017 年，Google 发表了那篇改变世界的论文——&lt;em&gt;&amp;ldquo;Attention Is All You Need&amp;rdquo;&lt;/em&gt;。八位作者可能没想到，这篇论文不仅催生了 GPT、Claude、Gemini 等一系列大模型，也在某种意义上揭示了一个关于人类自身的深刻隐喻：&lt;strong&gt;不论是大模型还是人，决定产出质量的底层机制都是注意力（Attention）。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;专注力是人做事质量和效率的基础。这不是心灵鸡汤，而是一个可以从技术原理出发、严肃论证的观点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>让 Agent 更准确地完成任务，关键不在模型，而在环境</title>
+      <link>http://localhost:45445/post/2026/132-agent-clean-environment-best-practices/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/132-agent-clean-environment-best-practices/</guid>
+      <description>&lt;p&gt;做了一年多 AI Agent 开发，我逐渐形成了一个核心观点：&lt;strong&gt;让 Agent 更准确更高质量地完成任务，最关键的不是换一个更强的模型，而是给它一个正确的执行环境。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;具体来说，这个&amp;quot;正确的执行环境&amp;quot;包含四个要素：干净的执行环境、充足且正确的上下文、允许自我探索的空间、以及学会使用工具解决问题的能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>以前人给 AI 造工具，现在 AI 自己造工具</title>
+      <link>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</guid>
+      <description>&lt;p&gt;做 AI Agent 开发这一年多来，我经历了一个认知上的转变：以前的默认思路是&amp;quot;我要给 AI 准备好一切工具，让它去调用&amp;quot;；而现在，越来越多的场景让我意识到——&lt;strong&gt;AI 为了完成任务，会自己造工具&lt;/strong&gt;。这不是一个隐喻，而是一个正在发生的技术事实。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>大模型 Tool Use 准确率可达 99%，但前提是工具足够简单</title>
+      <link>http://localhost:45445/post/2026/130-llm-tool-use-accuracy-cli-simplicity/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/130-llm-tool-use-accuracy-cli-simplicity/</guid>
+      <description>&lt;p&gt;最近在做 Agent 开发时，我发现一个有意思的现象：大模型调用工具的准确率其实可以非常高，达到 99% 甚至更高——但这有一个关键前提：&lt;strong&gt;工具本身要足够简单&lt;/strong&gt;。这也解释了一个行业趋势：越来越多的平台服务在做 Tools 化时，选择的路径是写 CLI，而不是暴露复杂的 SDK 或 REST API。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 设计最佳实践：Memory</title>
+      <link>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</guid>
+      <description>&lt;p&gt;想象这样一个场景：你花了半小时向 AI 助手解释你的项目架构、编码偏好和团队规范，得到了一次满意的协作体验。第二天再打开对话——它全忘了。你又得从头来一遍。这不是 AI 不够聪明的问题，而是&lt;strong&gt;记忆架构缺失&lt;/strong&gt;的问题。OpenClaw 的 Memory 系统试图从根本上解决这个痛点：让 AI Agent 拥有持久、可检索、可自维护的记忆能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计</title>
+      <link>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</guid>
+      <description>&lt;p&gt;绝大多数 AI 助手都是被动的——用户不说话，它就沉默。这在&amp;quot;问答&amp;quot;场景下没问题，但如果你想让 AI 助手真正成为助手，它需要&lt;strong&gt;主动意识&lt;/strong&gt;：定期检查收件箱有没有紧急邮件、日历上有没有即将到来的会议、GitHub 上有没有需要关注的 PR。OpenClaw 的 Heartbeat（心跳）机制正是为此设计的。本文将深入解析这一设计的工程细节和最佳实践。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>高质量数据越多，大模型表现越优秀</title>
+      <link>http://localhost:45445/post/2026/127-data-quality-llm-performance/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/127-data-quality-llm-performance/</guid>
+      <description>&lt;p&gt;最近和几个做 AI 的朋友聊天，发现一个有趣的现象：很多人对大模型的信仰是&amp;quot;因为相信所以看见&amp;quot;——相信 AGI 会来，相信 scaling law 会继续有效，相信未来的模型会更强大。&lt;/p&gt;&#xA;&lt;p&gt;但我的观点恰恰相反：&lt;strong&gt;AI 信仰应该建立在&amp;quot;因为看见所以相信&amp;quot;&lt;/strong&gt;。而我们能看见什么？最直观的就是——&lt;strong&gt;高质量数据越多，大模型表现越优秀&lt;/strong&gt;。这不是信仰，是已经被反复验证的事实。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI时代的个人生产力公式：思考深度 × 资源调度广度</title>
+      <link>http://localhost:45445/post/2026/124-ai-era-personal-productivity-formula/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/124-ai-era-personal-productivity-formula/</guid>
+      <description>&lt;p&gt;最近我一直在思考一个问题：在 AI 时代，个人生产力的本质到底是什么？经过大半年高强度使用各类 AI 工具的实践，我得出了一个公式：&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;个人生产力 = 思考深度 × 资源调度广度&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是一个数学公式，而是一个思维框架。它帮我重新理解了&amp;quot;人应该做什么&amp;quot;和&amp;quot;AI 应该做什么&amp;quot;这个根本问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw 架构解析：如何构建一个有记忆、有灵魂的个人 AI 助手</title>
+      <link>http://localhost:45445/post/2026/126-openclaw-architecture-design/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/126-openclaw-architecture-design/</guid>
+      <description>&lt;p&gt;大多数 AI 助手是无状态的——你关掉窗口，它就忘了你是谁。OpenClaw 试图解决一个更本质的问题：&lt;strong&gt;能不能让 AI 助手像一个真正的助手一样，记住你、理解你、主动帮你？&lt;/strong&gt; 经过几周的实际使用，我想分享一下 OpenClaw 的架构设计和背后的思考。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>任何省 Token 的做法都不是大模型的最佳实践</title>
+      <link>http://localhost:45445/post/2026/125-stop-saving-tokens-llm-best-practice/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/125-stop-saving-tokens-llm-best-practice/</guid>
+      <description>&lt;p&gt;最近看到很多文章在教人如何&amp;quot;省 Token&amp;quot;——压缩 prompt、缩短上下文、用更小的模型替代、砍掉 system prompt……这些技巧看似精明，但我越来越确信一个观点：&lt;strong&gt;任何以省 Token 为目标的做法，都不是大模型的最佳实践。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是因为我不在乎成本。恰恰相反，正是因为我在乎投入产出比，所以我认为&amp;quot;省 Token&amp;quot;是一个错误的优化方向。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具</title>
+      <link>http://localhost:45445/post/2026/123-ai-skill-platforms-moat-and-evolution/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/123-ai-skill-platforms-moat-and-evolution/</guid>
+      <description>&lt;p&gt;2025 年以来，AI 应用层出现了一波令人眼花缭乱的平台：Manus 主打通用 AI Agent，Lovable 专注 AI 驱动的应用生成，Dify 提供 LLM 应用编排框架，Coze（扣子）让用户可以可视化地构建 AI Bot。它们看起来各有侧重，产品形态也不尽相同，但如果你退后一步观察，会发现它们在做的事情本质上是一样的——&lt;strong&gt;为大模型开发 Skills&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Claude Code 时代的工程师新范式：几个月掌握别人十年的经验</title>
+      <link>http://localhost:45445/post/2026/122-claude-code-new-engineering-paradigm/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/122-claude-code-new-engineering-paradigm/</guid>
+      <description>&lt;p&gt;软件工程师正在经历一场静悄悄的范式革命。过去，一个工程师要成为团队中的技术骨干，往往需要五到十年的摸爬滚打——踩过无数坑，读过海量源码，在生产环境的故障中积累经验。但现在，一个善于使用 Claude Code 的工程师，可以在几个月内走完别人多年的路。这不是夸张，而是正在发生的事实。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>通过桌面录屏实现自动化 RPA 的最佳实践</title>
+      <link>http://localhost:45445/post/2026/121-desktop-screen-recording-rpa-best-practices/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/121-desktop-screen-recording-rpa-best-practices/</guid>
+      <description>&lt;p&gt;传统的 RPA（Robotic Process Automation）工具通常需要手动编写脚本或使用可视化编排工具，学习成本高且维护困难。随着多模态 AI 的发展，一种新的范式正在兴起：通过录制用户的桌面操作，让 AI 自动理解并复现这些操作。这种方式大大降低了自动化的门槛，让业务人员也能快速构建自动化流程。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Clawdbot：运行在你自己设备上的个人AI助手</title>
+      <link>http://localhost:45445/post/2026/118-clawdbot-personal-ai-assistant/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/118-clawdbot-personal-ai-assistant/</guid>
+      <description>&lt;p&gt;在AI助手日益普及的今天，我们往往需要依赖云端服务来使用这些智能工具。但如果你想要一个完全由自己控制、运行在本地的AI助手呢？今天要介绍的 &lt;strong&gt;Clawdbot&lt;/strong&gt; 就是这样一个开源项目——一个真正属于你的个人AI助手。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何对会议纪要 Agent 进行 Benchmark？完整指南与实践</title>
+      <link>http://localhost:45445/post/2026/117-how-to-benchmark-meeting-minutes-agent/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/117-how-to-benchmark-meeting-minutes-agent/</guid>
+      <description>&lt;p&gt;在 AI Agent 应用日益普及的今天,会议纪要生成是最常见的落地场景之一。然而,如何科学地评估一个会议纪要 Agent 的性能,却是许多开发者面临的难题。本文将详细介绍如何构建一个完整的 benchmark 体系,包括评估维度设计、数据集准备、指标计算和自动化测试流程。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent强化学习的最佳实践：并行任务处理与性能优化</title>
+      <link>http://localhost:45445/post/2026/114-agent-reinforcement-learning-best-practices/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/114-agent-reinforcement-learning-best-practices/</guid>
+      <description>&lt;p&gt;在2026年的AI应用场景中，Agent系统已经成为解决复杂任务的核心技术。无论是代码生成助手、自动化运维系统，还是智能客服机器人，如何让Agent高效地处理多个任务并从经验中学习，直接决定了系统的实用性和用户体验。本文将深入探讨Agent强化学习的工程实践，重点解决一个关键问题：&lt;strong&gt;如何让Agent并行处理任务以提升性能？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NotebookLM的核心能力与构建之道</title>
+      <link>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</guid>
+      <description>&lt;p&gt;当Google在2023年推出NotebookLM时，它重新定义了我们与知识交互的方式。这款AI驱动的笔记应用不仅仅是一个文档管理工具，更是一个能够理解、总结、对话和创作的智能助手。那么，NotebookLM究竟具备哪些关键能力？我们如何构建类似的系统？本文将深入剖析其核心技术架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>智谱开源Slime：企业AI应用的强化学习利器</title>
+      <link>http://localhost:45445/post/2026/115-zhipu-slime-enterprise-ai-value/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/115-zhipu-slime-enterprise-ai-value/</guid>
+      <description>&lt;p&gt;当企业决策者在考虑如何让AI真正产生业务价值时，一个核心挑战始终存在：&lt;strong&gt;如何让AI系统持续学习和优化，而不是停留在&amp;quot;静态模型&amp;quot;阶段？&lt;/strong&gt; 智谱AI开源的Slime框架，正是为解决这一痛点而生的强化学习后训练系统。&lt;/p&gt;&#xA;&lt;p&gt;如果说预训练模型是AI的&amp;quot;基础教育&amp;quot;，那么强化学习就是让AI在真实业务场景中&amp;quot;实战成长&amp;quot;的关键。Slime不仅仅是又一个开源框架，它代表着企业级AI应用从&amp;quot;能用&amp;quot;到&amp;quot;好用&amp;quot;的范式转变。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践</title>
+      <link>http://localhost:45445/post/2025/113-claude-code-auto-correction-agent-loop/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/113-claude-code-auto-correction-agent-loop/</guid>
+      <description>&lt;p&gt;在AI辅助编程的时代，Claude Code等智能代码助手已经成为开发者的得力助手。但你是否好奇过：为什么Claude Code能够自动发现并修正生成代码中的错误？这背后的&amp;quot;Agent Loop&amp;quot;机制究竟是如何工作的？本文将深入剖析Claude Code的自动修正原理，并分享Agent Loop的最佳实践。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何用 AI 将个人网站转化为专业的 Google 求职简历</title>
+      <link>http://localhost:45445/post/2025/112-ai-powered-google-resume-from-personal-website/</link>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/112-ai-powered-google-resume-from-personal-website/</guid>
+      <description>&lt;p&gt;在科技行业求职，特别是向 Google 这样的顶级科技公司投递简历时，如何将个人网站上丰富的项目经验、技术博客和开源贡献转化为一份专业、精准的简历是关键。传统方式需要手动整理、提炼和格式化，既费时又容易遗漏重点。本文将介绍如何利用 AI 工具，特别是大语言模型（LLM），智能地将个人网站内容转化为符合 Google 招聘标准的专业简历。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>多模态AI驱动的B2B订单归一化：从非标准文档到MES系统的智能工作流</title>
+      <link>http://localhost:45445/post/2025/101-multimodal-ai-b2b-order-normalization/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/101-multimodal-ai-b2b-order-normalization/</guid>
+      <description>&lt;p&gt;传统制造企业在数字化转型过程中，面临着一个普遍而棘手的问题：来自不同客户的订单文档格式千差万别，有PDF、Excel、Word、扫描件、甚至手写订单。这些非标准化的订单数据需要人工录入MES（制造执行系统）才能启动生产流程，不仅效率低下，而且容易出错。&lt;/p&gt;&#xA;&lt;p&gt;随着GPT-4V、Claude 3.5 Sonnet等多模态大模型的成熟，我们终于有了一个优雅的解决方案：结合视觉识别能力、自然语言理解和代码生成能力，构建一个智能的订单归一化工作流。在这个工作流中，AI Agent承担大部分繁重工作，人类只需在关键节点进行验证和确认，实现真正的人机协作自动化。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>小学标准化试卷AI批改Agent最佳工程实践</title>
+      <link>http://localhost:45445/post/2025/110-ai-exam-grading-agent-best-practices/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/110-ai-exam-grading-agent-best-practices/</guid>
+      <description>&lt;p&gt;在教育科技领域,AI自动批改试卷已经从概念走向现实应用。本文通过一个小学标准化试卷高准确度批改的Agent实践案例,系统性地总结了如何将传统行业数据转化为AI-Ready格式的工程范式,为类似场景提供可复用的方法论。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建高质量订单文档分类器：智能导流到专业Agent</title>
+      <link>http://localhost:45445/post/2025/111-order-document-classifier-agent-routing/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/111-order-document-classifier-agent-routing/</guid>
+      <description>&lt;p&gt;在现代企业的订单处理流程中，不同类型的订单文档往往需要不同的处理逻辑和专业知识。传统的人工分类方式效率低下且容易出错，而基于规则的自动化系统又难以应对复杂多变的业务场景。本文将介绍如何利用大语言模型（LLM）构建一个高质量的订单文档分类器，实现智能路由到专业Agent的完整解决方案。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>API、MCP和Skills：三个概念的本质区别</title>
+      <link>http://localhost:45445/post/2025/109-api-mcp-skills-explained/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/109-api-mcp-skills-explained/</guid>
+      <description>&lt;p&gt;当我们谈论AI应用开发时，经常会听到API、MCP（Model Context Protocol）和Skills这三个词。它们看起来都是让程序之间&amp;quot;对话&amp;quot;的方式，但究竟有什么不同？让我用一个简单的餐厅比喻来解释。&lt;/p&gt;&#xA;&lt;p&gt;想象你要解决&amp;quot;吃饭&amp;quot;这个问题，有三种不同的方式可以选择。每种方式代表了不同的技术范式，适用于不同的场景。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>E2B：构建安全可靠的 AI 代理执行环境最佳实践</title>
+      <link>http://localhost:45445/post/2025/106-e2b-ai-infrastructure-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/106-e2b-ai-infrastructure-best-practices/</guid>
+      <description>&lt;p&gt;当你构建一个能够自主编写和执行代码的 AI 代理时，安全性和隔离性成为了首要考虑的问题。如何让 AI 安全地运行用户或自身生成的代码，而不会影响主系统？E2B（Execute to Build）正是为解决这个问题而生的云沙箱平台。本文将深入探讨 E2B 在 AI 基础设施中的最佳实践。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>压缩即智能：从信息论看机器学习的本质</title>
+      <link>http://localhost:45445/post/2025/108-compression-is-intelligence/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/108-compression-is-intelligence/</guid>
+      <description>&lt;p&gt;如果我告诉你，ChatGPT 本质上是一个文本压缩器，你会相信吗？如果我说，智能的核心就是找到更好的压缩算法，这听起来是不是过于简化了？然而，这个看似激进的观点——&amp;ldquo;压缩即智能&amp;rdquo;（Compression is Intelligence）——正在成为理解机器学习和人工智能本质的一个关键视角。&lt;/p&gt;&#xA;&lt;p&gt;这不仅仅是一个比喻。从信息论的角度看，压缩、预测和理解本质上是同一件事的不同侧面。当我们深入探讨这个观点时，会发现它不仅优雅地解释了为什么深度学习如此有效，还为我们思考通用人工智能（AGI）提供了一个全新的框架。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>意图识别模块实现的最佳实践</title>
+      <link>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/107-intent-recognition-best-practices/</guid>
+      <description>&lt;p&gt;在构建智能对话系统、聊天机器人或语音助手时，意图识别（Intent Recognition）是最核心的组件之一。一个设计良好的意图识别模块不仅能准确理解用户需求，还能随着业务发展灵活扩展。本文将深入探讨意图识别模块实现的最佳实践，帮助你构建生产级的意图识别系统。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深入理解RAG：检索增强生成技术的原理与实践</title>
+      <link>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/105-rag-retrieval-augmented-generation-guide/</guid>
+      <description>&lt;p&gt;在大语言模型(LLM)快速发展的今天，我们面临一个核心挑战：如何让模型能够访问和利用实时、专业或私有的知识？纯粹依赖预训练的模型往往会出现知识过时、幻觉问题，或者无法回答特定领域的问题。这就是检索增强生成(Retrieval-Augmented Generation, RAG)技术应运而生的原因。&lt;/p&gt;&#xA;&lt;p&gt;RAG通过将外部知识库的检索能力与LLM的生成能力相结合，为这个问题提供了一个优雅的解决方案。它不需要重新训练模型，就能让AI系统访问最新的、特定领域的知识，同时显著降低幻觉问题。本文将深入探讨RAG的核心原理、架构设计以及实际应用中的最佳实践。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

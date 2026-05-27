@@ -1,0 +1,1186 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="通用任务型 Agent 评测的核心矛盾——以及一套可落地的分层评测框架设计"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事",
+  "@id": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/",
+  "url": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/",
+      "name": "别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事",
+  "description": "上个月参加一个 Agent 产品的内部评审，产品经理拿出一张 benchmark 表格：准确率 92%、响应时间 1.2 秒、幻觉率 3%。数字很漂亮，领导很满意。\n然后我问了一个问题：\u0026ldquo;这个 92% 的准确率，是在什么任务上测的？\u0026rdquo;\n回答是一组通用 QA 数据集。\n我又问：\u0026ldquo;你的目标用户是电商运营，你有没有用电商运营真实工作场景的任务来测？\u0026rdquo;\n会议室安静了五秒钟。\n这就是今天 Agent 评测的核心矛盾：我们在用\u0026quot;通用考试\u0026quot;的成绩来预测\u0026quot;专业岗位\u0026quot;的表现。 这就像用高考数学成绩来判断一个人能不能当好外科医生——逻辑上不成立，但大家都在这么干。\n",
+  "inLanguage": "en",
+  "wordCount":  1234 ,
+  "timeRequired": "PT6M",
+  "dateCreated": "2026-03-31T00:00:00+00:00",
+  "datePublished": "2026-03-31T00:00:00+00:00",
+  "dateModified": "2026-03-31T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "AI-agents, evaluation, benchmark, enterprise, Agent评测, product" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事" />
+<meta property="og:description" content="通用任务型 Agent 评测的核心矛盾——以及一套可落地的分层评测框架设计" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事" />
+  <meta name="twitter:description" content="通用任务型 Agent 评测的核心矛盾——以及一套可落地的分层评测框架设计">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">通用任务型 Agent 评测的核心矛盾——以及一套可落地的分层评测框架设计</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 31, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1234&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>上个月参加一个 Agent 产品的内部评审，产品经理拿出一张 benchmark 表格：准确率 92%、响应时间 1.2 秒、幻觉率 3%。数字很漂亮，领导很满意。</p>
+<p>然后我问了一个问题：<strong>&ldquo;这个 92% 的准确率，是在什么任务上测的？&rdquo;</strong></p>
+<p>回答是一组通用 QA 数据集。</p>
+<p>我又问：<strong>&ldquo;你的目标用户是电商运营，你有没有用电商运营真实工作场景的任务来测？&rdquo;</strong></p>
+<p>会议室安静了五秒钟。</p>
+<p>这就是今天 Agent 评测的核心矛盾：<strong>我们在用&quot;通用考试&quot;的成绩来预测&quot;专业岗位&quot;的表现。</strong> 这就像用高考数学成绩来判断一个人能不能当好外科医生——逻辑上不成立，但大家都在这么干。</p>
+<h2 id="一为什么通用-benchmark-在-agent-评测中失效">一、为什么通用 Benchmark 在 Agent 评测中失效</h2>
+<p>先说清楚问题的本质。</p>
+<p>当前主流的 Agent benchmark（SWE-bench、WebArena、GAIA 等）有一个共同特征：<strong>它们测的是 Agent 的&quot;底层能力&quot;——推理、工具使用、多步规划。</strong> 这些很重要，但远远不够。</p>
+<p>打个比方：你要招一个财务分析师。通用 benchmark 相当于测他的智商、阅读理解和数学计算能力。这些当然是基础，但你真正关心的是：</p>
+<ul>
+<li>他能不能准确做出一张现金流预测表？</li>
+<li>面对模糊的业务数据，他会不会做出合理假设？</li>
+<li>他产出的分析报告，CFO 能不能直接拿去做决策？</li>
+</ul>
+<p><strong>能力 ≠ 胜任力。</strong> 通用 benchmark 测的是能力，但业务需要的是胜任力。</p>
+<p>这个 gap 有多大？我们在实际项目中观察到的数据：</p>
+<table>
+  <thead>
+      <tr>
+          <th>场景</th>
+          <th>通用 benchmark 表现</th>
+          <th>实际业务任务完成率</th>
+          <th>差距</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>电商客服 Agent</td>
+          <td>90%+</td>
+          <td>62%</td>
+          <td>-28%</td>
+      </tr>
+      <tr>
+          <td>法务合同审查 Agent</td>
+          <td>88%+</td>
+          <td>45%</td>
+          <td>-43%</td>
+      </tr>
+      <tr>
+          <td>HR 简历筛选 Agent</td>
+          <td>91%+</td>
+          <td>71%</td>
+          <td>-20%</td>
+      </tr>
+      <tr>
+          <td>运维告警处理 Agent</td>
+          <td>89%+</td>
+          <td>58%</td>
+          <td>-31%</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>差距来自哪里？</strong> 三个层面：</p>
+<ol>
+<li><strong>领域知识缺失：</strong> 通用 benchmark 不测&quot;你知不知道《劳动合同法》第 39 条&quot;，但 HR Agent 必须知道。</li>
+<li><strong>流程适配不足：</strong> 每个岗位有自己的 SOP，Agent 是否能嵌入而非打断现有流程，benchmark 完全不覆盖。</li>
+<li><strong>输出格式错配：</strong> 运维要的是可执行的 shell 命令，财务要的是符合会计准则的报表格式——通用评测只看&quot;答对没有&quot;，不看&quot;输出能不能直接用&quot;。</li>
+</ol>
+<h2 id="二分层评测框架从通用到行业到岗位">二、分层评测框架：从通用到行业到岗位</h2>
+<p>解决方案不是扔掉通用 benchmark，而是在它上面叠加两层。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌─────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│   L3: 岗位级评测（Role-level）    │  ← &#34;这个具体岗位的活，干得怎么样&#34;
+</span></span><span class="line"><span class="cl">├─────────────────────────────────┤
+</span></span><span class="line"><span class="cl">│   L2: 行业级评测（Industry-level）│  ← &#34;这个行业的规则和知识，懂不懂&#34;
+</span></span><span class="line"><span class="cl">├─────────────────────────────────┤
+</span></span><span class="line"><span class="cl">│   L1: 通用能力评测（General）     │  ← &#34;基本功扎不扎实&#34;
+</span></span><span class="line"><span class="cl">└─────────────────────────────────┘
+</span></span></code></pre></div><p>每一层回答不同的问题，用不同的方法来测。</p>
+<h3 id="l1通用能力层agent-的基本功">L1：通用能力层——Agent 的基本功</h3>
+<p>这一层已有成熟方案，简单列一下核心维度：</p>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>测什么</th>
+          <th>典型 benchmark</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>推理能力</td>
+          <td>多步逻辑推导</td>
+          <td>MMLU, ARC, GSM8K</td>
+      </tr>
+      <tr>
+          <td>工具使用</td>
+          <td>API 调用准确率</td>
+          <td>ToolBench, API-Bank</td>
+      </tr>
+      <tr>
+          <td>指令跟随</td>
+          <td>理解并执行复杂指令</td>
+          <td>IFEval, MT-Bench</td>
+      </tr>
+      <tr>
+          <td>多步规划</td>
+          <td>任务分解与执行</td>
+          <td>SWE-bench, WebArena</td>
+      </tr>
+      <tr>
+          <td>上下文管理</td>
+          <td>长对话一致性</td>
+          <td>RULER, LongBench</td>
+      </tr>
+  </tbody>
+</table>
+<p>L1 是门槛，不是终点。通过 L1 只能说明&quot;这个 Agent 有潜力&quot;，不能说明&quot;它能胜任某个岗位&quot;。</p>
+<h3 id="l2行业级评测领域知识与合规性">L2：行业级评测——领域知识与合规性</h3>
+<p>这一层测的是 Agent 对特定行业的理解深度。不同行业差异极大，以下是四个典型行业的评测维度设计：</p>
+<h4 id="金融行业">金融行业</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 金融行业 Agent 评测维度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">domain_knowledge</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">会计准则理解（CAS/IFRS 关键条款识别与应用）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">金融产品知识（债券、衍生品、结构化产品）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">监管政策理解（银保监会、证监会最新规定）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">compliance</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">反洗钱规则遵循（可疑交易识别准确率）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">信息披露规范（格式、时限、内容完整性）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">客户隐私保护（PII 脱敏处理）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">numerical_precision</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">财务计算准确度（小数点精度、四舍五入规则）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">汇率/利率计算（T+0/T+1 规则理解）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">税务计算（增值税、所得税、跨境税务）</span><span class="w">
+</span></span></span></code></pre></div><h4 id="医疗健康">医疗健康</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 医疗健康行业 Agent 评测维度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">clinical_knowledge</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">诊断逻辑（症状→疾病的推理链准确性）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">药物知识（适应症、禁忌症、药物相互作用）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">检验指标解读（正常范围、临床意义）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">safety_boundaries</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">诊断建议的免责声明（是否主动提示就医）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">紧急情况识别（是否能识别需要急救的信号）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">禁止行为边界（不开处方、不替代医生）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">terminology</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">医学术语准确性（ICD-10 编码、药品通用名）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">患者沟通语言（专业术语转化为通俗语言）</span><span class="w">
+</span></span></span></code></pre></div><h4 id="法律行业">法律行业</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 法律行业 Agent 评测维度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">legal_knowledge</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">法条引用准确性（法条号、条款内容是否真实存在）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">司法解释理解（最新司法解释的适用）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">案例检索相关性（判例与当前案情的匹配度）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">reasoning_quality</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">法律推理链完整性（大前提→小前提→结论）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">多方利益分析（原告/被告/第三方视角）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">风险评估的保守性（是否倾向于提示风险而非忽略）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">output_standards</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">法律文书格式（起诉状、合同、法律意见书的规范性）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">引用格式（法条、案例的标准引用方式）</span><span class="w">
+</span></span></span></code></pre></div><h4 id="电商零售">电商零售</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 电商零售行业 Agent 评测维度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">business_knowledge</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">平台规则理解（淘宝/京东/抖音各平台规则差异）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">营销知识（ROI 计算、投放策略、促销机制）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">供应链概念（库存周转、采购周期、物流时效）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">data_literacy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">数据指标理解（GMV、UV、转化率、客单价的关系）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">数据异常识别（刷单、异常退货、流量波动）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">趋势分析（同比/环比、季节性因素）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">platform_operations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">商品信息规范（标题优化、属性填写、图片要求）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">客服话术合规（广告法禁用词、承诺底线）</span><span class="w">
+</span></span></span></code></pre></div><h3 id="l3岗位级评测真实工作场景的任务完成度">L3：岗位级评测——真实工作场景的任务完成度</h3>
+<p>这是最关键也最难的一层。<strong>L3 不是问 Agent&quot;你知不知道&quot;，而是让它&quot;做一遍&quot;。</strong></p>
+<p>核心设计原则：<strong>从岗位的真实工作任务中抽取评测用例。</strong></p>
+<p>具体方法：</p>
+<p><strong>第一步：拆解岗位的日常任务清单。</strong></p>
+<p>以&quot;电商运营&quot;岗位为例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">电商运营日常任务
+</span></span><span class="line"><span class="cl">├── 数据分析（30%）
+</span></span><span class="line"><span class="cl">│   ├── 日报/周报制作
+</span></span><span class="line"><span class="cl">│   ├── 竞品数据监控
+</span></span><span class="line"><span class="cl">│   └── 活动效果复盘
+</span></span><span class="line"><span class="cl">├── 商品管理（25%）
+</span></span><span class="line"><span class="cl">│   ├── 商品上架/编辑
+</span></span><span class="line"><span class="cl">│   ├── 价格策略调整
+</span></span><span class="line"><span class="cl">│   └── 库存预警处理
+</span></span><span class="line"><span class="cl">├── 营销推广（25%）
+</span></span><span class="line"><span class="cl">│   ├── 活动策划执行
+</span></span><span class="line"><span class="cl">│   ├── 广告投放管理
+</span></span><span class="line"><span class="cl">│   └── 优惠券/满减设置
+</span></span><span class="line"><span class="cl">└── 客户运营（20%）
+</span></span><span class="line"><span class="cl">    ├── 客户分群
+</span></span><span class="line"><span class="cl">    ├── 会员权益管理
+</span></span><span class="line"><span class="cl">    └── 客诉升级处理
+</span></span></code></pre></div><p><strong>第二步：为每个任务设计评测场景。</strong></p>
+<p>不是出选择题，而是给一个完整的任务情境，让 Agent 产出完整的工作交付物。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 岗位级评测用例示例：电商运营 - 日报制作</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">eval_case</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;电商运营&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;制作昨日店铺运营日报&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;store&#34;</span><span class="p">:</span> <span class="s2">&#34;XX旗舰店&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;platform&#34;</span><span class="p">:</span> <span class="s2">&#34;淘宝&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;data_source&#34;</span><span class="p">:</span> <span class="s2">&#34;生意参谋导出的 CSV 数据&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2026-03-30&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;input&#34;</span><span class="p">:</span> <span class="s2">&#34;attached_csv_file.csv&#34;</span><span class="p">,</span>  <span class="c1"># 真实脱敏数据</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;expected_output&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;format&#34;</span><span class="p">:</span> <span class="s2">&#34;markdown_table + key_insights&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;required_metrics&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;访客数及环比变化&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;支付转化率&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;客单价&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;GMV 及目标达成率&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;required_analysis&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;流量来源变化分析&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;转化率异常归因&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;至少一条可执行的优化建议&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;scoring&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;data_accuracy&#34;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>    <span class="c1"># 数字是否正确</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;insight_quality&#34;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>  <span class="c1"># 分析是否有价值</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;actionability&#34;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>    <span class="c1"># 建议是否可执行</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;format_compliance&#34;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span><span class="c1"># 格式是否规范</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;efficiency&#34;</span><span class="p">:</span> <span class="mf">0.1</span>        <span class="c1"># 完成时间</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>第三步：定义&quot;合格&quot;的标准——对标人类岗位能力。</strong></p>
+<p>这一步最容易被忽略，也最重要。评分标准不是拍脑袋定的，而是来自对人类员工的分级：</p>
+<table>
+  <thead>
+      <tr>
+          <th>等级</th>
+          <th>人类对标</th>
+          <th>Agent 需要达到的标准</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L0 - 不可用</td>
+          <td>实习生第一天</td>
+          <td>输出无法使用，需要全部重做</td>
+      </tr>
+      <tr>
+          <td>L1 - 辅助级</td>
+          <td>实习生一周后</td>
+          <td>能产出初稿，但需要大量修改</td>
+      </tr>
+      <tr>
+          <td>L2 - 可用级</td>
+          <td>初级员工</td>
+          <td>产出可用，只需少量调整</td>
+      </tr>
+      <tr>
+          <td>L3 - 独立级</td>
+          <td>熟练员工</td>
+          <td>产出可直接使用，质量稳定</td>
+      </tr>
+      <tr>
+          <td>L4 - 专家级</td>
+          <td>资深员工</td>
+          <td>产出超过一般人类水平</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Agent 产品的上线门槛应该是 L2，而不是 L3。</strong> 因为 Agent 的价值公式是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Agent 价值 = (人类时间成本 × 节省比例) - (Agent 产出修正成本 + Agent 运行成本)
+</span></span></code></pre></div><p>只要修正成本低于从零开始做的成本，Agent 就有正向价值。</p>
+<h2 id="三七个岗位的评测维度速查表">三、七个岗位的评测维度速查表</h2>
+<p>讲了方法论，接下来给干货。以下是七个典型岗位的 L3 评测维度设计，可以直接拿来用（其中电商运营给出了最详细的完整方案）。</p>
+<h3 id="1-客服专员">1. 客服专员</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评测任务                    核心指标                    权重
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">意图识别                    识别准确率                   20%
+</span></span><span class="line"><span class="cl">知识库问答                  回答准确率 + 引用准确性      20%
+</span></span><span class="line"><span class="cl">情绪安抚                    用户情绪转化率（负→中/正）   15%
+</span></span><span class="line"><span class="cl">多轮对话管理                上下文一致性 + 追问合理性     15%
+</span></span><span class="line"><span class="cl">工单流转判断                升级/转接决策准确率          15%
+</span></span><span class="line"><span class="cl">违禁词/敏感信息管控         零容忍（一票否决）           15%
+</span></span></code></pre></div><p>关键评测场景：<strong>给 Agent 一段愤怒客户的投诉录音转写文本，要求它完成安抚、问题定位、解决方案提供、工单创建的全流程。</strong></p>
+<h3 id="2-数据分析师">2. 数据分析师</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评测任务                    核心指标                    权重
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">SQL 编写                    查询正确率 + 性能合理性      20%
+</span></span><span class="line"><span class="cl">数据清洗                    异常值识别率 + 处理合理性     15%
+</span></span><span class="line"><span class="cl">可视化制作                  图表选型合理性 + 标注完整性   15%
+</span></span><span class="line"><span class="cl">分析报告撰写                洞察深度 + 结论可靠性        25%
+</span></span><span class="line"><span class="cl">统计方法应用                方法选择正确性 + 假设合理性   15%
+</span></span><span class="line"><span class="cl">业务指标定义                口径理解准确率               10%
+</span></span></code></pre></div><p>关键评测场景：<strong>给 Agent 一份原始销售数据（含脏数据），要求输出一份完整的月度分析报告，包括数据清洗说明、核心趋势、异常解释和建议。</strong></p>
+<h3 id="3-内容运营">3. 内容运营</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评测任务                    核心指标                    权重
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">内容策划                    选题相关性 + 角度新颖性      20%
+</span></span><span class="line"><span class="cl">文案撰写                    品牌调性一致性 + 可读性      25%
+</span></span><span class="line"><span class="cl">SEO 优化                    关键词覆盖 + 结构化合理性    15%
+</span></span><span class="line"><span class="cl">多平台适配                  不同平台格式/字数/风格适配   15%
+</span></span><span class="line"><span class="cl">数据复盘                    内容指标归因分析质量         15%
+</span></span><span class="line"><span class="cl">热点响应                    时效性 + 品牌关联度          10%
+</span></span></code></pre></div><h3 id="4-法务专员">4. 法务专员</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评测任务                    核心指标                    权重
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">合同审查                    风险条款识别率 + 修改建议质量 30%
+</span></span><span class="line"><span class="cl">法律研究                    法条引用准确性 + 分析完整性   25%
+</span></span><span class="line"><span class="cl">合规检查                    违规点识别率 + 整改建议可行性 20%
+</span></span><span class="line"><span class="cl">法律文书起草                格式规范性 + 逻辑严密性      15%
+</span></span><span class="line"><span class="cl">风险提示                    风险等级判断准确性           10%
+</span></span></code></pre></div><p>关键评测场景：<strong>给 Agent 一份真实的商业合同（脱敏），要求标出所有对我方不利条款，给出修改建议，并出具一份法律风险评估意见。</strong></p>
+<h3 id="5-hr-招聘专员">5. HR 招聘专员</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评测任务                    核心指标                    权重
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">简历筛选                    匹配度评分准确性 + 理由合理性 25%
+</span></span><span class="line"><span class="cl">JD 编写                    岗位要求完整性 + 吸引力      15%
+</span></span><span class="line"><span class="cl">面试问题设计                问题针对性 + 覆盖度          20%
+</span></span><span class="line"><span class="cl">候选人沟通                  专业度 + 温度感 + 信息完整性  15%
+</span></span><span class="line"><span class="cl">人才画像分析                维度全面性 + 判断准确性      15%
+</span></span><span class="line"><span class="cl">背调要点梳理                风险维度覆盖 + 问题设计质量   10%
+</span></span></code></pre></div><h3 id="6-财务分析师">6. 财务分析师</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评测任务                    核心指标                    权重
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">财务报表分析                比率计算准确性 + 趋势解读     25%
+</span></span><span class="line"><span class="cl">预算编制                    假设合理性 + 数字一致性      20%
+</span></span><span class="line"><span class="cl">成本分析                    归因准确性 + 优化建议质量     20%
+</span></span><span class="line"><span class="cl">现金流预测                  预测模型合理性 + 敏感性分析   20%
+</span></span><span class="line"><span class="cl">审计支持                    凭证匹配率 + 异常标记准确率   15%
+</span></span></code></pre></div><p>关键评测场景：<strong>给 Agent 三年的财务报表数据，要求输出一份包含杜邦分析、现金流预测和风险提示的管理层报告。</strong></p>
+<h3 id="7-电商运营">7. 电商运营</h3>
+<p>电商运营是本文反复用来举例的岗位，因为它天然适合 Agent 介入——任务标准化程度高、数据密集、时效性强。下面给出一套可以直接落地的完整评测方案。</p>
+<h4 id="评测维度总览">评测维度总览</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评测任务                    核心指标                        权重
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────────────────────
+</span></span><span class="line"><span class="cl">数据看板与日报              数据准确性 + 洞察质量            20%
+</span></span><span class="line"><span class="cl">商品上架与优化              信息完整性 + 平台规则合规         15%
+</span></span><span class="line"><span class="cl">活动策划与执行              方案可行性 + ROI 预估合理性       20%
+</span></span><span class="line"><span class="cl">广告投放分析                投放策略合理性 + 优化建议质量      15%
+</span></span><span class="line"><span class="cl">客户分群与触达              分群逻辑 + 触达方案转化预估       15%
+</span></span><span class="line"><span class="cl">竞品监控与分析              信息抓取完整性 + 差异化洞察       10%
+</span></span><span class="line"><span class="cl">异常预警与应急              响应速度 + 处置方案可行性          5%
+</span></span></code></pre></div><h4 id="五个核心评测场景">五个核心评测场景</h4>
+<p><strong>场景一：跨平台日报生成（数据分析能力）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 电商运营日报评测用例</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">eval_daily_report</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;根据多平台数据生成跨渠道运营日报&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;platforms&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;淘宝天猫&#34;</span><span class="p">,</span> <span class="s2">&#34;抖音电商&#34;</span><span class="p">,</span> <span class="s2">&#34;京东&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2026-03-30&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;store_tier&#34;</span><span class="p">:</span> <span class="s2">&#34;年 GMV 5000 万级&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;data_inputs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;生意参谋_流量概览.csv&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;抖店_罗盘数据.csv&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;京东_商智数据.csv&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;expected_output&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;required_sections&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;全渠道 GMV 汇总及目标达成率&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;各平台核心指标对比（UV/转化率/客单价）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;流量来源结构变化（自然流量 vs 付费流量）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;TOP10 商品动销排行及库存预警&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;关键异常标记（转化率下降&gt;10%、退货率上升等）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;次日重点待办事项（至少 3 条可执行建议）&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;format&#34;</span><span class="p">:</span> <span class="s2">&#34;结构化 markdown，含数据表格和环比箭头标记&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;scoring&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;data_accuracy&#34;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">,</span>        <span class="c1"># 数字、百分比、环比计算是否正确</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;cross_platform_insight&#34;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span><span class="c1"># 跨平台对比分析是否有增量价值</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;actionability&#34;</span><span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>        <span class="c1"># 建议是否具体到可直接执行</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;format_compliance&#34;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>    <span class="c1"># 是否符合运营团队的日报模板</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;anomaly_detection&#34;</span><span class="p">:</span> <span class="mf">0.10</span>     <span class="c1"># 是否主动发现了数据中的异常</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>场景二：大促活动策划（营销策划能力）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 电商运营大促策划评测用例</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">eval_campaign</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;策划 618 大促期间的店铺营销方案&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;platform&#34;</span><span class="p">:</span> <span class="s2">&#34;淘宝天猫&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;category&#34;</span><span class="p">:</span> <span class="s2">&#34;家居日用&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;budget&#34;</span><span class="p">:</span> <span class="s2">&#34;推广预算 50 万&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;historical_data&#34;</span><span class="p">:</span> <span class="s2">&#34;去年 618 销售数据 + 竞品活动复盘&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;constraints&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;主推 3 款新品，库存各 5000 件&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;老客复购率目标 35%&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;ROI 不低于 3.0&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;expected_output&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;required_sections&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;活动节奏（蓄水期/预热期/爆发期/返场期各阶段策略）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;商品分层策略（引流款/利润款/形象款定价与库存分配）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;推广费用分配（直通车/引力魔方/万相台各渠道预算占比）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;优惠券与满减梯度设计&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;预估 GMV 及 ROI 测算过程&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;风险预案（库存不足、流量不达预期、竞品低价打击）&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;scoring&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;strategy_coherence&#34;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>   <span class="c1"># 各阶段策略是否逻辑自洽</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;budget_rationality&#34;</span><span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>   <span class="c1"># 预算分配是否有数据支撑</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;roi_calculation&#34;</span><span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>      <span class="c1"># ROI 测算过程是否可验证</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;creativity&#34;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>           <span class="c1"># 玩法设计是否有差异化亮点</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;risk_awareness&#34;</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span>       <span class="c1"># 风险预案是否覆盖主要场景</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;platform_rules&#34;</span><span class="p">:</span> <span class="mf">0.10</span>       <span class="c1"># 方案是否符合平台活动规则</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>场景三：商品标题与详情页优化（商品运营能力）</strong></p>
+<p>给 Agent 一组商品（含现有标题、主图、属性、近 30 天搜索词报表），要求它：</p>
+<ol>
+<li>诊断当前标题的关键词覆盖问题</li>
+<li>基于搜索词报表重新组合标题（30 字以内，核心词+属性词+长尾词）</li>
+<li>输出详情页卖点提炼框架（痛点→方案→证据→促单）</li>
+<li>标注违反广告法的禁用词风险</li>
+</ol>
+<p>评分标准：关键词覆盖率（25%）、标题可读性（20%）、卖点提炼精准度（25%）、合规性（20%）、与竞品的差异化（10%）。</p>
+<p><strong>场景四：广告投放诊断与优化（付费推广能力）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 广告投放优化评测用例</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">eval_ad_optimization</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;诊断直通车计划表现并给出优化方案&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;platform&#34;</span><span class="p">:</span> <span class="s2">&#34;淘宝&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;campaign_data&#34;</span><span class="p">:</span> <span class="s2">&#34;近 14 天直通车分日报表 + 关键词报表 + 人群报表&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;current_status&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;daily_budget&#34;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;avg_ppc&#34;</span><span class="p">:</span> <span class="mf">2.8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;roi&#34;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;target_roi&#34;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;click_rate&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2%&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;conversion_rate&#34;</span><span class="p">:</span> <span class="s2">&#34;1.8%&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;expected_output&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;required_sections&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;当前投放问题诊断（至少 3 个具体问题及数据佐证）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;关键词层面优化（删词/加词/调价的具体操作清单）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;人群溢价调整建议（各人群包的出价系数）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;创意优化方向（基于点击率数据）&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;预期优化效果（调整后 ROI 预估及测算逻辑）&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;scoring&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;diagnosis_accuracy&#34;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">,</span>   <span class="c1"># 问题定位是否命中真因</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;optimization_specificity&#34;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">,</span> <span class="c1"># 建议是否具体到可直接操作</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;data_reasoning&#34;</span><span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>       <span class="c1"># 每条建议是否有数据支撑</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;roi_projection&#34;</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span>       <span class="c1"># 优化后 ROI 预估是否合理</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;platform_knowledge&#34;</span><span class="p">:</span> <span class="mf">0.10</span>    <span class="c1"># 是否了解最新的投放产品功能</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>场景五：客户分群与精准营销（用户运营能力）</strong></p>
+<p>给 Agent 一份脱敏的客户 RFM 数据（最近购买时间、购买频次、累计消费金额，约 1 万条），要求它：</p>
+<ol>
+<li>设计客户分群模型（不少于 5 个层级）</li>
+<li>每个层级给出标签定义、客户数量占比、典型画像</li>
+<li>针对每个分群设计差异化触达策略（渠道、时机、内容、优惠力度）</li>
+<li>给出&quot;沉睡客户唤醒&quot;专项方案，包括预期唤醒率和成本估算</li>
+</ol>
+<p>评分标准：分群逻辑合理性（25%）、策略差异化程度（25%）、预期效果可量化（20%）、成本测算合理性（15%）、方案可执行性（15%）。</p>
+<h4 id="电商运营-agent-的一票否决项">电商运营 Agent 的&quot;一票否决&quot;项</h4>
+<p>除了上面的常规评分，电商运营 Agent 有几条红线，触碰任意一条直接判定为不合格：</p>
+<table>
+  <thead>
+      <tr>
+          <th>否决项</th>
+          <th>说明</th>
+          <th>为什么是红线</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>价格计算错误</td>
+          <td>满减、折扣、优惠券叠加后的到手价计算有误</td>
+          <td>直接影响利润，可能导致亏本销售</td>
+      </tr>
+      <tr>
+          <td>广告法违规</td>
+          <td>使用&quot;最&quot;&ldquo;第一&quot;&ldquo;国家级&quot;等绝对化用语</td>
+          <td>面临平台处罚甚至行政罚款</td>
+      </tr>
+      <tr>
+          <td>库存超卖建议</td>
+          <td>活动方案中的预估销量超过实际可用库存</td>
+          <td>超卖导致批量退款和店铺评分下降</td>
+      </tr>
+      <tr>
+          <td>平台规则违反</td>
+          <td>建议的促销方式违反平台当期活动规则</td>
+          <td>导致活动资格取消或店铺降权</td>
+      </tr>
+      <tr>
+          <td>数据口径混淆</td>
+          <td>混淆 GMV 与实收、UV 与 PV 等基础概念</td>
+          <td>基于错误数据做出的决策全部无效</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="评测数据准备建议">评测数据准备建议</h4>
+<p>电商运营的评测数据相比其他岗位有一个天然优势：<strong>数据高度结构化，且容易脱敏。</strong> 具体操作：</p>
+<ol>
+<li><strong>导出真实数据：</strong> 从生意参谋、抖店罗盘等后台导出 CSV，将店铺名/商品名/客户信息替换为虚构值</li>
+<li><strong>保留数据分布：</strong> 脱敏时保持数据的统计特征（均值、方差、趋势），否则评测场景会失真</li>
+<li><strong>标注&quot;金标准&rdquo;：</strong> 让团队里最优秀的运营针对同一份数据产出一份标准答案，作为对照</li>
+<li><strong>覆盖季节性：</strong> 评测集应包含大促期、日销期、淡季等不同阶段的数据，避免只在某一类场景下测试</li>
+</ol>
+<h2 id="四评测数据从哪来三条实用路径">四、评测数据从哪来：三条实用路径</h2>
+<p>方法论有了，最大的难题是：<strong>评测数据从哪来？</strong></p>
+<h3 id="路径一从真实工作记录中抽取推荐">路径一：从真实工作记录中抽取（推荐）</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">日常工作 → 脱敏 → 标注 → 评测集
+</span></span></code></pre></div><ul>
+<li>找到目标岗位表现最好的 3-5 个员工</li>
+<li>收集他们过去一个月的典型工作交付物</li>
+<li>脱敏后作为&quot;标准答案&rdquo;</li>
+<li>用同样的输入让 Agent 做一遍，对比差异</li>
+</ul>
+<p><strong>优点：</strong> 最贴近真实场景，评测结果最有参考价值。</p>
+<p><strong>成本：</strong> 高，需要岗位专家配合标注。</p>
+<h3 id="路径二用-llm-生成模拟任务快速启动">路径二：用 LLM 生成模拟任务（快速启动）</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 用 GPT-4/Claude 生成特定岗位的模拟评测数据</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">你是一个有 10 年经验的电商运营总监。
+</span></span></span><span class="line"><span class="cl"><span class="s2">请生成 5 个电商运营日常工作的评测场景，每个场景需要包括：
+</span></span></span><span class="line"><span class="cl"><span class="s2">1. 任务背景描述
+</span></span></span><span class="line"><span class="cl"><span class="s2">2. 提供给 Agent 的输入数据（模拟真实数据格式）
+</span></span></span><span class="line"><span class="cl"><span class="s2">3. 期望的输出格式和内容
+</span></span></span><span class="line"><span class="cl"><span class="s2">4. 评分标准（列出各维度及权重）
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">要求：
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 场景要覆盖数据分析、商品管理、营销推广、客户运营四个方向
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 难度分为简单/中等/困难三个级别
+</span></span></span><span class="line"><span class="cl"><span class="s2">- 输入数据要足够具体，不能是笼统描述
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p><strong>优点：</strong> 速度快，成本低，一天内可以搭建初版评测集。</p>
+<p><strong>缺点：</strong> 可能与真实场景有偏差，需要岗位专家 review。</p>
+<h3 id="路径三众包--专家审核规模化">路径三：众包 + 专家审核（规模化）</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">众包标注 → 专家审核 → 一致性检验 → 入库
+</span></span></code></pre></div><p>适合需要大规模评测集的场景。众包解决数据量问题，专家审核解决质量问题，一致性检验（Kappa 系数 &gt; 0.7）解决标注一致性问题。</p>
+<h2 id="五评测的反模式这些坑不要踩">五、评测的反模式：这些坑不要踩</h2>
+<p>在实践中，我见过太多评测做砸了的案例。总结几个典型反模式：</p>
+<h3 id="反模式一准确率焦虑症">反模式一：&ldquo;准确率焦虑症&rdquo;</h3>
+<p>只盯着准确率一个数字，忽略了其他维度。一个准确率 95% 但每次回答都需要 30 秒的客服 Agent，不如一个准确率 88% 但 3 秒内回答的。<strong>响应速度、输出格式、交互体验，都是评测维度。</strong></p>
+<h3 id="反模式二实验室环境自嗨">反模式二：&ldquo;实验室环境自嗨&rdquo;</h3>
+<p>在干净数据上测得很好，一遇到真实世界的脏数据就翻车。评测数据必须包含：</p>
+<ul>
+<li>模糊输入（&ldquo;帮我看看那个数据&rdquo;）</li>
+<li>错误输入（数据格式错误、信息矛盾）</li>
+<li>对抗输入（用户故意试探边界）</li>
+<li>多轮上下文切换（中途换话题再换回来）</li>
+</ul>
+<h3 id="反模式三一次评测定终身">反模式三：&ldquo;一次评测定终身&rdquo;</h3>
+<p>Agent 是动态系统——模型升级、Prompt 调整、知识库更新都会影响表现。评测应该是持续集成的一部分，不是一次性的验收。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">每次发布 → 自动回归测试 → 核心指标对比 → 异常告警
+</span></span></code></pre></div><h3 id="反模式四自己评自己">反模式四：&ldquo;自己评自己&rdquo;</h3>
+<p>用 LLM 评判 LLM 的输出（LLM-as-Judge）很方便，但要注意偏差。最可靠的方案是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">评判方式           适用场景              可信度
+</span></span><span class="line"><span class="cl">──────────────────────────────────────────
+</span></span><span class="line"><span class="cl">人类专家评判       高风险决策            ★★★★★
+</span></span><span class="line"><span class="cl">人类 + LLM 混合    大规模评测            ★★★★
+</span></span><span class="line"><span class="cl">LLM 交叉评判       快速迭代              ★★★
+</span></span><span class="line"><span class="cl">单一 LLM 评判      内部 A/B 测试         ★★
+</span></span></code></pre></div><h2 id="六一个可执行的落地路线">六、一个可执行的落地路线</h2>
+<p>如果你明天就要开始做 Agent 评测，建议按这个顺序来：</p>
+<p><strong>第 1 周：定义岗位任务清单</strong></p>
+<ul>
+<li>找到目标岗位的 3 个核心任务</li>
+<li>每个任务准备 5 个评测用例（1 简单 + 2 中等 + 2 困难）</li>
+<li>用路径二（LLM 生成）快速产出初版</li>
+</ul>
+<p><strong>第 2 周：跑第一轮评测</strong></p>
+<ul>
+<li>让 Agent 跑一遍所有用例</li>
+<li>请岗位专家打分（1-5 分）</li>
+<li>记录所有&quot;Agent 不及格&quot;的用例，分析原因</li>
+</ul>
+<p><strong>第 3 周：迭代评测集 + 修复 Agent</strong></p>
+<ul>
+<li>根据评测结果优化 Agent（Prompt、工具、知识库）</li>
+<li>根据专家反馈修正评测标准</li>
+<li>补充路径一（真实数据）的评测用例</li>
+</ul>
+<p><strong>第 4 周：建立持续评测流水线</strong></p>
+<ul>
+<li>自动化评测脚本</li>
+<li>核心指标看板</li>
+<li>每次发版自动回归</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>Agent 评测不是一道选择题——&ldquo;好不好用&quot;不能用一个分数来回答。它是一道论述题，答案因行业而异、因岗位而异、因任务而异。</p>
+<p>三条核心原则：</p>
+<ol>
+<li><strong>分层评测：</strong> 通用能力是地基，行业知识是框架，岗位任务是装修。三层都要测，不能只看地基。</li>
+<li><strong>以岗位任务为锚点：</strong> 评测的终极标准不是&quot;Agent 的能力有多强&rdquo;，而是&quot;这个岗位的活，Agent 干到什么水平&quot;。</li>
+<li><strong>持续迭代：</strong> 评测体系和 Agent 一样，需要不断进化。今天的评测维度，三个月后可能需要重新设计。</li>
+</ol>
+<p><strong>最后一句话：如果你的 Agent 评测报告里没有出现任何一个具体岗位的名字，那这份报告大概率是给投资人看的，不是给用户看的。</strong></p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/evaluation/">evaluation</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/benchmark/">benchmark</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/enterprise/">enterprise</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/agent%E8%AF%84%E6%B5%8B/">Agent评测</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/product/">product</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f165-agent-eval-by-industry-and-role%2f&amp;text=%e5%88%ab%e7%94%a8%e5%90%8c%e4%b8%80%e6%8a%8a%e5%b0%ba%e5%ad%90%e9%87%8f%e6%89%80%e6%9c%89%20Agent%ef%bc%9a%e6%8c%89%e8%a1%8c%e4%b8%9a%e5%92%8c%e5%b2%97%e4%bd%8d%e8%ae%be%e8%ae%a1%e8%af%84%e6%b5%8b%e4%bd%93%e7%b3%bb%e6%89%8d%e6%98%af%e6%ad%a3%e7%bb%8f%e4%ba%8b&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f165-agent-eval-by-industry-and-role%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f165-agent-eval-by-industry-and-role%2f&amp;title=%e5%88%ab%e7%94%a8%e5%90%8c%e4%b8%80%e6%8a%8a%e5%b0%ba%e5%ad%90%e9%87%8f%e6%89%80%e6%9c%89%20Agent%ef%bc%9a%e6%8c%89%e8%a1%8c%e4%b8%9a%e5%92%8c%e5%b2%97%e4%bd%8d%e8%ae%be%e8%ae%a1%e8%af%84%e6%b5%8b%e4%bd%93%e7%b3%bb%e6%89%8d%e6%98%af%e6%ad%a3%e7%bb%8f%e4%ba%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f165-agent-eval-by-industry-and-role%2f&amp;title=%e5%88%ab%e7%94%a8%e5%90%8c%e4%b8%80%e6%8a%8a%e5%b0%ba%e5%ad%90%e9%87%8f%e6%89%80%e6%9c%89%20Agent%ef%bc%9a%e6%8c%89%e8%a1%8c%e4%b8%9a%e5%92%8c%e5%b2%97%e4%bd%8d%e8%ae%be%e8%ae%a1%e8%af%84%e6%b5%8b%e4%bd%93%e7%b3%bb%e6%89%8d%e6%98%af%e6%ad%a3%e7%bb%8f%e4%ba%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f165-agent-eval-by-industry-and-role%2f&amp;title=%e5%88%ab%e7%94%a8%e5%90%8c%e4%b8%80%e6%8a%8a%e5%b0%ba%e5%ad%90%e9%87%8f%e6%89%80%e6%9c%89%20Agent%ef%bc%9a%e6%8c%89%e8%a1%8c%e4%b8%9a%e5%92%8c%e5%b2%97%e4%bd%8d%e8%ae%be%e8%ae%a1%e8%af%84%e6%b5%8b%e4%bd%93%e7%b3%bb%e6%89%8d%e6%98%af%e6%ad%a3%e7%bb%8f%e4%ba%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f165-agent-eval-by-industry-and-role%2f&amp;description=%e5%88%ab%e7%94%a8%e5%90%8c%e4%b8%80%e6%8a%8a%e5%b0%ba%e5%ad%90%e9%87%8f%e6%89%80%e6%9c%89%20Agent%ef%bc%9a%e6%8c%89%e8%a1%8c%e4%b8%9a%e5%92%8c%e5%b2%97%e4%bd%8d%e8%ae%be%e8%ae%a1%e8%af%84%e6%b5%8b%e4%bd%93%e7%b3%bb%e6%89%8d%e6%98%af%e6%ad%a3%e7%bb%8f%e4%ba%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f165-agent-eval-by-industry-and-role%2f&amp;subject=%e5%88%ab%e7%94%a8%e5%90%8c%e4%b8%80%e6%8a%8a%e5%b0%ba%e5%ad%90%e9%87%8f%e6%89%80%e6%9c%89%20Agent%ef%bc%9a%e6%8c%89%e8%a1%8c%e4%b8%9a%e5%92%8c%e5%b2%97%e4%bd%8d%e8%ae%be%e8%ae%a1%e8%af%84%e6%b5%8b%e4%bd%93%e7%b3%bb%e6%89%8d%e6%98%af%e6%ad%a3%e7%bb%8f%e4%ba%8b" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+                    <li><a href="/post/2026/172-evolvable-agent-skills-best-practices/">让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践</a></li>
+                
+                    <li><a href="/post/2026/170-ai-native-voc-head-and-tail/">AI Native 流程的一头一尾：用户问题理解与自动验证</a></li>
+                
+                    <li><a href="/post/2026/169-good-colleague-model-for-human-ai-collaboration/">用「好同事」模型理解人与 AI 的协作</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/" data-toggle="tooltip" data-placement="top" title="同一个生意做了四遍：从搜索到Agent，万物皆排序">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/164-voc-to-automated-pipeline/" data-toggle="tooltip" data-placement="top" title="别再手动整理用户反馈了：把 VOC 变成一条自动化生产线">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/165-agent-eval-by-industry-and-role';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

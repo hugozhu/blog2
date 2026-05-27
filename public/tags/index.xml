@@ -1,0 +1,1909 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/</link>
+    <description>Recent content in Tags on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai-Literacy</title>
+      <link>http://localhost:45445/tags/ai-literacy/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai-literacy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Talent</title>
+      <link>http://localhost:45445/tags/ai-talent/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai-talent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>http://localhost:45445/tags/architecture/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Career-Growth</title>
+      <link>http://localhost:45445/tags/career-growth/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/career-growth/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cognitive-Science</title>
+      <link>http://localhost:45445/tags/cognitive-science/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/cognitive-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dual-System</title>
+      <link>http://localhost:45445/tags/dual-system/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/dual-system/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt-Engineering</title>
+      <link>http://localhost:45445/tags/prompt-engineering/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/prompt-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System-Design</title>
+      <link>http://localhost:45445/tags/system-design/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/system-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Agent</title>
+      <link>http://localhost:45445/tags/ai-agent/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CLI</title>
+      <link>http://localhost:45445/tags/cli/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gateway</title>
+      <link>http://localhost:45445/tags/gateway/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/gateway/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hermes</title>
+      <link>http://localhost:45445/tags/hermes/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/hermes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Json-Rpc</title>
+      <link>http://localhost:45445/tags/json-rpc/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/json-rpc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Messaging</title>
+      <link>http://localhost:45445/tags/messaging/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/messaging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tui</title>
+      <link>http://localhost:45445/tags/tui/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/tui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cli-Tools</title>
+      <link>http://localhost:45445/tags/cli-tools/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/cli-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Context-Management</title>
+      <link>http://localhost:45445/tags/context-management/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/context-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>http://localhost:45445/tags/llm/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rust</title>
+      <link>http://localhost:45445/tags/rust/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/rust/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Skill-Management</title>
+      <link>http://localhost:45445/tags/skill-management/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/skill-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web-Scraping</title>
+      <link>http://localhost:45445/tags/web-scraping/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/web-scraping/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent-Engineering</title>
+      <link>http://localhost:45445/tags/agent-engineering/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agent-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Testing</title>
+      <link>http://localhost:45445/tags/ai-testing/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai-testing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Desktop-App</title>
+      <link>http://localhost:45445/tags/desktop-app/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/desktop-app/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>http://localhost:45445/tags/observability/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Paradigm-Shift</title>
+      <link>http://localhost:45445/tags/paradigm-shift/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/paradigm-shift/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software-3.0</title>
+      <link>http://localhost:45445/tags/software-3.0/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/software-3.0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software-Engineering</title>
+      <link>http://localhost:45445/tags/software-engineering/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/software-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tauri</title>
+      <link>http://localhost:45445/tags/tauri/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/tauri/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Test-Automation</title>
+      <link>http://localhost:45445/tags/test-automation/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/test-automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent-Loop</title>
+      <link>http://localhost:45445/tags/agent-loop/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agent-loop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Agents</title>
+      <link>http://localhost:45445/tags/ai-agents/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Anthropic</title>
+      <link>http://localhost:45445/tags/anthropic/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/anthropic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Context-Engineering</title>
+      <link>http://localhost:45445/tags/context-engineering/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/context-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Harness-Design</title>
+      <link>http://localhost:45445/tags/harness-design/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/harness-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Managed-Agents</title>
+      <link>http://localhost:45445/tags/managed-agents/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/managed-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System-Architecture</title>
+      <link>http://localhost:45445/tags/system-architecture/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/system-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent-Architecture</title>
+      <link>http://localhost:45445/tags/agent-architecture/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agent-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Everos</title>
+      <link>http://localhost:45445/tags/everos/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/everos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gbrain</title>
+      <link>http://localhost:45445/tags/gbrain/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/gbrain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge-Graph</title>
+      <link>http://localhost:45445/tags/knowledge-graph/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/knowledge-graph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge-Management</title>
+      <link>http://localhost:45445/tags/knowledge-management/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/knowledge-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm-Architecture</title>
+      <link>http://localhost:45445/tags/llm-architecture/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/llm-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Long-Term-Memory</title>
+      <link>http://localhost:45445/tags/long-term-memory/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/long-term-memory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory-Management</title>
+      <link>http://localhost:45445/tags/memory-management/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/memory-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Skill-Evolution</title>
+      <link>http://localhost:45445/tags/skill-evolution/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/skill-evolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Context-Roaming</title>
+      <link>http://localhost:45445/tags/context-roaming/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/context-roaming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Developer-Experience</title>
+      <link>http://localhost:45445/tags/developer-experience/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/developer-experience/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mcp</title>
+      <link>http://localhost:45445/tags/mcp/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/mcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Device</title>
+      <link>http://localhost:45445/tags/multi-device/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/multi-device/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>http://localhost:45445/tags/ai/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Management</title>
+      <link>http://localhost:45445/tags/management/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MVP</title>
+      <link>http://localhost:45445/tags/mvp/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/mvp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Organization-Design</title>
+      <link>http://localhost:45445/tags/organization-design/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/organization-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Product-Thinking</title>
+      <link>http://localhost:45445/tags/product-thinking/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/product-thinking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AGI</title>
+      <link>http://localhost:45445/tags/agi/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self-Evolving</title>
+      <link>http://localhost:45445/tags/self-evolving/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/self-evolving/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>泛化</title>
+      <link>http://localhost:45445/tags/%E6%B3%9B%E5%8C%96/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%B3%9B%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>进化</title>
+      <link>http://localhost:45445/tags/%E8%BF%9B%E5%8C%96/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E8%BF%9B%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine-Learning</title>
+      <link>http://localhost:45445/tags/machine-learning/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Skill-Design</title>
+      <link>http://localhost:45445/tags/skill-design/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/skill-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>数字化</title>
+      <link>http://localhost:45445/tags/%E6%95%B0%E5%AD%97%E5%8C%96/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%95%B0%E5%AD%97%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>数据建模</title>
+      <link>http://localhost:45445/tags/%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>方法论</title>
+      <link>http://localhost:45445/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>最佳实践</title>
+      <link>http://localhost:45445/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>知识管理</title>
+      <link>http://localhost:45445/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VOC</title>
+      <link>http://localhost:45445/tags/voc/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/voc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>测试</title>
+      <link>http://localhost:45445/tags/%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%B5%8B%E8%AF%95/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自动化</title>
+      <link>http://localhost:45445/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>协作</title>
+      <link>http://localhost:45445/tags/%E5%8D%8F%E4%BD%9C/</link>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E5%8D%8F%E4%BD%9C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>管理</title>
+      <link>http://localhost:45445/tags/%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent</title>
+      <link>http://localhost:45445/tags/agent/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coding-Agent</title>
+      <link>http://localhost:45445/tags/coding-agent/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/coding-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering</title>
+      <link>http://localhost:45445/tags/engineering/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Productivity</title>
+      <link>http://localhost:45445/tags/productivity/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/productivity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best-Practices</title>
+      <link>http://localhost:45445/tags/best-practices/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Capacity-Planning</title>
+      <link>http://localhost:45445/tags/capacity-planning/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/capacity-planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distributed-Systems</title>
+      <link>http://localhost:45445/tags/distributed-systems/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MaaS</title>
+      <link>http://localhost:45445/tags/maas/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/maas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenClaw</title>
+      <link>http://localhost:45445/tags/openclaw/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/openclaw/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>个性化</title>
+      <link>http://localhost:45445/tags/%E4%B8%AA%E6%80%A7%E5%8C%96/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E4%B8%AA%E6%80%A7%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>产品设计</title>
+      <link>http://localhost:45445/tags/%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>定时任务</title>
+      <link>http://localhost:45445/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>系统架构</title>
+      <link>http://localhost:45445/tags/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>需求分析</title>
+      <link>http://localhost:45445/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Thinking</title>
+      <link>http://localhost:45445/tags/thinking/</link>
+      <pubDate>Tue, 31 Mar 2026 12:00:00 +0800</pubDate>
+      <guid>http://localhost:45445/tags/thinking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent评测</title>
+      <link>http://localhost:45445/tags/agent%E8%AF%84%E6%B5%8B/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agent%E8%AF%84%E6%B5%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>http://localhost:45445/tags/automation/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Benchmark</title>
+      <link>http://localhost:45445/tags/benchmark/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/benchmark/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Enterprise</title>
+      <link>http://localhost:45445/tags/enterprise/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/enterprise/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Evaluation</title>
+      <link>http://localhost:45445/tags/evaluation/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/evaluation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Product</title>
+      <link>http://localhost:45445/tags/product/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/product/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:45445/tags/tutorial/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Advertising</title>
+      <link>http://localhost:45445/tags/advertising/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/advertising/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Recommendation</title>
+      <link>http://localhost:45445/tags/recommendation/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/recommendation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Search</title>
+      <link>http://localhost:45445/tags/search/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>思考</title>
+      <link>http://localhost:45445/tags/%E6%80%9D%E8%80%83/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%80%9D%E8%80%83/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Accountability</title>
+      <link>http://localhost:45445/tags/accountability/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/accountability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Platform</title>
+      <link>http://localhost:45445/tags/platform/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/platform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>安全</title>
+      <link>http://localhost:45445/tags/%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E5%AE%89%E5%85%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>架构设计</title>
+      <link>http://localhost:45445/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>治理</title>
+      <link>http://localhost:45445/tags/%E6%B2%BB%E7%90%86/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%B2%BB%E7%90%86/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Claude-Code</title>
+      <link>http://localhost:45445/tags/claude-code/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/claude-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Developer-Tools</title>
+      <link>http://localhost:45445/tags/developer-tools/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/developer-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DingTalk</title>
+      <link>http://localhost:45445/tags/dingtalk/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/dingtalk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Education</title>
+      <link>http://localhost:45445/tags/education/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/education/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infrastructure</title>
+      <link>http://localhost:45445/tags/infrastructure/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HR</title>
+      <link>http://localhost:45445/tags/hr/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/hr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>人机协作</title>
+      <link>http://localhost:45445/tags/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E4%BD%9C/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E4%BD%9C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>企业文化</title>
+      <link>http://localhost:45445/tags/%E4%BC%81%E4%B8%9A%E6%96%87%E5%8C%96/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E4%BC%81%E4%B8%9A%E6%96%87%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>微软</title>
+      <link>http://localhost:45445/tags/%E5%BE%AE%E8%BD%AF/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E5%BE%AE%E8%BD%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>架构</title>
+      <link>http://localhost:45445/tags/%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%9E%B6%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>组织变革</title>
+      <link>http://localhost:45445/tags/%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>悟空</title>
+      <link>http://localhost:45445/tags/%E6%82%9F%E7%A9%BA/</link>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%82%9F%E7%A9%BA/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>电商</title>
+      <link>http://localhost:45445/tags/%E7%94%B5%E5%95%86/</link>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E7%94%B5%E5%95%86/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent-Optimization</title>
+      <link>http://localhost:45445/tags/agent-optimization/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agent-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Feedback-Loop</title>
+      <link>http://localhost:45445/tags/feedback-loop/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/feedback-loop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Startup</title>
+      <link>http://localhost:45445/tags/startup/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/startup/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>企业架构</title>
+      <link>http://localhost:45445/tags/%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>钉钉</title>
+      <link>http://localhost:45445/tags/%E9%92%89%E9%92%89/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E9%92%89%E9%92%89/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>风险控制</title>
+      <link>http://localhost:45445/tags/%E9%A3%8E%E9%99%A9%E6%8E%A7%E5%88%B6/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E9%A3%8E%E9%99%A9%E6%8E%A7%E5%88%B6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Browser</title>
+      <link>http://localhost:45445/tags/browser/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/browser/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Office-Automation</title>
+      <link>http://localhost:45445/tags/office-automation/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/office-automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry Pi</title>
+      <link>http://localhost:45445/tags/raspberry-pi/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Skill</title>
+      <link>http://localhost:45445/tags/skill/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/skill/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tailscale</title>
+      <link>http://localhost:45445/tags/tailscale/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/tailscale/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Autoresearch</title>
+      <link>http://localhost:45445/tags/autoresearch/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/autoresearch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Token-Optimization</title>
+      <link>http://localhost:45445/tags/token-optimization/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/token-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Career</title>
+      <link>http://localhost:45445/tags/career/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/career/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Claude</title>
+      <link>http://localhost:45445/tags/claude/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/claude/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deployment</title>
+      <link>http://localhost:45445/tags/deployment/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/deployment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IM</title>
+      <link>http://localhost:45445/tags/im/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/im/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>http://localhost:45445/tags/macos/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sandbox</title>
+      <link>http://localhost:45445/tags/sandbox/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/sandbox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:45445/tags/security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Session-Management</title>
+      <link>http://localhost:45445/tags/session-management/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/session-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Unix</title>
+      <link>http://localhost:45445/tags/unix/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/unix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>http://localhost:45445/tags/windows/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workspace</title>
+      <link>http://localhost:45445/tags/workspace/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/workspace/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Digital-Transformation</title>
+      <link>http://localhost:45445/tags/digital-transformation/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/digital-transformation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>http://localhost:45445/tags/git/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Attention</title>
+      <link>http://localhost:45445/tags/attention/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/attention/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep-Learning</title>
+      <link>http://localhost:45445/tags/deep-learning/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Personal-Growth</title>
+      <link>http://localhost:45445/tags/personal-growth/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/personal-growth/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tool-Use</title>
+      <link>http://localhost:45445/tags/tool-use/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/tool-use/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformer</title>
+      <link>http://localhost:45445/tags/transformer/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/transformer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PTC</title>
+      <link>http://localhost:45445/tags/ptc/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ptc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embeddings</title>
+      <link>http://localhost:45445/tags/embeddings/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/embeddings/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Heartbeat</title>
+      <link>http://localhost:45445/tags/heartbeat/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/heartbeat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory</title>
+      <link>http://localhost:45445/tags/memory/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/memory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RAG</title>
+      <link>http://localhost:45445/tags/rag/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self-Hosted</title>
+      <link>http://localhost:45445/tags/self-hosted/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/self-hosted/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vector-Database</title>
+      <link>http://localhost:45445/tags/vector-database/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/vector-database/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data-Quality</title>
+      <link>http://localhost:45445/tags/data-quality/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/data-quality/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Training-Data</title>
+      <link>http://localhost:45445/tags/training-data/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/training-data/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best-Practice</title>
+      <link>http://localhost:45445/tags/best-practice/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/best-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Personal-Assistant</title>
+      <link>http://localhost:45445/tags/personal-assistant/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/personal-assistant/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI-Platform</title>
+      <link>http://localhost:45445/tags/ai-platform/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai-platform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coze</title>
+      <link>http://localhost:45445/tags/coze/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/coze/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dify</title>
+      <link>http://localhost:45445/tags/dify/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/dify/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lovable</title>
+      <link>http://localhost:45445/tags/lovable/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/lovable/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Manus</title>
+      <link>http://localhost:45445/tags/manus/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/manus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Skills</title>
+      <link>http://localhost:45445/tags/skills/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/skills/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI-Coding</title>
+      <link>http://localhost:45445/tags/ai-coding/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ai-coding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering-Paradigm</title>
+      <link>http://localhost:45445/tags/engineering-paradigm/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/engineering-paradigm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code-Generation</title>
+      <link>http://localhost:45445/tags/code-generation/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/code-generation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Computer-Vision</title>
+      <link>http://localhost:45445/tags/computer-vision/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/computer-vision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multimodal</title>
+      <link>http://localhost:45445/tags/multimodal/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/multimodal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:45445/tags/python/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pytorch</title>
+      <link>http://localhost:45445/tags/pytorch/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RPA</title>
+      <link>http://localhost:45445/tags/rpa/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/rpa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Screen-Recording</title>
+      <link>http://localhost:45445/tags/screen-recording/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/screen-recording/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:45445/tags/javascript/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PWA</title>
+      <link>http://localhost:45445/tags/pwa/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/pwa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web-Development</title>
+      <link>http://localhost:45445/tags/web-development/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/web-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chatbot</title>
+      <link>http://localhost:45445/tags/chatbot/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/chatbot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Node.js</title>
+      <link>http://localhost:45445/tags/node.js/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/node.js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openai</title>
+      <link>http://localhost:45445/tags/openai/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/openai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Typescript</title>
+      <link>http://localhost:45445/tags/typescript/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/typescript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Meeting-Minutes</title>
+      <link>http://localhost:45445/tags/meeting-minutes/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/meeting-minutes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NLP</title>
+      <link>http://localhost:45445/tags/nlp/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/nlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google</title>
+      <link>http://localhost:45445/tags/google/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/google/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Megatron</title>
+      <link>http://localhost:45445/tags/megatron/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/megatron/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NotebookLM</title>
+      <link>http://localhost:45445/tags/notebooklm/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/notebooklm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parallel-Processing</title>
+      <link>http://localhost:45445/tags/parallel-processing/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/parallel-processing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Performance-Optimization</title>
+      <link>http://localhost:45445/tags/performance-optimization/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/performance-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement-Learning</title>
+      <link>http://localhost:45445/tags/reinforcement-learning/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SGLang</title>
+      <link>http://localhost:45445/tags/sglang/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/sglang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slime</title>
+      <link>http://localhost:45445/tags/slime/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/slime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TTS</title>
+      <link>http://localhost:45445/tags/tts/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/tts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>企业AI</title>
+      <link>http://localhost:45445/tags/%E4%BC%81%E4%B8%9Aai/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E4%BC%81%E4%B8%9Aai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>多模态</title>
+      <link>http://localhost:45445/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>强化学习</title>
+      <link>http://localhost:45445/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>机器学习</title>
+      <link>http://localhost:45445/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Job-Search</title>
+      <link>http://localhost:45445/tags/job-search/</link>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/job-search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>http://localhost:45445/tags/resume/</link>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/resume/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent-Routing</title>
+      <link>http://localhost:45445/tags/agent-routing/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/agent-routing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>B2B</title>
+      <link>http://localhost:45445/tags/b2b/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/b2b/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Document-Classification</title>
+      <link>http://localhost:45445/tags/document-classification/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/document-classification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MES</title>
+      <link>http://localhost:45445/tags/mes/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/mes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OCR</title>
+      <link>http://localhost:45445/tags/ocr/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ocr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workflow-Automation</title>
+      <link>http://localhost:45445/tags/workflow-automation/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/workflow-automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>教育科技</title>
+      <link>http://localhost:45445/tags/%E6%95%99%E8%82%B2%E7%A7%91%E6%8A%80/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%95%99%E8%82%B2%E7%A7%91%E6%8A%80/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>数据工程</title>
+      <link>http://localhost:45445/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E7%A8%8B/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>文档解析</title>
+      <link>http://localhost:45445/tags/%E6%96%87%E6%A1%A3%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%96%87%E6%A1%A3%E8%A7%A3%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>计算机视觉</title>
+      <link>http://localhost:45445/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>API</title>
+      <link>http://localhost:45445/tags/api/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code-Execution</title>
+      <link>http://localhost:45445/tags/code-execution/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/code-execution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Compression</title>
+      <link>http://localhost:45445/tags/compression/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/compression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>http://localhost:45445/tags/devops/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>E2b</title>
+      <link>http://localhost:45445/tags/e2b/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/e2b/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Information-Theory</title>
+      <link>http://localhost:45445/tags/information-theory/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/information-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Intent-Recognition</title>
+      <link>http://localhost:45445/tags/intent-recognition/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/intent-recognition/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>技术科普</title>
+      <link>http://localhost:45445/tags/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:45445/tags/docker/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hostapd</title>
+      <link>http://localhost:45445/tags/hostapd/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/hostapd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AppleScript</title>
+      <link>http://localhost:45445/tags/applescript/</link>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/applescript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shortcuts</title>
+      <link>http://localhost:45445/tags/shortcuts/</link>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/shortcuts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coredns</title>
+      <link>http://localhost:45445/tags/coredns/</link>
+      <pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/coredns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Derp</title>
+      <link>http://localhost:45445/tags/derp/</link>
+      <pubDate>Tue, 18 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/derp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wifi</title>
+      <link>http://localhost:45445/tags/wifi/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/wifi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dns</title>
+      <link>http://localhost:45445/tags/dns/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openwrt</title>
+      <link>http://localhost:45445/tags/openwrt/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/openwrt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Derper</title>
+      <link>http://localhost:45445/tags/derper/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/derper/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mirabox</title>
+      <link>http://localhost:45445/tags/mirabox/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/mirabox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Streamdeck</title>
+      <link>http://localhost:45445/tags/streamdeck/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/streamdeck/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Streamdock</title>
+      <link>http://localhost:45445/tags/streamdock/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/streamdock/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:45445/tags/about/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/about/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clickhouse</title>
+      <link>http://localhost:45445/tags/clickhouse/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/clickhouse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Postgres</title>
+      <link>http://localhost:45445/tags/postgres/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/postgres/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Seatunnel</title>
+      <link>http://localhost:45445/tags/seatunnel/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/seatunnel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Airflow</title>
+      <link>http://localhost:45445/tags/airflow/</link>
+      <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/airflow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Acme.sh</title>
+      <link>http://localhost:45445/tags/acme.sh/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/acme.sh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Apisix</title>
+      <link>http://localhost:45445/tags/apisix/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/apisix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>http://localhost:45445/tags/blog/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dnspod</title>
+      <link>http://localhost:45445/tags/dnspod/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/dnspod/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>http://localhost:45445/tags/github/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>http://localhost:45445/tags/hugo/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infuse</title>
+      <link>http://localhost:45445/tags/infuse/</link>
+      <pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/infuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VidHub</title>
+      <link>http://localhost:45445/tags/vidhub/</link>
+      <pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/vidhub/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Armbian</title>
+      <link>http://localhost:45445/tags/armbian/</link>
+      <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/armbian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:45445/tags/linux/</link>
+      <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>http://localhost:45445/tags/ubuntu/</link>
+      <pubDate>Tue, 20 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K8s</title>
+      <link>http://localhost:45445/tags/k8s/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/k8s/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rancher</title>
+      <link>http://localhost:45445/tags/rancher/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/rancher/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bash</title>
+      <link>http://localhost:45445/tags/bash/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/bash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gitlab</title>
+      <link>http://localhost:45445/tags/gitlab/</link>
+      <pubDate>Mon, 16 May 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google Analytics</title>
+      <link>http://localhost:45445/tags/google-analytics/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/google-analytics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IPad</title>
+      <link>http://localhost:45445/tags/ipad/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/ipad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bigimg</title>
+      <link>http://localhost:45445/tags/bigimg/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/bigimg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Example</title>
+      <link>http://localhost:45445/tags/example/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/example/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bluetooth</title>
+      <link>http://localhost:45445/tags/bluetooth/</link>
+      <pubDate>Tue, 19 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/bluetooth/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iptables</title>
+      <link>http://localhost:45445/tags/iptables/</link>
+      <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/iptables/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PcDunio Acadia</title>
+      <link>http://localhost:45445/tags/pcdunio-acadia/</link>
+      <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/pcdunio-acadia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stock</title>
+      <link>http://localhost:45445/tags/stock/</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/stock/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android</title>
+      <link>http://localhost:45445/tags/android/</link>
+      <pubDate>Wed, 05 Nov 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gradle</title>
+      <link>http://localhost:45445/tags/gradle/</link>
+      <pubDate>Wed, 23 Jul 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/gradle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arduino</title>
+      <link>http://localhost:45445/tags/arduino/</link>
+      <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/arduino/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sublime</title>
+      <link>http://localhost:45445/tags/sublime/</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/sublime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Concurrency</title>
+      <link>http://localhost:45445/tags/concurrency/</link>
+      <pubDate>Sun, 30 Jun 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell Scripting</title>
+      <link>http://localhost:45445/tags/shell-scripting/</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/shell-scripting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Golang</title>
+      <link>http://localhost:45445/tags/golang/</link>
+      <pubDate>Mon, 22 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/golang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google App Engine</title>
+      <link>http://localhost:45445/tags/google-app-engine/</link>
+      <pubDate>Mon, 22 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/google-app-engine/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Concurrent Programming</title>
+      <link>http://localhost:45445/tags/concurrent-programming/</link>
+      <pubDate>Sat, 20 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/concurrent-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rasperry Pi</title>
+      <link>http://localhost:45445/tags/rasperry-pi/</link>
+      <pubDate>Mon, 08 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/rasperry-pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>http://localhost:45445/tags/java/</link>
+      <pubDate>Thu, 28 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>文章翻译</title>
+      <link>http://localhost:45445/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</link>
+      <pubDate>Thu, 28 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network</title>
+      <link>http://localhost:45445/tags/network/</link>
+      <pubDate>Fri, 08 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VPN</title>
+      <link>http://localhost:45445/tags/vpn/</link>
+      <pubDate>Sat, 02 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/vpn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>代码之美</title>
+      <link>http://localhost:45445/tags/%E4%BB%A3%E7%A0%81%E4%B9%8B%E7%BE%8E/</link>
+      <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E4%BB%A3%E7%A0%81%E4%B9%8B%E7%BE%8E/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广告系统</title>
+      <link>http://localhost:45445/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 28 Feb 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System-Architecture on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/system-architecture/</link>
+    <description>Recent content in System-Architecture on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/system-architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进</title>
+      <link>http://localhost:45445/post/2026/178-agent-model-plus-harness/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/178-agent-model-plus-harness/</guid>
+      <description>&lt;p&gt;如果把 Agent 拆解成一个公式，最简单的表达就是：&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Agent = Model + Harness&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Model 负责思考、推理、决策；Harness 负责循环控制、工具路由、状态管理。过去一年，社区的目光几乎全部聚焦在 Model 上——谁的能力强、谁更便宜、谁上下文更大。但 Anthropic 工程团队最近发布的 &lt;a href=&#34;https://www.anthropic.com/engineering/managed-agents&#34;&gt;Managed Agents 架构文章&lt;/a&gt;揭示了一个被忽视的事实：&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&amp;ldquo;Harnesses encode assumptions about what Claude can&amp;rsquo;t do on its own. Those assumptions go stale as models improve.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Harness 编码了关于&amp;quot;模型做不到什么&amp;quot;的假设，而这些假设会随着模型能力提升而迅速过时。一个更有趣的推论是：&lt;strong&gt;模型越强，Harness 的设计就越重要&lt;/strong&gt;——因为越强的模型需要越精密的控制结构，才能把能力转化为可靠的产出。&lt;/p&gt;&#xA;&lt;p&gt;这篇文章从 Anthropic 的工程实践出发，拆解 Agent 架构的核心设计模式，以及&amp;quot;面向未来的 Harness&amp;quot;到底长什么样。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

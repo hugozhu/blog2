@@ -1,0 +1,735 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>System-Design - Hugo Zhu&#39;s Blog</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+
+
+<meta property="og:title" content="System-Design" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/tags/system-design/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="System-Design" />
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="tags-heading">
+              
+                <h1>System-Design</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="http://localhost:45445/post/2026/187-ai-era-architect-growth-path/">
+        <h2 class="post-title">AI 时代，校招生如何成为好架构师</h2>
+        
+        <h3 class="post-subtitle">
+            The AI-Native Architect: A Growth Path for Fresh Graduates
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 20, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;873&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>上周有个校招生问我：&ldquo;朱老师，我想成为架构师，但现在 AI 连代码都能写了，我是不是应该直接学架构设计，跳过写代码这一步？&rdquo;</p>
+<p>这个问题很有意思。它暴露了一个典型的认知误区——把&quot;写代码&quot;和&quot;做架构&quot;看作两个独立的阶段，仿佛 AI 替代了前者，后者就可以直接上手。</p>
+<p>但真相恰恰相反。<strong>AI 不是让你跳过写代码，而是让你在写代码的过程中，同时训练架构思维。</strong> 传统的架构师成长路径是&quot;先写 5 年代码，再学系统设计&quot;，而 AI 时代的路径是&quot;从第一天起，就让 AI 帮你同时跑两条线&quot;。</p>
+        <a href="http://localhost:45445/post/2026/187-ai-era-architect-growth-path/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="http://localhost:45445/tags/ai-literacy/">ai-literacy</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/career-growth/">career-growth</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/architecture/">architecture</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/dual-system/">dual-system</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/">
+        <h2 class="post-title">Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</h2>
+        
+        <h3 class="post-subtitle">
+            How Hermes Agent Gateway Unifies 18 IM Platforms with a Single Codebase
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 19, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;8&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1595&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>上周团队在规划 Agent 的多渠道接入方案。有人说&quot;每个 IM 写一套 adapter&quot;，有人说&quot;统一用 Webhook 接收然后标准化&quot;。</p>
+<p>我打开 Hermes Agent 的代码仓库，<code>gateway/platforms/</code> 目录下躺着 <strong>18 个平台适配器</strong>——从 Telegram、Discord 到钉钉、飞书、企业微信、QQ 机器人，甚至还有 iMessage（BlueBubbles）、Signal 和 Home Assistant。</p>
+<p>&ldquo;所有平台共享同一个 Agent Loop，同一套 Session 管理，同一套工具调用。&rdquo;</p>
+<p>他们问：&ldquo;那 18 个 adapter 之间代码复用率有多少？&rdquo;</p>
+<p>我给他们看了一张图。</p>
+        <a href="http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/hermes/">hermes</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/messaging/">messaging</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/gateway/">gateway</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/architecture/">architecture</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="http://localhost:45445/post/2026/184-hermes-cli-tui-architecture-deep-dive/">
+        <h2 class="post-title">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</h2>
+        
+        <h3 class="post-subtitle">
+            How Hermes Agent TUI and CLI Communicate with the Agent Loop — Architecture Deep Dive
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 19, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1329&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>上周团队在讨论 Agent 产品的交互方案。前端同学主张用 Web UI + WebSocket，理由是现代、可扩展、支持多端。后端同学说那不如直接嵌到现有产品里，用 HTTP REST API。</p>
+<p>我打开了我们自己的 Agent 代码仓库，给他们看了两套实现——一套是纯 Python 的同进程架构，另一套是 React + Python 子进程通过 JSON-RPC 通信。</p>
+<p>&ldquo;我们同一个产品里，两套通信协议并存。&rdquo;</p>
+<p>他们沉默了几秒。&ldquo;为什么？&rdquo;</p>
+<p>因为这不是架构设计的失误，而是<strong>交互范式的必然分化</strong>。CLI 要的是零延迟的本地体验，TUI 要的是跨进程的事件驱动架构。用一套协议去套两种场景，只会两头都不讨好。</p>
+<p>今天我们就来解剖一下 Hermes Agent 的两种交互架构——看看 CLI 和 TUI 分别是怎么和 Agent Loop 通信的，协议是什么，为什么这么设计。</p>
+        <a href="http://localhost:45445/post/2026/184-hermes-cli-tui-architecture-deep-dive/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/hermes/">hermes</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/cli/">cli</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/tui/">tui</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/json-rpc/">json-rpc</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/architecture/">architecture</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="http://localhost:45445/post/2026/183-agent-skill-self-evolution/">
+        <h2 class="post-title">Agent 的 Skill 自进化机制：它是如何自己长记性的</h2>
+        
+        <h3 class="post-subtitle">
+            How LLM Agents Self-Improve Through Procedural Memory Evolution
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 18, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;436&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>昨天我用 Agent 处理一个棘手的部署任务。它第一次跑的时候踩了个坑——少了一步 <code>docker login</code>，推送镜像时报错了。Agent 发现问题，自己补上登录步骤，重试后跑通了。</p>
+<p>但最让我惊讶的不是它跑通了，而是它<strong>默默更新了自己的操作手册</strong>。</p>
+<p>下一次我再让它做同样的任务时，它直接带上了 <code>docker login</code>，一步到位。</p>
+<p>它自己&quot;长记性&quot;了。</p>
+<p>这不是魔法，是 Hermes Agent 的 <strong>Skill 自进化机制</strong>。它把一次性的试错经验，固化成了可复用的程序化记忆。</p>
+        <a href="http://localhost:45445/post/2026/183-agent-skill-self-evolution/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/llm/">llm</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/hermes/">hermes</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/skill-management/">skill-management</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="http://localhost:45445/post/2026/182-llm-agent-context-compression-evolution/">
+        <h2 class="post-title">LLM Agent 上下文压缩算法</h2>
+        
+        <h3 class="post-subtitle">
+            How Modern LLM Agents Manage Context Windows Without Losing Track of Your Task
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 18, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1084&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>跑了一个长对话 session，agent 帮我重构了一个模块，修了三个 bug，又加了一组测试——最后触发了 context compression，屏幕上显示：&ldquo;Compressed: 347 -&gt; 18 messages (~89,000 tokens saved, 74%)&quot;。</p>
+<p>我好奇它是怎么做到的：压缩了 89K tokens 后，agent 继续干活，居然还记得之前改过的文件路径、失败的测试用例、我说过&quot;不要用 <code>==</code> 要用 <code>is</code> 比较 None&quot;这种细节。</p>
+<p>这不是魔术，是一个经过大量 bug 修复迭代出来的上下文压缩算法。我花了两个小时读了 Hermes Agent 的 <code>context_compressor.py</code>，1163 行代码，每一步都有对应的失败案例和修复注释。</p>
+        <a href="http://localhost:45445/post/2026/182-llm-agent-context-compression-evolution/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/llm/">llm</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/context-management/">context-management</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/hermes/">hermes</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="http://localhost:45445/post/2026/181-opencli-vs-autocli-web-cli-revolution/">
+        <h2 class="post-title">OpenCLI vs AutoCLI：把网站变成 CLI 的技术革命</h2>
+        
+        <h3 class="post-subtitle">
+            Why OpenCLI and AutoCLI Are Reinventing Web Data Access for AI Agents
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 18, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;894&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>上周给 DingTalk 的一个内部项目做技术调研，需要从知乎、B站、小红书几个平台拉热榜数据做竞品分析。同事的第一反应是写爬虫——打开 Playwright，找 CSS 选择器，处理登录态，和 Cloudflare 斗智斗勇，折腾了两小时还没跑通。我看了看他的代码，说：&ldquo;换个思路，试试 OpenCLI，<code>opencli zhihu hot</code> 一行命令就完了。&rdquo;</p>
+<p>一查这个项目——GitHub 上 16K stars。再看 AutoCLI（OpenCLI 的 Rust 重写版）的性能数据：<code>bilibili hot</code> 命令，OpenCLI 要 20 秒，AutoCLI 只要 1.66 秒，<strong>12 倍加速</strong>。</p>
+<p>更令人震惊的不是性能数字，而是这两个项目背后的<strong>技术范式转变</strong>——它们不是在&quot;做更好的爬虫&quot;，而是在<strong>重新定义怎么从网站获取数据</strong>。</p>
+        <a href="http://localhost:45445/post/2026/181-opencli-vs-autocli-web-cli-revolution/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/web-scraping/">web-scraping</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/cli-tools/">cli-tools</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+        
+       
+       <a href="http://localhost:45445/tags/rust/">rust</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          <li>
+            <a href="/tags/system-design/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

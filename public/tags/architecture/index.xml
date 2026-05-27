@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Architecture on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/architecture/</link>
+    <description>Recent content in Architecture on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 时代，校招生如何成为好架构师</title>
+      <link>http://localhost:45445/post/2026/187-ai-era-architect-growth-path/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/187-ai-era-architect-growth-path/</guid>
+      <description>&lt;p&gt;上周有个校招生问我：&amp;ldquo;朱老师，我想成为架构师，但现在 AI 连代码都能写了，我是不是应该直接学架构设计，跳过写代码这一步？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;这个问题很有意思。它暴露了一个典型的认知误区——把&amp;quot;写代码&amp;quot;和&amp;quot;做架构&amp;quot;看作两个独立的阶段，仿佛 AI 替代了前者，后者就可以直接上手。&lt;/p&gt;&#xA;&lt;p&gt;但真相恰恰相反。&lt;strong&gt;AI 不是让你跳过写代码，而是让你在写代码的过程中，同时训练架构思维。&lt;/strong&gt; 传统的架构师成长路径是&amp;quot;先写 5 年代码，再学系统设计&amp;quot;，而 AI 时代的路径是&amp;quot;从第一天起，就让 AI 帮你同时跑两条线&amp;quot;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</title>
+      <link>http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/</guid>
+      <description>&lt;p&gt;上周团队在规划 Agent 的多渠道接入方案。有人说&amp;quot;每个 IM 写一套 adapter&amp;quot;，有人说&amp;quot;统一用 Webhook 接收然后标准化&amp;quot;。&lt;/p&gt;&#xA;&lt;p&gt;我打开 Hermes Agent 的代码仓库，&lt;code&gt;gateway/platforms/&lt;/code&gt; 目录下躺着 &lt;strong&gt;18 个平台适配器&lt;/strong&gt;——从 Telegram、Discord 到钉钉、飞书、企业微信、QQ 机器人，甚至还有 iMessage（BlueBubbles）、Signal 和 Home Assistant。&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;所有平台共享同一个 Agent Loop，同一套 Session 管理，同一套工具调用。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;他们问：&amp;ldquo;那 18 个 adapter 之间代码复用率有多少？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;我给他们看了一张图。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</title>
+      <link>http://localhost:45445/post/2026/184-hermes-cli-tui-architecture-deep-dive/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/184-hermes-cli-tui-architecture-deep-dive/</guid>
+      <description>&lt;p&gt;上周团队在讨论 Agent 产品的交互方案。前端同学主张用 Web UI + WebSocket，理由是现代、可扩展、支持多端。后端同学说那不如直接嵌到现有产品里，用 HTTP REST API。&lt;/p&gt;&#xA;&lt;p&gt;我打开了我们自己的 Agent 代码仓库，给他们看了两套实现——一套是纯 Python 的同进程架构，另一套是 React + Python 子进程通过 JSON-RPC 通信。&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;我们同一个产品里，两套通信协议并存。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;他们沉默了几秒。&amp;ldquo;为什么？&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;因为这不是架构设计的失误，而是&lt;strong&gt;交互范式的必然分化&lt;/strong&gt;。CLI 要的是零延迟的本地体验，TUI 要的是跨进程的事件驱动架构。用一套协议去套两种场景，只会两头都不讨好。&lt;/p&gt;&#xA;&lt;p&gt;今天我们就来解剖一下 Hermes Agent 的两种交互架构——看看 CLI 和 TUI 分别是怎么和 Agent Loop 通信的，协议是什么，为什么这么设计。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>同一个生意做了四遍：从搜索到Agent，万物皆排序</title>
+      <link>http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/</guid>
+      <description>&lt;p&gt;如果你在过去二十年里分别做过搜索引擎、广告系统、推荐系统，再到今天做AI Agent，你可能会有一个越来越强烈的感觉：&lt;strong&gt;这不就是同一个生意吗？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;表面上看，Google做搜索、Meta做广告、抖音做推荐、OpenAI做Agent，四个完全不同的产品形态，四个不同的技术栈，甚至四个不同的行业叙事。但如果你把外壳剥掉，盯着底层看，会发现一个令人不安的事实：&lt;strong&gt;这四代系统的核心逻辑，从来没有变过。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;它们都在做同一件事——&lt;strong&gt;在信息过载的世界里，帮用户匹配到最相关的东西，然后从匹配效率的提升中抽税。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent的架构之战：从Desktop到AI时代，架构决定平台的生死</title>
+      <link>http://localhost:45445/post/2026/160-agent-architecture-platform-competition/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/160-agent-architecture-platform-competition/</guid>
+      <description>&lt;p&gt;每一代平台级产品的竞争，最终都不是功能之争，而是&lt;strong&gt;架构之争&lt;/strong&gt;。Windows赢了OS/2，不是因为功能更多，而是因为它的架构让第三方开发者能更容易地构建应用。iOS赢了Symbian，不是因为初期功能更强，而是因为它的架构从第一天就为触控交互和应用生态设计。Chrome赢了IE，不是因为它一开始更快，而是因为多进程架构让它在页面崩溃时不会拖垮整个浏览器。&lt;/p&gt;&#xA;&lt;p&gt;现在，AI Agent正在成为从Desktop、Web、Mobile之后的第四代平台级产品。而历史正在重演：&lt;strong&gt;决定谁能赢的，不是谁的模型更强、谁的功能更多，而是谁的架构更对。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI的MaaS层最核心的能力：把一个不稳定的概率接口，变成一个可运营的服务</title>
+      <link>http://localhost:45445/post/2026/158-maas-core-capabilities/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/158-maas-core-capabilities/</guid>
+      <description>&lt;p&gt;很多人对MaaS（Model as a Service）的理解停留在&amp;quot;套一层API&amp;quot;——把OpenAI的接口包一下，加个Key管理，做个用量统计，就叫MaaS了。如果这就是MaaS的全部，那它确实没什么技术含量，随便一个API Gateway就能干。&lt;/p&gt;&#xA;&lt;p&gt;但现实是：&lt;strong&gt;几乎所有在生产环境跑AI应用的团队，最终都会自建或依赖一个MaaS层。&lt;/strong&gt; 不是因为他们闲，而是因为裸调模型API在生产环境里根本撑不住。&lt;/p&gt;&#xA;&lt;p&gt;MaaS层真正要解决的问题是：&lt;strong&gt;把一个概率性的、无状态的、昂贵的模型API调用，变成一个可靠的、可观测的、成本可控的服务。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw &#43; Claude Code 协同：用 Sub-Agent 执行编程任务并实时同步进度</title>
+      <link>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</guid>
+      <description>&lt;p&gt;你在钉钉里对 AI 助手说：&amp;ldquo;帮我写一个博客文章&amp;rdquo;，然后 Agent 回复&amp;quot;好的&amp;quot;——接下来呢？你等了 3 分钟、5 分钟、10 分钟，不知道它在干什么、进展到哪了、是不是卡住了。这是所有 Agent 系统面临的共同问题：&lt;strong&gt;编程类耗时任务的进度黑洞&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 通过 Sub-Agent 机制调用 Claude Code 执行编程任务，再借助 &lt;code&gt;stream-json&lt;/code&gt; 输出格式和一个轻量级的监控脚本，将任务进度实时同步到钉钉。本文完整拆解这套方案的架构设计和实现细节。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自我进化的AI助手：OpenClaw如何用Heartbeat实现Skill自动优化</title>
+      <link>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</guid>
+      <description>&lt;p&gt;在&lt;a href=&#34;http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/&#34;&gt;上一篇文章&lt;/a&gt;中，我从 Karpathy 的 autoresearch 项目提炼了一个范式：&lt;strong&gt;人写规则，Token 做实验&lt;/strong&gt;。我们用 AI 客服 Prompt 优化作为案例，验证了这个范式在业务场景中的可行性。但那个方案有一个前提——你需要预先准备评估数据集。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的场景让我意识到，还有一种更彻底的可能：&lt;strong&gt;Agent 用自己的真实执行数据作为评估信号，在用户无感知的情况下持续自我优化。&lt;/strong&gt; 不需要人工标注测试集，不需要离线批处理，每一次真实使用都是一条训练数据。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>悟空是AI时代的淘宝：Token消费的多快好省</title>
+      <link>http://localhost:45445/post/2026/146-wukong-taobao-of-ai-token-economy/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/146-wukong-taobao-of-ai-token-economy/</guid>
+      <description>&lt;p&gt;1962年，一位伟人为中国工业发展题写了&amp;quot;鼓足干劲，力争上游，多快好省地建设社会主义&amp;quot;。六十多年后，当我们审视AI Agent工程的核心挑战时，会发现一个惊人的对称：&lt;strong&gt;Agent工程的终极优化目标，本质上就是对模型Token消耗的&amp;quot;多快好省&amp;quot;。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;淘宝用十五年把&amp;quot;多快好省&amp;quot;刻进了中国零售的DNA——商品要多、物流要快、品质要好、价格要省。而今天的AI Agent Runtime，正在用同一套逻辑重塑Token消费——模型类型要&lt;strong&gt;多&lt;/strong&gt;、响应速度要&lt;strong&gt;快&lt;/strong&gt;、完成效果要&lt;strong&gt;好&lt;/strong&gt;、使用成本要&lt;strong&gt;省&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;悟空——孙悟空七十二变（多）、筋斗云十万八千里（快）、金箍棒降妖除魔（好）、一根毫毛变千猴（省）。一个优秀的Agent Runtime，就是AI时代的淘宝，Token世界的悟空。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建企业级Agent Runtime：从Skill到Workspace的五层架构</title>
+      <link>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</guid>
+      <description>&lt;p&gt;很多团队对 Agent 的理解还停留在&amp;quot;LLM + Prompt + 几个工具调用&amp;quot;。这种理解能跑通 Demo，但一旦进入企业级场景——多任务并行、多系统集成、多角色协作、安全审计——就会发现：&lt;strong&gt;Agent 系统的核心挑战不是让 LLM 更聪明，而是构建一个可扩展、可治理、可审计的运行时架构。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Agent 系统本质上在解决五个问题：用户要做什么（Agent）、谁来执行（Sub-Agent）、如何执行（Skill）、从哪里获取数据（MCP）、执行过程的状态存在哪里（Workspace）。这五个问题对应了系统的五个核心层次。&lt;/p&gt;&#xA;&lt;p&gt;本文将这套架构完整展开。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI Agent 架构的终局，是 Unix 哲学的回归</title>
+      <link>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/138-ai-agent-architecture-unix-philosophy-returns/</guid>
+      <description>&lt;p&gt;最近在梳理各种 AI Agent 框架和 Runtime 的架构时，我产生了一个越来越强烈的感觉：&lt;strong&gt;我们正在重新发明 Unix。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;不是比喻。是字面意义上的重新发明。当你把今天主流的 Agent 架构摊开来看——Skill、Workspace、Tool、Pipeline、Orchestrator——你会发现，这些概念和 50 年前 Unix 的设计哲学几乎一一对应。区别只是换了一层 AI 的皮。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>为 AI 重建的 IM 架构</title>
+      <link>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</guid>
+      <description>&lt;p&gt;传统 IM（即时通讯）解决的是一个简单的问题：&lt;strong&gt;让人和人高效地交换信息&lt;/strong&gt;。文本、图片、文件、语音——三十年来，IM 的核心架构围绕着&amp;quot;谁说了什么&amp;quot;展开，安全靠端到端加密，权限靠静态角色控制，审计靠消息日志。这套体系服务了几十亿用户，足够成熟。&lt;/p&gt;&#xA;&lt;p&gt;但当 AI Agent 成为 IM 中的活跃参与者——不仅接收消息，还理解意图、调用工具、执行任务、产生后果——传统 IM 的架构假设就被从根本上打破了。&lt;strong&gt;IM 不再只是信息传递的通道，而是 Agent 协作与执行的操作系统。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这需要一种全新的 IM 架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业专属模型：让企业放心调用大模型的架构最佳实践</title>
+      <link>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</guid>
+      <description>&lt;p&gt;和企业客户聊 AI 落地，十次有九次会被问到同一个问题：&lt;strong&gt;&amp;ldquo;我们调用你们的大模型，数据会不会被拿去训练？&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这个问题背后的焦虑是真实的。企业的客户数据、商业机密、内部文档、代码仓库——这些是企业的核心资产。把它们发送给一个外部的大模型 API，本质上就是把家底给别人看了一遍。如果这些数据还被用来训练模型，那等于是在免费帮竞争对手提升 AI 能力。&lt;/p&gt;&#xA;&lt;p&gt;好消息是，这个问题在 2026 年已经有了成熟的解决方案。坏消息是，大多数企业还不知道该怎么选。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业级 Agent Runtime 的第一道防线：安全沙箱</title>
+      <link>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</guid>
+      <description>&lt;p&gt;当我们谈论企业级 AI Agent Runtime 时，第一个需要解决的问题不是&amp;quot;模型有多聪明&amp;quot;，而是&amp;quot;Agent 执行的代码有多安全&amp;quot;。一个能读写文件、执行命令、访问网络的 Agent，如果没有安全边界，就是一颗不知道什么时候会爆炸的定时炸弹。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;企业级的 Agent Runtime 首先需要一个安全沙箱：文件系统隔离 + 网络访问隔离。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>当 AI Agent 被拉进多个群：会话隔离与 Agent 隔离的生死线</title>
+      <link>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</guid>
+      <description>&lt;p&gt;把一个 AI Agent 拉进钉钉的多个群，是一件非常容易的事情——群管理员点一下&amp;quot;添加机器人&amp;quot;就完成了。但这也是一件&lt;strong&gt;极其危险的事情&lt;/strong&gt;——如果 Agent Runtime 没有做好隔离，你可能正在制造一个企业级的安全事故。&lt;/p&gt;&#xA;&lt;p&gt;想象这个场景：你的 AI Agent 同时服务于&amp;quot;核心技术架构群&amp;quot;和&amp;quot;外部合作伙伴群&amp;quot;。有人在合作伙伴群里问了一个问题，Agent 的回答中不小心带出了它在架构群里学到的技术方案细节。&lt;strong&gt;信息就这样泄露了，而且没有任何人会收到告警。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是假设。这是没有隔离的 Agent Runtime 的默认行为。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 执行耗时任务时如何主动汇报进度？四种方案的实战选型</title>
+      <link>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</guid>
+      <description>&lt;p&gt;你让 AI Agent 帮你跑一个需要 30 分钟的数据迁移脚本，然后就没了下文——它在干嘛？卡住了？还是已经跑完了？你不知道，因为 Agent 只会在任务彻底完成或彻底失败时才告诉你结果。&lt;/p&gt;&#xA;&lt;p&gt;这是 Agent 系统中一个普遍的痛点：&lt;strong&gt;耗时任务的进度黑洞&lt;/strong&gt;。用户发出指令后陷入等待，没有进度条，没有中间反馈，只有最终的成功或失败。在 OpenClaw 的实际使用中，我总结了四种适用于不同场景的进度上报方案，每种都有其最佳适用场景。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Workspace &#43; Git &#43; Agent：AI 时代的工作操作系统</title>
+      <link>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/134-workspace-git-agent-ai-operating-system/</guid>
+      <description>&lt;p&gt;过去一年，我越来越确信一个判断：&lt;strong&gt;AI 时代真正的工作操作系统，不是某个 App，不是某个平台，而是 Workspace + Git + Agent 这个三位一体的组合。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;为什么？因为 AI Agent 的一切——输入、输出、系统提示词、上下文、执行过程、临时生成的代码、图片、文档，甚至应用程序本身——本质上都是文件。既然 everything is file，那么管理这些文件的方式，就决定了你驾驭 AI 的效率和上限。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>让 Agent 更准确地完成任务，关键不在模型，而在环境</title>
+      <link>http://localhost:45445/post/2026/132-agent-clean-environment-best-practices/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/132-agent-clean-environment-best-practices/</guid>
+      <description>&lt;p&gt;做了一年多 AI Agent 开发，我逐渐形成了一个核心观点：&lt;strong&gt;让 Agent 更准确更高质量地完成任务，最关键的不是换一个更强的模型，而是给它一个正确的执行环境。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;具体来说，这个&amp;quot;正确的执行环境&amp;quot;包含四个要素：干净的执行环境、充足且正确的上下文、允许自我探索的空间、以及学会使用工具解决问题的能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>以前人给 AI 造工具，现在 AI 自己造工具</title>
+      <link>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</guid>
+      <description>&lt;p&gt;做 AI Agent 开发这一年多来，我经历了一个认知上的转变：以前的默认思路是&amp;quot;我要给 AI 准备好一切工具，让它去调用&amp;quot;；而现在，越来越多的场景让我意识到——&lt;strong&gt;AI 为了完成任务，会自己造工具&lt;/strong&gt;。这不是一个隐喻，而是一个正在发生的技术事实。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>大模型 Tool Use 准确率可达 99%，但前提是工具足够简单</title>
+      <link>http://localhost:45445/post/2026/130-llm-tool-use-accuracy-cli-simplicity/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/130-llm-tool-use-accuracy-cli-simplicity/</guid>
+      <description>&lt;p&gt;最近在做 Agent 开发时，我发现一个有意思的现象：大模型调用工具的准确率其实可以非常高，达到 99% 甚至更高——但这有一个关键前提：&lt;strong&gt;工具本身要足够简单&lt;/strong&gt;。这也解释了一个行业趋势：越来越多的平台服务在做 Tools 化时，选择的路径是写 CLI，而不是暴露复杂的 SDK 或 REST API。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 设计最佳实践：Memory</title>
+      <link>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</guid>
+      <description>&lt;p&gt;想象这样一个场景：你花了半小时向 AI 助手解释你的项目架构、编码偏好和团队规范，得到了一次满意的协作体验。第二天再打开对话——它全忘了。你又得从头来一遍。这不是 AI 不够聪明的问题，而是&lt;strong&gt;记忆架构缺失&lt;/strong&gt;的问题。OpenClaw 的 Memory 系统试图从根本上解决这个痛点：让 AI Agent 拥有持久、可检索、可自维护的记忆能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计</title>
+      <link>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</guid>
+      <description>&lt;p&gt;绝大多数 AI 助手都是被动的——用户不说话，它就沉默。这在&amp;quot;问答&amp;quot;场景下没问题，但如果你想让 AI 助手真正成为助手，它需要&lt;strong&gt;主动意识&lt;/strong&gt;：定期检查收件箱有没有紧急邮件、日历上有没有即将到来的会议、GitHub 上有没有需要关注的 PR。OpenClaw 的 Heartbeat（心跳）机制正是为此设计的。本文将深入解析这一设计的工程细节和最佳实践。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw 架构解析：如何构建一个有记忆、有灵魂的个人 AI 助手</title>
+      <link>http://localhost:45445/post/2026/126-openclaw-architecture-design/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/126-openclaw-architecture-design/</guid>
+      <description>&lt;p&gt;大多数 AI 助手是无状态的——你关掉窗口，它就忘了你是谁。OpenClaw 试图解决一个更本质的问题：&lt;strong&gt;能不能让 AI 助手像一个真正的助手一样，记住你、理解你、主动帮你？&lt;/strong&gt; 经过几周的实际使用，我想分享一下 OpenClaw 的架构设计和背后的思考。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

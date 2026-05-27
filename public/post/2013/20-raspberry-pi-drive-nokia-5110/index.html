@@ -1,0 +1,794 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>升级版电子钟 - 如何使用Raspberry Pi驱动Nokia 5110液晶屏 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="Nokia 5110比前面介绍过的1602液晶屏功能好很多"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "升级版电子钟 - 如何使用Raspberry Pi驱动Nokia 5110液晶屏",
+  "@id": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/",
+  "url": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/",
+      "name": "升级版电子钟 - 如何使用Raspberry Pi驱动Nokia 5110液晶屏",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "升级版电子钟 - 如何使用Raspberry Pi驱动Nokia 5110液晶屏",
+  "description": "Nokia 5110比前面介绍过的1602液晶屏功能好很多",
+  "inLanguage": "en",
+  "wordCount":  620 ,
+  "dateCreated": "2013-03-24T00:00:00+00:00",
+  "datePublished": "2013-03-24T00:00:00+00:00",
+  "dateModified": "2013-03-24T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "Raspberry Pi" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="升级版电子钟 - 如何使用Raspberry Pi驱动Nokia 5110液晶屏" />
+<meta property="og:description" content="Nokia 5110比前面介绍过的1602液晶屏功能好很多" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="升级版电子钟 - 如何使用Raspberry Pi驱动Nokia 5110液晶屏" />
+  <meta name="twitter:description" content="Nokia 5110比前面介绍过的1602液晶屏功能好很多">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>升级版电子钟 - 如何使用Raspberry Pi驱动Nokia 5110液晶屏</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 24, 2013
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;620&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Nokia 5110屏比前面介绍过的<a href="http://hugozhu.myalert.info/2013/03/23/19-raspberry-pi-drive-1602-lcd.html">1602液晶屏</a>功能好很多，淘宝上买价格相差不大（二手5110 12块左右, 全新1602 8块左右），Nokia 5110最少只需要占用4个GPIO引脚：</p>
+<ol>
+<li>带蓝色背光</li>
+<li>使用Philips PCD8544 LCD控制器（通过SPI接口）</li>
+<li>84x48点阵，可显示100多个字符</li>
+</ol>
+<h1 id="硬件准备">硬件准备</h1>
+<ol>
+<li><a href="http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.nGxekg&amp;id=17337394004&amp;is_b=1&amp;cat_id=2&amp;q=%CA%F7%DD%AE%C5%C9&amp;rn=4004716f9ba818c1d69b5eb7818891b5">树莓派</a></li>
+<li><a href="http://item.taobao.com/item.htm?id=3125173573&amp;ali_trackid=2:mm_12926928_3484851_11423954:1364118594_4k1_653822857&amp;clk1=0b755dfca67112cd1b605914b40146e7&amp;spm=a230z.1.5634029.2.foR1Yu">Nokia 5110 拆机屏</a> 或 <a href="http://item.taobao.com/item.htm?spm=a230r.1.10.154.SdjftL&amp;id=13361097288&amp;_u=oqa31997">焊好的？</a> 注意不要买裸屏，需要带电路板的</li>
+<li><a href="http://list.tmall.com/search_product.htm?q=%B6%C5%B0%EE%CF%DF&amp;user_action=initiative&amp;at_topsearch=1&amp;sort=st&amp;type=p&amp;cat=&amp;style=">杜邦线</a> 母对母8条</li>
+<li>8P排针 用来焊接5110屏幕PCB板</li>
+<li><a href="http://detail.tmall.com/item.htm?id=22096296909&amp;ali_trackid=2:mm_12926928_3484851_11423954:1364118800_4k4_1229281314&amp;clk1=c7335b2dcbad93f47eaf5cd4d1cc140b&amp;spm=a230z.1.5634029.66.6xxdfN">电烙铁</a></li>
+</ol>
+<h1 id="电路">电路</h1>
+<p>5110电路板有8个引脚，使用排针（如下图）将其焊上，方便后面用杜邦线连接，如果不会焊也可以买焊接好的。</p>
+<img src="http://img01.taobaocdn.com/bao/uploaded/i1/13130028971464406/T1v5oAXd0XXXXXXXXX_!!0-item_pic.jpg_600x600.jpg"/>
+<ol>
+<li>RST —— 复位 接GPIO 0</li>
+<li>CE  —— 片选 接GPIO 1 或 不接</li>
+<li>DC  —— 数据/指令选择 接GPIO 2</li>
+<li>DIN —— 串行数据线 接GPIO 3</li>
+<li>CLK —— 串行时钟线 接GPIO 5 （因为我的GPIO 4已经接了一个DHT11传感器）</li>
+<li>VCC —— 电源输入 接3.3v</li>
+<li>BL  —— 背光控制端 接3.3v</li>
+<li>GND —— 地线 接地</li>
+</ol>
+<p>PS. 编号规范看<a href="http://hugozhu.myalert.info/2013/03/22/19-raspberry-pi-gpio-port-naming.html">这里</a> VCC, BK, GND可以接在面包板电源上</p>
+<h1 id="代码">代码</h1>
+<h2 id="显示字符">显示字符</h2>
+<p>需要安装<a href="https://pypi.python.org/pypi/RPi.GPIO">RPi.GPIO</a>库</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#!/usr/bin/python
+</span></span><span class="line"><span class="cl"># -*- coding: utf-8 -*-
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">import RPi.GPIO as GPIO
+</span></span><span class="line"><span class="cl">import time
+</span></span><span class="line"><span class="cl">import sys
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#gpio&#39;s :
+</span></span><span class="line"><span class="cl">SCLK = 18
+</span></span><span class="line"><span class="cl">DIN = 15
+</span></span><span class="line"><span class="cl">DC = 13
+</span></span><span class="line"><span class="cl">RST = 11
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">font =[
+</span></span><span class="line"><span class="cl">0x7E, 0x11, 0x11, 0x11, 0x7E, # A
+</span></span><span class="line"><span class="cl">0x7F, 0x49, 0x49, 0x49, 0x36, # B
+</span></span><span class="line"><span class="cl">0x3E, 0x41, 0x41, 0x41, 0x22, # C
+</span></span><span class="line"><span class="cl">0x7F, 0x41, 0x41, 0x22, 0x1C, # D
+</span></span><span class="line"><span class="cl">0x7F, 0x49, 0x49, 0x49, 0x41, # E
+</span></span><span class="line"><span class="cl">0x7F, 0x09, 0x09, 0x09, 0x01, # F
+</span></span><span class="line"><span class="cl">0x3E, 0x41, 0x49, 0x49, 0x7A, # G
+</span></span><span class="line"><span class="cl">0x7F, 0x08, 0x08, 0x08, 0x7F, # H
+</span></span><span class="line"><span class="cl">0x00, 0x41, 0x7F, 0x41, 0x00, # I
+</span></span><span class="line"><span class="cl">0x20, 0x40, 0x41, 0x3F, 0x01, # J
+</span></span><span class="line"><span class="cl">0x7F, 0x08, 0x14, 0x22, 0x41, # K
+</span></span><span class="line"><span class="cl">0x7F, 0x40, 0x40, 0x40, 0x40, # L
+</span></span><span class="line"><span class="cl">0x7F, 0x02, 0x0C, 0x02, 0x7F, # M
+</span></span><span class="line"><span class="cl">0x7F, 0x04, 0x08, 0x10, 0x7F, # N
+</span></span><span class="line"><span class="cl">0x3E, 0x41, 0x41, 0x41, 0x3E, # O
+</span></span><span class="line"><span class="cl">0x7F, 0x09, 0x09, 0x09, 0x06, # P
+</span></span><span class="line"><span class="cl">0x3E, 0x41, 0x51, 0x21, 0x5E, # Q
+</span></span><span class="line"><span class="cl">0x7F, 0x09, 0x19, 0x29, 0x46, # R
+</span></span><span class="line"><span class="cl">0x46, 0x49, 0x49, 0x49, 0x31, # S
+</span></span><span class="line"><span class="cl">0x01, 0x01, 0x7F, 0x01, 0x01, # T
+</span></span><span class="line"><span class="cl">0x3F, 0x40, 0x40, 0x40, 0x3F, # U
+</span></span><span class="line"><span class="cl">0x1F, 0x20, 0x40, 0x20, 0x1F, # V
+</span></span><span class="line"><span class="cl">0x3F, 0x40, 0x38, 0x40, 0x3F, # W
+</span></span><span class="line"><span class="cl">0x63, 0x14, 0x08, 0x14, 0x63, # X
+</span></span><span class="line"><span class="cl">0x07, 0x08, 0x70, 0x08, 0x07, # Y
+</span></span><span class="line"><span class="cl">0x61, 0x51, 0x49, 0x45, 0x43, # Z
+</span></span><span class="line"><span class="cl">]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def main():
+</span></span><span class="line"><span class="cl">  begin(0xbc) # contrast - may need tweaking for each display
+</span></span><span class="line"><span class="cl">  gotoxy(28,0)
+</span></span><span class="line"><span class="cl">  text(&#34;HELLO&#34;)
+</span></span><span class="line"><span class="cl">  gotoxy(8,2)
+</span></span><span class="line"><span class="cl">  text(&#34;RASPBERRY PI&#34;)
+</span></span><span class="line"><span class="cl">  gotoxy(6,2)
+</span></span><span class="line"><span class="cl">  text(&#34;Hugo&#34;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def gotoxy(x,y):
+</span></span><span class="line"><span class="cl">  lcd_cmd(x+128)
+</span></span><span class="line"><span class="cl">  lcd_cmd(y+64)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def text(words):
+</span></span><span class="line"><span class="cl">  for i in range(len(words)):
+</span></span><span class="line"><span class="cl">#    print (words[i])
+</span></span><span class="line"><span class="cl">    display_char(words[i])
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def display_char(char):
+</span></span><span class="line"><span class="cl">  index=(ord(char)-65)*5
+</span></span><span class="line"><span class="cl">  if ord(char) &gt;=65 and ord(char) &lt;=90:
+</span></span><span class="line"><span class="cl">    for i in range(5):
+</span></span><span class="line"><span class="cl">#      print (index+i)
+</span></span><span class="line"><span class="cl">      lcd_data(font[index+i])
+</span></span><span class="line"><span class="cl">    lcd_data(0) # space inbetween characters
+</span></span><span class="line"><span class="cl">  elif ord(char)==32:
+</span></span><span class="line"><span class="cl">      lcd_data(0)
+</span></span><span class="line"><span class="cl">      lcd_data(0)
+</span></span><span class="line"><span class="cl">      lcd_data(0)
+</span></span><span class="line"><span class="cl">      lcd_data(0)
+</span></span><span class="line"><span class="cl">      lcd_data(0)
+</span></span><span class="line"><span class="cl">      lcd_data(0)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def cls():
+</span></span><span class="line"><span class="cl">  gotoxy(0,0)
+</span></span><span class="line"><span class="cl">  for i in range(84):
+</span></span><span class="line"><span class="cl">    for j in range(6):
+</span></span><span class="line"><span class="cl">      lcd_data(0)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def setup():
+</span></span><span class="line"><span class="cl">  # set pin directions
+</span></span><span class="line"><span class="cl">  GPIO.setmode(GPIO.BOARD)
+</span></span><span class="line"><span class="cl">  GPIO.setup(DIN, GPIO.OUT)
+</span></span><span class="line"><span class="cl">  GPIO.setup(SCLK, GPIO.OUT)
+</span></span><span class="line"><span class="cl">  GPIO.setup(DC, GPIO.OUT)
+</span></span><span class="line"><span class="cl">  GPIO.setup(RST, GPIO.OUT)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def begin(contrast):
+</span></span><span class="line"><span class="cl">  setup()
+</span></span><span class="line"><span class="cl">  # toggle RST low to reset
+</span></span><span class="line"><span class="cl">  GPIO.output(RST, False)
+</span></span><span class="line"><span class="cl">  time.sleep(0.100)
+</span></span><span class="line"><span class="cl">  GPIO.output(RST, True)
+</span></span><span class="line"><span class="cl">  lcd_cmd(0x21) # extended mode
+</span></span><span class="line"><span class="cl">  lcd_cmd(0x14) # bias
+</span></span><span class="line"><span class="cl">  lcd_cmd(contrast) # vop
+</span></span><span class="line"><span class="cl">  lcd_cmd(0x20) # basic mode
+</span></span><span class="line"><span class="cl">  lcd_cmd(0xc) # non-inverted display
+</span></span><span class="line"><span class="cl">  cls()
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def SPI(c):
+</span></span><span class="line"><span class="cl">  # data = DIN
+</span></span><span class="line"><span class="cl">  # clock = SCLK
+</span></span><span class="line"><span class="cl">  # MSB first
+</span></span><span class="line"><span class="cl">  # value = c
+</span></span><span class="line"><span class="cl">  for i in xrange(8):
+</span></span><span class="line"><span class="cl">    GPIO.output(DIN, (c &amp; (1 &lt;&lt; (7-i))) &gt; 0)
+</span></span><span class="line"><span class="cl">    GPIO.output(SCLK, True)
+</span></span><span class="line"><span class="cl">    GPIO.output(SCLK, False)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def lcd_cmd(c):
+</span></span><span class="line"><span class="cl">#  print (&#34;lcd_cmd sent :&#34;,hex(c))
+</span></span><span class="line"><span class="cl">  GPIO.output(DC, False)
+</span></span><span class="line"><span class="cl">  SPI(c)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def lcd_data(c):
+</span></span><span class="line"><span class="cl">#  print (&#34;data sent :&#34;,hex(c))
+</span></span><span class="line"><span class="cl">  GPIO.output(DC, True)
+</span></span><span class="line"><span class="cl">  SPI(c)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">if __name__ == &#34;__main__&#34;:
+</span></span><span class="line"><span class="cl">  main()
+</span></span></code></pre></div><h2 id="显示图形-树莓派logo">显示图形-树莓派Logo</h2>
+<p>需要安装<a href="https://github.com/WiringPi/WiringPi">wiringPi</a>和<a href="https://github.com/binerry/RaspberryPi/tree/master/libraries/c/PCD8544">PCD8544</a>库</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;wiringPi.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;PCD8544.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// pin setup
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">_din</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">_sclk</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">_dc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">_rst</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">_cs</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="c1">// lcd contrast 
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">contrast</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// print infos
+</span></span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Raspberry Pi PCD8544 test</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;========================================</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;CLK on Port %i </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">_sclk</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;DIN on Port %i </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">_din</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;DC on Port %i </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">_dc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;CS on Port %i </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">_cs</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;RST on Port %i </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">_rst</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;========================================</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">// check wiringPi setup
+</span></span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nf">wiringPiSetup</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;wiringPi-Error</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">// init and clear lcd
+</span></span></span><span class="line"><span class="cl">  <span class="nf">LCDInit</span><span class="p">(</span><span class="n">_sclk</span><span class="p">,</span> <span class="n">_din</span><span class="p">,</span> <span class="n">_dc</span><span class="p">,</span> <span class="n">_cs</span><span class="p">,</span> <span class="n">_rst</span><span class="p">,</span> <span class="n">contrast</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">LCDclear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// turn all the pixels on (a handy test)
+</span></span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Test: All pixels on.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">LCDcommand</span><span class="p">(</span><span class="n">PCD8544_DISPLAYCONTROL</span> <span class="o">|</span> <span class="n">PCD8544_DISPLAYALLON</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// back to normal
+</span></span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Test: All pixels off.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">LCDcommand</span><span class="p">(</span><span class="n">PCD8544_DISPLAYCONTROL</span> <span class="o">|</span> <span class="n">PCD8544_DISPLAYNORMAL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">LCDclear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">// display logo
+</span></span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Test: Display logo.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">LCDshowLogo</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">LCDclear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h1 id="安装效果">安装效果</h1>
+<img src="http://ww1.sinaimg.cn/bmiddle/6bc40342jw1e30zljajskj.jpg"/>
+<h1 id="参考链接">参考链接</h1>
+<ol>
+<li><a href="http://binerry.de/post/25787954149/pcd8544-library-for-raspberry-pi">http://binerry.de/post/25787954149/pcd8544-library-for-raspberry-pi</a></li>
+</ol>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/raspberry-pi/">Raspberry Pi</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f20-raspberry-pi-drive-nokia-5110%2f&amp;text=%e5%8d%87%e7%ba%a7%e7%89%88%e7%94%b5%e5%ad%90%e9%92%9f%20-%20%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e9%a9%b1%e5%8a%a8Nokia%205110%e6%b6%b2%e6%99%b6%e5%b1%8f&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f20-raspberry-pi-drive-nokia-5110%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f20-raspberry-pi-drive-nokia-5110%2f&amp;title=%e5%8d%87%e7%ba%a7%e7%89%88%e7%94%b5%e5%ad%90%e9%92%9f%20-%20%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e9%a9%b1%e5%8a%a8Nokia%205110%e6%b6%b2%e6%99%b6%e5%b1%8f" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f20-raspberry-pi-drive-nokia-5110%2f&amp;title=%e5%8d%87%e7%ba%a7%e7%89%88%e7%94%b5%e5%ad%90%e9%92%9f%20-%20%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e9%a9%b1%e5%8a%a8Nokia%205110%e6%b6%b2%e6%99%b6%e5%b1%8f" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f20-raspberry-pi-drive-nokia-5110%2f&amp;title=%e5%8d%87%e7%ba%a7%e7%89%88%e7%94%b5%e5%ad%90%e9%92%9f%20-%20%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e9%a9%b1%e5%8a%a8Nokia%205110%e6%b6%b2%e6%99%b6%e5%b1%8f" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f20-raspberry-pi-drive-nokia-5110%2f&amp;description=%e5%8d%87%e7%ba%a7%e7%89%88%e7%94%b5%e5%ad%90%e9%92%9f%20-%20%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e9%a9%b1%e5%8a%a8Nokia%205110%e6%b6%b2%e6%99%b6%e5%b1%8f" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f20-raspberry-pi-drive-nokia-5110%2f&amp;subject=%e5%8d%87%e7%ba%a7%e7%89%88%e7%94%b5%e5%ad%90%e9%92%9f%20-%20%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8Raspberry%20Pi%e9%a9%b1%e5%8a%a8Nokia%205110%e6%b6%b2%e6%99%b6%e5%b1%8f" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2020/68-turn-raspberrypi-4-to-a-router-and-wifi-ap/">把树莓派4设置成路由器和热点</a></li>
+                
+                    <li><a href="/post/2016/66-use-dingtalk-golang-sdk-to-send-message-on-pi/">从树莓派上发消息到手机或桌面钉钉</a></li>
+                
+                    <li><a href="/post/2016/65-running-grafana-on-raspberry-pi-3/">用Grafana制作树莓派上的监控大盘</a></li>
+                
+                    <li><a href="/post/2016/63-raspberrypi-as-ibeacon-transmitter/">树莓派3变身iBeacon发射器</a></li>
+                
+                    <li><a href="/post/2016/64-set-up-monitor-system-with-prometheus-on-raspberry/">在树莓派3上搭建监控系统</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2013/19-raspberry-pi-drive-1602-lcd/" data-toggle="tooltip" data-placement="top" title="如何使用Raspberry Pi在1602液晶屏上显示当前时间--电子钟">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2013/21-realtime-online-user-counter/" data-toggle="tooltip" data-placement="top" title="个人网站实时在线人数接口">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2013/20-raspberry-pi-drive-nokia-5110">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2013\/20-raspberry-pi-drive-nokia-5110';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

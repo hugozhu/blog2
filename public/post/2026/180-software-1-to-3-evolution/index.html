@@ -1,0 +1,852 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>从写代码到定义目标：软件 1.0 到 3.0 的进化论 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="From Code Writing to Goal Setting: The Evolution from Software 1.0 to 3.0"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "从写代码到定义目标：软件 1.0 到 3.0 的进化论",
+  "@id": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/",
+  "url": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/",
+      "name": "从写代码到定义目标：软件 1.0 到 3.0 的进化论",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "从写代码到定义目标：软件 1.0 到 3.0 的进化论",
+  "description": "2023 年，你需要写一个爬虫：requests 发请求 → 正则解析 HTML → 异常处理 \u002b 重试，300 行代码，每行都是你写的。\n2025 年，你告诉 Agent：「把某网站上最近 100 篇文章的标题和链接存到 CSV 里」，它自己写代码、调试、跑通、交付结果。\n问题来了：到底哪一段代码是你「写」的？\n这不是编程工具的升级，而是软件开发范式的根本性转移。Karpathy 在 2017 年提出「Software 2.0」时说：神经网络是程序员用数据写出的程序。但八年后的今天，2.0 已经不够用了——因为系统不再只是「被训练」，它们开始「自己决定怎么做」。\n我把这个演进分为四个阶段：\n",
+  "inLanguage": "en",
+  "wordCount":  661 ,
+  "dateCreated": "2026-04-17T00:00:00+00:00",
+  "datePublished": "2026-04-17T00:00:00+00:00",
+  "dateModified": "2026-04-17T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "software-engineering, ai-agent, paradigm-shift, software-3.0" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/180-software-1-to-3-evolution/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="从写代码到定义目标：软件 1.0 到 3.0 的进化论" />
+<meta property="og:description" content="From Code Writing to Goal Setting: The Evolution from Software 1.0 to 3.0" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/180-software-1-to-3-evolution/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="从写代码到定义目标：软件 1.0 到 3.0 的进化论" />
+  <meta name="twitter:description" content="From Code Writing to Goal Setting: The Evolution from Software 1.0 to 3.0">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>从写代码到定义目标：软件 1.0 到 3.0 的进化论</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">From Code Writing to Goal Setting: The Evolution from Software 1.0 to 3.0</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 17, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;661&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>2023 年，你需要写一个爬虫：<code>requests</code> 发请求 → 正则解析 HTML → 异常处理 + 重试，300 行代码，每行都是你写的。</p>
+<p>2025 年，你告诉 Agent：「把某网站上最近 100 篇文章的标题和链接存到 CSV 里」，它自己写代码、调试、跑通、交付结果。</p>
+<p>问题来了：<strong>到底哪一段代码是你「写」的？</strong></p>
+<p>这不是编程工具的升级，而是软件开发范式的根本性转移。Karpathy 在 2017 年提出「Software 2.0」时说：神经网络是程序员用数据写出的程序。但八年后的今天，2.0 已经不够用了——因为系统不再只是「被训练」，它们开始「自己决定怎么做」。</p>
+<p>我把这个演进分为四个阶段：</p>
+<h2 id="软件-10人写规则机器执行">软件 1.0：人写规则，机器执行</h2>
+<p>这是我们最熟悉的世界。程序员把业务逻辑翻译成代码，计算机逐行执行。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">extract_articles</span><span class="p">(</span><span class="n">html</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;从 HTML 中提取文章标题和链接&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">articles</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;article.post&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">title</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&#34;h2&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">link</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)[</span><span class="s2">&#34;href&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">articles</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s2">&#34;link&#34;</span><span class="p">:</span> <span class="n">link</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">articles</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p><strong>核心特征：</strong></p>
+<ul>
+<li><strong>确定性</strong>：同样的输入永远得到同样的输出</li>
+<li><strong>可解释</strong>：出了 bug，你能一行一行地找到原因</li>
+<li><strong>人定义过程</strong>：程序员知道每一步为什么这样写</li>
+</ul>
+<p><strong>局限性也很明显：</strong> 遇到开放世界问题——比如理解自然语言意图、识别图片中的猫、或者从海量内容中做个性化推荐——规则会指数级爆炸。你写不完所有 if-else。</p>
+<blockquote>
+<p>一句话总结：「程序员知道每一步为什么。」</p>
+</blockquote>
+<h2 id="软件-20数据定义规则人定义结构">软件 2.0：数据定义规则，人定义结构</h2>
+<p>Karpathy 的经典定义：程序员不再写逻辑，而是设计网络结构，用数据优化参数，让模型自己「长」出逻辑。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 程序员只定义结构，参数由数据决定</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">VisionTransformer</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">patch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_layers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 训练后，model 内部 86M 参数构成的「逻辑」没人能读懂</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p><strong>核心特征：</strong></p>
+<ul>
+<li><strong>端到端</strong>：输入→输出，中间是黑盒</li>
+<li><strong>泛化能力</strong>：没见过的图片也能识别</li>
+<li><strong>人定义结构，数据定义参数</strong></li>
+</ul>
+<p><strong>但 2.0 的边界也很清晰：</strong> 模型能做「感知」的事——分类、翻译、生成——但它不能「行动」。它不能调 API、不能操作文件、不能替你做决策。它是一个超级大脑，但没有手和脚。</p>
+<blockquote>
+<p>一句话总结：「程序员知道模型长什么样，但不知道它学到了什么。」</p>
+</blockquote>
+<h2 id="软件-25固定框架下的策略优化">软件 2.5：固定框架下的策略优化</h2>
+<p>这一代最容易被忽略，也最重要——它是 2.0 到 3.0 的过渡态。</p>
+<p><strong>核心区别：架构不进化，只有参数在优化。</strong></p>
+<p>典型例子：</p>
+<ul>
+<li><strong>推荐系统</strong>：召回 → 粗排 → 精排 → 重排，pipeline 固定不变，但每个阶段的模型参数在持续迭代</li>
+<li><strong>LLM 微调</strong>：LoRA、SFT、DPO，模型架构不动，权重在变</li>
+<li><strong>A/B 测试驱动的策略迭代</strong>：推荐算法的特征组合在搜索空间里优化，但搜索空间本身是人定的</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                    2.5: 固定架构 + 参数优化             │
+</span></span><span class="line"><span class="cl">│                                                      │
+</span></span><span class="line"><span class="cl">│  用户请求 ──→ [召回模型 θ₁] ──→ [精排模型 θ₂] ──→ 结果  │
+</span></span><span class="line"><span class="cl">│                  ↑                    ↑              │
+</span></span><span class="line"><span class="cl">│              参数在变            参数在变              │
+</span></span><span class="line"><span class="cl">│         (架构不变)          (架构不变)                │
+</span></span><span class="line"><span class="cl">└──────────────────────────────────────────────────────┘
+</span></span><span class="line"><span class="cl"># generated by hugo AI
+</span></span></code></pre></div><p><strong>核心特征：</strong></p>
+<ul>
+<li><strong>迭代而非进化</strong>：系统在优化，但优化的空间是人画好的</li>
+<li><strong>参数空间搜索</strong>：搜索的是连续空间中的权重矩阵</li>
+<li><strong>人知道模型要做什么，但不确定它做得好不好</strong></li>
+</ul>
+<p>2.5 很强大，但它有一个天花板：<strong>搜索空间是封闭的</strong>。模型只能在你允许的空间里找最优解，它不能跳出这个空间去发现你根本没想到的策略。</p>
+<blockquote>
+<p>一句话总结：「程序员知道模型要做什么，但不确定它做得好不好。」</p>
+</blockquote>
+<h2 id="软件-30目标驱动的策略自进化">软件 3.0：目标驱动的策略自进化</h2>
+<p>这是质变的一代。</p>
+<p><strong>核心变化：系统不再只是优化参数，它在发现、验证、迭代「怎么做」的策略本身。</strong></p>
+<p>软件 3.0 有三个基本要素：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                   3.0: 目标驱动 + 策略自进化               │
+</span></span><span class="line"><span class="cl">│                                                         │
+</span></span><span class="line"><span class="cl">│   ┌──────────┐                                          │
+</span></span><span class="line"><span class="cl">│   │  目标定义  │  ← 程序员：「完成这个任务，满足这些约束」    │
+</span></span><span class="line"><span class="cl">│   └────┬─────┘                                          │
+</span></span><span class="line"><span class="cl">│        ▼                                                 │
+</span></span><span class="line"><span class="cl">│   ┌──────────┐    ┌──────────┐    ┌──────────┐          │
+</span></span><span class="line"><span class="cl">│   │ 策略探索  │───→│  行动执行  │───→│  结果验证  │          │
+</span></span><span class="line"><span class="cl">│   └──────────┘    └──────────┘    └────┬─────┘          │
+</span></span><span class="line"><span class="cl">│        ▲                              │                 │
+</span></span><span class="line"><span class="cl">│        └────────── 反馈闭环 ←──────────┘                 │
+</span></span><span class="line"><span class="cl">│                                                         │
+</span></span><span class="line"><span class="cl">│   系统自己发现「怎么做」，并对结果负责                      │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────┘
+</span></span><span class="line"><span class="cl"># generated by hugo AI
+</span></span></code></pre></div><h3 id="要素一目标函数goal">要素一：目标函数（Goal）</h3>
+<p>程序员不再写过程，而是定义「什么算成功」。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 3.0 时代的「编程」：定义目标 + 约束</span>
+</span></span><span class="line"><span class="cl"><span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">goal</span><span class="o">=</span><span class="s2">&#34;获取目标网站最近 100 篇文章的标题和链接，存为 CSV&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">constraints</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;不得访问非公开页面&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;请求间隔 &gt;= 1s&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;输出文件 &lt; 1MB&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;browser&#34;</span><span class="p">,</span> <span class="s2">&#34;file_write&#34;</span><span class="p">,</span> <span class="s2">&#34;web_search&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><h3 id="要素二策略空间strategy">要素二：策略空间（Strategy）</h3>
+<p>系统自己探索行动序列：先搜索 → 打开页面 → 解析 → 存文件。如果失败了，它会反思、换策略、重试。</p>
+<p>关键区别：</p>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>2.5（参数优化）</th>
+          <th>3.0（策略进化）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>搜索空间</td>
+          <td>连续的权重矩阵</td>
+          <td>离散的行动序列 + 连续参数</td>
+      </tr>
+      <tr>
+          <td>搜索对象</td>
+          <td>「权重是多少」</td>
+          <td>「该做什么、按什么顺序做」</td>
+      </tr>
+      <tr>
+          <td>反馈来源</td>
+          <td>损失函数梯度</td>
+          <td>任务结果验证 + 环境反馈</td>
+      </tr>
+      <tr>
+          <td>人类介入</td>
+          <td>设计架构 + 标注数据</td>
+          <td>定义目标 + 设定约束</td>
+      </tr>
+      <tr>
+          <td>能力边界</td>
+          <td>架构决定的上界</td>
+          <td>工具集 + 验证机制决定的上界</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>从 optimization 到 planning 的跃迁。</strong> 2.5 在已知空间里找最优，3.0 在未知空间里探索可能。</p>
+<h3 id="要素三可验证机制verification">要素三：可验证机制（Verification）</h3>
+<p>这是 3.0 最关键、也最容易被忽视的要素。</p>
+<p>2.0 的不可解释性我们还能接受——输出是分类或回归，有 ground truth 可以评估。但 3.0 系统在「做事」：调 API、写文件、删数据库。出错的代价从「预测不准」变成了「数据丢了」。</p>
+<p><strong>没有可验证性的 3.0，只是更花哨的自动化。</strong></p>
+<p>验证机制需要三件事：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│            3.0 验证机制三要素              │
+</span></span><span class="line"><span class="cl">│                                          │
+</span></span><span class="line"><span class="cl">│  1. Sandbox（沙盒）                       │
+</span></span><span class="line"><span class="cl">│     行动边界：文件系统只读、API 权限隔离    │
+</span></span><span class="line"><span class="cl">│     → 系统不能做超出边界的事               │
+</span></span><span class="line"><span class="cl">│                                          │
+</span></span><span class="line"><span class="cl">│  2. Ground Truth（验证标准）               │
+</span></span><span class="line"><span class="cl">│     怎么判断「做得好不好」：               │
+</span></span><span class="line"><span class="cl">│     单元测试 / 人工评估 / 形式化验证        │
+</span></span><span class="line"><span class="cl">│     → 结果必须有可度量的标准              │
+</span></span><span class="line"><span class="cl">│                                          │
+</span></span><span class="line"><span class="cl">│  3. Feedback Loop（反馈闭环）              │
+</span></span><span class="line"><span class="cl">│     验证结果如何反哺策略更新：             │
+</span></span><span class="line"><span class="cl">│     成功 → 强化该策略                      │
+</span></span><span class="line"><span class="cl">│     失败 → 反思 → 新策略 → 再验证          │
+</span></span><span class="line"><span class="cl">│     → 系统能从错误中学习                  │
+</span></span><span class="line"><span class="cl">└──────────────────────────────────────────┘
+</span></span><span class="line"><span class="cl"># generated by hugo AI
+</span></span></code></pre></div><h3 id="数据飞轮用户轨迹如何成为-30-的燃料">数据飞轮：用户轨迹如何成为 3.0 的燃料</h3>
+<p>上面说了三个要素，但还缺一个关键问题：<strong>策略从哪里进化？</strong></p>
+<p>答案不是更多训练数据，也不是更大的模型，而是<strong>用户使用 Agent 的真实轨迹</strong>。</p>
+<p>但这里有一个常被误解的前提：</p>
+<blockquote>
+<p><strong>用户使用 Agent 的轨迹，天然不等于优化数据。只有当它被转化为「带结果标签的决策序列数据」，它才是软件 3.0 的燃料。</strong></p>
+</blockquote>
+<p>这句话值得展开。</p>
+<h4 id="轨迹--数据">轨迹 ≠ 数据</h4>
+<p>一个 Agent 帮用户完成了 100 次任务，产生了 100 段交互记录：用户说了什么、Agent 想了什么、调了哪些工具、最终输出了什么。</p>
+<p>这些只是<strong>日志</strong>，不是<strong>训练数据</strong>。</p>
+<p>要变成 3.0 的燃料，需要三步转化：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌─────────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│               轨迹 → 燃料的转化链路                            │
+</span></span><span class="line"><span class="cl">│                                                             │
+</span></span><span class="line"><span class="cl">│  原始轨迹          结构化             带标签的决策序列         │
+</span></span><span class="line"><span class="cl">│  (raw log)      (decision seq)      (labeled training)      │
+</span></span><span class="line"><span class="cl">│                                                             │
+</span></span><span class="line"><span class="cl">│  用户: 帮我...    Step 1: 调用搜索     ✓ 成功 → 正样本         │
+</span></span><span class="line"><span class="cl">│  Agent: 好的...   Step 2: 解析结果     ✗ 失败 → 负样本         │
+</span></span><span class="line"><span class="cl">│  Agent: 调 API    Step 3: 写入文件     ⚠ 部分成功 → 弱信号     │
+</span></span><span class="line"><span class="cl">│  Agent: 完成!     Step 4: 返回结果     + 用户满意度评分        │
+</span></span><span class="line"><span class="cl">│                            ↓                                │
+</span></span><span class="line"><span class="cl">│                     决策序列 = [(s₁,a₁), (s₂,a₂), ...]       │
+</span></span><span class="line"><span class="cl">│                     标签 = 结果验证 + 用户反馈                │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────────────────────┘
+</span></span><span class="line"><span class="cl"># generated by hugo AI
+</span></span></code></pre></div><h4 id="为什么带结果标签这么关键">为什么「带结果标签」这么关键？</h4>
+<p>因为 3.0 的策略进化依赖<strong>有监督的策略优化</strong>，而不只是行为克隆（behavior cloning）。</p>
+<ul>
+<li><strong>行为克隆</strong>（只学「做了什么」）：Agent 模仿用户的操作序列。问题：用户的选择未必是最优的，你只是在复制人类的 suboptimal 策略。</li>
+<li><strong>带结果标签的策略学习</strong>（学「做了什么 + 结果如何」）：Agent 知道自己的每一步行动最终导致了什么结果，成功的路径被强化，失败的路径被削弱。</li>
+</ul>
+<p>这就是 2.5 和 3.0 在数据层面的本质区别：</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>2.5 的训练数据</th>
+          <th>3.0 的训练数据</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>数据来源</td>
+          <td>人工标注 / 合成数据</td>
+          <td>用户 Agent 交互轨迹</td>
+      </tr>
+      <tr>
+          <td>数据结构</td>
+          <td>(输入, 标签) 对</td>
+          <td>(状态序列, 行动序列, 结果标签)</td>
+      </tr>
+      <tr>
+          <td>优化目标</td>
+          <td>预测准确率</td>
+          <td>任务成功率 + 效率</td>
+      </tr>
+      <tr>
+          <td>数据规模</td>
+          <td>有限、昂贵</td>
+          <td>持续产生、天然规模化</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>3.0 的 data flywheel 是这样的：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用户用 Agent 完成任务
+</span></span><span class="line"><span class="cl">        ↓
+</span></span><span class="line"><span class="cl">轨迹自动记录 → 转化为 (决策序列, 结果标签)
+</span></span><span class="line"><span class="cl">        ↓
+</span></span><span class="line"><span class="cl">策略模型离线/近线更新
+</span></span><span class="line"><span class="cl">        ↓
+</span></span><span class="line"><span class="cl">下一代 Agent 策略更强 → 更多用户愿意用 → 更多轨迹
+</span></span><span class="line"><span class="cl">        ↖_______________________________↗
+</span></span></code></pre></div><p>这个 flywheel 一旦转起来，3.0 系统就不再依赖人工标注数据，而是从<strong>真实使用场景</strong>中持续进化。这也解释了为什么先拥有大规模 Agent 用户的产品，会在 3.0 时代形成结构性优势——他们积累的不是用户数，而是<strong>带标签的策略优化数据</strong>。</p>
+<h4 id="但这里有个陷阱">但这里有个陷阱</h4>
+<p>轨迹数据的价值密度远不如想象的高。原因有三：</p>
+<ol>
+<li><strong>大多数轨迹是平凡的</strong>：用户每天都在做类似的事（写邮件、查资料、改代码），大量轨迹在策略空间里高度重合，边际信息量递减。</li>
+<li><strong>结果标签难获取</strong>：Agent 完成任务后，用户很少主动反馈「好」或「不好」。隐式信号（是否采纳、是否修改、是否重新执行）比显式反馈更可靠，但也更难解析。</li>
+<li><strong>分布偏移问题</strong>：Agent 策略更新后，用户行为模式也会改变，导致历史轨迹的分布和当前场景不匹配。</li>
+</ol>
+<p><strong>所以 3.0 时代的另一个核心能力是：轨迹数据的筛选、标注和课程学习（curriculum learning）。</strong> 不是所有轨迹都值得学，系统需要知道「哪些经验值得记住，哪些应该忽略」。</p>
+<h2 id="对工程师意味着什么">对工程师意味着什么</h2>
+<p>如果你的工作从「写逻辑」变成了「定义目标」，那核心能力也需要重构。</p>
+<p><strong>未来的 code review，review 的不是代码，而是：</strong></p>
+<ol>
+<li><strong>目标函数是否合理</strong> —— 你定义的「成功」是不是真正想要的？有没有激励系统走偏？（Goodhart&rsquo;s Law：当一个指标变成目标，它就不再是好指标。）</li>
+<li><strong>约束边界是否充分</strong> —— sandbox 够不够严？有没有遗漏的 edge case？</li>
+<li><strong>验证标准是否可靠</strong> —— 你怎么知道系统做对了？评估指标有没有被 exploit 的可能？</li>
+<li><strong>失败回退是否安全</strong> —— 系统出错时，有没有 graceful degradation？会不会产生级联故障？</li>
+</ol>
+<p><strong>工程师的新核心能力：</strong></p>
+<ul>
+<li><strong>目标函数设计</strong>：奖励 shaping、约束建模、避免对齐陷阱</li>
+<li><strong>评估体系构建</strong>：设计无法被 exploit 的验证机制</li>
+<li><strong>安全边界设计</strong>：guardrails、fail-safe、最小权限原则</li>
+<li><strong>轨迹数据工程</strong>：从原始交互日志中提取 (决策序列, 结果标签)，设计隐式信号解析和课程学习策略</li>
+</ul>
+<h2 id="结语">结语</h2>
+<p>回到开头的问题：Agent 自己写的那段爬虫代码，到底算不算你「写」的？</p>
+<p>答案是：你写了更重要的部分——你定义了<strong>做什么</strong>和<strong>不能做什么</strong>。而具体的<strong>怎么做</strong>，系统自己学会了。</p>
+<p>这不是程序员的末日，而是程序员角色的升级。从「写每一行代码的人」到「定义目标、设定边界、设计验证的人」——你从工人变成了建筑师。</p>
+<p>唯一不同的是，这次你设计的建筑，会自己长出来。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/software-engineering/">software-engineering</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/paradigm-shift/">paradigm-shift</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/software-3.0/">software-3.0</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f180-software-1-to-3-evolution%2f&amp;text=%e4%bb%8e%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e5%ae%9a%e4%b9%89%e7%9b%ae%e6%a0%87%ef%bc%9a%e8%bd%af%e4%bb%b6%201.0%20%e5%88%b0%203.0%20%e7%9a%84%e8%bf%9b%e5%8c%96%e8%ae%ba&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f180-software-1-to-3-evolution%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f180-software-1-to-3-evolution%2f&amp;title=%e4%bb%8e%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e5%ae%9a%e4%b9%89%e7%9b%ae%e6%a0%87%ef%bc%9a%e8%bd%af%e4%bb%b6%201.0%20%e5%88%b0%203.0%20%e7%9a%84%e8%bf%9b%e5%8c%96%e8%ae%ba" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f180-software-1-to-3-evolution%2f&amp;title=%e4%bb%8e%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e5%ae%9a%e4%b9%89%e7%9b%ae%e6%a0%87%ef%bc%9a%e8%bd%af%e4%bb%b6%201.0%20%e5%88%b0%203.0%20%e7%9a%84%e8%bf%9b%e5%8c%96%e8%ae%ba" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f180-software-1-to-3-evolution%2f&amp;title=%e4%bb%8e%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e5%ae%9a%e4%b9%89%e7%9b%ae%e6%a0%87%ef%bc%9a%e8%bd%af%e4%bb%b6%201.0%20%e5%88%b0%203.0%20%e7%9a%84%e8%bf%9b%e5%8c%96%e8%ae%ba" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f180-software-1-to-3-evolution%2f&amp;description=%e4%bb%8e%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e5%ae%9a%e4%b9%89%e7%9b%ae%e6%a0%87%ef%bc%9a%e8%bd%af%e4%bb%b6%201.0%20%e5%88%b0%203.0%20%e7%9a%84%e8%bf%9b%e5%8c%96%e8%ae%ba" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f180-software-1-to-3-evolution%2f&amp;subject=%e4%bb%8e%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e5%ae%9a%e4%b9%89%e7%9b%ae%e6%a0%87%ef%bc%9a%e8%bd%af%e4%bb%b6%201.0%20%e5%88%b0%203.0%20%e7%9a%84%e8%bf%9b%e5%8c%96%e8%ae%ba" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/185-hermes-gateway-im-platforms-architecture/">Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</a></li>
+                
+                    <li><a href="/post/2026/184-hermes-cli-tui-architecture-deep-dive/">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</a></li>
+                
+                    <li><a href="/post/2026/183-agent-skill-self-evolution/">Agent 的 Skill 自进化机制：它是如何自己长记性的</a></li>
+                
+                    <li><a href="/post/2026/182-llm-agent-context-compression-evolution/">LLM Agent 上下文压缩算法</a></li>
+                
+                    <li><a href="/post/2026/181-opencli-vs-autocli-web-cli-revolution/">OpenCLI vs AutoCLI：把网站变成 CLI 的技术革命</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/178-agent-model-plus-harness/" data-toggle="tooltip" data-placement="top" title="Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/179-ai-test-ready-tauri-engineering-practices/" data-toggle="tooltip" data-placement="top" title="AI Test Ready：把 Tauri 应用改造成可被 AI Agent 测试的系统">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/180-software-1-to-3-evolution">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/180-software-1-to-3-evolution';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

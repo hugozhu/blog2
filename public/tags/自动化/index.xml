@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>自动化 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
+    <description>Recent content in 自动化 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Native 流程的一头一尾：用户问题理解与自动验证</title>
+      <link>http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/170-ai-native-voc-head-and-tail/</guid>
+      <description>&lt;p&gt;之前写过一篇&lt;a href=&#34;http://localhost:45445/post/2026/164-voc-to-automated-pipeline/&#34;&gt;用 AI 把 VOC 变成自动化流水线&lt;/a&gt;，讲的是整条流水线的架构——采集、分析、路由、执行。反馈不错，但也有读者指出一个关键问题：&lt;strong&gt;中间的部分（分类、路由）其实相对好做，真正难的是一头一尾。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;头&amp;quot;是&lt;strong&gt;用户问题理解&lt;/strong&gt;——用户说&amp;quot;页面打不开&amp;rdquo;，你能不能自动搞清楚是哪个页面、什么场景、能不能复现、根因是什么？&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;尾&amp;quot;是&lt;strong&gt;自动验证&lt;/strong&gt;——修完 bug 之后，你能不能自动生成测试用例来证明&amp;quot;确实修好了，而且没有搞坏别的东西&amp;rdquo;？&lt;/p&gt;&#xA;&lt;p&gt;这两个环节恰好是 AI Native 流程区别于传统自动化的核心：传统自动化靠规则，处理的是确定性问题；AI Native 靠理解和推理，处理的是模糊性问题。这篇文章就把这一头一尾拆开讲透。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>多模态AI驱动的B2B订单归一化：从非标准文档到MES系统的智能工作流</title>
+      <link>http://localhost:45445/post/2025/101-multimodal-ai-b2b-order-normalization/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/101-multimodal-ai-b2b-order-normalization/</guid>
+      <description>&lt;p&gt;传统制造企业在数字化转型过程中，面临着一个普遍而棘手的问题：来自不同客户的订单文档格式千差万别，有PDF、Excel、Word、扫描件、甚至手写订单。这些非标准化的订单数据需要人工录入MES（制造执行系统）才能启动生产流程，不仅效率低下，而且容易出错。&lt;/p&gt;&#xA;&lt;p&gt;随着GPT-4V、Claude 3.5 Sonnet等多模态大模型的成熟，我们终于有了一个优雅的解决方案：结合视觉识别能力、自然语言理解和代码生成能力，构建一个智能的订单归一化工作流。在这个工作流中，AI Agent承担大部分繁重工作，人类只需在关键节点进行验证和确认，实现真正的人机协作自动化。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

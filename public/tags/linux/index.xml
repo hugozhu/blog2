@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/linux/</link>
+    <description>Recent content in Linux on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 30 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R2S妙用：Armbian &#43; docker &#43; openwrt &#43; hostapd，用USB网卡做热点，无线有线接入都通过openwrt做路由</title>
+      <link>http://localhost:45445/post/2024/74-armbian-bridge-network-hostapd/</link>
+      <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2024/74-armbian-bridge-network-hostapd/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;p&gt;Armbian 是一款基于 Debian 或 Ubuntu 的开源操作系统，专门针对嵌入式 ARM 平台进行优化和定制。它可以运行在多种不同的嵌入式设备上，例如树莓派、R2S，R4S，玩客云等等。Armbian 针对不同的嵌入式平台，提供了相应的硬件支持，可以让用户轻松地在这些平台上搭建自己的嵌入式系统。&lt;/p&gt;&#xA;&lt;p&gt;刚好有一块闲置了几年的R2S卡片机和树莓派2时代的无线网卡。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu 22 Remote Desktop Sharing Without Real Monitor</title>
+      <link>http://localhost:45445/post/2024/73-ubuntu-22-remote-desktop/</link>
+      <pubDate>Tue, 20 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2024/73-ubuntu-22-remote-desktop/</guid>
+      <description>Ubuntu 22 remote desktop sharing without monitor.</description>
+    </item>
+    <item>
+      <title>Bash-Oneliner</title>
+      <link>http://localhost:45445/post/2022/72-bash-oneliner/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2022/72-bash-oneliner/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://onceupon.github.io/Bash-Oneliner/#time&#34;&gt;https://onceupon.github.io/Bash-Oneliner/#time&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>常用Linux命令</title>
+      <link>http://localhost:45445/post/2014/51-useful-linux-command/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2014/51-useful-linux-command/</guid>
+      <description>&lt;h1 id=&#34;拷贝文件&#34;&gt;拷贝文件&lt;/h1&gt;&#xA;&lt;p&gt;如果想事实看到拷贝的速度可以用&lt;code&gt;rsync -aP&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>替换树莓派的U盘</title>
+      <link>http://localhost:45445/post/2013/39-replace-usb-disk-on-raspberry-pi/</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2013/39-replace-usb-disk-on-raspberry-pi/</guid>
+      <description>&lt;p&gt;除了SD卡上的存储，树莓派还可以使用U盘来做存储，有时候我们可能需要替换已有的U盘为更大容量的。在Mac上可以采用下面的方法：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;备份已有的U盘，把U盘从树莓派上拔下来插在Mac上，找出U盘对应的盘符（下例为&lt;code&gt;/dev/disk2&lt;/code&gt;）&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;20:51:19 hugozhu-mac-mini ~ $ diskutil list&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/dev/disk0&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   #:                       TYPE NAME                    SIZE       IDENTIFIER&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   0:      GUID_partition_scheme                        *500.1 GB   disk0&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   1:                        EFI                         209.7 MB   disk0s1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   2:                  Apple_HFS Macintosh HD            499.2 GB   disk0s2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/dev/disk2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   #:                       TYPE NAME                    SIZE       IDENTIFIER&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   0:     FDisk_partition_scheme                        *2.1 GB     disk2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用 dd 命令把U盘拷贝到&lt;code&gt;raspberrypi.img&lt;/code&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dd if=/dev/disk2 of=raspberrypi.img conv=notrunc&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;从Mac上取下旧U盘，把新的U盘插入同一个USB口，注意新U盘容量要大于旧的&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dd of=/dev/disk2 if=raspberrypi.img conv=notrunc&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;把新U盘插入树莓派，并mount上，用以下命令把U盘的多余空间用起来&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何封杀尝试Raspberry Pi SSH密码的来源IP</title>
+      <link>http://localhost:45445/post/2013/block_failed_ssh_attempts_with_iptable/</link>
+      <pubDate>Fri, 08 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2013/block_failed_ssh_attempts_with_iptable/</guid>
+      <description>&lt;p&gt;Raspberry Pi整天开着，如果用缺省SSH端口对外开放，就会经常遇到扫描SSH密码的肉鸡。虽然密码不是很简单，但还是感觉很不安全的。&lt;/p&gt;&#xA;&lt;p&gt;系统的ssh登录日志文件在：/var/log/auth.log，登录失败时会记录以下格式的日志：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;Mar  7 10:31:51 raspberrypi sshd[24510]: Failed password for root from 221.8.19.129 port 4066 ssh2&#xA;Mar  7 10:31:55 raspberrypi sshd[24514]: Failed password for root from 221.8.19.129 port 4079 ssh2&#xA;Mar  7 10:31:56 raspberrypi sshd[24518]: Failed password for sshd from 221.8.19.129 port 4080 ssh2&#xA;Mar  7 10:32:26 raspberrypi sshd[24522]: Failed password for sshd from 221.8.19.129 port 4149 ssh2&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;用最简单的Shell脚本来解决这个问题：&lt;/p&gt;&#xA;&lt;h3 id=&#34;guardsh&#34;&gt;guard.sh&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code&gt;#!/bin/bash&#xA;&#xA;last_ip=&amp;quot;&amp;quot;&#xA;tail -f /var/log/auth | while read LINE; do&#xA;{&#xA;    if [[ &amp;quot;${LINE}&amp;quot; =~ &amp;quot;Failed&amp;quot; ]]; then            &#xA;        ip=&amp;quot;$(echo ${LINE} | awk &#39;{print $(NF-3)}&#39;)&amp;quot;&#xA;        if [[ &amp;quot;$last_ip&amp;quot; == &amp;quot;$ip&amp;quot; ]]; then&#xA;             echo &amp;quot;block $ip&amp;quot;&#xA;             #curl -s --data-ascii &amp;quot;uuid=&amp;lt;my iphone&#39;s uuid&amp;gt;&amp;quot; --data &amp;quot;body=${LINE}&amp;quot; http://raspberrypi/pushme                 &#xA;             iptables -A INPUT -s &amp;quot;$ip&amp;quot; -j DROP&#xA;        fi&#xA;        last_ip=$ip&#xA;        echo $LINE&#xA;    fi&#xA;}&#xA;done&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;用root用户执行以下命令，也可以放到启动脚本里：/etc/rc.local&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenVPN使用多个端口</title>
+      <link>http://localhost:45445/post/2013/openvpn-multiple-ports/</link>
+      <pubDate>Sat, 02 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2013/openvpn-multiple-ports/</guid>
+      <description>&lt;p&gt;Openvpn本身不能设置多个端口，使用iptables可以解决这个问题 （假设openvpn本来56788端口）：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;for port in {56780..56787}&#xA;do &#xA;    iptables -t nat -A PREROUTING -p tcp -d &amp;lt;your_external_ip&amp;gt; --dport $port -j REDIRECT --to-port 56788&#xA;done&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>动态DNS程序</title>
+      <link>http://localhost:45445/post/2013/dynamic-dns-script/</link>
+      <pubDate>Tue, 26 Feb 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2013/dynamic-dns-script/</guid>
+      <description>&lt;h2 id=&#34;动态根据宽带public-ip更新dnspod登记的域名&#34;&gt;动态根据宽带public ip更新dnspod登记的域名&lt;/h2&gt;&#xA;&lt;p&gt;按照 &lt;a href=&#34;https://gist.github.com/833369&#34;&gt;https://gist.github.com/833369&lt;/a&gt; 逻辑重新用Go实现了，用更少的内存开销在Raspberry Pi上跑。&lt;/p&gt;&#xA;&lt;p&gt;替换上你的Email，密码，域名ID，记录ID等参数，就可以运行了。 会在后台一直运行，每隔30秒检查一遍IP，如果修改了就更新IP。&lt;/p&gt;&#xA;&lt;p&gt;获得domain_id可以用：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;curl curl -k https://dnsapi.cn/Domain.List -d &amp;quot;login_email=xxx&amp;amp;login_password=xxx&amp;quot; &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;获得record_id：&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;curl -k https://dnsapi.cn/Record.List -d &amp;quot;login_email=xxx&amp;amp;login_password=xxx&amp;amp;domain_id=xxx&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;script src=&#34;https://gist.github.com/hugozhu/6506189.js&#34;&gt;&lt;/script&gt;</description>
+    </item>
+    <item>
+      <title>系统调试和分析工具</title>
+      <link>http://localhost:45445/post/2013/linux_perf_tools/</link>
+      <pubDate>Tue, 26 Feb 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2013/linux_perf_tools/</guid>
+      <description>&lt;p&gt;Linux下的调试和分析工具集&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;img src=&#34;http://localhost:45445/assets/media/tools.jpg&#34; width=&#34;600&#34;/&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>以前人给 AI 造工具，现在 AI 自己造工具 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="从声明式工具调用到程序化工具调用（PTC），AI Agent 的工具范式正在发生根本性转变"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "以前人给 AI 造工具，现在 AI 自己造工具",
+  "@id": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/",
+  "url": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/",
+      "name": "以前人给 AI 造工具，现在 AI 自己造工具",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "以前人给 AI 造工具，现在 AI 自己造工具",
+  "description": "做 AI Agent 开发这一年多来，我经历了一个认知上的转变：以前的默认思路是\u0026quot;我要给 AI 准备好一切工具，让它去调用\u0026quot;；而现在，越来越多的场景让我意识到——AI 为了完成任务，会自己造工具。这不是一个隐喻，而是一个正在发生的技术事实。\n",
+  "inLanguage": "en",
+  "wordCount":  408 ,
+  "dateCreated": "2026-03-04T00:00:00+00:00",
+  "datePublished": "2026-03-04T00:00:00+00:00",
+  "dateModified": "2026-03-04T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "AI, AI-agents, tool-use, PTC, Claude, LLM, architecture" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="以前人给 AI 造工具，现在 AI 自己造工具" />
+<meta property="og:description" content="从声明式工具调用到程序化工具调用（PTC），AI Agent 的工具范式正在发生根本性转变" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="以前人给 AI 造工具，现在 AI 自己造工具" />
+  <meta name="twitter:description" content="从声明式工具调用到程序化工具调用（PTC），AI Agent 的工具范式正在发生根本性转变">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>以前人给 AI 造工具，现在 AI 自己造工具</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">从声明式工具调用到程序化工具调用（PTC），AI Agent 的工具范式正在发生根本性转变</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 4, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;408&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>做 AI Agent 开发这一年多来，我经历了一个认知上的转变：以前的默认思路是&quot;我要给 AI 准备好一切工具，让它去调用&quot;；而现在，越来越多的场景让我意识到——<strong>AI 为了完成任务，会自己造工具</strong>。这不是一个隐喻，而是一个正在发生的技术事实。</p>
+<h2 id="旧范式人类是工具制造者">旧范式：人类是工具制造者</h2>
+<p>传统的 AI Agent 架构中，人类的角色很明确——<strong>工具制造者</strong>。</p>
+<p>你定义工具的名称、描述、参数 Schema，然后把它交给模型。模型在推理过程中，判断需要使用哪个工具，生成对应的 JSON 参数，系统执行后将结果返回给模型的上下文窗口。模型再基于这个结果继续推理。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">人类定义工具 → 模型选择工具 → 生成参数(JSON) → 执行 → 结果回到上下文 → 模型继续推理
+</span></span><span class="line"><span class="cl">                                                         ↑
+</span></span><span class="line"><span class="cl">                                                    每次都要经过模型
+</span></span></code></pre></div><p>这个模式在过去两年里运转得不错。MCP 服务器、Function Calling、Tool Use——整个生态都围绕这个范式构建。人类负责&quot;想好 AI 需要什么工具&quot;，然后把工具打磨好，AI 负责&quot;正确地调用它们&quot;。</p>
+<p>这里有一个隐含的假设：<strong>人类能够预见 AI 需要的所有工具</strong>。</p>
+<h2 id="旧范式的瓶颈">旧范式的瓶颈</h2>
+<p>但当 Agent 的任务变得复杂时，这个假设就开始崩塌了。</p>
+<h3 id="组合爆炸问题">组合爆炸问题</h3>
+<p>假设你给了 AI 三个工具：网页搜索、文件读取、数据分析。一个简单的研究任务可能需要：搜索 → 读取结果 → 再搜索 → 交叉比对 → 分析 → 再搜索验证。每一步的结果都要回到模型的上下文窗口，模型要对每一步都做一次完整的推理。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">搜索(query1) → [结果回到上下文] → 推理 → 搜索(query2) → [结果回到上下文] → 推理
+</span></span><span class="line"><span class="cl">→ 读取(url1) → [结果回到上下文] → 推理 → 分析(data) → [结果回到上下文] → 推理...
+</span></span></code></pre></div><p>六次工具调用就是六次往返。每次往返都有成本：</p>
+<ul>
+<li><strong>延迟</strong>：每次都要等模型生成下一步</li>
+<li><strong>Token 膨胀</strong>：中间结果全部序列化进上下文，即使下一步只需要其中五行数据，也可能把几千行塞进去</li>
+<li><strong>推理浪费</strong>：模型需要在每一步都重新理解整个上下文</li>
+</ul>
+<h3 id="工具粒度的两难">工具粒度的两难</h3>
+<p>工具设计者面临一个永恒的困境：</p>
+<ul>
+<li>工具太粗粒度（一个工具做很多事）→ 参数复杂，模型调用准确率下降</li>
+<li>工具太细粒度（每个工具只做一件小事）→ 需要大量往返，延迟和 Token 成本飙升</li>
+</ul>
+<p>在<a href="/post/2026/130-llm-tool-use-accuracy-cli-simplicity/">上一篇文章</a>中，我主张工具应该足够简单。但简单带来的副作用是：完成一个复杂任务需要调用更多次工具，每次都要经过模型的上下文窗口。</p>
+<h2 id="新范式ai-自己造工具">新范式：AI 自己造工具</h2>
+<p>Anthropic 最近在 Claude Opus/Sonnet 4.6 中推出的**程序化工具调用（Programmatic Tool Calling, PTC）**正式打破了旧范式。</p>
+<p>PTC 的核心思想出人意料地简单：<strong>Claude 不再逐个调用工具，而是编写代码来编排工具调用</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">人类定义基础工具 → 模型编写编排代码 → 代码在容器中执行，直接调用工具
+</span></span><span class="line"><span class="cl">                                         ↓
+</span></span><span class="line"><span class="cl">                                    中间结果回到代码（不是模型上下文）
+</span></span><span class="line"><span class="cl">                                         ↓
+</span></span><span class="line"><span class="cl">                                    代码继续处理（筛选、聚合、循环...）
+</span></span><span class="line"><span class="cl">                                         ↓
+</span></span><span class="line"><span class="cl">                                    只有最终结果回到模型上下文
+</span></span></code></pre></div><p>关键区别在于：<strong>中间结果不再回到模型的上下文窗口，而是回到正在运行的代码</strong>。模型写的代码决定了如何处理这些中间结果——筛选、聚合、交叉引用、循环——所有这些编排逻辑都由代码完成，而不是由模型逐步推理。</p>
+<h3 id="一个具体的例子">一个具体的例子</h3>
+<p>假设要完成一个深度搜索任务：&ldquo;找出最近三个月关于 PTC 的所有技术博客，对比它们的观点&rdquo;。</p>
+<p><strong>旧范式</strong>（每次都往返模型）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="err">模型</span> <span class="err">→</span> <span class="n">web_search</span><span class="p">(</span><span class="s2">&#34;PTC technical blog&#34;</span><span class="p">)</span> <span class="err">→</span> <span class="err">返回</span><span class="mi">50</span><span class="err">条结果到上下文</span>
+</span></span><span class="line"><span class="cl"><span class="err">模型推理：我需要过滤和深入阅读</span><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="err">模型</span> <span class="err">→</span> <span class="n">web_search</span><span class="p">(</span><span class="s2">&#34;programmatic tool calling 2026&#34;</span><span class="p">)</span> <span class="err">→</span> <span class="err">返回</span><span class="mi">50</span><span class="err">条结果到上下文</span>
+</span></span><span class="line"><span class="cl"><span class="err">模型推理：让我筛选相关的</span><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="err">模型</span> <span class="err">→</span> <span class="n">fetch_url</span><span class="p">(</span><span class="n">url1</span><span class="p">)</span> <span class="err">→</span> <span class="err">全文返回到上下文</span>
+</span></span><span class="line"><span class="cl"><span class="err">模型</span> <span class="err">→</span> <span class="n">fetch_url</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span> <span class="err">→</span> <span class="err">全文返回到上下文</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span><span class="err">（</span><span class="mi">10</span><span class="o">+</span><span class="err">次往返，上下文急剧膨胀）</span>
+</span></span></code></pre></div><p><strong>新范式</strong>（PTC）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 模型生成这段编排代码，在容器中执行</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">web_search</span><span class="p">(</span><span class="s2">&#34;PTC programmatic tool calling&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;</span> <span class="s2">&#34;2025-12&#34;</span> <span class="ow">and</span> <span class="n">r</span><span class="o">.</span><span class="n">relevance</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">summaries</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">filtered</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch_url</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 代码在容器中直接处理，不回到模型上下文</span>
+</span></span><span class="line"><span class="cl">    <span class="n">key_points</span> <span class="o">=</span> <span class="n">extract_key_arguments</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">summaries</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="s2">&#34;points&#34;</span><span class="p">:</span> <span class="n">key_points</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 只有最终的结构化摘要回到模型</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="p">{</span><span class="s2">&#34;total_found&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">),</span> <span class="s2">&#34;analyzed&#34;</span><span class="p">:</span> <span class="n">summaries</span><span class="p">}</span>
+</span></span></code></pre></div><p>50 条原始搜索结果、多篇全文内容——这些中间数据全部在代码中处理完毕，只有最终的精炼摘要才进入模型的上下文。</p>
+<h3 id="效果">效果</h3>
+<p>Anthropic 公布的数据很有说服力：在 BrowseComp 和 DeepsearchQA 基准测试上，PTC 让准确率平均提高了 <strong>11%</strong>，同时输入 Token 数量减少了 <strong>24%</strong>。采用 PTC 的 Opus 4.6 在 LMArena 的 Search Arena 中排名第一。</p>
+<p>更少的 Token、更高的准确率——这不是一个取舍，而是一个帕累托改进。</p>
+<h2 id="这意味着什么">这意味着什么</h2>
+<p>PTC 不只是一个性能优化技巧。它代表了 AI 与工具关系的范式转变：</p>
+<h3 id="1-从使用工具到编排工具">1. 从&quot;使用工具&quot;到&quot;编排工具&quot;</h3>
+<p>以前 AI 是一个逐步执行的操作员：给我一个工具，我调用一次，等结果，再想下一步。现在 AI 更像一个程序员：给我一组基础能力，我写代码把它们组合成新的工具。</p>
+<p>这和人类工具使用的演化路径惊人地相似：</p>
+<ul>
+<li>石器时代：使用现成的工具</li>
+<li>青铜时代：组合材料制造新工具</li>
+<li>工业时代：用工具制造工具（机床）</li>
+<li>信息时代：用代码编排工具（自动化）</li>
+</ul>
+<p>AI 正在从&quot;石器时代&quot;跨入&quot;信息时代&quot;。</p>
+<h3 id="2-工具设计的重心转移">2. 工具设计的重心转移</h3>
+<p>以前设计工具时，你要考虑的是：&ldquo;这个工具能不能让 AI <strong>一次调用</strong>就完成任务？&rdquo;</p>
+<p>现在的问题变成了：&ldquo;这个工具能不能作为一个<strong>基础构建块</strong>，让 AI 灵活组合？&rdquo;</p>
+<p>这两种设计哲学导向完全不同的工具形态：</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>旧思路</th>
+          <th>新思路</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>设计目标</td>
+          <td>工具自身功能完备</td>
+          <td>工具可被代码组合</td>
+      </tr>
+      <tr>
+          <td>参数</td>
+          <td>尽量覆盖所有场景</td>
+          <td>保持原子操作</td>
+      </tr>
+      <tr>
+          <td>返回值</td>
+          <td>面向人类理解</td>
+          <td>面向程序处理</td>
+      </tr>
+      <tr>
+          <td>粒度</td>
+          <td>越精确越好</td>
+          <td>越基础越好</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="3-控制性没有丧失">3. 控制性没有丧失</h3>
+<p>有人会担心：让 AI 自己写代码编排工具调用，不会失控吗？</p>
+<p>PTC 的巧妙之处在于：工具的<strong>实现</strong>仍然在你的控制之下。当代码中调用 <code>await web_search(query)</code> 时，容器会暂停，这个调用会作为一个标准的工具使用事件穿过沙盒边界——经过你的工具处理器、MCP 服务器或任何你设置的中间层。你可以检查、拒绝、记录、排队等待人工批准。</p>
+<p>换句话说：<strong>AI 获得了编排的自由，但每一步执行仍然在人类的监管之下</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="err">┌─────────────────────────────────┐</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="n">AI</span> <span class="err">生成的编排代码（沙盒内）</span>      <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>                                 <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="n">result</span> <span class="o">=</span> <span class="n">await</span> <span class="k">tool</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>    <span class="err">│──→</span> <span class="err">穿过沙盒边界</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>         <span class="err">↑</span>                       <span class="err">│</span>         <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>    <span class="err">结果回到代码</span>                   <span class="err">│</span>    <span class="err">工具处理器（你的代码）</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>                                 <span class="err">│</span>    <span class="o">-</span> <span class="err">权限检查</span> <span class="err">✓</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="n">final</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>        <span class="err">│</span>    <span class="o">-</span> <span class="err">日志记录</span> <span class="err">✓</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="k">return</span> <span class="n">final</span> <span class="err">──→</span> <span class="err">回到模型上下文</span>  <span class="err">│</span>    <span class="o">-</span> <span class="err">速率限制</span> <span class="err">✓</span>
+</span></span><span class="line"><span class="cl"><span class="err">└─────────────────────────────────┘</span>    <span class="o">-</span> <span class="err">人工审批</span> <span class="err">✓</span>
+</span></span></code></pre></div><h2 id="和-claude-code-的关联">和 Claude Code 的关联</h2>
+<p>如果你用过 Claude Code，你会发现这种&quot;AI 自己造工具&quot;的理念已经在实践中体现了。</p>
+<p>Claude Code 的核心就是一个跑在循环里的 bash 工具。但它不仅仅用 bash——它把特定行动提升为专门的工具（比如 <code>AskUserQuestion</code>、<code>Edit</code>、<code>Read</code>），以获得更好的用户体验、护栏和可观测性。</p>
+<p>PTC 是这个思路的进一步延伸：不是给 AI 更多的工具，而是给 AI 用代码组合现有工具的能力。AI 从&quot;工具使用者&quot;进化成了&quot;工具编排者&quot;——甚至可以说是&quot;工具制造者&quot;。</p>
+<h2 id="对-agent-开发者的启示">对 Agent 开发者的启示</h2>
+<p>如果你正在构建 AI Agent，PTC 带来的范式转变值得认真思考：</p>
+<p><strong>1. 给 AI 提供基础构建块，而不是完整方案</strong></p>
+<p>把工具设计成可以被程序化组合的原子操作。与其提供一个&quot;深度搜索&quot;工具，不如提供 <code>web_search</code>、<code>fetch_url</code>、<code>extract_text</code> 这样的基础能力，让 AI 用代码把它们编排成深度搜索。</p>
+<p><strong>2. 关注工具的可组合性</strong></p>
+<p>工具的返回值应该是结构化的、可被代码处理的。面向人类的自然语言描述很好，但面向程序的结构化数据更重要。</p>
+<p><strong>3. 控制点设在工具层，而不是编排层</strong></p>
+<p>不要试图控制 AI 的编排逻辑，而是在每个工具的执行层面设置护栏。这样 AI 可以自由组合，但每一步操作都在你的掌控之中。</p>
+<h2 id="结论">结论</h2>
+<p>回看 AI Agent 工具使用的演进路径：</p>
+<blockquote>
+<p><strong>手动定义 → 声明式调用 → 程序化编排 → AI 自造工具</strong></p>
+</blockquote>
+<p>我们正处在从&quot;声明式调用&quot;向&quot;程序化编排&quot;过渡的阶段。PTC 是一个标志性的节点——它表明，AI 不再满足于被动地使用人类预定义好的工具，而是开始主动地用代码来创造新的工具组合。</p>
+<p>这并不意味着人类工具设计者的角色变得不重要了。恰恰相反，设计好的<strong>基础工具</strong>变得更加关键——因为它们是 AI 造新工具的原材料。就像编程语言的标准库一样，基础越扎实，上层的创造力就越强。</p>
+<p>以前是人给 AI 准备工具来感知环境和行动。现在 AI 为了完成任务会自己造工具。这不是 AI 的&quot;叛逆&quot;，而是工具使用能力的自然演进——从使用工具到制造工具，这本就是智能的标志。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/tool-use/">tool-use</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ptc/">PTC</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/claude/">Claude</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/llm/">LLM</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/architecture/">architecture</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f131-ai-creates-its-own-tools-programmatic-tool-calling%2f&amp;text=%e4%bb%a5%e5%89%8d%e4%ba%ba%e7%bb%99%20AI%20%e9%80%a0%e5%b7%a5%e5%85%b7%ef%bc%8c%e7%8e%b0%e5%9c%a8%20AI%20%e8%87%aa%e5%b7%b1%e9%80%a0%e5%b7%a5%e5%85%b7&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f131-ai-creates-its-own-tools-programmatic-tool-calling%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f131-ai-creates-its-own-tools-programmatic-tool-calling%2f&amp;title=%e4%bb%a5%e5%89%8d%e4%ba%ba%e7%bb%99%20AI%20%e9%80%a0%e5%b7%a5%e5%85%b7%ef%bc%8c%e7%8e%b0%e5%9c%a8%20AI%20%e8%87%aa%e5%b7%b1%e9%80%a0%e5%b7%a5%e5%85%b7" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f131-ai-creates-its-own-tools-programmatic-tool-calling%2f&amp;title=%e4%bb%a5%e5%89%8d%e4%ba%ba%e7%bb%99%20AI%20%e9%80%a0%e5%b7%a5%e5%85%b7%ef%bc%8c%e7%8e%b0%e5%9c%a8%20AI%20%e8%87%aa%e5%b7%b1%e9%80%a0%e5%b7%a5%e5%85%b7" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f131-ai-creates-its-own-tools-programmatic-tool-calling%2f&amp;title=%e4%bb%a5%e5%89%8d%e4%ba%ba%e7%bb%99%20AI%20%e9%80%a0%e5%b7%a5%e5%85%b7%ef%bc%8c%e7%8e%b0%e5%9c%a8%20AI%20%e8%87%aa%e5%b7%b1%e9%80%a0%e5%b7%a5%e5%85%b7" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f131-ai-creates-its-own-tools-programmatic-tool-calling%2f&amp;description=%e4%bb%a5%e5%89%8d%e4%ba%ba%e7%bb%99%20AI%20%e9%80%a0%e5%b7%a5%e5%85%b7%ef%bc%8c%e7%8e%b0%e5%9c%a8%20AI%20%e8%87%aa%e5%b7%b1%e9%80%a0%e5%b7%a5%e5%85%b7" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f131-ai-creates-its-own-tools-programmatic-tool-calling%2f&amp;subject=%e4%bb%a5%e5%89%8d%e4%ba%ba%e7%bb%99%20AI%20%e9%80%a0%e5%b7%a5%e5%85%b7%ef%bc%8c%e7%8e%b0%e5%9c%a8%20AI%20%e8%87%aa%e5%b7%b1%e9%80%a0%e5%b7%a5%e5%85%b7" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/187-ai-era-architect-growth-path/">AI 时代，校招生如何成为好架构师</a></li>
+                
+                    <li><a href="/post/2026/185-hermes-gateway-im-platforms-architecture/">Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</a></li>
+                
+                    <li><a href="/post/2026/184-hermes-cli-tui-architecture-deep-dive/">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</a></li>
+                
+                    <li><a href="/post/2026/178-agent-model-plus-harness/">Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2026/130-llm-tool-use-accuracy-cli-simplicity/" data-toggle="tooltip" data-placement="top" title="大模型 Tool Use 准确率可达 99%，但前提是工具足够简单">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2026/132-agent-clean-environment-best-practices/" data-toggle="tooltip" data-placement="top" title="让 Agent 更准确地完成任务，关键不在模型，而在环境">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2026\/131-ai-creates-its-own-tools-programmatic-tool-calling';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

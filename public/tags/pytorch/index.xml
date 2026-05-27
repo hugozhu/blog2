@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pytorch on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/pytorch/</link>
+    <description>Recent content in Pytorch on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Step-by-Step 实现一个能编程的大模型</title>
+      <link>http://localhost:45445/post/2026/120-build-code-llm-from-scratch/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/120-build-code-llm-from-scratch/</guid>
+      <description>&lt;p&gt;你是否好奇过 GitHub Copilot、CodeLlama 这些代码生成模型是如何工作的？本文将带你从零开始，一步步实现一个专注于 Python 代码生成的小型语言模型。通过这个项目，你将深入理解 Transformer 架构、代码 tokenization、以及如何让模型学会&amp;quot;写代码&amp;quot;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

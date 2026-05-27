@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bluetooth on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/bluetooth/</link>
+    <description>Recent content in Bluetooth on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 19 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派3变身iBeacon发射器</title>
+      <link>http://localhost:45445/post/2016/63-raspberrypi-as-ibeacon-transmitter/</link>
+      <pubDate>Tue, 19 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2016/63-raspberrypi-as-ibeacon-transmitter/</guid>
+      <description>&lt;p&gt;iBeacon是apple公司提出的“一种可以让附近手持电子设备检测到的一种新的低功耗、低成本信号传送器”的一套可用于室内定位系统的协议。iBeacon技术通过低功耗蓝牙（BLE），也就是我们所说的智能蓝牙来实现。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

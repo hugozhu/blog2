@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skill-Design on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/skill-design/</link>
+    <description>Recent content in Skill-Design on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/skill-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践</title>
+      <link>http://localhost:45445/post/2026/172-evolvable-agent-skills-best-practices/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/172-evolvable-agent-skills-best-practices/</guid>
+      <description>&lt;p&gt;今天下午我做了一件听起来有点奇怪的事——让 AI 读完了我自己的 174 篇博客，提炼出写作风格，写成了一份可执行的配置文件，然后告诉它：&amp;ldquo;以后每次写文章就按这个标准来，写完还要自己更新它。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;它真的照做了。不仅生成了一份包含六大风格特征、两种文章模板、四个薄弱环节和改进路线图的 Skill 文档，还自动附加了一条&amp;quot;进化协议&amp;quot;——每次使用完毕后检查是否需要更新。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;这不是 prompt engineering，也不是 RAG。这是给 Agent 建程序性记忆（Procedural Memory）。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;很多人给 AI 配了知识库、写了几百行 system prompt，但用起来总觉得&amp;quot;不长进&amp;quot;。问题不在于模型，而在于记忆的结构。静态 prompt 是一次性指令，而可进化的 Skill 是活的——它会随着使用自动迭代、越用越准、越用越像你自己。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

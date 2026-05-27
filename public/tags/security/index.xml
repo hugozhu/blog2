@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/security/</link>
+    <description>Recent content in Security on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为 AI 重建的 IM 架构</title>
+      <link>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/142-im-architecture-rebuilt-for-ai/</guid>
+      <description>&lt;p&gt;传统 IM（即时通讯）解决的是一个简单的问题：&lt;strong&gt;让人和人高效地交换信息&lt;/strong&gt;。文本、图片、文件、语音——三十年来，IM 的核心架构围绕着&amp;quot;谁说了什么&amp;quot;展开，安全靠端到端加密，权限靠静态角色控制，审计靠消息日志。这套体系服务了几十亿用户，足够成熟。&lt;/p&gt;&#xA;&lt;p&gt;但当 AI Agent 成为 IM 中的活跃参与者——不仅接收消息，还理解意图、调用工具、执行任务、产生后果——传统 IM 的架构假设就被从根本上打破了。&lt;strong&gt;IM 不再只是信息传递的通道，而是 Agent 协作与执行的操作系统。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这需要一种全新的 IM 架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业专属模型：让企业放心调用大模型的架构最佳实践</title>
+      <link>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/141-enterprise-dedicated-model-architecture/</guid>
+      <description>&lt;p&gt;和企业客户聊 AI 落地，十次有九次会被问到同一个问题：&lt;strong&gt;&amp;ldquo;我们调用你们的大模型，数据会不会被拿去训练？&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这个问题背后的焦虑是真实的。企业的客户数据、商业机密、内部文档、代码仓库——这些是企业的核心资产。把它们发送给一个外部的大模型 API，本质上就是把家底给别人看了一遍。如果这些数据还被用来训练模型，那等于是在免费帮竞争对手提升 AI 能力。&lt;/p&gt;&#xA;&lt;p&gt;好消息是，这个问题在 2026 年已经有了成熟的解决方案。坏消息是，大多数企业还不知道该怎么选。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>企业级 Agent Runtime 的第一道防线：安全沙箱</title>
+      <link>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/139-enterprise-agent-runtime-sandbox-security/</guid>
+      <description>&lt;p&gt;当我们谈论企业级 AI Agent Runtime 时，第一个需要解决的问题不是&amp;quot;模型有多聪明&amp;quot;，而是&amp;quot;Agent 执行的代码有多安全&amp;quot;。一个能读写文件、执行命令、访问网络的 Agent，如果没有安全边界，就是一颗不知道什么时候会爆炸的定时炸弹。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;企业级的 Agent Runtime 首先需要一个安全沙箱：文件系统隔离 + 网络访问隔离。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>当 AI Agent 被拉进多个群：会话隔离与 Agent 隔离的生死线</title>
+      <link>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</guid>
+      <description>&lt;p&gt;把一个 AI Agent 拉进钉钉的多个群，是一件非常容易的事情——群管理员点一下&amp;quot;添加机器人&amp;quot;就完成了。但这也是一件&lt;strong&gt;极其危险的事情&lt;/strong&gt;——如果 Agent Runtime 没有做好隔离，你可能正在制造一个企业级的安全事故。&lt;/p&gt;&#xA;&lt;p&gt;想象这个场景：你的 AI Agent 同时服务于&amp;quot;核心技术架构群&amp;quot;和&amp;quot;外部合作伙伴群&amp;quot;。有人在合作伙伴群里问了一个问题，Agent 的回答中不小心带出了它在架构群里学到的技术方案细节。&lt;strong&gt;信息就这样泄露了，而且没有任何人会收到告警。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是假设。这是没有隔离的 Agent Runtime 的默认行为。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

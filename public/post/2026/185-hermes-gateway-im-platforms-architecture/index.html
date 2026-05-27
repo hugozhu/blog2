@@ -1,0 +1,1088 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Agent 如何同时活在钉钉、Telegram、Discord 和微信里？ - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="How Hermes Agent Gateway Unifies 18 IM Platforms with a Single Codebase"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent 如何同时活在钉钉、Telegram、Discord 和微信里？",
+  "@id": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/",
+  "url": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/",
+      "name": "Agent 如何同时活在钉钉、Telegram、Discord 和微信里？",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "Agent 如何同时活在钉钉、Telegram、Discord 和微信里？",
+  "description": "上周团队在规划 Agent 的多渠道接入方案。有人说\u0026quot;每个 IM 写一套 adapter\u0026quot;，有人说\u0026quot;统一用 Webhook 接收然后标准化\u0026quot;。\n我打开 Hermes Agent 的代码仓库，gateway\/platforms\/ 目录下躺着 18 个平台适配器——从 Telegram、Discord 到钉钉、飞书、企业微信、QQ 机器人，甚至还有 iMessage（BlueBubbles）、Signal 和 Home Assistant。\n\u0026ldquo;所有平台共享同一个 Agent Loop，同一套 Session 管理，同一套工具调用。\u0026rdquo;\n他们问：\u0026ldquo;那 18 个 adapter 之间代码复用率有多少？\u0026rdquo;\n我给他们看了一张图。\n",
+  "inLanguage": "en",
+  "wordCount":  1595 ,
+  "timeRequired": "PT8M",
+  "dateCreated": "2026-04-19T00:00:00+00:00",
+  "datePublished": "2026-04-19T00:00:00+00:00",
+  "dateModified": "2026-04-19T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "ai-agent, system-design, hermes, messaging, gateway, architecture" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Agent 如何同时活在钉钉、Telegram、Discord 和微信里？" />
+<meta property="og:description" content="How Hermes Agent Gateway Unifies 18 IM Platforms with a Single Codebase" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Agent 如何同时活在钉钉、Telegram、Discord 和微信里？" />
+  <meta name="twitter:description" content="How Hermes Agent Gateway Unifies 18 IM Platforms with a Single Codebase">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">How Hermes Agent Gateway Unifies 18 IM Platforms with a Single Codebase</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 19, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;8&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1595&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>上周团队在规划 Agent 的多渠道接入方案。有人说&quot;每个 IM 写一套 adapter&quot;，有人说&quot;统一用 Webhook 接收然后标准化&quot;。</p>
+<p>我打开 Hermes Agent 的代码仓库，<code>gateway/platforms/</code> 目录下躺着 <strong>18 个平台适配器</strong>——从 Telegram、Discord 到钉钉、飞书、企业微信、QQ 机器人，甚至还有 iMessage（BlueBubbles）、Signal 和 Home Assistant。</p>
+<p>&ldquo;所有平台共享同一个 Agent Loop，同一套 Session 管理，同一套工具调用。&rdquo;</p>
+<p>他们问：&ldquo;那 18 个 adapter 之间代码复用率有多少？&rdquo;</p>
+<p>我给他们看了一张图。</p>
+<h2 id="整体架构一个-agent多个嘴巴">整体架构：一个 Agent，多个嘴巴</h2>
+<p>Hermes Agent 的 Gateway 架构可以抽象为一个四层模型：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────────────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│  Layer 1: Platform Adapters (gateway/platforms/*.py)                  │
+</span></span><span class="line"><span class="cl">│  ┌─────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐           │
+</span></span><span class="line"><span class="cl">│  │Telegram │ │Discord │ │钉钉    │ │飞书    │ │WeCom   │  ... ×18   │
+</span></span><span class="line"><span class="cl">│  │Bot API  │ │Bot API │ │Stream  │ │Callback│ │Callback│           │
+</span></span><span class="line"><span class="cl">│  └────┬────┘ └───┬────┘ └───┬────┘ └───┬────┘ └───┬────┘           │
+</span></span><span class="line"><span class="cl">│       │           │          │          │          │                 │
+</span></span><span class="line"><span class="cl">│       └───────────┴──────────┴──────────┴──────────┘                 │
+</span></span><span class="line"><span class="cl">│                        │                                            │
+</span></span><span class="line"><span class="cl">│                   MessageEvent (标准化消息)                            │
+</span></span><span class="line"><span class="cl">│                        │                                            │
+</span></span><span class="line"><span class="cl">├────────────────────────┼────────────────────────────────────────────┤
+</span></span><span class="line"><span class="cl">│  Layer 2: Gateway Runner (gateway/run.py)                           │
+</span></span><span class="line"><span class="cl">│  ┌──────────────────────┐  ┌──────────────────────┐                │
+</span></span><span class="line"><span class="cl">│  │  SessionStore        │  │  DeliveryRouter       │                │
+</span></span><span class="line"><span class="cl">│  │  - 会话生命周期       │  │  - 消息路由           │                │
+</span></span><span class="line"><span class="cl">│  │  - 会话重置策略       │  │  - 跨平台投递         │                │
+</span></span><span class="line"><span class="cl">│  │  - AIAgent 缓存      │  │  - origin/local/显式   │                │
+</span></span><span class="line"><span class="cl">│  └──────────┬───────────┘  └───────────┬───────────┘                │
+</span></span><span class="line"><span class="cl">│             │                          │                             │
+</span></span><span class="line"><span class="cl">├─────────────┼──────────────────────────┼────────────────────────────┤
+</span></span><span class="line"><span class="cl">│  Layer 3: AIAgent (run_agent.py)       │                             │
+</span></span><span class="line"><span class="cl">│  ┌─────────────────────────────────┐  │                             │
+</span></span><span class="line"><span class="cl">│  │  run_conversation()             │  │                             │
+</span></span><span class="line"><span class="cl">│  │  - LLM API 调用                 │  │                             │
+</span></span><span class="line"><span class="cl">│  │  - 工具发现与执行               │  │                             │
+</span></span><span class="line"><span class="cl">│  │  - 上下文压缩                    │  │                             │
+</span></span><span class="line"><span class="cl">│  │  - 回调通知 → Layer 2           │  │                             │
+</span></span><span class="line"><span class="cl">│  └─────────────────────────────────┘  │                             │
+</span></span><span class="line"><span class="cl">│                                       │                             │
+</span></span><span class="line"><span class="cl">├───────────────────────────────────────┼────────────────────────────┤
+</span></span><span class="line"><span class="cl">│  Layer 4: Tools &amp; Infrastructure      │                             │
+</span></span><span class="line"><span class="cl">│  terminal / web_search / file / MCP   │  ← 所有平台共享              │
+</span></span><span class="line"><span class="cl">│  delegate_task / cronjob / skill      │                             │
+</span></span><span class="line"><span class="cl">└───────────────────────────────────────┴────────────────────────────┘
+</span></span></code></pre></div><p><strong>核心思想</strong>：Layer 1 负责&quot;翻译&quot;——把各平台原生消息格式翻译成统一的 <code>MessageEvent</code>，把 Agent 输出翻译成平台原生 API 调用。Layer 2-4 完全不知道消息来自哪里，它们只看到一个标准化的对话请求。</p>
+<h2 id="layer-1平台适配器基类">Layer 1：平台适配器基类</h2>
+<p>所有 18 个适配器都继承自同一个抽象基类 <code>BasePlatformAdapter</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">BasePlatformAdapter</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;所有平台适配器的基类。
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    子类实现平台特定的连接、认证、收发消息逻辑。
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">PlatformConfig</span><span class="p">,</span> <span class="n">platform</span><span class="p">:</span> <span class="n">Platform</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="n">platform</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_message_handler</span> <span class="o">=</span> <span class="kc">None</span>       <span class="c1"># 消息处理回调（指向 GatewayRunner）</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_busy_session_handler</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># 会话忙碌时的处理回调</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_active_sessions</span> <span class="o">=</span> <span class="p">{}</span>         <span class="c1"># {session_key: asyncio.Event()}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_pending_messages</span> <span class="o">=</span> <span class="p">{}</span>        <span class="c1"># 等待处理的消息队列</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_background_tasks</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>     <span class="c1"># 后台处理任务</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>每个子类只需要实现以下几个方法：</p>
+<table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>职责</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>connect()</code></td>
+          <td>连接平台 API</td>
+          <td>Telegram: <code>aiogram Bot polling</code></td>
+      </tr>
+      <tr>
+          <td><code>disconnect()</code></td>
+          <td>断开连接</td>
+          <td>关闭 polling / webhook</td>
+      </tr>
+      <tr>
+          <td><code>send()</code></td>
+          <td>发送消息</td>
+          <td>调用平台 sendMessage API</td>
+      </tr>
+      <tr>
+          <td><code>send_typing()</code></td>
+          <td>发送&quot;正在输入&quot;状态</td>
+          <td>Telegram: sendChatAction</td>
+      </tr>
+      <tr>
+          <td><code>send_image()</code></td>
+          <td>发送图片</td>
+          <td>上传并发送文件</td>
+      </tr>
+      <tr>
+          <td><code>send_voice()</code></td>
+          <td>发送语音</td>
+          <td>TTS 音频发送</td>
+      </tr>
+      <tr>
+          <td><code>send_document()</code></td>
+          <td>发送文件</td>
+          <td>文档/代码块发送</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>这就是复用率高的秘诀</strong>——基类已经实现了消息处理、会话管理、重试、流式输出、打字指示器、图片缓存等所有通用逻辑，子类只需要&quot;填空&quot;实现平台特定的 API 调用。</p>
+<h3 id="消息标准化messageevent">消息标准化：MessageEvent</h3>
+<p>每个平台收到原始消息后，统一包装成 <code>MessageEvent</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MessageType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TEXT</span> <span class="o">=</span> <span class="s2">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PHOTO</span> <span class="o">=</span> <span class="s2">&#34;photo&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">VOICE</span> <span class="o">=</span> <span class="s2">&#34;voice&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">VIDEO</span> <span class="o">=</span> <span class="s2">&#34;video&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DOCUMENT</span> <span class="o">=</span> <span class="s2">&#34;document&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AUDIO</span> <span class="o">=</span> <span class="s2">&#34;audio&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">STICKER</span> <span class="o">=</span> <span class="s2">&#34;sticker&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CONTACT</span> <span class="o">=</span> <span class="s2">&#34;contact&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOCATION</span> <span class="o">=</span> <span class="s2">&#34;location&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MessageEvent</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;标准化消息事件——所有平台统一格式&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">source</span><span class="p">:</span> <span class="n">SessionSource</span>     <span class="c1"># 来源：平台、chat_id、user_id、线程 ID</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>                 <span class="c1"># 消息文本</span>
+</span></span><span class="line"><span class="cl">    <span class="n">message_type</span><span class="p">:</span> <span class="n">MessageType</span> <span class="c1"># 消息类型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">message_id</span><span class="p">:</span> <span class="nb">str</span>           <span class="c1"># 平台消息 ID（用于回复）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span>              <span class="c1"># 发送者 ID</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>  <span class="c1"># 发送者名称</span>
+</span></span><span class="line"><span class="cl">    <span class="n">media_urls</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>     <span class="c1"># 媒体文件 URL</span>
+</span></span><span class="line"><span class="cl">    <span class="n">media_types</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>    <span class="c1"># 媒体 MIME 类型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">reply_to_message_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>  <span class="c1"># 回复的消息 ID</span>
+</span></span><span class="line"><span class="cl">    <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>  <span class="c1"># 平台扩展字段</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">is_command</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;是否是斜杠命令&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_command</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;提取命令名：/model → model&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_command</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_command_args</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;提取命令参数：/model claude-sonnet → claude-sonnet&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>无论消息来自 Telegram 的 <code>Message</code> 对象、Discord 的 <code>on_message</code> 事件、还是钉钉的 Stream 回调，最终都归一化为这个 <code>MessageEvent</code>。这就是为什么 Gateway Runner 不需要关心&quot;消息从哪来&quot;。</p>
+<h2 id="layer-2gateway-runner大脑">Layer 2：Gateway Runner——大脑</h2>
+<p><code>GatewayRunner</code> 是整个 Gateway 的控制中心，负责：</p>
+<h3 id="1-适配器生命周期管理">1. 适配器生命周期管理</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GatewayRunner</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">GatewayConfig</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">adapters</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Platform</span><span class="p">,</span> <span class="n">BasePlatformAdapter</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">session_store</span> <span class="o">=</span> <span class="n">SessionStore</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">delivery_router</span> <span class="o">=</span> <span class="n">DeliveryRouter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_running_agents</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AIAgent</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># 会话 → Agent</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="p">:</span> <span class="n">OrderedDict</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>  <span class="c1"># Agent 缓存</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>启动时，<code>GatewayRunner</code> 遍历配置中启用的平台，动态加载对应的适配器：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">start_all_platforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">platform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get_connected_platforms</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">adapter</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_adapter</span><span class="p">(</span><span class="n">platform</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">adapter</span><span class="o">.</span><span class="n">set_message_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle_message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">adapter</span><span class="o">.</span><span class="n">set_busy_session_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle_busy_session</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">adapter</span><span class="o">.</span><span class="n">set_session_store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_store</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="n">adapter</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">adapters</span><span class="p">[</span><span class="n">platform</span><span class="p">]</span> <span class="o">=</span> <span class="n">adapter</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><h3 id="2-session-key会话身份">2. Session Key——会话身份</h3>
+<p>这是 Gateway 最精妙的设计之一。不同平台的&quot;会话&quot;概念差异巨大：</p>
+<ul>
+<li><strong>DM（私聊）</strong>：一对一对话，每个用户一个会话</li>
+<li><strong>Group（群聊）</strong>：多人共享，默认每用户隔离会话</li>
+<li><strong>Thread（线程）</strong>：Discord/Slack 的线程，默认共享会话</li>
+<li><strong>Forum Topic</strong>：Telegram 论坛话题，类似 thread</li>
+</ul>
+<p>Session Key 是一个确定性的字符串，格式为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">agent:main:{platform}:{chat_type}:{chat_id}[:{user_id}]
+</span></span></code></pre></div><p>具体规则由 <code>build_session_key()</code> 统一控制：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">build_session_key</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">group_sessions_per_user</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">thread_sessions_per_user</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">platform</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">value</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">source</span><span class="o">.</span><span class="n">chat_type</span> <span class="o">==</span> <span class="s2">&#34;dm&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 私聊：每个 DM 独立会话</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;agent:main:</span><span class="si">{</span><span class="n">platform</span><span class="si">}</span><span class="s2">:dm:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">chat_id</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 群聊：默认按用户隔离</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">group_sessions_per_user</span> <span class="ow">and</span> <span class="n">source</span><span class="o">.</span><span class="n">user_id</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;agent:main:</span><span class="si">{</span><span class="n">platform</span><span class="si">}</span><span class="s2">:group:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">chat_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 线程：默认共享（所有参与者看到同一上下文）</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">thread_sessions_per_user</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;agent:main:</span><span class="si">{</span><span class="n">platform</span><span class="si">}</span><span class="s2">:thread:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">chat_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">thread_id</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 线程按用户隔离</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;agent:main:</span><span class="si">{</span><span class="n">platform</span><span class="si">}</span><span class="s2">:thread:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">chat_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">thread_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>这个设计解决了一个实际问题：<strong>同一个群里，不同用户和 Agent 对话，上下文不串</strong>。同时，Discord 线程里的所有参与者看到的是同一段对话。</p>
+<h3 id="3-消息处理流水线">3. 消息处理流水线</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MessageEvent 到达
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">adapter.handle_message(event)
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├─ 是斜杠命令？→ 命令旁路（/new, /stop, /approve 等）
+</span></span><span class="line"><span class="cl">    │   └─ 不走 Agent Loop，直接由 GatewayRunner 处理
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├─ 会话正在运行？
+</span></span><span class="line"><span class="cl">    │   ├─ 是 → 消息进入 _pending_messages（队列）
+</span></span><span class="line"><span class="cl">    │   │       触发 interrupt（通知 Agent 有新消息）
+</span></span><span class="line"><span class="cl">    │   │
+</span></span><span class="line"><span class="cl">    │   └─ 否 → 创建新会话
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">_process_message_background(event, session_key)
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├─ 1. 预处理：图片缓存、STT 语音转文字、文档下载
+</span></span><span class="line"><span class="cl">    ├─ 2. 获取或创建 AIAgent（从缓存中取，保持 prompt caching）
+</span></span><span class="line"><span class="cl">    ├─ 3. 构建会话上下文（SessionSource → 系统提示注入）
+</span></span><span class="line"><span class="cl">    ├─ 4. 加载历史消息（从 SessionStore）
+</span></span><span class="line"><span class="cl">    ├─ 5. 调用 AIAgent.run_conversation()
+</span></span><span class="line"><span class="cl">    ├─ 6. Agent 输出通过回调 → adapter.send() 回平台
+</span></span><span class="line"><span class="cl">    └─ 7. 清理会话标记、处理 pending messages
+</span></span></code></pre></div><h3 id="4-agent-缓存保持-prompt-caching">4. Agent 缓存：保持 Prompt Caching</h3>
+<p>这是 Gateway 和 CLI 的关键区别——Gateway 是长寿命进程，可能同时服务成百上千个会话。如果每条消息都新建 <code>AIAgent</code> 实例：</p>
+<ol>
+<li><strong>Prompt Caching 全部失效</strong>——Anthropic/Claude 的 prefix caching 要求系统提示和历史消息的前缀不变</li>
+<li><strong>内存泄漏</strong>——每个 Agent 持有 LLM client、tool schemas、memory providers</li>
+<li><strong>启动延迟</strong>——每次初始化都要重新发现工具、加载 skills</li>
+</ol>
+<p>解决方案：按 session_key 缓存 <code>AIAgent</code> 实例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># OrderedDict 实现 LRU 淘汰</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_get_or_create_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_key</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">session_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 缓存命中——保留 prompt caching</span>
+</span></span><span class="line"><span class="cl">        <span class="n">agent</span><span class="p">,</span> <span class="n">signature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="p">[</span><span class="n">session_key</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">session_key</span><span class="p">)</span>  <span class="c1"># LRU 更新</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">agent</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 缓存未命中——新建</span>
+</span></span><span class="line"><span class="cl">    <span class="n">agent</span> <span class="o">=</span> <span class="n">AIAgent</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="p">[</span><span class="n">session_key</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="n">signature</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 超过容量？淘汰最老的</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_AGENT_CACHE_MAX_SIZE</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">oldest_key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agent_cache</span><span class="o">.</span><span class="n">popitem</span><span class="p">(</span><span class="n">last</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">agent</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>默认容量 128，空闲 TTL 1 小时。超出容量的 Agent 会被安全清理（关闭连接、保存状态）。</p>
+<h3 id="5-中断机制">5. 中断机制</h3>
+<p>和 CLI 一样，Gateway 支持运行中打断。但实现方式不同：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># BasePlatformAdapter.handle_message()</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">handle_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">MessageEvent</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">session_key</span> <span class="o">=</span> <span class="n">build_session_key</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">session_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_active_sessions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 会话正在运行——新消息触发中断</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_pending_messages</span><span class="p">[</span><span class="n">session_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">event</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_active_sessions</span><span class="p">[</span><span class="n">session_key</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>  <span class="c1"># 触发 Event</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 会话空闲——创建新任务</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">_active_sessions</span><span class="p">[</span><span class="n">session_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_process_message_background</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">session_key</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p><strong>关键设计</strong>：<code>_active_sessions</code> 是一个 <code>asyncio.Event</code> 字典。当新消息到达时，<code>set()</code> 触发 Event，后台处理任务检测到信号后安全退出（保存进度、清理状态），然后新的消息接管处理。</p>
+<h2 id="layer-3aiagent共享大脑">Layer 3：AIAgent——共享大脑</h2>
+<p>无论消息来自哪个平台，最终都汇聚到同一个 <code>AIAgent.run_conversation()</code>。这个函数不关心：</p>
+<ul>
+<li>消息是 Telegram 用户发的还是钉钉群里来的</li>
+<li>用户是用中文还是英文提问</li>
+<li>附件是图片、语音还是文档</li>
+</ul>
+<p>它只接收：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run_conversation</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user_message</span><span class="o">=</span><span class="n">processed_text</span><span class="p">,</span>        <span class="c1"># 处理后的文本</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conversation_history</span><span class="o">=</span><span class="n">history</span><span class="p">,</span>       <span class="c1"># 该 session 的历史</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stream_callback</span><span class="o">=</span><span class="n">stream_cb</span><span class="p">,</span>          <span class="c1"># 流式输出回调</span>
+</span></span><span class="line"><span class="cl">    <span class="n">task_id</span><span class="o">=</span><span class="n">session_key</span><span class="p">,</span>                <span class="c1"># 会话标识</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>Agent 内部的回调（<code>stream_callback</code>、<code>status_callback</code>、<code>tool_progress_callback</code>）由 Gateway Runner 注入，把输出路由回正确的平台：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_make_stream_callback</span><span class="p">(</span><span class="n">adapter</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;为流式输出创建平台特定的回调&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">delta</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 累积 delta，按间隔编辑消息</span>
+</span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send_typing</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">chat_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># ... 流式更新逻辑</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">callback</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><h2 id="消息回流delivery-router">消息回流：Delivery Router</h2>
+<p>Agent 的输出不一定发回原处。Gateway 的 <code>DeliveryRouter</code> 支持灵活的路由：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 投递目标格式：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;origin&#34;          → 回消息来源</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;local&#34;           → 只保存本地文件</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;telegram&#34;        → Telegram 的 home channel</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;telegram:123456&#34; → 指定的 Telegram 群</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;dingtalk:#dev&#34;   → 钉钉的 #dev 频道</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DeliveryTarget</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="n">SessionSource</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="s2">&#34;origin&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">platform</span><span class="p">,</span> <span class="n">chat_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">chat_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="s2">&#34;local&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="n">Platform</span><span class="o">.</span><span class="n">LOCAL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s2">&#34;:&#34;</span> <span class="ow">in</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># platform:chat_id 或 platform:chat_id:thread_id</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parts</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;:&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">platform</span> <span class="o">=</span> <span class="n">Platform</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="n">platform</span><span class="p">,</span> <span class="n">chat_id</span><span class="o">=</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="n">Platform</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>  <span class="c1"># 平台名 → home channel</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>这在 Cron 任务中特别有用——一个定时任务可以在服务器上运行，但输出投递到多个频道：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Cron job 配置</span>
+</span></span><span class="line"><span class="cl"><span class="n">deliver</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;origin&#34;</span><span class="p">,</span> <span class="s2">&#34;dingtalk:#ops-team&#34;</span><span class="p">,</span> <span class="s2">&#34;local&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><h2 id="流式输出跨平台的渐进式更新">流式输出：跨平台的渐进式更新</h2>
+<p>IM 平台通常不支持&quot;打字机效果&quot;，但 Gateway 实现了类似的体验：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># StreamingConfig</span>
+</span></span><span class="line"><span class="cl"><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="n">transport</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;edit&#34;</span>        <span class="c1"># Telegram: editMessageText</span>
+</span></span><span class="line"><span class="cl"><span class="n">edit_interval</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># 每秒更新一次（Telegram 限速）</span>
+</span></span><span class="line"><span class="cl"><span class="n">buffer_threshold</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span>     <span class="c1"># 积累 40 字符才发</span>
+</span></span><span class="line"><span class="cl"><span class="n">cursor</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34; ▉&#34;</span>            <span class="c1"># 流式光标</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Token 1 → buffer: &#34;H&#34; → 不足 40，等待
+</span></span><span class="line"><span class="cl">Token 2 → buffer: &#34;He&#34; → 等待
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Token 40 → buffer: &#34;Hello, 我是 Hermes Agent ▉&#34; → 发送 editMessageText
+</span></span><span class="line"><span class="cl">Token 41 → buffer: &#34;!&#34; → 等待
+</span></span><span class="line"><span class="cl">Token 80 → buffer: &#34;! 有什么可以帮你的 ▉&#34; → 发送 editMessageText
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">完成 → 移除光标，最终编辑
+</span></span></code></pre></div><p>不同平台的速率限制不同——Telegram 限制每秒一次消息编辑，Discord 可以连续发多条消息。<code>BasePlatformAdapter</code> 通过 <code>_send_with_retry</code> 统一处理重试和速率限制。</p>
+<h2 id="媒体处理流水线">媒体处理流水线</h2>
+<p>IM 平台收到的图片和语音是临时 URL（Telegram 文件 URL 约 1 小时过期），需要本地缓存：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用户发送图片 (Telegram Photo)
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">adapter 下载 → cache_image_from_url()
+</span></span><span class="line"><span class="cl">    │            ├─ SSRF 防护（is_safe_url）
+</span></span><span class="line"><span class="cl">    │            ├─ 重试 + 指数退避
+</span></span><span class="line"><span class="cl">    │            └─ 保存到 ~/.hermes/cache/images/
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">构建文本占位符: &#34;[User sent an image: /path/to/cache/img_abc123.jpg]&#34;
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">AIAgent.run_conversation() 收到文本
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">vision_analyze 工具自动识别图片 → 生成描述
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">Agent 回复 → adapter.send_image() 发回平台
+</span></span></code></pre></div><p>语音消息类似——下载 → 缓存 → STT 转文字 → Agent 处理。如果用户开启了 <code>/voice</code> 模式，Agent 的回复还会经过 TTS 转为语音发回。</p>
+<h2 id="会话生命周期管理">会话生命周期管理</h2>
+<p>Gateway 的会话不是永恒的——它有一套完整生命周期：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">创建 → 活跃 → (可选: 重置) → 归档
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">触发重置的条件:
+</span></span><span class="line"><span class="cl">├─ 用户主动: /new, /reset
+</span></span><span class="line"><span class="cl">├─ 每日重置: 凌晨 4 点自动清理
+</span></span><span class="line"><span class="cl">├─ 空闲超时: 24 小时无活动
+</span></span><span class="line"><span class="cl">└─ 上下文溢出: 压缩后仍然超限
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SessionResetPolicy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;both&#34;</span>      <span class="c1"># &#34;daily&#34;, &#34;idle&#34;, &#34;both&#34;, &#34;none&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">at_hour</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c1"># 每日重置时间点</span>
+</span></span><span class="line"><span class="cl">    <span class="n">idle_minutes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1440</span>  <span class="c1"># 24 小时空闲重置</span>
+</span></span><span class="line"><span class="cl">    <span class="n">notify</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>     <span class="c1"># 重置时通知用户</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>策略可以按平台、会话类型分别配置。比如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 群聊会话每天重置，DM 永不重置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">session_reset</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;both&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">at_hour</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">idle_minutes</span><span class="p">:</span><span class="w"> </span><span class="m">1440</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># 钉钉 DM 会话永不重置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">reset_by_type</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;none&#34;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="安全机制">安全机制</h2>
+<p>Gateway 作为公网暴露的服务，安全是头等大事：</p>
+<h3 id="1-ssrf-防护">1. SSRF 防护</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 下载媒体文件前检查 URL 安全性</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tools.url_safety</span> <span class="kn">import</span> <span class="n">is_safe_url</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="ow">not</span> <span class="n">is_safe_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Blocked unsafe URL (SSRF protection)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重定向也要检查——防止 302 跳转到内网</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">event_hooks</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;response&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">_ssrf_redirect_guard</span><span class="p">]},</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><h3 id="2-dm-配对机制">2. DM 配对机制</h3>
+<p>未经授权的 DM 消息会被自动处理：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">unauthorized_dm_behavior</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;pair&#34;</span>  <span class="c1"># &#34;pair&#34; or &#34;ignore&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;pair&#34; 模式：用户发送 /pair &lt;code&gt; 进行配对</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;ignore&#34; 模式：直接忽略未授权消息</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>配对码通过 <code>PairingStore</code> 管理，确保只有授权用户才能与 Agent 对话。</p>
+<h3 id="3-utf-16-长度计算">3. UTF-16 长度计算</h3>
+<p>Telegram 的消息长度限制是 4096 <strong>UTF-16 code units</strong>，不是 Python 的 <code>len()</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">utf16_len</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;计算 UTF-16 code units 数量&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;utf-16-le&#34;</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">truncate_message</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;安全截断，不切坏 surrogate pair&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">utf16_len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">limit</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">text</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 二分查找最长安全前缀</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">lo</span> <span class="o">&lt;</span> <span class="n">hi</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">utf16_len</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="n">mid</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">limit</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hi</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">text</span><span class="p">[:</span><span class="n">lo</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>这个细节很多开源项目都踩过坑——Python 的 <code>len(&quot;😀&quot;)</code> 返回 1，但 Telegram 认为它是 2 个 code unit。</p>
+<h2 id="hook-系统扩展点">Hook 系统：扩展点</h2>
+<p>Gateway 内置了一套事件钩子系统，允许在不修改核心代码的情况下扩展行为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># HookRegistry 管理所有钩子</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HookRegistry</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event_name</span><span class="p">,</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">await</span> <span class="n">handler</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 内置钩子:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - message.received: 消息到达时</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - message.sent: 消息发出时</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - agent.start: Agent 开始处理时</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - agent.complete: Agent 完成时</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - session.reset: 会话重置时</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>比如 <code>boot_md</code> 钩子在 Gateway 启动时自动生成 <code>~/.hermes/boot.md</code> 文件，记录当前运行状态，方便重启后恢复上下文。</p>
+<h2 id="架构决策总结">架构决策总结</h2>
+<table>
+  <thead>
+      <tr>
+          <th>决策</th>
+          <th>选择</th>
+          <th>原因</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>通信模式</td>
+          <td>长连接（Bot polling/Stream）</td>
+          <td>实时性好，适合 IM 场景</td>
+      </tr>
+      <tr>
+          <td>适配器模式</td>
+          <td>基类 + 子类继承</td>
+          <td>90% 逻辑复用，各平台只需实现 API 调用</td>
+      </tr>
+      <tr>
+          <td>消息格式</td>
+          <td>统一 MessageEvent</td>
+          <td>Agent 不需要知道平台细节</td>
+      </tr>
+      <tr>
+          <td>会话管理</td>
+          <td>确定性 Session Key</td>
+          <td>可重现、可调试、支持重置</td>
+      </tr>
+      <tr>
+          <td>Agent 实例</td>
+          <td>缓存 + LRU 淘汰</td>
+          <td>保持 Prompt Caching，控制内存</td>
+      </tr>
+      <tr>
+          <td>流式输出</td>
+          <td>editMessageText 渐进更新</td>
+          <td>适应 IM 平台限制</td>
+      </tr>
+      <tr>
+          <td>媒体处理</td>
+          <td>本地缓存 + 过期清理</td>
+          <td>解决临时 URL 过期问题</td>
+      </tr>
+      <tr>
+          <td>安全</td>
+          <td>SSRF 防护 + DM 配对</td>
+          <td>公网暴露必须有边界</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="一句话总结">一句话总结</h2>
+<p>Gateway 的本质是<strong>协议翻译器</strong>——18 个平台的差异被完全隔离在 Adapter 层，Agent 只看到一个标准化的对话流。新平台接入只需要实现 6 个方法（connect/send/send_typing/send_image/send_voice/disconnect），剩下的会话管理、Agent 缓存、流式输出、安全机制全部由基类和 Runner 提供。</p>
+<p>你在实际项目中接入过几个 IM 平台？最大的坑是什么？欢迎留言讨论。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/system-design/">system-design</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/hermes/">hermes</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/messaging/">messaging</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/gateway/">gateway</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/architecture/">architecture</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f185-hermes-gateway-im-platforms-architecture%2f&amp;text=Agent%20%e5%a6%82%e4%bd%95%e5%90%8c%e6%97%b6%e6%b4%bb%e5%9c%a8%e9%92%89%e9%92%89%e3%80%81Telegram%e3%80%81Discord%20%e5%92%8c%e5%be%ae%e4%bf%a1%e9%87%8c%ef%bc%9f&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f185-hermes-gateway-im-platforms-architecture%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f185-hermes-gateway-im-platforms-architecture%2f&amp;title=Agent%20%e5%a6%82%e4%bd%95%e5%90%8c%e6%97%b6%e6%b4%bb%e5%9c%a8%e9%92%89%e9%92%89%e3%80%81Telegram%e3%80%81Discord%20%e5%92%8c%e5%be%ae%e4%bf%a1%e9%87%8c%ef%bc%9f" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f185-hermes-gateway-im-platforms-architecture%2f&amp;title=Agent%20%e5%a6%82%e4%bd%95%e5%90%8c%e6%97%b6%e6%b4%bb%e5%9c%a8%e9%92%89%e9%92%89%e3%80%81Telegram%e3%80%81Discord%20%e5%92%8c%e5%be%ae%e4%bf%a1%e9%87%8c%ef%bc%9f" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f185-hermes-gateway-im-platforms-architecture%2f&amp;title=Agent%20%e5%a6%82%e4%bd%95%e5%90%8c%e6%97%b6%e6%b4%bb%e5%9c%a8%e9%92%89%e9%92%89%e3%80%81Telegram%e3%80%81Discord%20%e5%92%8c%e5%be%ae%e4%bf%a1%e9%87%8c%ef%bc%9f" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f185-hermes-gateway-im-platforms-architecture%2f&amp;description=Agent%20%e5%a6%82%e4%bd%95%e5%90%8c%e6%97%b6%e6%b4%bb%e5%9c%a8%e9%92%89%e9%92%89%e3%80%81Telegram%e3%80%81Discord%20%e5%92%8c%e5%be%ae%e4%bf%a1%e9%87%8c%ef%bc%9f" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f185-hermes-gateway-im-platforms-architecture%2f&amp;subject=Agent%20%e5%a6%82%e4%bd%95%e5%90%8c%e6%97%b6%e6%b4%bb%e5%9c%a8%e9%92%89%e9%92%89%e3%80%81Telegram%e3%80%81Discord%20%e5%92%8c%e5%be%ae%e4%bf%a1%e9%87%8c%ef%bc%9f" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/187-ai-era-architect-growth-path/">AI 时代，校招生如何成为好架构师</a></li>
+                
+                    <li><a href="/post/2026/184-hermes-cli-tui-architecture-deep-dive/">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</a></li>
+                
+                    <li><a href="/post/2026/183-agent-skill-self-evolution/">Agent 的 Skill 自进化机制：它是如何自己长记性的</a></li>
+                
+                    <li><a href="/post/2026/182-llm-agent-context-compression-evolution/">LLM Agent 上下文压缩算法</a></li>
+                
+                    <li><a href="/post/2026/181-opencli-vs-autocli-web-cli-revolution/">OpenCLI vs AutoCLI：把网站变成 CLI 的技术革命</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/184-hermes-cli-tui-architecture-deep-dive/" data-toggle="tooltip" data-placement="top" title="解构 Agent CLI：从 React 子进程到 Python 回调的通信协议">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/186-ai-talent-questioning-ability/" data-toggle="tooltip" data-placement="top" title="AI 时代的核心竞争力：提问能力">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/185-hermes-gateway-im-platforms-architecture">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/185-hermes-gateway-im-platforms-architecture';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

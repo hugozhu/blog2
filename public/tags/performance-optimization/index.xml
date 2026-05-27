@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Performance-Optimization on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/performance-optimization/</link>
+    <description>Recent content in Performance-Optimization on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/performance-optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent强化学习的最佳实践：并行任务处理与性能优化</title>
+      <link>http://localhost:45445/post/2026/114-agent-reinforcement-learning-best-practices/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/114-agent-reinforcement-learning-best-practices/</guid>
+      <description>&lt;p&gt;在2026年的AI应用场景中，Agent系统已经成为解决复杂任务的核心技术。无论是代码生成助手、自动化运维系统，还是智能客服机器人，如何让Agent高效地处理多个任务并从经验中学习，直接决定了系统的实用性和用户体验。本文将深入探讨Agent强化学习的工程实践，重点解决一个关键问题：&lt;strong&gt;如何让Agent并行处理任务以提升性能？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

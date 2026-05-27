@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>治理 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/%E6%B2%BB%E7%90%86/</link>
+    <description>Recent content in 治理 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 29 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/%E6%B2%BB%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>企业级 AI 必须设计成出错后可以追责到人</title>
+      <link>http://localhost:45445/post/2026/161-enterprise-ai-accountability-by-design/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/161-enterprise-ai-accountability-by-design/</guid>
+      <description>&lt;p&gt;上周一个真实案例：某电商公司的 AI Agent 自动调整了 2000 个 SKU 的定价策略，导致部分商品以成本价以下售出，一天亏了 80 万。复盘会上，所有人面面相觑——&lt;/p&gt;&#xA;&lt;p&gt;运营说：&amp;ldquo;我没动过，是 AI 自动调的。&amp;rdquo;&#xA;技术说：&amp;ldquo;模型输出没问题，是数据源有异常。&amp;rdquo;&#xA;数据团队说：&amp;ldquo;数据是实时抓取的，跟我们无关。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;没有一个人为这 80 万负责。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是个例。当 AI 从&amp;quot;辅助工具&amp;quot;升级为&amp;quot;执行主体&amp;quot;，一个被企业严重低估的问题出现了：&lt;strong&gt;出了事，找谁？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>悟空的真正价值：把LLM变成可治理的执行系统</title>
+      <link>http://localhost:45445/post/2026/153-wukong-llm-governable-execution-system/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/153-wukong-llm-governable-execution-system/</guid>
+      <description>&lt;p&gt;把 ChatGPT 接入企业系统就能替代人工？这是 2024 年最昂贵的幻觉之一。&lt;/p&gt;&#xA;&lt;p&gt;如果把传统聊天助手看作&amp;quot;知识与语言能力的放大器&amp;quot;，那么悟空代表了下一个阶段：&lt;strong&gt;把语言模型变成可行动、可交付、可治理的工作代理&lt;/strong&gt;。这不是能力的线性升级，而是系统定位的根本转变——从&amp;quot;回答问题&amp;quot;到&amp;quot;完成工作&amp;quot;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

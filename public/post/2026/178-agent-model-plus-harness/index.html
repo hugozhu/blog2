@@ -1,0 +1,1039 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="Why Agent Architecture is About Stable Interfaces, Not Just Better Models"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent = Model + Harness：从 Anthropic Managed Agents 看 Agent 架构演进",
+  "@id": "http://localhost:45445/post/2026/178-agent-model-plus-harness/",
+  "url": "http://localhost:45445/post/2026/178-agent-model-plus-harness/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/178-agent-model-plus-harness/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/178-agent-model-plus-harness/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/178-agent-model-plus-harness/",
+      "name": "Agent = Model + Harness：从 Anthropic Managed Agents 看 Agent 架构演进",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/178-agent-model-plus-harness/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/178-agent-model-plus-harness/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "Agent = Model + Harness：从 Anthropic Managed Agents 看 Agent 架构演进",
+  "description": "如果把 Agent 拆解成一个公式，最简单的表达就是：\nAgent = Model \u002b Harness\nModel 负责思考、推理、决策；Harness 负责循环控制、工具路由、状态管理。过去一年，社区的目光几乎全部聚焦在 Model 上——谁的能力强、谁更便宜、谁上下文更大。但 Anthropic 工程团队最近发布的 Managed Agents 架构文章揭示了一个被忽视的事实：\n\u0026ldquo;Harnesses encode assumptions about what Claude can\u0026rsquo;t do on its own. Those assumptions go stale as models improve.\u0026rdquo;\nHarness 编码了关于\u0026quot;模型做不到什么\u0026quot;的假设，而这些假设会随着模型能力提升而迅速过时。一个更有趣的推论是：模型越强，Harness 的设计就越重要——因为越强的模型需要越精密的控制结构，才能把能力转化为可靠的产出。\n这篇文章从 Anthropic 的工程实践出发，拆解 Agent 架构的核心设计模式，以及\u0026quot;面向未来的 Harness\u0026quot;到底长什么样。\n",
+  "inLanguage": "en",
+  "wordCount":  1456 ,
+  "timeRequired": "PT7M",
+  "dateCreated": "2026-04-16T00:00:00+00:00",
+  "datePublished": "2026-04-16T00:00:00+00:00",
+  "dateModified": "2026-04-16T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "ai-agents, agent-loop, system-architecture, anthropic, LLM, managed-agents, harness-design, context-engineering" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/178-agent-model-plus-harness/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进" />
+<meta property="og:description" content="Why Agent Architecture is About Stable Interfaces, Not Just Better Models" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/178-agent-model-plus-harness/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进" />
+  <meta name="twitter:description" content="Why Agent Architecture is About Stable Interfaces, Not Just Better Models">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Why Agent Architecture is About Stable Interfaces, Not Just Better Models</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 16, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1456&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>如果把 Agent 拆解成一个公式，最简单的表达就是：</p>
+<p><strong>Agent = Model + Harness</strong></p>
+<p>Model 负责思考、推理、决策；Harness 负责循环控制、工具路由、状态管理。过去一年，社区的目光几乎全部聚焦在 Model 上——谁的能力强、谁更便宜、谁上下文更大。但 Anthropic 工程团队最近发布的 <a href="https://www.anthropic.com/engineering/managed-agents">Managed Agents 架构文章</a>揭示了一个被忽视的事实：</p>
+<blockquote>
+<p><em>&ldquo;Harnesses encode assumptions about what Claude can&rsquo;t do on its own. Those assumptions go stale as models improve.&rdquo;</em></p>
+</blockquote>
+<p>Harness 编码了关于&quot;模型做不到什么&quot;的假设，而这些假设会随着模型能力提升而迅速过时。一个更有趣的推论是：<strong>模型越强，Harness 的设计就越重要</strong>——因为越强的模型需要越精密的控制结构，才能把能力转化为可靠的产出。</p>
+<p>这篇文章从 Anthropic 的工程实践出发，拆解 Agent 架构的核心设计模式，以及&quot;面向未来的 Harness&quot;到底长什么样。</p>
+<h2 id="agent-的四个基本组件">Agent 的四个基本组件</h2>
+<p>先看 Agent 系统的全貌。一个生产级 Agent 不只是&quot;调 API + 循环&quot;，它至少包含四个独立组件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌────────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                     Agent System                            │
+</span></span><span class="line"><span class="cl">│                                                             │
+</span></span><span class="line"><span class="cl">│  ┌─────────────┐   ┌────────────────┐   ┌───────────────┐  │
+</span></span><span class="line"><span class="cl">│  │   Session   │◄─▶│    Harness     │◄─▶│    Sandbox    │  │
+</span></span><span class="line"><span class="cl">│  │ (事件日志)   │   │ (循环/路由/状态) │   │ (执行环境)     │  │
+</span></span><span class="line"><span class="cl">│  │             │   │                │   │               │  │
+</span></span><span class="line"><span class="cl">│  │ getEvents() │   │ emitEvent()    │   │ execute()     │  │
+</span></span><span class="line"><span class="cl">│  │ wake()      │   │ wake(session)  │   │ → string      │  │
+</span></span><span class="line"><span class="cl">│  └─────────────┘   └───────┬────────┘   └───────────────┘  │
+</span></span><span class="line"><span class="cl">│                            │                                │
+</span></span><span class="line"><span class="cl">│                            ▼                                │
+</span></span><span class="line"><span class="cl">│                   ┌────────────────┐                        │
+</span></span><span class="line"><span class="cl">│                   │     Model      │                        │
+</span></span><span class="line"><span class="cl">│                   │ (Claude / LLM) │                        │
+</span></span><span class="line"><span class="cl">│                   │  思考 · 推理 · 决策  │                    │
+</span></span><span class="line"><span class="cl">│                   └────────────────┘                        │
+</span></span><span class="line"><span class="cl">└────────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>组件</th>
+          <th>职责</th>
+          <th>类比</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Model</strong></td>
+          <td>思考、推理、生成行动计划</td>
+          <td>大脑</td>
+      </tr>
+      <tr>
+          <td><strong>Harness</strong></td>
+          <td>循环控制、工具路由、上下文管理</td>
+          <td>神经系统</td>
+      </tr>
+      <tr>
+          <td><strong>Session</strong></td>
+          <td>持久化事件日志，append-only</td>
+          <td>记忆体</td>
+      </tr>
+      <tr>
+          <td><strong>Sandbox</strong></td>
+          <td>代码执行、文件编辑、网络请求</td>
+          <td>手脚</td>
+      </tr>
+  </tbody>
+</table>
+<p>大多数人只关注 Model，但 Anthropic 的工程实践表明：<strong>Harness 才是 Agent 从 demo 走向 production 的关键</strong>。</p>
+<h2 id="harness-的根本困境假设注定会过时">Harness 的根本困境：假设注定会过时</h2>
+<p>Anthropic 给出了一个真实案例：</p>
+<blockquote>
+<p>在之前的工作中，他们发现 Claude Sonnet 4.5 会在接近上下文限制时过早结束任务——一种被称为&quot;context anxiety&quot;的行为。他们在 Harness 中加入了 context reset 来解决这个问题。但当你把同一个 Harness 用到 Claude Opus 4.5 上时，这个行为消失了。Context reset 变成了死代码。</p>
+</blockquote>
+<p>这就是 Harness 的根本困境：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Model 能力弱  ──▶  Harness 加各种 workaround
+</span></span><span class="line"><span class="cl">                      │
+</span></span><span class="line"><span class="cl">                      ▼
+</span></span><span class="line"><span class="cl">Model 能力提升  ──▶  Workaround 变成死代码 / 甚至副作用
+</span></span><span class="line"><span class="cl">                      │
+</span></span><span class="line"><span class="cl">                      ▼
+</span></span><span class="line"><span class="cl">新 Model 新行为  ──▶  Harness 需要重新设计
+</span></span><span class="line"><span class="cl">                      │
+</span></span><span class="line"><span class="cl">                      ▼
+</span></span><span class="line"><span class="cl">        ┌──────────────────────┐
+</span></span><span class="line"><span class="cl">        │  死循环：假设永远在过时  │
+</span></span><span class="line"><span class="cl">        └──────────────────────┘
+</span></span></code></pre></div><p>Anthropic 的解法是：<strong>不要设计&quot;今天最好的 Harness&quot;，而是设计&quot;未来也能用的接口&quot;</strong>。</p>
+<p>他们的思路借鉴了操作系统的设计哲学——操作系统能活几十年，靠的不是优化特定硬件，而是把硬件虚拟化成通用抽象（process、file），让还没被想出来的程序也能跑在上面。<code>read()</code> 不在乎你读的是 70 年代的磁盘还是今天的 SSD。</p>
+<p>Managed Agents 也是这个思路：把 Agent 组件抽象为稳定接口，实现层可以随意替换。</p>
+<h2 id="核心架构模式解耦-brain-和-hands">核心架构模式：解耦 Brain 和 Hands</h2>
+<h3 id="从-pet-到-cattle">从 Pet 到 Cattle</h3>
+<p>Anthropic 最初把所有组件塞进一个容器：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌─────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│  ❌ 耦合架构 (Pet)                   │
+</span></span><span class="line"><span class="cl">│                                     │
+</span></span><span class="line"><span class="cl">│  ┌─────────────────────────────┐    │
+</span></span><span class="line"><span class="cl">│  │  Harness + Sandbox + Tokens │    │
+</span></span><span class="line"><span class="cl">│  │  + Session + Model          │    │
+</span></span><span class="line"><span class="cl">│  │                             │    │
+</span></span><span class="line"><span class="cl">│  │  容器挂了 = 会话全丢         │    │
+</span></span><span class="line"><span class="cl">│  │  需要工程师 SSH 进去抢救     │    │
+</span></span><span class="line"><span class="cl">│  └─────────────────────────────┘    │
+</span></span><span class="line"><span class="cl">│                                     │
+</span></span><span class="line"><span class="cl">│  &#34;这是一个 pet，不能丢，丢了就完了&#34;   │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────┘
+</span></span></code></pre></div><p>问题显而易见：容器一挂，会话数据全丢。工程师只能 SSH 进去抢救——但如果容器里还有用户数据，调试本身就变得危险。</p>
+<p>解耦之后：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│  ✅ 解耦架构 (Cattle)                                 │
+</span></span><span class="line"><span class="cl">│                                                      │
+</span></span><span class="line"><span class="cl">│  ┌───────────┐   execute(name, input)→string          │
+</span></span><span class="line"><span class="cl">│  │  Harness  │──────────▶ [Sandbox A] (container)     │
+</span></span><span class="line"><span class="cl">│  │ (stateless)│──────────▶ [Sandbox B] (MCP server)   │
+</span></span><span class="line"><span class="cl">│  └─────┬─────┘                                         │
+</span></span><span class="line"><span class="cl">│        │                                               │
+</span></span><span class="line"><span class="cl">│        ▼                                               │
+</span></span><span class="line"><span class="cl">│  [Session Log]  ◀── append-only, durable               │
+</span></span><span class="line"><span class="cl">│  getEvents()    ◀── 按需读取事件切片                    │
+</span></span><span class="line"><span class="cl">│  wake(sessionId)◀── 崩溃恢复入口                        │
+</span></span><span class="line"><span class="cl">│                                                      │
+</span></span><span class="line"><span class="cl">│  &#34;这是 cattle，死了一个，启动新的就行&#34;                      │
+</span></span><span class="line"><span class="cl">└──────────────────────────────────────────────────────┘
+</span></span></code></pre></div><p>Harness 变成了无状态的——因为它不持有会话状态，状态全在 Session 里。如果 Harness 崩溃，新的 Harness 用 <code>wake(sessionId)</code> 恢复，用 <code>getSession(id)</code> 读取事件日志，从中断处继续。</p>
+<h3 id="三个核心接口">三个核心接口</h3>
+<p>解耦后的架构靠三个接口运转：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Session</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;持久化事件日志——不依赖任何 Model 或 Harness&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">emit_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">slice</span><span class="p">:</span> <span class="nb">slice</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Event</span><span class="p">]:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">wake</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;恢复会话，返回最后事件 ID&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Sandbox</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;执行环境——Harness 不知道背后是容器、VM 还是 MCP 服务&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AgentHarness</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Agent 循环——唯一有状态但可替换的组件&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">sandbox</span><span class="p">:</span> <span class="n">Sandbox</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">sandbox</span> <span class="o">=</span> <span class="n">sandbox</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;主循环：读取事件 → 构建 prompt → 调用模型 → 执行工具 → 写回&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">last_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">wake</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">events</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prompt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_prompt</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">action</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&#34;tool_call&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sandbox</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">action</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">emit_event</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">Event</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">event_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&#34;result_</span><span class="si">{</span><span class="n">action</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">event_type</span><span class="o">=</span><span class="s2">&#34;tool_result&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">content</span><span class="o">=</span><span class="n">result</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">timestamp</span><span class="o">=</span><span class="n">action</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">))</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">events</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Event</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">event_id</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># &#34;user_message&#34;, &#34;assistant&#34;, &#34;tool_call&#34;, &#34;tool_result&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content</span><span class="p">:</span> <span class="n">Any</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>这三个接口的精妙之处在于：它们定义了&quot;形状&quot;，不定义&quot;实现&quot;。Sandbox 可以是 Docker 容器、E2B 沙箱、甚至是一个手机模拟器——Harness 不在乎。</p>
+<h2 id="安全边界token-永远不该到-agent-手里">安全边界：Token 永远不该到 Agent 手里</h2>
+<p>耦合架构中有一个经典的安全漏洞：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Prompt Injection
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">说服 Claude 读取自己的环境变量
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">拿到 API Token
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">用 Token 启动新的无限制 Session
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">┌──────────────────────────────┐
+</span></span><span class="line"><span class="cl">│  Agent 获得了无限权限，游戏结束 │
+</span></span><span class="line"><span class="cl">└──────────────────────────────┘
+</span></span></code></pre></div><p>&ldquo;把 Token 的作用域缩小&quot;是一个缓解措施——但这仍然在编码一个假设：&ldquo;Claude 拿有限的 Token 做不了什么坏事&rdquo;。而 Claude 正变得越来越聪明。</p>
+<p>Anthropic 采用了<strong>结构性修复</strong>：让 Token 永远不可达。</p>
+<h3 id="模式一git-token-初始化注入">模式一：Git Token 初始化注入</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Harness                    Sandbox                    Git Remote
+</span></span><span class="line"><span class="cl">  │                           │                           │
+</span></span><span class="line"><span class="cl">  │── provision({repo_url}) ─▶│                           │
+</span></span><span class="line"><span class="cl">  │                           │── clone (with token) ────▶│
+</span></span><span class="line"><span class="cl">  │                           │                           │
+</span></span><span class="line"><span class="cl">  │                           │  git push / pull ────────▶│
+</span></span><span class="line"><span class="cl">  │                           │  (Token 在 .git 配置里，    │
+</span></span><span class="line"><span class="cl">  │                           │   Agent 代码无法读取)       │
+</span></span><span class="line"><span class="cl">  │                           │                           │
+</span></span></code></pre></div><p>Sandbox 初始化时，Harness 用 Token 完成 <code>git clone</code> 并配置好 remote。之后的 <code>git push</code> / <code>git pull</code> 都在 Sandbox 内正常工作，但 Agent 的代码根本拿不到 Token 本身。</p>
+<h3 id="模式二mcp--vault-代理">模式二：MCP + Vault 代理</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Claude</span><span class="o">/</span><span class="n">Harness</span>              <span class="n">MCP</span> <span class="n">Proxy</span>              <span class="n">Vault</span>              <span class="n">External</span> <span class="n">API</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>                         <span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│──</span> <span class="n">call</span> <span class="n">MCP</span> <span class="k">tool</span> <span class="err">───────▶│</span>                     <span class="err">│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>  <span class="p">(</span><span class="err">带</span> <span class="n">session</span> <span class="n">token</span><span class="p">)</span>      <span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>                         <span class="err">│──</span> <span class="n">fetch</span> <span class="n">credentials</span> <span class="err">─▶│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>                         <span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>                         <span class="err">│──</span> <span class="n">call</span> <span class="n">with</span> <span class="n">OAuth</span> <span class="err">──────────────────────▶│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>                         <span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>                         <span class="err">│◀──</span> <span class="n">response</span> <span class="err">─────────────────────────────│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│◀──</span> <span class="n">result</span> <span class="err">──────────────│</span>                     <span class="err">│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">│</span>                         <span class="err">│</span>                     <span class="err">│</span>                    <span class="err">│</span>
+</span></span><span class="line"><span class="cl">     <span class="err">└─────────────────────────┴─────────────────────┴────────────────────┘</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Harness</span> <span class="err">对</span> <span class="n">OAuth</span> <span class="n">Token</span> <span class="err">完全无感知</span>
+</span></span></code></pre></div><p>Claude 通过 session token 调用 MCP 代理，代理从 Vault 中取出真实凭证，对外部服务发起请求。Harness 从头到尾没见过 OAuth Token。</p>
+<h3 id="python-实现骨架">Python 实现骨架</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MCPServerProxy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;MCP 工具代理——OAuth Token 对用户代码不可见&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vault</span><span class="p">:</span> <span class="n">CredentialVault</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_vault</span> <span class="o">=</span> <span class="n">vault</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">handle_call</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">session_token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tool_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tool_input</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;代理 MCP 工具调用，从 Vault 获取真实凭证&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1. 根据 session token 查找对应的服务凭证</span>
+</span></span><span class="line"><span class="cl">        <span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vault</span><span class="o">.</span><span class="n">get_credentials</span><span class="p">(</span><span class="n">session_token</span><span class="p">,</span> <span class="n">tool_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2. 用凭证调用外部服务</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_external_service</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tool_name</span><span class="o">=</span><span class="n">tool_name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tool_input</span><span class="o">=</span><span class="n">tool_input</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">credentials</span><span class="o">=</span><span class="n">credentials</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 3. 返回结果（不暴露凭证）</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">response</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GitSandboxInitializer</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Git Sandbox 初始化——Token 注入后对 Agent 不可见&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_token</span> <span class="o">=</span> <span class="n">token</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">provision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repo_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sandbox_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;克隆仓库并配置 remote，Token 写入 .git 配置后删除&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="s2">&#34;git&#34;</span><span class="p">,</span> <span class="s2">&#34;clone&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_with_token</span><span class="p">(</span><span class="n">repo_url</span><span class="p">),</span> <span class="n">sandbox_path</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Token 写入 .git/config 后，从 Harness 内存中清除</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_token</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore[assignment]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><p>核心原则：<strong>结构化的安全比策略性的安全更可靠</strong>。不要假设&quot;Agent 拿了这个 Token 也不会乱用&rdquo;——直接让 Agent 拿不到。</p>
+<h2 id="session--context-window持久化上下文的新范式">Session ≠ Context Window：持久化上下文的新范式</h2>
+<p>长期运行的 Agent 任务通常会超出模型的上下文窗口。传统的应对策略有：</p>
+<ul>
+<li><strong>Compaction</strong>：让模型总结当前上下文，压缩后替换原始消息</li>
+<li><strong>Context Trimming</strong>：选择性删除旧的工具结果或思考过程</li>
+<li><strong>Memory Tool</strong>：让模型把重要信息写入文件</li>
+</ul>
+<p>这些方法的共同问题是：<strong>都是不可逆决策</strong>。你很难预知未来的哪一步需要哪些 token。一旦消息被 compaction 转换并从上下文窗口移除，除非额外存储，否则就找不回来了。</p>
+<p>Managed Agents 的做法是把上下文存在 Session 日志里——一个独立于上下文窗口的持久化对象：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="err">┌──────────────────────────────────────────────────────────┐</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>              <span class="n">Context</span> <span class="n">Architecture</span>                        <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>                                                          <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="n">Claude</span> <span class="n">Context</span> <span class="n">Window</span>          <span class="n">Session</span> <span class="n">Log</span> <span class="p">(</span><span class="n">Durable</span><span class="p">)</span>    <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">┌────────────────────┐</span>         <span class="err">┌────────────────────┐</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">│</span>  <span class="p">[</span><span class="err">最近的几条消息</span><span class="p">]</span>    <span class="err">│</span>         <span class="err">│</span>  <span class="p">[</span><span class="err">事件</span> <span class="mi">1</span><span class="p">]</span> <span class="n">user_msg</span>  <span class="err">│</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">│</span>  <span class="p">[</span><span class="err">当前工具结果</span><span class="p">]</span>     <span class="err">│</span>         <span class="err">│</span>  <span class="p">[</span><span class="err">事件</span> <span class="mi">2</span><span class="p">]</span> <span class="n">assistant</span> <span class="err">│</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">│</span>  <span class="p">[</span><span class="err">系统</span> <span class="n">prompt</span><span class="p">]</span>     <span class="err">│</span>         <span class="err">│</span>  <span class="p">[</span><span class="err">事件</span> <span class="mi">3</span><span class="p">]</span> <span class="n">tool_call</span> <span class="err">│</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">│</span>                    <span class="err">│</span>         <span class="err">│</span>  <span class="p">[</span><span class="err">事件</span> <span class="mi">4</span><span class="p">]</span> <span class="n">tool_rslt</span> <span class="err">│</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">│</span>  <span class="err">←</span> <span class="err">有限大小，</span>       <span class="err">│</span>         <span class="err">│</span>  <span class="p">[</span><span class="err">事件</span> <span class="mi">5</span><span class="p">]</span> <span class="n">user_msg</span>  <span class="err">│</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">│</span>    <span class="err">会被覆盖</span><span class="o">/</span><span class="err">替换</span>     <span class="err">│</span>         <span class="err">│</span>  <span class="p">[</span><span class="err">事件</span> <span class="mi">6</span><span class="p">]</span> <span class="n">assistant</span> <span class="err">│</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="err">└────────────────────┘</span>         <span class="err">│</span>  <span class="p">[</span><span class="err">事件</span> <span class="n">N</span><span class="p">]</span> <span class="o">...</span>       <span class="err">│</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>         <span class="err">▲</span>                       <span class="err">└────────────────────┘</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>         <span class="err">│</span>                                <span class="err">▲</span>               <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>         <span class="err">│</span>  <span class="n">Harness</span> <span class="err">做上下文工程</span>            <span class="err">│</span> <span class="n">getEvents</span><span class="p">()</span>   <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>         <span class="err">│</span>  <span class="p">(</span><span class="err">缓存优化</span><span class="o">/</span><span class="err">选择性传递</span><span class="p">)</span>           <span class="err">│</span> <span class="p">(</span><span class="err">按需读取</span><span class="p">)</span>     <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>         <span class="err">└────────────────────────────────┘</span>               <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>                                                          <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>  <span class="s2">&#34;Session 保证数据不丢，Harness 决定给 Claude 看什么&#34;</span>      <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">└──────────────────────────────────────────────────────────┘</span>
+</span></span></code></pre></div><p><code>getEvents()</code> 接口足够灵活：</p>
+<ul>
+<li>从上次停止的位置继续读取</li>
+<li>回溯几条事件，查看某个操作的前因后果</li>
+<li>在执行关键动作前重新读取上下文</li>
+</ul>
+<p>Harness 可以对取出的事件做任意转换——缓存优化以提高 prompt cache 命中率、选择性传递以节省 token——但 Session 保证原始数据永远可恢复。</p>
+<p><strong>关注点分离</strong>：Session 负责持久化存储，Harness 负责上下文工程。因为我们无法预测未来的模型需要什么样的上下文管理策略，所以接口把上下文管理推给了 Harness，只保证 Session 是持久且可查询的。</p>
+<h2 id="性能启示按需创建-vs-预分配">性能启示：按需创建 vs 预分配</h2>
+<p>解耦架构带来了一个意外的性能收益——TTFT（Time to First Token，首 token 延迟）的大幅下降。</p>
+<p>在耦合架构中，每个 Session 都必须先完成完整的容器初始化：克隆代码库、启动进程、拉取事件……即使这个 Session 可能根本不需要 Sandbox。这些&quot;死等待&quot;直接体现在 TTFT 上——这是用户最直观感受到的延迟。</p>
+<p>解耦之后，容器仅在需要时才通过 <code>execute()</code> 调用创建。不需要 Sandbox 的 Session 可以直接开始推理。结果是：</p>
+<table>
+  <thead>
+      <tr>
+          <th>指标</th>
+          <th>改善幅度</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>p50 TTFT</td>
+          <td><strong>↓ ~60%</strong></td>
+      </tr>
+      <tr>
+          <td>p95 TTFT</td>
+          <td><strong>↓ &gt;90%</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>这个数据对自建 Agent 系统的人很有启发。用 E2B 或 Docker 搭建 Agent 时，常见的反模式是&quot;先启动容器，再调 API&quot;。正确的做法应该是&quot;先开始推理，需要时才启动容器&quot;。</p>
+<h2 id="many-brains-many-hands">Many Brains, Many Hands</h2>
+<p>解耦架构的另一个好处是可以扩展到&quot;多个 Brain&quot;和&quot;多个 Hands&quot;。</p>
+<h3 id="many-brains">Many Brains</h3>
+<p>当 Harness 不再和容器耦合，Scale 多个 Brain 就只是启动多个无状态的 Harness 进程，按需连接到 Session。不同团队的 Agent 可以各自连接到自己 VPC 里的资源，不再需要网络对等连接。</p>
+<h3 id="many-hands">Many Hands</h3>
+<p>Claude 需要推理多个执行环境，决定把工作分发到哪里——这比在单一 Shell 里操作更难。但解耦后，每个 Hand 都变成 <code>execute(name, input) → string</code> 的工具调用。Harness 不知道 Sandbox 是容器、手机还是宝可梦模拟器。而且因为 Brain 和 Hand 没有耦合关系，Brain 之间可以互相传递 Hands——一个 Agent 完成的部分工作可以交接给另一个 Agent 继续。</p>
+<h2 id="给我们的启发如何设计自己的-agent-harness">给我们的启发：如何设计自己的 Agent Harness</h2>
+<p>从 Anthropic 的实践中，可以提炼出设计 Agent Harness 的 5 个原则：</p>
+<h3 id="1-接口稳定实现可变">1. 接口稳定，实现可变</h3>
+<p>Harness 的接口应该假设&quot;模型会变强&quot;。今天需要的 workaround，明天可能就是死代码。把实现层和接口层分开，替换实现时不破坏接口。</p>
+<h3 id="2-brain-和-hands-解耦">2. Brain 和 Hands 解耦</h3>
+<p>不要把执行环境和循环控制塞进同一个进程。让 Harness 通过统一的 <code>execute()</code> 接口调用所有工具，这样 Sandbox 挂了只是工具调用失败，不会导致整个会话丢失。</p>
+<h3 id="3-session-独立于上下文窗口">3. Session 独立于上下文窗口</h3>
+<p>事件日志应该持久化且 append-only。Compaction 和 trimming 可以发生在 Harness 层，但原始数据永远可恢复。</p>
+<h3 id="4-token-不可达">4. Token 不可达</h3>
+<p>结构性隔离比策略性隔离更可靠。Git Token 初始化注入、MCP Vault 代理——让 Agent 代码永远接触不到敏感凭证。</p>
+<h3 id="5-按需创建不要预分配">5. 按需创建，不要预分配</h3>
+<p>TTFT 是用户最敏感的延迟指标。容器/沙箱仅在需要时启动，不要为每个 Session 预付初始化成本。</p>
+<h3 id="最小化-agent-harness-完整实现">最小化 Agent Harness 完整实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">最小化 Agent Harness 实现
+</span></span></span><span class="line"><span class="cl"><span class="s2">展示 Session/Sandbox 接口和 Agent 循环的核心逻辑
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Event</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;会话中的单个事件&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">event_id</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content</span><span class="p">:</span> <span class="n">Any</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Session</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;持久化事件日志接口&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">emit_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_events</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">after_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Event</span><span class="p">]:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">wake</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Sandbox</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;执行环境接口&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AgentHarness</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Agent 循环控制&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">sandbox</span><span class="p">:</span> <span class="n">Sandbox</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">sandbox</span> <span class="o">=</span> <span class="n">sandbox</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">max_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;主循环：读取 → 推理 → 执行 → 记录&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">last_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">wake</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iterations</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 1. 读取最新事件</span>
+</span></span><span class="line"><span class="cl">            <span class="n">events</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">after_id</span><span class="o">=</span><span class="n">last_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">events</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 2. 构建 prompt（Harness 可以做上下文工程）</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prompt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_prompt</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 3. 调用模型</span>
+</span></span><span class="line"><span class="cl">            <span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 4. 处理工具调用</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">action</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&#34;tool_call&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sandbox</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">action</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">event_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&#34;result_</span><span class="si">{</span><span class="n">action</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">event_type</span><span class="o">=</span><span class="s2">&#34;tool_result&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">content</span><span class="o">=</span><span class="n">result</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">timestamp</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">emit_event</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">result_event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">last_id</span> <span class="o">=</span> <span class="n">result_event</span><span class="o">.</span><span class="n">event_id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 5. 模型表示完成，退出循环</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">is_done</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_build_prompt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Event</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;将事件转换为模型 prompt——这里可以做缓存优化、选择性传递&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">messages</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">event_type</span> <span class="o">==</span> <span class="s2">&#34;user_message&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">event_type</span> <span class="o">==</span> <span class="s2">&#34;tool_result&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">event_type</span> <span class="o">==</span> <span class="s2">&#34;assistant&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;assistant&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">content</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">messages</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo AI</span>
+</span></span></code></pre></div><h2 id="结论">结论</h2>
+<p>Agent = Model + Harness，但大多数人只关注 Model。Anthropic 的 Managed Agents 架构提醒我们：</p>
+<blockquote>
+<p><strong>好的 Agent 不是模型越强越好，而是 Harness 设计得越能适配模型变化越好。</strong></p>
+</blockquote>
+<p>Harness 的假设会随着模型能力提升而过时——这不是 bug，是 feature。真正好的 Harness 设计不是优化今天的性能，而是定义一组足够通用的接口，让未来的模型、未来的 Harness 实现、未来的 Sandbox 都能无缝接入。</p>
+<p>操作系统活了半个世纪，靠的不是优化某一代硬件，而是定义了 process 和 file 这样的通用抽象。Agent 架构要活到下一个模型迭代周期，也需要同样的设计哲学。</p>
+<hr>
+<p><strong>你怎么看？</strong> 你在搭建 Agent 时遇到过&quot;模型升级导致 Harness 失效&quot;的情况吗？欢迎在评论区分享你的经验。你觉得 Agent 架构中最难设计的部分是 Model、Harness、Session 还是 Sandbox？</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/ai-agents/">ai-agents</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/agent-loop/">agent-loop</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/system-architecture/">system-architecture</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/anthropic/">anthropic</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/llm/">LLM</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/managed-agents/">managed-agents</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/harness-design/">harness-design</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/context-engineering/">context-engineering</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f178-agent-model-plus-harness%2f&amp;text=Agent%20%3d%20Model%20%2b%20Harness%ef%bc%9a%e4%bb%8e%20Anthropic%20Managed%20Agents%20%e7%9c%8b%20Agent%20%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f178-agent-model-plus-harness%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f178-agent-model-plus-harness%2f&amp;title=Agent%20%3d%20Model%20%2b%20Harness%ef%bc%9a%e4%bb%8e%20Anthropic%20Managed%20Agents%20%e7%9c%8b%20Agent%20%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f178-agent-model-plus-harness%2f&amp;title=Agent%20%3d%20Model%20%2b%20Harness%ef%bc%9a%e4%bb%8e%20Anthropic%20Managed%20Agents%20%e7%9c%8b%20Agent%20%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f178-agent-model-plus-harness%2f&amp;title=Agent%20%3d%20Model%20%2b%20Harness%ef%bc%9a%e4%bb%8e%20Anthropic%20Managed%20Agents%20%e7%9c%8b%20Agent%20%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f178-agent-model-plus-harness%2f&amp;description=Agent%20%3d%20Model%20%2b%20Harness%ef%bc%9a%e4%bb%8e%20Anthropic%20Managed%20Agents%20%e7%9c%8b%20Agent%20%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f178-agent-model-plus-harness%2f&amp;subject=Agent%20%3d%20Model%20%2b%20Harness%ef%bc%9a%e4%bb%8e%20Anthropic%20Managed%20Agents%20%e7%9c%8b%20Agent%20%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+                    <li><a href="/post/2026/170-ai-native-voc-head-and-tail/">AI Native 流程的一头一尾：用户问题理解与自动验证</a></li>
+                
+                    <li><a href="/post/2026/168-llm-betting-on-coding-agent/">LLM 押注在 Coding Agent 上是正确的</a></li>
+                
+                    <li><a href="/post/2026/167-agent-solves-what-users-cannot-articulate/">Agent 是复杂个性化需求的最优解：解决用户自己都说不清的问题</a></li>
+                
+                    <li><a href="/post/2026/158-maas-core-capabilities/">AI的MaaS层最核心的能力：把一个不稳定的概率接口，变成一个可运营的服务</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/" data-toggle="tooltip" data-placement="top" title="Agent 的记忆战争：GBrain vs EverOS，两条路线的终局">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/180-software-1-to-3-evolution/" data-toggle="tooltip" data-placement="top" title="从写代码到定义目标：软件 1.0 到 3.0 的进化论">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/178-agent-model-plus-harness">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/178-agent-model-plus-harness';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

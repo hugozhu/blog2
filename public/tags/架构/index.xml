@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>架构 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/%E6%9E%B6%E6%9E%84/</link>
+    <description>Recent content in 架构 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模型和Agent的边界：模型决定上限，Agent决定你能不能稳定拿到这个上限</title>
+      <link>http://localhost:45445/post/2026/156-agent-vs-model-boundary/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/156-agent-vs-model-boundary/</guid>
+      <description>&lt;p&gt;每个Agent开发者都绕不过一个灵魂拷问：&lt;strong&gt;模型一直在进化，Agent的价值到底在哪？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;GPT-5比GPT-4强，Claude 4比Claude 3强，Gemini 2比Gemini 1强。模型按周迭代、按月跨代，推理更深、上下文更长、幻觉更少。如果模型本身就在变强，我们在模型之上搭的这一层&amp;quot;Agent&amp;quot;——到底是在创造价值，还是在制造冗余？&lt;/p&gt;&#xA;&lt;p&gt;这个问题不回答清楚，Agent开发就永远在焦虑中摇摆。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>悟空的真正价值：把LLM变成可治理的执行系统</title>
+      <link>http://localhost:45445/post/2026/153-wukong-llm-governable-execution-system/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/153-wukong-llm-governable-execution-system/</guid>
+      <description>&lt;p&gt;把 ChatGPT 接入企业系统就能替代人工？这是 2024 年最昂贵的幻觉之一。&lt;/p&gt;&#xA;&lt;p&gt;如果把传统聊天助手看作&amp;quot;知识与语言能力的放大器&amp;quot;，那么悟空代表了下一个阶段：&lt;strong&gt;把语言模型变成可行动、可交付、可治理的工作代理&lt;/strong&gt;。这不是能力的线性升级，而是系统定位的根本转变——从&amp;quot;回答问题&amp;quot;到&amp;quot;完成工作&amp;quot;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

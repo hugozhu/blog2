@@ -1,0 +1,1018 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>别再卷模型了：To B Agent 创业，用户反馈才是生死线 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="模型训练已成系统工程，单点突破不再构成壁垒——能替代初级岗位的 Agent 产品，靠场景数据和反馈闭环赢得市场"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "别再卷模型了：To B Agent 创业，用户反馈才是生死线",
+  "@id": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/",
+  "url": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/",
+      "name": "别再卷模型了：To B Agent 创业，用户反馈才是生死线",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "别再卷模型了：To B Agent 创业，用户反馈才是生死线",
+  "description": "2026 年，一个事实已经无法忽视：模型训练不再是一项研究活动，而是一项系统工程。\n预训练需要万卡集群和 PB 级数据管线，强化学习需要奖励模型和 RLHF\/DPO 的工程化流水线，推理优化涉及量化、蒸馏、speculative decoding 等一整套工具链，Agent 能力构建则横跨 function calling、长上下文、规划与工具使用的多维调优。任何一个方向的突破，如果不能在其他环节配合落地，就只是一篇论文，不是一个产品。\n这意味着什么？模型本身正在变成标准化基础设施。 就像今天没有哪家 SaaS 公司拿\u0026quot;我们用了 PostgreSQL\u0026quot;当竞争优势一样，未来也不会有哪家 Agent 公司仅靠\u0026quot;我们微调了一个更好的模型\u0026quot;赢得市场。\n那么 To B Agent 创业的制胜变量到底是什么？\n",
+  "inLanguage": "en",
+  "wordCount":  920 ,
+  "dateCreated": "2026-03-23T00:00:00+00:00",
+  "datePublished": "2026-03-23T00:00:00+00:00",
+  "dateModified": "2026-03-23T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "AI, AI-agents, enterprise, startup, product, feedback-loop, agent-optimization" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="别再卷模型了：To B Agent 创业，用户反馈才是生死线" />
+<meta property="og:description" content="模型训练已成系统工程，单点突破不再构成壁垒——能替代初级岗位的 Agent 产品，靠场景数据和反馈闭环赢得市场" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="别再卷模型了：To B Agent 创业，用户反馈才是生死线" />
+  <meta name="twitter:description" content="模型训练已成系统工程，单点突破不再构成壁垒——能替代初级岗位的 Agent 产品，靠场景数据和反馈闭环赢得市场">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>别再卷模型了：To B Agent 创业，用户反馈才是生死线</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">模型训练已成系统工程，单点突破不再构成壁垒——能替代初级岗位的 Agent 产品，靠场景数据和反馈闭环赢得市场</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 23, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;920&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>2026 年，一个事实已经无法忽视：<strong>模型训练不再是一项研究活动，而是一项系统工程。</strong></p>
+<p>预训练需要万卡集群和 PB 级数据管线，强化学习需要奖励模型和 RLHF/DPO 的工程化流水线，推理优化涉及量化、蒸馏、speculative decoding 等一整套工具链，Agent 能力构建则横跨 function calling、长上下文、规划与工具使用的多维调优。任何一个方向的突破，如果不能在其他环节配合落地，就只是一篇论文，不是一个产品。</p>
+<p>这意味着什么？<strong>模型本身正在变成标准化基础设施。</strong> 就像今天没有哪家 SaaS 公司拿&quot;我们用了 PostgreSQL&quot;当竞争优势一样，未来也不会有哪家 Agent 公司仅靠&quot;我们微调了一个更好的模型&quot;赢得市场。</p>
+<p>那么 To B Agent 创业的制胜变量到底是什么？</p>
+<h2 id="一个被忽视的事实agent-的竞争不在模型层">一个被忽视的事实：Agent 的竞争不在模型层</h2>
+<p>先看今天 To B Agent 赛道的典型创业故事：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">团队 A：3 个 AI 研究员，从大厂出来，花 6 个月微调了一个行业模型
+</span></span><span class="line"><span class="cl">团队 B：5 个工程师 + 2 个行业专家，花 3 个月搭了一套 Agent 工作流
+</span></span><span class="line"><span class="cl">团队 C：3 个产品经理 + 3 个工程师，花 2 个月做了个能用的 MVP，然后每天泡在客户现场
+</span></span></code></pre></div><p>半年后，团队 C 的客户续约率最高。</p>
+<p>为什么？因为 To B Agent 要解决的问题不是&quot;模型能不能理解这段话&quot;，而是**&ldquo;这个 Agent 能不能像一个靠谱的初级员工一样，把一件具体的事做好&rdquo;**。</p>
+<p>一个能替代初级岗位的 Agent，面对的是真实业务场景中无穷无尽的边界条件：</p>
+<ul>
+<li>客户的审批流程有 17 种例外情况</li>
+<li>报价单的格式每个行业甚至每家客户都不一样</li>
+<li>&ldquo;帮我整理一下这个表&quot;在不同上下文里意味着完全不同的操作</li>
+<li>同一个任务，张三要的是简洁版，李四要的是详细版</li>
+</ul>
+<p>这些问题，模型层面的能力提升帮不了你。<strong>只有用户反馈才能告诉你：你的 Agent 在真实场景里到底做得怎么样。</strong></p>
+<h2 id="用户反馈是-to-b-agent-的核心资产">用户反馈是 To B Agent 的核心资产</h2>
+<p>让我把这个论点说得更直白一些：</p>
+<blockquote>
+<p><strong>在 To B Agent 赛道，你的模型、你的架构、你的 Prompt 工程——这些都是&quot;赌注&rdquo;。只有用户反馈闭环，才是你的&quot;底牌&quot;。</strong></p>
+</blockquote>
+<p>为什么？看一个对比：</p>
+<table>
+  <thead>
+      <tr>
+          <th>能力</th>
+          <th>可复制性</th>
+          <th>竞争壁垒</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>基础模型能力</td>
+          <td>高——开源模型快速追赶</td>
+          <td>低</td>
+      </tr>
+      <tr>
+          <td>Prompt/工作流工程</td>
+          <td>中——聪明的团队几周就能复刻</td>
+          <td>低</td>
+      </tr>
+      <tr>
+          <td>行业知识库</td>
+          <td>中——可以购买或爬取</td>
+          <td>中</td>
+      </tr>
+      <tr>
+          <td><strong>真实场景的用户反馈数据</strong></td>
+          <td><strong>低——只有你的客户在你的产品里产生</strong></td>
+          <td><strong>高</strong></td>
+      </tr>
+      <tr>
+          <td><strong>基于反馈的持续优化能力</strong></td>
+          <td><strong>极低——需要数据 + 工程 + 产品的系统性投入</strong></td>
+          <td><strong>极高</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>最后两行是关键。你的竞争对手可以用同样的基础模型、抄你的 Prompt、买同样的行业数据——但他拿不到你的客户在你的产品里产生的那些真实反馈信号。</p>
+<p><strong>这些反馈数据是你独有的场景资产。而且它有飞轮效应：反馈越多 → Agent 越好 → 用户越愿意用 → 反馈更多。</strong></p>
+<h2 id="多快好省定义你的-agent-执行指标">&ldquo;多快好省&rdquo;：定义你的 Agent 执行指标</h2>
+<p>在构建反馈闭环之前，先回答一个问题：<strong>你优化的目标是什么？</strong></p>
+<p>对一个替代初级岗位的 To B Agent 来说，用户关心的核心指标可以归纳为&quot;多快好省&quot;四个维度：</p>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>含义</th>
+          <th>度量方式</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>多</strong>（覆盖度）</td>
+          <td>能处理多少种任务/场景</td>
+          <td>任务完成率、场景覆盖率</td>
+          <td>能处理 80% 的常见审批类型</td>
+      </tr>
+      <tr>
+          <td><strong>快</strong>（效率）</td>
+          <td>完成任务要多长时间</td>
+          <td>端到端耗时、人工介入次数</td>
+          <td>一份报告从 30 分钟降到 5 分钟</td>
+      </tr>
+      <tr>
+          <td><strong>好</strong>（质量）</td>
+          <td>输出质量是否达标</td>
+          <td>准确率、返工率、用户满意度</td>
+          <td>生成的合同初稿一次通过率 90%</td>
+      </tr>
+      <tr>
+          <td><strong>省</strong>（成本）</td>
+          <td>消耗了多少资源</td>
+          <td>Token 消耗、API 调用次数、人工复核成本</td>
+          <td>单任务成本 &lt; ¥0.5</td>
+      </tr>
+  </tbody>
+</table>
+<p>这四个维度之间存在张力——追求&quot;好&quot;可能牺牲&quot;快&quot;和&quot;省&quot;，追求&quot;多&quot;可能降低&quot;好&quot;。<strong>你的产品策略决定了四个维度的优先级排序</strong>，而用户反馈告诉你当前在每个维度上的真实表现。</p>
+<h3 id="为每种任务类型设定基线">为每种任务类型设定基线</h3>
+<p>不要试图用一组指标衡量所有任务。不同任务类型的&quot;多快好省&quot;权重完全不同：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">任务类型：合同审查
+</span></span><span class="line"><span class="cl">  多: 权重 0.2 — 场景相对固定
+</span></span><span class="line"><span class="cl">  快: 权重 0.2 — 不急，但不能超过 1 小时
+</span></span><span class="line"><span class="cl">  好: 权重 0.5 — 错一个条款后果严重
+</span></span><span class="line"><span class="cl">  省: 权重 0.1 — 对比律师费用，成本不敏感
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">任务类型：客服工单分类
+</span></span><span class="line"><span class="cl">  多: 权重 0.3 — 要能覆盖各种奇怪的问题
+</span></span><span class="line"><span class="cl">  快: 权重 0.3 — 实时响应，秒级
+</span></span><span class="line"><span class="cl">  好: 权重 0.2 — 分类错了可以人工纠正
+</span></span><span class="line"><span class="cl">  省: 权重 0.2 — 量大，成本敏感
+</span></span></code></pre></div><p>这种按任务类型的指标拆分，是后续一切优化的基础。</p>
+<h2 id="构建反馈闭环从信号采集到-agent-进化">构建反馈闭环：从信号采集到 Agent 进化</h2>
+<p>反馈闭环不是&quot;加一个点赞按钮&quot;。它是一套完整的系统，包含四个环节：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">采集 → 归因 → 实验 → 部署
+</span></span><span class="line"><span class="cl"> ↑                      │
+</span></span><span class="line"><span class="cl"> └──────────────────────┘
+</span></span></code></pre></div><h3 id="第一环采集让反馈信号无处不在">第一环：采集——让反馈信号无处不在</h3>
+<p>最大的误区是只依赖显式反馈（用户主动打分、点赞/踩）。<strong>显式反馈的覆盖率通常低于 5%</strong>——绝大多数用户用完就走了，不会停下来给你评分。</p>
+<p>你需要建立一套<strong>隐式反馈 + 显式反馈</strong>的复合信号体系：</p>
+<p><strong>隐式信号（自动采集，零用户成本）：</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>用户行为</th>
+          <th>信号解读</th>
+          <th>权重</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Agent 输出后，用户直接采纳</td>
+          <td>满意</td>
+          <td>+1.0</td>
+      </tr>
+      <tr>
+          <td>用户对输出做了小幅编辑（&lt;20%）</td>
+          <td>基本满意，有微调</td>
+          <td>+0.5</td>
+      </tr>
+      <tr>
+          <td>用户对输出做了大幅编辑（&gt;50%）</td>
+          <td>不满意，但愿意修正</td>
+          <td>-0.5</td>
+      </tr>
+      <tr>
+          <td>用户放弃 Agent 输出，自己重做</td>
+          <td>完全不满意</td>
+          <td>-1.0</td>
+      </tr>
+      <tr>
+          <td>用户追问细节或要求补充</td>
+          <td>覆盖不足</td>
+          <td>-0.3</td>
+      </tr>
+      <tr>
+          <td>用户要求重做（&ldquo;重新来&rdquo;）</td>
+          <td>输出质量差</td>
+          <td>-0.8</td>
+      </tr>
+      <tr>
+          <td>用户把 Agent 输出转发给同事</td>
+          <td>高质量输出</td>
+          <td>+1.5</td>
+      </tr>
+      <tr>
+          <td>用户用同样的指令再次调用（第二天/下周）</td>
+          <td>形成使用习惯</td>
+          <td>+2.0</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>显式信号（需要用户参与，但信息量大）：</strong></p>
+<ul>
+<li>👍/👎 按钮——简单但信息量低</li>
+<li>选择题反馈——&ldquo;这个输出哪里不好？①不准确 ②太啰嗦 ③格式不对 ④缺少信息&rdquo;</li>
+<li>自由文本反馈——信息量最大，但分析成本高</li>
+</ul>
+<p><strong>产品设计的关键原则：让隐式信号覆盖 95% 的反馈采集，显式信号只在关键节点触发。</strong> 比如：</p>
+<ul>
+<li>当检测到用户对 Agent 输出做了大幅编辑时，弹一个轻量级反馈框：&ldquo;我注意到你做了较多修改，是哪里不够好？&rdquo;</li>
+<li>当 Agent 连续 3 次被追问时，记录为&quot;需要人工审查的 case&quot;</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">FeedbackCollector</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">on_task_complete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">agent_output</span><span class="p">,</span> <span class="n">user_actions</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">signals</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 隐式信号自动采集</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">user_actions</span><span class="o">.</span><span class="n">accepted_directly</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">signals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&#34;implicit_accept&#34;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">user_actions</span><span class="o">.</span><span class="n">edit_ratio</span> <span class="o">&lt;</span> <span class="mf">0.2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">signals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&#34;minor_edit&#34;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">user_actions</span><span class="o">.</span><span class="n">edit_ratio</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">signals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&#34;major_edit&#34;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 触发显式反馈采集</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">request_explicit_feedback</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="s2">&#34;large_edit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">user_actions</span><span class="o">.</span><span class="n">forwarded_to_others</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">signals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&#34;forwarded&#34;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">signals</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span></code></pre></div><h3 id="第二环归因从信号到诊断">第二环：归因——从信号到诊断</h3>
+<p>有了反馈信号只是第一步。更重要的是搞清楚<strong>为什么好、为什么差</strong>。</p>
+<p>归因需要在三个层次上进行：</p>
+<p><strong>层次 1：任务类型归因</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">上周 Agent 执行了 500 个任务：
+</span></span><span class="line"><span class="cl">├── 合同审查（120 次）: 满意率 85% ✅
+</span></span><span class="line"><span class="cl">├── 报价单生成（200 次）: 满意率 62% ⚠️ ← 重点关注
+</span></span><span class="line"><span class="cl">├── 会议纪要整理（100 次）: 满意率 91% ✅
+</span></span><span class="line"><span class="cl">└── 数据报表制作（80 次）: 满意率 45% ❌ ← 紧急处理
+</span></span></code></pre></div><p><strong>层次 2：失败模式归因</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">报价单生成满意率 62%，76 次不满意：
+</span></span><span class="line"><span class="cl">├── 格式错误（30 次，39%）: 客户 A 要横版，Agent 输出竖版
+</span></span><span class="line"><span class="cl">├── 价格计算错误（22 次，29%）: 阶梯定价逻辑出错
+</span></span><span class="line"><span class="cl">├── 缺少必要信息（15 次，20%）: 未带入客户的历史折扣
+</span></span><span class="line"><span class="cl">└── 其他（9 次，12%）: 包含过时的产品型号
+</span></span></code></pre></div><p><strong>层次 3：根因归因</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">价格计算错误（22 次）根因分析：
+</span></span><span class="line"><span class="cl">├── 12 次：阶梯定价规则没有写进 Prompt → Prompt 优化
+</span></span><span class="line"><span class="cl">├── 7 次：客户的定价规则更新了，Agent 用的是旧版 → 知识库更新机制
+</span></span><span class="line"><span class="cl">└── 3 次：模型推理错误（数学计算） → 需要增加计算校验步骤
+</span></span></code></pre></div><p>三层归因做下来，你得到的不是一个模糊的&quot;用户不满意&quot;，而是<strong>明确的优化动作清单</strong>。每个问题都有具体的解法。</p>
+<h3 id="第三环实验用场景数据驱动优化">第三环：实验——用场景数据驱动优化</h3>
+<p>有了诊断，接下来是实验。这是很多团队做得最差的环节——他们要么凭直觉改 Prompt，要么一次性做大量修改，根本分不清哪个改动起了作用。</p>
+<p><strong>核心原则：一次只改一个变量，用真实场景数据验证。</strong></p>
+<h4 id="建立你的-eval-数据集">建立你的 Eval 数据集</h4>
+<p>这是场景数据的最高价值用法——从真实执行记录中提取评测数据集：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ScenarioEvalBuilder</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">build_eval_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_type</span><span class="p">,</span> <span class="n">min_cases</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;从真实执行记录中构建评测数据集&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cases</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recent_records</span><span class="p">(</span><span class="n">task_type</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cases</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;input&#34;</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">user_instruction</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">business_context</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;agent_output&#34;</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;user_feedback&#34;</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">feedback_score</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;user_edits&#34;</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">edited_version</span><span class="p">,</span>  <span class="c1"># 用户修正后的版本 = 黄金标准</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;failure_mode&#34;</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">diagnosed_failure</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 优先选择有明确正/负信号的 case</span>
+</span></span><span class="line"><span class="cl">        <span class="n">positive</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cases</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s2">&#34;user_feedback&#34;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">negative</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cases</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s2">&#34;user_feedback&#34;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;golden_set&#34;</span><span class="p">:</span> <span class="n">positive</span><span class="p">[:</span><span class="mi">25</span><span class="p">]</span> <span class="o">+</span> <span class="n">negative</span><span class="p">[:</span><span class="mi">25</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;size&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">cases</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;positive_ratio&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">positive</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">cases</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span></code></pre></div><p>这里有一个容易被忽视的宝藏：<strong>用户修改后的版本就是你的黄金标准答案。</strong> 用户在 Agent 输出基础上做的每一次编辑，都是一条免费的标注数据。</p>
+<h4 id="实验流程">实验流程</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">识别要优化的任务类型（如：报价单生成）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">分析失败模式，选择最高频的问题（如：格式错误）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">提出优化假设（如：在 Prompt 中增加客户特定的格式模板）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">在 Eval 数据集上运行 A/B 测试
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├── 原始 Prompt：格式正确率 61%
+</span></span><span class="line"><span class="cl">    └── 修改后 Prompt：格式正确率 89%
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">检查是否引入副作用
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├── 价格准确率：94% → 93%（可接受）
+</span></span><span class="line"><span class="cl">    └── 信息完整度：88% → 87%（可接受）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">主指标显著提升 + 无严重副作用 → 上线
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">在真实流量中持续监控 48 小时
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├── 确认改善 → 永久保留，更新 Eval 基线
+</span></span><span class="line"><span class="cl">    └── 未达预期 → 回滚，分析原因
+</span></span></code></pre></div><h4 id="分层实验策略">分层实验策略</h4>
+<p>不是所有优化都需要同样的实验力度。按影响范围分层：</p>
+<table>
+  <thead>
+      <tr>
+          <th>层级</th>
+          <th>改动类型</th>
+          <th>实验要求</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L1 轻量</td>
+          <td>Prompt 措辞微调</td>
+          <td>跑 10 条 Eval case</td>
+          <td>把&quot;生成报价单&quot;改为&quot;按模板生成报价单&quot;</td>
+      </tr>
+      <tr>
+          <td>L2 中等</td>
+          <td>工作流步骤调整</td>
+          <td>跑 50 条 + 48h 灰度</td>
+          <td>增加一步格式校验</td>
+      </tr>
+      <tr>
+          <td>L3 重大</td>
+          <td>架构级变更</td>
+          <td>跑全量 Eval + 1 周灰度</td>
+          <td>从单步生成改为&quot;生成-校验-修正&quot;三步流程</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="第四环部署灰度与回滚">第四环：部署——灰度与回滚</h3>
+<p>To B 场景对稳定性的要求远高于 To C。一个 Agent 突然行为变了，客户的信任就没了。</p>
+<p><strong>灰度发布策略：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">修改通过 Eval 验证
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">Phase 1: 内部测试（团队自己用 2 天）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">Phase 2: 种子客户灰度（选 2-3 个关系好的客户，开放 1 周）
+</span></span><span class="line"><span class="cl">    │    收集反馈，确认无回归
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">Phase 3: 全量发布（监控指标 48 小时）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ├── 指标正常 → 完成
+</span></span><span class="line"><span class="cl">    └── 指标异常 → 一键回滚到上一版本
+</span></span></code></pre></div><p><strong>关键：保留每个版本的完整快照（Prompt + 工作流 + 知识库版本），确保可以随时精确回滚。</strong></p>
+<h2 id="场景数据的飞轮越用越好的正循环">场景数据的飞轮：越用越好的正循环</h2>
+<p>当上述四个环节跑通之后，你会发现一件美妙的事情——系统开始自我加速。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Week 1:  100 个任务记录 → 粗粒度优化 → 满意率 60%
+</span></span><span class="line"><span class="cl">Week 4:  2000 个任务记录 → 精细化归因 → 满意率 72%
+</span></span><span class="line"><span class="cl">Week 12: 10000 个任务记录 → 按客户/场景精准优化 → 满意率 85%
+</span></span><span class="line"><span class="cl">Week 24: 50000 个任务记录 → Agent 比新来的实习生靠谱 → 满意率 92%
+</span></span></code></pre></div><p>飞轮的关键在于<strong>场景数据的网络效应</strong>：</p>
+<ol>
+<li>
+<p><strong>客户 A 踩的坑，客户 B 不用再踩。</strong> 客户 A 发现报价单的阶梯定价逻辑有问题，修复后这个改进惠及所有客户。</p>
+</li>
+<li>
+<p><strong>用户修正即标注。</strong> 每一次人工编辑都在告诉你正确答案应该是什么，这些数据积累起来，就是任何竞争对手都买不到的行业训练数据。</p>
+</li>
+<li>
+<p><strong>失败模式库越来越全。</strong> 第一个月你只知道 10 种报价单出错方式，半年后你知道 200 种——每一种都有对应的解法。</p>
+</li>
+<li>
+<p><strong>Eval 数据集越来越硬。</strong> 基于真实场景的 Eval 集，远比人工构造的测试集更能反映真实需求。你的 Eval 集越强，新的优化就越可靠。</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                          场景数据飞轮
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         ┌─────────────────────────────────┐
+</span></span><span class="line"><span class="cl">         │                                 │
+</span></span><span class="line"><span class="cl">         ▼                                 │
+</span></span><span class="line"><span class="cl">    用户使用 Agent ──→ 产生执行记录 ──→ 采集反馈信号
+</span></span><span class="line"><span class="cl">                                           │
+</span></span><span class="line"><span class="cl">                                           ▼
+</span></span><span class="line"><span class="cl">    Agent 能力提升 ←── 部署优化 ←── 实验验证 ←── 归因分析
+</span></span><span class="line"><span class="cl">         │
+</span></span><span class="line"><span class="cl">         ▼
+</span></span><span class="line"><span class="cl">    用户更愿意用 ──→ 更多执行记录 ──→ 更多反馈信号 ──→ ...
+</span></span></code></pre></div><p><strong>这就是 To B Agent 的真正护城河。</strong> 你的竞争对手可以抄你的架构、挖你的人、用同样的模型——但他拿不到你的场景数据飞轮。这个飞轮转了 6 个月之后，你的 Agent 对这个行业的理解深度，不是新入场者能够追赶的。</p>
+<h2 id="给创业团队的实操建议">给创业团队的实操建议</h2>
+<h3 id="day-1-30先跑通最小闭环">Day 1-30：先跑通最小闭环</h3>
+<p>不要花 3 个月搭一个完美的反馈系统。先做最简单的版本：</p>
+<ol>
+<li><strong>记录每一次 Agent 执行的输入和输出</strong>——存到数据库里就行</li>
+<li><strong>在输出旁边放一个 👍/👎 按钮</strong>——能收到 3% 的反馈就够了</li>
+<li><strong>每天人工审查 10 条差评 case</strong>——用人脑做归因，用 Excel 记录</li>
+<li><strong>每周改一次 Prompt</strong>——基于那 10 条 case 的分析</li>
+</ol>
+<p>这个最小闭环不需要任何 AI 辅助评估、不需要自动化实验平台、不需要灰度发布系统。它就是&quot;人工看反馈、人工改 Prompt、看看下周是不是好了&quot;。</p>
+<p>但它会教你三件事：</p>
+<ul>
+<li>用户真正在意什么（而不是你以为他们在意什么）</li>
+<li>你的 Agent 在哪些场景下最脆弱</li>
+<li>什么样的反馈信号最有诊断价值</li>
+</ul>
+<h3 id="day-30-90自动化关键环节">Day 30-90：自动化关键环节</h3>
+<p>当你对反馈模式有了直觉后，开始自动化：</p>
+<ol>
+<li><strong>隐式信号采集器</strong>——自动检测用户编辑行为、追问行为、放弃行为</li>
+<li><strong>自动归因管线</strong>——用 LLM 对差评 case 做分类和根因分析</li>
+<li><strong>Eval 数据集自动构建</strong>——从真实执行记录中自动提取和更新评测集</li>
+<li><strong>Eval 自动化运行</strong>——每次 Prompt 修改后自动跑 Eval 集</li>
+</ol>
+<h3 id="day-90-180建立系统性优化能力">Day 90-180：建立系统性优化能力</h3>
+<p>这个阶段的目标是让优化变得可预期、可复制：</p>
+<ol>
+<li><strong>按任务类型建立独立的 Eval 集和指标体系</strong></li>
+<li><strong>建立实验记录和版本管理</strong>——每轮实验的假设、修改、结果、决策都有据可查</li>
+<li><strong>灰度发布机制</strong>——重大修改先在种子客户上验证</li>
+<li><strong>客户级别的 Agent 配置</strong>——不同客户的 Agent 行为可以独立调优</li>
+</ol>
+<h3 id="团队配置建议">团队配置建议</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">早期（&lt; 10 人）:
+</span></span><span class="line"><span class="cl">  产品/运营 × 1 — 每天看反馈，定义优化优先级
+</span></span><span class="line"><span class="cl">  全栈工程师 × 2 — 搭建反馈采集和 Eval 管线
+</span></span><span class="line"><span class="cl">  AI 工程师 × 1 — Prompt 优化和工作流设计
+</span></span><span class="line"><span class="cl">  行业专家 × 1 — 提供领域知识，审查 Agent 输出质量
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">不要一开始就招 ML Research：
+</span></span><span class="line"><span class="cl">  ❌ 花 6 个月微调一个行业模型
+</span></span><span class="line"><span class="cl">  ✅ 花 6 个月把反馈闭环跑到飞轮效应
+</span></span></code></pre></div><h2 id="一个思想实验">一个思想实验</h2>
+<p>假设今天有两家公司同时入场做&quot;AI 财务审计助手&quot;：</p>
+<p><strong>公司 A</strong>：花 6 个月和 500 万，微调了一个审计专用模型。能力确实比 GPT-4o 强 15%。</p>
+<p><strong>公司 B</strong>：用 GPT-4o + 好的 Prompt 工程，2 个月做出 MVP。剩下 4 个月和 500 万全部投入到客户现场，采集了 50000 条真实审计场景的反馈数据，迭代了 20 个版本的 Agent 工作流。</p>
+<p>6 个月后，公司 B 的 Agent 在<strong>真实审计任务上的表现</strong>大概率超过公司 A——因为 B 的 Agent 见过的真实场景、踩过的真实坑、积累的真实解法，是 A 在实验室里无论如何也模拟不出来的。</p>
+<p>更要命的是：12 个月后，当公司 A 终于开始接客户的时候，公司 B 的飞轮已经转了半年了。</p>
+<h2 id="写在最后">写在最后</h2>
+<p>模型训练已经变成了系统工程。这意味着模型能力的差距在收窄，而不是拉大。当基础模型的能力越来越接近时，To B Agent 产品的竞争就会下沉到<strong>最后一公里</strong>——你的 Agent 到底能不能在客户的真实业务场景中，<strong>多快好省</strong>地把活干好。</p>
+<p>能回答这个问题的，不是你的模型有多强，不是你的架构有多精妙，而是你有没有一个高效运转的用户反馈闭环。</p>
+<p><strong>模型是入场券，反馈是记分牌。</strong> 别在入场券上花太多时间了——进了场，盯紧记分牌。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/enterprise/">enterprise</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/startup/">startup</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/product/">product</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/feedback-loop/">feedback-loop</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/agent-optimization/">agent-optimization</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f151-tob-agent-user-feedback-loop%2f&amp;text=%e5%88%ab%e5%86%8d%e5%8d%b7%e6%a8%a1%e5%9e%8b%e4%ba%86%ef%bc%9aTo%20B%20Agent%20%e5%88%9b%e4%b8%9a%ef%bc%8c%e7%94%a8%e6%88%b7%e5%8f%8d%e9%a6%88%e6%89%8d%e6%98%af%e7%94%9f%e6%ad%bb%e7%ba%bf&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f151-tob-agent-user-feedback-loop%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f151-tob-agent-user-feedback-loop%2f&amp;title=%e5%88%ab%e5%86%8d%e5%8d%b7%e6%a8%a1%e5%9e%8b%e4%ba%86%ef%bc%9aTo%20B%20Agent%20%e5%88%9b%e4%b8%9a%ef%bc%8c%e7%94%a8%e6%88%b7%e5%8f%8d%e9%a6%88%e6%89%8d%e6%98%af%e7%94%9f%e6%ad%bb%e7%ba%bf" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f151-tob-agent-user-feedback-loop%2f&amp;title=%e5%88%ab%e5%86%8d%e5%8d%b7%e6%a8%a1%e5%9e%8b%e4%ba%86%ef%bc%9aTo%20B%20Agent%20%e5%88%9b%e4%b8%9a%ef%bc%8c%e7%94%a8%e6%88%b7%e5%8f%8d%e9%a6%88%e6%89%8d%e6%98%af%e7%94%9f%e6%ad%bb%e7%ba%bf" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f151-tob-agent-user-feedback-loop%2f&amp;title=%e5%88%ab%e5%86%8d%e5%8d%b7%e6%a8%a1%e5%9e%8b%e4%ba%86%ef%bc%9aTo%20B%20Agent%20%e5%88%9b%e4%b8%9a%ef%bc%8c%e7%94%a8%e6%88%b7%e5%8f%8d%e9%a6%88%e6%89%8d%e6%98%af%e7%94%9f%e6%ad%bb%e7%ba%bf" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f151-tob-agent-user-feedback-loop%2f&amp;description=%e5%88%ab%e5%86%8d%e5%8d%b7%e6%a8%a1%e5%9e%8b%e4%ba%86%ef%bc%9aTo%20B%20Agent%20%e5%88%9b%e4%b8%9a%ef%bc%8c%e7%94%a8%e6%88%b7%e5%8f%8d%e9%a6%88%e6%89%8d%e6%98%af%e7%94%9f%e6%ad%bb%e7%ba%bf" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f151-tob-agent-user-feedback-loop%2f&amp;subject=%e5%88%ab%e5%86%8d%e5%8d%b7%e6%a8%a1%e5%9e%8b%e4%ba%86%ef%bc%9aTo%20B%20Agent%20%e5%88%9b%e4%b8%9a%ef%bc%8c%e7%94%a8%e6%88%b7%e5%8f%8d%e9%a6%88%e6%89%8d%e6%98%af%e7%94%9f%e6%ad%bb%e7%ba%bf" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/196-ai-native-product-growth-playbook/">AI 原生产品增长打法：你的预算在烧钱，还是在训练产品？</a></li>
+                
+                    <li><a href="/post/2026/194-ai-opportunity-closing-window-2026-2027/">AI 机会在变少：2026-2027 是最后的关键期</a></li>
+                
+                    <li><a href="/post/2026/191-to-b-business-two-paths/">To B 的生意只有两种</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2026/149-openclaw-remote-browser-setup/" data-toggle="tooltip" data-placement="top" title="OpenClaw使用远程浏览器——让AI读懂你的个性化互联网">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2026/152-agent-security-ai-native-execution-control/" data-toggle="tooltip" data-placement="top" title="Agent安全是企业安全的新命题——用AI管AI的执行控制体系">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2026/151-tob-agent-user-feedback-loop">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2026\/151-tob-agent-user-feedback-loop';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

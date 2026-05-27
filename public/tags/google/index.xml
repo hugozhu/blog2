@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/google/</link>
+    <description>Recent content in Google on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NotebookLM的核心能力与构建之道</title>
+      <link>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/116-notebooklm-key-capabilities-and-architecture/</guid>
+      <description>&lt;p&gt;当Google在2023年推出NotebookLM时，它重新定义了我们与知识交互的方式。这款AI驱动的笔记应用不仅仅是一个文档管理工具，更是一个能够理解、总结、对话和创作的智能助手。那么，NotebookLM究竟具备哪些关键能力？我们如何构建类似的系统？本文将深入剖析其核心技术架构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何用 AI 将个人网站转化为专业的 Google 求职简历</title>
+      <link>http://localhost:45445/post/2025/112-ai-powered-google-resume-from-personal-website/</link>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/112-ai-powered-google-resume-from-personal-website/</guid>
+      <description>&lt;p&gt;在科技行业求职，特别是向 Google 这样的顶级科技公司投递简历时，如何将个人网站上丰富的项目经验、技术博客和开源贡献转化为一份专业、精准的简历是关键。传统方式需要手动整理、提炼和格式化，既费时又容易遗漏重点。本文将介绍如何利用 AI 工具，特别是大语言模型（LLM），智能地将个人网站内容转化为符合 Google 招聘标准的专业简历。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

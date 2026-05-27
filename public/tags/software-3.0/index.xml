@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software-3.0 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/software-3.0/</link>
+    <description>Recent content in Software-3.0 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/software-3.0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从写代码到定义目标：软件 1.0 到 3.0 的进化论</title>
+      <link>http://localhost:45445/post/2026/180-software-1-to-3-evolution/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/180-software-1-to-3-evolution/</guid>
+      <description>&lt;p&gt;2023 年，你需要写一个爬虫：&lt;code&gt;requests&lt;/code&gt; 发请求 → 正则解析 HTML → 异常处理 + 重试，300 行代码，每行都是你写的。&lt;/p&gt;&#xA;&lt;p&gt;2025 年，你告诉 Agent：「把某网站上最近 100 篇文章的标题和链接存到 CSV 里」，它自己写代码、调试、跑通、交付结果。&lt;/p&gt;&#xA;&lt;p&gt;问题来了：&lt;strong&gt;到底哪一段代码是你「写」的？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是编程工具的升级，而是软件开发范式的根本性转移。Karpathy 在 2017 年提出「Software 2.0」时说：神经网络是程序员用数据写出的程序。但八年后的今天，2.0 已经不够用了——因为系统不再只是「被训练」，它们开始「自己决定怎么做」。&lt;/p&gt;&#xA;&lt;p&gt;我把这个演进分为四个阶段：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

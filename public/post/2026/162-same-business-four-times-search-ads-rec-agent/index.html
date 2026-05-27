@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>同一个生意做了四遍：从搜索到Agent，万物皆排序 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="搜索、广告、推荐、Agent——四代系统的底层逻辑和商业本质，从未改变"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "同一个生意做了四遍：从搜索到Agent，万物皆排序",
+  "@id": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/",
+  "url": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/",
+      "name": "同一个生意做了四遍：从搜索到Agent，万物皆排序",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "同一个生意做了四遍：从搜索到Agent，万物皆排序",
+  "description": "如果你在过去二十年里分别做过搜索引擎、广告系统、推荐系统，再到今天做AI Agent，你可能会有一个越来越强烈的感觉：这不就是同一个生意吗？\n表面上看，Google做搜索、Meta做广告、抖音做推荐、OpenAI做Agent，四个完全不同的产品形态，四个不同的技术栈，甚至四个不同的行业叙事。但如果你把外壳剥掉，盯着底层看，会发现一个令人不安的事实：这四代系统的核心逻辑，从来没有变过。\n它们都在做同一件事——在信息过载的世界里，帮用户匹配到最相关的东西，然后从匹配效率的提升中抽税。\n",
+  "inLanguage": "en",
+  "wordCount":  378 ,
+  "dateCreated": "2026-03-30T00:00:00+00:00",
+  "datePublished": "2026-03-30T00:00:00+00:00",
+  "dateModified": "2026-03-30T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "AI, AI-agents, architecture, search, recommendation, advertising, 思考" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="同一个生意做了四遍：从搜索到Agent，万物皆排序" />
+<meta property="og:description" content="搜索、广告、推荐、Agent——四代系统的底层逻辑和商业本质，从未改变" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="同一个生意做了四遍：从搜索到Agent，万物皆排序" />
+  <meta name="twitter:description" content="搜索、广告、推荐、Agent——四代系统的底层逻辑和商业本质，从未改变">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>同一个生意做了四遍：从搜索到Agent，万物皆排序</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">搜索、广告、推荐、Agent——四代系统的底层逻辑和商业本质，从未改变</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 30, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;378&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>如果你在过去二十年里分别做过搜索引擎、广告系统、推荐系统，再到今天做AI Agent，你可能会有一个越来越强烈的感觉：<strong>这不就是同一个生意吗？</strong></p>
+<p>表面上看，Google做搜索、Meta做广告、抖音做推荐、OpenAI做Agent，四个完全不同的产品形态，四个不同的技术栈，甚至四个不同的行业叙事。但如果你把外壳剥掉，盯着底层看，会发现一个令人不安的事实：<strong>这四代系统的核心逻辑，从来没有变过。</strong></p>
+<p>它们都在做同一件事——<strong>在信息过载的世界里，帮用户匹配到最相关的东西，然后从匹配效率的提升中抽税。</strong></p>
+<h2 id="一四代系统一个公式">一、四代系统，一个公式</h2>
+<p>先把四代系统并排放在一起看：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">系统         用户侧            供给侧           系统做的事
+</span></span><span class="line"><span class="cl">─────────   ──────────       ──────────        ──────────────
+</span></span><span class="line"><span class="cl">搜索引擎     一个query         十亿个网页         匹配最相关的10条
+</span></span><span class="line"><span class="cl">广告系统     一次页面展示       十万个广告主        匹配最该展示的广告
+</span></span><span class="line"><span class="cl">推荐系统     一个用户画像       百万条内容          匹配最可能感兴趣的
+</span></span><span class="line"><span class="cl">Agent系统    一个用户意图       千个工具和知识源     匹配最该执行的动作
+</span></span><span class="line"><span class="cl"># generated by hugo&#39;s coding agent
+</span></span></code></pre></div><p>看出来了吗？无论系统怎么进化，它始终在解决同一个问题：</p>
+<blockquote>
+<p><strong>从海量供给中，为特定需求，选出最优匹配。</strong></p>
+</blockquote>
+<p>这不是比喻。如果你把四代系统的技术架构画出来，会发现它们<strong>共享同一条流水线</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">意图理解 → 候选召回 → 精排打分 → 结果交付 → 反馈学习
+</span></span><span class="line"><span class="cl">  │           │          │          │          │
+</span></span><span class="line"><span class="cl">  │   搜索：Query理解    倒排索引    BM25/LTR   SERP展示    点击率
+</span></span><span class="line"><span class="cl">  │   广告：用户画像     广告库匹配   CTR预估     竞价展示    转化率
+</span></span><span class="line"><span class="cl">  │   推荐：兴趣建模     协同过滤     深度排序     Feed流      停留时长
+</span></span><span class="line"><span class="cl">  └── Agent：意图解析    工具检索     规划选择     执行输出    任务完成率
+</span></span><span class="line"><span class="cl"># generated by hugo&#39;s coding agent
+</span></span></code></pre></div><p><strong>五个阶段，一个没多，一个没少。</strong> 每一代系统只是把每个阶段的实现方式换了一遍，但架构的骨架从未改变。</p>
+<h2 id="二意图理解从关键词到自然语言进化的只是界面">二、意图理解：从关键词到自然语言，进化的只是界面</h2>
+<p>搜索引擎时代，用户的意图被压缩成几个关键词。你想找&quot;北京周末适合带孩子去的博物馆&quot;，但你输入的是&quot;北京 博物馆 亲子&quot;。系统要做的是<strong>从残缺的信号中猜测完整的意图</strong>——这就是Query理解、Query改写、同义词扩展存在的原因。</p>
+<p>广告系统更极端：用户根本没有表达意图。系统要从用户的浏览历史、地理位置、设备信息中<strong>推断</strong>用户可能对什么感兴趣。这是一种没有query的搜索。</p>
+<p>推荐系统走得更远：不仅没有显式query，连&quot;用户正在寻找什么&quot;这个前提都不存在。系统要从用户的行为序列中<strong>建模</strong>一个持续演化的兴趣向量——用户自己都不一定知道自己想看什么，系统替你做决定。</p>
+<p>到了Agent系统，似乎画了一个圆：用户又开始用自然语言表达意图了——&ldquo;帮我订明天下午的会议室，要有投影仪的&rdquo;。但Agent要做的意图理解，远比搜索引擎复杂：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 搜索引擎的意图理解</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">understand_search</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;把 query 拆成关键词和意图分类&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">extract_keywords</span><span class="p">(</span><span class="n">query</span><span class="p">),</span> <span class="n">classify_intent</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Agent的意图理解</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">understand_agent</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ActionPlan</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;理解自然语言意图，结合上下文，生成可执行计划&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">intent</span> <span class="o">=</span> <span class="n">parse_intent</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">constraints</span> <span class="o">=</span> <span class="n">extract_constraints</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># 明天下午、有投影仪</span>
+</span></span><span class="line"><span class="cl">    <span class="n">history</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;conversation_history&#34;</span><span class="p">,</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user_prefs</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;user_preferences&#34;</span><span class="p">,</span> <span class="p">{})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">plan_actions</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="n">constraints</span><span class="p">,</span> <span class="n">history</span><span class="p">,</span> <span class="n">user_prefs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by hugo&#39;s coding agent</span>
+</span></span></code></pre></div><p>进化的方向很清楚：<strong>从用户适应系统（学会输入关键词），到系统适应用户（理解自然语言）</strong>。但底层在做的事——把模糊的人类需求转化为系统可处理的结构化意图——从来没变。</p>
+<h2 id="三候选召回--精排永恒的两阶段范式">三、候选召回 + 精排：永恒的两阶段范式</h2>
+<p>所有这四代系统都面临同一个工程约束：<strong>你不可能对所有候选都做精细评估。</strong></p>
+<p>Google有万亿网页，你不可能用BERT对每一个网页做相关性打分。广告系统有十万个广告主，你不可能对每个广告都跑一遍CTR预估模型。推荐系统有百万条内容，你不可能对每条内容都做深度排序。</p>
+<p>所以，所有系统都收敛到了同一个架构：<strong>先粗筛，再精排。</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">全量候选 ──[召回]──→ 千级候选 ──[粗排]──→ 百级候选 ──[精排]──→ 最终结果
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">搜索：倒排索引           → TF-IDF初筛      → Learning to Rank
+</span></span><span class="line"><span class="cl">广告：定向条件 + 预算过滤  → 粗排CTR模型     → 精排CTR + 竞价
+</span></span><span class="line"><span class="cl">推荐：协同过滤 + 向量召回  → 双塔模型        → 多目标精排
+</span></span><span class="line"><span class="cl">Agent：工具描述匹配       → 相关性过滤       → LLM规划与选择
+</span></span><span class="line"><span class="cl"># generated by hugo&#39;s coding agent
+</span></span></code></pre></div><p>Agent系统也逃不开这个范式。当一个Agent有1000个可用工具（tool/function）时，你不可能把所有工具的描述都塞进LLM的prompt——context window装不下，成本也扛不住。所以Agent系统同样需要：</p>
+<ol>
+<li><strong>召回阶段</strong>：用embedding相似度或关键词匹配，从1000个工具中筛出20个最可能相关的</li>
+<li><strong>精排阶段</strong>：把这20个工具的描述放进LLM的context，让LLM决定用哪个</li>
+</ol>
+<p>这不就是搜索引擎的倒排索引 + Learning to Rank的翻版吗？只不过&quot;排序模型&quot;从GBDT换成了LLM。</p>
+<h3 id="排序的本质预估一个分数">排序的本质：预估一个分数</h3>
+<p>更深层地看，无论是搜索的相关性排序、广告的CTR预估、推荐的兴趣匹配，还是Agent的工具选择，<strong>排序的本质都是在预估一个分数</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th>系统</th>
+          <th>预估的分数</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>搜索</td>
+          <td>Relevance Score</td>
+          <td>这个文档和query有多相关</td>
+      </tr>
+      <tr>
+          <td>广告</td>
+          <td>pCTR × bid</td>
+          <td>这个广告被点击的概率 × 出价</td>
+      </tr>
+      <tr>
+          <td>推荐</td>
+          <td>P(engage)</td>
+          <td>用户会和这条内容互动的概率</td>
+      </tr>
+      <tr>
+          <td>Agent</td>
+          <td>P(task_success)</td>
+          <td>用这个工具能完成任务的概率</td>
+      </tr>
+  </tbody>
+</table>
+<p>技术在变，但底层的数学抽象始终是：<strong>给候选打一个分，按分排序，取top-K。</strong> 万物皆排序，不是修辞，是工程事实。</p>
+<h2 id="四反馈闭环所有系统都靠用户行为进化">四、反馈闭环：所有系统都靠&quot;用户行为&quot;进化</h2>
+<p>四代系统还有一个深层统一：<strong>它们都靠用户的隐式反馈来优化自己。</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">搜索引擎：用户点了第3条结果而不是第1条 → 调整排序模型
+</span></span><span class="line"><span class="cl">广告系统：用户看了广告没点 → 降低该广告的质量分
+</span></span><span class="line"><span class="cl">推荐系统：用户快速滑过某条视频 → 减少该类内容的推荐权重
+</span></span><span class="line"><span class="cl">Agent：用户否决了Agent的操作建议 → 调整工具选择策略
+</span></span><span class="line"><span class="cl"># generated by hugo&#39;s coding agent
+</span></span></code></pre></div><p>这个反馈闭环的结构是完全一致的：</p>
+<blockquote>
+<p><strong>系统做一个决策 → 用户做出反应 → 反应被记录为信号 → 信号用于优化下一次决策</strong></p>
+</blockquote>
+<p>区别只在于反馈信号的丰富度和延迟：</p>
+<ul>
+<li>搜索的反馈最简单：点击/不点击，毫秒级</li>
+<li>广告的反馈稍复杂：点击、加购、转化，分钟到天级</li>
+<li>推荐的反馈更丰富：停留时长、完播率、分享、评论，秒到小时级</li>
+<li>Agent的反馈最复杂：任务是否完成、用户是否满意、中间步骤是否合理，可能需要整个会话结束才能评估</li>
+</ul>
+<p>Agent系统的反馈闭环目前是做得最差的——这也是为什么Agent的&quot;智能&quot;还远不如搜索和推荐系统稳定。搜索引擎有二十年的点击日志来训练排序模型，而Agent系统才刚刚开始积累反馈数据。</p>
+<p><strong>但方向是一样的：谁能更快、更准确地闭合这个反馈环，谁的系统就进化得更快。</strong></p>
+<h2 id="五商业逻辑从匹配效率中抽税">五、商业逻辑：从匹配效率中抽税</h2>
+<p>技术底层一致，商业逻辑自然也一致。</p>
+<p>这四代系统的商业模式，本质上都可以用一句话概括：</p>
+<blockquote>
+<p><strong>在供给和需求之间充当中介，通过提升匹配效率创造价值，然后从中抽取一部分作为收入。</strong></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">系统         供给方        需求方        收入来源
+</span></span><span class="line"><span class="cl">─────────   ──────       ──────        ──────────────
+</span></span><span class="line"><span class="cl">搜索引擎     网页/信息      找信息的人     广告（注意力变现）
+</span></span><span class="line"><span class="cl">广告系统     广告主         有需求的用户   广告费（按点击/展示/转化）
+</span></span><span class="line"><span class="cl">推荐系统     内容创作者      消费内容的人   广告 + 电商佣金
+</span></span><span class="line"><span class="cl">Agent系统    工具/服务提供者  需要完成任务的人  订阅费 + API调用 + ?
+</span></span><span class="line"><span class="cl"># generated by hugo&#39;s coding agent
+</span></span></code></pre></div><p>有意思的是，前三代系统的商业模式已经非常成熟——它们的核心收入都来自<strong>广告</strong>或<strong>交易佣金</strong>。这两种模式的共同点是：<strong>按效果付费</strong>。广告主为点击付费，卖家为成交付费，本质上都是在为&quot;系统帮我匹配到了对的用户&quot;这件事买单。</p>
+<p>Agent系统的商业模式还在探索期，但底层逻辑必然一致：<strong>谁帮用户更高效地完成了任务，谁就有资格收&quot;匹配税&quot;。</strong> 可能的形式包括：</p>
+<ul>
+<li><strong>按任务收费</strong>：完成一次订票、写一份报告，收一次费</li>
+<li><strong>按Token收费</strong>：消耗的计算资源直接计价（当前主流）</li>
+<li><strong>佣金模式</strong>：Agent帮你买了东西、订了服务，从交易中抽成</li>
+<li><strong>订阅模式</strong>：月费换取无限次使用</li>
+</ul>
+<p>如果你从这个角度看，<strong>OpenAI的$200/月订阅和Google的广告收入，本质上赚的是同一笔钱：帮用户从信息过载中解脱出来的&quot;注意力溢价&quot;。</strong></p>
+<h2 id="六一张图看四代系统的递进关系">六、一张图看四代系统的递进关系</h2>
+<p>四代系统不是并列的，是递进的。每一代都在前一代的基础上，扩展了系统的&quot;能动性&quot;：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">         用户主动性 ↓    系统能动性 ↑
+</span></span><span class="line"><span class="cl">         ─────────────────────────────→
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">搜索      用户主动提问 → 系统被动返回结果
+</span></span><span class="line"><span class="cl">  ↓       &#34;我要找什么&#34;
+</span></span><span class="line"><span class="cl">广告      系统主动展示 → 用户被动接收
+</span></span><span class="line"><span class="cl">  ↓       &#34;你可能需要这个&#34;
+</span></span><span class="line"><span class="cl">推荐      系统主动猜测 → 用户被动消费
+</span></span><span class="line"><span class="cl">  ↓       &#34;你一定喜欢这个&#34;
+</span></span><span class="line"><span class="cl">Agent     用户提出目标 → 系统主动执行
+</span></span><span class="line"><span class="cl">          &#34;帮我把这件事办了&#34;
+</span></span><span class="line"><span class="cl"># generated by hugo&#39;s coding agent
+</span></span></code></pre></div><p>从搜索到Agent，变化的方向非常清晰：</p>
+<ol>
+<li><strong>意图表达</strong>：从残缺的关键词 → 没有显式表达 → 回到自然语言，但更完整</li>
+<li><strong>系统输出</strong>：从返回链接列表 → 返回商品/内容 → <strong>直接帮你执行动作</strong></li>
+<li><strong>价值创造</strong>：从节省你的搜索时间 → 节省你的选择时间 → <strong>节省你的执行时间</strong></li>
+</ol>
+<p>每一代系统，都在接管用户更多的认知负担。搜索替你找，推荐替你选，Agent替你做。但底层都是同一件事：<strong>缩短&quot;需求&quot;到&quot;满足&quot;之间的距离。</strong></p>
+<h2 id="七对从业者的启示">七、对从业者的启示</h2>
+<p>如果你认同四代系统本质相同，那么有几个实用的推论：</p>
+<h3 id="1-搜索和推荐的经验可以直接迁移到agent系统">1. 搜索和推荐的经验可以直接迁移到Agent系统</h3>
+<p>Agent系统的工具选择就是搜索，Agent的记忆管理就是用户画像，Agent的规划就是多步排序。如果你做过搜索或推荐，你已经有了做Agent系统最核心的能力。</p>
+<h3 id="2-评估指标可以借鉴">2. 评估指标可以借鉴</h3>
+<p>搜索用NDCG和MRR，推荐用CTR和留存，Agent系统也需要类似的定量评估框架。任务完成率、步骤效率（完成任务用了几步）、用户满意度——这些指标和搜索推荐的评估体系是同构的。</p>
+<h3 id="3-agent的竞争壁垒在数据飞轮">3. Agent的竞争壁垒在数据飞轮</h3>
+<p>搜索引擎的壁垒不是算法，是二十年的点击日志。推荐系统的壁垒不是模型，是海量的用户行为数据。同理，Agent系统的长期壁垒也不会是模型能力（模型会商品化），而是<strong>谁积累了最多、最高质量的&quot;用户意图→执行路径→反馈信号&quot;三元组。</strong></p>
+<h3 id="4-商业模式的终局是按效果付费">4. 商业模式的终局是按效果付费</h3>
+<p>搜索和推荐已经证明了：最健康的商业模式是按效果付费——用户得到了价值，系统才收费。Agent系统的商业模式最终也会收敛到这个逻辑：不是按Token收费（那只是过渡形态），而是按任务完成度收费。</p>
+<h2 id="结语">结语</h2>
+<p>二十年前，Larry Page说&quot;搜索引擎的终极形态是能理解你的意图并直接给出答案&quot;。十年前，今日头条证明了&quot;最好的搜索是不需要搜索&quot;。今天，Agent系统正在兑现这个承诺——不仅理解你的意图，不仅给出答案，还直接帮你把事情办了。</p>
+<p>但如果你跳出产品形态，看底层逻辑，会发现：<strong>从搜索到Agent，我们一直在做同一门生意——在信息过载的世界里，缩短需求到满足的距离，然后从效率提升中获取回报。</strong></p>
+<p>技术在进化，但本质没有变。理解这个本质的人，无论下一代系统叫什么名字，都不会迷路。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/architecture/">architecture</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/search/">search</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/recommendation/">recommendation</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/advertising/">advertising</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/%E6%80%9D%E8%80%83/">思考</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f162-same-business-four-times-search-ads-rec-agent%2f&amp;text=%e5%90%8c%e4%b8%80%e4%b8%aa%e7%94%9f%e6%84%8f%e5%81%9a%e4%ba%86%e5%9b%9b%e9%81%8d%ef%bc%9a%e4%bb%8e%e6%90%9c%e7%b4%a2%e5%88%b0Agent%ef%bc%8c%e4%b8%87%e7%89%a9%e7%9a%86%e6%8e%92%e5%ba%8f&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f162-same-business-four-times-search-ads-rec-agent%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f162-same-business-four-times-search-ads-rec-agent%2f&amp;title=%e5%90%8c%e4%b8%80%e4%b8%aa%e7%94%9f%e6%84%8f%e5%81%9a%e4%ba%86%e5%9b%9b%e9%81%8d%ef%bc%9a%e4%bb%8e%e6%90%9c%e7%b4%a2%e5%88%b0Agent%ef%bc%8c%e4%b8%87%e7%89%a9%e7%9a%86%e6%8e%92%e5%ba%8f" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f162-same-business-four-times-search-ads-rec-agent%2f&amp;title=%e5%90%8c%e4%b8%80%e4%b8%aa%e7%94%9f%e6%84%8f%e5%81%9a%e4%ba%86%e5%9b%9b%e9%81%8d%ef%bc%9a%e4%bb%8e%e6%90%9c%e7%b4%a2%e5%88%b0Agent%ef%bc%8c%e4%b8%87%e7%89%a9%e7%9a%86%e6%8e%92%e5%ba%8f" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f162-same-business-four-times-search-ads-rec-agent%2f&amp;title=%e5%90%8c%e4%b8%80%e4%b8%aa%e7%94%9f%e6%84%8f%e5%81%9a%e4%ba%86%e5%9b%9b%e9%81%8d%ef%bc%9a%e4%bb%8e%e6%90%9c%e7%b4%a2%e5%88%b0Agent%ef%bc%8c%e4%b8%87%e7%89%a9%e7%9a%86%e6%8e%92%e5%ba%8f" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f162-same-business-four-times-search-ads-rec-agent%2f&amp;description=%e5%90%8c%e4%b8%80%e4%b8%aa%e7%94%9f%e6%84%8f%e5%81%9a%e4%ba%86%e5%9b%9b%e9%81%8d%ef%bc%9a%e4%bb%8e%e6%90%9c%e7%b4%a2%e5%88%b0Agent%ef%bc%8c%e4%b8%87%e7%89%a9%e7%9a%86%e6%8e%92%e5%ba%8f" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f162-same-business-four-times-search-ads-rec-agent%2f&amp;subject=%e5%90%8c%e4%b8%80%e4%b8%aa%e7%94%9f%e6%84%8f%e5%81%9a%e4%ba%86%e5%9b%9b%e9%81%8d%ef%bc%9a%e4%bb%8e%e6%90%9c%e7%b4%a2%e5%88%b0Agent%ef%bc%8c%e4%b8%87%e7%89%a9%e7%9a%86%e6%8e%92%e5%ba%8f" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/187-ai-era-architect-growth-path/">AI 时代，校招生如何成为好架构师</a></li>
+                
+                    <li><a href="/post/2026/185-hermes-gateway-im-platforms-architecture/">Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</a></li>
+                
+                    <li><a href="/post/2026/184-hermes-cli-tui-architecture-deep-dive/">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/160-agent-architecture-platform-competition/" data-toggle="tooltip" data-placement="top" title="Agent的架构之战：从Desktop到AI时代，架构决定平台的生死">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/165-agent-eval-by-industry-and-role/" data-toggle="tooltip" data-placement="top" title="别用同一把尺子量所有 Agent：按行业和岗位设计评测体系才是正经事">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/162-same-business-four-times-search-ads-rec-agent">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/162-same-business-four-times-search-ads-rec-agent';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mcp on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/mcp/</link>
+    <description>Recent content in Mcp on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Context Roaming：桌面Agent与云端Agent协同的理想方式</title>
+      <link>http://localhost:45445/post/2026/175-agent-context-roaming/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/175-agent-context-roaming/</guid>
+      <description>&lt;p&gt;上周五晚上，我在公司用 Claude Code 调了一个小时的部署脚本，Agent 帮我定位了问题、改了三个文件、跑通了测试。周六早上我打开家里的笔记本，想继续收尾——打开终端，Claude Code 启动，干干净净，什么都不记得。&lt;/p&gt;&#xA;&lt;p&gt;我得重新描述问题、重新贴日志、重新解释上下文。那种感觉，就像你跟一个同事讨论了一下午方案，第二天他失忆了。&lt;/p&gt;&#xA;&lt;p&gt;这不是某个工具的 bug。这是当前所有 AI Agent 的共同困境：&lt;strong&gt;Agent 的记忆被钉死在了设备上。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建企业级Agent Runtime：从Skill到Workspace的五层架构</title>
+      <link>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/143-enterprise-agent-runtime-five-layer-architecture/</guid>
+      <description>&lt;p&gt;很多团队对 Agent 的理解还停留在&amp;quot;LLM + Prompt + 几个工具调用&amp;quot;。这种理解能跑通 Demo，但一旦进入企业级场景——多任务并行、多系统集成、多角色协作、安全审计——就会发现：&lt;strong&gt;Agent 系统的核心挑战不是让 LLM 更聪明，而是构建一个可扩展、可治理、可审计的运行时架构。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Agent 系统本质上在解决五个问题：用户要做什么（Agent）、谁来执行（Sub-Agent）、如何执行（Skill）、从哪里获取数据（MCP）、执行过程的状态存在哪里（Workspace）。这五个问题对应了系统的五个核心层次。&lt;/p&gt;&#xA;&lt;p&gt;本文将这套架构完整展开。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>API、MCP和Skills：三个概念的本质区别</title>
+      <link>http://localhost:45445/post/2025/109-api-mcp-skills-explained/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/109-api-mcp-skills-explained/</guid>
+      <description>&lt;p&gt;当我们谈论AI应用开发时，经常会听到API、MCP（Model Context Protocol）和Skills这三个词。它们看起来都是让程序之间&amp;quot;对话&amp;quot;的方式，但究竟有什么不同？让我用一个简单的餐厅比喻来解释。&lt;/p&gt;&#xA;&lt;p&gt;想象你要解决&amp;quot;吃饭&amp;quot;这个问题，有三种不同的方式可以选择。每种方式代表了不同的技术范式，适用于不同的场景。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

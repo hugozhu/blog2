@@ -1,0 +1,895 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45445&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Agent 的记忆战争：GBrain vs EverOS，两条路线的终局 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="From Prompt Instructions to Memory OS: Who Can Truly Solve the Agent&#39;s Stateless Dilemma?"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "http://localhost:45445/",
+  "@id": "http://localhost:45445/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "http://localhost:45445/#organization",
+  "url": "http://localhost:45445/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent 的记忆战争：GBrain vs EverOS，两条路线的终局",
+  "@id": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/",
+  "url": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/",
+  "breadcrumb": {
+    "@id": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/",
+      "name": "Agent 的记忆战争：GBrain vs EverOS，两条路线的终局",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/#article",
+  "isPartOf": {
+    "@id": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/"
+  },
+  "author": {
+    "name": "",
+    "url": "http://localhost:45445/",
+    "@id": "http://localhost:45445/#author"
+  },
+  "headline": "Agent 的记忆战争：GBrain vs EverOS，两条路线的终局",
+  "description": "昨天我写了一篇《用 LLM 构建程序化知识系统》，提出「记忆 · 知识 · 技能」三层架构。文章发出后不到 24 小时，两个重量级项目几乎同时进入我的视野——YC 总裁 Garry Tan 开源了 GBrain，EverMind 团队发布了 EverOS。\n更巧的是，这两个项目恰好代表了 AI Agent 长期记忆的两条截然不同的技术路线：一条是\u0026quot;用自然语言指令驱动 LLM 自行理解\u0026quot;，另一条是\u0026quot;用工程架构确定性落地\u0026quot;。它们互为镜像，又互相矛盾。\n",
+  "inLanguage": "en",
+  "wordCount":  798 ,
+  "dateCreated": "2026-04-14T00:00:00+00:00",
+  "datePublished": "2026-04-14T00:00:00+00:00",
+  "dateModified": "2026-04-14T00:00:00+00:00",
+  "image": "http://localhost:45445/img/pi.png",
+  "keywords": [ "ai-agent, long-term-memory, llm-architecture, everos, gbrain, knowledge-management" ],
+  "mainEntityOfPage": {
+    "@id": "http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "http://localhost:45445/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:45445/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Agent 的记忆战争：GBrain vs EverOS，两条路线的终局" />
+<meta property="og:description" content="From Prompt Instructions to Memory OS: Who Can Truly Solve the Agent&#39;s Stateless Dilemma?" />
+<meta property="og:image" content="http://localhost:45445/img/pi.png" />
+<meta property="og:url" content="http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Agent 的记忆战争：GBrain vs EverOS，两条路线的终局" />
+  <meta name="twitter:description" content="From Prompt Instructions to Memory OS: Who Can Truly Solve the Agent&#39;s Stateless Dilemma?">
+  <meta name="twitter:image" content="http://localhost:45445/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='http://localhost:45445/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.160.1">
+  <link rel="alternate" href="http://localhost:45445/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:45445/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:45445/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:45445/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:45445/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="http://localhost:45445/">
+            <img class="avatar-img" src="http://localhost:45445/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Agent 的记忆战争：GBrain vs EverOS，两条路线的终局</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">From Prompt Instructions to Memory OS: Who Can Truly Solve the Agent&#39;s Stateless Dilemma?</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 14, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;798&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>昨天我写了一篇《用 LLM 构建程序化知识系统》，提出「记忆 · 知识 · 技能」三层架构。文章发出后不到 24 小时，两个重量级项目几乎同时进入我的视野——YC 总裁 Garry Tan 开源了 <strong>GBrain</strong>，EverMind 团队发布了 <strong>EverOS</strong>。</p>
+<p>更巧的是，这两个项目恰好代表了 AI Agent 长期记忆的两条截然不同的技术路线：一条是&quot;用自然语言指令驱动 LLM 自行理解&quot;，另一条是&quot;用工程架构确定性落地&quot;。它们互为镜像，又互相矛盾。</p>
+<p>我把它们放在一起比较，同时加入了我自己的实践，最终得出了一个你可能没想到的结论：<strong>这场战争没有输赢，只有分层。</strong></p>
+<h2 id="一无状态困境agent-进化的最大瓶颈">一、无状态困境：Agent 进化的最大瓶颈</h2>
+<p>如果你今天问任何一个 AI Agent：&ldquo;昨天你帮我做了什么？&ldquo;不用说，它大概率会&quot;一脸茫然&rdquo;，然后开始胡言乱语。</p>
+<p>这是因为绝大多数基于 LLM 的智能体都受困于<strong>无状态困境</strong>（Stateless Dilemma）：会话一旦结束，记忆即刻清零。下一次对话，永远是从零开始的冷启动。你反复解释过的项目背景、合作伙伴的性格偏好、你曾经表达过的观点，对 Agent 而言都是一片虚无。</p>
+<p>这正是阻挡 Agent 从&quot;好用的工具&quot;进化为&quot;真正的助手&quot;的核心障碍。</p>
+<p>而 GBrain 和 EverOS 都在试图解决这个问题，只是路径完全不同。</p>
+<h2 id="二gbrainprompt-驱动的个人第二大脑">二、GBrain：Prompt 驱动的&quot;个人第二大脑&rdquo;</h2>
+<p>YC 总裁 Garry Tan 开源 GBrain 时，在 X 上写了一句话：&ldquo;我希望所有人都能拥有自己的&rsquo;个人迷你 AGI&rsquo;。&rdquo;</p>
+<p>他的方案非常极简：让 Agent 经历 <strong>读取 → 对话 → 写入</strong> 的闭环。每当有新信号进入系统——邮件、会议录音、推文、日历变动——Agent 先查询已有知识库，理解上下文后回应，然后将新知识写回，供下一次使用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">新信号（邮件/录音/推文/日历）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">┌──────────────────────┐
+</span></span><span class="line"><span class="cl">│  1. 读取：查询知识库  │
+</span></span><span class="line"><span class="cl">│  2. 对话：理解+回应    │
+</span></span><span class="line"><span class="cl">│  3. 写入：更新知识库   │
+</span></span><span class="line"><span class="cl">└──────────────────────┘
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">    ▼
+</span></span><span class="line"><span class="cl">每走一圈，Agent 更懂你
+</span></span></code></pre></div><h3 id="两个迷人机制">两个迷人机制</h3>
+<p>GBrain 最吸引人的地方在于它的**「梦境循环」**（Dream Cycle）：Agent 在用户睡觉时后台运行，扫描当天对话，充实实体信息、修复引用、合并冗余记忆。Tan 的原话是：&ldquo;我早上醒来，大脑已经比我睡着前更聪明了。&rdquo;</p>
+<p>另一个亮点是**「编译真相」**（Compiled Truth）架构：每个实体页面顶部是 Agent 综合判断的&quot;最新摘要&quot;（可随新证据重写），底部是&quot;不可修改的时间线&quot;（原始证据链）。兼顾动态更新与事实溯源。</p>
+<h3 id="争议这到底是软件还是提示词">争议：这到底是软件还是提示词？</h3>
+<p>然而 GBrain 上线六天后，DEV Community 上的一篇代码审查文章就给出了不太乐观的结论：GBrain README 中宣传的三个重要功能——编译真相重写、梦境循环维护、实体检测——<strong>在代码库中均无对应的确定性逻辑实现</strong>。</p>
+<p>文章认为，这些功能本质上是写在 Markdown 文档中的 Agent 指令，依赖 LLM 去解读和执行，而非通过代码实现。此外，项目 Issue 中记录了 12 个关键 Bug（竞态条件、NULL 嵌入覆盖等），安全审计甚至标注其 S3 后端&quot;未达到生产就绪&quot;状态。</p>
+<p>这触及了一个更深层的争论：当一个系统的核心功能是通过自然语言指令让 LLM 代为执行，而非通过确定性代码实现时，它究竟算不算一个&quot;软件产品&quot;？还是更接近于一套精心编排的提示词工程？</p>
+<h2 id="三everos工程落地的记忆操作系统">三、EverOS：工程落地的&quot;记忆操作系统&quot;</h2>
+<p>如果说 GBrain 是&quot;用想法驱动 Agent&quot;，那么 EverOS 就是&quot;用架构保证结果&quot;。</p>
+<p>EverMind 团队发布的 EverOS 是一个完整的 AI Agent 长期记忆操作系统，包含两套核心方法和两个基准测试，已有 3 篇 arXiv 论文，其中 HyperMem 已被 <strong>ACL 2026</strong> 接收。</p>
+<h3 id="整体架构">整体架构</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">┌────────────────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                        EverOS                               │
+</span></span><span class="line"><span class="cl">│                                                             │
+</span></span><span class="line"><span class="cl">│  ┌───────────────┐      ┌───────────────────────────────┐  │
+</span></span><span class="line"><span class="cl">│  │   Methods      │      │         Benchmarks             │  │
+</span></span><span class="line"><span class="cl">│  │               │      │                                │  │
+</span></span><span class="line"><span class="cl">│  │ EverCore      │      │ EverMemBench  · 三层质量评估   │  │
+</span></span><span class="line"><span class="cl">│  │ (记忆OS)       │      │ EvoAgentBench · 自我进化评估   │  │
+</span></span><span class="line"><span class="cl">│  │               │      │                                │  │
+</span></span><span class="line"><span class="cl">│  │ HyperMem      │      │                                │  │
+</span></span><span class="line"><span class="cl">│  │ (超图记忆)     │      │                                │  │
+</span></span><span class="line"><span class="cl">│  └───────────────┘      └───────────────────────────────┘  │
+</span></span><span class="line"><span class="cl">│                                                             │
+</span></span><span class="line"><span class="cl">│  ┌───────────────────────────────────────────────────────┐ │
+</span></span><span class="line"><span class="cl">│  │           12+ Use Cases                                │ │
+</span></span><span class="line"><span class="cl">│  │ OpenClaw · Claude Code · Golutra · Mobi · LAI ...     │ │
+</span></span><span class="line"><span class="cl">│  └───────────────────────────────────────────────────────┘ │
+</span></span><span class="line"><span class="cl">└────────────────────────────────────────────────────────────┘
+</span></span></code></pre></div><h3 id="evercore自组织记忆操作系统">EverCore：自组织记忆操作系统</h3>
+<p>EverCore 的核心单元是 <strong>MemCell</strong>——原子级记忆单元，从对话中自动提取。它将记忆分为七种类型：</p>
+<table>
+  <thead>
+      <tr>
+          <th>记忆类型</th>
+          <th>含义</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Episodes</td>
+          <td>事件</td>
+          <td>&ldquo;2025-03 产品评审会讨论了定价策略&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Profiles</td>
+          <td>画像</td>
+          <td>&ldquo;张三，CEO，关注效率工具&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Preferences</td>
+          <td>偏好</td>
+          <td>&ldquo;喜欢 Python 胜过 Java&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Relationships</td>
+          <td>关系</td>
+          <td>&ldquo;李四是张三的技术合伙人&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Semantic Knowledge</td>
+          <td>语义知识</td>
+          <td>&ldquo;LoCoMo 是长程记忆评估基准&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Core Memories</td>
+          <td>核心记忆</td>
+          <td>&ldquo;YC 2025 W24 路演获得 top 3&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+<p>EverCore 采用六层分层架构：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Agentic Layer        ← 统一记忆接口（提取/检索/重排编排）
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">Memory Layer         ← MemCell 提取 + 记忆类型分类 + Prompt 管理
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">Retrieval Layer      ← BM25 + 向量搜索 + RRF 融合 + Agent 多轮召回
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">Business Layer       ← API 端点 + 请求处理 + 业务规则
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">Infrastructure Layer ← MongoDB + Elasticsearch + Milvus + Redis
+</span></span><span class="line"><span class="cl">    │
+</span></span><span class="line"><span class="cl">Core Framework       ← 依赖注入 + 生命周期 + 中间件 + 配置管理
+</span></span></code></pre></div><p>在 LoCoMo 基准上，EverCore 达到了 <strong>93% 的准确率</strong>。</p>
+<h3 id="hypermem超图记忆架构acl-2026">HyperMem：超图记忆架构（ACL 2026）</h3>
+<p>HyperMem 是 EverOS 更学术化的一面。它的核心创新是用<strong>超图</strong>（Hypergraph）捕获高阶关联——传统 RAG 只能表示 pairwise 关系，而超图可以表示多对多的高阶依赖。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">L3 Topic ───── Topic ───── Topic        (超边连接相关主题)
+</span></span><span class="line"><span class="cl">    │           │          │
+</span></span><span class="line"><span class="cl">L2 Episode──Episode  Episode             (超边连接同主题事件)
+</span></span><span class="line"><span class="cl">    │          │
+</span></span><span class="line"><span class="cl">L1 Fact-Fact-Fact  Fact-Fact             (超边连接同事件事实)
+</span></span></code></pre></div><p>检索采用<strong>自顶向下、从粗到细</strong>的三阶段策略：先找到相关 Topic，再在 Topic 内找到 Episode，最后在 Episode 内找到 Fact。这种设计避免了传统 RAG &ldquo;大海捞针&quot;的低效。</p>
+<p>在 LoCoMo 基准上，HyperMem 达到 <strong>92.73%</strong>，超越最强 RAG 基线 HyperGraphRAG（86.49%）6.24 个百分点。精选对比数据如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th style="text-align: center">Single-hop</th>
+          <th style="text-align: center">Multi-hop</th>
+          <th style="text-align: center">Temporal</th>
+          <th style="text-align: center">Overall</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Mem0</td>
+          <td style="text-align: center">67.13</td>
+          <td style="text-align: center">51.15</td>
+          <td style="text-align: center">55.51</td>
+          <td style="text-align: center">66.88</td>
+      </tr>
+      <tr>
+          <td>MemOS</td>
+          <td style="text-align: center">81.09</td>
+          <td style="text-align: center">67.49</td>
+          <td style="text-align: center">75.18</td>
+          <td style="text-align: center">75.80</td>
+      </tr>
+      <tr>
+          <td>HyperGraphRAG</td>
+          <td style="text-align: center">90.61</td>
+          <td style="text-align: center">80.85</td>
+          <td style="text-align: center">85.36</td>
+          <td style="text-align: center">86.49</td>
+      </tr>
+      <tr>
+          <td><strong>HyperMem</strong></td>
+          <td style="text-align: center"><strong>96.08</strong></td>
+          <td style="text-align: center"><strong>93.62</strong></td>
+          <td style="text-align: center"><strong>89.72</strong></td>
+          <td style="text-align: center"><strong>92.73</strong></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="四agent-记忆成熟度模型">四、Agent 记忆成熟度模型</h2>
+<p>在比较完 GBrain 和 EverOS 之后，我提出了一个<strong>五层记忆成熟度模型</strong>，用来评估任何 Agent 记忆系统的成熟度：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">                    ┌────────┐
+</span></span><span class="line"><span class="cl">                   │  L5    │  自我进化
+</span></span><span class="line"><span class="cl">                  ┌┴────────┴┐
+</span></span><span class="line"><span class="cl">                 │   L4      │  结构化记忆
+</span></span><span class="line"><span class="cl">                ┌┴───────────┴┐
+</span></span><span class="line"><span class="cl">               │     L3       │  混合检索
+</span></span><span class="line"><span class="cl">              ┌┴──────────────┴┐
+</span></span><span class="line"><span class="cl">             │       L2        │  持久化存储
+</span></span><span class="line"><span class="cl">            ┌┴─────────────────┴┐
+</span></span><span class="line"><span class="cl">           │         L1         │  上下文窗口
+</span></span><span class="line"><span class="cl">           └────────────────────┘
+</span></span></code></pre></div><p>每一层的含义：</p>
+<table>
+  <thead>
+      <tr>
+          <th>层级</th>
+          <th>名称</th>
+          <th>含义</th>
+          <th>关键能力</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>L1</strong></td>
+          <td>上下文窗口</td>
+          <td>会话级临时记忆</td>
+          <td>单次对话内保持一致性</td>
+      </tr>
+      <tr>
+          <td><strong>L2</strong></td>
+          <td>持久化存储</td>
+          <td>记忆跨会话保存</td>
+          <td>数据库/文件系统，写入后可读取</td>
+      </tr>
+      <tr>
+          <td><strong>L3</strong></td>
+          <td>混合检索</td>
+          <td>精准 + 语义双重召回</td>
+          <td>BM25 + 向量 + RRF 融合</td>
+      </tr>
+      <tr>
+          <td><strong>L4</strong></td>
+          <td>结构化记忆</td>
+          <td>实体/关系/时间线</td>
+          <td>知识图谱、超图、Compiled Truth</td>
+      </tr>
+      <tr>
+          <td><strong>L5</strong></td>
+          <td>自我进化</td>
+          <td>记忆自动整理优化</td>
+          <td>Dream Cycle、自动压缩、权重衰减</td>
+      </tr>
+  </tbody>
+</table>
+<p>用这个模型打分，结果很有意思：</p>
+<table>
+  <thead>
+      <tr>
+          <th>系统</th>
+          <th style="text-align: center">L1</th>
+          <th style="text-align: center">L2</th>
+          <th style="text-align: center">L3</th>
+          <th style="text-align: center">L4</th>
+          <th style="text-align: center">L5</th>
+          <th>定位</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>普通 Agent</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">❌</td>
+          <td style="text-align: center">❌</td>
+          <td style="text-align: center">❌</td>
+          <td style="text-align: center">❌</td>
+          <td>用完即忘</td>
+      </tr>
+      <tr>
+          <td>GBrain</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">⚠️</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">⚠️</td>
+          <td>Prompt 驱动的记忆层</td>
+      </tr>
+      <tr>
+          <td>EverOS</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td>生产级记忆 OS</td>
+      </tr>
+      <tr>
+          <td><strong>你的架构</strong></td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td>轻量级个人实践</td>
+      </tr>
+  </tbody>
+</table>
+<p>GBrain 的 L3 和 L5 打了 ⚠️，因为它的检索依赖 PGLite + pgvector（够用但不够强），而 Dream Cycle 是 Prompt 指令而非代码实现。EverOS 则五层全满——但这不代表它一定比 GBrain 好，因为<strong>复杂度也高了一个数量级</strong>。</p>
+<h2 id="五第三条路线你的记忆--知识--技能架构">五、第三条路线：你的「记忆 · 知识 · 技能」架构</h2>
+<p>回到我上一篇文章提出的架构。与 GBrain 和 EverOS 相比，我的方案走了一条中间路线：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">┌──────────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│              你的博客 Agent                        │
+</span></span><span class="line"><span class="cl">│                                                    │
+</span></span><span class="line"><span class="cl">│  ┌──────────┐   ┌────────────┐   ┌──────────┐   │
+</span></span><span class="line"><span class="cl">│  │ 记忆引擎  │   │  知识图谱   │   │ 技能注册表│   │
+</span></span><span class="line"><span class="cl">│  │          │   │            │   │          │   │
+</span></span><span class="line"><span class="cl">│  │ 三层结构  │   │ 自动演化    │   │ 版本管理  │   │
+</span></span><span class="line"><span class="cl">│  │ 压缩遗忘  │   │ 冲突解决    │   │ 动态加载  │   │
+</span></span><span class="line"><span class="cl">│  │ TTL/权重  │   │ 图查询增强  │   │ 回归测试  │   │
+</span></span><span class="line"><span class="cl">│  └──────────┘   └────────────┘   └──────────┘   │
+</span></span><span class="line"><span class="cl">│                                                    │
+</span></span><span class="line"><span class="cl">│       ↕            ↕               ↕              │
+</span></span><span class="line"><span class="cl">│  ┌──────────────────────────────────────────┐    │
+</span></span><span class="line"><span class="cl">│  │           LLM Orchestrator                │    │
+</span></span><span class="line"><span class="cl">│  │    理解意图 → 规划路径 → 调用模块 → 评估   │    │
+</span></span><span class="line"><span class="cl">│  └──────────────────────────────────────────┘    │
+</span></span><span class="line"><span class="cl">└──────────────────────────────────────────────────┘
+</span></span></code></pre></div><p>与 EverOS 相比，我的架构更轻量——不需要 MongoDB/Elasticsearch/Milvus/Redis 四件套，用 SQLite + 向量数据库就够了。与 GBrain 相比，它更结构化——不是纯靠 Prompt 驱动，而是有明确的模块边界和版本管理。</p>
+<p>它的核心优势在于<strong>部署成本极低</strong>：不需要 Docker Compose 启动五个服务，不需要配置向量数据库，不需要 GPU 跑本地 embedding 模型。一个 Python 脚本 + 一个向量库就能跑起来。</p>
+<h2 id="六终局判断不是谁更好而是谁适合谁">六、终局判断：不是&quot;谁更好&rdquo;，而是&quot;谁适合谁&quot;</h2>
+<p>这场&quot;记忆战争&quot;的答案不在技术本身，而在场景。</p>
+<p><strong>如果你是一个重度 AI 用户</strong>（比如 Tan），每天处理大量人际交互和信息流，GBrain 的&quot;Dream Cycle + Compiled Truth&quot;组合拳足够好用。它不完美，但足够简单——用 Markdown 写指令，让 LLM 去执行。随着模型能力的提升，Prompt 驱动的系统会越来越可靠。</p>
+<p><strong>如果你是一个团队或企业</strong>，需要为多个 Agent 提供可复用的记忆基础设施，EverOS 是最佳选择。它的六层架构、多存储引擎、两套 benchmark 提供了工业级保障。代价是部署复杂度和运维成本。</p>
+<p><strong>如果你是一个独立的开发者或研究者</strong>，不想被 infra 绑架，也不想完全依赖 LLM 的&quot;自由发挥&quot;，那么「记忆 · 知识 · 技能」的轻量架构可能是最务实的选择。它吸收了 EverOS 的结构化思想，同时保留了 GBrain 的简洁性。</p>
+<h2 id="七一个更重要的信号">七、一个更重要的信号</h2>
+<p>比&quot;谁更好&quot;更重要的一个信号是：<strong>记忆正在成为 Agent 的基础设施，就像数据库之于 Web 应用。</strong></p>
+<p>回顾 2026 年 Q1 的记忆领域：</p>
+<ul>
+<li><strong>GBrain</strong>（Garry Tan）：13 年记忆、14,700 页面、Dream Cycle</li>
+<li><strong>EverOS</strong>（EverMind）：3 篇论文、ACL 2026、12+ Use Cases</li>
+<li><strong>Karpathy 的 graphify</strong>：把任意文件夹变成知识图谱，25k+ stars</li>
+<li><strong>Karpathy 的 autoresearch</strong>：Agent 一晚自主迭代 100 次实验</li>
+<li><strong>Mem0 / MemOS / LangMem</strong>：各有特色的记忆中间件</li>
+</ul>
+<p>这些项目有一个共同特征：<strong>它们都在试图让 Agent &ldquo;记住&rdquo;，而不是每次都从零开始。</strong></p>
+<p>当记忆成为基础设施，下一个问题是：<strong>谁来决定记住什么、遗忘什么、如何进化？</strong> 这不再是一个技术问题，而是一个关于 Agent 自主性和人类控制的哲学问题。</p>
+<p>GBrain 选择让 Agent 自主决定（Dream Cycle 全自动），EverOS 选择用算法决定（超图传播 + 权重更新），我的选择是<strong>人类定义规则，系统自动执行</strong>——TTL、权重衰减、压缩阈值都可以配置，但决策逻辑是确定性的。</p>
+<h2 id="八结语记忆是-agent-的灵魂吗">八、结语：记忆是 Agent 的&quot;灵魂&quot;吗？</h2>
+<p>回到开头的那个问题：你问 Agent &ldquo;昨天你帮我做了什么&rdquo;，它答不上来。</p>
+<p>但也许不久的将来，它不仅会回答&quot;昨天我帮你写了三篇博客、改了两个 Bug&quot;，还会说&quot;我注意到你最近在密集研究 Agent 记忆系统，上周那篇文章的数据和这篇 EverOS 的分析已经整合进你的知识图谱了，需要我生成对比表格吗？&quot;</p>
+<p>那一天，Agent 就不再是一个工具了。它是一个<strong>有历史的协作者</strong>。</p>
+<p>记忆让 Agent 有历史，知识让 Agent 有逻辑，技能让 Agent 有手段。当这三者形成闭环，我们就不再是&quot;每次重新调教一个 AI&quot;，而是在&quot;培养一个持续进化的数字协作者&quot;。</p>
+<p>它不需要一开始就很完美。它只需要：<strong>记住教训，沉淀规律，优化动作，下一次做得更好。</strong></p>
+<hr>
+<blockquote>
+<p>GBrain 和 EverOS 你更看好哪条路线？你的 Agent 有长期记忆吗？欢迎在评论区聊聊。</p>
+</blockquote>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:45445/tags/ai-agent/">ai-agent</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/long-term-memory/">long-term-memory</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/llm-architecture/">llm-architecture</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/everos/">everos</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/gbrain/">gbrain</a>&nbsp;
+            
+              
+              <a href="http://localhost:45445/tags/knowledge-management/">knowledge-management</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f177-agent-memory-war-gbrain-vs-everos%2f&amp;text=Agent%20%e7%9a%84%e8%ae%b0%e5%bf%86%e6%88%98%e4%ba%89%ef%bc%9aGBrain%20vs%20EverOS%ef%bc%8c%e4%b8%a4%e6%9d%a1%e8%b7%af%e7%ba%bf%e7%9a%84%e7%bb%88%e5%b1%80&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f177-agent-memory-war-gbrain-vs-everos%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f177-agent-memory-war-gbrain-vs-everos%2f&amp;title=Agent%20%e7%9a%84%e8%ae%b0%e5%bf%86%e6%88%98%e4%ba%89%ef%bc%9aGBrain%20vs%20EverOS%ef%bc%8c%e4%b8%a4%e6%9d%a1%e8%b7%af%e7%ba%bf%e7%9a%84%e7%bb%88%e5%b1%80" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f177-agent-memory-war-gbrain-vs-everos%2f&amp;title=Agent%20%e7%9a%84%e8%ae%b0%e5%bf%86%e6%88%98%e4%ba%89%ef%bc%9aGBrain%20vs%20EverOS%ef%bc%8c%e4%b8%a4%e6%9d%a1%e8%b7%af%e7%ba%bf%e7%9a%84%e7%bb%88%e5%b1%80" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f177-agent-memory-war-gbrain-vs-everos%2f&amp;title=Agent%20%e7%9a%84%e8%ae%b0%e5%bf%86%e6%88%98%e4%ba%89%ef%bc%9aGBrain%20vs%20EverOS%ef%bc%8c%e4%b8%a4%e6%9d%a1%e8%b7%af%e7%ba%bf%e7%9a%84%e7%bb%88%e5%b1%80" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f177-agent-memory-war-gbrain-vs-everos%2f&amp;description=Agent%20%e7%9a%84%e8%ae%b0%e5%bf%86%e6%88%98%e4%ba%89%ef%bc%9aGBrain%20vs%20EverOS%ef%bc%8c%e4%b8%a4%e6%9d%a1%e8%b7%af%e7%ba%bf%e7%9a%84%e7%bb%88%e5%b1%80" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=http%3a%2f%2flocalhost%3a45445%2fpost%2f2026%2f177-agent-memory-war-gbrain-vs-everos%2f&amp;subject=Agent%20%e7%9a%84%e8%ae%b0%e5%bf%86%e6%88%98%e4%ba%89%ef%bc%9aGBrain%20vs%20EverOS%ef%bc%8c%e4%b8%a4%e6%9d%a1%e8%b7%af%e7%ba%bf%e7%9a%84%e7%bb%88%e5%b1%80" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/185-hermes-gateway-im-platforms-architecture/">Agent 如何同时活在钉钉、Telegram、Discord 和微信里？</a></li>
+                
+                    <li><a href="/post/2026/184-hermes-cli-tui-architecture-deep-dive/">解构 Agent CLI：从 React 子进程到 Python 回调的通信协议</a></li>
+                
+                    <li><a href="/post/2026/183-agent-skill-self-evolution/">Agent 的 Skill 自进化机制：它是如何自己长记性的</a></li>
+                
+                    <li><a href="/post/2026/182-llm-agent-context-compression-evolution/">LLM Agent 上下文压缩算法</a></li>
+                
+                    <li><a href="/post/2026/181-opencli-vs-autocli-web-cli-revolution/">OpenCLI vs AutoCLI：把网站变成 CLI 的技术革命</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:45445/post/2026/176-programmatic-knowledge-memory-skill-evolution/" data-toggle="tooltip" data-placement="top" title="用 LLM 构建程序化知识系统：记忆、技能与进化">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:45445/post/2026/178-agent-model-plus-harness/" data-toggle="tooltip" data-placement="top" title="Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="http://localhost:45445/post/2026/177-agent-memory-war-gbrain-vs-everos">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'http:\/\/localhost:45445\/post\/2026\/177-agent-memory-war-gbrain-vs-everos';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:45445/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.160.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:45445/js/main.js"></script>
+<script src="http://localhost:45445/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:45445/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

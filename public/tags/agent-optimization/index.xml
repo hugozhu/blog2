@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agent-Optimization on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/agent-optimization/</link>
+    <description>Recent content in Agent-Optimization on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/agent-optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>别再卷模型了：To B Agent 创业，用户反馈才是生死线</title>
+      <link>http://localhost:45445/post/2026/151-tob-agent-user-feedback-loop/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/151-tob-agent-user-feedback-loop/</guid>
+      <description>&lt;p&gt;2026 年，一个事实已经无法忽视：&lt;strong&gt;模型训练不再是一项研究活动，而是一项系统工程。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;预训练需要万卡集群和 PB 级数据管线，强化学习需要奖励模型和 RLHF/DPO 的工程化流水线，推理优化涉及量化、蒸馏、speculative decoding 等一整套工具链，Agent 能力构建则横跨 function calling、长上下文、规划与工具使用的多维调优。任何一个方向的突破，如果不能在其他环节配合落地，就只是一篇论文，不是一个产品。&lt;/p&gt;&#xA;&lt;p&gt;这意味着什么？&lt;strong&gt;模型本身正在变成标准化基础设施。&lt;/strong&gt; 就像今天没有哪家 SaaS 公司拿&amp;quot;我们用了 PostgreSQL&amp;quot;当竞争优势一样，未来也不会有哪家 Agent 公司仅靠&amp;quot;我们微调了一个更好的模型&amp;quot;赢得市场。&lt;/p&gt;&#xA;&lt;p&gt;那么 To B Agent 创业的制胜变量到底是什么？&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

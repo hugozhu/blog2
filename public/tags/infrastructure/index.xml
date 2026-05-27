@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infrastructure on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/infrastructure/</link>
+    <description>Recent content in Infrastructure on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI的MaaS层最核心的能力：把一个不稳定的概率接口，变成一个可运营的服务</title>
+      <link>http://localhost:45445/post/2026/158-maas-core-capabilities/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/158-maas-core-capabilities/</guid>
+      <description>&lt;p&gt;很多人对MaaS（Model as a Service）的理解停留在&amp;quot;套一层API&amp;quot;——把OpenAI的接口包一下，加个Key管理，做个用量统计，就叫MaaS了。如果这就是MaaS的全部，那它确实没什么技术含量，随便一个API Gateway就能干。&lt;/p&gt;&#xA;&lt;p&gt;但现实是：&lt;strong&gt;几乎所有在生产环境跑AI应用的团队，最终都会自建或依赖一个MaaS层。&lt;/strong&gt; 不是因为他们闲，而是因为裸调模型API在生产环境里根本撑不住。&lt;/p&gt;&#xA;&lt;p&gt;MaaS层真正要解决的问题是：&lt;strong&gt;把一个概率性的、无状态的、昂贵的模型API调用，变成一个可靠的、可观测的、成本可控的服务。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw使用远程浏览器——让AI读懂你的个性化互联网</title>
+      <link>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</guid>
+      <description>&lt;p&gt;AI Agent 能搜索、能总结、能写代码，但有一件事它做不好：&lt;strong&gt;读你的互联网&lt;/strong&gt;。你的 Twitter Timeline、你的 YouTube 推荐、你的 Hacker News 首页——这些个性化内容藏在登录态背后，普通的 API 调用拿不到。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的远程浏览器方案解决了这个问题：在一台带桌面的 Ubuntu 服务器上运行真实浏览器，保存各大网站的登录信息，然后通过网络让 AI Agent 直接操控这个浏览器。AI 看到的就是你看到的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>E2B：构建安全可靠的 AI 代理执行环境最佳实践</title>
+      <link>http://localhost:45445/post/2025/106-e2b-ai-infrastructure-best-practices/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/106-e2b-ai-infrastructure-best-practices/</guid>
+      <description>&lt;p&gt;当你构建一个能够自主编写和执行代码的 AI 代理时，安全性和隔离性成为了首要考虑的问题。如何让 AI 安全地运行用户或自身生成的代码，而不会影响主系统？E2B（Execute to Build）正是为解决这个问题而生的云沙箱平台。本文将深入探讨 E2B 在 AI 基础设施中的最佳实践。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

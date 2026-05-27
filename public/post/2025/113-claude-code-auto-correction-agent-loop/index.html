@@ -1,0 +1,1121 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="深入理解AI代码助手如何通过反馈循环实现自我修正与持续优化"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践",
+  "@id": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/",
+  "url": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/",
+      "name": "Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践",
+  "description": "在AI辅助编程的时代，Claude Code等智能代码助手已经成为开发者的得力助手。但你是否好奇过：为什么Claude Code能够自动发现并修正生成代码中的错误？这背后的\u0026quot;Agent Loop\u0026quot;机制究竟是如何工作的？本文将深入剖析Claude Code的自动修正原理，并分享Agent Loop的最佳实践。\n",
+  "inLanguage": "en",
+  "wordCount":  1107 ,
+  "timeRequired": "PT6M",
+  "dateCreated": "2025-12-24T00:00:00+00:00",
+  "datePublished": "2025-12-24T00:00:00+00:00",
+  "dateModified": "2025-12-24T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "AI, claude-code, agent-loop, LLM, code-generation, prompt-engineering, best-practices, AI-agents" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践" />
+<meta property="og:description" content="深入理解AI代码助手如何通过反馈循环实现自我修正与持续优化" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践" />
+  <meta name="twitter:description" content="深入理解AI代码助手如何通过反馈循环实现自我修正与持续优化">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Claude Code自动修正生成代码的原理解析：Agent Loop最佳实践</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">深入理解AI代码助手如何通过反馈循环实现自我修正与持续优化</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on December 24, 2025
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1107&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>在AI辅助编程的时代，Claude Code等智能代码助手已经成为开发者的得力助手。但你是否好奇过：为什么Claude Code能够自动发现并修正生成代码中的错误？这背后的&quot;Agent Loop&quot;机制究竟是如何工作的？本文将深入剖析Claude Code的自动修正原理，并分享Agent Loop的最佳实践。</p>
+<h2 id="什么是agent-loop">什么是Agent Loop？</h2>
+<p>Agent Loop（代理循环）是AI系统中的一个核心设计模式，它允许AI代理通过<strong>感知-思考-行动-反馈</strong>的循环过程，不断优化自己的输出结果。与传统的&quot;一次性生成&quot;模式不同，Agent Loop引入了<strong>反馈机制</strong>和<strong>迭代优化</strong>能力。</p>
+<h3 id="agent-loop的基本结构">Agent Loop的基本结构</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌─────────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│                Agent Loop                   │
+</span></span><span class="line"><span class="cl">│                                             │
+</span></span><span class="line"><span class="cl">│  ┌──────────┐      ┌──────────┐             │
+</span></span><span class="line"><span class="cl">│  │  Observe │─────▶│  Think   │             │
+</span></span><span class="line"><span class="cl">│  │ (感知)   │      │ (思考)    │             │
+</span></span><span class="line"><span class="cl">│  └──────────┘      └─────┬────┘             │
+</span></span><span class="line"><span class="cl">│       ▲                   │                │
+</span></span><span class="line"><span class="cl">│       │                   ▼                │
+</span></span><span class="line"><span class="cl">│  ┌────┴─────┐      ┌──────────┐           │
+</span></span><span class="line"><span class="cl">│  │ Feedback │◀─────│   Act    │           │
+</span></span><span class="line"><span class="cl">│  │ (反馈)   │      │ (行动)   │            │
+</span></span><span class="line"><span class="cl">│  └──────────┘      └──────────┘           │
+</span></span><span class="line"><span class="cl">│                                             │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────────────┘
+</span></span></code></pre></div><h2 id="claude-code的自动修正原理">Claude Code的自动修正原理</h2>
+<p>Claude Code实现自动修正的核心在于<strong>工具调用</strong>（Tool Use）和<strong>执行反馈</strong>的紧密结合。让我们通过一个实际场景来理解这个过程。</p>
+<h3 id="场景生成一个python函数">场景：生成一个Python函数</h3>
+<p>假设用户请求：&ldquo;写一个函数计算列表的平均值&rdquo;</p>
+<h4 id="第一轮循环初始生成">第一轮循环：初始生成</h4>
+<p><strong>1. Observe（感知）</strong></p>
+<ul>
+<li>Claude接收用户请求</li>
+<li>分析任务需求：计算平均值</li>
+</ul>
+<p><strong>2. Think（思考）</strong></p>
+<ul>
+<li>设计函数签名</li>
+<li>规划实现逻辑</li>
+<li>预估可能的边界情况</li>
+</ul>
+<p><strong>3. Act（行动）</strong></p>
+<ul>
+<li>使用<code>Write</code>工具创建文件</li>
+<li>生成代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;计算数字列表的平均值&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><p><strong>4. Feedback（反馈）</strong></p>
+<ul>
+<li>工具执行成功，文件已创建</li>
+<li>但Claude会主动考虑：这个实现是否完善？</li>
+</ul>
+<h4 id="第二轮循环主动测试与发现问题">第二轮循环：主动测试与发现问题</h4>
+<p>Claude Code的一个重要特性是<strong>主动验证</strong>。它不会仅仅生成代码就停止，而会继续思考可能的问题。</p>
+<p><strong>1. Observe（感知）</strong></p>
+<ul>
+<li>代码已生成</li>
+<li>需要验证正确性</li>
+</ul>
+<p><strong>2. Think（思考）</strong></p>
+<ul>
+<li>空列表会导致<code>ZeroDivisionError</code></li>
+<li>应该添加边界检查</li>
+</ul>
+<p><strong>3. Act（行动）</strong></p>
+<ul>
+<li>使用<code>Edit</code>工具修改代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;计算数字列表的平均值
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        numbers: 数字列表
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        float: 平均值，如果列表为空返回0
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">numbers</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><p><strong>4. Feedback（反馈）</strong></p>
+<ul>
+<li>修改成功</li>
+<li>代码更加健壮</li>
+</ul>
+<h3 id="工具驱动的反馈循环">工具驱动的反馈循环</h3>
+<p>Claude Code的强大之处在于它可以调用多种工具来获取实时反馈：</p>
+<h4 id="1-执行工具反馈">1. <strong>执行工具反馈</strong></h4>
+<p>当Claude使用<code>Bash</code>工具运行测试时：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># test_average.py</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">calculate_average</span> <span class="kn">import</span> <span class="n">calculate_average</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">calculate_average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">calculate_average</span><span class="p">([])</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">calculate_average</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span> <span class="o">==</span> <span class="mf">10.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><p>如果测试失败：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ python test_average.py
+</span></span><span class="line"><span class="cl">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">  File <span class="s2">&#34;test_average.py&#34;</span>, line 4, in &lt;module&gt;
+</span></span><span class="line"><span class="cl">    assert calculate_average<span class="o">([</span>1, 2, 3<span class="o">])</span> <span class="o">==</span> 2.0
+</span></span><span class="line"><span class="cl">AssertionError
+</span></span></code></pre></div><p>Claude会：</p>
+<ol>
+<li><strong>感知</strong>测试失败</li>
+<li><strong>思考</strong>失败原因（可能是浮点数精度问题）</li>
+<li><strong>行动</strong>修改代码或测试</li>
+<li><strong>反馈</strong>重新验证</li>
+</ol>
+<h4 id="2-静态分析工具反馈">2. <strong>静态分析工具反馈</strong></h4>
+<p>使用linter或type checker：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ mypy calculate_average.py
+</span></span><span class="line"><span class="cl">calculate_average.py:5: error: Returning Any from <span class="k">function</span> declared to <span class="k">return</span> <span class="s2">&#34;float&#34;</span>
+</span></span></code></pre></div><p>Claude会根据类型检查错误自动添加类型注解：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_average</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;计算数字列表的平均值&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">numbers</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h4 id="3-编译器解释器反馈">3. <strong>编译器/解释器反馈</strong></h4>
+<p>对于编译型语言，编译错误会直接触发修正：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// 初始生成（有错误）
+</span></span></span><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">calculate_average</span><span class="p">(</span><span class="n">numbers</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">f64</span> <span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">sum</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">sum</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w">  </span><span class="c1">// 类型不匹配错误
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>编译错误反馈：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">error</span><span class="p">[</span><span class="n">E0277</span><span class="p">]:</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">divide</span><span class="w"> </span><span class="o">`</span><span class="n">i32</span><span class="o">`</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">`</span><span class="n">usize</span><span class="o">`</span><span class="w">
+</span></span></span></code></pre></div><p>自动修正：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">calculate_average</span><span class="p">(</span><span class="n">numbers</span>: <span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">])</span><span class="w"> </span>-&gt; <span class="kt">f64</span> <span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">sum</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">sum</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// generated by AI
+</span></span></span></code></pre></div><h2 id="agent-loop的最佳实践">Agent Loop的最佳实践</h2>
+<p>基于Claude Code的实现，我们总结出以下Agent Loop最佳实践：</p>
+<h3 id="1-设计多层次的反馈机制">1. <strong>设计多层次的反馈机制</strong></h3>
+<p>不要只依赖单一反馈源，应该构建多层次反馈体系：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AgentLoop</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">feedback_sources</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">SyntaxValidator</span><span class="p">(),</span>      <span class="c1"># 语法检查</span>
+</span></span><span class="line"><span class="cl">            <span class="n">TypeChecker</span><span class="p">(),</span>          <span class="c1"># 类型检查</span>
+</span></span><span class="line"><span class="cl">            <span class="n">UnitTestRunner</span><span class="p">(),</span>       <span class="c1"># 单元测试</span>
+</span></span><span class="line"><span class="cl">            <span class="n">LintChecker</span><span class="p">(),</span>          <span class="c1"># 代码规范</span>
+</span></span><span class="line"><span class="cl">            <span class="n">SecurityScanner</span><span class="p">(),</span>      <span class="c1"># 安全扫描</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">execute_with_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;执行代码并收集所有反馈&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">feedback</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_sources</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">is_valid</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">feedback</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">code</span><span class="p">,</span> <span class="n">feedback</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h3 id="2-实现智能的循环终止条件">2. <strong>实现智能的循环终止条件</strong></h3>
+<p>避免无限循环，设置合理的终止条件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SmartAgentLoop</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">IMPROVEMENT_THRESHOLD</span> <span class="o">=</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">previous_score</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">iteration</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">MAX_ITERATIONS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 执行任务</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 获取反馈评分</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 检查改进幅度</span>
+</span></span><span class="line"><span class="cl">            <span class="n">improvement</span> <span class="o">=</span> <span class="n">current_score</span> <span class="o">-</span> <span class="n">previous_score</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 终止条件</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">current_score</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>  <span class="c1"># 完美结果</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">improvement</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">IMPROVEMENT_THRESHOLD</span><span class="p">:</span>  <span class="c1"># 改进不明显</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_critical_error</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>  <span class="c1"># 出现严重错误</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>  <span class="c1"># 继续尝试修正</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">previous_score</span> <span class="o">=</span> <span class="n">current_score</span>
+</span></span><span class="line"><span class="cl">            <span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h3 id="3-上下文保持与记忆管理">3. <strong>上下文保持与记忆管理</strong></h3>
+<p>在循环过程中保持完整的上下文：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">IterationMemory</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;单次迭代的记忆&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iteration</span><span class="p">:</span> <span class="nb">int</span>
+</span></span><span class="line"><span class="cl">    <span class="n">action</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">feedback</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">score</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ContextualAgentLoop</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">IterationMemory</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">execute_iteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 从历史中学习</span>
+</span></span><span class="line"><span class="cl">        <span class="n">past_failures</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">past_successes</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 构建增强的提示词</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prompt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_prompt_with_context</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">past_failures</span><span class="o">=</span><span class="n">past_failures</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">past_successes</span><span class="o">=</span><span class="n">past_successes</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 执行并记录</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">llm</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">feedback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_feedback</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">feedback</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">IterationMemory</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">iteration</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">action</span><span class="o">=</span><span class="n">task</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">feedback</span><span class="o">=</span><span class="n">feedback</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">score</span><span class="o">=</span><span class="n">score</span>
+</span></span><span class="line"><span class="cl">        <span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h3 id="4-分层错误处理策略">4. <strong>分层错误处理策略</strong></h3>
+<p>不同类型的错误应该有不同的处理策略：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ErrorSeverity</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CRITICAL</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># 立即修正</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HIGH</span> <span class="o">=</span> <span class="mi">2</span>        <span class="c1"># 优先修正</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MEDIUM</span> <span class="o">=</span> <span class="mi">3</span>      <span class="c1"># 可延迟修正</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOW</span> <span class="o">=</span> <span class="mi">4</span>         <span class="c1"># 优化性修正</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ErrorHandler</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">handle_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feedback</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;按优先级处理错误&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 按严重程度排序</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sorted_errors</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">feedback</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">corrections</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">sorted_errors</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">error</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ErrorSeverity</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 关键错误：必须修正</span>
+</span></span><span class="line"><span class="cl">                <span class="n">corrections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">fix_critical_error</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">error</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ErrorSeverity</span><span class="o">.</span><span class="n">HIGH</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 高优先级：尝试修正</span>
+</span></span><span class="line"><span class="cl">                <span class="n">corrections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">fix_high_priority_error</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 低优先级：记录但可能不修正</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">log_for_future_improvement</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">corrections</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h3 id="5-实现渐进式改进">5. <strong>实现渐进式改进</strong></h3>
+<p>避免大幅度重写，采用渐进式改进：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ProgressiveImprovement</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">improve_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">feedback</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;渐进式代码改进&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">improved_code</span> <span class="o">=</span> <span class="n">code</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 按影响范围从小到大排序修改</span>
+</span></span><span class="line"><span class="cl">        <span class="n">changes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan_changes</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sorted_changes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">changes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">impact_score</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">change</span> <span class="ow">in</span> <span class="n">sorted_changes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 应用单个改进</span>
+</span></span><span class="line"><span class="cl">                <span class="n">new_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_change</span><span class="p">(</span><span class="n">improved_code</span><span class="p">,</span> <span class="n">change</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 验证改进是否有效</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_improvement</span><span class="p">(</span><span class="n">new_code</span><span class="p">,</span> <span class="n">improved_code</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">improved_code</span> <span class="o">=</span> <span class="n">new_code</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 改进无效，回滚</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">log_failed_improvement</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 改进失败，继续下一个</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="n">change</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">improved_code</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">validate_improvement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">old_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;验证新代码是否比旧代码更好&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">new_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_code</span><span class="p">(</span><span class="n">new_code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">old_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_code</span><span class="p">(</span><span class="n">old_code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">new_score</span> <span class="o">&gt;</span> <span class="n">old_score</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h3 id="6-工具选择与组合策略">6. <strong>工具选择与组合策略</strong></h3>
+<p>Claude Code拥有多种工具，选择合适的工具至关重要：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Tool</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">can_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;判断工具是否能处理此任务&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@abstractmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;执行任务&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ToolOrchestrator</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tools</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;read&#39;</span><span class="p">:</span> <span class="n">ReadTool</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;write&#39;</span><span class="p">:</span> <span class="n">WriteTool</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;edit&#39;</span><span class="p">:</span> <span class="n">EditTool</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;bash&#39;</span><span class="p">:</span> <span class="n">BashTool</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;grep&#39;</span><span class="p">:</span> <span class="n">GrepTool</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;glob&#39;</span><span class="p">:</span> <span class="n">GlobTool</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">select_tools</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tool</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;根据任务选择最佳工具组合&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 文件操作：优先使用专用工具</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;modify&#39;</span> <span class="ow">in</span> <span class="n">task</span> <span class="ow">or</span> <span class="s1">&#39;edit&#39;</span> <span class="ow">in</span> <span class="n">task</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tools</span><span class="p">[</span><span class="s1">&#39;edit&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="s1">&#39;create&#39;</span> <span class="ow">in</span> <span class="n">task</span> <span class="ow">or</span> <span class="s1">&#39;write&#39;</span> <span class="ow">in</span> <span class="n">task</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tools</span><span class="p">[</span><span class="s1">&#39;write&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="s1">&#39;read&#39;</span> <span class="ow">in</span> <span class="n">task</span> <span class="ow">or</span> <span class="s1">&#39;view&#39;</span> <span class="ow">in</span> <span class="n">task</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tools</span><span class="p">[</span><span class="s1">&#39;read&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 搜索操作</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;find&#39;</span> <span class="ow">in</span> <span class="n">task</span> <span class="ow">or</span> <span class="s1">&#39;search&#39;</span> <span class="ow">in</span> <span class="n">task</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tools</span><span class="p">[</span><span class="s1">&#39;grep&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tools</span><span class="p">[</span><span class="s1">&#39;glob&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 执行验证</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;test&#39;</span> <span class="ow">in</span> <span class="n">task</span> <span class="ow">or</span> <span class="s1">&#39;run&#39;</span> <span class="ow">in</span> <span class="n">task</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tools</span><span class="p">[</span><span class="s1">&#39;bash&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">selected</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h3 id="7-并行化与性能优化">7. <strong>并行化与性能优化</strong></h3>
+<p>在不影响正确性的前提下，并行执行独立任务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Callable</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ParallelAgentLoop</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">def</span> <span class="nf">execute_parallel_tasks</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tasks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">any</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;并行执行独立任务&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 识别独立任务</span>
+</span></span><span class="line"><span class="cl">        <span class="n">independent_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identify_independent_tasks</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 并行执行</span>
+</span></span><span class="line"><span class="cl">        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">execute_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">independent_tasks</span>
+</span></span><span class="line"><span class="cl">        <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">results</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">identify_independent_tasks</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tasks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;识别可以并行执行的任务&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 构建依赖图</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dependency_graph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dependency_graph</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 找出没有依赖的任务</span>
+</span></span><span class="line"><span class="cl">        <span class="n">independent</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">task</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">dependency_graph</span><span class="p">[</span><span class="n">task</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">independent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h2 id="claude-code的高级技巧">Claude Code的高级技巧</h2>
+<h3 id="hook机制自定义反馈注入">Hook机制：自定义反馈注入</h3>
+<p>Claude Code支持通过hook机制注入自定义反馈：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;hooks&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;user-prompt-submit-hook&#34;</span><span class="p">:</span> <span class="s2">&#34;npm run lint &amp;&amp; npm test&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tool-call-hook&#34;</span><span class="p">:</span> <span class="s2">&#34;validate_tool_output.sh&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这允许你在Agent Loop的关键节点注入自定义验证逻辑。</p>
+<h3 id="多模态反馈">多模态反馈</h3>
+<p>Claude Code不仅能处理文本反馈，还能理解：</p>
+<ul>
+<li>错误截图</li>
+<li>架构图</li>
+<li>数据可视化</li>
+</ul>
+<p>这为Agent Loop提供了更丰富的反馈维度。</p>
+<h3 id="记忆与学习">记忆与学习</h3>
+<p>Claude Code在对话过程中会记住：</p>
+<ul>
+<li>之前的错误及修正方法</li>
+<li>项目的代码风格</li>
+<li>用户的偏好设置</li>
+</ul>
+<p>这使得后续的循环更加高效。</p>
+<h2 id="实战案例完整的agent-loop流程">实战案例：完整的Agent Loop流程</h2>
+<p>让我们通过一个真实案例看完整的Agent Loop流程：</p>
+<p><strong>任务</strong>：创建一个REST API端点</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Iteration 1: 初始生成</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_users</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Feedback: 需要序列化、错误处理、分页</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Iteration 2: 添加序列化</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_users</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">jsonify</span><span class="p">([</span><span class="n">user</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Feedback: 仍需错误处理和分页</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Iteration 3: 完整实现</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_users</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">per_page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;per_page&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">pagination</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">page</span><span class="o">=</span><span class="n">page</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">per_page</span><span class="o">=</span><span class="n">per_page</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">error_out</span><span class="o">=</span><span class="kc">False</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">user</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">pagination</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;users&#39;</span><span class="p">:</span> <span class="n">users</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="n">pagination</span><span class="o">.</span><span class="n">total</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="n">page</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;per_page&#39;</span><span class="p">:</span> <span class="n">per_page</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;pages&#39;</span><span class="p">:</span> <span class="n">pagination</span><span class="o">.</span><span class="n">pages</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}),</span> <span class="mi">200</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}),</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Feedback: 完美！所有测试通过</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generated by AI</span>
+</span></span></code></pre></div><h2 id="总结与最佳实践清单">总结与最佳实践清单</h2>
+<p>Claude Code的自动修正能力来自于精心设计的Agent Loop机制。以下是关键要点：</p>
+<h3 id="核心原则">核心原则</h3>
+<p>✅ <strong>持续反馈</strong>：每次行动后立即获取反馈
+✅ <strong>渐进改进</strong>：避免大规模重写，逐步优化
+✅ <strong>上下文保持</strong>：记住历史，避免重复错误
+✅ <strong>智能终止</strong>：设置合理的停止条件
+✅ <strong>工具选择</strong>：使用最合适的工具完成任务</p>
+<h3 id="技术实践">技术实践</h3>
+<p>✅ <strong>多层次验证</strong>：语法、类型、测试、lint等多重检查
+✅ <strong>错误分级</strong>：按严重程度优先处理
+✅ <strong>并行执行</strong>：独立任务并行提升效率
+✅ <strong>记忆管理</strong>：保留有价值的历史信息
+✅ <strong>渐进式改进</strong>：小步快跑，持续验证</p>
+<h3 id="避免的陷阱">避免的陷阱</h3>
+<p>❌ 无限循环：必须有明确的终止条件
+❌ 过度修正：不要为了&quot;完美&quot;而过度优化
+❌ 忽略上下文：每次迭代都应该考虑历史信息
+❌ 工具误用：不要用bash命令代替专用工具
+❌ 缺乏验证：每次修改后都应该验证效果</p>
+<h2 id="展望未来">展望未来</h2>
+<p>Agent Loop的发展方向：</p>
+<ol>
+<li><strong>更智能的反馈理解</strong>：从错误信息中提取更深层次的语义</li>
+<li><strong>主动学习能力</strong>：从用户反馈中学习偏好和模式</li>
+<li><strong>多Agent协作</strong>：不同专长的Agent相互配合</li>
+<li><strong>实时性能监控</strong>：在生产环境中持续优化</li>
+<li><strong>自适应循环策略</strong>：根据任务类型动态调整循环参数</li>
+</ol>
+<p>Claude Code的自动修正能力展示了AI辅助编程的未来：不是简单的代码生成，而是一个能够<strong>自我反思、持续改进</strong>的智能伙伴。理解并掌握Agent Loop的原理，将帮助我们更好地利用AI工具，构建更高质量的软件系统。</p>
+<hr>
+<p><em>如果你对Claude Code或Agent Loop有更多问题，欢迎在评论区讨论。你是如何在项目中应用这些原理的？</em></p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/claude-code/">claude-code</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/agent-loop/">agent-loop</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/llm/">LLM</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/code-generation/">code-generation</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/prompt-engineering/">prompt-engineering</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/best-practices/">best-practices</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f113-claude-code-auto-correction-agent-loop%2f&amp;text=Claude%20Code%e8%87%aa%e5%8a%a8%e4%bf%ae%e6%ad%a3%e7%94%9f%e6%88%90%e4%bb%a3%e7%a0%81%e7%9a%84%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90%ef%bc%9aAgent%20Loop%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f113-claude-code-auto-correction-agent-loop%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f113-claude-code-auto-correction-agent-loop%2f&amp;title=Claude%20Code%e8%87%aa%e5%8a%a8%e4%bf%ae%e6%ad%a3%e7%94%9f%e6%88%90%e4%bb%a3%e7%a0%81%e7%9a%84%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90%ef%bc%9aAgent%20Loop%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f113-claude-code-auto-correction-agent-loop%2f&amp;title=Claude%20Code%e8%87%aa%e5%8a%a8%e4%bf%ae%e6%ad%a3%e7%94%9f%e6%88%90%e4%bb%a3%e7%a0%81%e7%9a%84%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90%ef%bc%9aAgent%20Loop%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f113-claude-code-auto-correction-agent-loop%2f&amp;title=Claude%20Code%e8%87%aa%e5%8a%a8%e4%bf%ae%e6%ad%a3%e7%94%9f%e6%88%90%e4%bb%a3%e7%a0%81%e7%9a%84%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90%ef%bc%9aAgent%20Loop%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f113-claude-code-auto-correction-agent-loop%2f&amp;description=Claude%20Code%e8%87%aa%e5%8a%a8%e4%bf%ae%e6%ad%a3%e7%94%9f%e6%88%90%e4%bb%a3%e7%a0%81%e7%9a%84%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90%ef%bc%9aAgent%20Loop%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2025%2f113-claude-code-auto-correction-agent-loop%2f&amp;subject=Claude%20Code%e8%87%aa%e5%8a%a8%e4%bf%ae%e6%ad%a3%e7%94%9f%e6%88%90%e4%bb%a3%e7%a0%81%e7%9a%84%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90%ef%bc%9aAgent%20Loop%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/195-code-copy-cost-zero-value-drift/">代码复制成本归零：工程师的价值正在向上漂移</a></li>
+                
+                    <li><a href="/post/2026/186-ai-talent-questioning-ability/">AI 时代的核心竞争力：提问能力</a></li>
+                
+                    <li><a href="/post/2026/178-agent-model-plus-harness/">Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2025/112-ai-powered-google-resume-from-personal-website/" data-toggle="tooltip" data-placement="top" title="如何用 AI 将个人网站转化为专业的 Google 求职简历">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2026/115-zhipu-slime-enterprise-ai-value/" data-toggle="tooltip" data-placement="top" title="智谱开源Slime：企业AI应用的强化学习利器">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2025/113-claude-code-auto-correction-agent-loop">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2025\/113-claude-code-auto-correction-agent-loop';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

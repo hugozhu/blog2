@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Iptables on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/iptables/</link>
+    <description>Recent content in Iptables on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 06 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用iptables搭建稳定的加速代理</title>
+      <link>http://localhost:45445/post/2016/61-smart-router-with-iptable/</link>
+      <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2016/61-smart-router-with-iptable/</guid>
+      <description>&lt;h1 id=&#34;设置步骤&#34;&gt;设置步骤&lt;/h1&gt;&#xA;&lt;p&gt;在阿里云中国和美国都购买一个VPS，用同样的操作系统，都安装好 &lt;code&gt;shadowsocks-libev&lt;/code&gt; ( &lt;a href=&#34;https://github.com/shadowsocks/shadowsocks-libev&#34;&gt;https://github.com/shadowsocks/shadowsocks-libev&lt;/a&gt; )&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

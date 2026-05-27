@@ -1,0 +1,854 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>在Raspberry Pi上使用硬件SPI - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="Getting SPI working on Raspberry Pi"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "在Raspberry Pi上使用硬件SPI",
+  "@id": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/",
+  "url": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/",
+      "name": "在Raspberry Pi上使用硬件SPI",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "在Raspberry Pi上使用硬件SPI",
+  "description": "Getting SPI working on Raspberry Pi",
+  "inLanguage": "en",
+  "wordCount":  846 ,
+  "dateCreated": "2013-04-05T00:00:00+00:00",
+  "datePublished": "2013-04-05T00:00:00+00:00",
+  "dateModified": "2013-04-05T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "Rasperry Pi" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="在Raspberry Pi上使用硬件SPI" />
+<meta property="og:description" content="Getting SPI working on Raspberry Pi" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="在Raspberry Pi上使用硬件SPI" />
+  <meta name="twitter:description" content="Getting SPI working on Raspberry Pi">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>在Raspberry Pi上使用硬件SPI</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 5, 2013
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;846&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="什么是spi">什么是SPI</h1>
+<p>SPI (Serial Peripheral Interface)，是一种高速，全双工，同步的通信总线协议，基于SPI的设备需要4根线：</p>
+<p><img src="https://www.evernote.com/shard/s26/sh/61dba789-b17b-4570-b124-03925a97a4bf/4e64405c3b1a486f7aa4b9451e142b32/deep/0/Screenshot%204/5/13%204:27%20PM.jpg
+"/></p>
+<ol>
+<li>SDO / MOSI - 主设备数据输出，从设备数据输入</li>
+<li>SDI / MISO - 主设备数据输入，从设备数据输出</li>
+<li>SCLK / CLK - 时钟信号，由主设备产生</li>
+<li>CS / SS - 从设备使能信号，由主设备控制</li>
+</ol>
+<p>通过CS，主设备可以控制和哪个从设备通信。</p>
+<h2 id="bit-banging">Bit Banging</h2>
+<p>Bit-banging是一种用软件替代专职硬件的串行通信的技术。软件直接对微处理器的管脚的状态进行设置和采样，其功能涵盖诸如：时钟，电平，同步等所有参数。与此不同的是（传统的串行通信技术中），专职硬件诸如 modem、UART 或者 位移寄存器等一般是用来处理这些参数并且提供一个（缓存）的数据接口，软件在这种情况下同信号处理无关。</p>
+<p>bit-banging 具有明显优点诸如：让相同的设备运行不同的协议而只需很小的（甚至不需）硬件的改动。借助很少的额外设备，我们也许可以从数字管脚（数字终端）可以得到视频信号。</p>
+<p>bit-banging 也有一些明显的缺点。在软件仿真的过程中消耗的能量比同样功能的专职硬件大。微处理器过忙地从管脚采样和发送采样信号到管脚。在同等微处理器处理能力下，系统常常会有些噪音。</p>
+<p>在Rasperry Pi上使用Bit Banging在实际情况下有可能因为操作系统调度造成时钟信号不稳定而使设备收到错误的消息，具体的表现就是Nokia 5110屏在长时间运行过程中出现白屏或花屏现象，如下图：</p>
+<img src="http://ww2.sinaimg.cn/bmiddle/6bc40342jw1e3dzvsfxblj.jpg"/>
+<p>采用硬件SPI，由Pi的管脚14号Pin（左边倒数第二个）SCLK发出一定频率的时钟信号。经过测试，这种方法产生的时钟信号比Bit Banging软件模拟产生的信号要稳定很多。</p>
+<img src="http://ww1.sinaimg.cn/small/6bc40342jw1e3f1s62pnuj.jpg"/>
+软件模拟时钟信号波形
+<img src="http://ww1.sinaimg.cn/small/6bc40342jw1e3f6d4wsjij.jpg"/>
+硬件SPI时钟信号波形
+<h1 id="测试pi的硬件spi">测试Pi的硬件SPI</h1>
+<h2 id="确认内核支持">确认内核支持</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@raspberrypi2 ~/projects/spi_test # ls -la /dev/spi*
+</span></span><span class="line"><span class="cl">crw------- 1 root root 153, 0 Jan  1  1970 /dev/spidev0.0
+</span></span><span class="line"><span class="cl">crw------- 1 root root 153, 1 Jan  1  1970 /dev/spidev0.1
+</span></span></code></pre></div><h2 id="测试代码">测试代码</h2>
+<p>下载 <a href="http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/plain/Documentation/spi/spidev_test.c">spidev_test.c</a> 或拷贝下面的代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/*</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">SPI</span> <span class="n">testing</span> <span class="n">utility</span> <span class="p">(</span><span class="n">using</span> <span class="n">spidev</span> <span class="n">driver</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2007</span>  <span class="n">MontaVista</span> <span class="n">Software</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2007</span>  <span class="n">Anton</span> <span class="n">Vorontsov</span> <span class="o">&lt;</span><span class="n">avorontsov</span><span class="err">@</span><span class="n">ru</span><span class="o">.</span><span class="n">mvista</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">This</span> <span class="n">program</span> <span class="n">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">you</span> <span class="n">can</span> <span class="n">redistribute</span> <span class="n">it</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="n">modify</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">it</span> <span class="n">under</span> <span class="n">the</span> <span class="n">terms</span> <span class="n">of</span> <span class="n">the</span> <span class="n">GNU</span> <span class="n">General</span> <span class="n">Public</span> <span class="n">License</span> <span class="n">as</span> <span class="n">published</span> <span class="n">by</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">the</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">;</span> <span class="n">either</span> <span class="n">version</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">the</span> <span class="n">License</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">Cross</span><span class="o">-</span><span class="n">compile</span> <span class="n">with</span> <span class="n">cross</span><span class="o">-</span><span class="n">gcc</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">cross</span><span class="o">-</span><span class="n">kernel</span><span class="o">/</span><span class="n">include</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;stdint.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;unistd.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;stdio.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;stdlib.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;getopt.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;fcntl.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;sys/ioctl.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;linux/types.h&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;linux/spi/spidev.h&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">void</span> <span class="n">pabort</span><span class="p">(</span><span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">perror</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">abort</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">device</span> <span class="o">=</span> <span class="s2">&#34;/dev/spidev1.1&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">uint8_t</span> <span class="n">mode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">uint8_t</span> <span class="n">bits</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">uint32_t</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">500000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">uint16_t</span> <span class="n">delay</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">void</span> <span class="n">transfer</span><span class="p">(</span><span class="ne">int</span> <span class="n">fd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="ne">int</span> <span class="n">ret</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">uint8_t</span> <span class="n">tx</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="mh">0x40</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x95</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="mh">0xDE</span><span class="p">,</span> <span class="mh">0xAD</span><span class="p">,</span> <span class="mh">0xBE</span><span class="p">,</span> <span class="mh">0xEF</span><span class="p">,</span> <span class="mh">0xBA</span><span class="p">,</span> <span class="mh">0xAD</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="mh">0xF0</span><span class="p">,</span> <span class="mh">0x0D</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="n">uint8_t</span> <span class="n">rx</span><span class="p">[</span><span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">tx</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="n">struct</span> <span class="n">spi_ioc_transfer</span> <span class="n">tr</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">tx_buf</span> <span class="o">=</span> <span class="p">(</span><span class="n">unsigned</span> <span class="n">long</span><span class="p">)</span><span class="n">tx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">rx_buf</span> <span class="o">=</span> <span class="p">(</span><span class="n">unsigned</span> <span class="n">long</span><span class="p">)</span><span class="n">rx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">tx</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">delay_usecs</span> <span class="o">=</span> <span class="n">delay</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">speed_hz</span> <span class="o">=</span> <span class="n">speed</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="o">.</span><span class="n">bits_per_word</span> <span class="o">=</span> <span class="n">bits</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">SPI_IOC_MESSAGE</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">tr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t send spi message&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">ret</span> <span class="o">&lt;</span> <span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">tx</span><span class="p">);</span> <span class="n">ret</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">ret</span> <span class="o">%</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">			<span class="n">puts</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">printf</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%.2X</span><span class="s2"> &#34;</span><span class="p">,</span> <span class="n">rx</span><span class="p">[</span><span class="n">ret</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">puts</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">void</span> <span class="n">print_usage</span><span class="p">(</span><span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">prog</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s2">&#34;Usage: </span><span class="si">%s</span><span class="s2"> [-DsbdlHOLC3]</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">prog</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">puts</span><span class="p">(</span><span class="s2">&#34;  -D --device   device to use (default /dev/spidev1.1)</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -s --speed    max speed (Hz)</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -d --delay    delay (usec)</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -b --bpw      bits per word </span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -l --loop     loopback</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -H --cpha     clock phase</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -O --cpol     clock polarity</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -L --lsb      least significant bit first</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -C --cs-high  chip select active high</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">	     <span class="s2">&#34;  -3 --3wire    SI/SO signals shared</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">void</span> <span class="n">parse_opts</span><span class="p">(</span><span class="ne">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">static</span> <span class="k">const</span> <span class="n">struct</span> <span class="n">option</span> <span class="n">lopts</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;device&#34;</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;speed&#34;</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;delay&#34;</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;bpw&#34;</span><span class="p">,</span>     <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;loop&#34;</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;cpha&#34;</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;cpol&#34;</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;lsb&#34;</span><span class="p">,</span>     <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;cs-high&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;3wire&#34;</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;no-cs&#34;</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="s2">&#34;ready&#34;</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span> <span class="n">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">};</span>
+</span></span><span class="line"><span class="cl">		<span class="ne">int</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">c</span> <span class="o">=</span> <span class="n">getopt_long</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s2">&#34;D:s:d:b:lHOLC3NR&#34;</span><span class="p">,</span> <span class="n">lopts</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">device</span> <span class="o">=</span> <span class="n">optarg</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">speed</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">optarg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">delay</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">optarg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">bits</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">optarg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_LOOP</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_CPHA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_CPOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;L&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_LSB_FIRST</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_CS_HIGH</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_3WIRE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_NO_CS</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s1">&#39;R&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">mode</span> <span class="o">|=</span> <span class="n">SPI_READY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="n">print_usage</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="ne">int</span> <span class="n">main</span><span class="p">(</span><span class="ne">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="ne">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="ne">int</span> <span class="n">fd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">parse_opts</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t open device&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">/*</span>
+</span></span><span class="line"><span class="cl">	 <span class="o">*</span> <span class="n">spi</span> <span class="n">mode</span>
+</span></span><span class="line"><span class="cl">	 <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">SPI_IOC_WR_MODE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t set spi mode&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">SPI_IOC_RD_MODE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t get spi mode&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">/*</span>
+</span></span><span class="line"><span class="cl">	 <span class="o">*</span> <span class="n">bits</span> <span class="n">per</span> <span class="n">word</span>
+</span></span><span class="line"><span class="cl">	 <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">SPI_IOC_WR_BITS_PER_WORD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bits</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t set bits per word&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">SPI_IOC_RD_BITS_PER_WORD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bits</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t get bits per word&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">/*</span>
+</span></span><span class="line"><span class="cl">	 <span class="o">*</span> <span class="nb">max</span> <span class="n">speed</span> <span class="n">hz</span>
+</span></span><span class="line"><span class="cl">	 <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">SPI_IOC_WR_MAX_SPEED_HZ</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">speed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t set max speed hz&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">SPI_IOC_RD_MAX_SPEED_HZ</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">speed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pabort</span><span class="p">(</span><span class="s2">&#34;can&#39;t get max speed hz&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s2">&#34;spi mode: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">mode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s2">&#34;bits per word: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">bits</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">printf</span><span class="p">(</span><span class="s2">&#34;max speed: </span><span class="si">%d</span><span class="s2"> Hz (</span><span class="si">%d</span><span class="s2"> KHz)</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">speed</span><span class="o">/</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">transfer</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>用一根杜邦线将Pi的MISO （GPIO 9）和MOSI (GPIO 10)短接，运行上面的代码应该得到如下输出（如果输出不是这样的，那一定是哪里不对了，重启一下看看行不行）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@raspberrypi2 ~/projects/spi_test # ./a.out -D /dev/spidev0.0
+</span></span><span class="line"><span class="cl">spi mode: 0
+</span></span><span class="line"><span class="cl">bits per word: 8
+</span></span><span class="line"><span class="cl">max speed: 500000 Hz (500 KHz)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">FF FF FF FF FF FF 
+</span></span><span class="line"><span class="cl">40 00 00 00 00 95 
+</span></span><span class="line"><span class="cl">FF FF FF FF FF FF 
+</span></span><span class="line"><span class="cl">FF FF FF FF FF FF 
+</span></span><span class="line"><span class="cl">FF FF FF FF FF FF 
+</span></span><span class="line"><span class="cl">DE AD BE EF BA AD 
+</span></span><span class="line"><span class="cl">F0 0D 
+</span></span></code></pre></div><h2 id="wiringpispi">wiringPiSPI</h2>
+<p><a href="https://projects.drogon.net/raspberry-pi/wiringpi/">wiringPi</a> 软件包提供了SPI使用的帮助类，接口定义如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int wiringPiSPISetup  (int channel, int speed) ;
+</span></span><span class="line"><span class="cl">int wiringPiSPIDataRW (int channel, unsigned char *data, int len) ;
+</span></span></code></pre></div><p>使用则非常简单，下面的代码每秒从Pi的MOSI针脚（第13号，左边倒数第三个）发送1个字节：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;wiringPi.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;wiringPiSPI.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nf">wiringPiSPISetup</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000000</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(;;)</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint8_t</span> <span class="n">c</span> <span class="o">=</span> <span class="mh">0x00</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">wiringPiSPIDataRW</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h1 id="实际应用">实际应用</h1>
+<p>前面介绍过的Nokia 5110是采用飞利浦PC8544芯片驱动的，就是采用SPI协议的。
+采用软件模拟的驱动不是很稳定，改成硬件SPI后就好了，<a href="https://github.com/hugozhu/rpi/tree/master/lib/PCD8544">基于wiringPi的实现</a>, <a href="https://github.com/hugozhu/rpi/tree/master/pcd8544">Go的封装</a></p>
+<h1 id="参考链接">参考链接</h1>
+<ol>
+<li><a href="http://www.brianhensley.net/2012/07/getting-spi-working-on-raspberry-pi.html">http://www.brianhensley.net/2012/07/getting-spi-working-on-raspberry-pi.html</a></li>
+<li>百度百科 - <a href="http://baike.baidu.com/view/245026.htm">http://baike.baidu.com/view/245026.htm</a></li>
+<li><a href="https://zh.wikipedia.org/zh/">https://zh.wikipedia.org/zh/</a>串行通信</li>
+<li><a href="https://projects.drogon.net/understanding-spi-on-the-raspberry-pi/">https://projects.drogon.net/understanding-spi-on-the-raspberry-pi/</a></li>
+</ol>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/rasperry-pi/">Rasperry Pi</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f25-get-spi-working-on-raspberry-pi-spi%2f&amp;text=%e5%9c%a8Raspberry%20Pi%e4%b8%8a%e4%bd%bf%e7%94%a8%e7%a1%ac%e4%bb%b6SPI&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f25-get-spi-working-on-raspberry-pi-spi%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f25-get-spi-working-on-raspberry-pi-spi%2f&amp;title=%e5%9c%a8Raspberry%20Pi%e4%b8%8a%e4%bd%bf%e7%94%a8%e7%a1%ac%e4%bb%b6SPI" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f25-get-spi-working-on-raspberry-pi-spi%2f&amp;title=%e5%9c%a8Raspberry%20Pi%e4%b8%8a%e4%bd%bf%e7%94%a8%e7%a1%ac%e4%bb%b6SPI" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f25-get-spi-working-on-raspberry-pi-spi%2f&amp;title=%e5%9c%a8Raspberry%20Pi%e4%b8%8a%e4%bd%bf%e7%94%a8%e7%a1%ac%e4%bb%b6SPI" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f25-get-spi-working-on-raspberry-pi-spi%2f&amp;description=%e5%9c%a8Raspberry%20Pi%e4%b8%8a%e4%bd%bf%e7%94%a8%e7%a1%ac%e4%bb%b6SPI" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2f25-get-spi-working-on-raspberry-pi-spi%2f&amp;subject=%e5%9c%a8Raspberry%20Pi%e4%b8%8a%e4%bd%bf%e7%94%a8%e7%a1%ac%e4%bb%b6SPI" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2013/26-backup-raspberry-pi/">备份Raspberry Pi</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2013/24-google-channel-service/" data-toggle="tooltip" data-placement="top" title="在Raspberry Pi上使用Google Channel服务搭建实时应用">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2013/26-backup-raspberry-pi/" data-toggle="tooltip" data-placement="top" title="备份Raspberry Pi">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2013/25-get-spi-working-on-raspberry-pi-spi">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2013\/25-get-spi-working-on-raspberry-pi-spi';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

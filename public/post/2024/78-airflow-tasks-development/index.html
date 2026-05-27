@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>使用Airflow开发大数据生产任务 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="Use airflow to develop big data task"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "使用Airflow开发大数据生产任务",
+  "@id": "https://hugozhu.site/post/2024/78-airflow-tasks-development/",
+  "url": "https://hugozhu.site/post/2024/78-airflow-tasks-development/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2024/78-airflow-tasks-development/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2024/78-airflow-tasks-development/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2024/78-airflow-tasks-development/",
+      "name": "使用Airflow开发大数据生产任务",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2024/78-airflow-tasks-development/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2024/78-airflow-tasks-development/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "使用Airflow开发大数据生产任务",
+  "description": "在大数据领域，任务调度和工作流管理是核心需求。无论是数据的抽取、转化、加载（ETL），还是数据分析任务，管理复杂的任务依赖性、监控任务执行情况并确保任务按时完成都十分重要。Apache Airflow 是一个开源的工作流管理平台，能够帮助你解决这些问题。\n",
+  "inLanguage": "en",
+  "wordCount":  225 ,
+  "dateCreated": "2024-08-24T00:00:00+00:00",
+  "datePublished": "2024-08-24T00:00:00+00:00",
+  "dateModified": "2024-08-24T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "airflow, python" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2024/78-airflow-tasks-development/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="使用Airflow开发大数据生产任务" />
+<meta property="og:description" content="Use airflow to develop big data task" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2024/78-airflow-tasks-development/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="使用Airflow开发大数据生产任务" />
+  <meta name="twitter:description" content="Use airflow to develop big data task">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>使用Airflow开发大数据生产任务</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Use airflow to develop big data task</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 24, 2024
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;225&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>在大数据领域，任务调度和工作流管理是核心需求。无论是数据的抽取、转化、加载（ETL），还是数据分析任务，管理复杂的任务依赖性、监控任务执行情况并确保任务按时完成都十分重要。Apache Airflow 是一个开源的工作流管理平台，能够帮助你解决这些问题。</p>
+<h1 id="问题和解决方案">问题和解决方案</h1>
+<p>在处理大数据任务时，我们常常需要一个灵活且强大的工具来管理复杂的工作流。理想的解决方案应该具备以下特点：</p>
+<ul>
+<li><strong>开源和通用</strong>：可以适应各种不同的数据任务场景。</li>
+<li><strong>水平扩展</strong>：能够随着数据量的增加轻松扩展。</li>
+<li><strong>强大的调度和监控功能</strong>：能够在任务失败时自动重试，并提供清晰的任务执行日志。</li>
+</ul>
+<p>Apache Airflow 满足了这些需求，并且由于其广泛的社区支持和丰富的插件生态系统，已经成为了大数据任务调度的标准选择之一。</p>
+<h1 id="apache-airflow-简介">Apache Airflow 简介</h1>
+<p><a href="https://airflow.apache.org">Apache Airflow</a> 是一个开源的工作流管理平台，使用 Python 代码来定义任务和依赖关系。Airflow 可以通过调度和监控任务，帮助开发者管理和自动化复杂的工作流。</p>
+<p>Airflow 的主要特点包括：</p>
+<ul>
+<li><strong>动态的任务调度</strong>：可以根据任务的执行结果和状态决定后续任务的执行。</li>
+<li><strong>丰富的可视化工具</strong>：提供了强大的 web 界面，可以清晰地展示任务的依赖关系和执行状态。</li>
+<li><strong>可扩展的架构</strong>：支持多种执行器（Executor），可以在单机或分布式环境中运行。</li>
+</ul>
+<h1 id="本地安装">本地安装</h1>
+<p>首先，我们需要在本地环境中安装 Apache Airflow 以进行开发。以下是安装步骤：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda create -n airflow
+</span></span><span class="line"><span class="cl">conda activate airflow
+</span></span><span class="line"><span class="cl">conda install pip
+</span></span><span class="line"><span class="cl">pip install google-re2<span class="o">==</span>1.1 <span class="c1">#解决安装包依赖问题</span>
+</span></span><span class="line"><span class="cl">pip install apache-airflow
+</span></span><span class="line"><span class="cl">pip install pandas
+</span></span><span class="line"><span class="cl">pip install apache-airflow-providers-dingding
+</span></span></code></pre></div><p>这些步骤将创建一个新的 Conda 环境并安装 Airflow 及其依赖项。确保你使用的是兼容的 Python 版本，以避免兼容性问题。</p>
+<h1 id="启动本地实例">启动本地实例</h1>
+<p>安装完成后，可以通过以下命令启动本地 Airflow 实例：</p>
+<p>环境变量定义，注意在苹果M1上需要设置NO_PROXY=&quot;*&quot; <a href="https://github.com/apache/airflow/discussions/24463">https://github.com/apache/airflow/discussions/24463</a></p>
+<p>cat .env</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">PYTHONWARNINGS=ignore::DeprecationWarning:cgitb
+</span></span><span class="line"><span class="cl">NO_PROXY=&#34;*&#34;
+</span></span><span class="line"><span class="cl">AIRFLOW__CORE__DAGS_FOLDER=./
+</span></span><span class="line"><span class="cl">AIRFLOW__CORE__LOAD_EXAMPLES=False
+</span></span><span class="line"><span class="cl">AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE=Asia/Shanghai
+</span></span><span class="line"><span class="cl">#AIRFLOW__CORE__HOSTNAME_CALLABLE=airflow.utils.net.get_host_ip_address
+</span></span><span class="line"><span class="cl">AIRFLOW__CORE__HOSTNAME_CALLABLE=airflow.utils.net.getfqdn
+</span></span></code></pre></div><p>启动</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda activate airflow
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="k">$(</span>grep -v <span class="s1">&#39;^#&#39;</span> .env <span class="p">|</span> xargs<span class="k">)</span>
+</span></span><span class="line"><span class="cl">airflow standalone
+</span></span></code></pre></div><p>这将启动一个本地的 Airflow 实例，并自动配置数据库、用户、和默认任务队列。你可以通过日志文件或终端中的输出信息来确认 Airflow 实例是否成功启动。</p>
+<h1 id="创建管理员账户">创建管理员账户</h1>
+<p>启动 Airflow 实例后，接下来需要创建一个管理员账户来访问 Airflow 的 Web 界面：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">airflow users create --role Admin --username airflow --email hugozhu@gmail.com --firstname Hugo --lastname Zhu --password airflow
+</span></span></code></pre></div><p>创建完管理员账户后，可以使用该账户登录 Airflow 的 Web 界面。</p>
+<h1 id="登录-airflow-web-界面">登录 Airflow Web 界面</h1>
+<p>打开浏览器，访问以下地址：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://localhost:8080
+</span></span></code></pre></div><p>使用刚才创建的账户信息（默认用户名和密码为 <code>airflow:airflow</code>）登录。</p>
+<p>登录后，你将看到 Airflow 的 Web 界面。在这个界面中，你可以管理 DAG（有向无环图）、查看任务执行状态、调试失败的任务以及设置告警和通知。</p>
+<h1 id="编写第一个-dag">编写第一个 DAG</h1>
+<p>在 Airflow 中，工作流是通过 DAG（Directed Acyclic Graph，有向无环图）定义的。每个 DAG 是由 Python 脚本定义的，它描述了任务及其依赖关系。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">airflow</span> <span class="kn">import</span> <span class="n">DAG</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">airflow.operators.bash</span> <span class="kn">import</span> <span class="n">BashOperator</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义 DAG</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">DAG</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dag_id</span><span class="o">=</span><span class="s1">&#39;example_dag&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">schedule_interval</span><span class="o">=</span><span class="s1">&#39;@daily&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">catchup</span><span class="o">=</span><span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="k">as</span> <span class="n">dag</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 定义任务</span>
+</span></span><span class="line"><span class="cl">    <span class="n">task1</span> <span class="o">=</span> <span class="n">BashOperator</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">task_id</span><span class="o">=</span><span class="s1">&#39;print_date&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bash_command</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">task2</span> <span class="o">=</span> <span class="n">BashOperator</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">task_id</span><span class="o">=</span><span class="s1">&#39;sleep&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bash_command</span><span class="o">=</span><span class="s1">&#39;sleep 5&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">task3</span> <span class="o">=</span> <span class="n">BashOperator</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">task_id</span><span class="o">=</span><span class="s1">&#39;print_hello&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bash_command</span><span class="o">=</span><span class="s1">&#39;echo &#34;Hello World&#34;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 设置任务依赖</span>
+</span></span><span class="line"><span class="cl">    <span class="n">task1</span> <span class="o">&gt;&gt;</span> <span class="n">task2</span> <span class="o">&gt;&gt;</span> <span class="n">task3</span>
+</span></span></code></pre></div><p>这个简单的 DAG 示例创建了三个任务：打印日期、等待 5 秒、打印 &ldquo;Hello World&rdquo;。这些任务按顺序执行。</p>
+<h1 id="结论">结论</h1>
+<p>Apache Airflow 是一个功能强大且灵活的工作流管理平台，非常适合用于大数据任务的调度和管理。通过本地安装、创建管理员账户和编写第一个 DAG，您已经掌握了 Airflow 的基础使用方法。</p>
+<p>接下来，您可以探索 Airflow 的更多高级特性，例如使用不同的执行器（Executor）在分布式环境中运行任务、集成各种数据源和目标以及实现复杂的任务调度逻辑。Airflow 的强大功能将为您的大数据项目提供强有力的支持。</p>
+<h1 id="参考">参考</h1>
+<ol>
+<li><a href="https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html">https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html</a></li>
+</ol>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/airflow/">airflow</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/python/">python</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2024%2f78-airflow-tasks-development%2f&amp;text=%e4%bd%bf%e7%94%a8Airflow%e5%bc%80%e5%8f%91%e5%a4%a7%e6%95%b0%e6%8d%ae%e7%94%9f%e4%ba%a7%e4%bb%bb%e5%8a%a1&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2024%2f78-airflow-tasks-development%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2024%2f78-airflow-tasks-development%2f&amp;title=%e4%bd%bf%e7%94%a8Airflow%e5%bc%80%e5%8f%91%e5%a4%a7%e6%95%b0%e6%8d%ae%e7%94%9f%e4%ba%a7%e4%bb%bb%e5%8a%a1" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2024%2f78-airflow-tasks-development%2f&amp;title=%e4%bd%bf%e7%94%a8Airflow%e5%bc%80%e5%8f%91%e5%a4%a7%e6%95%b0%e6%8d%ae%e7%94%9f%e4%ba%a7%e4%bb%bb%e5%8a%a1" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2024%2f78-airflow-tasks-development%2f&amp;title=%e4%bd%bf%e7%94%a8Airflow%e5%bc%80%e5%8f%91%e5%a4%a7%e6%95%b0%e6%8d%ae%e7%94%9f%e4%ba%a7%e4%bb%bb%e5%8a%a1" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2024%2f78-airflow-tasks-development%2f&amp;description=%e4%bd%bf%e7%94%a8Airflow%e5%bc%80%e5%8f%91%e5%a4%a7%e6%95%b0%e6%8d%ae%e7%94%9f%e4%ba%a7%e4%bb%bb%e5%8a%a1" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2024%2f78-airflow-tasks-development%2f&amp;subject=%e4%bd%bf%e7%94%a8Airflow%e5%bc%80%e5%8f%91%e5%a4%a7%e6%95%b0%e6%8d%ae%e7%94%9f%e4%ba%a7%e4%bb%bb%e5%8a%a1" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/120-build-code-llm-from-scratch/">Step-by-Step 实现一个能编程的大模型</a></li>
+                
+                    <li><a href="/post/2026/114-agent-reinforcement-learning-best-practices/">Agent强化学习的最佳实践：并行任务处理与性能优化</a></li>
+                
+                    <li><a href="/post/2025/104-e2b-with-self-host-docker-container/">使用docker容器来实现动态执行AI生成的代码</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2024/77-migrate-from-gor-to-hugo/" data-toggle="tooltip" data-placement="top" title="Blog迁移到hugo模版引擎">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2024/79-postgres-to-clickhouse/" data-toggle="tooltip" data-placement="top" title="使用clickhouse来关联查询postgres数据库">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2024/78-airflow-tasks-development">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2024\/78-airflow-tasks-development';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

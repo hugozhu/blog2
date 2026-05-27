@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文档解析 on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/%E6%96%87%E6%A1%A3%E8%A7%A3%E6%9E%90/</link>
+    <description>Recent content in 文档解析 on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/%E6%96%87%E6%A1%A3%E8%A7%A3%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>多模态AI驱动的B2B订单归一化：从非标准文档到MES系统的智能工作流</title>
+      <link>http://localhost:45445/post/2025/101-multimodal-ai-b2b-order-normalization/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2025/101-multimodal-ai-b2b-order-normalization/</guid>
+      <description>&lt;p&gt;传统制造企业在数字化转型过程中，面临着一个普遍而棘手的问题：来自不同客户的订单文档格式千差万别，有PDF、Excel、Word、扫描件、甚至手写订单。这些非标准化的订单数据需要人工录入MES（制造执行系统）才能启动生产流程，不仅效率低下，而且容易出错。&lt;/p&gt;&#xA;&lt;p&gt;随着GPT-4V、Claude 3.5 Sonnet等多模态大模型的成熟，我们终于有了一个优雅的解决方案：结合视觉识别能力、自然语言理解和代码生成能力，构建一个智能的订单归一化工作流。在这个工作流中，AI Agent承担大部分繁重工作，人类只需在关键节点进行验证和确认，实现真正的人机协作自动化。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

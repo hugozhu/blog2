@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="当 AI 平台的护城河不再是技术本身，而是生态、用户规模和沉淀下来的数据"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具",
+  "@id": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/",
+  "url": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/",
+      "name": "Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具",
+  "description": "2025 年以来，AI 应用层出现了一波令人眼花缭乱的平台：Manus 主打通用 AI Agent，Lovable 专注 AI 驱动的应用生成，Dify 提供 LLM 应用编排框架，Coze（扣子）让用户可以可视化地构建 AI Bot。它们看起来各有侧重，产品形态也不尽相同，但如果你退后一步观察，会发现它们在做的事情本质上是一样的——为大模型开发 Skills。\n",
+  "inLanguage": "en",
+  "wordCount":  242 ,
+  "dateCreated": "2026-02-22T00:00:00+00:00",
+  "datePublished": "2026-02-22T00:00:00+00:00",
+  "dateModified": "2026-02-22T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "AI, LLM, AI-agents, Manus, Lovable, Dify, Coze, AI-platform, skills" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具" />
+<meta property="og:description" content="当 AI 平台的护城河不再是技术本身，而是生态、用户规模和沉淀下来的数据" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具" />
+  <meta name="twitter:description" content="当 AI 平台的护城河不再是技术本身，而是生态、用户规模和沉淀下来的数据">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Manus、Lovable、Dify、Coze 的本质：为大模型开发 Skills 的工具</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">当 AI 平台的护城河不再是技术本身，而是生态、用户规模和沉淀下来的数据</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 22, 2026
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;242&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>2025 年以来，AI 应用层出现了一波令人眼花缭乱的平台：Manus 主打通用 AI Agent，Lovable 专注 AI 驱动的应用生成，Dify 提供 LLM 应用编排框架，Coze（扣子）让用户可以可视化地构建 AI Bot。它们看起来各有侧重，产品形态也不尽相同，但如果你退后一步观察，会发现它们在做的事情本质上是一样的——<strong>为大模型开发 Skills</strong>。</p>
+<h2 id="什么是大模型的-skills">什么是大模型的 Skills</h2>
+<p>要理解这个判断，先要理解&quot;Skill&quot;在大模型语境下意味着什么。</p>
+<p>大模型本身是一个通用的推理引擎。它拥有海量的知识和一定的推理能力，但面对具体任务时，它需要<strong>结构化的执行路径</strong>——知道该调用什么工具、按什么顺序执行步骤、如何处理中间结果、怎么与外部系统交互。这些结构化的执行路径，就是 Skill。</p>
+<p>举几个例子：</p>
+<ul>
+<li>在 Coze 上构建一个&quot;帮我总结会议纪要&quot;的 Bot，本质上是定义了一个 Skill：接收音频/文本 → 提取关键信息 → 按模板生成摘要 → 输出结果</li>
+<li>在 Dify 上编排一个 RAG 工作流，本质上是定义了一个 Skill：接收用户问题 → 检索知识库 → 组装上下文 → 生成回答</li>
+<li>在 Lovable 上描述一个应用需求，本质上是调用了一个 Skill：理解需求描述 → 选择技术栈 → 生成前后端代码 → 部署应用</li>
+<li>在 Manus 上让 Agent 完成一个复杂任务，本质上是编排多个 Skills：分解任务 → 调用浏览器/代码执行/文件操作等工具 → 协调子任务 → 汇总结果</li>
+</ul>
+<p>无论产品形态如何包装，这些平台的核心价值都是降低了&quot;为大模型定义和注册 Skill&quot;的门槛。</p>
+<h2 id="四个平台同一个本质">四个平台，同一个本质</h2>
+<p>让我们具体看看这四个平台的定位和它们的共性：</p>
+<table>
+  <thead>
+      <tr>
+          <th>平台</th>
+          <th>表面定位</th>
+          <th>本质</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Manus</strong></td>
+          <td>通用 AI Agent</td>
+          <td>通过预置和用户自定义的工具链，为大模型提供完成复杂任务的 Skill 集合</td>
+      </tr>
+      <tr>
+          <td><strong>Lovable</strong></td>
+          <td>AI 应用生成器</td>
+          <td>将&quot;从自然语言到可运行应用&quot;封装成一个高度集成的 Skill</td>
+      </tr>
+      <tr>
+          <td><strong>Dify</strong></td>
+          <td>LLM 应用开发平台</td>
+          <td>提供可视化的 Skill 编排界面，让用户通过拖拽定义工作流</td>
+      </tr>
+      <tr>
+          <td><strong>Coze</strong></td>
+          <td>AI Bot 构建平台</td>
+          <td>提供插件市场和工作流编辑器，让用户组合和创建 Skills</td>
+      </tr>
+  </tbody>
+</table>
+<p>它们的差异在于面向的用户群体和交互方式的设计，但底层逻辑是一致的：<strong>让更多人能够为大模型创造更多的 Skill，从而扩展大模型的能力边界</strong>。</p>
+<p>这就像是移动互联网早期的 App Store、小程序平台和各种 Low-Code 工具——它们的本质都是让更多开发者为手机这个&quot;通用计算平台&quot;创造应用。今天，这些 AI 平台在做完全类似的事情，只不过&quot;通用计算平台&quot;变成了&quot;大模型&quot;。</p>
+<h2 id="大模型的自我进化从-skills-到强化学习">大模型的自我进化：从 Skills 到强化学习</h2>
+<p>这里有一个更深层的趋势值得关注：<strong>大模型会通过这些 Skills 的使用反馈不断进化</strong>。</p>
+<p>这不是科幻式的想象，而是已经在发生的工程实践。当数以百万计的用户在这些平台上使用各种 Skill 完成任务时，产生了大量的交互数据：</p>
+<ul>
+<li>哪些 Skill 编排方式成功率高</li>
+<li>用户在什么环节需要人工介入</li>
+<li>哪些任务分解策略更有效</li>
+<li>什么样的提示词能获得更好的结果</li>
+</ul>
+<p>这些数据本质上就是<strong>强化学习的信号</strong>。大模型可以从中学到：</p>
+<ol>
+<li><strong>任务理解能力的提升</strong>：见过足够多的用户意图表达后，模型能更准确地理解模糊的、不完整的需求描述</li>
+<li><strong>工具调用策略的优化</strong>：通过大量的成功/失败反馈，模型学会在什么场景下该用什么工具、按什么顺序调用</li>
+<li><strong>错误恢复能力的增强</strong>：遇到过足够多的异常情况后，模型能更好地处理边界条件和意外状况</li>
+<li><strong>多步骤规划能力的进化</strong>：复杂任务的完成记录帮助模型学会更有效的任务分解和执行规划</li>
+</ol>
+<p>这形成了一个正循环：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用户使用 Skills 完成任务
+</span></span><span class="line"><span class="cl">       ↓
+</span></span><span class="line"><span class="cl">产生交互数据和反馈信号
+</span></span><span class="line"><span class="cl">       ↓
+</span></span><span class="line"><span class="cl">大模型通过强化学习进化
+</span></span><span class="line"><span class="cl">       ↓
+</span></span><span class="line"><span class="cl">Skill 执行效果提升
+</span></span><span class="line"><span class="cl">       ↓
+</span></span><span class="line"><span class="cl">用户体验改善，更多用户使用
+</span></span><span class="line"><span class="cl">       ↓
+</span></span><span class="line"><span class="cl">产生更多高质量数据
+</span></span><span class="line"><span class="cl">       ↓
+</span></span><span class="line"><span class="cl">（循环继续）
+</span></span></code></pre></div><p>这就是为什么<strong>用户和大模型的交互会变得越来越简单</strong>。不是因为平台的 UI 做得更好了（虽然这也重要），而是因为大模型本身在变强——它越来越能理解你的意图，越来越擅长规划执行步骤，越来越能在出错时自我修正。</p>
+<h2 id="护城河在哪里">护城河在哪里</h2>
+<p>既然这些平台本质上都在做同一件事，那它们的竞争壁垒在哪里？</p>
+<p><strong>不在技术本身。</strong></p>
+<p>底层的大模型能力在快速趋同。今天你用 GPT-4，明天可以切换到 Claude，后天可能是开源模型。Skill 的编排框架、工具调用协议（如 MCP）、Agent 架构模式——这些技术组件都在快速标准化和开源化。任何一个有能力的团队都可以在几周内搭建出类似的技术栈。</p>
+<p>真正的护城河在三个地方：</p>
+<h3 id="1-生态ecosystem">1. 生态（Ecosystem）</h3>
+<p>这里的生态不只是&quot;有多少插件&quot;，而是一个自我强化的网络效应：</p>
+<ul>
+<li><strong>Skill 创作者</strong>：有多少人在平台上创建高质量的 Skill/插件/工作流</li>
+<li><strong>使用者反馈</strong>：这些 Skill 被多少人使用过，积累了多少评价和改进建议</li>
+<li><strong>跨 Skill 的组合效应</strong>：不同 Skill 之间能否方便地组合，形成更强大的能力</li>
+</ul>
+<p>Coze 的插件市场、Dify 的模板市场、Manus 的工具生态——谁能率先形成一个繁荣的 Skill 生态，谁就拥有了竞争对手难以复制的优势。这就像 iOS 和 Android 的 App 生态一样，一旦形成规模，迁移成本极高。</p>
+<h3 id="2-核心用户规模core-user-scale">2. 核心用户规模（Core User Scale）</h3>
+<p>这里的&quot;核心用户&quot;不是泛泛的注册用户数，而是指那些<strong>深度使用并持续创造价值</strong>的用户：</p>
+<ul>
+<li>在平台上构建了大量 Skill 并持续维护的开发者</li>
+<li>将平台深度集成到工作流程中的企业用户</li>
+<li>活跃在社区中分享经验和解决方案的布道者</li>
+</ul>
+<p>核心用户的规模决定了平台的内容产出速度、问题解决能力和创新密度。100 个深度用户比 10000 个浅尝辄止的注册用户更有价值。</p>
+<h3 id="3-沉淀下来的数据accumulated-data">3. 沉淀下来的数据（Accumulated Data）</h3>
+<p>这是最容易被忽视但可能是最重要的护城河。</p>
+<p>用户在平台上的每一次交互都在产生数据：</p>
+<ul>
+<li><strong>任务模式数据</strong>：什么类型的任务最常见，用户通常怎么描述需求</li>
+<li><strong>Skill 效果数据</strong>：哪些 Skill 组合在什么场景下效果最好</li>
+<li><strong>纠错数据</strong>：用户在什么环节介入修正，模型犯了什么类型的错误</li>
+<li><strong>领域知识数据</strong>：不同行业、不同场景下的最佳实践</li>
+</ul>
+<p>这些数据是喂给大模型进行强化学习的燃料。拥有更多高质量数据的平台，能让它所依赖的大模型（或微调模型）在特定场景下表现更好，从而吸引更多用户，产生更多数据——又是一个正循环。</p>
+<h2 id="这意味着什么">这意味着什么</h2>
+<p>如果这个判断是正确的，那么有几个推论值得思考：</p>
+<p><strong>对创业者来说</strong>，不要把精力花在技术差异化上。底层模型能力会趋同，框架和工具会开源。应该把精力放在：找到一个垂直场景，尽快积累核心用户和数据飞轮。</p>
+<p><strong>对大模型公司来说</strong>，这些平台既是客户也是竞争者。它们是大模型能力的放大器，但也在逐步掌握用户关系和数据。未来谁拥有用户交互数据，谁就拥有模型进化的话语权。这也是为什么 OpenAI 自己做 GPTs 和 Operator，Anthropic 推出 Claude Code 和 MCP 协议——大模型公司不甘心只做底层 API 供应商。</p>
+<p><strong>对用户来说</strong>，不必纠结于选择哪个平台。短期看功能和体验，长期看生态和数据积累。最重要的是培养自己&quot;为大模型定义 Skill&quot;的能力——这种能力是跨平台的，无论底层工具怎么变，你对任务分解、工具编排、提示词设计的理解都能迁移。</p>
+<p><strong>对整个行业来说</strong>，我们正在见证一个类似&quot;操作系统 + 应用商店&quot;的格局在 AI 领域重演。大模型是操作系统，Skills 是应用，这些平台是应用商店和开发工具。历史不会简单重复，但会押着相似的韵脚。</p>
+<h2 id="结语">结语</h2>
+<p>Manus、Lovable、Dify、Coze——名字不同，愿景各异，但本质上它们都在做同一件事：降低为大模型创造 Skills 的门槛，然后通过用户数据的积累推动大模型的进化。</p>
+<p>最终的赢家不是技术最先进的那个，而是生态最繁荣、核心用户最多、数据积累最深厚的那个。这个判断不新鲜——互联网时代的每一次平台竞争都遵循这个逻辑。但在 AI 时代，它有一个新的维度：沉淀下来的数据不仅服务于平台本身，还直接驱动了底层大模型的进化。数据的价值被放大了一个数量级。</p>
+<p>这是一场关于生态和数据的长跑，而不是一场关于技术的短跑。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/ai/">AI</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/llm/">LLM</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ai-agents/">AI-agents</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/manus/">Manus</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/lovable/">Lovable</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/dify/">Dify</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/coze/">Coze</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/ai-platform/">AI-platform</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/skills/">skills</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f123-ai-skill-platforms-moat-and-evolution%2f&amp;text=Manus%e3%80%81Lovable%e3%80%81Dify%e3%80%81Coze%20%e7%9a%84%e6%9c%ac%e8%b4%a8%ef%bc%9a%e4%b8%ba%e5%a4%a7%e6%a8%a1%e5%9e%8b%e5%bc%80%e5%8f%91%20Skills%20%e7%9a%84%e5%b7%a5%e5%85%b7&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f123-ai-skill-platforms-moat-and-evolution%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f123-ai-skill-platforms-moat-and-evolution%2f&amp;title=Manus%e3%80%81Lovable%e3%80%81Dify%e3%80%81Coze%20%e7%9a%84%e6%9c%ac%e8%b4%a8%ef%bc%9a%e4%b8%ba%e5%a4%a7%e6%a8%a1%e5%9e%8b%e5%bc%80%e5%8f%91%20Skills%20%e7%9a%84%e5%b7%a5%e5%85%b7" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f123-ai-skill-platforms-moat-and-evolution%2f&amp;title=Manus%e3%80%81Lovable%e3%80%81Dify%e3%80%81Coze%20%e7%9a%84%e6%9c%ac%e8%b4%a8%ef%bc%9a%e4%b8%ba%e5%a4%a7%e6%a8%a1%e5%9e%8b%e5%bc%80%e5%8f%91%20Skills%20%e7%9a%84%e5%b7%a5%e5%85%b7" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f123-ai-skill-platforms-moat-and-evolution%2f&amp;title=Manus%e3%80%81Lovable%e3%80%81Dify%e3%80%81Coze%20%e7%9a%84%e6%9c%ac%e8%b4%a8%ef%bc%9a%e4%b8%ba%e5%a4%a7%e6%a8%a1%e5%9e%8b%e5%bc%80%e5%8f%91%20Skills%20%e7%9a%84%e5%b7%a5%e5%85%b7" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f123-ai-skill-platforms-moat-and-evolution%2f&amp;description=Manus%e3%80%81Lovable%e3%80%81Dify%e3%80%81Coze%20%e7%9a%84%e6%9c%ac%e8%b4%a8%ef%bc%9a%e4%b8%ba%e5%a4%a7%e6%a8%a1%e5%9e%8b%e5%bc%80%e5%8f%91%20Skills%20%e7%9a%84%e5%b7%a5%e5%85%b7" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2026%2f123-ai-skill-platforms-moat-and-evolution%2f&amp;subject=Manus%e3%80%81Lovable%e3%80%81Dify%e3%80%81Coze%20%e7%9a%84%e6%9c%ac%e8%b4%a8%ef%bc%9a%e4%b8%ba%e5%a4%a7%e6%a8%a1%e5%9e%8b%e5%bc%80%e5%8f%91%20Skills%20%e7%9a%84%e5%b7%a5%e5%85%b7" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2026/178-agent-model-plus-harness/">Agent = Model &#43; Harness：从 Anthropic Managed Agents 看 Agent 架构演进</a></li>
+                
+                    <li><a href="/post/2026/173-ai-native-org-mvp-design/">把组织当成产品来打造：AI 原生组织的 MVP 设计</a></li>
+                
+                    <li><a href="/post/2026/174-from-generalization-to-evolution-ai-agent-next-stop/">从泛化到进化：AI Agent 的下一站</a></li>
+                
+                    <li><a href="/post/2026/171-ai-era-can-everyone-build-models/">AI 时代，人人都能建模了吗？</a></li>
+                
+                    <li><a href="/post/2026/172-evolvable-agent-skills-best-practices/">让 AI 自己写 Skill：可进化 Agent 的设计原理与最佳实践</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2026/122-claude-code-new-engineering-paradigm/" data-toggle="tooltip" data-placement="top" title="Claude Code 时代的工程师新范式：几个月掌握别人十年的经验">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2026/125-stop-saving-tokens-llm-best-practice/" data-toggle="tooltip" data-placement="top" title="任何省 Token 的做法都不是大模型的最佳实践">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2026/123-ai-skill-platforms-moat-and-evolution">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2026\/123-ai-skill-platforms-moat-and-evolution';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

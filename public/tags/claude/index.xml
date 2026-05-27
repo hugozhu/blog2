@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claude on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/claude/</link>
+    <description>Recent content in Claude on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/claude/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI时代的新代码大全：从McConnell的三大启示到Claude Skill编写指南</title>
+      <link>http://localhost:45445/post/2026/145-new-code-complete-for-ai-era/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/145-new-code-complete-for-ai-era/</guid>
+      <description>&lt;p&gt;二十年前，Steve McConnell 的《代码大全》(Code Complete 2nd) 以其近 900 页的体量，成为软件工程领域一座难以逾越的丰碑。二十年后，它依然是无数工程师书架上的必备经典。在一场&lt;a href=&#34;https://www.youtube.com/watch?v=iPKmcLxuS_A&#34;&gt;深度的访谈&lt;/a&gt;中，McConnell 分享了这部巨著背后的故事、对职业发展的深刻洞见，以及对 AI 时代的冷静思考。&lt;/p&gt;&#xA;&lt;p&gt;尽管技术浪潮已更迭数代，但 McConnell 的核心思想依然闪耀着永恒的光芒。我从中提炼出三大&amp;quot;启示&amp;quot;，它们穿越了语言和工具的变迁，直指软件开发的本质。而当我读完 Anthropic 刚刚发布的 &lt;a href=&#34;https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf&#34;&gt;The Complete Guide to Building Skills for Claude&lt;/a&gt; 时，我惊讶地发现：&lt;strong&gt;这份 AI 时代的&amp;quot;新代码大全&amp;quot;，正是 McConnell 理念的最佳实践者。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>以前人给 AI 造工具，现在 AI 自己造工具</title>
+      <link>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/131-ai-creates-its-own-tools-programmatic-tool-calling/</guid>
+      <description>&lt;p&gt;做 AI Agent 开发这一年多来，我经历了一个认知上的转变：以前的默认思路是&amp;quot;我要给 AI 准备好一切工具，让它去调用&amp;quot;；而现在，越来越多的场景让我意识到——&lt;strong&gt;AI 为了完成任务，会自己造工具&lt;/strong&gt;。这不是一个隐喻，而是一个正在发生的技术事实。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Clawdbot：运行在你自己设备上的个人AI助手</title>
+      <link>http://localhost:45445/post/2026/118-clawdbot-personal-ai-assistant/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/118-clawdbot-personal-ai-assistant/</guid>
+      <description>&lt;p&gt;在AI助手日益普及的今天，我们往往需要依赖云端服务来使用这些智能工具。但如果你想要一个完全由自己控制、运行在本地的AI助手呢？今天要介绍的 &lt;strong&gt;Clawdbot&lt;/strong&gt; 就是这样一个开源项目——一个真正属于你的个人AI助手。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

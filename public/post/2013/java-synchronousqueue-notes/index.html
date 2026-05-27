@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Java并发包中的同步队列SynchronousQueue实现原理 - Hugo Zhu&#39;s Blog</title>
+
+  <meta name="description" content="Notes about non-blocking SynchronousQueue implementation"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "All about Raspberry Pi",
+  "url": "https://hugozhu.site/",
+  "@id": "https://hugozhu.site/#website"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name":  null ,
+  "@id": "https://hugozhu.site/#organization",
+  "url": "https://hugozhu.site/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Java并发包中的同步队列SynchronousQueue实现原理",
+  "@id": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/",
+  "url": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/",
+  "breadcrumb": {
+    "@id": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/",
+      "name": "Posts",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/",
+      "name": "Java并发包中的同步队列SynchronousQueue实现原理",
+      "position": 3
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/#article",
+  "isPartOf": {
+    "@id": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/"
+  },
+  "author": {
+    "name": "",
+    "url": "https://hugozhu.site/",
+    "@id": "https://hugozhu.site/#author"
+  },
+  "headline": "Java并发包中的同步队列SynchronousQueue实现原理",
+  "description": "Notes about non-blocking SynchronousQueue implementation",
+  "inLanguage": "en",
+  "wordCount":  834 ,
+  "dateCreated": "2013-03-05T00:00:00+00:00",
+  "datePublished": "2013-03-05T00:00:00+00:00",
+  "dateModified": "2013-03-05T00:00:00+00:00",
+  "image": "https://hugozhu.site/img/pi.png",
+  "keywords": [ "Java, Concurrent Programming" ],
+  "mainEntityOfPage": {
+    "@id": "https://hugozhu.site/post/2013/java-synchronousqueue-notes/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "https://hugozhu.site/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://hugozhu.site/img/pi.png",
+        "height": 60 ,
+        "width": 60
+    }
+  }
+}
+</script>
+
+
+
+<meta property="og:title" content="Java并发包中的同步队列SynchronousQueue实现原理" />
+<meta property="og:description" content="Notes about non-blocking SynchronousQueue implementation" />
+<meta property="og:image" content="https://hugozhu.site/img/pi.png" />
+<meta property="og:url" content="https://hugozhu.site/post/2013/java-synchronousqueue-notes/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All about Raspberry Pi" />
+
+  <meta name="twitter:title" content="Java并发包中的同步队列SynchronousQueue实现原理" />
+  <meta name="twitter:description" content="Notes about non-blocking SynchronousQueue implementation">
+  <meta name="twitter:image" content="https://hugozhu.site/img/pi.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://hugozhu.site/img/pi.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.161.1">
+  <link rel="alternate" href="https://hugozhu.site/index.xml" type="application/rss+xml" title="All about Raspberry Pi"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://hugozhu.site/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://hugozhu.site/css/highlight.min.css" /><link rel="stylesheet" href="https://hugozhu.site/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" crossorgin href="/assets/index-C1z1vz3D.css" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W88HDMN"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'GTM-W88HDMN');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://hugozhu.site/">All about Raspberry Pi</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="https://nddapp.com/json-encoder.html">HTML Tools</a>
+                
+                  <a href="https://www.birme.net/">Imaeg Resizing</a>
+                
+                  <a href="https://jwt.io/">JWT Token Tool</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+        <li style="padding-top:8px">
+        <style>
+          .docsearch-modal-container {
+              z-index: 9999;
+          }
+        </style>
+        <div id="docsearch"></div>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="All about Raspberry Pi" href="https://hugozhu.site/">
+            <img class="avatar-img" src="https://hugozhu.site/img/pi.png" alt="All about Raspberry Pi" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Java并发包中的同步队列SynchronousQueue实现原理</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 5, 2013
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;834&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="介绍">介绍</h2>
+<p>Java 6的并发编程包中的<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/SynchronousQueue.html">SynchronousQueue</a>是一个没有数据缓冲的<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/BlockingQueue.html">BlockingQueue</a>，生产者线程对其的插入操作put必须等待消费者的移除操作take，反过来也一样。</p>
+<p>不像ArrayBlockingQueue或LinkedListBlockingQueue，SynchronousQueue内部并没有数据缓存空间，你不能调用peek()方法来看队列中是否有数据元素，因为数据元素只有当你试着取走的时候才可能存在，不取走而只想偷窥一下是不行的，当然遍历这个队列的操作也是不允许的。队列头元素是第一个排队要插入数据的<strong>线程</strong>，而不是要交换的数据。数据是在配对的生产者和消费者线程之间直接传递的，并不会将数据缓冲数据到队列中。可以这样来理解：生产者和消费者互相等待对方，握手，然后<strong>一起</strong>离开。</p>
+<p>SynchronousQueue的一个使用场景是在线程池里。Executors.newCachedThreadPool()就使用了SynchronousQueue，这个线程池根据需要（新任务到来时）创建新的线程，如果有空闲线程则会重复使用，线程空闲了60秒后会被回收。</p>
+<h2 id="实现原理">实现原理</h2>
+<p>同步队列的实现方法有许多：</p>
+<h3 id="阻塞算法实现">阻塞算法实现</h3>
+<p>阻塞算法实现通常在内部采用一个锁来保证多个线程中的put()和take()方法是串行执行的。采用锁的开销是比较大的，还会存在一种情况是线程A持有线程B需要的锁，B必须一直等待A释放锁，即使A可能一段时间内因为B的优先级比较高而得不到时间片运行。所以在高性能的应用中我们常常希望规避锁的使用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class NativeSynchronousQueue&lt;E&gt; {
+</span></span><span class="line"><span class="cl">    boolean putting = false;
+</span></span><span class="line"><span class="cl">    E item = null;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public synchronized E take() throws InterruptedException {
+</span></span><span class="line"><span class="cl">        while (item == null)
+</span></span><span class="line"><span class="cl">            wait();
+</span></span><span class="line"><span class="cl">        E e = item;
+</span></span><span class="line"><span class="cl">        item = null;
+</span></span><span class="line"><span class="cl">        notifyAll();
+</span></span><span class="line"><span class="cl">        return e;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public synchronized void put(E e) throws InterruptedException {
+</span></span><span class="line"><span class="cl">        if (e==null) return;
+</span></span><span class="line"><span class="cl">        while (putting)
+</span></span><span class="line"><span class="cl">            wait();
+</span></span><span class="line"><span class="cl">        putting = true;
+</span></span><span class="line"><span class="cl">        item = e;
+</span></span><span class="line"><span class="cl">        notifyAll();
+</span></span><span class="line"><span class="cl">        while (item!=null)
+</span></span><span class="line"><span class="cl">            wait();
+</span></span><span class="line"><span class="cl">        putting = false;
+</span></span><span class="line"><span class="cl">        notifyAll();
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="信号量实现">信号量实现</h3>
+<p>经典同步队列实现采用了三个信号量，代码很简单，比较容易理解：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class SemaphoreSynchronousQueue&lt;E&gt; {
+</span></span><span class="line"><span class="cl">    E item = null;
+</span></span><span class="line"><span class="cl">    Semaphore sync = new Semaphore(0);
+</span></span><span class="line"><span class="cl">    Semaphore send = new Semaphore(1);
+</span></span><span class="line"><span class="cl">    Semaphore recv = new Semaphore(0);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public E take() throws InterruptedException {
+</span></span><span class="line"><span class="cl">        recv.acquire();
+</span></span><span class="line"><span class="cl">        E x = item;
+</span></span><span class="line"><span class="cl">        sync.release();
+</span></span><span class="line"><span class="cl">        send.release();
+</span></span><span class="line"><span class="cl">        return x;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public void put (E x) throws InterruptedException{
+</span></span><span class="line"><span class="cl">        send.acquire();
+</span></span><span class="line"><span class="cl">        item = x;
+</span></span><span class="line"><span class="cl">        recv.release();
+</span></span><span class="line"><span class="cl">        sync.acquire();
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>在多核机器上，上面方法的同步代价仍然较高，操作系统调度器需要上千个时间片来阻塞或唤醒线程，而上面的实现即使在生产者put()时已经有一个消费者在等待的情况下，阻塞和唤醒的调用仍然需要。</p>
+<h3 id="java-5实现">Java 5实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">public</span> <span class="k">class</span> <span class="n">Java5SynchronousQueue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ReentrantLock</span> <span class="n">qlock</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ReentrantLock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Queue</span> <span class="n">waitingProducers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Queue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Queue</span> <span class="n">waitingConsumers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Queue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="k">class</span> <span class="ne">Node</span> <span class="k">extends</span> <span class="n">AbstractQueuedSynchronizer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">E</span> <span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="ne">Node</span> <span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="ne">Node</span><span class="p">(</span><span class="ne">Object</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">item</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">void</span> <span class="n">waitForTake</span><span class="p">()</span> <span class="p">{</span> <span class="o">/*</span> <span class="p">(</span><span class="n">uses</span> <span class="n">AQS</span><span class="p">)</span> <span class="o">*/</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">           <span class="n">E</span> <span class="n">waitForPut</span><span class="p">()</span> <span class="p">{</span> <span class="o">/*</span> <span class="p">(</span><span class="n">uses</span> <span class="n">AQS</span><span class="p">)</span> <span class="o">*/</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">public</span> <span class="n">E</span> <span class="n">take</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="ne">Node</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">boolean</span> <span class="n">mustWait</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">qlock</span><span class="o">.</span><span class="n">lock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="n">waitingProducers</span><span class="o">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">mustWait</span> <span class="o">=</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="n">null</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">           <span class="n">node</span> <span class="o">=</span> <span class="n">waitingConsumers</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">qlock</span><span class="o">.</span><span class="n">unlock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">mustWait</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">waitForPut</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">public</span> <span class="n">void</span> <span class="n">put</span><span class="p">(</span><span class="n">E</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="ne">Node</span> <span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">boolean</span> <span class="n">mustWait</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">         <span class="n">qlock</span><span class="o">.</span><span class="n">lock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">         <span class="n">node</span> <span class="o">=</span> <span class="n">waitingConsumers</span><span class="o">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">         <span class="k">if</span> <span class="p">(</span><span class="n">mustWait</span> <span class="o">=</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="n">null</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">             <span class="n">node</span> <span class="o">=</span> <span class="n">waitingProducers</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">qlock</span><span class="o">.</span><span class="n">unlock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">         <span class="k">if</span> <span class="p">(</span><span class="n">mustWait</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">             <span class="n">node</span><span class="o">.</span><span class="n">waitForTake</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">         <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Java 5的实现相对来说做了一些优化，只使用了一个锁，使用队列代替信号量也可以允许发布者直接发布数据，而不是要首先从阻塞在信号量处被唤醒。</p>
+<h3 id="java6实现">Java6实现</h3>
+<p>Java 6的SynchronousQueue的实现采用了一种性能更好的<strong>无锁算法</strong> &ndash; 扩展的“<a href="http://www.cs.rochester.edu/research/synchronization/pseudocode/duals.html">Dual stack and Dual queue</a>”算法。性能比Java5的实现有较大提升。竞争机制支持公平和非公平两种：非公平竞争模式使用的数据结构是后进先出栈(Lifo Stack)；公平竞争模式则使用先进先出队列（Fifo Queue），性能上两者是相当的，一般情况下，Fifo通常可以支持更大的吞吐量，但Lifo可以更大程度的保持线程的本地化。</p>
+<p>代码实现里的Dual Queue或Stack内部是用链表(LinkedList)来实现的，其节点状态为以下三种情况：</p>
+<ol>
+<li>持有数据 - put()方法的元素</li>
+<li>持有请求 - take()方法</li>
+<li>空</li>
+</ol>
+<p>这个算法的特点就是任何操作都可以根据节点的状态判断执行，而不需要用到锁。</p>
+<p>其核心接口是Transfer，生产者的put或消费者的take都使用这个接口，根据第一个参数来区别是入列（栈）还是出列（栈）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    /**
+</span></span><span class="line"><span class="cl">     * Shared internal API for dual stacks and queues.
+</span></span><span class="line"><span class="cl">     */
+</span></span><span class="line"><span class="cl">    static abstract class Transferer {
+</span></span><span class="line"><span class="cl">        /**
+</span></span><span class="line"><span class="cl">         * Performs a put or take.
+</span></span><span class="line"><span class="cl">         *
+</span></span><span class="line"><span class="cl">         * @param e if non-null, the item to be handed to a consumer;
+</span></span><span class="line"><span class="cl">         *          if null, requests that transfer return an item
+</span></span><span class="line"><span class="cl">         *          offered by producer.
+</span></span><span class="line"><span class="cl">         * @param timed if this operation should timeout
+</span></span><span class="line"><span class="cl">         * @param nanos the timeout, in nanoseconds
+</span></span><span class="line"><span class="cl">         * @return if non-null, the item provided or received; if null,
+</span></span><span class="line"><span class="cl">         *         the operation failed due to timeout or interrupt --
+</span></span><span class="line"><span class="cl">         *         the caller can distinguish which of these occurred
+</span></span><span class="line"><span class="cl">         *         by checking Thread.interrupted.
+</span></span><span class="line"><span class="cl">         */
+</span></span><span class="line"><span class="cl">        abstract Object transfer(Object e, boolean timed, long nanos);
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></div><p>TransferQueue实现如下(摘自Java 6源代码)，入列和出列都基于Spin和CAS方法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">        <span class="o">/**</span>
+</span></span><span class="line"><span class="cl">         <span class="o">*</span> <span class="n">Puts</span> <span class="ow">or</span> <span class="n">takes</span> <span class="n">an</span> <span class="n">item</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">         <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">        <span class="ne">Object</span> <span class="n">transfer</span><span class="p">(</span><span class="ne">Object</span> <span class="n">e</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">timed</span><span class="p">,</span> <span class="n">long</span> <span class="n">nanos</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="o">/*</span> <span class="n">Basic</span> <span class="n">algorithm</span> <span class="n">is</span> <span class="n">to</span> <span class="n">loop</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">take</span> <span class="n">either</span> <span class="n">of</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">two</span> <span class="n">actions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="mf">1.</span> <span class="n">If</span> <span class="n">queue</span> <span class="n">apparently</span> <span class="n">empty</span> <span class="ow">or</span> <span class="n">holding</span> <span class="n">same</span><span class="o">-</span><span class="n">mode</span> <span class="n">nodes</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>    <span class="n">try</span> <span class="n">to</span> <span class="n">add</span> <span class="n">node</span> <span class="n">to</span> <span class="n">queue</span> <span class="n">of</span> <span class="n">waiters</span><span class="p">,</span> <span class="n">wait</span> <span class="n">to</span> <span class="n">be</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>    <span class="n">fulfilled</span> <span class="p">(</span><span class="ow">or</span> <span class="n">cancelled</span><span class="p">)</span> <span class="ow">and</span> <span class="k">return</span> <span class="n">matching</span> <span class="n">item</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="mf">2.</span> <span class="n">If</span> <span class="n">queue</span> <span class="n">apparently</span> <span class="n">contains</span> <span class="n">waiting</span> <span class="n">items</span><span class="p">,</span> <span class="ow">and</span> <span class="n">this</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>    <span class="n">call</span> <span class="n">is</span> <span class="n">of</span> <span class="n">complementary</span> <span class="n">mode</span><span class="p">,</span> <span class="n">try</span> <span class="n">to</span> <span class="n">fulfill</span> <span class="n">by</span> <span class="n">CAS</span><span class="s1">&#39;ing</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>    <span class="n">item</span> <span class="n">field</span> <span class="n">of</span> <span class="n">waiting</span> <span class="n">node</span> <span class="ow">and</span> <span class="n">dequeuing</span> <span class="n">it</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>    <span class="n">returning</span> <span class="n">matching</span> <span class="n">item</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">In</span> <span class="n">each</span> <span class="k">case</span><span class="p">,</span> <span class="n">along</span> <span class="n">the</span> <span class="n">way</span><span class="p">,</span> <span class="n">check</span> <span class="k">for</span> <span class="ow">and</span> <span class="n">try</span> <span class="n">to</span> <span class="n">help</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">advance</span> <span class="n">head</span> <span class="ow">and</span> <span class="n">tail</span> <span class="n">on</span> <span class="n">behalf</span> <span class="n">of</span> <span class="n">other</span> <span class="n">stalled</span><span class="o">/</span><span class="n">slow</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">threads</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">The</span> <span class="n">loop</span> <span class="n">starts</span> <span class="n">off</span> <span class="n">with</span> <span class="n">a</span> <span class="n">null</span> <span class="n">check</span> <span class="n">guarding</span> <span class="n">against</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">seeing</span> <span class="n">uninitialized</span> <span class="n">head</span> <span class="ow">or</span> <span class="n">tail</span> <span class="n">values</span><span class="o">.</span> <span class="n">This</span> <span class="n">never</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">happens</span> <span class="ow">in</span> <span class="n">current</span> <span class="n">SynchronousQueue</span><span class="p">,</span> <span class="n">but</span> <span class="n">could</span> <span class="k">if</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">callers</span> <span class="n">held</span> <span class="n">non</span><span class="o">-</span><span class="n">volatile</span><span class="o">/</span><span class="n">final</span> <span class="n">ref</span> <span class="n">to</span> <span class="n">the</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">transferer</span><span class="o">.</span> <span class="n">The</span> <span class="n">check</span> <span class="n">is</span> <span class="n">here</span> <span class="n">anyway</span> <span class="n">because</span> <span class="n">it</span> <span class="n">places</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">null</span> <span class="n">checks</span> <span class="n">at</span> <span class="n">top</span> <span class="n">of</span> <span class="n">loop</span><span class="p">,</span> <span class="n">which</span> <span class="n">is</span> <span class="n">usually</span> <span class="n">faster</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*</span> <span class="n">than</span> <span class="n">having</span> <span class="n">them</span> <span class="n">implicitly</span> <span class="n">interspersed</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">             <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">QNode</span> <span class="n">s</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span> <span class="o">//</span> <span class="n">constructed</span><span class="o">/</span><span class="n">reused</span> <span class="n">as</span> <span class="n">needed</span>
+</span></span><span class="line"><span class="cl">            <span class="n">boolean</span> <span class="n">isData</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span> <span class="o">!=</span> <span class="n">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">QNode</span> <span class="n">t</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">QNode</span> <span class="n">h</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="n">null</span> <span class="o">||</span> <span class="n">h</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span>         <span class="o">//</span> <span class="n">saw</span> <span class="n">uninitialized</span> <span class="n">value</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">continue</span><span class="p">;</span>                       <span class="o">//</span> <span class="n">spin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="n">t</span> <span class="o">||</span> <span class="n">t</span><span class="o">.</span><span class="n">isData</span> <span class="o">==</span> <span class="n">isData</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="n">empty</span> <span class="ow">or</span> <span class="n">same</span><span class="o">-</span><span class="n">mode</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">QNode</span> <span class="n">tn</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">!=</span> <span class="n">tail</span><span class="p">)</span>                  <span class="o">//</span> <span class="n">inconsistent</span> <span class="n">read</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">tn</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>               <span class="o">//</span> <span class="n">lagging</span> <span class="n">tail</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">advanceTail</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tn</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">timed</span> <span class="o">&amp;&amp;</span> <span class="n">nanos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>        <span class="o">//</span> <span class="n">can</span><span class="s1">&#39;t wait</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="n">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">QNode</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">isData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">t</span><span class="o">.</span><span class="n">casNext</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>        <span class="o">//</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">link</span> <span class="ow">in</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="n">advanceTail</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>              <span class="o">//</span> <span class="n">swing</span> <span class="n">tail</span> <span class="ow">and</span> <span class="n">wait</span>
+</span></span><span class="line"><span class="cl">                    <span class="ne">Object</span> <span class="n">x</span> <span class="o">=</span> <span class="n">awaitFulfill</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">timed</span><span class="p">,</span> <span class="n">nanos</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>                   <span class="o">//</span> <span class="n">wait</span> <span class="n">was</span> <span class="n">cancelled</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">clean</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="n">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="o">.</span><span class="n">isOffList</span><span class="p">())</span> <span class="p">{</span>           <span class="o">//</span> <span class="ow">not</span> <span class="n">already</span> <span class="n">unlinked</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">advanceHead</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>          <span class="o">//</span> <span class="n">unlink</span> <span class="k">if</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span>              <span class="o">//</span> <span class="ow">and</span> <span class="n">forget</span> <span class="n">fields</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">s</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">s</span><span class="o">.</span><span class="n">waiter</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span><span class="err">?</span> <span class="n">x</span> <span class="p">:</span> <span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>                            <span class="o">//</span> <span class="n">complementary</span><span class="o">-</span><span class="n">mode</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">QNode</span> <span class="n">m</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">next</span><span class="p">;</span>               <span class="o">//</span> <span class="n">node</span> <span class="n">to</span> <span class="n">fulfill</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">!=</span> <span class="n">tail</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="n">null</span> <span class="o">||</span> <span class="n">h</span> <span class="o">!=</span> <span class="n">head</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">continue</span><span class="p">;</span>                   <span class="o">//</span> <span class="n">inconsistent</span> <span class="n">read</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="ne">Object</span> <span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">isData</span> <span class="o">==</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="o">||</span>    <span class="o">//</span> <span class="n">m</span> <span class="n">already</span> <span class="n">fulfilled</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">x</span> <span class="o">==</span> <span class="n">m</span> <span class="o">||</span>                   <span class="o">//</span> <span class="n">m</span> <span class="n">cancelled</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">!</span><span class="n">m</span><span class="o">.</span><span class="n">casItem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span> <span class="p">{</span>         <span class="o">//</span> <span class="n">lost</span> <span class="n">CAS</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">advanceHead</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>          <span class="o">//</span> <span class="n">dequeue</span> <span class="ow">and</span> <span class="n">retry</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="n">advanceHead</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>              <span class="o">//</span> <span class="n">successfully</span> <span class="n">fulfilled</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">LockSupport</span><span class="o">.</span><span class="n">unpark</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">waiter</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span><span class="err">?</span> <span class="n">x</span> <span class="p">:</span> <span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span></code></pre></div><h3 id="参考文章">参考文章</h3>
+<ol>
+<li><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/SynchronousQueue.html">Javadoc of SynchronousQueue</a></li>
+<li><a href="http://www.cs.rochester.edu/u/scott/papers/2009_Scherer_CACM_SSQ.pdf">Scalable Synchronous Queues</a></li>
+<li><a href="http://www.cs.rochester.edu/research/synchronization/pseudocode/duals.html">Nonblocking Concurrent Data Structures with Condition Synchronization</a></li>
+</ol>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://hugozhu.site/tags/java/">Java</a>&nbsp;
+            
+              
+              <a href="https://hugozhu.site/tags/concurrent-programming/">Concurrent Programming</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fjava-synchronousqueue-notes%2f&amp;text=Java%e5%b9%b6%e5%8f%91%e5%8c%85%e4%b8%ad%e7%9a%84%e5%90%8c%e6%ad%a5%e9%98%9f%e5%88%97SynchronousQueue%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fjava-synchronousqueue-notes%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fjava-synchronousqueue-notes%2f&amp;title=Java%e5%b9%b6%e5%8f%91%e5%8c%85%e4%b8%ad%e7%9a%84%e5%90%8c%e6%ad%a5%e9%98%9f%e5%88%97SynchronousQueue%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fjava-synchronousqueue-notes%2f&amp;title=Java%e5%b9%b6%e5%8f%91%e5%8c%85%e4%b8%ad%e7%9a%84%e5%90%8c%e6%ad%a5%e9%98%9f%e5%88%97SynchronousQueue%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fjava-synchronousqueue-notes%2f&amp;title=Java%e5%b9%b6%e5%8f%91%e5%8c%85%e4%b8%ad%e7%9a%84%e5%90%8c%e6%ad%a5%e9%98%9f%e5%88%97SynchronousQueue%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fjava-synchronousqueue-notes%2f&amp;description=Java%e5%b9%b6%e5%8f%91%e5%8c%85%e4%b8%ad%e7%9a%84%e5%90%8c%e6%ad%a5%e9%98%9f%e5%88%97SynchronousQueue%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fhugozhu.site%2fpost%2f2013%2fjava-synchronousqueue-notes%2f&amp;subject=Java%e5%b9%b6%e5%8f%91%e5%8c%85%e4%b8%ad%e7%9a%84%e5%90%8c%e6%ad%a5%e9%98%9f%e5%88%97SynchronousQueue%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2013/31-golang-memory-model/">Go语言内存模型</a></li>
+                
+                    <li><a href="/post/2013/22-memory-barriers-or-fences/">并发编程之内存屏障</a></li>
+                
+                    <li><a href="/post/2013/resource-management-in-java/">Java的资源管理</a></li>
+                
+                    <li><a href="/post/2013/logging-in-java/">Java程序的日志</a></li>
+                
+                    <li><a href="/post/2013/java-properties-to-enviorment-variables/">将Java的Properties文件转换成环境变量</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://hugozhu.site/post/2013/openvpn-multiple-ports/" data-toggle="tooltip" data-placement="top" title="OpenVPN使用多个端口">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://hugozhu.site/post/2013/raspberry-pi-with-xmbc/" data-toggle="tooltip" data-placement="top" title="Raspberry Pi做BT下载机&#43;高清播放器">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+      
+
+      
+          
+          <div class="disqus-comments">
+            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://hugozhu.site/post/2013/java-synchronousqueue-notes">comments</span></button>
+            <div id="disqus_thread"></div>
+
+            <script type="text/javascript">
+              var disqus_config = function () {
+              this.page.url = 'https:\/\/hugozhu.site\/post\/2013\/java-synchronousqueue-notes';
+            };
+
+          </script>
+          </div>
+          
+        
+        
+      
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The opinions expressed herein are my own personal opinions and do not represent my company’s view in any way.
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://hugozhu.site/">All about Raspberry Pi</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.161.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://hugozhu.site/js/main.js"></script>
+<script src="https://hugozhu.site/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://hugozhu.site/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function(){
+  $('#show-comments').on('click', function(){
+    var disqus_shortname = 'hugozhu';
+      
+    (function() {
+      var disqus = document.createElement('script'); 
+      disqus.type = 'text/javascript'; 
+      disqus.async = true;
+      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+    })();
+      
+    $(this).hide(); 
+    });
+  });
+      
+</script>
+<script id="dsq-count-scr" src="//hugozhu.disqus.com/count.js" async></script>
+
+
+
+
+<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+
+
+    
+  </body>
+</html>
+

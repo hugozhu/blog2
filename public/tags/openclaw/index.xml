@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenClaw on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/openclaw/</link>
+    <description>Recent content in OpenClaw on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/openclaw/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>当 10 万个定时任务同时敲门：MaaS 平台调度优化实战</title>
+      <link>http://localhost:45445/post/2026/166-scheduled-task-optimization-best-practices/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/166-scheduled-task-optimization-best-practices/</guid>
+      <description>&lt;p&gt;上周五下午 3 点，告警群炸了：MaaS 层的 GPU 推理集群 QPS 在 60 秒内从 1200 飙到 18000，p99 延迟从 800ms 打到 45 秒，大量请求 429。&lt;/p&gt;&#xA;&lt;p&gt;排查发现原因很&amp;quot;朴素&amp;quot;——&lt;strong&gt;大约 3 万个 OpenClaw 实例的定时任务都跑在整点&lt;/strong&gt;。每个实例可能只有 1-3 个 cron job（数据摘要、定时巡检、报表生成），但所有人的 cron 都写着 &lt;code&gt;0 * * * *&lt;/code&gt; 或 &lt;code&gt;0 0 * * *&lt;/code&gt;。三万乘以三，就是整点瞬间涌来的近十万个 LLM 推理请求。&lt;/p&gt;&#xA;&lt;p&gt;这不是应用层的 bug，而是&lt;strong&gt;平台设计的缺陷&lt;/strong&gt;。当你的平台承载成千上万个租户的定时任务时，&amp;ldquo;整点风暴&amp;quot;不是意外——它是必然。问题是：&lt;strong&gt;作为平台设计者，你该怎么办？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw &#43; Claude Code 协同：用 Sub-Agent 执行编程任务并实时同步进度</title>
+      <link>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/157-openclaw-claude-code-progress-sync/</guid>
+      <description>&lt;p&gt;你在钉钉里对 AI 助手说：&amp;ldquo;帮我写一个博客文章&amp;rdquo;，然后 Agent 回复&amp;quot;好的&amp;quot;——接下来呢？你等了 3 分钟、5 分钟、10 分钟，不知道它在干什么、进展到哪了、是不是卡住了。这是所有 Agent 系统面临的共同问题：&lt;strong&gt;编程类耗时任务的进度黑洞&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 通过 Sub-Agent 机制调用 Claude Code 执行编程任务，再借助 &lt;code&gt;stream-json&lt;/code&gt; 输出格式和一个轻量级的监控脚本，将任务进度实时同步到钉钉。本文完整拆解这套方案的架构设计和实现细节。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw使用远程浏览器——让AI读懂你的个性化互联网</title>
+      <link>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/149-openclaw-remote-browser-setup/</guid>
+      <description>&lt;p&gt;AI Agent 能搜索、能总结、能写代码，但有一件事它做不好：&lt;strong&gt;读你的互联网&lt;/strong&gt;。你的 Twitter Timeline、你的 YouTube 推荐、你的 Hacker News 首页——这些个性化内容藏在登录态背后，普通的 API 调用拿不到。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的远程浏览器方案解决了这个问题：在一台带桌面的 Ubuntu 服务器上运行真实浏览器，保存各大网站的登录信息，然后通过网络让 AI Agent 直接操控这个浏览器。AI 看到的就是你看到的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>当钉钉变成命令行：办公协同 Skill 的 Token 交付时代</title>
+      <link>http://localhost:45445/post/2026/150-dingtalk-cli-office-skills-token-era/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/150-dingtalk-cli-office-skills-token-era/</guid>
+      <description>&lt;p&gt;软件行业有一个永恒的矛盾：&lt;strong&gt;标准化产品满足不了个性化需求，定制开发又贵得离谱&lt;/strong&gt;。每家企业都想要&amp;quot;适合自己的办公系统&amp;quot;，但 SaaS 只能给你 80% 的功能，剩下 20% 要么忍着，要么花十倍的钱去定制。&lt;/p&gt;&#xA;&lt;p&gt;钉钉的 CLI 化开放正在改变这个游戏规则。当钉钉的消息、日历、审批、文档、通讯录等能力都可以通过命令行接口被 AI Agent 直接调用时，一个新范式浮现了：&lt;strong&gt;过去需要写代码、做定制、走项目的办公需求，现在可以用自然语言描述，由 AI 用 Token 来交付。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自我进化的AI助手：OpenClaw如何用Heartbeat实现Skill自动优化</title>
+      <link>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/148-openclaw-skill-self-optimization/</guid>
+      <description>&lt;p&gt;在&lt;a href=&#34;http://localhost:45445/post/2026/147-autoresearch-token-optimization-paradigm/&#34;&gt;上一篇文章&lt;/a&gt;中，我从 Karpathy 的 autoresearch 项目提炼了一个范式：&lt;strong&gt;人写规则，Token 做实验&lt;/strong&gt;。我们用 AI 客服 Prompt 优化作为案例，验证了这个范式在业务场景中的可行性。但那个方案有一个前提——你需要预先准备评估数据集。&lt;/p&gt;&#xA;&lt;p&gt;OpenClaw 的场景让我意识到，还有一种更彻底的可能：&lt;strong&gt;Agent 用自己的真实执行数据作为评估信号，在用户无感知的情况下持续自我优化。&lt;/strong&gt; 不需要人工标注测试集，不需要离线批处理，每一次真实使用都是一条训练数据。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>当 AI Agent 被拉进多个群：会话隔离与 Agent 隔离的生死线</title>
+      <link>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/140-agent-session-isolation-multi-group-security/</guid>
+      <description>&lt;p&gt;把一个 AI Agent 拉进钉钉的多个群，是一件非常容易的事情——群管理员点一下&amp;quot;添加机器人&amp;quot;就完成了。但这也是一件&lt;strong&gt;极其危险的事情&lt;/strong&gt;——如果 Agent Runtime 没有做好隔离，你可能正在制造一个企业级的安全事故。&lt;/p&gt;&#xA;&lt;p&gt;想象这个场景：你的 AI Agent 同时服务于&amp;quot;核心技术架构群&amp;quot;和&amp;quot;外部合作伙伴群&amp;quot;。有人在合作伙伴群里问了一个问题，Agent 的回答中不小心带出了它在架构群里学到的技术方案细节。&lt;strong&gt;信息就这样泄露了，而且没有任何人会收到告警。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这不是假设。这是没有隔离的 Agent Runtime 的默认行为。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 执行耗时任务时如何主动汇报进度？四种方案的实战选型</title>
+      <link>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/136-openclaw-long-running-task-progress-reporting/</guid>
+      <description>&lt;p&gt;你让 AI Agent 帮你跑一个需要 30 分钟的数据迁移脚本，然后就没了下文——它在干嘛？卡住了？还是已经跑完了？你不知道，因为 Agent 只会在任务彻底完成或彻底失败时才告诉你结果。&lt;/p&gt;&#xA;&lt;p&gt;这是 Agent 系统中一个普遍的痛点：&lt;strong&gt;耗时任务的进度黑洞&lt;/strong&gt;。用户发出指令后陷入等待，没有进度条，没有中间反馈，只有最终的成功或失败。在 OpenClaw 的实际使用中，我总结了四种适用于不同场景的进度上报方案，每种都有其最佳适用场景。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw 一天发布两个版本，打破了人月神话法则吗？</title>
+      <link>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/135-openclaw-two-releases-a-day-mythical-man-month/</guid>
+      <description>&lt;p&gt;OpenClaw 一天发布了两个版本。消息传开后，有人兴奋地说&amp;quot;AI 时代人月神话终于被打破了&amp;quot;，也有人冷静地问&amp;quot;这真的算打破了吗？&amp;quot;&lt;/p&gt;&#xA;&lt;p&gt;这个问题值得认真回答。因为它触及的不是某个产品的发布节奏，而是软件工程最根本的规律之一——&lt;strong&gt;加人到底能不能加速交付？&lt;/strong&gt; 在 AI Agent 成为新型&amp;quot;开发者&amp;quot;的今天，这条规律是否需要被重新审视？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 设计最佳实践：Memory</title>
+      <link>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/129-openclaw-memory-design-best-practices/</guid>
+      <description>&lt;p&gt;想象这样一个场景：你花了半小时向 AI 助手解释你的项目架构、编码偏好和团队规范，得到了一次满意的协作体验。第二天再打开对话——它全忘了。你又得从头来一遍。这不是 AI 不够聪明的问题，而是&lt;strong&gt;记忆架构缺失&lt;/strong&gt;的问题。OpenClaw 的 Memory 系统试图从根本上解决这个痛点：让 AI Agent 拥有持久、可检索、可自维护的记忆能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent 设计最佳实践：OpenClaw 的 Heartbeat 设计</title>
+      <link>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/128-openclaw-heartbeat-design-best-practices/</guid>
+      <description>&lt;p&gt;绝大多数 AI 助手都是被动的——用户不说话，它就沉默。这在&amp;quot;问答&amp;quot;场景下没问题，但如果你想让 AI 助手真正成为助手，它需要&lt;strong&gt;主动意识&lt;/strong&gt;：定期检查收件箱有没有紧急邮件、日历上有没有即将到来的会议、GitHub 上有没有需要关注的 PR。OpenClaw 的 Heartbeat（心跳）机制正是为此设计的。本文将深入解析这一设计的工程细节和最佳实践。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenClaw 架构解析：如何构建一个有记忆、有灵魂的个人 AI 助手</title>
+      <link>http://localhost:45445/post/2026/126-openclaw-architecture-design/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/126-openclaw-architecture-design/</guid>
+      <description>&lt;p&gt;大多数 AI 助手是无状态的——你关掉窗口，它就忘了你是谁。OpenClaw 试图解决一个更本质的问题：&lt;strong&gt;能不能让 AI 助手像一个真正的助手一样，记住你、理解你、主动帮你？&lt;/strong&gt; 经过几周的实际使用，我想分享一下 OpenClaw 的架构设计和背后的思考。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

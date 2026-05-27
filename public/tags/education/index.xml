@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Education on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/education/</link>
+    <description>Recent content in Education on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>素质之外，语言和数学仍然是教育的基础，是驾驭AI的底层能力</title>
+      <link>http://localhost:45445/post/2026/159-language-math-ai-education-foundation/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/159-language-math-ai-education-foundation/</guid>
+      <description>&lt;p&gt;AI时代的教育讨论，最常见的声音是：要培养批判性思维、创造力、跨学科能力、情商、沟通协作……这些当然重要。但一个危险的倾向正在蔓延——&lt;strong&gt;很多人把&amp;quot;素质教育&amp;quot;和&amp;quot;基础学科&amp;quot;对立起来了&lt;/strong&gt;，好像强调语文数学就是应试教育的残余，而AI时代只需要&amp;quot;软实力&amp;quot;。&lt;/p&gt;&#xA;&lt;p&gt;这是一个严重的误判。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;语言能力和数学能力，不是AI时代要淘汰的旧能力，恰恰是驾驭AI最底层的两项基础能力。&lt;/strong&gt; 没有它们，所谓的批判性思维、创造力、AI素养，全都是空中楼阁。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

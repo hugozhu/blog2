@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knowledge-Graph on All about Raspberry Pi</title>
+    <link>http://localhost:45445/tags/knowledge-graph/</link>
+    <description>Recent content in Knowledge-Graph on All about Raspberry Pi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:45445/tags/knowledge-graph/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 LLM 构建程序化知识系统：记忆、技能与进化</title>
+      <link>http://localhost:45445/post/2026/176-programmatic-knowledge-memory-skill-evolution/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45445/post/2026/176-programmatic-knowledge-memory-skill-evolution/</guid>
+      <description>&lt;p&gt;上周我让 AI Agent 帮我写博客。它干得不错——风格、结构、代码规范都对。因为我之前花了一个下午，让它读完我的 174 篇旧文，把写作风格提炼成了一份可执行的 Skill 文件。&lt;/p&gt;&#xA;&lt;p&gt;第二天我让它再写一篇，它又对了。第三天，还是对的。到第四天，我发现了一件有意思的事：&lt;strong&gt;它自己改了 Skill 文件&lt;/strong&gt;。它在&amp;quot;反模式&amp;quot;列表里新增了一条——&amp;ldquo;不要用&amp;rsquo;随着 AI 的发展&amp;rsquo;开头&amp;rdquo;——这是前几次我手动纠正过的，但我从来没有明确要求它把这个规则写进去。&lt;/p&gt;&#xA;&lt;p&gt;那一刻我意识到，这个 Agent 已经不是在&amp;quot;执行指令&amp;quot;了。它在&lt;strong&gt;积累经验&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;但紧接着我遇到了下一个问题：它记住了&amp;quot;怎么写文章&amp;quot;，却不记得&amp;quot;上次写了什么&amp;quot;。我让它写一篇关于 Agent 进化的文章，它洋洋洒洒写了 800 行——和三天前那篇重复了 60%。技能在进化，记忆在归零，知识没有沉淀。&lt;strong&gt;三条腿，只长了一条。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;这个经历让我重新审视了一个问题：我们到底需要怎样的知识架构，才能让 Agent 真正&amp;quot;越用越强&amp;quot;？不是靠更大的上下文窗口，不是靠更贵的模型，而是一套&lt;strong&gt;程序化的记忆、知识与技能管理系统&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;Karpathy 和社区最近的两个项目——让 Agent 一晚自主迭代 100 次实验的 &lt;a href=&#34;https://github.com/karpathy/autoresearch&#34;&gt;autoresearch&lt;/a&gt;，和把任意文件夹变成可查询知识图谱的 &lt;a href=&#34;https://github.com/safishamsi/graphify&#34;&gt;graphify&lt;/a&gt;（25k+ stars）——也在指向同一个方向。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
