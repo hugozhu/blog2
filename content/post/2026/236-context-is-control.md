@@ -13,6 +13,8 @@ Netflix 的「Context, not Control」曾经是最有影响力的管理理念之�
 
 但这个理念套到 Agent 上，假设崩塌了。
 
+[![Context is Control：从 Prompt Engineering 到 Harness Engineering](/img/2026/236-context-is-control-thumb.jpg)](/img/2026/236-context-is-control.png)
+
 <!--more-->
 
 ## 为什么对人成立，对 Agent 不成立
