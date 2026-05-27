@@ -529,9 +529,9 @@ Requires `/restart` to reload plugin. **Default**: `gemini-image`.
  - Use **Chinese prompts** (Gemini supports CJK natively, produces better results)
  - Describe a **three-zone narrative layout** (left → center → right) when the article has a before/after or comparison structure
  - Include specific visual elements from the article (tool names, workflows, data flows)
- - Specify style keywords: 未来感、科技感、深色背景、蓝紫色光效、电影级 UI、干净克制
+ - Specify style keywords: 极简扁平化、Claude 风格配色（奶油色背景、赤陶橙色、暖棕色）、温暖克制、干净
  - Explicitly state: **超宽横版 Banner，16:9 构图**
- - Add negative constraints: 不要卡通风、不要低幼、不要赛博朋克脏乱感
+ - Add negative constraints: 不要卡通人物、不要深色背景、不要赛博朋克、不要 3D 效果、不要阴影
 3. **Generate with `image_generate`** — call with `aspect_ratio=「landscape」`, `size=「1280x896」`
 4. **Crop to 16:9** — Gemini API always returns 2048×2048 square. MUST center-crop with Pillow:
    ```python
@@ -577,23 +577,33 @@ For reusable Gemini banner prompts (futuristic wide-format tech), see `reference
 
 - **Long, detailed prompts work** — unlike Wan2.7's 1-2 sentence limit, Gemini handles multi-sentence narrative prompts well
 - **CJK characters are fine** — no need to translate
-- **Structural descriptions work** — 「三格漫画」, 「从左到右」, 「分镜」 are understood
-- **Manga style keywords**: 漫画分镜, 网点纸, 粗墨线描边, 速度线, 星芒效果
-- **Tech banner keywords**: 未来感, 电影级 UI, 深色背景, 蓝紫色光效, 干净克制
+- **Structural descriptions work** — 「从左到右」, 「三个区域」, 「流水线」 are understood
+- **Claude-style keywords**: 极简扁平化, 奶油色背景, 赤陶橙色, 暖棕色, 温暖克制, 干净, 无阴影
+- **Flowchart keywords**: 圆角矩形节点, 箭头连接, 分组标签, 虚线反馈回路
 
 ## Blog Illustration Style Preferences
 
-**User prefers 漫画分镜 (manga panel) narrative style** for some illustrations. Structure:
+**User prefers Claude-style warm flat design** for blog illustrations. Key characteristics:
+
+- **Color palette**: 奶油色背景（cream #FAF7F2）、赤陶橙色（terracotta #CC785C）、暖棕色文字、柔和米白
+- **Style**: 极简扁平化、温暖克制、无阴影无 3D、像 Claude 官网插画
+- **Layout**: 流程图用圆角矩形节点 + 箭头连接，从左到右叙事
+- **Text**: 用中文标注关键节点名称和分组标签
+- **Negative constraints**: 不要卡通人物、不要深色背景、不要赛博朋克、不要 3D 效果
+
+Prompt template for flowchart illustrations:
 
 ```
-日式漫画分镜风格叙事插图，从左到右[N]个场景。
-左格：[场景描述]。
-中格：[场景描述]。
-右格：[场景描述]。
-漫画分格边框、网点纸阴影、粗墨线描边、鲜艳饱和色彩、日式漫画动态姿势
+极简扁平化技术流程图插图，Claude 风格配色：奶油色背景、赤陶橙色节点、暖棕色文字。
+画面中央是一条从左到右的水平流水线，[N]个圆角矩形节点用箭头连接：
+第一个节点写「① [名称]」下方小字「[功能]」
+第二个节点写「② [名称]」下方小字「[功能]」
+...
+节点下方有浅色分组标签：「[分组1]」「[分组2]」「[分组3]」。
+整体风格极简、温暖、克制，扁平化设计，无阴影无3D，像 Claude 官网插画。不要卡通人物，不要深色背景。
 ```
 
-For tech/architecture articles, prefer the futuristic banner style (see `references/blog-banner-prompts.md`).
+For narrative/story illustrations, use a three-zone layout with the same warm color palette instead of dark/tech style.
 
 **CRITICAL: Blog illustrations MUST be landscape 16:9, never square.** Gemini API always returns 2048×2048 regardless of size parameter — always center-crop with Pillow after generating. Verify dimensions before inserting. User has explicitly corrected this multiple times.
 
