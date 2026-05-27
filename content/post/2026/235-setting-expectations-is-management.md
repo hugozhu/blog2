@@ -11,6 +11,8 @@ sha256: 450072c1f27c7791d1281b217e1811e4086f0c0fc4aa2ea8719ac5f924276ee3
 
 这句话我说过很多次，也被质疑过很多次。有人说这是 PUA，有人说这是管理者的傲慢。但我越做管理，越觉得这是一条被严重低估的基本原则——尤其在 AI 时代。
 
+[![对人不提要求，就是对组织不负责](/img/2026/235-setting-expectations-is-management-thumb.jpg)](/img/2026/235-setting-expectations-is-management.png)
+
 <!--more-->
 
 ## 「不提要求」的本质
