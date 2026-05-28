@@ -1,7 +1,7 @@
 ---
 title: "反直觉：AI 时代，知识库工具越简单越好"
 subtitle: "Less is More: Why Simpler Knowledge Tools Win in the AI Era"
-date: 2025-05-27
+date: 2026-05-27
 tags: ["AI", "knowledge-management", "tools", "productivity"]
 ---
 
@@ -9,7 +9,7 @@ tags: ["AI", "knowledge-management", "tools", "productivity"]
 
 50 多个插件，300 多个标签，12 个 database view，还有一套精心设计的 MOC（Map of Content）索引系统。我花了不知道多少小时在「组织」知识，而不是「使用」知识。
 
-[![反直觉：知识库越简单越好](/img/2025/minimal-knowledge-base-less-is-more-thumb.jpg)](/img/2025/minimal-knowledge-base-less-is-more.png)
+[![反直觉：知识库越简单越好](/img/2026/minimal-knowledge-base-less-is-more-thumb.jpg)](/img/2026/minimal-knowledge-base-less-is-more.png)
 
 然后我意识到： **这套系统在 AI 时代已经过时了。**
 
