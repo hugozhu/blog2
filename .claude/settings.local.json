@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(claude skill *)",
-      "Bash(claude skills *)",
-      "Bash(composio whoami *)"
-    ]
-  }
-}
