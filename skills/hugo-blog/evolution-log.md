@@ -4,6 +4,60 @@
 
 ---
 
+---
+
+## v3.3.0 — 2026-05-29: 思考质量内核增强
+
+把 skill 从「写作模板」往「思考系统」推进，新增论证严谨性、反方预判、事实核查、认知诚实四道护栏，并修正会激励「为反而反」和「假框架」的评分导向。
+
+**Planner 新增 Argument Map（强制，动笔前完成）：**
+- 写正文前必须先产出论证骨架：claim / why_nonobvious / evidence / counter(steelman) / rebuttal / implication
+- claim 必须是可被反驳的命题，counter 必须是 steelman（最强反方而非稻草人）
+- 证据不足时触发 web research 或要求用户提供真实案例
+
+**Style Compiler — Framework 从配额改为奖励（修复假框架激励）：**
+- 原「MANDATORY for opinion/hybrid」要求每篇都有命名框架，与 `fake_framework` 反模式自相矛盾
+- 改为：只有结构确实可复用时才提炼并命名；判断标准「读者能拿这框架解决我没写到的问题吗」
+- 结构不足时不硬凑命名，靠逻辑递进取胜
+
+**Style Compiler — 新增 Epistemic Honesty（认知诚实）：**
+- 区分「事实/观点/推测」三种断言的用词
+- 具体数字必须可溯源，否则降级为定性表述或标注估算
+- 不过度声称，给出适用边界；诚实标注不确定性
+
+**Evaluator — 新增 Adversarial Pass + Fact-Check（评分前强制）：**
+- 红队视角主动找毛病：最弱论点、最套话段落、无证据断言、案例真实性
+- 编造数字 / 查无实据引用 / 张冠李戴案例 → 直接 reject 重写
+- 解决自评虚高问题：先证伪再打分
+
+**Evaluator — 重写 insight 与 framework 评分标准：**
+- insight：满分要求「非显而易见 + 站得住脚 + 回应最强反方」；为反而反（contrarian-for-its-own-sake）扣到 2 分
+- framework：加注「框架是奖励不是配额」，本不需要框架的文章改评论证结构清晰度，空壳框架扣分
+
+**Pipeline 总览同步更新**（step 1 加 Argument Map，step 5 加 adversarial pass + fact-check）。
+
+**Lesson**: 之前 skill 重排版机械规则、轻论证质量；insight 只奖励反直觉、framework 强制命名，都会把 AI 推向「正确的废话」和「唬人的空壳」。真正的思考质量来自：先有可被反驳的主张和最强反方的回应，再写；写完先证伪再打分。
+
+---
+
+## v3.2.1 — 2026-05-29: 一致性修复
+
+修复三处自相矛盾 / 脱节问题（不改动仓库路径与 Gemini 尺寸说明）。
+
+**版本号对齐：**
+- frontmatter `version` 从 `3.1.0` 提升到 `3.2.1`，此前一直落后于 v3.2.0 配图风格大改的实际状态
+
+**GoAT 状态与日志对齐：**
+- 现状澄清：当前 `SKILL.md` Visual Elements 部分将 ` ```goat ` 标记为 **FORBIDDEN**，原因是主题无法可靠渲染 GoAT，一律改用 ` ```text `
+- v2.3.0 曾把 GoAT 提升为首选并「移除 FORBIDDEN 标记」，但后续又回退为 FORBIDDEN **却未记录日志**，导致日志与 SKILL.md 脱节
+- 本条正式登记该回退：**GoAT = FORBIDDEN，ASCII ` ```text ` 为流程图/架构图首选**，v2.3.0 的提升决定作废
+
+**评分边界空洞修复：**
+- Evaluator Decision 原为 `publish ≥18 / revise 14-17 / reject <13`，13 分既不属于 reject 也不属于 revise，落在缝里
+- 修正为 `revise: 13-17`，使三档区间连续且无空洞（reject <13 / revise 13-17 / publish ≥18）
+
+---
+
 ## v3.2.0 — 2026-05-26: Illustration Style Overhaul
 
 **Trigger**: User rejected dark/cyberpunk/futuristic illustration style. Requested Claude-style warm flat design.

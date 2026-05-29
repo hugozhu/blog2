@@ -1,7 +1,7 @@
 ---
 name: hugo-blog
 description: Self-contained end-to-end blog writing system for hugozhu.site — planning, style enforcement, generation, case study patterns, AI illustration, evaluation, and publishing. Inlines Chinese typography rules and image-generation provider quirks; no external skills required.
-version: 3.1.0
+version: 3.3.0
 author: hugozhu
 license: MIT
 dependencies: []
@@ -55,11 +55,11 @@ You must:
 
 You MUST follow this order:
 
-1. Planner → decide what to write
+1. Planner → decide what to write + build Argument Map (claim/evidence/counter/rebuttal)
 2. Style Compiler → enforce writing style
 3. Generator → produce content
 4. Illustration → auto-generate banner image
-5. Evaluator → score & improve
+5. Evaluator → adversarial pass + fact-check, then score & improve
 6. Publisher → format output, await user confirmation, push
 
 ---
@@ -94,6 +94,27 @@ hybrid (default preferred):
 
 ---
 
+## Argument Map (MANDATORY — produce BEFORE generation)
+
+在动笔写正文前，必须先用以下结构想清楚论证骨架。这是「思考系统」与「写作模板」的本质区别——先有站得住脚的论证，再有文章。
+
+```
+claim:        核心主张（一句话，可被反驳的命题，不是中性陈述）
+why_nonobvious: 为什么这不是显而易见的？（如果显而易见，就没必要写）
+evidence:     支撑主张的证据 / 真实案例 / 数据（每条标注来源或标记为「估算/经验」）
+counter:      最强反方观点（steelman——用最有力的方式陈述反对意见，不是稻草人）
+rebuttal:     如何回应这个最强反方？（如果回应不了，说明主张需要修正）
+implication:  so-what——读者接受这个主张后，应该改变什么行动或认知？
+```
+
+规则：
+- **claim 必须是可被反驳的命题**——「AI 很重要」不是 claim，「大多数知识库工具的复杂度是负资产」是 claim
+- **counter 必须是 steelman**——预判最聪明的读者会怎么反驳，并正面回应。回应不了就修正 claim
+- **evidence 不足或全是抽象推理**时，触发 Mode E 的 web research 或要求用户提供真实案例
+- 论证骨架不进正文，但它决定正文的结构和说服力
+
+---
+
 # [2] STYLE COMPILER
 
 ## Opening (MANDATORY)
@@ -110,16 +131,25 @@ Forbidden:
 
 ---
 
-## Framework (MANDATORY for opinion/hybrid)
+## Framework (提炼真框架，不硬凑)
 
-Must:
+框架是奖励，不是配额。**只有当文章的结构确实可复用、能迁移到其他场景时，才提炼并命名一个框架。**
+
+当确实存在可复用结构时，框架 Must:
 - have a name (e.g. 「任务委托四要素模型」)
-- be reusable
+- be reusable（能套用到文章案例之外的场景）
 - be structured (not a loose list)
+
+当结构不足以支撑框架时：
+- **不要硬凑命名**——为了凑一个「X 三要素」「Y 四象限」而强行归纳，正是 `fake_framework` 反模式的来源
+- 改用清晰的论证递进结构即可，靠逻辑而非标签取胜
+
+判断标准：「这个框架，读者能拿去解决一个我没写到的问题吗？」能 → 提炼并命名；不能 → 不要框架。
 
 Forbidden:
 - 「总结几点」
 - unstructured ideas
+- 为了满足「必须有框架」而制造的空壳框架（名字唬人、内部却是松散罗列）
 
 ---
 
@@ -128,6 +158,16 @@ Forbidden:
 - Use first person (「我」) and second person (「你」)
 - Chinese as primary language + English technical terms
 - Tone: like a smart colleague explaining clearly
+
+## Epistemic Honesty (MANDATORY)
+
+高质量思考的标志是**校准**——清楚区分自己说的话有多少把握，不把观点伪装成事实。
+
+- **区分三种断言**：用词上分开「数据/事实」（X 显示…、实测…）、「观点/判断」（我认为…、我倾向于…）、「推测」（可能…、我猜…、有待验证）
+- **具体数字必须可溯源**——写「降低 40% 成本」就要能说出这个数字从哪来；否则改为「明显降低」或标注「（基于我的项目经验估算）」
+- **不过度声称**——「这是唯一正确的方案」「所有人都该…」几乎总是错的。给出适用边界（什么场景成立、什么场景不成立）
+- **诚实标注不确定性比假装全知更有说服力**——「这一点我还没验证，但推断是…」比硬下结论更可信
+- FORBIDDEN：把推测写成事实、引用查不到来源的数字、用绝对化措辞掩盖论证漏洞
 
 ## Cross-Reference (MANDATORY)
 
@@ -677,6 +717,24 @@ Use the `MEDIA:` prefix with the local file path. The platform delivers it as a 
 
 # [5] EVALUATOR
 
+## Adversarial Pass (MANDATORY — run BEFORE scoring)
+
+自评必然虚高。评分前，先切换成**最挑剔的读者**视角红队审一遍草稿，主动找毛病而不是找优点：
+
+1. **最弱论点**：全文哪一句主张最站不住脚？最强反方会攻击哪里？正文是否正面回应了？没有 → 补 steelman 回应或修正主张。
+2. **最套话段落**：哪一段换成任何一篇 AI 文章都成立（即「正确的废话」）？删掉或替换成具体的、只属于本文案例的内容。
+3. **无证据断言**：标出所有具体数字、外部事实、引用。逐条问：来源是什么？查得到吗？
+4. **案例真实性**：贯穿案例是真实的还是编的？metrics 经得起追问吗？skill 反复强调案例必须真实——宁可标注「示意」也不要伪造精确数字。
+
+## Fact-Check & Sourcing (MANDATORY)
+
+- **每个具体数字 / 外部断言要么可溯源，要么显式标注为估算**——「降低 40%」必须有出处，否则改为「明显降低（基于项目经验估算）」
+- **Mode E 研究类文章**：写进正文的案例、数据、引用必须能对应到 web research 的真实来源，不允许「合理推测」出一个看似精确的数字
+- **发现编造的数字 / 查无实据的引用 / 张冠李戴的案例 → 直接 reject，重写而非微调**
+- 宁可少一个精确数字，不可多一个假数字
+
+只有通过 Adversarial Pass 和 Fact-Check 后，才进入下面的打分。
+
 ## Scoring Rubric
 
 hook (0-5):
@@ -687,17 +745,19 @@ hook (0-5):
  1-0: 模板化开头或「随着 AI 发展...」
 
 insight (0-5):
- 5: 反直觉观点清晰，读者会想反驳或认同
- 4: 有观点但不够锋利
- 3: 观点正确但常见
- 2: 观点模糊或多而不深
- 1-0: 没有明确观点，纯罗列
+ 评判标准：洞见必须同时满足「非显而易见」和「站得住脚」。为反而反（contrarian-for-its-own-sake）不得分。
+ 5: 非显而易见的洞见，有证据/推理支撑，且预判并回应了最强反方——读者会认真重新思考
+ 4: 洞见非显而易见且基本成立，但反方观点处理不足
+ 3: 观点正确但常见（显而易见），或有新意但论证薄弱
+ 2: 观点模糊、多而不深，或为反直觉而反直觉（站不住脚的标新立异）
+ 1-0: 没有明确观点纯罗列，或主张明显错误/无法自圆其说
 
 framework (0-5):
+ 注：框架是奖励不是配额。若文章本不需要框架（结构不可复用），则本维度改评论证结构的清晰度——逻辑递进清晰且无硬凑框架可得 4。硬凑的空壳框架按「散点罗列」扣到 2。
  5: 有命名、可复用、结构完整、有图示/表格
- 4: 有命名和结构，但复用性弱
+ 4: 有命名和结构但复用性弱，或无框架但论证结构清晰有力
  3: 有结构但缺少命名或可视化
- 2: 散点罗列，没有框架感
+ 2: 散点罗列没有框架感，或为凑框架而造的空壳框架
  1-0: 纯主观判断，无结构
 
 technical (0-5):
@@ -710,7 +770,7 @@ technical (0-5):
 ## Decision
 
 publish: >= 18
-revise: 14-17
+revise: 13-17
 reject: < 13
 
 ## Auto Improvement Rules
