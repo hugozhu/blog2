@@ -1,7 +1,7 @@
 ---
 name: hugo-blog
 description: Self-contained end-to-end blog writing system for hugozhu.site — planning, style enforcement, generation, case study patterns, AI illustration, evaluation, and publishing. Inlines Chinese typography rules and image-generation provider quirks; no external skills required.
-version: 3.3.0
+version: 3.4.0
 author: hugozhu
 license: MIT
 dependencies: []
@@ -55,12 +55,14 @@ You must:
 
 You MUST follow this order:
 
-1. Planner → decide what to write + build Argument Map (claim/evidence/counter/rebuttal)
+1. Planner → decide what to write + build Argument Map (claim/evidence/counter/rebuttal) + corpus de-dup check
 2. Style Compiler → enforce writing style
 3. Generator → produce content
 4. Illustration → auto-generate banner image
 5. Evaluator → adversarial pass + fact-check, then score & improve
 6. Publisher → format output, await user confirmation, push
+
+**This is a loop, not a straight line.** 当 Evaluator 判 revise/reject 时，回到第 1 步（重想 Argument Map）或第 3 步重写，再重跑 adversarial pass + 打分，循环直到 ≥18（见 Evaluator 的 Revision Loop）。
 
 ---
 
@@ -177,6 +179,16 @@ Forbidden:
 - FORBIDDEN: dumping links at the end without in-text context, or forcing irrelevant references
 - Format: `[文章标题](https://hugozhu.site/post/{YEAR}/{ID}-{slug}/)` with brief context explaining why it's relevant
 - Example: 「我在 [小学标准化试卷 AI 批改 Agent 最佳工程实践](https://hugozhu.site/post/2025/110-ai-exam-grading-agent-best-practices/) 中，也经历了类似过程。」
+
+## Originality vs Corpus (MANDATORY)
+
+Cross-Reference 搜出相关旧文后，多做一步**自我去重**——博客越写越多，最大的质量风险是重复自己。
+
+- **搜到高度相关的旧文时，先问：这篇的核心主张，旧文是不是已经讲过了？**
+  - 已讲过 → 不要换个说法再写一遍（self-plagiarism）。要么换一个旧文没覆盖的新角度，要么明确「**在 X 文基础上更进一步**」，只写增量
+  - 没讲过但相邻 → 引用旧文作为前提，把笔墨集中在新内容上，不重复铺垫已经解释过的概念
+- **每篇必须有一句话能回答：「这篇相对我已发布的所有文章，新增了什么？」** 答不上来就别写
+- FORBIDDEN：把旧文观点重新包装成「新框架」、重复已发布过的案例当新案例、同一主张反复写多篇
 
 ## Title & Subtitle Rule (STRICT)
 
@@ -409,8 +421,15 @@ tags: ["tag1", "tag2"]
 
 ## Length Guide
 
-- Short post (~60-170 lines): config guides, quick tips, single-topic posts
-- Long post (800-1300+ lines): comprehensive tutorials, deep dives, framework explanations
+**篇幅由论证决定，不由行数决定。** 长度的唯一标准是：把核心论证讲清楚、把案例讲透所需的篇幅——多一句废话都不要，少一步推理都不行。
+
+- **不要为了凑字数注水**——行数不是质量指标。能用 200 行讲透的，不要拖成 800 行
+- **不要为了「显得轻量」硬砍论证**——该展开的 WHY、该补的反方回应、该给的案例细节，不能为了短而省
+- 删除测试：每一段问「删掉它，论证会变弱吗？」不会 → 删掉
+
+以下行数仅为**事后描述性参考**，不是写作目标：
+- 短文（~60-170 行）：配置指南、快速技巧、单一主题
+- 长文（800-1300+ 行）：综合教程、深度剖析、框架讲解
 
 ## Tags Format
 
@@ -773,11 +792,28 @@ publish: >= 18
 revise: 13-17
 reject: < 13
 
-## Auto Improvement Rules
+## Revision Loop (NOT a one-pass pipeline)
 
-If hook < 3: add more concrete scenario details
-If insight < 3: strengthen contrarian thinking
-If framework < 3: rebuild into structured model
+流水线不是一条道走到底——Evaluator 是回路的入口，不是终点。
+
+```
+        ┌─────────────────────────────────────────┐
+        │                                           │
+   Argument Map → Generator → Adversarial Pass → Score
+        ▲                                           │
+        │              revise / reject              │
+        └───────────────────────────────────────────┘
+                       publish ≥18 ↓
+                     进入 Publisher
+```
+
+- **reject (<13)**：问题在论证本身——**回到 Argument Map 重想**（claim 是否站得住？反方是否回应了？证据是否够？），再重写。不要在烂论证上打补丁。
+- **revise (13-17)**：针对性修复后**重跑 Adversarial Pass + 重新打分**，而不是改完就发。
+- **循环直到 ≥18 或明确判定选题不成立**——若两轮重写仍 <13，说明 claim 本身有问题，应换角度或放弃，并向用户说明。
+- 局部分数低时的方向：
+  - hook < 3：补具体场景细节（真实人物 + 冲突）
+  - insight < 3：不是「更反直觉」，而是让洞见**更站得住脚**——补证据、回应最强反方（参见新 insight 评分标准）
+  - framework < 3：仅当结构确实可复用时重建为框架；否则改善论证递进的清晰度，不硬凑
 
 ---
 
