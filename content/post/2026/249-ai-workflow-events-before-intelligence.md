@@ -1,5 +1,5 @@
 ---
-title: "企业知识 AI Ready 的可落地路径"
+title: "企业知识AI Ready的落地路径"
 subtitle: "Events Before Intelligence"
 date: 2026-05-30
 tags: ["AI", "enterprise-ai", "workflow", "knowledge-management", "event-driven", "feedback-loop"]
