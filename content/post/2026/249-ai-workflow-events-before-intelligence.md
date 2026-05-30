@@ -1,5 +1,5 @@
 ---
-title: "AI 工作流的前提：先给 AI 装上感觉器官"
+title: "企业知识 AI Ready 的可落地路径"
 subtitle: "Events Before Intelligence"
 date: 2026-05-30
 tags: ["AI", "enterprise-ai", "workflow", "knowledge-management", "event-driven", "feedback-loop"]
