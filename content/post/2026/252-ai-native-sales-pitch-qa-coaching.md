@@ -1,11 +1,11 @@
 ---
 title: "销售流程 AI 化（二）：拜访录音质检的价值，不是给销售打分"
 subtitle: "AI-Native Sales Part 2 — Pitch QA Is Not About Scoring"
-date: 2026-06-03
+date: 2026-06-02
 tags: ["ai-agent", "enterprise-ai", "sales", "quality-inspection", "coaching"]
 ---
 
-接着 [上一篇](https://hugozhu.site/post/2026/251-ai-native-sales-presales-solution-object/) 那个汽配分销的单子讲。老周把解决方案对象建好了，带着新来的销售小林去客户现场做方案讲解，全程用钉钉做了录音。
+接着 [上一篇](https://hugozhu.site/post/2026/251-ai-native-sales-presales-solution-object/) 那个汽配分销的单子讲。老周把解决方案对象建好了，带着新来的销售小林去客户现场做方案讲解，全程用钉钉A1做了录音。
 
 回来当晚，AI 质检系统出了报告： **92 分，评级「优秀」**。语速适中、没有冷场、把产品功能讲全了、合规零踩线。小林挺高兴。
 
