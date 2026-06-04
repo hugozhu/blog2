@@ -1,7 +1,7 @@
 ---
 title: "AI 改变工程效率的两件事，和其他所有没变的事"
 subtitle: "Code Gets Faster, You Get Parallel, But Judgment Stays Human"
-date: 2025-12-31
+date: 2026-06-04
 tags: ["AI", "engineering-efficiency", "software-engineering", "productivity", "opinion"]
 ---
 
@@ -13,7 +13,7 @@ tags: ["AI", "engineering-efficiency", "software-engineering", "productivity", "
 
 这不是 AI 不够好的问题。这是工程效率的本质。
 
-[![AI 改变的两件事：执行层变快了，判断层没变](/img/2025/ai-engineering-efficiency-two-things-thumb.jpg)](/img/2025/ai-engineering-efficiency-two-things.png)
+[![AI 改变的两件事：执行层变快了，判断层没变](/img/2026/ai-engineering-efficiency-two-things-thumb.jpg)](/img/2026/ai-engineering-efficiency-two-things.png)
 
 ## 核心判断
 
