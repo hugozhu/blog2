@@ -839,6 +839,13 @@ Post path: `content/post/{YEAR}/{id}-{slug}.md`
    git commit -m "发布博客：{标题}"
    GIT_SSH_COMMAND="ssh -i /home/hugo/.ssh/id_ed25519" git push origin main
    ```
+6. **Post-publish verification** (MANDATORY):
+   - Wait ~90s for GitHub Actions to build (workflow: clone hugozhu.github.com → hugo build → push to Pages)
+   - Verify with `web_extract` on `https://hugozhu.site/post/{YEAR}/{ID}-{slug}/`
+   - **Check the page title renders correctly** — HTTP 200 alone is insufficient, must confirm actual content appears
+   - If 404 after 3 checks (spaced 60s apart, max ~3 min total): stop retrying, diagnose (Actions build failure, Hugo error), report to user
+   - Report final result: ✅ published + live URL, or ❌ build issue + details
+   - Do NOT infinite-loop the same URL — 3 checks max, then diagnose
 
 Note: The working directory may not be the repo root. Always `cd` to the repo or use `git -C /home/hugo/Projects/blog2`.
 
