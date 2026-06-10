@@ -48,6 +48,8 @@ ai-notepad，一个 AI 驱动的个人笔记应用。部署在 [hugozhu.site/not
 
 13 个 JS 文件，零框架，零构建步骤。最大的文件 `app.js` 有 1276 行。
 
+[![ai-notepad 界面：Claude 风格暖色调主题](/img/2026/i-built-an-app-ai-notepad-ui-thumb.jpg)](/img/2026/i-built-an-app-ai-notepad-ui.png)
+
 ### 时间线
 
 项目跨越 4 个月，但真正密集的开发集中在 3 天：
