@@ -5,7 +5,7 @@ date: 2026-06-11
 tags: ["ai-agent", "collaboration", "feedback-loop", "pwa", "ai-coding", "hermes-agent"]
 ---
 
-昨天晚上，我在 AI Notepad 里写完一篇技术笔记，点了一下「📢 发布」，3 秒后拿到一个 URL：`https://hugozhu.site/notes/p/bbzH9XEA`。
+昨天晚上，我在 AI Notepad 里写完一篇技术笔记，点了一下「📢 发布」，3 秒后拿到一个 URL：[https://hugozhu.site/notes/p/bbzH9XEA](https://hugozhu.site/notes/p/bbzH9XEA)。
 
 我把链接丢到钉钉群里。10 分钟后，同事在页面上选中一段话，点「📝 批注」写了句：「这里是不是可以加个 error handling 的例子？」这条批注没有变成一条消息淹没在群聊里——它被存进了数据库，等我对悟空说「看看读者怎么说的」，AI 就把所有批注拉出来，当作下一轮优化的上下文。
 
