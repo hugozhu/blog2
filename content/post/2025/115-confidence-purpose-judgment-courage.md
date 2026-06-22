@@ -5,11 +5,11 @@ date: 2025-06-22
 tags: ["ai-era", "mindset", "career-growth", "critical-thinking", "leadership"]
 ---
 
-今天傍晚，我在钉钉上跟 AI 聊天的时候，随口说了一句话：
+今天傍晚，我刷短视频的时候，看到一句话：
 
 > 「真正的自信不是你知道答案，而是你不知道答案的时候也相信自己能把它搞明白。」
 
-说完之后我自己愣了一下。这不是一句鸡汤——它是我过去几年最真实的体感。
+不是鸡汤，是真实感受。
 
 [![目标感 · 判断力 · 勇气：AI 时代的正反馈飞轮](/img/2025/confidence-purpose-judgment-courage-thumb.jpg)](/img/2025/confidence-purpose-judgment-courage.png)
 
