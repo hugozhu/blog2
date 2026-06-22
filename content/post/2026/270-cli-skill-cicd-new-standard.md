@@ -1,7 +1,7 @@
 ---
 title: "CLI + Skill + CI/CD：现代应用的新三件套"
 subtitle: "Why Every Application Needs CLI, Skill, and Automation in the AI Agent Era"
-date: 2025-06-22
+date: 2026-06-22
 tags: ["ai-agent", "cli", "skill", "devops", "ai-coding", "developer-tools"]
 ---
 
@@ -9,7 +9,7 @@ tags: ["ai-agent", "cli", "skill", "devops", "ai-coding", "developer-tools"]
 
 如果你今天做一个应用，却没有提供 CLI 和 Skill，就像 2010 年做一个 Web 服务却没有 API 一样——用户（包括 AI Agent）根本用不了你。
 
-[![CLI + Skill + CI/CD：从旧范式到新三件套](/img/2025/cli-skill-cicd-new-standard-thumb.jpg)](/img/2025/cli-skill-cicd-new-standard.png)
+[![CLI + Skill + CI/CD：从旧范式到新三件套](/img/2026/cli-skill-cicd-new-standard-thumb.jpg)](/img/2026/cli-skill-cicd-new-standard.png)
 
 <!--more-->
 

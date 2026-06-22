@@ -1,7 +1,7 @@
 ---
 title: "AI 时代，成为有目标感、有判断力、有勇气的人"
 subtitle: "What Real Confidence Looks Like When Knowledge Becomes Cheap"
-date: 2025-06-22
+date: 2026-06-22
 tags: ["ai-era", "mindset", "career-growth", "critical-thinking", "leadership"]
 ---
 
@@ -11,7 +11,7 @@ tags: ["ai-era", "mindset", "career-growth", "critical-thinking", "leadership"]
 
 不是鸡汤，是真实感受。
 
-[![目标感 · 判断力 · 勇气：AI 时代的正反馈飞轮](/img/2025/confidence-purpose-judgment-courage-thumb.jpg)](/img/2025/confidence-purpose-judgment-courage.png)
+[![目标感 · 判断力 · 勇气：AI 时代的正反馈飞轮](/img/2026/confidence-purpose-judgment-courage-thumb.jpg)](/img/2026/confidence-purpose-judgment-courage.png)
 
 <!--more-->
 
