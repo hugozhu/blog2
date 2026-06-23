@@ -5,11 +5,11 @@ date: 2026-06-22
 tags: ["ai-era", "mindset", "career-growth", "critical-thinking", "leadership"]
 ---
 
-今天傍晚，我刷短视频的时候，看到一句话：
+今天傍晚刷短视频，无意间看到一句话：
 
 > 「真正的自信不是你知道答案，而是你不知道答案的时候也相信自己能把它搞明白。」
 
-不是鸡汤，是真实感受。
+刷过去又刷回来，反复看了两遍。说不上为什么被击中，但回想过去几年——从带团队做 AI 产品，到自己从零搭工具链——支撑我撑过来的，确实不是「我什么都会」，而是「不会但我能搞明白」。不是鸡汤，是真实感受。
 
 [![目标感 · 判断力 · 勇气：AI 时代的正反馈飞轮](/img/2026/confidence-purpose-judgment-courage-thumb.jpg)](/img/2026/confidence-purpose-judgment-courage.png)
 
