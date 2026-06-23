@@ -5,7 +5,7 @@ date: 2026-06-22
 tags: ["ai-era", "mindset", "career-growth", "critical-thinking", "leadership"]
 ---
 
-今天傍晚刷短视频，无意间看到一句话：
+今天早晨刷短视频，无意间看到一句话：
 
 > 「真正的自信不是你知道答案，而是你不知道答案的时候也相信自己能把它搞明白。」
 
