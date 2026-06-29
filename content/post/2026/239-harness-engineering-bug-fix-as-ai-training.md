@@ -3,6 +3,8 @@ title: "修 Bug 的真正目的：让 AI 下次能自己修"
 subtitle: "Harness Engineering — Bug Fix as AI Training Data"
 date: 2026-05-25
 tags: ["AI", "ClaudeCode", "HarnessEngineering", "TDD", "engineering"]
+ingested: 2026-06-29
+sha256: f901d5a6b8a503b5026df0e0aa938be1a64d71dd3a448d510122b593749267e0
 ---
 
 一个工程师修了一个 Bug，ROI 是多少？

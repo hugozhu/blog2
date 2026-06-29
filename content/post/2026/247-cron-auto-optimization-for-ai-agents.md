@@ -3,6 +3,8 @@ title: "AI Agent 定时任务的自动优化"
 subtitle: "Telemetry-driven cron optimization for AI agent runtimes"
 date: 2026-05-30
 tags: ["ai-agent", "cron", "observability", "system-design", "hermes-agent", "auto-tuning"]
+ingested: 2026-06-29
+sha256: 5f28639f75a49bce75699b181f1fee1b97db169b9180b5461170a6bffb636ac1
 ---
 
 上个月，我发现一个跑了 3 周的定时任务每天都在用 Claude Sonnet 4 做一件极其简单的事——搜索两条关键词、整理成表格、发给我。每次消耗约 8000 token，成本 $0.12。换成 GPT-4o-mini，同样的任务 2000 token 就够，成本 $0.003。

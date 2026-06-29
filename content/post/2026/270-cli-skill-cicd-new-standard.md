@@ -3,6 +3,8 @@ title: "CLI + Skill + CI/CD：现代应用的新三件套"
 subtitle: "Why Every Application Needs CLI, Skill, and Automation in the AI Agent Era"
 date: 2026-06-22
 tags: ["ai-agent", "cli", "skill", "devops", "ai-coding", "developer-tools"]
+ingested: 2026-06-29
+sha256: 0f12f8150e92a757e04102f7c28342ff19a60e6661120053773cc103e676843a
 ---
 
 上周五晚上，我在给 ai-notepad 项目加一个功能：让 AI Agent 能自动发现并安装这个项目的 Skill。写完 SKILL.md、落地页、版本同步脚本后，我突然意识到一件事——**这套流程已经不是「锦上添花」，而是应用交付的新底线**。

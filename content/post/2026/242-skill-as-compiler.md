@@ -3,6 +3,8 @@ title: "SKILL.md 不是文档，是编译器"
 subtitle: "How a 900-Line Markdown File Turns AI From a Chatbot Into a Content Pipeline"
 date: 2026-05-26
 tags: ["ai", "agent", "skill", "context-engineering", "blogging", "system-design"]
+ingested: 2026-06-29
+sha256: 4247728f7f0a8176abc98a0f1c7eef6ffb63b04f1dd7979212faf79c56bf7ce6
 ---
 
 「准备写一个 blog，详细讲解这个 skill。」

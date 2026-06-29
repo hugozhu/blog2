@@ -3,6 +3,8 @@ title: "AI 时代，成为有目标感、有判断力、有勇气的人"
 subtitle: "What Real Confidence Looks Like When Knowledge Becomes Cheap"
 date: 2026-06-22
 tags: ["ai-era", "mindset", "career-growth", "critical-thinking", "leadership"]
+ingested: 2026-06-29
+sha256: 71181da330b3455642364af20231cb55ad1fd5fc9ee5a80ca48645d125b4214c
 ---
 
 今天早晨刷短视频，无意间看到一句话：

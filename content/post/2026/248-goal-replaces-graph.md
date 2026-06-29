@@ -3,6 +3,8 @@ title: "用 Goal 取代 Graph：多智能体框架的真正方向"
 subtitle: "Give agents a playground, not a blank canvas"
 date: 2026-05-30
 tags: ["multi-agent", "llm-agent", "system-design", "goal-driven", "ai-engineering"]
+ingested: 2026-06-29
+sha256: 6ba788a24505f691dd43ee703d0392c986cdcefa74913e56b478a09a597bbe98
 ---
 
 2023 年 3 月，一个名叫 Toran Bruce Richards 的开发者发布了 AutoGPT，两周内 GitHub Star 突破 10 万。他在 README 里写道：「给 AI 一个目标，它自己规划、自己执行、自己反思。」不需要你画流程图，不需要定义任务依赖——完全自治。

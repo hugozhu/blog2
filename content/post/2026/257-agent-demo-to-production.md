@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: 33220618e132404e9ec5e9afbefc9560225fd1ab83dd84ffc7d18f3cd5495315
 title: "从 Demo 到生产：AI Agent 的系统工程时代"
 subtitle: "The competition has shifted from model benchmarks to delivery infrastructure"
 date: 2026-06-04

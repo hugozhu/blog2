@@ -3,6 +3,8 @@ title: "100% AI编码工程实践1000人时 = 500元Token费"
 subtitle: "Architecture Decisions Behind Building a Full-Stack App Entirely with AI"
 date: 2026-06-16
 tags: ["ai-coding", "system-design", "developer-tools", "product-engineering", "vanilla-js"]
+ingested: 2026-06-29
+sha256: c12d36395243bb0af1596595c8b2d9b3573227003cb927a381c11e9935ab7d20
 ---
 
 6 月 5 日，我在 Cursor 里写了一句：「帮我基于 Supabase 做一个带 AI 辅助编辑的笔记应用」。AI 读了一下，开始生成代码。我切到浏览器，打开 localhost:3000，一个能用的 Markdown 编辑器已经跑起来了。

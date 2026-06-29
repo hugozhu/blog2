@@ -3,6 +3,8 @@ title: "AI to B 的最后一公里：不是模型，是企业基建"
 subtitle: "The Last Mile of Enterprise AI Is Not About Models — It Is About Infrastructure"
 date: 2026-06-18
 tags: ["ai-agent", "enterprise", "infrastructure", "ai-coding", "digital-transformation", "strategy"]
+ingested: 2026-06-29
+sha256: f1d7a71d48edfe5b892b1a2006a6074de6b003301ab630e15089fcf47cf5d182
 ---
 
 上个月，一个做汽车零部件的朋友找我吐槽。他们花了大半年选了一个「国内最好的大模型」，又花了三个月搭了一套 Agent 系统，目标是让质检流程自动化。结果上线两周，业务部门集体退货。

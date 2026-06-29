@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: c7245b1eaa9991229e564126bb27aebe69996dcdbdcdb082e4034974db7cd2d7
 title: "销售流程 AI 化（三）：售后 SOP 不是写出来的，是从承诺编译出来的"
 subtitle: "AI-Native Sales Part 3 — Compiling Delivery SOP from Promises"
 date: 2026-06-02

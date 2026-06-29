@@ -3,6 +3,8 @@ title: "Claude Tag 的 Agent Identity：为什么这是 Agent 时代的 OAuth"
 subtitle: "Agent Identity is the Agent-era OAuth"
 date: 2026-06-25
 tags: ["ai-agent", "agent-identity", "enterprise-ai", "claude-tag", "dingtalk", "system-design"]
+ingested: 2026-06-29
+sha256: 3308dcda153a668ec0a08ef4a6fb8d293ebb5cef1edfec7e25684b94784fc988
 ---
 
 上周，一个同事在工作群里 **@了一个 AI Agent**，让它分析最近 30 天的客户退款数据。Agent 查了 CRM、翻了工单、跑了 SQL，两小时后在群里贴出一份报告。

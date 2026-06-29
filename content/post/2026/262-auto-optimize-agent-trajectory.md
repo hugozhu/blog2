@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: f6b2de946d9408bfe28c0d241ccbf5cdf4890b282013da0ff6d6d0f299b7eade
 title: "自动优化 Agent 的执行轨迹"
 subtitle: "Trajectory Optimization and Skill Distillation for AI Agents"
 date: 2026-06-09

@@ -3,6 +3,8 @@ title: "销售流程 AI 化（一）：好方案不是写出来的，是沉淀�
 subtitle: "AI-Native Sales Part 1 — The Solution as a Living Object"
 date: 2026-06-02
 tags: ["ai-agent", "enterprise-ai", "sales", "presales", "knowledge-management"]
+ingested: 2026-06-29
+sha256: d74fc946d8c2553e92d885a4bbff16223b39d65f9cd1a66a4c2b0e28ab3194b2
 ---
 
 老周是我们团队最资深的售前。上个月给华东一家汽配连锁分销商做方案，他熬了三个通宵，产出一份 80 页的 PPT —— 行业洞察、痛点拆解、架构图、ROI 测算、三个同行的成功案例，一应俱全。客户的财务总监当场说：「这是我见过最懂我们的方案。」单子签了。

@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: 7a16b052586b586214579006159ccd39efe22e81b1d8bbd1ea7bfee2b52bebdf
 title: "AI 表格做 Scrum 团队的大脑"
 subtitle: "AI-Driven Scrum Workflow with DingTalk Tables"
 date: 2026-06-07

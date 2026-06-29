@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: d6b3905163776d91753e53c19e135b270a8345df7bf20942996b8d5951ecb43a
 title: "从 SQL 生成器到数据工程范式转移：Anthropic 自助数据分析启示录"
 subtitle: "Why Anthropic's Self-Service Analytics Proves Data Engineering Must Evolve for Agents"
 date: 2026-06-05

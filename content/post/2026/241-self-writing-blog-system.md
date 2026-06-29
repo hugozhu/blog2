@@ -3,6 +3,8 @@ title: "一个会自己写博客的系统"
 subtitle: "From Squeezing Out Posts to Publishing at the Speed of Thought"
 date: 2026-05-26
 tags: ["ai", "blogging", "agent", "productivity", "claude-code", "context-engineering"]
+ingested: 2026-06-29
+sha256: 286dbc4d5fb6e854110a493ab357ab2cea7a0ea0d63acc2cbfe4996af8629d64
 ---
 
 从「业余时间挤一篇」到「随手一句话就发一篇」——这不是夸张，是我过去 5 个月的真实经历。

@@ -3,6 +3,8 @@ title: "当 Agent 有了工牌：钉钉群里的 Agent IAM 架构设计"
 subtitle: "Designing Agent IAM for Team Collaboration in DingTalk"
 date: 2026-06-29
 tags: ["ai-agent", "agent-identity", "dingtalk", "system-design", "enterprise-ai", "iam"]
+ingested: 2026-06-29
+sha256: 231633ef08f27652301eb018fbd0e6a9906e06ad67f6badb02e9cd87b507e4fa
 ---
 
 周一早上，运营群里有人 **@了运营 Agent**：「帮我看看上周退款率为什么涨了」。

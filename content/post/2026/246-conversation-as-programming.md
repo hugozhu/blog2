@@ -3,6 +3,8 @@ title: "你不需要会编程：对话即编程，一个会进化的工作流系
 subtitle: "How Non-Technical Users Build Evolving Programmatic Systems Through Conversation"
 date: 2026-05-29
 tags: ["ai-agent", "dingtalk", "wukong", "workflow-automation", "no-code", "system-design"]
+ingested: 2026-06-29
+sha256: c48d1f9a421e00de68c8adb18757caeaa02f7a1f24be46b1e1f1e711e979530b
 ---
 
 上周五下午 4 点，一个管着 30 人销售团队的区域总监在钉钉里对悟空说了一句话：

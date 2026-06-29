@@ -3,6 +3,8 @@ title: "VOC 闭环：Windows 用户打不开悟空，AI 怎么用 4 小时从报
 subtitle: "From VOC Signal to Code Fix — Building AI-Native Enterprise SOP"
 date: 2026-05-24
 tags: ["AI", "AI-agents", "enterprise", "SOP", "knowledge-management", "harness-engineering"]
+ingested: 2026-06-29
+sha256: 68cea7b8c4023890d726f94c3c8b88d7841614412f91ca4a4c128296ce5dfd2f
 ---
 
 知识管理有四个值得做的企业场景，其中「企业 SOP / 最佳实践沉淀」看起来最不起眼——知识静态、更新慢、容易退化成高级搜索、用户日活偏弱。

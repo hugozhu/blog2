@@ -3,6 +3,8 @@ title: "手冲咖啡.SKILL"
 subtitle: "Pour-Over Coffee as Agent Skill"
 date: 2026-05-26
 tags: ["ai-agent", "skill", "pour-over-coffee", "engineering"]
+ingested: 2026-06-29
+sha256: 907eba4cf47151e74f8b86052eda92f0a3c586584b9cfe2d84fe16f8926740ec
 ---
 
 每一杯手冲咖啡，都是一次 Skill 的执行。

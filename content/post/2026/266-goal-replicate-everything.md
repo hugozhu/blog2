@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: a4ba6c90ab2463e6af626946871b337bda1ccadbcd2326be6d2047ba526567eb
 title: "/goal 复制一切：当软件复制成本为零，谁来满足井喷的需求"
 subtitle: "When replication costs zero, the bottleneck shifts from building to defining what to build"
 date: 2026-06-12

@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: cabee488c10fd5ed16a1e1de8d9e8bcde302d30b30d2cce114385abfae0ba72d
 title: "LLM 自动化 vs RPA：省的不是智能，是编排成本"
 subtitle: "Explore Once, Compile to Code, Execute Forever"
 date: 2026-06-03

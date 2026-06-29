@@ -3,6 +3,8 @@ title: "知识库编译查询：让 AI 从「读文档」变成「查数据」"
 subtitle: "Designing Knowledge Compilation and Query Methods for Better AI Analysis"
 date: 2026-05-28
 tags: ["AI", "knowledge-management", "context-engineering", "meeting-minutes", "prompt-engineering"]
+ingested: 2026-06-29
+sha256: 08c61cb2a41d3d1c7b0e8207bed243d2ddf6b67d5e0f5d47f79df005dd75ca45
 ---
 
 上周五，我让 AI 帮我分析一场 90 分钟产品周会的听记转写稿——15000 字的会议记录，要求提取关键决策、未闭环的行动项、以及和过去三个月决策之间的矛盾。

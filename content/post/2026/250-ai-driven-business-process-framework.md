@@ -3,6 +3,8 @@ title: "企业业务流程 AI 化的决策框架"
 subtitle: "A Decision Framework for AI-Driven Business Processes"
 date: 2026-06-02
 tags: ["ai-agent", "enterprise-ai", "digital-transformation", "workflow-automation", "decision-framework"]
+ingested: 2026-06-29
+sha256: bc05d08b0ccb3c73e45d37a413cd6ee826d78b8bd37d3f24b5dc4aebfbbe658a
 ---
 
 AI 时代企业 IT 变革的主要方向，是把业务流程优化成由 AI 来驱动，减少原有流程中人力的投入。但上个月，一个做企业数字化的朋友跟我说：他们花了大半年把内部流程都接上了 AI，看起来每个环节都有 AI 参与，人力成本却几乎没降。员工还是在填表、还是在审批、还是在做报表，AI 只是在旁边多了一个「建议」按钮。

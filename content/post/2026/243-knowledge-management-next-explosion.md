@@ -3,6 +3,8 @@ title: "继编程之后，大模型应用的下一个爆发场景是知识管理
 subtitle: "Why Knowledge Management Is the Next Billion-Dollar AI Application After Code"
 date: 2026-05-27
 tags: ["llm", "knowledge-management", "pkm", "ai-applications", "context-engineering"]
+ingested: 2026-06-29
+sha256: 302c5cc74fdb7e00673f726bee7f34b7a431e6ca421e79a8818bb63874aea965
 ---
 
 上周五晚上，我让 AI 帮我做一件事：把过去三个月收集的 47 篇关于 Agent 架构的文章、12 段会议笔记、和 6 个项目的 README，整理成一份「哪些架构模式真正有效」的判断。

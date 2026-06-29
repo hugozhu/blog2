@@ -3,6 +3,8 @@ title: "AI 原生周报：从「周五补作业」到「数据自然长出来」
 subtitle: "AI-Native Weekly Report — From Friday Homework to Organic Data Aggregation"
 date: 2026-05-25
 tags: ["AI", "management", "scrum", "automation", "dingtalk", "productivity"]
+ingested: 2026-06-29
+sha256: 46c6721174d83dbe3eebad460263f2575f1046ce82285f83efe6d647e2681135
 ---
 
 每个周五下午，你的团队在做同一件事：打开空白文档，回忆这周干了什么，凑出一份周报。

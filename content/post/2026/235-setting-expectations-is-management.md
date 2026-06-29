@@ -3,8 +3,8 @@ title: "对人不提要求，就是对组织不负责"
 subtitle: "Setting Expectations Is the Minimum Viable Management"
 date: 2026-05-23
 tags: ["management", "leadership", "ai-era", "organization"]
-ingested: 2026-05-24
-sha256: 450072c1f27c7791d1281b217e1811e4086f0c0fc4aa2ea8719ac5f924276ee3
+ingested: 2026-06-29
+sha256: 8850df3b1a14d4250c3e97873a10b186fe77193759f00ea1b4495d961a3cc7a6
 ---
 
 「对人不提要求，就是对组织不负责。」

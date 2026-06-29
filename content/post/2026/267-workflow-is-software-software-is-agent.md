@@ -3,6 +3,8 @@ title: "工作流即软件，软件即 Agent：AI Coding 的真正战场"
 subtitle: "The next wave is not building new systems faster — it is encoding proven SOPs into digital workforce"
 date: 2026-06-12
 tags: ["ai-agent", "enterprise", "workflow", "sop", "digital-workforce", "strategy"]
+ingested: 2026-06-29
+sha256: 6aa070d30945f92dae65d372bbc08c8ea9cb05e2a06f310c8c13d1a06207b311
 ---
 
 上周和一个做制造业的朋友吃饭。他的工厂有一条产线质检流程，沉淀了八年的 SOP，写在 47 页 Word 文档里，涵盖了从来料抽检到成品出货的 23 个检查节点。

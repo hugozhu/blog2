@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: 8c72cb58eba9eabe2157a26f5ab4ed549bc2c21743211e80787ecef23463c39f
 title: "AI 时代跨境出海创业：跑得快不是护城河，跑得对才是"
 subtitle: "Why AI-Native Cross-Border Startups Need Validation Discipline More Than Execution Speed"
 date: 2026-06-06

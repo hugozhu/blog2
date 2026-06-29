@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: ac7706b5b003ecc1185f3d8beceff297efb208bb1bf69994c850019655434ffc
 title: "「老」工程师在 AI 时代的价值"
 subtitle: "Why Senior Engineers Matter More Than Ever in the AI Era"
 date: 2026-06-02

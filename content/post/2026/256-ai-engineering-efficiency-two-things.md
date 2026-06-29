@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: 1a815a7abf1e918ef2889fba11a4fafca8350a18e7c3d68cfe9d25671008d6ae
 title: "AI 改变工程效率的两件事，和其他所有没变的事"
 subtitle: "Code Gets Faster, You Get Parallel, But Judgment Stays Human"
 date: 2026-06-04

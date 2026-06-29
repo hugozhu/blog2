@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: ed7d2710b52974dd00154edee14f6355093f83a3ac13d297a2b29dbfabcc3b96
 title: "Loop Engineering：AI Agent 工程的第五层"
 subtitle: "From Prompt to Goal — the human defines the finish line, the agent finds the path"
 date: 2026-06-10

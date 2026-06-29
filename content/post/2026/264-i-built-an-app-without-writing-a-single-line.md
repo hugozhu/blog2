@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: 3c68f387bc7699e8bc710778e76286deb4dc90e16a1da8234dc2409f0a2f6ff8
 title: "我写了一行代码，AI 写了剩下 6773 行"
 subtitle: "What a 100% AI-Generated Production App Teaches Us About Human-AI Collaboration"
 date: 2026-06-10

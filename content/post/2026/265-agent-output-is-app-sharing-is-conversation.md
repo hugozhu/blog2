@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: 7b9d547080f7702af35574eb726fad3a2cc10065f884700629b2737b3cff6eff
 title: "Agent 产物即应用，分享协作即对话"
 subtitle: "From Text Output to Living Application — Why Every AI Agent Needs Publish and Feedback"
 date: 2026-06-11

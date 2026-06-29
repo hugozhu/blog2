@@ -3,6 +3,8 @@ title: "企业知识AI Ready的落地路径"
 subtitle: "Events Before Intelligence"
 date: 2026-05-30
 tags: ["AI", "enterprise-ai", "workflow", "knowledge-management", "event-driven", "feedback-loop"]
+ingested: 2026-06-29
+sha256: 57d8fe0251f7f2c5190fce44217ad2398fae7d357244a3700808289cd730f945
 ---
 
 周三晚上 9 点，供应链主管小林在钉钉里收到一条告警：「供应商 A 本周交货延迟率从 3% 升至 12%」。他看了一眼，回了句「知道了，季节性波动，不用管」。这条消息随即被淹没在后续 200 条群聊里。

@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: e8377039b823adf4c52522681552e23991d6c0399cd81209dd6dda04221844ab
 title: "给 Web Agent 一个 Terminal 就够了"
 subtitle: "The Harness Should Disappear"
 date: 2026-06-07

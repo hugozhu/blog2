@@ -1,4 +1,6 @@
 ---
+ingested: 2026-06-29
+sha256: 09f91320bf62857828d551c0b10c738a50848f4e9ba71d2015541ad7dea78f69
 title: "销售流程 AI 化（二）：拜访录音质检的价值，不是给销售打分"
 subtitle: "AI-Native Sales Part 2 — Pitch QA Is Not About Scoring"
 date: 2026-06-02

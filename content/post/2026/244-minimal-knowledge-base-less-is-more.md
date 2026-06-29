@@ -3,6 +3,8 @@ title: "反直觉：AI 时代，知识库工具越简单越好"
 subtitle: "Less is More: Why Simpler Knowledge Tools Win in the AI Era"
 date: 2026-05-27
 tags: ["AI", "knowledge-management", "tools", "productivity"]
+ingested: 2026-06-29
+sha256: 008176752ffe3a91fc69c3d22dd8152d790e94a3aaefe26d96e4ee68e2228801
 ---
 
 上周我打开了尘封已久的 Obsidian vault。
