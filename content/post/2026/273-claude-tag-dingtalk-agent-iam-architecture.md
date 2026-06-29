@@ -111,7 +111,7 @@ Workspace Baseline
 
 ## 映射到钉钉：架构怎么落
 
-把这三层映射到钉钉，需要考虑钉钉特有的能力栈。和 Slack 不同，钉钉不只是 IM——它自带 OA 审批、AI 表格、通讯录、工作流、日志。这意味着钉钉的 Agent 运行在一个 **天然更丰富的企业上下文 **里，但也意味着权限边界更复杂。
+把这三层映射到钉钉，需要考虑钉钉特有的能力栈。和 Slack 不同，钉钉不只是 IM——它自带 OA 审批、AI 表格、通讯录、工作流、日志。这意味着钉钉的 Agent 运行在一个 **天然更丰富的企业上下文** 里，但也意味着权限边界更复杂。
 
 有人会反驳：Slack 的第三方集成生态更成熟（MCP 连接器、Slack App Directory），Agent 调外部工具更顺手；钉钉的「全家桶」反而可能让 Agent IAM 更难做——攻击面集中在一个平台上，一旦 Agent Identity 被攻破，泄露的不只是消息，还有审批、表格、考勤。这个担心成立。但反过来看，集中也意味着 **治理入口统一**——钉钉的管理员后台本来就管着所有数据维度的权限，加一个 Agent Registry 比在 Slack 里协调 20 个第三方 App 的权限要直接得多。
 
@@ -310,7 +310,7 @@ class AgentProxy:
 | 工程 Code Review | 中高 | `eng-pr`：读 GitHub + 开 PR | GitHub Token（无 Merge） |
 | 生产变更执行 | 高 | `prod-deploy`：写 K8s + 通知 | K8s SA Token + JIT 审批 |
 
-**低风险场景 **可以只用 App-Only Token + 权限点控制，不需要完整的 Agent IAM。 **中高风险场景**——特别是涉及写操作、跨系统、敏感数据的——必须上 Access Bundle + Proxy。
+**低风险场景** 可以只用 App-Only Token + 权限点控制，不需要完整的 Agent IAM。 **中高风险场景**——特别是涉及写操作、跨系统、敏感数据的——必须上 Access Bundle + Proxy。
 
 这里有一个实用原则： **权限扩展应该跟着实际工作价值走，而不是为了让配置表格看起来完整**。先让 Agent 跑一个具体任务，看审计日志暴露了什么问题，再逐步扩展 Bundle。
 
@@ -334,7 +334,7 @@ Anthropic 的路线图中提到了这个能力，钉钉的 OA 审批流天然适
 
 ## DEAP 平台的「金箍咒」框架
 
-钉钉已有的 DEAP（DingTalk Enterprise AI Platform）提供了 Agent 治理的基础框架——内部叫「金箍咒」： **权限、配额、沙箱、审计 **四件套。
+钉钉已有的 DEAP（DingTalk Enterprise AI Platform）提供了 Agent 治理的基础框架——内部叫「金箍咒」： **权限、配额、沙箱、审计** 四件套。
 
 | 金箍咒维度 | Claude Tag 对应 | 钉钉现状 | 差距 |
 |-----------|----------------|---------|------|
