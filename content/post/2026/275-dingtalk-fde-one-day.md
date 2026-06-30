@@ -3,6 +3,8 @@ title: "钉钉 FDE 的一天：从业务调研到 Agent 上线"
 subtitle: "A Day in the Life of DingTalk Forward Deployed Engineer"
 date: 2026-06-29
 tags: ["dingtalk", "fde", "ai-agent", "enterprise-ai", "workflow", "organization"]
+ingested: 2026-06-29
+sha256: f790d0a432bdae17ca820b7f9001731c667e662a5b81bcfccdf9ded2826ecc84
 ---
 
 周一早上九点，小林到了客户的运营部。

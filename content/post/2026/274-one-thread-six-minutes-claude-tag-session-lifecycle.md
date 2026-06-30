@@ -3,6 +3,8 @@ title: "一个 Thread 的六分钟：Claude Tag 的 Session 生命周期全拆�
 subtitle: "The Lifecycle of a Claude Tag Session"
 date: 2026-06-29
 tags: ["ai-agent", "claude-tag", "system-design", "enterprise-ai", "slack", "architecture"]
+ingested: 2026-06-29
+sha256: 7db5048ef70216c637e5f7d9008e7438c084719468975d66c2c32ec125e3d39b
 ---
 
 周一早上，#platform-eng 频道。
