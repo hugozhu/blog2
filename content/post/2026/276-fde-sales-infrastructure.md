@@ -3,10 +3,9 @@ title: "FDE 基础设施实战：一天做出销售 Agent 矩阵"
 subtitle: "Infrastructure in Action — Building a Sales Agent Matrix in One Day"
 date: 2026-06-29
 tags: ["dingtalk", "fde", "infrastructure", "sales", "ai-agent", "mcp"]
----
 ingested: 2026-06-30
-sha256: b926f09bba1b66bbea25ffa422dc8a2a265289029ec6897d8a84459ffe8395ed
-
+sha256: 2dd068b7a973addf641b004108c236aa2acabb6ba54b1cd352e0f6de0b404b83
+---
 接着 [销售流程 AI 化系列](https://hugozhu.site/post/2026/251-ai-native-sales-presales-solution-object/) 的汽配分销商案例讲。
 
 上一篇讲的是理念：解决方案对象、拜访质检、履约 SOP 编译。这一篇讲落地：FDE 到客户现场，怎么用基础设施在一天内把这些理念变成可运行的 Agent。
