@@ -4,6 +4,8 @@ subtitle: "Infrastructure in Action — Building a Sales Agent Matrix in One Day
 date: 2026-06-29
 tags: ["dingtalk", "fde", "infrastructure", "sales", "ai-agent", "mcp"]
 ---
+ingested: 2026-06-30
+sha256: b926f09bba1b66bbea25ffa422dc8a2a265289029ec6897d8a84459ffe8395ed
 
 接着 [销售流程 AI 化系列](https://hugozhu.site/post/2026/251-ai-native-sales-presales-solution-object/) 的汽配分销商案例讲。
 

@@ -4,6 +4,8 @@ subtitle: "Software engineering stays the same — what changes is the deliverab
 date: 2026-06-30
 tags: ["ai-agent", "engineering", "career", "ai-coding", "software-engineering", "value-shift"]
 ---
+ingested: 2026-06-30
+sha256: 29136f9881c35096eca5f5fd02dde69f12d35ebfca4dd417ec3bb6b27398c162
 
 上周和一个做了十五年全栈的朋友吃饭。他最近从大厂出来，拿到两个 offer：一个是去创业公司做 Agent，一个是去传统企业做数字化。他选了后者，理由是「Agent 太新了，不确定性太大」。
 

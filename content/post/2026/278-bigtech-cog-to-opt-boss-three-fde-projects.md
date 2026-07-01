@@ -4,6 +4,8 @@ subtitle: "Three FDE deliveries to go from cog to one-person-team founder"
 date: 2026-06-30
 tags: ["fde", "career", "opc", "ai-agent", "one-person-company", "entrepreneurship"]
 ---
+ingested: 2026-06-30
+sha256: 714e6aeb304e994e68b0b16461b14fa343b298dc25d685a6e42944a46c27edfc
 
 上个月一个前同事找我吃饭。他在某大厂做了八年后端，刚被裁。手里有两个选择：去创业公司做 Agent 工程师，或者自己干。
 
