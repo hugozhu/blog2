@@ -4,7 +4,7 @@ subtitle: "When chat becomes task dispatch: Chatbot vs Agent in modern IM"
 date: 2026-07-01
 tags: ["IM", "AI", "Agent", "Chatbot", "collaboration", "DingTalk", "Slack", "workflow-automation", "digital-workforce"]
 ingested: 2026-07-01
-sha256: 2684b407c4ed497398b27a646b2595f119fc5dbd3331b459eb97eddcd519be6e
+sha256: 41d77b6b07d32dc31d4b9f20dc531d7b346844f73492f3af787b64053fd4fe0e
 ---
 上周在钉钉里看到一条消息，让我意识到一个根本性的转变正在发生。
 
