@@ -3,6 +3,8 @@ title: "管理者的第一个 Agent Skill：Loop 工程实现每周重要事项�
 subtitle: "Your first Agent Skill as a manager -- why loop engineering beats manual progress tracking"
 date: 2026-07-02
 tags: ["loop-engineering", "AI-agents", "management", "agent-skill", "dingtalk", "enterprise"]
+ingested: 2026-07-02
+sha256: f36f657d5f634304c993260222681968279608f6af324c7dffb4af8976b31152
 ---
 
 周五下午 4 点。你打开钉钉，你的 D 群里「本周的重点事项」消息已经发了 24 小时。16 位负责人被 @，每个人的进展回复散落在三个地方：有人私聊你说了三段话，有人在群里回了一个 emoji，还有人到现在一个字没发。
