@@ -3,6 +3,8 @@ title: "AI 时代，重新读林语堂"
 subtitle: "When Efficiency Is Abundant, Taste Becomes the Scarcest Skill"
 date: 2026-07-04
 tags: ["ai-era", "philosophy", "lifestyle", "lin-yutang", "taste"]
+ingested: 2026-07-04
+sha256: be894edc14976b4a409124250317bd4488736e30acea3b370c9ffe1c292e0f95
 ---
 
 前几天刷社交媒体，看到一个技术总监发的帖子：「AI 帮我把周报、PPT、邮件全干了之后，我突然不知道该干嘛了。」底下几百条评论，清一色共鸣。

@@ -3,6 +3,8 @@ title: "AI 写日报，是培养还是废人？"
 subtitle: "AI daily reports as organizational flywheel — not efficiency tool"
 date: 2026-07-04
 tags: ["ai-agent", "dingtalk", "fde", "management", "organization", "loop-engineering"]
+ingested: 2026-07-04
+sha256: 7b17de4439001e79180eb1f79f3854267b278c0f2a81f59a05a21c759927a3c5
 ---
 
 昨天一个校招生在钉钉上问我：「日报能不能让 AI 帮我写？我每天花 30 分钟凑那些东西，感觉像在演戏。」
