@@ -17,6 +17,18 @@ Agent 懵了。发消息这么基础的操作，怎么可能没有？
 
 Agent 不知道有这回事，因为 `--help` 的输出里没有明显标记 shortcut 的存在。
 
+同样的事情也发生在钉钉上。我让另一个 Agent 用 DWS 给同事发一条消息，它调了 `dws chat message send`，参数都对了，返回结果是：
+
+```json
+{"success": true, "result": {"openTaskId": "..."}}
+```
+
+Agent 认为发送成功了，继续下一步。但十分钟后我打开钉钉——消息根本没到。
+
+Agent 不知道发生了什么。`success: true` 告诉它「成功了」，但现实是消息石沉大海。后来排查发现是 PAT 权限不够——API 返回了「成功」，但实际投递被权限系统拦截了。
+
+对人类来说，打开手机看一眼就知道没收到。但对 Agent 来说，`success: true` 就是真理——它没有能力验证现实，只能信任返回值。
+
 **这就是「API 友好」和「模型友好」之间的鸿沟。**
 
 [![接口设计三层模型：API 友好 → 开发者友好 → 模型友好](/img/2026/three-levels-interface-design-thumb.jpg)](/img/2026/three-levels-interface-design.png)
