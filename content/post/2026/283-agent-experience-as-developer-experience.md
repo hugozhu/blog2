@@ -3,6 +3,8 @@ title: 钉钉开放平台的第一用户不再是开发者，而是开发者的 
 subtitle: Agent Experience is the new Developer Experience
 date: 2026-07-05
 tags: ["open-platform", "agent-experience", "developer-experience", "ai-coding", "harness-engineering", "dingtalk"]
+sha256: 3439675f541b66c587665459751c77b2f213a6062d29ddd0298ddd8d8ebf3206
+ingested: 2026-07-05
 ---
 
 昨晚我用 OpenCode 在钉钉上写一个会议通知 Agent。需求很简单：查日历找到明天的会议，给参会人发一条钉钉消息。

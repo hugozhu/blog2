@@ -3,6 +3,8 @@ title: "2026 年企业 AI 原生落地的第一步"
 subtitle: "The First Step of Enterprise AI-Native in 2026"
 date: 2026-07-05
 tags: ["ai-agent", "mixture-of-agents", "enterprise-ai", "dingtalk", "agent-identity", "system-design"]
+sha256: 048e1b79e19aa5c2aa0d935783ebc5685a8d4e65f019dc380443136e326cbb3d
+ingested: 2026-07-05
 ---
 
 上周一个朋友跟我说，他们公司「上线了数字员工」。
