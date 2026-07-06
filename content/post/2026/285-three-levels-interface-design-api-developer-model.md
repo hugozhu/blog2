@@ -1,6 +1,6 @@
 ---
-title: API 友好不等于开发者友好，也不等于模型友好
-subtitle: Three Levels of Interface Design for the Agent Era
+title: "API 友好不等于开发者友好，也不等于模型友好"
+subtitle: "Three Levels of Interface Design for the Agent Era"
 date: 2026-07-06
 tags: ["cli-design", "agent-experience", "developer-experience", "api-design", "dingtalk", "lark", "google-workspace"]
 ---
