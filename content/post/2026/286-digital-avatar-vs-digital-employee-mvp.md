@@ -64,24 +64,7 @@ tags: ["ai-agent", "digital-workforce", "enterprise-ai", "mvp", "system-design",
 
 明确了锚点是「岗位」之后，MVP 架构反而变简单了——你不需要复刻一个人的全部，只需要让一个 Agent 胜任一个岗位的核心任务。
 
-```text
-┌─────────────────────────────────────────┐
-│            交互层 (Interface)            │
-│   IM Bot / Web Widget / API Endpoint    │
-├─────────────────────────────────────────┤
-│          编排层 (Orchestration)          │
-│   Agent Framework + Tool Router         │
-│   ┌──────────┬──────────┬──────────┐    │
-│   │ 意图识别  │ 任务拆解  │ 多步执行  │    │
-│   └──────────┴──────────┴──────────┘    │
-├─────────────────────────────────────────┤
-│          能力层 (Capabilities)           │
-│   LLM │ RAG │ 工具调用 │ 外部 API       │
-├─────────────────────────────────────────┤
-│          数据层 (Data & Memory)          │
-│   知识库 │ 业务数据 │ 会话记忆 │ 日志   │
-└─────────────────────────────────────────┘
-```
+[![数字员工 MVP 四层架构](/img/2026/digital-employee-mvp-architecture-thumb.jpg)](/img/2026/digital-employee-mvp-architecture.png)
 
 **MVP 阶段的关键取舍：**
 
