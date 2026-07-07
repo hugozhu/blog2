@@ -19,6 +19,8 @@ dws dev connect --channel opencode --unified-app-id <你的应用ID>
 
 这篇文章就是把这个过程从浅到深讲一遍： **先一条命令把通用 Agent 接进钉钉，再用 opencode 本体搭出一个鲁棒、自愈、能实时回传进度的垂直 Agent 协同系统**。面向的就是在校同学——你有一台笔记本、会用命令行、装了 opencode，就能跟着跑通。
 
+[![一条命令 vs 一堆表单](/img/2026/opencode-dingtalk-connect-no-admin-console-thumb.jpg)](/img/2026/opencode-dingtalk-connect-no-admin-console.png)
+
 <!--more-->
 
 ## 接一个 Agent 到钉钉，到底要几层
