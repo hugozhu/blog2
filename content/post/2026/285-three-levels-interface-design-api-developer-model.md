@@ -3,6 +3,8 @@ title: "API 友好不等于开发者友好，也不等于模型友好"
 subtitle: "Three Levels of Interface Design for the Agent Era"
 date: 2026-07-06
 tags: ["cli-design", "agent-experience", "developer-experience", "api-design", "dingtalk", "lark", "google-workspace"]
+ingested: 2026-07-06
+sha256: e70bf5eef6a894438485b3cf433e8064b5176fd1f3175261a44d9b22ebb0b6bc
 ---
 
 上周我让一个 Coding Agent 帮我用飞书发一条群消息。
