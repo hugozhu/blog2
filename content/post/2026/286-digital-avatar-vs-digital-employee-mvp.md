@@ -17,9 +17,9 @@ tags: ["ai-agent", "digital-workforce", "enterprise-ai", "mvp", "system-design",
 
 这不是个例。我观察到大量企业在启动 AI Agent 项目时，第一步就搞混了这两个概念——不是因为技术理解不够，而是因为 **没有想清楚锚点在哪**。
 
-<!--more-->
-
 [![数字分身与数字员工：锚点决定一切](/img/2026/digital-avatar-vs-digital-employee-mvp-thumb.jpg)](/img/2026/digital-avatar-vs-digital-employee-mvp.png)
+
+<!--more-->
 
 ## 一、一个字的区别：「谁」vs「做什么」
 
