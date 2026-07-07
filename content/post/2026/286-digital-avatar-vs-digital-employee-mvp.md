@@ -1,6 +1,6 @@
 ---
-title: "数字分身与数字员工：别搞混了锚点再动手"
-subtitle: "The anchor point — person or position — determines everything about your AI MVP"
+title: "数字员工 MVP 指南：从选场景到衡量效果的六步法"
+subtitle: "A practical six-step playbook from scenario selection to impact measurement"
 date: 2026-07-07
 tags: ["ai-agent", "digital-workforce", "enterprise-ai", "mvp", "system-design", "strategy"]
 ---
