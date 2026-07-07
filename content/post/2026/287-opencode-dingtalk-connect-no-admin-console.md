@@ -1,7 +1,7 @@
 ---
 title: "一条命令把通用 Agent 接进钉钉：不登录管理后台的 opencode 接入实战"
 subtitle: "Connect opencode to DingTalk Without the Admin Console, Then Turn It Into a Self-Healing Agent Guardian"
-date: 2026-07-08
+date: 2026-07-07
 tags: ["dingtalk", "opencode", "ai-agent", "cli", "tutorial", "dws"]
 ---
 
