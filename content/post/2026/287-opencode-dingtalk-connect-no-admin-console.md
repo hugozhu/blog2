@@ -3,6 +3,8 @@ title: "一条命令把通用 Agent 接进钉钉：不登录管理后台的 open
 subtitle: "Connect opencode to DingTalk Without the Admin Console, Then Turn It Into a Self-Healing Agent Guardian"
 date: 2026-07-07
 tags: ["dingtalk", "opencode", "ai-agent", "cli", "tutorial", "dws"]
+ingested: 2026-07-07
+sha256: 788a8476975c92180adb168775d79ed3d22bce50e4aaa970d523f408f583b4aa
 ---
 
 上周一个钉钉校招生来找我抱怨。他帮在校的师弟调毕业设计，想做一个「钉钉里 @ 一下机器人，就能让本地 Agent 帮忙跑数据分析、回传结果」的小系统。思路很清楚，卡壳的地方很尴尬——卡在了第一步：钉钉开放平台管理后台。

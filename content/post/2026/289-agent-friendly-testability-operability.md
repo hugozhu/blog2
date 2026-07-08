@@ -3,6 +3,8 @@ title: "面向 Agent 开发：可测试和可运维第一次真正成为前提�
 subtitle: "Testability and operability are no longer best practices — they are prerequisites for Agent autonomy"
 date: 2026-07-07
 tags: ["ai-agent", "testability", "operability", "software-engineering", "devops", "agent-friendly"]
+ingested: 2026-07-07
+sha256: dd2f354d368e2c5b8dad2b7db40ebbd47e59ab15e56ab5ebc6c5d49b0e1dc009
 ---
 
 上周 review 一个团队的代码。他们想做一个能自主修 bug 的 Agent，架构设计得很漂亮，模型选的也是最新的。但 Agent 跑起来后，改完代码就停了——它不知道怎么验证自己改得对不对。

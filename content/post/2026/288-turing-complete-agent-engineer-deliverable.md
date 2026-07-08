@@ -3,6 +3,8 @@ title: "AI 时代工程师的新交付物：图灵完备的 Agent"
 subtitle: "From shipping code to shipping Turing-complete autonomous agents"
 date: 2026-07-07
 tags: ["ai-agent", "system-design", "engineering", "agent-runtime", "turing-complete", "future-of-work"]
+ingested: 2026-07-07
+sha256: 31294d4feb03f2fae64e00ab460a427e1af354851be2d3653228c909ef6b915a
 ---
 
 上个月面试一个候选人，简历很漂亮，做过三年 LLM 应用开发。我问他：「你觉得你做的东西，本质上是在交付什么？」

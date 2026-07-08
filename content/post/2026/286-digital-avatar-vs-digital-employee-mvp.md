@@ -3,6 +3,8 @@ title: "数字员工 MVP 指南：从选场景到衡量效果的六步法"
 subtitle: "A practical six-step playbook from scenario selection to impact measurement"
 date: 2026-07-07
 tags: ["ai-agent", "digital-workforce", "enterprise-ai", "mvp", "system-design", "strategy"]
+ingested: 2026-07-07
+sha256: 0d9a5340c890153c7eb1002475d8368020075c02768cea79ae2e63899ccfc3fb
 ---
 
 上个月，一个做消费品牌的朋友找我聊他们的 AI 项目。
