@@ -3,6 +3,8 @@ title: "两个 Agent 的钉钉对话：异构多 Agent 协作的消息总线模�
 subtitle: "Heterogeneous multi-agent orchestration through messaging platforms — why we skipped CrewAI and used DingTalk"
 date: 2026-07-08
 tags: ["multi-agent", "dingtalk", "opencode", "hermes-agent", "system-design", "ai-agent", "message-bus", "orchestration"]
+ingested: 2026-07-08
+sha256: 174a109a312085879925c121a675d552b989e0704ff558deb9f06ef093647389
 ---
 
 我的桌面上常年跑着两个 Agent。

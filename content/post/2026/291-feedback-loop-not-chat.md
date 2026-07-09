@@ -3,6 +3,8 @@ title: "人机协同的核心不是 Chat，是 Feedback Loop"
 subtitle: "When proactive agents meet continuous human feedback, IM becomes an operating system"
 date: 2026-07-08
 tags: ["human-agent-collaboration", "feedback-loop", "ai-agent", "dingtalk", "digital-workforce", "im-as-os", "proactive-agent"]
+ingested: 2026-07-08
+sha256: e330a86cdbf8638357bf87ea1beb79ea2b85f05de0045da0b0c4b9d7d504da5b
 ---
 
 上周三晚上 10 点，我的钉钉弹出一条单聊消息。
