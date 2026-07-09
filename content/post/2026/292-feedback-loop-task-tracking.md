@@ -11,6 +11,8 @@ tags: ["feedback-loop", "ai-agent", "dingtalk", "management", "task-tracking"]
 
 上周五，我试了一下让 AI Agent 帮我跟。结果超出预期。
 
+[![AI Agent 周度任务跟进闭环：从发出任务清单到进度写回文档的四步循环](/img/2026/feedback-loop-task-tracking-thumb.jpg)](/img/2026/feedback-loop-task-tracking.png)
+
 <!--more-->
 
 ## 问题：谁在跟进，谁没跟上
@@ -58,7 +60,7 @@ tags: ["feedback-loop", "ai-agent", "dingtalk", "management", "task-tracking"]
 
 不是我让 Agent 去问每个人「你这周任务进展如何」——那是 Chat 模式，人发起，Agent 响应。
 
-而是让 Agent **主动**去读我和每位高管的单聊消息，从中提取与任务相关的反馈。Agent 逐条扫描消息，判断哪些是在说任务进展，哪些是无关寒暄。
+而是让 Agent **主动 **去读我和每位高管的单聊消息，从中提取与任务相关的反馈。Agent 逐条扫描消息，判断哪些是在说任务进展，哪些是无关寒暄。
 
 这一步并行跑 16 个人的单聊，几分钟全部拉完。
 
@@ -90,7 +92,7 @@ tags: ["feedback-loop", "ai-agent", "dingtalk", "management", "task-tracking"]
 - 华南区渠道拓展
 ```
 
-这一步很重要：**它不是群发通知，而是个性化跟进**。每个人的消息内容不同，取决于他们实际的反馈情况。Agent 在第二步读到的消息决定了这一步的输出。
+这一步很重要： **它不是群发通知，而是个性化跟进**。每个人的消息内容不同，取决于他们实际的反馈情况。Agent 在第二步读到的消息决定了这一步的输出。
 
 ### 第四步：进度写回文档
 
@@ -106,9 +108,9 @@ tags: ["feedback-loop", "ai-agent", "dingtalk", "management", "task-tracking"]
 
 关键区别在两点：
 
-第一，**Agent 是主动的**。不是我去问「每个人进展如何」，而是 Agent 自己去读消息、自己判断、自己跟进。这是 Feedback Loop 的核心——Agent 主动行动，而不是等人来问。
+第一， **Agent 是主动的**。不是我去问「每个人进展如何」，而是 Agent 自己去读消息、自己判断、自己跟进。这是 Feedback Loop 的核心——Agent 主动行动，而不是等人来问。
 
-第二，**反馈是有状态的**。每次跟进的结果都写进了文档。下周再跑的时候，Agent 能看到上周的进度，知道哪些已经完成了，哪些是遗留的。这就是持久记忆的价值——没有记忆，Feedback Loop 是假的。
+第二， **反馈是有状态的**。每次跟进的结果都写进了文档。下周再跑的时候，Agent 能看到上周的进度，知道哪些已经完成了，哪些是遗留的。这就是持久记忆的价值——没有记忆，Feedback Loop 是假的。
 
 ## 你可以怎么复用这个流程
 
@@ -125,7 +127,7 @@ tags: ["feedback-loop", "ai-agent", "dingtalk", "management", "task-tracking"]
 
 - 如果你是项目总监，任务清单就是项目里程碑，反馈来自各模块负责人的消息
 - 如果你是区域总经理，任务清单就是区域经营指标，反馈来自各省负责人的日常沟通
-- 如果你是销售VP，任务清单就是客户 pipeline，反馈来自各级销售的单聊
+- 如果你是销售 VP，任务清单就是客户 pipeline，反馈来自各级销售的单聊
 
 核心操作不变：让 Agent 主动读消息、主动判断、主动跟进、主动沉淀。
 
