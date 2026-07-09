@@ -13,6 +13,8 @@ tags: ["llm-agent", "dingtalk", "coding-agent", "harness-engineering", "dogfoodi
 
 整个过程我没打开电脑。 **机器人在钉钉上开发了它自己。**
 
+[![钉钉会话 = Agent 自我开发的 harness：五步闭环自开发流程](/img/2026/dingtalk-agent-develops-itself-thumb.jpg)](/img/2026/dingtalk-agent-develops-itself.png)
+
 <!--more-->
 
 ## 本质问题：Agent 自主修 Bug 的瓶颈不在模型，在「看不见真实使用」
