@@ -1,6 +1,6 @@
 ---
 title: "用 Agent 在钉钉上跟进团队周度任务"
-subtitle: "从发通知到建闭环，我用 AI Agent 把每周 16 个高管的进度跟了一遍"
+subtitle: "From sending notifications to building feedback loops — tracking 16 executives' weekly progress with an AI Agent"
 date: 2026-07-09
 tags: ["feedback-loop", "ai-agent", "dingtalk", "management", "task-tracking"]
 ---
