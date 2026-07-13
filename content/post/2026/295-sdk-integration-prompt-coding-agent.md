@@ -5,9 +5,6 @@ date: 2026-07-13
 tags: ["agent-developer", "sdk-integration", "coding-agent", "prompt-engineering", "dingtalk-fde"]
 ---
 
-![SDK 集成三代演进](/img/2026/295-sdk-integration-prompt-coding-agent-thumb.jpg)
-*SDK 集成的三代演进：从读文档到写提示词*
-
 Context.dev 是一个 YC 孵化的 Web 抓取 API，帮 Agent 从任意网页提取结构化数据。它的 Quickstart 文档写得很标准：注册、拿 Key、装 SDK、写第一行代码。
 
 但真正让我停下来的是它首页上的一个功能： **Agentic Setup**。
@@ -22,6 +19,9 @@ then follow docs.context.dev/agent-quickstart to integrate into the codebase
 Agent 会自己去注册账号、拿 API Key、读文档、检测你的项目语言、安装 SDK、写好集成代码、跑测试。整个 Quickstart 里那 5 个步骤，Agent 全自动完成了。
 
 这不是一个 demo。这是 context.dev 推荐的首选集成方式。页面上写着两个选项：「Do it yourself」和「Let your agent do it (Recommended)」。
+
+![SDK 集成三代演进](/img/2026/295-sdk-integration-prompt-coding-agent-thumb.jpg)
+*SDK 集成的三代演进：从读文档到写提示词*
 
 <!--more-->
 
