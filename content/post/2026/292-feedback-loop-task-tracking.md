@@ -3,6 +3,8 @@ title: "用 Agent 在钉钉上跟进团队周度任务"
 subtitle: "From sending notifications to building feedback loops — tracking 16 executives' weekly progress with an AI Agent"
 date: 2026-07-09
 tags: ["feedback-loop", "ai-agent", "dingtalk", "management", "task-tracking"]
+ingested: 2026-07-09
+sha256: 69c9b38015e17e5af85e180b017c6c9a5766f907728781a91336b934dacef0e5
 ---
 
 每周一早上，我在董事群发一条消息，列出 16 位高管本周的重点事项。

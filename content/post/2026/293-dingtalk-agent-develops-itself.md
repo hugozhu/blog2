@@ -3,6 +3,8 @@ title: "让钉钉机器人自己开发自己：当 Coding Agent 看见完整消�
 subtitle: "When a Coding Agent sees the full message flow, DingTalk becomes a self-hosting test harness"
 date: 2026-07-09
 tags: ["llm-agent", "dingtalk", "coding-agent", "harness-engineering", "dogfooding"]
+ingested: 2026-07-09
+sha256: f7e1e539614a421a5a968055568f0d9717dda090120ee11048775f9cf1130cf0
 ---
 
 上周三晚上，我躺在沙发上刷手机。钉钉里我那个写代码的机器人卡在一个 question 上——它问我要发到哪个群，我没看见。第二天早上才发现，会话已经卡死了一整夜。
