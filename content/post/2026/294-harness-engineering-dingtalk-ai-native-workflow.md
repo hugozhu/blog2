@@ -3,7 +3,7 @@ title: "用完备的 Harness 工程，在钉钉上实现 AI 原生协同工作�
 subtitle: "The 7-component engineering infrastructure that turns a smart LLM into a reliable business tool"
 date: 2026-07-13
 tags: ["harness-engineering", "llm-agent", "dingtalk", "ai-native", "system-design"]
-ingested: 2026-07-17
+ingested: 2026-07-18
 sha256: 61a973902580
 ---
 

@@ -3,7 +3,7 @@ title: "SDK 集成的终局：一行提示词 + Coding Agent"
 subtitle: "Why the next generation of developer tools ships prompts instead of API references"
 date: 2026-07-13
 tags: ["agent-developer", "sdk-integration", "coding-agent", "prompt-engineering", "dingtalk-fde"]
-ingested: 2026-07-17
+ingested: 2026-07-18
 sha256: 102d0836d5ed
 ---
 

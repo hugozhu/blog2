@@ -1,4 +1,6 @@
 ---
+sha256: 4728dc77e752
+ingested: 2026-07-18
 title: "模型与 Agent 的边界正在消失，但企业会选择看不见的那条线"
 subtitle: "When Models Swallow Agents, Data Sovereignty Draws the Line"
 date: 2026-07-18
