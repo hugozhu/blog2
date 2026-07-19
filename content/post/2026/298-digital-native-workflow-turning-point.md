@@ -71,15 +71,7 @@ tags: ["digital-workforce", "ai-agents", "enterprise-ai", "workflow", "organizat
 
 这三个信号加在一起，才构成了转折点：
 
-```text
-创建成本趋零（供给侧）
-    +
-组织身份可治理（治理侧）
-    +
-协同飞轮持续进化（能力侧）
-    =
-数字原生工作方式的转折点
-```
+[![三个信号汇聚转折点](/img/2026/three-signals-turning-point-thumb.jpg)](/img/2026/three-signals-turning-point.png)
 
 ## 反驳：这不就是 RPA 升级版吗？
 
