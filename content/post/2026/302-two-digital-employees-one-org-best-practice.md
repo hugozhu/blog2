@@ -24,7 +24,7 @@ tags: ["digital-workforce", "dingtalk", "ci-cd", "docker", "best-practice", "age
 | | Coding Agent | 数字员工 |
 |--|-------------|---------|
 | **职责** | 开发、测试、部署数字员工 | 服务组织里的真实用户 |
-| **技术栈** | Claude Code + dws event consume | OpenCode + dws consume |
+| **技术栈** | Claude Code + dws event consume | OpenCode + dws event consume |
 | **运行环境** | 本机 | Docker 容器（远端服务器） |
 | **入口** | 管理群消息（事件流） | 用户群消息（消息消费） |
 | **产出** | git commit → CI/CD → Docker 镜像 | 用户问题的回答、任务执行 |
@@ -63,8 +63,8 @@ tags: ["digital-workforce", "dingtalk", "ci-cd", "docker", "best-practice", "age
 │  └────────┬──────────┘        └──────┬───────┘     │
 └───────────┼──────────────────────────┼─────────────┘
             │                          │
-      dws event consume           dws consume
-      (NDJSON 事件流)             (消息消费)
+      dws event consume           dws event consume
+      (NDJSON 事件流)             (NDJSON 事件流)
             │                          │
       ┌─────┴──────┐            ┌──────┴───────┐
       │ Claude Code │            │ 数字员工      │
