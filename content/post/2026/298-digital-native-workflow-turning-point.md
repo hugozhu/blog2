@@ -3,6 +3,8 @@ title: "数字员工驱动的工作流：数字原生工作方式的转折点"
 subtitle: "When the Subject of Workflows Shifts from Humans to Digital Workers"
 date: 2026-07-18
 tags: ["digital-workforce", "ai-agents", "enterprise-ai", "workflow", "organizational-design", "digital-native"]
+ingested: 2026-07-20
+sha256: c2b0d49d239b
 ---
 
 上个月，我去一个客户的运营部门看他们的周报流程。
