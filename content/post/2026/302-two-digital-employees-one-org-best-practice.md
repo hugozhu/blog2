@@ -49,36 +49,7 @@ tags: ["digital-workforce", "dingtalk", "ci-cd", "docker", "best-practice", "age
 
 ## 架构全景
 
-```text
-┌─────────────────── 钉钉组织 ───────────────────────┐
-│                                                     │
-│  主管：hugozhu                                      │
-│                                                     │
-│  管理群                         用户群               │
-│  ┌───────────────────┐        ┌──────────────┐     │
-│  │ @Coding Agent     │        │ @数字员工     │     │
-│  │ 需求 / 指令 / 进度 │        │ 日常服务      │     │
-│  │                   │        │              │     │
-│  │ ← 数字员工上线报告 │        │              │     │
-│  └────────┬──────────┘        └──────┬───────┘     │
-└───────────┼──────────────────────────┼─────────────┘
-            │                          │
-      dws event consume           dws event consume
-      (NDJSON 事件流)             (NDJSON 事件流)
-            │                          │
-      ┌─────┴──────┐            ┌──────┴───────┐
-      │ Claude Code │            │ 数字员工      │
-      │ Coding Agent│───push──→ │ OpenCode     │
-      │ (本机)      │            │ (Docker)     │
-      └─────┬──────┘            └──────┬───────┘
-            │                          │
-      ┌─────┴──────────────────────────┴──────┐
-      │              GitHub                    │
-      │  Issues: 需求记录                      │
-      │  Repo: dingtalk-opencode-tag           │
-      │  CI/CD: build → test → docker → deploy │
-      └───────────────────────────────────────┘
-```
+[![架构全景：钉钉组织 → 两个数字员工 → GitHub CI/CD](/img/2026/two-digital-employees-architecture-thumb.jpg)](/img/2026/two-digital-employees-architecture.png)
 
 四个组件，各司其职：
 
