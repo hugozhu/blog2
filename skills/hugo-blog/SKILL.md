@@ -873,6 +873,27 @@ Input example: `写一篇：为什么大多数 AI Agent 落地失败？`
 6. If not good enough → rewrite
 7. Show draft → user confirms → publish
 
+## Mode W: 公众号 / 朋友圈发布（MANDATORY when user mentions 公众号/朋友圈/WeChat）
+
+当用户说「发公众号」「发朋友圈」「写一篇要转发的」或类似意图时，**必须**先加载 `references/wechat-audience.md`，然后：
+
+1. **主动建议选题方向**——基于受众画像（36-45 岁管理者）和爆款公式（身份焦虑 × 反直觉判断 × 真实故事 × 可转发金句），给出 2-3 个选题方向
+2. **主动建议公众号标题**——用「管理者语言」而非「开发者语言」，标题里不出现「最佳实践」「Harness」「Coding Agent」等开发者术语
+3. **博客标题和公众号标题分开**——博客标题给开发者（SEO），公众号标题给管理者（传播）
+4. **发布节奏建议**——每 3 篇技术文插 1 篇价值观/判断力文（价值观文 = 朋友圈流量放大器）
+5. 正文写作流程不变（Planner → Style → Generator → Illustration → Evaluator → Publisher）
+
+### 公众号标题规则
+
+- 标题里优先出现：人、故事、反直觉判断、身份词（老板/管理者/团队）
+- 标题里避免：最佳实践、Harness、Coding Agent、CI/CD、SDK、CLI
+- 标题模式参考：
+  - 「一个不会 ___ 的人，用 AI 做了 ___」
+  - 「为什么 AI ___，都不太灵」
+  - 「AI 最大的价值不是 ___」
+  - 「你的下一个 ___，不需要 ___」
+  - 「AI 不会让你更聪明，但会让你 ___」
+
 ## Mode B: Iterative section-by-section
 
 When the user wants to discuss and refine each section:
@@ -1027,6 +1048,7 @@ After each use, update `evolution-log.md` with:
 - `references/case-study-templates.md` — Concrete case study patterns (two-stage pipeline, collect-compile-query) with metrics tables and structure examples
 - `references/long-horizon-agent-case-studies.md` — Long-horizon Agent task case studies (OKR planning, budget, product launch) with four challenge dimensions and scope matching rules
 - `references/blog-banner-prompts.md` — Reusable Gemini prompt patterns for futuristic wide-format tech banners (1280x896)
+- `references/wechat-audience.md` — 公众号 & 朋友圈受众画像、流量数据、爆款公式、选题方向和标题规则
 - `scripts/crop-to-ratio.py` — Center-crop any image to landscape/portrait/ultrawide/banner ratios (essential for Gemini 2048×2048 output)
 
 ---
