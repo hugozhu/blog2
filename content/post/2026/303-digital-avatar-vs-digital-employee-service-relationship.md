@@ -3,6 +3,8 @@ title: "数字分身和数字员工的分界线：不是能力，是服务关系
 subtitle: "The Line Between Digital Avatar and Digital Employee Is Service Relationship, Not Capability"
 date: 2026-07-21
 tags: ["ai-agent", "digital-workforce", "enterprise-ai", "system-design", "strategy"]
+ingested: 2026-07-27
+sha256: 5e109dcef944bf6889cdabf12e6f1b081289d4b33adf82eb0e3ac2a67e1e79e8
 ---
 
 上个月，一个 CEO 朋友给我看他的 AI Executive Assistant。

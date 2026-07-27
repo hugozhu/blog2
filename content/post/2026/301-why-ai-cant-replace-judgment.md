@@ -3,6 +3,8 @@ title: "为什么 AI 选人、选品、选股、选爆款，都不太灵"
 subtitle: "The Structural Reason AI Struggles with the Four Hardest Selections"
 date: 2026-07-21
 tags: ["decision-making", "ai-limitations", "judgment", "content-creation", "investment", "talent"]
+ingested: 2026-07-27
+sha256: a67fae869319c67585e47eb607a1189b24d03bf176938ae2a403fdacabee7024
 ---
 
 上周跟一个做消费品的朋友聊天，他说：「我们去年花了大几十万买了一套 AI 选品系统，模型跑出来的 TOP 10 推荐，没有一个最后卖爆的。反而是我们产品经理在逛小红书时随手截图说『这个感觉会火』的一款，成了年度销冠。我跟老板汇报的时候都不知道怎么解释——AI 花了五十万选不出来，人刷了五分钟手机选出来了。」

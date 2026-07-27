@@ -3,6 +3,8 @@ title: "SFT、RL 与 Self-RL：从大模型训练到团队管理的优化系统"
 subtitle: "Training LLMs, Managing Teams, Raising Kids — Same Optimization System"
 date: 2026-07-22
 tags: ["ai", "leadership", "management", "llm-training", "thinking"]
+ingested: 2026-07-27
+sha256: decbb6a66247d2830917d5ea7873c6c1fae43b522cb3b02372e13bb1ac5800ee
 ---
 
 去年年底，一个带三十人团队的朋友跟我吐槽：「我团队执行力特别强，交代什么做什么，但就是没人主动提新想法。」

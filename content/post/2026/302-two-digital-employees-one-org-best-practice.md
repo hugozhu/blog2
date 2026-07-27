@@ -3,6 +3,8 @@ title: "两个数字员工，一个组织：企业数字员工开发最佳实践
 subtitle: "Two Digital Employees, One Org — A Reference Architecture for Building AI Workforce"
 date: 2026-07-21
 tags: ["digital-workforce", "dingtalk", "ci-cd", "docker", "best-practice", "agent-devops"]
+ingested: 2026-07-27
+sha256: 220b41bc612dbe7de4615ddf3568076408a4efd0bfa27060b2b84355e1773c9a
 ---
 
 上个月我在钉钉群里发了一句话：「给数字员工加一个查闲忙的能力。」

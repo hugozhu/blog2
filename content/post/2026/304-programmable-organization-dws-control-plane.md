@@ -3,6 +3,8 @@ title: "让组织可编程：一位连锁门店老板教会我的事"
 subtitle: "Making the Organization Programmable — What a Chain Store Owner Taught Me About Enterprise AI"
 date: 2026-07-21
 tags: ["enterprise-ai", "dingtalk", "dws", "agent-experience", "system-design", "strategy"]
+ingested: 2026-07-27
+sha256: bf722de048ef197608698e618f24694d04f6c7b6b89a9e2ed7f9881058b8c29e
 ---
 
 上个月，一位做连锁门店的朋友给我看他的钉钉后台。
