@@ -15,6 +15,8 @@ tags: ["ai-agent", "browser-automation", "mcp", "macos", "vision", "devops"]
 
 这篇文章记录我怎么用 Vision 大模型 + macOS 原生自动化，把这个断点彻底消灭。不是 Demo，是从 v1.0 迭代到 v1.4.2、踩了六个坑之后的生产方案。
 
+值得一提的是：整个项目的所有代码——从第一行 `screencapture` 调用到最后的 LaunchAgent plist——都是 Opus 4.8 写的。我做的事情是描述需求、测试、报错、再描述。这个过程本身就是一个有趣的发现：当你把「我需要一个能自动点击 Chrome 扩展按钮的脚本」这种模糊需求扔给一个足够强的模型，它给出的第一版方案往往方向正确但细节全错——而每一处「错」的背后，都藏着一个 macOS 平台特有的坑。
+
 [![Vision + macOS 自动化消灭 Browser MCP 手动断点](/img/2026/vision-macos-browsermcp-autoconnect-thumb.jpg)](/img/2026/vision-macos-browsermcp-autoconnect.png)
 
 <!--more-->
@@ -48,7 +50,9 @@ Chrome Extension
 
 ## 为什么常规 UI 自动化行不通
 
-第一反应当然是 AppleScript。macOS 上自动化 GUI，System Events 是标准答案：
+我跟 Opus 说：「写个 AppleScript，自动点击 Chrome 扩展弹窗里的 Connect 按钮。」
+
+它很自信地给了一个标准答案。macOS 上自动化 GUI，System Events 是教科书做法：
 
 ```applescript
 tell application "System Events"
@@ -68,6 +72,10 @@ Chrome 扩展弹窗不是标准的 macOS UI 元素。它是 Chrome 自己渲染�
 CDP 呢？Chrome DevTools Protocol 能控制页面内容，但扩展弹窗（popup）运行在独立的 Extension Process 里，CDP 的 `Page` 和 `DOM` 域够不到它。
 
 三条路全堵死。这个按钮，就是设计成「只能人点」的。
+
+到这里，Opus 给了一个很有意思的建议：「既然结构化方案都不可达，不如试试 Vision——截图给我看，我来告诉你按钮在哪。」
+
+说实话，第一反应是觉得杀鸡用牛刀。但转念一想，这恰好是 Vision 最擅长的场景：一个人类一眼就能找到、但程序无法通过 API 定位的 GUI 元素。
 
 ## 解法：截图 → Vision 定位 → 精准点击
 
@@ -112,15 +120,21 @@ cliclick（点击坐标）
 
 但如果你以为「截图 → Vision → 点击」就完事了，那你还没遇到真正的问题。
 
+v1.0 跑通的那个晚上，我挺得意。然后第二天早上发现，它点不中了。
+
 ## 核心设计：学习 + 校准机制
 
 纯 Vision 猜坐标有一个固有缺陷： **不准。**
+
+这个「不准」不是偶尔不准，是结构性不准。Opus 第一版给的 prompt 是「请找出截图中 Connect 按钮的位置，返回归一化坐标」。模型很配合地返回了 `(0.82, 0.15)`。我拿这个坐标去点——点到了地址栏。
 
 大模型看一张 2752×1536 的截图，告诉你「Connect 按钮大概在 (0.82, 0.15) 的位置」。这个「大概」在像素级别可能是 20-30 个像素的偏差。对一个大按钮来说可能够用，但对 Chrome 扩展弹窗里那个小按钮来说，20 像素可能已经点到隔壁去了。
 
 而且每次截图的窗口位置、大小、工具栏布局都可能不同。同一个按钮，今天的归一化坐标和昨天的不一样。
 
 解法不是「换一个更准的模型」，而是 **建立一套学习和校准机制，让系统越用越准。**
+
+这个思路也是 Opus 提出的。我当时问它：「Vision 定位不准怎么办？」它没有建议换模型或调 prompt，而是说：「让我先看看按钮长什么样，下次我就能找得更准。」这句话本质上就是 few-shot learning 的朴素直觉——给模型一个参考样本，比让它从零猜要靠谱得多。
 
 ### 三级定位策略
 
@@ -221,6 +235,8 @@ LaunchAgent plist 里配置 `WatchPaths`，监控 `~/.browsermcp/trigger` 文件
 
 LaunchAgent 跑起来了，但截图还是黑的。
 
+这是整个项目里最让人抓狂的一个坑。因为报错信息是零——`screencapture` 返回 exit code 0，文件也生成了，打开一看，纯黑。Opus 第一反应是怀疑 Retina 缩放算错了，我也跟着查了半小时坐标。直到我手动在 Mac 上跑了一遍 `screencapture /tmp/test.png`，截图正常。说明不是代码的问题，是运行环境的问题。
+
 macOS 的 TCC（Transparency, Consent, and Control）权限模型规定：屏幕录制权限授予的是 **责任进程（responsible process）**。在 launchd 下，责任进程的判定逻辑和你在终端里直接跑不一样。
 
 我最初的 setup 是：LaunchAgent 启动 `/usr/bin/python3`，python3 调用 `screencapture`。在系统偏好设置里给 python3 授了屏幕录制权限。但不生效。
@@ -246,7 +262,7 @@ ad-hoc 签名（`--sign -`）就够了，不需要 Apple Developer 证书。关�
 
 ## 踩坑记录
 
-六个坑，每个都花了至少一个小时。
+六个坑，每个都花了至少一个小时。有意思的是，这六个坑里没有一个 Opus 提前预见到了——它写的代码逻辑都是对的，但 macOS 平台层的行为不在任何模型的训练数据里「显式存在」。这些知识散落在 Stack Overflow 的角落、Apple 开发者文档的脚注、以及无数人踩坑后的博客里。模型能写出正确的 `screencapture` 调用，但它不知道 Apple Silicon 会把未签名的 `cliclick` 直接 SIGKILL。
 
 ### 1. Retina 缩放：坐标差一倍
 
@@ -318,6 +334,8 @@ codesign --force --sign - $(which cliclick)
 
 每个版本都是被一个真实问题逼出来的。没有一个是「提前设计」的。
 
+回看这个过程，我和 Opus 的分工很清晰：它负责写代码、提方案、做推理；我负责跑代码、看现象、报错误。它不知道 macOS 的 TCC 权限在 launchd 下会归属到责任进程，但它能在得知这个事实后，三分钟内给出 .app 封装方案。它不知道 Chrome 扩展弹窗失焦即关，但它能在得知后立刻调整时序逻辑。 **模型的能力边界不是「写不出代码」，而是「不知道你的平台会怎么欺负这段代码」。**
+
 ## 总结：Vision 不只是兜底
 
 在 [九条路线](https://hugozhu.site/post/2026/312-browser-automation-eight-tiers/) 那篇文章里，我把 Vision Computer Use 放在最后一层，评价是「慢、贵、精度不如结构化控制」。这个判断在宏观层面仍然成立——你不会用 Vision 去做 Playwright 能做的 DOM 操作。
@@ -333,6 +351,8 @@ codesign --force --sign - $(which cliclick)
 **3. 成本优化的本质是缓存：学一次，之后走快路。** verified 坐标就是缓存。快路就是缓存命中。回退完整流程就是缓存失效重建。想清楚这个类比，就知道什么时候该走快路、什么时候该重建——和你在任何缓存系统里做的决策一模一样。
 
 macOS 的 TCC 权限模型在 launchd 下的坑，则是另一个层面的教训： **操作系统的权限模型是为「人坐在屏幕前」设计的。当操作者变成 Agent、变成 launchd 下的后台进程，身份归属、授权链路、进程树继承全部需要重新理解。** 这个问题在 Agent 时代会越来越普遍。
+
+还有一个意外收获：这个项目让我重新理解了「人 + AI 协作写代码」的分工。Opus 4.8 写了全部代码，但没有写对任何一个平台层的坑。不是它不够聪明——是这类知识本质上就是「在场知识」，你必须在那台 Mac 上、用那个版本的 macOS、跑那个命令，才能遇到。人的价值不是写代码，是 **当那个在场的人**：跑代码、看现象、把「截图是黑的」这四个字反馈给模型。模型的价值不是知道答案，是 **在你给出线索后，三分钟内把六个可能的原因排好序，然后逐一验证。**
 
 ---
 
