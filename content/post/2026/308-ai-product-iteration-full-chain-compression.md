@@ -1,8 +1,10 @@
 ---
-title: "AI 时代产品迭代速度提升一倍：不只是编码快了"
-subtitle: "Every Link in the Product Loop Got Compressed — Not Just Code"
+title: AI 时代产品迭代速度提升一倍：不只是编码快了
+subtitle: Every Link in the Product Loop Got Compressed — Not Just Code
 date: 2026-07-23
-tags: ["product-management", "ai-native", "startup", "iteration-speed", "future-of-work"]
+tags: [product-management, ai-native, startup, iteration-speed, future-of-work]
+ingested: 2026-07-29
+sha256: 89f0bf3bf4d8758dd6dff14844b04bf6d3a7f143920e03e79f00674de99768de
 ---
 
 上个月和一个做 SaaS 的朋友吃饭。他的产品刚上线四个月，已经迭代了 9 个版本。

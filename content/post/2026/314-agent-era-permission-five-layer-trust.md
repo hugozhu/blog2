@@ -3,6 +3,8 @@ title: "Agent 时代的权限：从 RBAC 到五层信任架构"
 subtitle: "Five Layers of Trust for Agent-Era Access Control"
 date: 2026-07-28
 tags: ["ai-agents", "security", "enterprise-ai", "access-control", "agent-iam", "trust-architecture"]
+ingested: 2026-07-29
+sha256: 0ae79c3b6f9d08ca
 ---
 
 一个人类员工一天审批 20 单、发 50 封邮件、访问 10 个系统。如果权限有漏洞，损害上限是 20 单。

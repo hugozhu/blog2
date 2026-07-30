@@ -3,6 +3,8 @@ title: "用 Vision + macOS 自动化消灭 Browser MCP 的最后一个手动断�
 subtitle: "Eliminating the Last Manual Breakpoint in Browser MCP with Vision-Driven Automation"
 date: 2026-07-29
 tags: ["ai-agent", "browser-automation", "mcp", "macos", "vision", "devops"]
+ingested: 2026-07-29
+sha256: 0474e969db6cec05
 ---
 
 凌晨两点，我的 Agent 又停了。

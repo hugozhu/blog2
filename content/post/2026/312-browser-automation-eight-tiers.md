@@ -1,8 +1,10 @@
 ---
-title: "Agent 操作浏览器的九条路线：从 Playwright 到 Computer Use"
-subtitle: "Nine Tiers of Browser Automation for AI Agents — and the Layered Architecture That Actually Works"
+title: Agent 操作浏览器的九条路线：从 Playwright 到 Computer Use
+subtitle: Nine Tiers of Browser Automation for AI Agents — and the Layered Architecture That Actually Works
 date: 2026-07-26
-tags: ["ai-agent", "browser-automation", "playwright", "mcp", "computer-use", "system-design"]
+tags: [ai-agent, browser-automation, playwright, mcp, computer-use, system-design]
+ingested: 2026-07-29
+sha256: 6be19208626873f083202896082affccf68f7834d91579a1eee0d960da188fa8
 ---
 
 上个月一个团队来找我，说他们要做企业内部的 AI Agent，需要操作浏览器。

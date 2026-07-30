@@ -1,8 +1,10 @@
 ---
-title: "模型正在吞噬 Agent 框架"
-subtitle: "Models Are Eating Agent Frameworks — Thin the Layer or Pay the Debt"
+title: 模型正在吞噬 Agent 框架
+subtitle: Models Are Eating Agent Frameworks — Thin the Layer or Pay the Debt
 date: 2026-07-25
-tags: ["ai-agents", "agent-architecture", "harness-engineering", "model-capability", "system-design"]
+tags: [ai-agents, agent-architecture, harness-engineering, model-capability, system-design]
+ingested: 2026-07-29
+sha256: 5d4e3c25c8b5d904f051a74d6d9d36612a53356b84f7a0122b068d3e826f022e
 ---
 
 昨晚十一点半，我盯着自己那个钉钉数字员工项目里的一段代码发呆。

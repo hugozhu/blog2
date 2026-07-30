@@ -1,8 +1,10 @@
 ---
-title: "Agent 应用工程师——AI 时代增长最快的新岗位"
-subtitle: "Why the Fastest-Growing Role in AI Is Not the Algorithm Engineer"
+title: Agent 应用工程师——AI 时代增长最快的新岗位
+subtitle: Why the Fastest-Growing Role in AI Is Not the Algorithm Engineer
 date: 2026-07-23
-tags: ["ai-agent", "career", "software-engineering", "future-of-work", "digital-workforce", "coding-agent"]
+tags: [ai-agent, career, software-engineering, future-of-work, digital-workforce, coding-agent]
+ingested: 2026-07-29
+sha256: 5cb0839c2586b262408440c63609129caf52dc04c51b04e1599f3da0f86b41f5
 ---
 
 上个月帮一个制造业客户做 Agent 落地。他们的 IT 总监带了一个五人团队来接项目，清一色的 Java 后端，简历上写满了 Spring Boot 和微服务。

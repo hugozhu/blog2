@@ -1,8 +1,10 @@
 ---
-title: "招 Agent 工程师，我第一个看的不是技术"
-subtitle: "The AI-Native Litmus Test — Leveling Agent Engineers Beyond Code"
+title: 招 Agent 工程师，我第一个看的不是技术
+subtitle: The AI-Native Litmus Test — Leveling Agent Engineers Beyond Code
 date: 2026-07-24
-tags: ["ai-agent", "career", "hiring", "ai-native", "engineering-management", "digital-workforce"]
+tags: [ai-agent, career, hiring, ai-native, engineering-management, digital-workforce]
+ingested: 2026-07-29
+sha256: e7924a4470b8073c67505ea7cc032cc140d138898555ae3e3772912ff60690a9
 ---
 
 上周面试一个候选人。简历很漂亮——三年 LLM 应用开发，做过 RAG、做过 Function Calling、做过多轮对话系统。

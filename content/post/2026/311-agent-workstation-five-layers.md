@@ -1,8 +1,10 @@
 ---
-title: "Agent 进入企业，还差一个工位"
-subtitle: "What Agents Need Is Not More Intelligence, But an Onboarding Process"
+title: Agent 进入企业，还差一个工位
+subtitle: What Agents Need Is Not More Intelligence, But an Onboarding Process
 date: 2026-07-26
-tags: ["ai-agent", "enterprise-ai", "digital-workforce", "agent-governance", "waic"]
+tags: [ai-agent, enterprise-ai, digital-workforce, agent-governance, waic]
+ingested: 2026-07-29
+sha256: 78dcab053114ab96aee3e8b0dc728fb3190779dc4f35dc9b490b775be83ba28a
 ---
 
 七月的 WAIC 展馆，人声鼎沸。

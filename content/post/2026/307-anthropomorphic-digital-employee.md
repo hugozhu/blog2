@@ -1,8 +1,10 @@
 ---
-title: "拟人化的数字员工：不是会聊天的机器人，是能胜任岗位的数字同事"
-subtitle: "Anthropomorphic Digital Employees — Competent Colleagues, Not Chatbots"
+title: 拟人化的数字员工：不是会聊天的机器人，是能胜任岗位的数字同事
+subtitle: Anthropomorphic Digital Employees — Competent Colleagues, Not Chatbots
 date: 2026-07-24
-tags: ["digital-workforce", "ai-agent", "enterprise-ai", "dingtalk", "agent-design"]
+tags: [digital-workforce, ai-agent, enterprise-ai, dingtalk, agent-design]
+ingested: 2026-07-29
+sha256: 3674628a484ea8ae4bf49d4eb37d2ca660d1148b8c4cf74abb4d4d70c1ea0fc4
 ---
 
 我的树莓派群里有一个播报机器人，叫 pi9-bookworm。它每天定时推送 AI 新闻 Top 10，格式固定，雷打不动。
