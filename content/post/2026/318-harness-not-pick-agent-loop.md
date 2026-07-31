@@ -2,6 +2,7 @@
 title: "好的 Harness 不挑笔"
 subtitle: "A Good Harness Does Not Care Which Agent Loop Wrote the Code"
 date: 2026-07-30
+share_img: "/img/2026/harness-not-pick-agent-loop.png"
 tags: ["engineering-culture", "ai-coding", "ci-cd", "harness", "agent-loop"]
 ---
 
