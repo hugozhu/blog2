@@ -4,6 +4,8 @@ subtitle: "A Good Harness Does Not Care Which Agent Loop Wrote the Code"
 date: 2026-07-30
 share_img: "/img/2026/harness-not-pick-agent-loop.png"
 tags: ["engineering-culture", "ai-coding", "ci-cd", "harness", "agent-loop"]
+ingested: 2026-07-31
+sha256: d895da468287d9b067da1df054bb80f1aab007a9fa118f5c94912e585befeceb
 ---
 
 上个月我们团队换了一次 agent loop。从 Claude Code 切到 OpenCode。

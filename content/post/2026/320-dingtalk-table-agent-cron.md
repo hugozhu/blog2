@@ -4,6 +4,8 @@ subtitle: "One DingTalk Table to Rule All Agent Cron Jobs"
 date: 2026-07-31
 share_img: "/img/2026/dingtalk-table-agent-cron.png"
 tags: ["dingtalk", "ai-agent", "automation", "workflow", "dws"]
+ingested: 2026-07-31
+sha256: 67af307001a407b212d78eba8d424472bca520d9683251c23aae76317ee93b10
 ---
 
 ## 一个越来越具体的烦恼

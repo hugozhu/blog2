@@ -3,6 +3,8 @@ title: "AI 操作你的电脑，最大的对手不是防火墙"
 subtitle: "The Real Adversary of Computer Use Agents Is Not Detection, But Behavioral Biometrics and Cost"
 date: 2026-07-29
 tags: ["ai-agent", "computer-use", "browser-automation", "anti-detection", "system-design"]
+ingested: 2026-07-31
+sha256: ff9f8b7f6ce0d0628532b1a03ade61e5f03b1616a937a47eaebecc49cbe5ad34
 ---
 
 上周帮一个朋友调他的 AI Agent。需求很简单：自动登录一个美国政府网站，填三张表，提交。

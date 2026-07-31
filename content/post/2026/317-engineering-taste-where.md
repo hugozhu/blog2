@@ -3,6 +3,8 @@ title: "代码是 AI 写的了，品味住在哪里"
 subtitle: "Where Engineering Taste Lives When AI Writes the Code"
 date: 2026-07-30
 tags: ["engineering-culture", "ai-coding", "developer-tools", "ci-cd", "engineering-taste"]
+ingested: 2026-07-31
+sha256: 88239dd3157106de58cb5616f846e1e22b305c82c6968d9fded680379c70c61e
 ---
 
 上个月面试一个候选人。他带了一个 GitHub 项目，说「大部分代码是 AI 写的」。
