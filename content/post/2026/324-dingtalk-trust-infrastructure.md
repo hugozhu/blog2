@@ -6,7 +6,7 @@ share_img: "/img/2026/dingtalk-trust-infrastructure.png"
 tags: ["dingtalk", "enterprise-ai", "ai-agent", "digital-workforce", "strategy", "system-design"]
 ---
 
-前两天看到一篇文章，标题很刺激：「飞书被收编，钉钉要改名，企业微信慌不慌？」
+前两天看到一篇文章，标题很刺激：[「飞书被收编，钉钉要改名，企业微信慌不慌？」](https://mp.weixin.qq.com/s/sIw8xrQjwosSGqCZqIlv1Q)
 
 核心论证链很锋利：互联网办公平台第一次降维打击了传统企业软件，然后 AI Agent 第二次降维打击了超级 App。结论是 To B 软件只剩两种位置——要么成为入口，要么成为入口背后绕不开的系统。
 
