@@ -1,6 +1,6 @@
 ---
-title: "架构决定战役成败"
-subtitle: "Architecture Decides the Battle Before It Starts"
+title: "模型越快，架构越重要"
+subtitle: "The Faster the Model Evolves, the More Architecture Matters"
 date: 2026-08-01
 share_img: "/img/2026/architecture-decides-the-battle.png"
 tags: ["ai-agent", "system-design", "digital-workforce", "engineering-management", "architecture"]
@@ -24,7 +24,9 @@ CTO 说：「我们想扩到 200 个。」
 
 沉默。
 
-12 个靠人盯，200 个靠什么？这不是「多部署几个」的问题。这是架构问题。
+12 个靠人盯，200 个靠什么？
+
+而且这 12 个跑在半年前的模型上。模型半年一换代，agent 策略周级迭代——你还没把 12 个理顺，底座已经换了。这不是「多部署几个」的问题。这是架构问题。
 
 [![Architecture Decides the Battle Before It Starts](/img/2026/architecture-decides-the-battle-thumb.jpg)](/img/2026/architecture-decides-the-battle.png)
 
@@ -103,11 +105,13 @@ AI 产品尤其如此，因为三个结构性原因：
 
 有人会反驳：模型能力在快速进步，这些架构问题会被更强的模型自动解决。
 
-恰恰相反。 **模型越强，agent 自治度越高，架构约束越重要。**
+恰恰相反。 **模型越快，架构越重要。**
 
 一个只能回答问题的 chatbot，不需要权限隔离、不需要编排层、不需要生命周期管理。一个能自主决策、跨系统操作、代组织行事的数字员工，这些全是刚需。
 
-模型每进步一代，agent 能做的事就多一圈——能调的工具更多、能访问的数据更广、能自主决策的链路更长。能力边界每扩一圈，架构要兜住的爆炸半径就大一圈。这不是「模型够强就不需要架构」，而是「模型越强，没有架构的代价越高」。
+模型每进步一代，agent 能做的事就多一圈——能调的工具更多、能访问的数据更广、能自主决策的链路更长。能力边界每扩一圈，架构要兜住的爆炸半径就大一圈。
+
+闪电战的本质不是不要后勤，是后勤必须跟得上推进速度。模型每进步一代，agent 的推进速度就快一圈——架构就是那个必须跟得上的后勤线。跟得上，闪电战；跟不上，溃败。
 
 模型能力解决的是「能不能做」，架构解决的是「敢不敢让它做」。
 
@@ -118,5 +122,7 @@ AI 产品尤其如此，因为三个结构性原因：
 技术难度不在模型，在工程；工程难度不在单点，在系统。
 
 如果你正在做数字员工产品，第一个该招的不是 prompt engineer，是架构师。
+
+闪电战里，第一个死的不是最慢的，是后勤断了的。
 
 你在规模化 agent 的过程中踩过什么架构层面的坑？欢迎留言讨论。
