@@ -19,5 +19,6 @@ I'm a polyglot engineer who has written production code in Go, Python, C, and Ap
 Feel free to reach out:
 
 - **Email:** hugozhu at gmail.com
+- **X (Twitter):** https://x.com/HugoSkills
 - **LinkedIn:** https://www.linkedin.com/in/hugozhu/
 - **GitHub:** https://github.com/hugozhu
