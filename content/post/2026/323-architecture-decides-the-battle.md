@@ -1,5 +1,5 @@
 ---
-title: "模型越快，架构越重要"
+title: "模型迭代越快，架构越重要"
 subtitle: "The Faster the Model Evolves, the More Architecture Matters"
 date: 2026-08-01
 share_img: "/img/2026/architecture-decides-the-battle.png"
