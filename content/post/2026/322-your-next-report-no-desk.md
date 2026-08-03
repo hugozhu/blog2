@@ -4,6 +4,8 @@ subtitle: "Your Next Report Does Not Need a Desk"
 date: 2026-07-31
 share_img: "/img/2026/your-next-report-no-desk.png"
 tags: ["ai-agent", "engineering-management", "digital-workforce", "leadership"]
+ingested: 2026-08-02
+sha256: 0c22fd941dd42a4df872b9149303fb02091dc5d656a43777aaf5d7019229148d
 ---
 
 上个月一个客户请我们做数字员工。

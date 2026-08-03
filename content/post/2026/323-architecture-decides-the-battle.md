@@ -4,6 +4,8 @@ subtitle: "The Faster the Model Evolves, the More Architecture Matters"
 date: 2026-08-01
 share_img: "/img/2026/architecture-decides-the-battle.png"
 tags: ["ai-agent", "system-design", "digital-workforce", "engineering-management", "architecture"]
+ingested: 2026-08-02
+sha256: 725c29b4bde877f45bab6a3f00265f226c62f05dfb66aa92210c666f0dde34a4
 ---
 
 上个月一个团队找我聊数字员工落地。

@@ -4,6 +4,8 @@ subtitle: "Evals Are the New PRD"
 date: 2026-08-02
 share_img: "/img/2026/evals-are-the-new-prd.png"
 tags: ["ai-agent", "product-management", "evaluation", "loss-function", "agent-development"]
+ingested: 2026-08-02
+sha256: 6d6cd723c65f63842097e287be48dbfe12a8f207a9928bddabcea76792238262
 ---
 
 上个月，我们团队一位产品经理花了两周写了一份 40 页的 PRD，描述一个智能审批 Agent 的需求。用户故事、流程图、异常分支、验收标准，写得滴水不漏。

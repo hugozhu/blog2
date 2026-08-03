@@ -4,6 +4,8 @@ subtitle: "One Sentence Before You Hit Send"
 date: 2026-07-31
 share_img: "/img/2026/compression-as-taste.png"
 tags: ["ai-workflow", "communication", "compression", "taste"]
+ingested: 2026-08-02
+sha256: 0dd13745a8058640323c20a8ba82dabf49767b9bd36fbd0b22fee15613b0186e
 ---
 
 昨天一个同事在群里甩了一个 HTML 文件。打开一看，漂亮极了——渐变色的表头、响应式布局、数据可视化图表、三段式结论。AI 生成的，三秒钟的事。

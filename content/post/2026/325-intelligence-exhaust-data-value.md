@@ -4,6 +4,8 @@ subtitle: "Intelligence Exhaust: The Data Asset Enterprises Must Protect"
 date: 2026-08-02
 share_img: "/img/2026/intelligence-exhaust-data-value.png"
 tags: ["enterprise-ai", "data-strategy", "ai-agent", "learning-loop", "intelligence-exhaust", "data-sovereignty"]
+ingested: 2026-08-02
+sha256: 744a4ec039ac8e9ecc2177e86abf06f715aeb52d1ea2346e8485d971fb2b6c95
 ---
 
 太平洋汽车的内容被豆包、千问和 DeepSeek 引用之后，合计触达了 1237 万用户。

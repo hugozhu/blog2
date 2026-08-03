@@ -4,6 +4,8 @@ subtitle: "Private Evals Are the Ultimate Moat"
 date: 2026-08-02
 share_img: "/img/2026/private-evals-ultimate-moat.png"
 tags: ["ai-strategy", "moat", "evaluation", "enterprise-ai", "dingtalk"]
+ingested: 2026-08-02
+sha256: 47fbab45e00f8ffce774bd89d42a448a41d398d60e35fc55aa29697f2eb660cc
 ---
 
 上个月和一位做 HR SaaS 的朋友吃饭。他刚花了两百万买了一批行业测评数据，准备训练自己的垂直模型。

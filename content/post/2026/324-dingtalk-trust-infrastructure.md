@@ -4,6 +4,8 @@ subtitle: "DingTalk's Moat Is Trust Infrastructure, Not a Better App"
 date: 2026-08-01
 share_img: "/img/2026/dingtalk-trust-infrastructure.png"
 tags: ["dingtalk", "enterprise-ai", "ai-agent", "digital-workforce", "strategy", "system-design"]
+ingested: 2026-08-02
+sha256: 2e3f8c594618d042f3f8a791fe1ddad233706b07e919f68432b48bb3a720efa3
 ---
 
 前两天看到一篇文章，标题很刺激：[「飞书被收编，钉钉要改名，企业微信慌不慌？」](https://mp.weixin.qq.com/s/sIw8xrQjwosSGqCZqIlv1Q)
