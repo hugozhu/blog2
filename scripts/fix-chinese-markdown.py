@@ -20,6 +20,44 @@ import argparse
 from pathlib import Path
 
 
+# Chars that need a separating space BEFORE an opening ** delimiter.
+# CJK ideographs + alphanumerics + hyphen only. Punctuation ranges like
+# \u3000-\u303f (contains 「」) and \uff01-\uff60 (contains （）) are
+# deliberately excluded — typography rules forbid spaces next to them.
+_OPEN_LEFT = re.compile(r'[\u4e00-\u9fffa-zA-Z0-9\-]')
+# Chars that need a separating space AFTER a closing ** delimiter
+_CLOSE_RIGHT = re.compile(r'[\u4e00-\u9fffa-zA-Z0-9]')
+
+
+def fix_bold_outer_spacing(line: str) -> str:
+    """Add spaces around **bold** pairs, pair-aware.
+
+    Splits on '**' and uses parity: delimiters at odd split-indices are
+    opening, even are closing. A naive regex like CJK**CJK cannot tell
+    opening from closing, which corrupts '也**不应该**靠' into
+    '也 **不应该 **靠' (space inside the closing side breaks rendering).
+    """
+    if line.count('**') % 2 != 0 or '**' not in line:
+        return line
+    parts = line.split('**')
+    if len(parts) < 3:
+        return line
+    result = parts[0]
+    for k in range(1, len(parts)):
+        seg = parts[k]
+        if k % 2 == 1:  # opening delimiter before this bold content
+            if result and _OPEN_LEFT.search(result[-1]):
+                result += ' '
+            result += '**' + seg
+        else:  # closing delimiter before this plain text
+            if seg and _CLOSE_RIGHT.search(seg[0]):
+                result += '** '
+            else:
+                result += '**'
+            result += seg
+    return result
+
+
 def fix_chinese_markdown(content: str) -> str:
     """Fix Chinese markdown typography issues."""
     lines = content.split("\n")
@@ -62,21 +100,11 @@ def fix_chinese_markdown(content: str) -> str:
             return f'**{inner}**'
         line = re.sub(r'\*\*\s*([^*]+?)\s*\*\*', fix_bold, line)
 
-        # Step 2: Add outer spacing for CJK — 中文**内容 -> 中文 **内容
-        line = re.sub(
-            r'([\u4e00-\u9fff\u3000-\u303f\uff01-\uff60「」：，。；！？\-])\*\*([\u4e00-\u9fffa-zA-Z0-9])',
-            r'\1 **\2', line
-        )
-        # 内容**中文 -> 内容** 中文
-        line = re.sub(
-            r'([\u4e00-\u9fffa-zA-Z0-9])\*\*([\u4e00-\u9fff\u3000-\u303f\uff01-\uff60「」：，。；！？])',
-            r'\1** \2', line
-        )
-
-        # Step 2b: Add outer spacing for English — word**text -> word **text
-        line = re.sub(r'([a-zA-Z0-9])\*\*([a-zA-Z0-9])', r'\1 **\2', line)
-        # text**word -> text** word
-        line = re.sub(r'([a-zA-Z0-9])\*\*([a-zA-Z0-9])', r'\1** \2', line)
+        # Step 2: Add outer spacing around bold pairs (pair-aware).
+        # A naive regex like CJK**CJK cannot tell opening ** from closing **
+        # (也**不应该**靠 would corrupt the closing side into 不应该 **靠).
+        # Split on ** and use parity: odd-index segments are bold content.
+        line = fix_bold_outer_spacing(line)
 
         # Step 3: Fix blockquote — >** -> > **
         line = re.sub(r'>\*\*', r'> **', line)
