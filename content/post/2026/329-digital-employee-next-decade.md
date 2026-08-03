@@ -4,6 +4,8 @@ subtitle: "Agents Change Software, Digital Employees Change Organizations"
 date: 2026-08-03
 share_img: "/img/2026/digital-employee-next-decade.png"
 tags: ["digital-workforce", "enterprise-ai", "agent-identity", "organization-design", "dingtalk"]
+sha256: 1a2bc37f8307818f966c1f77f185142c0c2fa4470eeb7dfc6c25c143dec5a717
+ingested: 2026-08-03
 ---
 
 我的钉钉组织里有两名不领工资的「员工」。一个负责开发、测试、部署另一个；另一个在用户群里服务真实的同事。两个的主管都是我。

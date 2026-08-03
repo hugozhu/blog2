@@ -4,6 +4,8 @@ subtitle: "E2E Test Harness Is the Most Agent-Friendly Infrastructure"
 date: 2026-08-03
 share_img: "/img/2026/e2e-harness-coding-agent-infrastructure.png"
 tags: ["coding-agent", "harness-engineering", "e2e-testing", "ai-infrastructure", "evaluation"]
+sha256: 8664ef114912fe80e973f52eb1375abe29146eea00f58a82896ee05d43246078
+ingested: 2026-08-03
 ---
 
 上周我让一个 Coding Agent 给一个 Web 应用实现登录功能。三轮迭代之后，它汇报：「完成了，所有测试通过。」
