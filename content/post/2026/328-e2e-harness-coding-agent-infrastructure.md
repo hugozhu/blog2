@@ -20,6 +20,8 @@ tags: ["coding-agent", "harness-engineering", "e2e-testing", "ai-infrastructure"
 
 <!--more-->
 
+[![E2E Test Harness Is the Most Agent-Friendly Infrastructure](/img/2026/e2e-harness-coding-agent-infrastructure-thumb.jpg)](/img/2026/e2e-harness-coding-agent-infrastructure.png)
+
 ## Agent 不是代码生成，是闭环
 
 很多人对 Coding Agent 的心智模型还停留在「更聪明的补全」：给它一个任务，它生成一段代码，结束。
