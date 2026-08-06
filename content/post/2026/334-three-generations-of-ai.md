@@ -6,7 +6,7 @@ share_img: "/img/2026/three-generations-of-ai.png"
 tags: ["digital-workforce", "enterprise-ai", "agent-governance", "organization-design", "ai-strategy"]
 ---
 
-我名下有两个数字员工，一个负责开发、测试、部署另一个，一个在用户群里服务真实的同事。岗位一立起来，一个问题就自然跟着来了：
+我名下有两个数字员工：一个负责开发、测试、部署另一个，另一个在用户群里服务真实的同事。它们不是工具，是组织里两个正式的岗位。岗位一立起来，一个问题就自然跟着来了：
 
 「如果它批错了一张审批单，造成了损失，谁来负责？」
 
