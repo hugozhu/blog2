@@ -2,6 +2,8 @@
 title: "五个问题，判断一个岗位能不能交给数字员工"
 subtitle: "Not Every Job Can Sustain a Digital Employee"
 date: 2026-08-04
+ingested: 2026-08-05
+sha256: 84777ba64d102e10963c26c9e3dcd0250325797a62f8d48bd4c5c01814e5b2a9
 share_img: "/img/2026/not-every-job-can-sustain-a-digital-employee.png"
 tags: ["ai-agent", "digital-workforce", "enterprise-ai", "context", "evaluation"]
 ---

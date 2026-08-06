@@ -2,6 +2,8 @@
 title: "数字员工背后的 Agent，是五层基础设施的叠加"
 subtitle: "The Agent Behind a Digital Employee Is a Five-Layer Stack"
 date: 2026-08-04
+ingested: 2026-08-05
+sha256: b32bebb0ac875072257a53a89945c53c50d7f4ededaa60b546e5c060efa68dd0
 share_img: "/img/2026/five-layers-behind-a-digital-employee.png"
 tags: ["ai-agent", "digital-workforce", "enterprise-ai", "system-design", "agent-architecture"]
 ---

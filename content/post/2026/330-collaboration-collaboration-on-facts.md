@@ -4,6 +4,8 @@ subtitle: "Collaboration Is Collaboration on Facts"
 date: 2026-08-03
 share_img: "/img/2026/collaboration-collaboration-on-facts.png"
 tags: ["digital-workforce", "enterprise-ai", "org-infrastructure", "self-evolution", "competitive-intel"]
+ingested: 2026-08-05
+sha256: e4fb19dde9e276400b4dbf97a81b14714b9d1b0ce8f1d286f673295a370e4e88
 series: ["agent"]
 ---
 
