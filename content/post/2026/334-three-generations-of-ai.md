@@ -4,6 +4,8 @@ subtitle: "Three Generations of AI: From Prompt to Person to Organization"
 date: 2026-08-06
 share_img: "/img/2026/three-generations-of-ai.png"
 tags: ["digital-workforce", "enterprise-ai", "agent-governance", "organization-design", "ai-strategy"]
+ingested: 2026-08-06
+sha256: cde14b0bbd3ad0bbca3c4a6837351935110c2256ddca13b23bf548414bca62cf
 ---
 
 我名下有两个数字员工：一个负责开发、测试、部署，另一个在用户群里服务真实的同事。它们不是工具，是组织里两个正式的岗位。岗位一立起来，一个问题就自然跟着来了：

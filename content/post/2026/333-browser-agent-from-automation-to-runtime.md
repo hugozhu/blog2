@@ -4,6 +4,8 @@ subtitle: "From Browser Automation to Browser Runtime"
 date: 2026-08-06
 share_img: "/img/2026/browser-agent-from-automation-to-runtime.png"
 tags: ["ai-agent", "browser-automation", "browser-runtime", "agent-infrastructure", "system-design"]
+ingested: 2026-08-06
+sha256: 31f60818a7b48e36ebe347fc1cdbed863eea2dbf1f28dc3bbf5c7b2e5fa38de3
 ---
 
 让一个 Browser Agent 订一张机票。打开网站、登录、输入出发地和目的地、筛选时间、选航班、提取价格——听起来就六个动作。
