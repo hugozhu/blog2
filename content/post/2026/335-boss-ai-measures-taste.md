@@ -4,6 +4,8 @@ subtitle: "What Boss AI Really Measures Is Your Taste, Not Your Engineers"
 date: 2026-08-07
 share_img: "/img/2026/boss-ai-measures-taste.png"
 tags: ["ai-talent", "engineering-taste", "people-analytics", "ai-coding", "leadership"]
+ingested: 2026-08-07
+sha256: dec55bb2133daa68e3c33390d29ffcd2f57a4eb9a04fa5a531f7fe9257f93df0
 ---
 
 李开复在他的新书《AI 未来已来》里讲了一件微软旧事。
