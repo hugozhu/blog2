@@ -4,6 +4,8 @@ subtitle: "From Using AI to Managing AI: The Cheapest Management Apprenticeship 
 date: 2026-08-09
 share_img: "/img/2026/from-using-ai-to-managing-ai.png"
 tags: ["ai-agent", "career-growth", "management", "digital-employee", "eval"]
+ingested: 2026-08-09
+sha256: d2e3cd3f38fba9d1234d770681cfe9b73eb586146fb0c9254ccc87c051fc0df3
 ---
 
 上周和一群刚工作的年轻人交流。有人问我一个问题：我每天都在用 AI，prompt 也调得不错，效率确实提高了——但为什么总觉得，我还是在「自己干活」？
