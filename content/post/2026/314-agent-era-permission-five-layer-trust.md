@@ -4,7 +4,7 @@ subtitle: "Five Layers of Trust for Agent-Era Access Control"
 date: 2026-07-28
 tags: ["ai-agents", "security", "enterprise-ai", "access-control", "agent-iam", "trust-architecture"]
 ingested: 2026-07-29
-sha256: 0ae79c3b6f9d08ca6570c968d1f5d0bd0d1fed06c3d048dab6bc2220265c3b6f
+sha256: 841b3459b4280636f0e67186b058b4429eae5648b9c3c3794711f5339b0d4528
 ---
 
 一个人类员工一天审批 20 单、发 50 封邮件、访问 10 个系统。如果权限有漏洞，损害上限是 20 单。

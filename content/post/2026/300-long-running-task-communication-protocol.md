@@ -4,7 +4,7 @@ subtitle: "Designing the Communication Layer Between Humans and Long-Running Age
 date: 2026-07-20
 tags: ["ai-agents", "human-agent-collaboration", "interaction-design", "long-running-tasks", "dingtalk", "ai-native"]
 ingested: 2026-07-20
-sha256: 50d8bd9f0722052ca144ec9308134f2a615b540c556fd0b4eb3c9dbc3f72f8c8
+sha256: b84f709c7c71bb0dabd3ab266a0cc2b6a460ccd2cad52962a415d7963ba466a3
 ---
 
 上周，一个 FDE 给我发了条消息：「我让 Agent 帮我做一份竞品分析，它说『好的，我开始处理』，然后就消失了。两个小时后我实在忍不住，去群里问『你还在跑吗』，它回了句『是的，还在处理中』。又过了半小时，终于出来了——结果质量不错，但这两个半小时里我完全不知道它在干嘛、做到哪了、有没有卡住。」
