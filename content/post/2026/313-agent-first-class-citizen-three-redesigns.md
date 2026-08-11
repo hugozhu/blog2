@@ -4,7 +4,7 @@ subtitle: "Three Redesigns for Agent-Native Collaboration"
 date: 2026-07-27
 tags: ["ai-agents", "collaboration", "enterprise-ai", "product-design", "digital-workforce", "global-team"]
 ingested: 2026-07-29
-sha256: b4d355944c62cf4d
+sha256: b4d355944c62cf4d9115abda96c3c7b75cba133eab7fe8749cb83625691f4c2d
 ---
 
 晚上 10 点，纽约的产品经理在 Linear 上建了一个竞品分析的 ticket，在群里 @ 了东京的工程师，又发了一封邮件给伦敦的设计师。三个渠道，三种状态，没有一个地方能看到全貌。

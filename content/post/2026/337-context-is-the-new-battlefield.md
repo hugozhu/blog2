@@ -4,6 +4,8 @@ subtitle: "The New AI Race Is Over Context, Not Models"
 date: 2026-08-09
 share_img: "/img/2026/context-is-the-new-battlefield.png"
 tags: ["ai-agent", "enterprise-ai", "context-engineering", "strategy", "competition"]
+ingested: 2026-08-11
+sha256: e9bc390787d0c10c78c8dc14003bc6545a706895a47933412f10c5b29904abac
 ---
 
 7 月下旬发生了两件事。表面上毫无关系，放在一起看，指向了同一个地方。

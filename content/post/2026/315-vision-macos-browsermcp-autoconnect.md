@@ -4,7 +4,7 @@ subtitle: "Eliminating the Last Manual Breakpoint in Browser MCP with Vision-Dri
 date: 2026-07-29
 tags: ["ai-agent", "browser-automation", "mcp", "macos", "vision", "devops"]
 ingested: 2026-07-29
-sha256: 0474e969db6cec05
+sha256: 0474e969db6cec05e89e4b6876a235b1377dc1da8759d18a0ff5765a39037118
 ---
 
 凌晨两点，我的 Agent 又停了。

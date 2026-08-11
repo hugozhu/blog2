@@ -1,5 +1,5 @@
 ---
-sha256: dc3f453eb809
+sha256: dc3f453eb809d3730397901f01c923f73c83df19451e95ee5b7aceec8f8d1331
 ingested: 2026-07-18
 title: "AI 钉钉的护城河不在 AI，而在组织图谱与协同飞轮"
 subtitle: "The Moat Is Not the Model — It's the Org Graph and the Learning Loop"

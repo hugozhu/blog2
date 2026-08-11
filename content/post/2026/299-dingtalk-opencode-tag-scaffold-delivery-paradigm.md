@@ -4,7 +4,7 @@ subtitle: "From Harness Theory to an Open-Source Scaffold Anyone Can Fork"
 date: 2026-07-19
 tags: ["digital-workforce", "harness-engineering", "open-source", "dingtalk", "ai-coding", "agent-scaffold"]
 ingested: 2026-07-20
-sha256: 71d0c2f92e86
+sha256: 71d0c2f92e86f50d3017d7133cf08e63bedc2665d61288844662e06616c60167
 ---
 
 上周一个 FDE 跟我说：「我在客户现场搭一个群聊数字员工，从建账号到调通花了两天。其中一天半在处理断线重连、图片下载、消息去重这些脏活。」

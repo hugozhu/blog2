@@ -4,14 +4,14 @@ subtitle: "Designing the Communication Layer Between Humans and Long-Running Age
 date: 2026-07-20
 tags: ["ai-agents", "human-agent-collaboration", "interaction-design", "long-running-tasks", "dingtalk", "ai-native"]
 ingested: 2026-07-20
-sha256: 99a7c8b08195
+sha256: 50d8bd9f0722052ca144ec9308134f2a615b540c556fd0b4eb3c9dbc3f72f8c8
 ---
 
 上周，一个 FDE 给我发了条消息：「我让 Agent 帮我做一份竞品分析，它说『好的，我开始处理』，然后就消失了。两个小时后我实在忍不住，去群里问『你还在跑吗』，它回了句『是的，还在处理中』。又过了半小时，终于出来了——结果质量不错，但这两个半小时里我完全不知道它在干嘛、做到哪了、有没有卡住。」
 
 这个场景太常见了。而且它暴露了一个大多数 Agent 平台都没认真对待的问题： **长程任务的人机交互设计**。
 
-不是模型能力的问题，不是工具调用的问题——是 **通信协议 **的问题。Agent 和人之间，缺少一套关于「什么时候说话、说什么、怎么说」的共识。
+不是模型能力的问题，不是工具调用的问题——是 **通信协议** 的问题。Agent 和人之间，缺少一套关于「什么时候说话、说什么、怎么说」的共识。
 
 <!--more-->
 

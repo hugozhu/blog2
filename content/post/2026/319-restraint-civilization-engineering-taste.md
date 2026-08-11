@@ -5,7 +5,7 @@ date: 2026-07-31
 share_img: "/img/2026/restraint-civilization-engineering-taste.png"
 tags: ["engineering-culture", "ai-coding", "harness", "parenting", "philosophy"]
 ingested: 2026-07-31
-sha256: 9de91f0830e10ccdda56d6a27955f9bd60e5a9d17b67c09d9fce3e46756a23b9
+sha256: eec3a1715dfc0084b36a0d916e7ec1f000e806e588b1a5c5b9c9028c35d1600c
 ---
 
 > 人的放纵是本能，自律才是修行。短时间让你快乐的东西，一定能够让你感到痛苦；反之，那些让你痛苦的东西，最终都能让你功成名就。低级的欲望，放纵即可获得；高级的欲望，只有克制才能达到。

@@ -4,7 +4,7 @@ subtitle: "The 7-component engineering infrastructure that turns a smart LLM int
 date: 2026-07-13
 tags: ["harness-engineering", "llm-agent", "dingtalk", "ai-native", "system-design"]
 ingested: 2026-07-18
-sha256: 61a973902580
+sha256: 61a973902580cf4a629e49334d9ee6394a6f5ac974cbf8ab5a6da3dacbc83af4
 ---
 
 ![Harness 工程架构图](/img/2026/294-harness-engineering-thumb.jpg)

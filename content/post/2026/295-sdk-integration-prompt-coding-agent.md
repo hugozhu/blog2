@@ -4,7 +4,7 @@ subtitle: "Why the next generation of developer tools ships prompts instead of A
 date: 2026-07-13
 tags: ["agent-developer", "sdk-integration", "coding-agent", "prompt-engineering", "dingtalk-fde"]
 ingested: 2026-07-18
-sha256: 102d0836d5ed
+sha256: 102d0836d5edbb0ca73816bedfa74cb99c80230c6249cc7dd2fdbb6c9475e9b1
 ---
 
 Context.dev 是一个 YC 孵化的 Web 抓取 API，帮 Agent 从任意网页提取结构化数据。它的 Quickstart 文档写得很标准：注册、拿 Key、装 SDK、写第一行代码。

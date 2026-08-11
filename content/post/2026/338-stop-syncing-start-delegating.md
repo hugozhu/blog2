@@ -4,6 +4,8 @@ subtitle: "Stop Syncing, Start Delegating: My Answer to an Employee Question"
 date: 2026-08-10
 share_img: "/img/2026/stop-syncing-start-delegating.png"
 tags: ["ai-native", "leadership", "organization-design", "future-of-work", "management"]
+ingested: 2026-08-11
+sha256: c4e3d1682cb884d65568fc0f8a3d70fef96e3e612caaa1bce30ae27c526d84d7
 ---
 
 上周内部交流会，有位同学站起来提了一个问题。

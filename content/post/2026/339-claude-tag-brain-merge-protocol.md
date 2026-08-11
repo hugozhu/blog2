@@ -4,6 +4,8 @@ subtitle: "Weekly Reports and Meetings Are Human-Made Brain-Merge Protocols"
 date: 2026-08-10
 share_img: "/img/2026/claude-tag-brain-merge-protocol.png"
 tags: ["ai-agent", "ai-coworker", "claude-tag", "organization-design", "future-of-work"]
+ingested: 2026-08-11
+sha256: 3dc7395df2682e1f04105e7bc2a0b53953965ab7d3894454fc6b978824f1c3ea
 ---
 
 上个月，Anthropic 的 Claude Code 设计负责人 Meaghan 发现了一件怪事。
