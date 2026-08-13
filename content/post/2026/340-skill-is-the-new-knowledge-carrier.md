@@ -4,6 +4,8 @@ subtitle: "From Documents People Read to Skills Agents Execute"
 date: 2026-08-12
 share_img: "/img/2026/skill-is-the-new-knowledge-carrier.png"
 tags: ["context-engineering", "knowledge-management", "ai-agent", "enterprise-ai", "skills"]
+ingested: 2026-08-12
+sha256: 0f88cca1ac44f631918884e27aede464c4207d7ff140d2b935023688b2001200
 ---
 
 YC Startup School 的舞台上，主持人 Diana Hu 问 Jeff Dean 一个问题。在此之前，Dean 刚讲了他和搭档 Sanjay 写的一个性能优化 Skill——教模型自己做「跑 benchmark → 改代码 → 测提升 → 再迭代」的闭环。Diana 听完说：「如果谁拿到这个 Skill，就能像 Jeff Dean 一样做性能优化了。这东西肯定价值无限。有人能拿到它吗？」

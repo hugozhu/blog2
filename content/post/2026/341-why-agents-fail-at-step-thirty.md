@@ -4,6 +4,8 @@ subtitle: "Long-Horizon Agents Fail When They Leave the Light"
 date: 2026-08-12
 share_img: "/img/2026/why-agents-fail-at-step-thirty.png"
 tags: ["ai-agent", "long-running-tasks", "context-engineering", "harness-engineering", "agent-architecture"]
+ingested: 2026-08-12
+sha256: 846728fd2795f22a4350038d2ae843dcb39fc26b4c36a4a8f781702ce00c5649
 ---
 
 上周一个做 Agent 集成的工程师来问我：「我的 Agent 前十步表现很好——读文档、列计划、写代码，都很干净。但到第 30 步左右就开始胡来：调错 API，覆盖自己刚改过的文件，甚至重复执行已经做完的操作。我是不是该换个更强的模型？」

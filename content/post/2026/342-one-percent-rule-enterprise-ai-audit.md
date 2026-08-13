@@ -4,6 +4,8 @@ subtitle: "Auditing Your Company's AI Opportunities With the 1% Rule"
 date: 2026-08-12
 share_img: "/img/2026/one-percent-rule-enterprise-ai-audit.png"
 tags: ["enterprise-ai", "ai-strategy", "context-engineering", "evaluation", "digital-workforce"]
+ingested: 2026-08-12
+sha256: b683ab08bfa500135d11212bb846525b6e1aabb4d052bdb2f7ffebb09a610522
 ---
 
 最近一个月，有三个人问过我同一个问题：「我们公司想做 AI，从哪开始？」
