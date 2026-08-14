@@ -4,6 +4,8 @@ subtitle: "Liveliness Is Grown, Not Designed"
 date: 2026-08-13
 share_img: "/img/2026/digital-employee-liveliness-grown-not-designed.png"
 tags: ["digital-workforce", "enterprise-ai", "context-engineering", "organization-design", "ai-coworker"]
+ingested: 2026-08-13
+sha256: eac138e0cc20ffc6c059071b4c3ef9f935e625af88e61d954fa0deb49874fe80
 ---
 
 最近有人问我一个问题：我们的数字员工有形象、有声音、有名字，为什么用起来还是像客服？

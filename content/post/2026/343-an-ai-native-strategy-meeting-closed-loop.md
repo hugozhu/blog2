@@ -4,6 +4,8 @@ subtitle: "A Closed-Loop Strategy Meeting That Makes the Organization Smarter"
 date: 2026-08-13
 share_img: "/img/2026/an-ai-native-strategy-meeting-closed-loop.png"
 tags: ["ai-native", "enterprise-ai", "knowledge-management", "organization-design", "qwen-office", "dingtalk"]
+ingested: 2026-08-13
+sha256: a2945cd2e11bb72650835f8c01847f6e2b3c3ffc7ed39fb103e4157333e34a89
 ---
 
 这周二，我开了一场 AI 钉钉的战略沟通会。
