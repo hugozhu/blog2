@@ -4,6 +4,8 @@ subtitle: "The Speed of AI Disruption Is Computable"
 date: 2026-08-14
 share_img: "/img/2026/ai-disruption-speed-formula.png"
 tags: ["enterprise-ai", "ai-strategy", "agent-architecture", "competitive-advantage", "organization-design"]
+ingested: 2026-08-14
+sha256: 3e6d31fec518198888ce0cd30ed696bc2e1dfcd109ce9dacf704f0da212b5b8f
 ---
 
 上周有两个消息放在一起看，特别有意思。

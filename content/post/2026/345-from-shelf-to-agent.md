@@ -4,6 +4,8 @@ subtitle: "From Shelves to Agents: Platforms Compete for Intent, Not Users"
 date: 2026-08-13
 share_img: "/img/2026/from-shelf-to-agent.png"
 tags: ["enterprise-ai", "ai-strategy", "context-engineering", "competitive-advantage", "organization-design"]
+ingested: 2026-08-14
+sha256: 98b4d68da2e79e83f6de40cff797a61aebbef7d517e600ed6d04b6c3a75228c5
 ---
 
 上周的战略会上，有人问了我一个问题：如果 Agent 真的能替人完成工作，那工作软件公司以后卖什么？

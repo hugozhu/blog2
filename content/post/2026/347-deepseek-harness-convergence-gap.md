@@ -4,6 +4,8 @@ subtitle: "Everything Is a Plugin: DeepSeek Harness and the Convergence Gap"
 date: 2026-08-14
 share_img: "/img/2026/deepseek-harness-convergence-gap.png"
 tags: ["deepseek-harness", "coding-agent", "agent-architecture", "evals", "harness-engineering"]
+ingested: 2026-08-14
+sha256: 7cef6f695e6bbfe563e7240e694e41b5451425d5e6b16ccaa6a16918076e34e8
 ---
 
 昨晚刷到一篇实测文，作者用 DeepSeek Harness 做了一个叫 MacDynamicIsland 的原生 macOS 应用——刘海、菜单栏、悬浮胶囊三个入口，快捷笔记、剪贴板、截图置顶全都有。时间线是这样的：
