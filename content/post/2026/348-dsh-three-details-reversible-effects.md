@@ -4,6 +4,8 @@ subtitle: "Everything Is a Plugin: Three Details That Make DeepSeek Harness Real
 date: 2026-08-15
 share_img: "/img/2026/dsh-three-details.png"
 tags: ["deepseek-harness", "agent-runtime", "plugin-architecture", "event-sourcing", "agent-security"]
+ingested: 2026-08-15
+sha256: a24670bd572548a8b2c65dea36646b6f3fe15af10396d67b2bda30e637c5a98e
 ---
 
 前天写 [一切皆插件：DeepSeek Harness 的野心与收敛鸿沟](https://hugozhu.site/post/2026/347-deepseek-harness-convergence-gap/) 时，我说 DeepSeek 开源的不是工具，是运行时。当时主要看的是官方页面和仓库门面。这两天陆续有人把整个仓库拉下来逐包分析，翻出来的东西比我想的更硬。

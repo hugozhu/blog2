@@ -4,6 +4,8 @@ subtitle: "In an Age of Pluggable Everything, Trust Is the One Thing You Can't P
 date: 2026-08-15
 share_img: "/img/2026/trust-not-pluggable.png"
 tags: ["agent-architecture", "trust", "organization-design", "deepseek-harness", "digital-workforce"]
+ingested: 2026-08-15
+sha256: a7a69a8e2369b5a1687a668bef034f698bb6399af93dbd416e4970f3f81784c4
 ---
 
 前两天，一个问题把我问住了。

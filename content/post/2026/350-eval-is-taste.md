@@ -4,6 +4,8 @@ subtitle: "Evals Are Taste"
 date: 2026-08-15
 share_img: "/img/2026/eval-is-taste.png"
 tags: ["evaluation", "ai-agent", "engineering-taste", "agent-development", "loss-function"]
+ingested: 2026-08-15
+sha256: c5f7967743ace659bbaa5e3fa79a7550291e27dc68f57c39c3dad490e0a01ceb
 ---
 
 上周发完 [一切皆插件：DeepSeek Harness 的野心与收敛鸿沟](https://hugozhu.site/post/2026/347-deepseek-harness-convergence-gap/)，一位带研发团队的读者给我发消息：「十次修改能不能收敛，你说取决于 eval。那我们让团队多写点测试用例，是不是就能收敛了？」
