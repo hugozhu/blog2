@@ -4,7 +4,8 @@ subtitle: "RPA Is Low-Code Programming, and Demonstration Is Its Final Compiler"
 date: 2026-08-17
 share_img: "/img/2026/grok-bot-shadowing-kills-rpa.png"
 tags: ["ai-agent", "rpa", "grok-bot", "computer-use", "enterprise-ai", "dingtalk"]
----
+ingested: 2026-08-17
+sha256: 9280b5e041c9d645fc02f71ec6823cb4e71e5cefbc2c2609a611fe5a1ce70ac0
 
 今年 2 月，我写过一篇工程文章 [通过桌面录屏实现自动化 RPA 的最佳实践](https://hugozhu.site/post/2026/121-desktop-screen-recording-rpa-best-practices/)：用录屏捕获屏幕画面和鼠标键盘事件，让多模态大模型理解操作序列，再自动复现。为了验证可行性，我自己写了实现——光录制模块和关键帧提取就是几百行代码，文末我还特意提醒：这条路离可用产品有距离。
 

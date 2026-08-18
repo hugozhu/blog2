@@ -4,7 +4,8 @@ subtitle: "The Loop, Not the Skill, Is the Unit of Career Growth"
 date: 2026-08-17
 share_img: "/img/2026/stop-collecting-skills-loops.png"
 tags: ["career-growth", "ai-era", "future-of-work", "skill-development", "ai-native"]
----
+ingested: 2026-08-17
+sha256: 513bdf096925072d3a9e9da303c834385fabec5be7d20d0f3cece2ac8bd0fc83
 
 前几天，那个年轻人又给我发消息了。
 
