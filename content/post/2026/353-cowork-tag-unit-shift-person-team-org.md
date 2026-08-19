@@ -4,6 +4,8 @@ subtitle: "Cowork Is AI Times a Person, Tag Is AI Times a Team, and the Organiza
 date: 2026-08-18
 share_img: "/img/2026/cowork-tag-unit-shift.png"
 tags: ["digital-employee", "claude-tag", "anthropic", "enterprise-ai", "ai-native"]
+ingested: 2026-08-18
+sha256: 152ce80ffbd4f84fb8627a139150b58902c007910c65a93c12bcd074f40b245f
 ---
 
 发完 [Grok Bot 的跟班学习，会先干掉 RPA 市场](https://hugozhu.site/post/2026/351-grok-bot-shadowing-kills-rpa/) 第二天，那个年轻人又发来一张截图：Anthropic 内部的 Slack 频道里，有人 `@Claude` 派了个活，Claude 接过去干，下一个人直接在它停下的地方接着做。

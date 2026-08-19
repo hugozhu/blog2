@@ -4,6 +4,8 @@ subtitle: "Anthropic Leads by Six Months — but Only in the First Two Layers"
 date: 2026-08-18
 share_img: "/img/2026/anthropic-leads-only-two-layers.png"
 tags: ["anthropic", "enterprise-ai", "ai-startup", "digital-employee", "ai-strategy"]
+ingested: 2026-08-18
+sha256: 2b24c8b2f0414e772b6a0a65eed5faa12c6d3d12aef80594d1d049c98ef8f1ec
 ---
 
 发完 [从 Cowork 到 Tag：AI 的竞争单位，正在从个人变成组织](https://hugozhu.site/post/2026/353-cowork-tag-unit-shift-person-team-org/) 第二天，那个年轻人又发来一条消息。这次他没提问，而是直接甩了一个判断：
