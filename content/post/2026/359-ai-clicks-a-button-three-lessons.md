@@ -1,6 +1,6 @@
 ---
 title: 同一个任务，AI 第一次折腾了好几分钟，第二次只用了 4.3 秒
-subtitle: From Seven Failed Clicks to 4.3 Seconds — What AI Learned About Buttons, Menus, and URLs
+subtitle: From Seven Failed Clicks to 4.3 Seconds — Four Lessons on Buttons, Menus, URLs, and Skills
 date: 2026-08-19
 share_img: "/img/2026/ai-clicks-a-button-three-lessons.png"
 tags: ["browser-agent", "ai-agent", "computer-use", "web-automation", "ego-browser"]
@@ -12,7 +12,7 @@ tags: ["browser-agent", "ai-agent", "computer-use", "web-automation", "ego-brows
 
 但我马上意识到有场好戏要看——屏幕上这些按钮，在 AI 眼里长着完全另一副模样。
 
-[![From Seven Failed Clicks to 4.3 Seconds — What AI Learned About Buttons, Menus, and URLs](/img/2026/ai-clicks-a-button-three-lessons-thumb.jpg)](/img/2026/ai-clicks-a-button-three-lessons.png)
+[![From Seven Failed Clicks to 4.3 Seconds — Four Lessons on Buttons, Menus, URLs, and Skills](/img/2026/ai-clicks-a-button-three-lessons-thumb.jpg)](/img/2026/ai-clicks-a-button-three-lessons.png)
 
 <!--more-->
 
@@ -82,9 +82,21 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2
 
 第一次，含试错，七八轮脚本、好几分钟；第二次，4.3 秒。
 
-## 三条原理，值得抄进你的 Agent 手册
+## 第五幕：把学费写进 skill
 
-故事讲完，把干货提炼出来。这三条原理适用于任何让 AI 操作网页的场景：
+这个故事本来可以到此结束，但还有一个容易被忽略的问题：这条 4.3 秒的路径，只存在于这次对话里。会话一结束，它就跟着上下文一起消失——下次接到同样的任务，AI 还得从第一次碰壁重来。学费交一次是学习，每个会话都重新交一遍，叫不长记性。
+
+于是它多干了一件事：把直达路径和沿途的坑，写进了一个叫 `wechat-mp-browser-ops` 的 skill——
+
+- **直达路径**：编辑器的 URL 模板、token 从哪抄；
+- **坑的清单**：`el.click()` 点不动、菜单有寿命、坐标要现拿现用；
+- **适用边界**：哪些门卫不查证件、哪些要验真人。
+
+从此，任何会话接到「打开公众号后台」的任务，都会先加载这个 skill，直接走 4.3 秒那条路。第一次是学费，第二次是复利，从第三次开始，不再有学费。
+
+## 四条原理，值得抄进你的 Agent 手册
+
+故事讲完，把干货提炼出来。前三条适用于任何让 AI 操作网页的场景，第四条适用于一切 Agent 任务：
 
 **原理一：点击有「保真度阶梯」。**
 
@@ -106,16 +118,20 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2
 
 下拉菜单、弹窗、popover 都是活物，有自己的生死。对它们的操作要压缩成一个原子动作：打开 → 立刻量坐标 → 立刻点。「拿坐标」和「点击」之间别插入任何别的事——你磨刀的时候，菜凉了。
 
+**原理四：不固化的经验是一次性的。**
+
+4.3 秒的路径只存在于一次会话里，会话结束就跟着上下文消失。调通之后的最后一步，是把两样东西写进 skill：**验证过的直达路径**，让下个会话跳过整支舞蹈；**交过学费的坑**，让下个会话不再掉进同一个。这正是[Jeff Dean 把最值钱的东西公开了：Skill 是组织知识的新载体](https://hugozhu.site/post/2026/340-skill-is-the-new-knowledge-carrier/)里的判断——知识应该被编译成 Agent 可直接加载的可执行形态，而不是留在故事里讲一遍就丢。
+
 还有一条备选经验：**诚实面对工具的边界。** 截图返回的是路径不是答案；看不了图就大方承认，回 DOM 里继续找路。盲目重试不如换探针。这一条反过来也解释了[工程 AI 化六条标准](https://hugozhu.site/post/2026/355-engineering-ai-maturity-six-criteria/)里为什么把 vision 列为硬门槛——这次的 AI 恰好看不了图，第 4 次碰壁就耗在了「举起望远镜才发现自己是盲人」上。有 vision 的 Agent 在第 1 次失败后就能看到菜单还活着，试错轮次会少得多。
 
 ## 结尾
 
 回到那个 4.3 秒。
 
-它不是模型变聪明了——模型一步都没升级。变的是 Agent 把一次试错的经历，编译成了一条直达路径。**第一次的几分钟是学费，第二次的 4.3 秒是复利。** 而能不能把学费变成复利，取决于有没有把「地址栏里的剧本」记下来的习惯。
+它不是模型变聪明了——模型一步都没升级。变的是 Agent 把一次试错的经历，编译成了一条直达路径，又把这条路径连同沿途的坑写进了 skill。**第一次的几分钟是学费，第二次的 4.3 秒是复利，skill 是让复利跨会话存活的存折。**
 
 人类看到的是按钮，AI 看到的是 DOM，但最终大家都去同一个 URL。
 
-会点按钮的是好员工，会抄 URL 的才是老司机。
+会点按钮的是好员工，会抄 URL 的才是老司机，会把路写进地图的才不再迷路。
 
 你的 Agent 上一次在同一个按钮上碰壁，是多久以前的事？欢迎留言聊聊。
