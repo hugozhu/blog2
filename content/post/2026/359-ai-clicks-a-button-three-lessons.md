@@ -4,6 +4,8 @@ subtitle: From Seven Failed Clicks to 4.3 Seconds — Four Lessons on Buttons, M
 date: 2026-08-19
 share_img: "/img/2026/ai-clicks-a-button-three-lessons.png"
 tags: ["browser-agent", "ai-agent", "computer-use", "web-automation", "ego-browser"]
+ingested: 2026-08-20
+sha256: e5fca53fc27c7928ec2049fae57f1e6339631d7f89eee65dd8c1ff9f538fa597
 ---
 
 我给跑在本机的 AI 助手下了一个再普通不过的指令：「打开公众号后台，准备发一篇新文章。」

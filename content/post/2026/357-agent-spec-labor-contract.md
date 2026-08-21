@@ -5,7 +5,7 @@ date: 2026-08-19
 share_img: "/img/2026/agent-spec-labor-contract.png"
 tags: ["agent-builder", "digital-employee", "ai-native", "enterprise-ai", "agent-spec"]
 ingested: 2026-08-19
-sha256: 4a1a55b61425a876
+sha256: 4a1a55b61425a876aff25ffc1148040cc6b371893e5f2ce35c3517e681f0b33a
 ---
 
 前几天有人问我：Agent Builder 的终局是什么？

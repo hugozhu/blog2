@@ -5,7 +5,7 @@ date: 2026-08-19
 share_img: "/img/2026/software-factory-3-0-selling-molds.png"
 tags: ["ai-coding", "evals", "software-engineering", "outsourcing", "ai-native"]
 ingested: 2026-08-19
-sha256: e71334e403900e10
+sha256: e71334e403900e10b28848e3fca111420c54b719cfc30b8a02f7b45fd927c020
 ---
 
 一个做外包的朋友上个月跟我抱怨：客户现在拿 AI 写的代码来压价。「你们报 30 人月，客户自己用 Claude Code 一周出了个 demo，问你们凭什么值这个钱。」

@@ -4,6 +4,8 @@ subtitle: Palantir Grows Agents from Ontology — We Should Grow Ontology Back f
 date: 2026-08-19
 share_img: "/img/2026/palantir-ontology-to-agent-we-grow-back.png"
 tags: ["palantir-ontology", "enterprise-ai", "digital-employee", "agent-spec", "ai-strategy"]
+ingested: 2026-08-20
+sha256: 056816a927c76678b133ceb6e908187dc0667fedb3c79bf26d95521ede711add
 ---
 
 前几天有人抛了一个问题：「哪些客户的续约风险正在上升，今天由谁介入？」

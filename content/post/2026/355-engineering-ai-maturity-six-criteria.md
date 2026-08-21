@@ -5,7 +5,7 @@ date: 2026-08-19
 share_img: "/img/2026/engineering-ai-maturity-six-criteria.png"
 tags: ["engineering-management", "ai-coding", "coding-agent", "harness-engineering", "ai-native"]
 ingested: 2026-08-19
-sha256: c779418672c97b55
+sha256: c779418672c97b557c0460589be25ec8f39a364ae301b53b6a21bb23bd9b5276
 ---
 
 上周我在准备和团队 9 月初的一次对焦，主题是工程 AI 化。
