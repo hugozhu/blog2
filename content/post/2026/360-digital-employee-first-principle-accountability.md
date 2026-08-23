@@ -4,6 +4,8 @@ subtitle: "Why Accountability, Not Controllability, Comes First for Digital Empl
 date: 2026-08-21
 share_img: "/img/2026/digital-employee-first-principle-accountability.png"
 tags: ["ai-agent", "digital-employee", "enterprise-ai", "accountability", "system-design"]
+ingested: 2026-08-21
+sha256: c625f240d47eb1e48fc02e2d9dd78090ccd3b52d036f980fe6304de4e4abe5b5
 ---
 
 今年早些时候，我写过这样一个案例：一家电商公司的 AI Agent 自动调整了 2000 个 SKU 的定价，部分商品以成本价以下售出，一天亏了 80 万。复盘会上——
