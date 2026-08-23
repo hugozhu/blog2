@@ -2,15 +2,12 @@
   {{ $format := default (i18n "dateFormat") .Site.Params.dateformat }}
   {{ $datestr := .Date.Format $format }}
   {{ $lastmodstr := .Lastmod.Format $format }}
-  <i class="fas fa-calendar"></i>&nbsp;{{ $datestr | i18n "postedOnDate"}}
+  <i class="fas fa-calendar"></i>&nbsp;{{ $datestr }}
   {{ if ne $datestr $lastmodstr }}
     &nbsp;({{ $lastmodstr | i18n "lastModified"  }})
   {{ end }}
-  {{ if .Site.Params.readingTime }}
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" }}
-  {{ end }}
   {{ if .Site.Params.wordCount }}
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;{{ .WordCount }}&nbsp;{{ i18n "words" }}
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;{{ .WordCount }}&nbsp;tokens
   {{ end }}
   {{ if not .Site.Params.hideAuthor }}
     {{ if .Params.author }}
@@ -49,4 +46,5 @@
     &nbsp;&bull;&nbsp;{{ i18n "translationsLabel" }}{{ $linksOutput | safeHTML }}
   {{- end }}
   &nbsp;|&nbsp;<a href="https://x.com/HugoSkills" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> <b>@HugoSkills</b></a>
+  &nbsp;|&nbsp;<a href="https://mp.weixin.qq.com/s/lpNNynSWB6VAuzgJRDoZ_g" target="_blank" rel="noopener"><i class="fab fa-weixin"></i> <b>hugozhu.site</b></a>
 </span>
