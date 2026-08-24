@@ -66,6 +66,23 @@ def fix_chinese_markdown(content: str) -> str:
     in_frontmatter = False
     frontmatter_count = 0
 
+    def mask_inline_code(line: str):
+        """Replace inline code spans with placeholders so line-level fixes
+        (quote conversion, CJK spacing, bold spacing) never touch code.
+        Returns (masked_line, list_of_spans)."""
+        spans = []
+
+        def stash(match):
+            spans.append(match.group(0))
+            return f"\x00{len(spans) - 1}\x00"
+
+        return re.sub(r'`[^`]*`', stash, line), spans
+
+    def unmask_inline_code(line: str, spans) -> str:
+        for i, span in enumerate(spans):
+            line = line.replace(f"\x00{i}\x00", span, 1)
+        return line
+
     for line in lines:
         # Track frontmatter
         if line.strip() == "---":
@@ -93,6 +110,10 @@ def fix_chinese_markdown(content: str) -> str:
         if in_code_block:
             new_lines.append(line)
             continue
+
+        # Mask inline code spans so none of the line-level fixes below
+        # corrupt code content (e.g. `readline, ""` -> `readline, 「」`).
+        line, _code_spans = mask_inline_code(line)
 
         # Step 1: Fix bold inner spacing — ** 内容 ** -> **内容**
         def fix_bold(match):
@@ -130,6 +151,9 @@ def fix_chinese_markdown(content: str) -> str:
         # Cleanup multiple spaces
         line = re.sub(r'  +', r' ', line)
         line = line.rstrip()
+
+        # Restore inline code spans, untouched.
+        line = unmask_inline_code(line, _code_spans)
 
         new_lines.append(line)
 
