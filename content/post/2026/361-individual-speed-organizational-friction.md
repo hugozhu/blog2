@@ -4,6 +4,8 @@ subtitle: "Individual Speed, Organizational Friction — Where the Real Bottlene
 date: 2026-08-23
 share_img: "/img/2026/individual-speed-organizational-friction.png"
 tags: ["enterprise-ai", "digital-employee", "organization-design", "dingtalk", "productivity-paradox"]
+ingested: 2026-08-25
+sha256: 68a86aec8255ca3c196124a143a6e29635572b9fb4280fc2a138780bcdf406f5
 ---
 
 上周，一位做软件外包的朋友跟我吐苦水。

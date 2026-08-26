@@ -4,6 +4,8 @@ subtitle: "Code Is No Longer the Bottleneck — Anthropic's SDLC Playbook Confir
 date: 2026-08-23
 share_img: "/img/2026/ai-native-sdlc-artifact-chain.png"
 tags: ["enterprise-ai", "ai-native-sdlc", "anthropic", "organization-design", "digital-employee"]
+ingested: 2026-08-25
+sha256: a74aa042fe0c03a8eadd126746f63e494f3d4c948c9b89ce9e4cb69846ddc902
 ---
 
 前天我写了一篇文章，说 [AI 让每个人都变快了，但组织没有变快](https://hugozhu.site/post/2026/361-individual-speed-organizational-friction/)——个人效率的红利，被交接、等待、审批这些组织摩擦吞掉了。

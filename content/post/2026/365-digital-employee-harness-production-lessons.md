@@ -4,6 +4,8 @@ subtitle: "When All Health Checks Are Green but the Brain Is Gone"
 date: 2026-08-24
 share_img: "/img/2026/digital-employee-harness-production-lessons.png"
 tags: ["dingtalk", "digital-employee", "harness-engineering", "ai-agent", "reliability"]
+ingested: 2026-08-25
+sha256: f57568c4ad8205137504ec336201eb285c48ebfedc7d947ba1e73e57e5f03f59
 ---
 
 2026 年 8 月 8 日下午，我们的数字员工失联了 16 分钟。监控这边，它一切正常。

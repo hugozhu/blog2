@@ -4,6 +4,8 @@ subtitle: "No Org Change, No AI-Native: A Structural Litmus Test"
 date: 2026-08-24
 share_img: "/img/2026/no-org-change-no-ai-native.png"
 tags: ["ai-native", "organization-design", "enterprise-ai", "management"]
+ingested: 2026-08-25
+sha256: 1fff210f64048653682485729c9d42f4572a3c7c7956655993a15a3e24566325
 ---
 
 这句话出自最近一次关于企业 AI 转型的讨论。

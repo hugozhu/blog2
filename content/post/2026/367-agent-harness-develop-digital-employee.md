@@ -4,6 +4,8 @@ subtitle: "Stop Configuring Agents, Give Them a Job"
 date: 2026-08-24
 share_img: "/img/2026/agent-harness-develop-digital-employee.png"
 tags: ["agent-harness", "digital-employee", "eval-driven-development", "dingtalk", "deepseek-harness"]
+ingested: 2026-08-25
+sha256: e28bb1ba72afb5c4945fd2c81f0c09e0b8c8342ecb7a43e49e8617e60b1c0fad
 ---
 
 8 月中旬，DeepSeek 开源了一个叫 DeepSeek Harness（简称 DSH）的项目，Slogan 只有一句话：**Everything is a Plugin**。写这篇文章时，它在 GitHub 上的 star 数已经突破 17 万——一个 developer preview 阶段的项目，热度超过了绝大多数成熟框架。

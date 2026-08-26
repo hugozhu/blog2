@@ -4,6 +4,8 @@ subtitle: "Six Coding Agents in August — Same Destination, Different Roads"
 date: 2026-08-23
 share_img: "/img/2026/six-coding-agents-august.png"
 tags: ["ai-agent", "coding-agent", "harness", "agent-ecosystem", "industry-analysis"]
+ingested: 2026-08-25
+sha256: a5fd13585266830ff182ac15efd369c34e3d6032ee6c508fe9bd8b7e502202ae
 ---
 
 想知道一家 AI 公司把赌注押在哪里，别看发布会，看它的 release notes。

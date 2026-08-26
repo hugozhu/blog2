@@ -4,6 +4,8 @@ subtitle: "Databricks Is Closing In on Palantir — But the Last Layer Lives in 
 date: 2026-08-23
 share_img: "/img/2026/databricks-palantir-last-layer-org.png"
 tags: ["enterprise-ai", "ontology", "databricks", "palantir", "organization-design"]
+ingested: 2026-08-25
+sha256: fc2e7dfa810204b29f381e21463c0776c1d75b407735e370d64db3814a32ae54
 ---
 
 昨天读到汪小东的一篇长文，标题是《Databricks 正在逼近 Palantir 的核心区》。文章把 Databricks 2026 年的产品拼图摊开看：Genie Ontology、Agent Bricks、Supervisor Agent、Unity AI Gateway、Omnigent、Lakebase——结论是 Databricks 正在从「管理企业数据」走向「理解企业业务」，逼近 Palantir 经营了二十年的战略腹地。
