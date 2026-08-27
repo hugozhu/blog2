@@ -3,6 +3,9 @@ title: "组织的损失函数：为什么你的 OKR 只是许愿"
 subtitle: "Your OKRs Are Just Wishes: What Organizations Really Need Is a Loss Function"
 date: 2026-08-26
 share_img: "/img/2026/org-loss-function-okr-wishes.png"
+sha256: 510c477d3fe266570f81ca62094a569eb12fdb272366a2426788a40e2bfe750b
+ingested: 2026-08-26
+
 tags: ["organization-design", "okr", "loss-function", "enterprise-ai", "ai-agent"]
 ---
 

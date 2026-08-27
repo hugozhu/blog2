@@ -3,6 +3,9 @@ title: "DSH 微内核架构：数字员工的 To B 哲学"
 subtitle: "Microkernel for the Enterprise — DSH's To-B Philosophy for Digital Employees"
 date: 2026-08-24
 share_img: "/img/2026/dsh-microkernel-to-b-philosophy.png"
+sha256: 596a21d24596498df0b1d05b3ec0c26107dae79d257b791a3a23ebcb537b3dc1
+ingested: 2026-08-26
+
 tags: ["deepseek-harness", "microkernel", "digital-employee", "enterprise-ai", "system-design"]
 ---
 
