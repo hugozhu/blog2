@@ -4,6 +4,8 @@ subtitle: "The First Productivity of an AI-Native Org Is a Manager Willing to Be
 date: 2026-08-27
 share_img: "/img/2026/manager-distilled-ai-native-org.png"
 tags: ["ai-native", "management", "digital-employee", "organization-design", "agent-spec"]
+ingested: 2026-08-27
+sha256: b9fd76212a6d7e0a0e88d7c39bf809c7cb70811512cff56f78698dbd600f0feb
 ---
 
 上周一个老板问我：他想像同行那样，用 3 个真人带 30 个数字员工跑业务（这个比例是我们推演的示意，不是他的真实编制）。卡点在哪？

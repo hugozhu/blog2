@@ -4,6 +4,8 @@ subtitle: "Boundary Compliance: The Real Entrance Exam for Digital Employees"
 date: 2026-08-27
 share_img: "/img/2026/boundary-compliance-digital-employee.png"
 tags: ["digital-employee", "agent-security", "evals", "enterprise-ai", "identity"]
+ingested: 2026-08-27
+sha256: 0adfc828ee035d03c95b4125db93e13450f5f64fb06ef14f2a06d650298fb35f
 ---
 
 前几天我在和一个大模型对话，讨论一个很具体的问题：一个有工号的 HR 数字员工，要怎么做到「本分」。

@@ -4,6 +4,8 @@ subtitle: "Most Enterprise AI Ends at a Human — Palantir's Ends at the Busines
 date: 2026-08-27
 share_img: "/img/2026/palantir-ai-ends-at-business.png"
 tags: ["palantir", "enterprise-ai", "ontology", "organization-design", "loss-function"]
+ingested: 2026-08-27
+sha256: 819a3c8edd3148fabb1bf5cff016fad5405acc1474cf5b993d268cd8d21aee3f
 ---
 
 上周，我翻我们数字员工的一条真实执行链路：一条消息进来，Agent 理解意图，调用 dws 能力执行，结果回到钉钉。全程没有「人看报表」这一环——数据的终点不是被谁看见，而是业务本身被改变。
