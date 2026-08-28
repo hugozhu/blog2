@@ -1,6 +1,6 @@
 ---
 title: "钉钉数字员工架构与落地实践"
-subtitle: "Digital Employees Fail the Org Exam Before the Capability Exam"
+subtitle: "DingTalk Digital Employee: Architecture and Implementation Practices"
 date: 2026-08-28
 share_img: "/img/2026/digital-employee-four-org-questions.png"
 tags: ["digital-employee", "enterprise-ai", "dingtalk", "organization-design", "ai-agent"]
@@ -16,7 +16,7 @@ tags: ["digital-employee", "enterprise-ai", "dingtalk", "organization-design", "
 
 分享结束后，我把这四个问题记了下来。它们看似散，其实指向同一件事：**数字员工的落地卡点，从来不是模型能力，而是四个组织问题。**
 
-[![Digital Employees Fail the Org Exam Before the Capability Exam](/img/2026/digital-employee-four-org-questions-thumb.jpg)](/img/2026/digital-employee-four-org-questions.png)
+[![DingTalk Digital Employee: Architecture and Implementation Practices](/img/2026/digital-employee-four-org-questions-thumb.jpg)](/img/2026/digital-employee-four-org-questions.png)
 
 <!--more-->
 
@@ -98,7 +98,7 @@ OpenClaw 更像数据分身，是一个 Agent 框架——有入口，预装了�
 
 四个问题是考卷，答卷长什么样？讲一个真实案例——最近我和一位校招新同学的 1-on-1。整个过程由 HR 组织发展数字员工编排，我只需要把三十分钟的对话本身做好。
 
-[![Digital Employees Fail the Org Exam Before the Capability Exam](/img/2026/digital-employee-oneone-loop-thumb.jpg)](/img/2026/digital-employee-oneone-loop.jpg)
+[![DingTalk Digital Employee: Architecture and Implementation Practices](/img/2026/digital-employee-oneone-loop-thumb.jpg)](/img/2026/digital-employee-oneone-loop.jpg)
 
 **会前**，HR 组织发展数字员工给我发来会议上下文：这位同学的背景、当前的 OKR、我想了解的问题清单，同时直接把钉钉日程安排好了。进会议之前，我已经知道要跟谁聊、聊什么。
 
