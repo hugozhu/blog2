@@ -1,5 +1,5 @@
 ---
-title: "递归式自我改进从 Harness 开始，但它吃的是数据"
+title: "数字员工的自我进化：从 Harness 开始，每天重复干同一件事"
 subtitle: "Harness RSI Runs on Production Data, Not Algorithms"
 date: 2026-08-31
 share_img: "/img/2026/harness-rsi-production-data.png"
