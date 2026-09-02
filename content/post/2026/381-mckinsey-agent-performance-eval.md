@@ -4,6 +4,8 @@ subtitle: "McKinsey Says Agents Need Performance Management — But Not How to M
 date: 2026-09-02
 share_img: "/img/2026/mckinsey-agent-performance-eval.png"
 tags: ["ai-agent", "digital-employee", "enterprise-ai", "evals", "organization-design"]
+ingested: 2026-09-02
+sha256: f2f02978556fdd36e40db31034186c792fa8b055f009efc1a85229a24b5463ca
 ---
 
 8 月底，麦肯锡的播客 *McKinsey Talks Talent* 里，主持人 Lucia Rahilly 抛出了一个很多公司都在回避的问题：Agent 进了核心工作流，谁来管它？
