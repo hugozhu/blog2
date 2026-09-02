@@ -4,6 +4,8 @@ subtitle: "An Agent-First Toolchain — Criteria Matter More Than the List"
 date: 2026-08-31
 share_img: "/img/2026/agent-first-toolchain.png"
 tags: ["ai-agent", "toolchain", "agent-harness", "devtools", "engineering"]
+ingested: 2026-08-31
+sha256: 9aa9ad77d9dc45be946a78b9ff0bc1fb1fec062f33c7a287410ea23b0ca631ff
 ---
 
 前几天有人给我发了一份「2026 年 Agent 开发者工具箱」清单，整整 15 个名字：git、gh、docker、uv、node、pnpm、nvm、rg、jq、curl、fzf、just、direnv、python、go。分层清晰，还配了星级。

@@ -4,8 +4,8 @@ subtitle: "DingTalk Digital Employee: Architecture and Implementation Practices"
 date: 2026-08-28
 share_img: "/img/2026/digital-employee-four-org-questions.png"
 tags: ["digital-employee", "enterprise-ai", "dingtalk", "organization-design", "ai-agent"]
-ingested: 2026-08-28
-sha256: 4b166f078c5b990b7d2dbba5cd173c6a4cf6b8839be1059ba41749e78278ef43
+ingested: 2026-08-30
+sha256: 9210c117b136ac58416c166c94bcd1fe5f65c08ec86fe72b104cfbdf96648101
 ---
 
 8 月 27 日晚上，我做了一场《钉钉数字员工架构与落地实践》的分享。六十分钟的正题讲完，真正让我反复回味的，是 Q&A 环节的四个问题。

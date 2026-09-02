@@ -4,6 +4,8 @@ subtitle: "Harness RSI Runs on Production Data, Not Algorithms"
 date: 2026-08-31
 share_img: "/img/2026/harness-rsi-production-data.png"
 tags: ["ai-agent", "harness", "self-improvement", "digital-employee", "data-flywheel"]
+ingested: 2026-09-01
+sha256: 492b5eedf4c229c18ee602f94ca97198e265f61dd95f8f2c3e84a395c1ef56dc
 ---
 
 最近读了一篇关于 Harness 自进化的报道，里面有个细节让我停下来想了很久。

@@ -4,6 +4,8 @@ subtitle: "The 20 Discovery Questions Every FDE Asks Should Become a Product"
 date: 2026-08-29
 share_img: "/img/2026/fde-20-questions-productize-discovery.png"
 tags: ["fde", "enterprise-ai", "discovery", "dingtalk", "product-strategy"]
+ingested: 2026-08-29
+sha256: caa701d6e6d9cf55ff3f8669e5b252d2772b15869c9d4fedb8b9c5095c59e23b
 ---
 
 客户第一次见面说：「我们想做一个销售 Agent。」

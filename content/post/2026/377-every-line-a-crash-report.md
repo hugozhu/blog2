@@ -4,6 +4,8 @@ subtitle: "Every Line of My Publishing Skill Is a Crash Report"
 date: 2026-08-30
 share_img: "/img/2026/every-line-a-crash-report.png"
 tags: ["agent-skill", "ai-agent", "ai-productivity", "self-improvement", "digital-workforce"]
+ingested: 2026-08-30
+sha256: cbdcc6c9693f7ddb838ea34e80add5e15e182ec88d28e514072d559d5a29d381
 ---
 
 > 本文全部时间线与数字来自 2026-08-30 一次真实执行记录，可在本机数据库逐条复核。

@@ -4,6 +4,8 @@ subtitle: "From Three Hours to Fifteen Minutes: Distilling My Weekly Report into
 date: 2026-08-30
 share_img: "/img/2026/weekly-report-distilled-into-a-skill.png"
 tags: ["digital-employee", "ai-productivity", "agent-skill", "qwen-office", "management"]
+ingested: 2026-08-30
+sha256: 6bf65d0a232f0c7069cb7b9fe569dde092d738cf6f57e24e5f77c65baa48b499
 ---
 
 > 岗位真实，人名与数据已脱敏。这是一篇可以被复制的实践——文末有千问办公实操路径。

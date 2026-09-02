@@ -4,6 +4,8 @@ subtitle: "Self-Improving Means Shipping Config, Not Updating Weights"
 date: 2026-08-28
 share_img: "/img/2026/autoharness-warp-self-improving-loop.png"
 tags: ["ai-agent", "self-improvement", "agent-harness", "agent-skills", "claude", "warp"]
+ingested: 2026-08-28
+sha256: 857747409db0f7b517473ef6c149ecf99ce93570a5d50837b680d81378ab23dc
 ---
 
 先看一个反直觉的场景。6 月 12 日，Warp 创始人 Zach Lloyd 的 GitHub 账号向开源 demo 仓库 issue-triage-loop 提交了一个 PR #21。PR 的真正作者不是他，而是一个在 Oz 上运行的 Agent。它做的事很克制：回看 issue #16 到 #20 这 5 次 triage 判断，发现其中 4 次被人类维护者纠正，于是把这些纠正压缩成 3 条可复用的规则，diff 只有 8 行新增、6 行删除，最后提出把 triage Skill 从 v1 升到 v2。

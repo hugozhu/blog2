@@ -4,6 +4,8 @@ subtitle: "The Jianghu Remains — But Your Choices Can Be Lighter Now"
 date: 2026-08-31
 share_img: "/img/2026/jianghu-still-that-jianghu.png"
 tags: ["ai", "career", "personal-growth", "ai-era", "middle-age"]
+ingested: 2026-08-31
+sha256: 70d1097d4af943733f8afa98c3a444c3188b99b0a7dbfc4023babae1411974bc
 ---
 
 8 月 31 日，离职高发的异动日。下定决心的已经走了，还在犹豫的，犹豫到最后一刻。
