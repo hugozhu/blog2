@@ -4,6 +4,8 @@ subtitle: "An Unsigned Eval Set Is a Flywheel Without an Owner"
 date: 2026-09-02
 share_img: "/img/2026/eval-set-needs-a-signature.png"
 tags: ["ai-agent", "agent-evaluation", "self-improvement", "organization-design", "digital-employee"]
+ingested: 2026-09-02
+sha256: ed1eabea89cce106872bcd8b235afcc6e98bc28ee89f4c5cf3656dad0f24180c
 ---
 
 最近读到一篇两万字的 Agent 自进化方法论，写得相当扎实。其中记了一条血泪教训：有团队在某个场景上连续 20 多轮自动迭代，效果一直不提升——最后发现根因根本不在配置层，而在工具层。20 多轮里，系统忠实地修 Prompt、改 Skill，每一轮都按评测信号在优化。

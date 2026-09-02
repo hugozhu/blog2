@@ -4,6 +4,8 @@ subtitle: "From Building Agents to Manufacturing Agents: A Growth Path for Agent
 date: 2026-09-02
 share_img: "/img/2026/agent-engineer-four-levels.png"
 tags: ["ai-agent", "agent-engineering", "career-growth", "agent-compiler", "evals"]
+ingested: 2026-09-02
+sha256: 1a88b442771fec513fa70e2695052ea3cbb42d430e2cc714f5facbb2af449814
 ---
 
 今天和一个朋友聊天。他说自己做了一个非常精简的 Agent Harness，准备开源，让大家可以直接用。

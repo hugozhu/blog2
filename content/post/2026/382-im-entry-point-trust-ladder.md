@@ -4,6 +4,8 @@ subtitle: "AI Won't Build a New Entry Point — It Deepens Your Dependence on th
 date: 2026-09-02
 share_img: "/img/2026/im-entry-point-trust-ladder.png"
 tags: ["digital-employee", "ai-agent", "im", "dingtalk", "enterprise-ai"]
+ingested: 2026-09-02
+sha256: ba00118cfbf4299289e1aeb5ba70cb7b7f37fc766be43c1968d11e58057c234a
 ---
 
 半年前，我给自己上了第一批数字员工。上岗之前，我的想象是这样的：任务交给 Agent，我只管派活和收结果，我在钉钉上的时间应该大幅下降。

@@ -4,6 +4,8 @@ subtitle: "Claude's System Prompt Is Not a Prompt — It Is a Personal Operating
 date: 2026-09-02
 share_img: "/img/2026/claude-personal-os.png"
 tags: ["claude", "system-prompt", "agent-memory", "harness", "anthropic"]
+ingested: 2026-09-02
+sha256: 8e1d371cbebc7719c141e4f929e7441c780439f11fc43f9f9c3328bfab271678
 ---
 
 前两天我拿到一份文件：Claude 最新旗舰模型 Fable 5.1 在 claude.ai 消费端的完整系统提示词。不是泄露的片段，不是网友总结的版本——是完整原文。
