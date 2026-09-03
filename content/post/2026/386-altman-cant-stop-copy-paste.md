@@ -4,6 +4,8 @@ subtitle: "Even Sam Altman Cannot Break His Copy-Paste Habit"
 date: 2026-09-02
 share_img: "/img/2026/altman-cant-stop-copy-paste.png"
 tags: ["ai-adoption", "work-transformation", "context", "digital-employee", "organizational-change"]
+ingested: 2026-09-03
+sha256: 669dc7657ebb9bb262b69769c67a7959ab78a3f3a12ffa6676668b74debb8b94
 ---
 
 OpenAI 的创始人山姆·奥尔特曼，最近在一次专访里说了一段让我停下来的话：
