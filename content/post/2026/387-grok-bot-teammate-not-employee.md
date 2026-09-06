@@ -4,6 +4,8 @@ subtitle: "From AI Teammate to Digital Employee: Why Onboarding Starts Now"
 date: 2026-09-04
 share_img: "/img/2026/grok-bot-teammate-not-employee.png"
 tags: ["grok-bot", "digital-employee", "dingtalk", "enterprise-ai", "agent-identity"]
+ingested: 2026-09-06
+sha256: 9b6ce44e58389916352baeadb0113ab9f37bb253a4fc1f3bda9e46da2fb4d8f6
 ---
 
 xAI 的 Grok Bot 发布页上，留着一条来自运营岗用户 Emma 的感言（译）：

@@ -4,6 +4,8 @@ subtitle: "Write the Why into the Repo — A Self-Auditing Runbook Pipeline"
 date: 2026-09-04
 share_img: "/img/2026/runbook-write-why-into-repo.png"
 tags: ["runbook", "claude-code", "agent-engineering", "silent-failure", "knowledge-management"]
+ingested: 2026-09-06
+sha256: 366bc8b375c67431df1ebf02d0707d7d83bc9576cd4ac5918e7f4c2bfea23f69
 ---
 
 > 写给 Agent 应用工程师。案例是这个仓库的 `docs/runbook/`：一条自动抄录与 Claude Code
