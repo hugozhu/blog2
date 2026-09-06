@@ -4,6 +4,8 @@ subtitle: "Drive the AI-Native SDLC with GitHub Issues — A Setup Guide for Eng
 date: 2026-09-05
 share_img: "/img/2026/github-issue-driven-sdlc.png"
 tags: ["ai-native-sdlc", "github-actions", "claude-code", "engineering-leadership", "anthropic"]
+ingested: 2026-09-06
+sha256: 472e8bfb26bc50ffcaa2af94b59b3c92972320825351297bcb03493f2425c986
 ---
 
 上周和一位研发负责人吃饭，他刚读完 Anthropic 那份《AI-Native SDLC Playbook》，兴奋又发愁。兴奋的是「原来代码不再是瓶颈这件事，连 Anthropic 都认了」；发愁的是——

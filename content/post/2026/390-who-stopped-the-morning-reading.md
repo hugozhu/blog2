@@ -4,6 +4,8 @@ subtitle: "Who Stopped the Digital Employee's Morning Reading? — A 15-Minute A
 date: 2026-09-05
 share_img: "/img/2026/who-stopped-morning-reading.png"
 tags: ["ai-agent", "debugging", "opencode", "ipv6", "digital-employee", "site-reliability"]
+ingested: 2026-09-06
+sha256: 37e573ea88903442b5a90df19d09afba8bce656bb725f7136ca4cdcedb18c348
 ---
 
 我的钉钉数字员工每个月偶尔会抽下风：「⚠️ 暂时无法处理你的消息，请稍后再试。」，往往重启一下就好了。今天我让 opencode + GLM-5.3 排查了下这个问题。

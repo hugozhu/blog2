@@ -4,6 +4,8 @@ subtitle: "Idempotency Keys Stop Duplicate Refunds, Not Wrong Ones — Where the
 date: 2026-09-06
 share_img: "/img/2026/idempotency-keys-duplicate-vs-wrong-refund.png"
 tags: ["ai-agents", "distributed-systems", "site-reliability", "semantic-failure", "digital-employee"]
+ingested: 2026-09-06
+sha256: b02d5d9909435552d84614c6c4f6894c9cb6c8e7874a4246576ea1bf8a70b609
 ---
 
 TikTok 的 SRE Salman Munaf 最近有一场演讲，开场问题问得很漂亮：
