@@ -4,6 +4,8 @@ subtitle: The AI Manufacturing Actually Chose Has No LLM at Runtime
 date: 2026-09-07
 share_img: "/img/2026/manufacturing-chose-ai-without-llm-runtime.png"
 tags: ["enterprise-ai", "manufacturing", "ai-coding", "ontology", "governance"]
+ingested: 2026-09-07
+sha256: f86f2924204cf4fde2b13f208b8e37ff3666312f21b8bf8519f0ff474679aeb1
 ---
 
 三个月前，一个做汽车零部件的朋友跟我吐槽：他们花大半年选的「国内最好的大模型」，搭了三个月的质检 Agent，上线两周被业务部门集体退货。我在 [AI to B 的最后一公里](https://hugozhu.site/post/2026/269-ai-to-b-last-mile-infrastructure/) 里记下了他那句话：「我们的 AI 项目，死在了数据治理和系统对接上——这两件事，跟模型半毛钱关系都没有。」
