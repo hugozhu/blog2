@@ -1,14 +1,15 @@
-{{- /* Key-event tracking to Google Analytics (via gtag). Fires on clicks and scroll-to-bottom. */ -}}
+{{- /* Site-action tracking to Google Analytics (via gtag). Fires on clicks and scroll-to-bottom. */ -}}
 <script>
 (function () {
   // Send a GA4 event through gtag; degrade gracefully if gtag isn't loaded yet.
-  function sendEvent(action, params) {
+  // GA4 auto-captures the page (page_path), so we only pass the action dimension.
+  function sendEvent(action) {
     if (typeof gtag === 'function') {
-      gtag('event', 'key_event', Object.assign({ action: action }, params || {}));
+      gtag('event', 'site_action', { action: action });
     } else {
       // Fallback to a raw data-layer push if gtag is unavailable.
       var dl = window.dataLayer = window.dataLayer || [];
-      dl.push({ event: 'key_event', action: action, location: window.location.pathname });
+      dl.push({ event: 'site_action', action: action });
     }
   }
 
@@ -31,7 +32,7 @@
 
       // 1. Search trigger — DocSearch mount point (#docsearch), including child clicks.
       if (t.closest('#docsearch')) {
-        sendEvent('search_click', { location: window.location.pathname });
+        sendEvent('search_click');
       }
 
       // 2. Navigation & in-content links by href.
@@ -40,19 +41,21 @@
         var p = navPath(a.getAttribute('href'));
 
         if (p === '/notes' || p.indexOf('/notes/') === 0) {
-          sendEvent('notes_click', { location: window.location.pathname });
+          sendEvent('notes_click');
         } else if (p === '/tags' || p.indexOf('/tags/') === 0) {
-          sendEvent('tags_click', { location: window.location.pathname });
+          sendEvent('tags_click');
         } else if (p === '/page/about/' || p.indexOf('/page/about') === 0) {
-          sendEvent('about_click', { location: window.location.pathname });
+          sendEvent('about_click');
         }
       }
     }, true);
 
-    // --- Scroll-to-bottom — fire once when the user nears the page bottom. ---
+    // --- Scroll-to-bottom — fire once, only after the user actually scrolls. ---
     var ticking = false;
     function onScroll() {
       if (firedBottom || ticking) return;
+      // Remove once a real scroll has occurred; keeps short pages from firing on load.
+      window.removeEventListener('scroll', onScroll);
       ticking = true;
       window.requestAnimationFrame(function () {
         ticking = false;
@@ -60,12 +63,11 @@
         var nearBottom = doc.scrollHeight - (window.scrollY + window.innerHeight) < 200;
         if (nearBottom) {
           firedBottom = true;
-          sendEvent('scroll_to_bottom', { location: window.location.pathname });
+          sendEvent('scroll_to_bottom');
         }
       });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // in case the page is short enough to already show the bottom
   });
 })();
 </script>
