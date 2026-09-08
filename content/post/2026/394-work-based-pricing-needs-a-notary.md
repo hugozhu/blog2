@@ -4,6 +4,8 @@ subtitle: Work-Based Pricing for Digital Employees Needs a Notary
 date: 2026-09-08
 share_img: "/img/2026/work-based-pricing-needs-a-notary.png"
 tags: ["enterprise-ai", "digital-employee", "saas", "business-model", "agent-evaluation"]
+ingested: 2026-09-08
+sha256: 1f022f4cc0929b1b21d4b034d1fc7b771e0272619ed7c7a329d69b0138cbfed1
 ---
 
 今年 4 月 17 日，Anthropic 上线了 Claude Design，直接对着 Figma 和 Canva 打。这件事在产品层面不算新闻——又一个 AI 生成界面的工具。真正值得注意的是它绕过的是什么：**它让一部分设计工作不再需要打开 Figma。**

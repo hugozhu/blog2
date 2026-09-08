@@ -4,6 +4,8 @@ subtitle: The Future Employee Comes With Two Cost Sheets
 date: 2026-09-08
 share_img: "/img/2026/two-cost-sheets-of-the-future-employee.png"
 tags: ["enterprise-ai", "digital-employee", "ai-cost", "organization-design", "evals"]
+ingested: 2026-09-08
+sha256: 4ddd83960f4d538d0fd81b336f91395a983766b8b75a2a00e4e1b3f0245f9982
 ---
 
 月底，一个用了大半年 AI 的老板跟我抱怨：他知道这个月公司在 AI 上花了多少钱，云账单上写着。但他答不上来另一个问题——这笔钱是哪个团队、哪个流程、哪个数字员工花掉的。
