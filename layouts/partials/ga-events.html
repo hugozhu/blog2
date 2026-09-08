@@ -1,4 +1,4 @@
-{{- /* Site-action tracking to Google Analytics (via gtag). Fires on clicks and scroll-to-bottom. */ -}}
+{{- /* Site-action tracking to Google Analytics (via gtag). Fires on clicks. */ -}}
 <script>
 (function () {
   // Send a GA4 event through gtag; degrade gracefully if gtag isn't loaded yet.
@@ -22,9 +22,7 @@
     catch (e) { return path; }
   }
 
-  var firedBottom = false;
   document.addEventListener('DOMContentLoaded', function () {
-
     // --- Click events: search, notes, tags, about (delegated) ---
     document.addEventListener('click', function (e) {
       var t = e.target;
@@ -49,25 +47,6 @@
         }
       }
     }, true);
-
-    // --- Scroll-to-bottom — fire once, only after the user actually scrolls. ---
-    var ticking = false;
-    function onScroll() {
-      if (firedBottom || ticking) return;
-      // Remove once a real scroll has occurred; keeps short pages from firing on load.
-      window.removeEventListener('scroll', onScroll);
-      ticking = true;
-      window.requestAnimationFrame(function () {
-        ticking = false;
-        var doc = document.documentElement;
-        var nearBottom = doc.scrollHeight - (window.scrollY + window.innerHeight) < 200;
-        if (nearBottom) {
-          firedBottom = true;
-          sendEvent('scroll_to_bottom');
-        }
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
   });
 })();
 </script>
