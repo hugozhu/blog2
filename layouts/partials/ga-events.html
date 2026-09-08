@@ -1,0 +1,71 @@
+{{- /* Key-event tracking to Google Analytics (via gtag). Fires on clicks and scroll-to-bottom. */ -}}
+<script>
+(function () {
+  // Send a GA4 event through gtag; degrade gracefully if gtag isn't loaded yet.
+  function sendEvent(action, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'key_event', Object.assign({ action: action }, params || {}));
+    } else {
+      // Fallback to a raw data-layer push if gtag is unavailable.
+      var dl = window.dataLayer = window.dataLayer || [];
+      dl.push({ event: 'key_event', action: action, location: window.location.pathname });
+    }
+  }
+
+  // Normalize the path a link would navigate to (strips hash/query, absolutizes).
+  function navPath(href) {
+    if (!href) return '';
+    var path = href.split('#')[0].split('?')[0];
+    if (path.indexOf('/') === 0) return path;
+    try { return new URL(href, window.location.href).pathname; }
+    catch (e) { return path; }
+  }
+
+  var firedBottom = false;
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // --- Click events: search, notes, tags, about (delegated) ---
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!(t && t.nodeType === 1)) return;
+
+      // 1. Search trigger — DocSearch mount point (#docsearch), including child clicks.
+      if (t.closest('#docsearch')) {
+        sendEvent('search_click', { location: window.location.pathname });
+      }
+
+      // 2. Navigation & in-content links by href.
+      var a = t.closest('a[href]');
+      if (a) {
+        var p = navPath(a.getAttribute('href'));
+
+        if (p === '/notes' || p.indexOf('/notes/') === 0) {
+          sendEvent('notes_click', { location: window.location.pathname });
+        } else if (p === '/tags' || p.indexOf('/tags/') === 0) {
+          sendEvent('tags_click', { location: window.location.pathname });
+        } else if (p === '/page/about/' || p.indexOf('/page/about') === 0) {
+          sendEvent('about_click', { location: window.location.pathname });
+        }
+      }
+    }, true);
+
+    // --- Scroll-to-bottom — fire once when the user nears the page bottom. ---
+    var ticking = false;
+    function onScroll() {
+      if (firedBottom || ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        ticking = false;
+        var doc = document.documentElement;
+        var nearBottom = doc.scrollHeight - (window.scrollY + window.innerHeight) < 200;
+        if (nearBottom) {
+          firedBottom = true;
+          sendEvent('scroll_to_bottom', { location: window.location.pathname });
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // in case the page is short enough to already show the bottom
+  });
+})();
+</script>
