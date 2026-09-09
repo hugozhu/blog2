@@ -58,6 +58,10 @@ jobs:
           token: ${{ secrets.TOKEN }}
           submodules: recursive
           fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
@@ -69,6 +73,15 @@ jobs:
           hugo \
             --gc \
             --minify
+      - name: Build static search index
+        run: |
+          # Prefer Permalinks from Hugo index.json; write into public/search for Pages
+          mkdir -p public/js/search
+          # Keep client sources from static/ (already copied by hugo)
+          node scripts/build-search-index.mjs \
+            --from-index public/index.json \
+            --out public/search \
+            --meta-out public/js/search/build-meta.js
       - name: Deploy to Github Pages
         run: |
           cd public

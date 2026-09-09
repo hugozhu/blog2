@@ -1,0 +1,10 @@
+{
+  "name": "blog2",
+  "private": true,
+  "type": "module",
+  "description": "Hugo blog with build-time static-search-fast index",
+  "scripts": {
+    "build:search": "node scripts/build-search-index.mjs",
+    "build:search:from-index": "node scripts/build-search-index.mjs --from-index public/index.json --out public/search --meta-out public/js/search/build-meta.js"
+  }
+}

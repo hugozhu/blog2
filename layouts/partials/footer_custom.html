@@ -1,11 +1,7 @@
 <!--
-If you want to include any custom html just before </body>, put it in this file.
-Or you can delete these file if you don't need it.
+Replace Pizza WASM + runtime ingest of /index.json with build-time segment + Worker.
+See SEARCH.md. build-meta.js is an ESM export (never import JSON as a module).
 -->
-<!-- for example, you could include some js libraries:
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.19.1/vis.js" integrity="sha256-HdIuWBZj4eftihsoDCJoMYjZi6aNVaw7YlUpzKT3ZxI=" crossorigin="anonymous"></script>
--->
-
-<script type="module" crossorigin src="/assets/index-BgktQxq3.js"></script>
+<script type="module" crossorigin src="/js/search/search-app.js"></script>
 
 {{- partial "ga-events.html" . }}
