@@ -36,7 +36,7 @@ async function idbSet(key, val) {
   })
 }
 
-async function loadSegment(buildId) {
+async function loadSegment(buildId, onProgress) {
   const cached = await idbGet(buildId)
   if (cached) return { segment: cached, from: 'idb' }
   // Prefer latest.json so a stale build-meta still finds the current segment
@@ -45,14 +45,40 @@ async function loadSegment(buildId) {
     const latest = await fetch('/search/latest.json').then((r) => (r.ok ? r.json() : null))
     if (latest?.url) url = latest.url
     if (latest?.buildId) buildId = latest.buildId
-  } catch {
-    /* keep hashed url */
+  } catch (e) {
+    console.warn('[static-search] latest.json unavailable, falling back to hashed url', e)
   }
   const cached2 = await idbGet(buildId)
   if (cached2) return { segment: cached2, from: 'idb' }
+
   const res = await fetch(url)
   if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`)
-  const segment = await res.json()
+
+  // Stream the body so the UI can report download progress on slow networks.
+  const total = Number(res.headers.get('content-length')) || 0
+  let segment
+  if (onProgress && res.body) {
+    const reader = res.body.getReader()
+    const chunks = []
+    let received = 0
+    for (;;) {
+      const { done, value } = await reader.read()
+      if (done) break
+      chunks.push(value)
+      received += value.length
+      onProgress(received, total)
+    }
+    const merged = new Uint8Array(received)
+    let at = 0
+    for (const c of chunks) {
+      merged.set(c, at)
+      at += c.length
+    }
+    segment = JSON.parse(new TextDecoder().decode(merged))
+  } else {
+    segment = await res.json()
+  }
+
   await idbSet(segment.buildId || buildId, segment)
   return { segment, from: 'network' }
 }
@@ -93,6 +119,45 @@ function createUI(root) {
   let statusEl = null
   let active = -1
   let hits = []
+  // Index lifecycle: 'loading' | 'ready' | 'error'
+  let phase = 'loading'
+  let phaseDetail = ''
+  let lastQuery = ''
+
+  // Message shown in the results area while the index is not usable yet.
+  function renderPhase() {
+    if (!hitsEl) return
+    if (phase === 'loading') {
+      hitsEl.innerHTML = `<div class="docsearch-modal-empty-query"><p class="docsearch-modal-title">正在加载搜索索引…${escapeHtml(phaseDetail)}</p></div>`
+      if (statusEl) statusEl.textContent = '加载中'
+      return true
+    }
+    if (phase === 'error') {
+      hitsEl.innerHTML = `<div class="docsearch-modal-error"><p class="docsearch-modal-title">搜索索引加载失败</p><p class="docsearch-modal-search-hits-item-text">${escapeHtml(phaseDetail)}</p></div>`
+      if (statusEl) statusEl.textContent = '加载失败'
+      return true
+    }
+    return false
+  }
+
+  // Called by the app as the index progresses; repaints if the modal is open.
+  // Called by the app as the index progresses; repaints if the modal is open.
+  // When transitioning to 'ready', replays the query the user already typed.
+  // Returns the replayed query if any (so the caller can post it to the worker).
+  function setPhase(next, detail = '') {
+    phase = next
+    phaseDetail = detail
+    if (!overlay) return ''
+    if (phase === 'ready') {
+      // Index just became usable — run whatever the user already typed.
+      if (statusEl) statusEl.textContent = ''
+      if (lastQuery) return lastQuery
+      if (hitsEl) hitsEl.innerHTML = `<div class="docsearch-modal-empty-query"></div>`
+      return ''
+    }
+    renderPhase()
+    return ''
+  }
 
   function close() {
     if (overlay) {
@@ -108,6 +173,11 @@ function createUI(root) {
     hits = list
     active = list.length ? 0 : -1
     if (!hitsEl) return
+    // While the index is loading or broken, that message wins over "no results".
+    if (phase !== 'ready') {
+      renderPhase()
+      return
+    }
     if (!q) {
       hitsEl.innerHTML = `<div class="docsearch-modal-empty-query"></div>`
       if (statusEl) statusEl.textContent = ''
@@ -204,7 +274,8 @@ function createUI(root) {
     })
     input.addEventListener('input', () => {
       resetBtn.hidden = !input.value
-      onSearch(input.value.trim())
+      lastQuery = input.value.trim()
+      onSearch(lastQuery)
     })
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -233,9 +304,11 @@ function createUI(root) {
       }
     })
     input.focus()
+    // Index may still be loading (first visit) — show progress immediately.
+    if (phase !== 'ready') renderPhase()
   }
 
-  return { btn, open, close, renderHits, get openState() { return !!overlay } }
+  return { btn, open, close, renderHits, setPhase, renderPhase, get openState() { return !!overlay } }
 }
 
 ;(async () => {
@@ -258,6 +331,12 @@ function createUI(root) {
     const msg = ev.data
     if (msg.type === 'ready') {
       ready = true
+      // Index is usable — clear the loading state. setPhase returns the query
+      // the user typed while loading, which we replay against the worker.
+      const replay = ui.setPhase('ready')
+      if (replay) {
+        worker.postMessage({ type: 'search', payload: { q: replay } })
+      }
       return
     }
     if (msg.type === 'results') ui.renderHits(msg.hits, msg.q, msg.ms)
@@ -274,6 +353,8 @@ function createUI(root) {
 
   function openModal() {
     ui.open(runSearch)
+    // If the index is still coming in, surface loading/error in the modal.
+    if (!ready) ui.renderPhase()
   }
 
   ui.btn.addEventListener('click', openModal)
@@ -294,12 +375,22 @@ function createUI(root) {
     }
   })
 
+  // Report download progress for the 2–8 MB segment on first visit.
+  const progress = (done, total) => {
+    ui.setPhase('loading', total
+      ? ` · ${Math.round((done / total) * 100)}% (${(done / 1048576).toFixed(1)} MiB)`
+      : ` · ${(done / 1048576).toFixed(1)} MiB`)
+  }
+
   try {
-    const { segment, from } = await loadSegment(meta.buildId)
+    // Show "loading" up front so the first paint isn't a blank search modal.
+    ui.setPhase('loading', '')
+    const { segment, from } = await loadSegment(meta.buildId, progress)
     console.log(`[static-search] mounted build ${segment.buildId} from ${from}, docs=${segment.docCount}`)
     worker.postMessage({ type: 'mount', payload: segment })
   } catch (e) {
     console.error('[static-search] load failed', e)
     ui.btn.title = `Search unavailable: ${e.message}`
+    ui.setPhase('error', String(e.message || e))
   }
 })()
