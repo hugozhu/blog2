@@ -4,6 +4,8 @@ subtitle: "GitHub's Most Valuable Asset Is the Code It Threw Away"
 date: 2026-09-09
 share_img: "/img/2026/github-most-valuable-asset-discarded-code.png"
 tags: ["enterprise-ai", "ai-coding", "data-strategy", "agent-evaluation", "platform-strategy"]
+ingested: 2026-09-09
+sha256: 5e7dbbe3625b9cd02837e9540b5c9306f136db494d88456cdf1d4a3d434519a7
 ---
 
 2022 年 3 月 10 日，我写了一篇 [Google Analytics 4 简介](https://hugozhu.site/post/2022/70-google-analytics-101/)，从事件跟踪讲到导出 BigQuery，写得挺认真。

@@ -4,6 +4,8 @@ subtitle: "After the General Agent, What Should Enterprises Actually Deploy"
 date: 2026-09-09
 share_img: "/img/2026/after-general-agent-what-enterprise-should-land.png"
 tags: ["enterprise-ai", "ai-agent", "workflow", "organization-design", "cio"]
+ingested: 2026-09-09
+sha256: 3f2a3c57949b39b41800d6803c30077fd8ebd6318f4756caa9b20520ce7ef26f
 ---
 
 上个月一个 CIO 给我看他们的 AI 成果清单，讲得很顺：接入了多少个 Agent、开了多少智能体账号、买了多少 token、做了几场全员培训。我听完问了他一句：「你们每天真实发生的业务里，有多大比例是 Agent 参与完成的？」
