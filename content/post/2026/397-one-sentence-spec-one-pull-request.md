@@ -4,6 +4,8 @@ subtitle: "AI Did 80% of the Work — Then I Found Out My Spec Was Wrong"
 date: 2026-09-10
 share_img: "/img/2026/one-sentence-spec-one-pull-request.png"
 tags: ["ai-coding", "agent-collaboration", "grok-bot", "hugo", "developer-workflow"]
+ingested: 2026-09-10
+sha256: 155483d71574e34d6904e89d63c95268ef80ce2ec2328bff8f4755cb8aec2fc5
 ---
 
 一个 Bot 用三个多小时给我交了 676 行代码，我花二十分钟合并上线。
