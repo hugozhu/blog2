@@ -4,6 +4,8 @@ subtitle: "Two Rival PMs, One Playbook: How AI Products Really Get Built"
 date: 2026-09-11
 share_img: "/img/2026/two-rivals-one-playbook.png"
 tags: ["ai-product", "product-management", "grok-bot", "claude-code", "methodology"]
+ingested: 2026-09-11
+sha256: eb15ca5be84da057a62aefca633043655a86e3709739de19995f70c766de1520
 ---
 
 9 月 8 日，Roman Ugarte 坐进 Lenny Rachitsky 的播客录音间，复盘他怎么在一个月里做出 Grok Bot。他是 Grok Bot 的产品负责人，之前是 Cursor 的增长负责人——加入时那家公司只有 15 人左右。
