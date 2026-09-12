@@ -4,6 +4,8 @@ subtitle: "Task Migration Is Cheap, Relationship Migration Is Expensive: A Three
 date: 2026-09-12
 share_img: "/img/2026/three-task-retention-model.png"
 tags: ["ai-product", "ai-agent", "switching-cost", "retention", "grok-bot", "claude-cowork"]
+ingested: 2026-09-12
+sha256: fd961fd165014fb1e532a55f9974b72c888244298027b2116abfa830244638aa
 ---
 
 上一篇 [两个对手，同一套打法](https://hugozhu.site/post/2026/399-two-rivals-one-playbook/) 里，我写 Grok Bot 和 Claude Cowork 两个团队怎么做产品，里面藏了一个我没展开的细节：主持人 Lenny Rachitsky 说，他已经把自己的不少用例从 Cowork 和 Codex 迁到了 Grok Bot 上——迁得非常快。

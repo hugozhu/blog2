@@ -4,6 +4,8 @@ subtitle: "When AI Flies the Plane, Judgment Becomes the New Exercise"
 date: 2026-09-12
 share_img: "/img/2026/judgment-is-the-new-exercise.png"
 tags: ["ai-era", "judgment", "automation", "society", "decision-making"]
+ingested: 2026-09-12
+sha256: 3a2d7c03a94bfb6aa8774e591ef74afbc8dc2699d794ac013b5e99b00a78d013
 ---
 
 这两年我发给 AI Agent 的指令，措辞在悄悄变化。

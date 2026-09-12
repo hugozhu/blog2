@@ -4,6 +4,8 @@ subtitle: "History Is a Brilliant Lawyer but a Terrible Judge"
 date: 2026-09-12
 share_img: "/img/2026/history-brilliant-lawyer-terrible-judge.png"
 tags: ["ai-strategy", "history", "decision-making", "llm", "governance", "judgment"]
+ingested: 2026-09-12
+sha256: 23d7731fa9eaff577bbed5a9630fbb15767eacb9c4fbcfd4bd01c16a58b17e62
 ---
 
 1965 年 2 月 7 日凌晨，越共袭击了美军波来古基地，八名美国人丧生。几个小时内，国家安全顾问邦迪把一份备忘录推到约翰逊总统面前：持续报复。3 月 8 日，三千五百名海军陆战队员在岘港登陆。美国全面卷入越南战争，就是这么开始的。
