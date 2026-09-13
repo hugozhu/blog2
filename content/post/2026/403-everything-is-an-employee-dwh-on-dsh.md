@@ -4,6 +4,8 @@ subtitle: "Everything Is an Employee: Building a DingTalk Digital Workforce on D
 date: 2026-09-13
 share_img: "/img/2026/everything-is-an-employee-dwh-on-dsh.png"
 tags: ["deepseek-harness", "agent-runtime", "digital-employee", "dingtalk", "plugin-architecture", "spec-driven", "evals"]
+ingested: 2026-09-13
+sha256: 60ae8058d0edeb79a889de8892d0fdbad55f240f734b6cc17a3abfed3bfd56d4
 ---
 
 上个月我连写两篇拆解 DeepSeek Harness（dsh）：[一切皆插件：DeepSeek Harness 的野心与收敛鸿沟](https://hugozhu.site/post/2026/347-deepseek-harness-convergence-gap/) 说它开源的不是工具，是运行时；[一切皆插件：真正硬核的是三个细节](https://hugozhu.site/post/2026/348-dsh-three-details-reversible-effects/) 拆了注册即副作用、事件日志做脊柱、乱序完成按序写回这三个工程承诺。当时我的结论是「可以吹，但不必急着用」——预览版、破坏性变更写在官方文档里，日常编码不如用成熟的 Coding Agent。
