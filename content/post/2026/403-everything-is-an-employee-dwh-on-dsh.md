@@ -2,12 +2,15 @@
 title: "一切皆员工：我们在 DeepSeek Harness 上装了一支钉钉数字员工团队"
 subtitle: "Everything Is an Employee: Building a DingTalk Digital Workforce on DeepSeek Harness"
 date: 2026-09-13
+share_img: "/img/2026/everything-is-an-employee-dwh-on-dsh.png"
 tags: ["deepseek-harness", "agent-runtime", "digital-employee", "dingtalk", "plugin-architecture", "spec-driven", "evals"]
 ---
 
 上个月我连写两篇拆解 DeepSeek Harness（dsh）：[一切皆插件：DeepSeek Harness 的野心与收敛鸿沟](https://hugozhu.site/post/2026/347-deepseek-harness-convergence-gap/) 说它开源的不是工具，是运行时；[一切皆插件：真正硬核的是三个细节](https://hugozhu.site/post/2026/348-dsh-three-details-reversible-effects/) 拆了注册即副作用、事件日志做脊柱、乱序完成按序写回这三个工程承诺。当时我的结论是「可以吹，但不必急着用」——预览版、破坏性变更写在官方文档里，日常编码不如用成熟的 Coding Agent。
 
 几周后打脸了：我们把一支真实的钉钉数字员工团队装在了它上面。项目叫 DWH（DingTalk Workforce Harness），四个员工——通用助手 default、管理员 dev、HR 助手 hr、老板秘书 assistant——各自是一个独立的 dsh 进程，在钉钉里各管一摊、各有权限、互相平级。这篇讲为什么「不必急着用」的判断没错，但「怎么用」的答案错了：**开源 Agent 运行时的正确用法，不是把它当产品直接用，而是把它当操作系统，在上面建一层「员工管理制度」。**
+
+[![Everything Is an Employee: Building a DingTalk Digital Workforce on DeepSeek Harness](/img/2026/everything-is-an-employee-dwh-on-dsh-thumb.jpg)](/img/2026/everything-is-an-employee-dwh-on-dsh.png)
 
 <!--more-->
 
