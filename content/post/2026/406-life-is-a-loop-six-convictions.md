@@ -4,6 +4,8 @@ subtitle: "Six Convictions for Developers Living Inside Nested Loops"
 date: 2026-09-14
 share_img: "/img/2026/life-is-a-loop-six-convictions.png"
 tags: ["ai-era", "career-growth", "agent-loop", "mindset", "long-termism"]
+ingested: 2026-09-14
+sha256: 94f538a2bf83e2a6d9b898b955d28bdf8e3e432c51f1343ee2b4837652780c54
 ---
 
 9 月的一个深夜，我在翻 blog2 仓库里的一个文件，翻到有点不舒服。

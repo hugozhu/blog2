@@ -4,6 +4,8 @@ subtitle: "Skill Length Should Match the Task's Failure Surface, Not a Minimalis
 date: 2026-09-14
 share_img: "/img/2026/skill-length-matches-failure-surface.png"
 tags: ["agent-skills", "prompt-engineering", "ai-engineering", "eli5", "methodology"]
+ingested: 2026-09-14
+sha256: ff6e329830090b7e59f008f62ff96e2faf39423d2d344b42c0ac513a2f3c84ed
 ---
 
 前几天看到一条消息：Anthropic 内部很多人都在用一个叫 ELI5 的 skill，工程师 Thariq Shihipar（@trq212，Claude Code 团队）8 月 21 日把它发到了 X 上。我去翻了源码——`anthropics/claude-plugins-community` 仓库里那个 SKILL.md，**321 字节，10 行**，没有脚本，没有依赖：

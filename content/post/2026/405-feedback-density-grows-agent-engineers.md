@@ -4,6 +4,8 @@ subtitle: "Feedback Density Is the Metric That Grows Agent Engineers"
 date: 2026-09-14
 share_img: "/img/2026/feedback-density-grows-agent-engineers.png"
 tags: ["agent-engineering", "career-growth", "agent-loop", "digital-employee", "ai-native"]
+ingested: 2026-09-14
+sha256: 9c36d66aad68d17d523c16166cebbe81c2babbd483d96f755d1a77a7567bdf3a
 ---
 
 9 月初，我的数字员工「涌现」在一周里掉了三次链子。
