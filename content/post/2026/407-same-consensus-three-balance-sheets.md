@@ -6,7 +6,7 @@ share_img: "/img/2026/same-consensus-three-balance-sheets.png"
 tags: ["ai-strategy", "enterprise-ai", "decision-making", "digital-employee", "critical-thinking"]
 ---
 
-前几天我把手上的三份材料丢给 AI，让它整理成一篇观点汇编：一段产业对话（提问者沈星，回答者是我自己）、一场企业 AI 落地的闭门沙龙、朱啸虎在北大的演讲（Ethan 整理）。
+前几天我把手上的三份材料丢给 AI，让它整理成一篇观点汇编：一段产业对话（提问者沈X，回答者是我自己）、一场企业 AI 落地的闭门沙龙、朱啸虎在北大的演讲（Ethan 整理）。
 
 三份材料来自三个完全不同的场合，AI 干得很利索——分门别类、提炼要点、做成对照表，最后在末尾给了我一行加粗的字：
 
