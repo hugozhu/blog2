@@ -4,6 +4,8 @@ subtitle: "Same Consensus, Three Balance Sheets: Decoding AI Advice by Who Pays 
 date: 2026-09-18
 share_img: "/img/2026/same-consensus-three-balance-sheets.png"
 tags: ["ai-strategy", "enterprise-ai", "decision-making", "digital-employee", "critical-thinking"]
+ingested: 2026-09-18T21:05:10.524880+00:00
+-sha256: febe9f7ab61d97c8ea2e1d65173550c43038671a255d954589c59aee47f82c08
 ---
 
 前几天我把手上的三份材料丢给 AI，让它整理成一篇观点汇编：一段产业对话（提问者沈X，回答者是我自己）、一场企业 AI 落地的闭门沙龙、朱啸虎在北大的演讲（Ethan 整理）。

@@ -4,6 +4,8 @@ subtitle: "Learn the AI That Pays You Back: The Only Criterion That Cannot Be Fa
 date: 2026-09-18
 share_img: "/img/2026/learn-ai-that-pays-you.png"
 tags: ["ai-learning", "career-growth", "decision-making", "ai-strategy", "personal-growth"]
+ingested: 2026-09-18T21:05:10.525880+00:00
+-sha256: bd72b6e9214ce5816da84ab0e90bc7fb62dc64786cbeb8b117c0ed1a700d86e6
 ---
 
 上周在高铁上，邻座一路都在聊 AI。听内容是一群做自媒体的人，各自交流学 AI 的心得，声音不大，但关键词密集：工具、课程、变现。
