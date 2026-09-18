@@ -1,5 +1,5 @@
 ---
-title: "同一句「壁垒在数据」，三个人在指三份数据"
+title: "同一句「AI 壁垒在数据」，三个角度推出三个相反的行动"
 subtitle: "Same Consensus, Three Balance Sheets: Decoding AI Advice by Who Pays for It"
 date: 2026-09-18
 share_img: "/img/2026/same-consensus-three-balance-sheets.png"
