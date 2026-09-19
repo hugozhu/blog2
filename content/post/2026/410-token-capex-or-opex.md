@@ -4,6 +4,8 @@ subtitle: "Capex or Opex: The Next-Year Test for Every AI Dollar"
 date: 2026-09-19
 share_img: "/img/2026/token-capex-or-opex.png"
 tags: ["enterprise-ai", "ai-cost", "ai-strategy", "decision-making", "personal-growth"]
+ingested: 2026-09-19T20:00:00+00:00
+sha256: e4a53f89d5bea1bf9b271355e51bad1204652ece85cf270a6b24fe51dbed9f73
 ---
 
 在[《当智能变得免费，什么东西在涨价》](https://hugozhu.site/post/2026/409-when-intelligence-becomes-free/)里，我拆了那张「AI 无法低成本复制什么」的环图。顺着这个题目继续想，想到一个更落地的对比：

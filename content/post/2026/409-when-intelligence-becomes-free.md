@@ -4,6 +4,8 @@ subtitle: "When Intelligence Becomes Free: Four Zeroings and the Migration of Va
 date: 2026-09-19
 share_img: "/img/2026/when-intelligence-becomes-free.png"
 tags: ["ai-strategy", "marginal-cost", "moat", "decision-making", "ai-trends"]
+ingested: 2026-09-19T20:00:00+00:00
+sha256: a497753c3f6659af075d95a21323d0e2017dbe529dcc5f921721b3ec65e2cf5c
 ---
 
 今天在 GTLC 全球科技领导力大会现场，白鲸开源 CEO 郭炜的演讲里有一张 slide，我在台下盯着看了很久。标题是一个问句：**当 Code 和 Intelligence 都越来越便宜，什么更贵？** 页面中心又是一问——「AI 无法低成本复制什么？」——周围环列八类资产：Innovation、Brand、Trust、Attention/Traffic、Customer Relationship、Proprietary Data、Know-how、Distribution。底部一行标语是全场最好的 takeaway：

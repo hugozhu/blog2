@@ -4,6 +4,8 @@ subtitle: "Same Software, Two Ledgers: Why American SaaS Prints Money and Chines
 date: 2026-09-19
 share_img: "/img/2026/same-software-two-ledgers.png"
 tags: ["saas", "enterprise-ai", "business-model", "ai-agent", "going-global"]
+ingested: 2026-09-19T20:00:00+00:00
+sha256: 9b8b29982eaf2dbf3a4e2c210b7ed7752b6771c3750b344ad32ed4efff8d8379
 ---
 
 今天在上海 GTLC 全球科技领导力大会现场，白鲸开源 CEO 郭炜讲了一个段子，全场笑完之后是长长的沉默。
