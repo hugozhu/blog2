@@ -12,6 +12,8 @@ tags: ["ai-strategy", "marginal-cost", "moat", "decision-making", "ai-trends"]
 
 这句话听起来像常识。但把它放进历史里看，你会发现它描述的是一次已经发生过三次的结构性迁移——而且每一次，大多数人都在错误的那一边。
 
+[![郭炜在 GTLC 全球科技领导力大会的演讲现场](/img/2026/gtlc-guowei-ai-moat-slide-thumb.jpg)](/img/2026/gtlc-guowei-ai-moat-slide.jpg)
+
 [![When Intelligence Becomes Free: Four Zeroings and the Migration of Value](/img/2026/when-intelligence-becomes-free-thumb.jpg)](/img/2026/when-intelligence-becomes-free.png)
 
 <!--more-->
