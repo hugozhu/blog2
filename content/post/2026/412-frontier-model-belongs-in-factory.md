@@ -4,6 +4,8 @@ subtitle: "The Frontier Model Belongs in the Factory, Not on the Line"
 date: 2026-09-21
 share_img: "/img/2026/frontier-model-belongs-in-factory.png"
 tags: ["ai-agent", "llm", "decision-model", "model-economics", "enterprise-ai"]
+ingested: 2026-09-21
+sha256: 463197c2173a507a1c1f45ef6948112c0be0d7a268efd04e86fa596c207da4da
 ---
 
 9 月中旬，一家叫 TypeSafe AI 的公司出隐身。创始人 Diogo Almeida 是 RLHF/InstructGPT 的共同发明人，GPT-4 致谢名单里有他的名字——可以说，是他教会了大模型「说人话」。而他隐身两年后发布的产品，却出人意料：一个不会说一句话的模型。
