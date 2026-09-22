@@ -4,6 +4,8 @@ subtitle: "The Demonstrability Bias: Why the Best Investments Often Make Bad Dem
 date: 2026-09-22
 share_img: "/img/2026/demonstrability-bias.png"
 tags: ["ai", "investment", "decision-making", "enterprise-ai", "thinking"]
+ingested: 2026-09-22
+sha256: c295c2309791aa9fd8dd4bde8926b767afae148af9acb19771649fc78cf891d2
 ---
 
 朱啸虎讲过一个他亲手投过的反例。

@@ -4,6 +4,8 @@ subtitle: "Machines Produce, Humans Live"
 date: 2026-09-22
 share_img: "/img/2026/machines-produce-humans-live.png"
 tags: ["ai-agent", "future-of-work", "人机分工", "thinking"]
+ingested: 2026-09-22
+sha256: 04d08c9d6270c71f7d43af79788297d30d5d523586c077b8683f3c4729bd944d
 ---
 
 昨天，我的钉钉里发生了一场值得记录的人机分工。
