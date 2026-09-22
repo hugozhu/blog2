@@ -1,7 +1,7 @@
 ---
 title: "能上春晚的项目，和能赚钱的项目"
 subtitle: "The Demonstrability Bias: Why the Best Investments Often Make Bad Demos"
-date: 2026-09-23
+date: 2026-09-22
 share_img: "/img/2026/demonstrability-bias.png"
 tags: ["ai", "investment", "decision-making", "enterprise-ai", "thinking"]
 ---
