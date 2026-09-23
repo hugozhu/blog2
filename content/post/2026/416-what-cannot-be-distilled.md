@@ -4,6 +4,8 @@ subtitle: "What Can Be Written Down Will Depreciate: Wittgenstein's Reserved Gro
 date: 2026-09-23
 share_img: "/img/2026/what-cannot-be-distilled.png"
 tags: ["ai", "philosophy", "assets", "wittgenstein", "alignment", "thinking"]
+ingested: 2026-09-23
+sha256: d8e22acbdc677048b5a36f6166b2fbaebce8263dd225bc8d428d426dc177f922
 ---
 
 1914 年起，一个奥地利炮兵军官断断续续写着一本小书——先在挪威的村庄，后在加利西亚前线，再在意大利前线，他驻守炮兵观察哨，手稿装在背包里跟着他转移阵地。1918 年 8 月，他在维也纳家中休假，写下最后一个字：不到三万字，定稿。10 月，他带着定稿重返意大利前线；11 月 3-4 日在特伦托附近被意军俘虏，关进卡西诺战俘营——被俘时，手稿还在背包里。在战俘营中，他靠人斡旋得以通信，把稿子寄给了罗素，附言是：**这些问题，已在一切本质方面获得解决。**

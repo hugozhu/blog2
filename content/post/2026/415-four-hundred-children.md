@@ -4,6 +4,8 @@ subtitle: "When Top-Tier Thinking Becomes a Commodity"
 date: 2026-09-23
 share_img: "/img/2026/four-hundred-children.png"
 tags: ["ai", "rare-disease", "intelligence-economics", "thinking"]
+ingested: 2026-09-23
+sha256: f2c2b701c00a4aad9c46975ebd46f8fa12bee822513cda72ea5e1d2feeda881d
 ---
 
 全世界此刻活着大约四百个患早衰症的孩子。这种病的发病率是四百万分之一——有记录的病例，从 1886 年第一次被医学文献描述算起，总共只有一百多例到四百例之间（不同登记系统的口径不同）。他们的智力完全正常，身体却在以十倍速衰老，平均寿命十四年半。
