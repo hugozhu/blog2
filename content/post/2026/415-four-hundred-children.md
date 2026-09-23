@@ -1,6 +1,6 @@
 ---
-title: "四百个孩子，和一个公式的死"
-subtitle: "Four Hundred Children, and the Death of a Formula"
+title: "顶级思考，将从奢侈品变成大众商品"
+subtitle: "When Top-Tier Thinking Becomes a Commodity"
 date: 2026-09-23
 share_img: "/img/2026/four-hundred-children.png"
 tags: ["ai", "rare-disease", "intelligence-economics", "thinking"]
@@ -18,7 +18,7 @@ tags: ["ai", "rare-disease", "intelligence-economics", "thinking"]
 
 **算不平，才是问题所在。不是「没人想」，而是在人类过去的组织方式下，这几百个孩子根本「配不上」一个研究团队。**
 
-[![Four Hundred Children, and the Death of a Formula](/img/2026/four-hundred-children-thumb.jpg)](/img/2026/four-hundred-children.png)
+[![When Top-Tier Thinking Becomes a Commodity](/img/2026/four-hundred-children-thumb.jpg)](/img/2026/four-hundred-children.png)
 
 <!--more-->
 
