@@ -4,6 +4,8 @@ subtitle: "Intelligence Proposes, Authority Decides: What Meta's Muse Says About
 date: 2026-09-24
 share_img: "/img/2026/intelligence-proposes-authority-decides.png"
 tags: ["ai", "agent", "security", "architecture", "digital-employee"]
+ingested: 2026-09-24
+sha256: 9ae882be6e1f41be04ab4e218f34a87b355ca8750ab39f039622e6a4778a0121
 ---
 
 Meta 本月发布 personal agent「Muse」时，同时公开了一份赏金价目表：有效漏洞报告最高 **30 万美元**，其中单独一档——「成功影响一个用户的 prompt injection」——最高 **13 万美元**。
