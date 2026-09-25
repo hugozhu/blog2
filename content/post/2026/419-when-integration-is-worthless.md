@@ -4,6 +4,8 @@ subtitle: "When Writing an Integration Is Worthless: What mimic Says About the A
 date: 2026-09-25
 share_img: "/img/2026/when-integration-is-worthless.png"
 tags: ["ai", "api", "open-source", "moat", "thinking"]
+ingested: 2026-09-25
+sha256: 50486b72f9242204d9c43b5eae4ba6b2d9a64a4b22df3966d99b30cde46414ce
 ---
 
 今天有人转给我一条微头条，说 GitHub 上有个刚火的项目 mimic，「两天拿了 1100 多星」。它做的事很直接：你在手机或电脑上把一个 App 正常操作一遍，它拦截这个 App 的网络流量，然后自动生成一个 Python 版的 SDK——「你不用去读那些几百页的 API 文档了」。

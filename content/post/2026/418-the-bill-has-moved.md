@@ -4,6 +4,8 @@ subtitle: "The Bill Has Moved: From Tokens to Turns"
 date: 2026-09-25
 share_img: "/img/2026/the-bill-has-moved.png"
 tags: ["ai", "cost", "token-economics", "engineering", "thinking"]
+ingested: 2026-09-25
+sha256: 1fc2c862ef9d234179e7d334fdd0cf0e9db93970a52722b82aa9b1da30293b33
 ---
 
 Anthropic 昨天发布 Opus 5.5，标题新闻是降价：同样的工作负载，成本比上一代低约 40%。
