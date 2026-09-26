@@ -4,6 +4,8 @@ subtitle: "Where the Money Moved: From the Model Layer to the Transaction Layer"
 date: 2026-09-26
 share_img: "/img/2026/model-brews-transaction-taxes.png"
 tags: ["ai", "meta", "muse", "business-model", "payments", "thinking"]
+ingested: 2026-09-26
+sha256: a2f762e200c4eeee97a7b043693c1dc8f1c28ace8739c18977cf10c4666c156b
 ---
 
 Meta Connect 2026 上，扎克伯格把 Muse 放到了公司战略的正中央：「我们的愿景核心就是 Muse。未来几年，我预期它会成为数十亿人完成目标、改善生活的个人化超级智能。」一小时主题演讲，所有新品围着它转——钥匙扣硬件、1299 美元的 VR 眼镜、一揽子零售合作。资本市场立刻给出情绪面：摩根大通把目标价一路上调到 920，Canaccord 给到 950；扎克伯格以约 2664 亿美元身家升至全球第四富豪。

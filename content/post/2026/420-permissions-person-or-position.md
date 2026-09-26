@@ -4,6 +4,8 @@ subtitle: "Do Permissions Follow the Person or the Position? What Claude Tag Con
 date: 2026-09-26
 share_img: "/img/2026/permissions-person-or-position.png"
 tags: ["ai", "agent", "security", "permissions", "digital-employee"]
+ingested: 2026-09-26
+sha256: 1e90d899588c2c44fd18a10ee6860f229b42ee97aadd942a17b6c2b5f003db94
 ---
 
 9 月 8 日，Meta 发布 personal agent「Muse」，公开了一套「智能提案、权威拍板」的安全架构（[上一篇写过](https://hugozhu.site/post/2026/417-intelligence-proposes-authority-decides/)）。

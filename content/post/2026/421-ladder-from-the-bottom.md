@@ -4,6 +4,8 @@ subtitle: "The Ladder Is Being Dismantled from the Bottom Rung"
 date: 2026-09-26
 share_img: "/img/2026/ladder-from-the-bottom.png"
 tags: ["ai", "career", "labor", "judgment", "thinking"]
+ingested: 2026-09-26
+sha256: d9623529b9876def375b8d44d5962fcf4dd3f63f6a6cd465300d23467f0f6cea
 ---
 
 斯坦福有一份被反复引用的研究，叫《煤矿里的金丝雀》（Canaries in the Coal Mine），作者是 Brynjolfsson 等三位经济学家，用的是覆盖两千六百万美国工人的 ADP 薪资数据。2026 年 8 月的最新修订版给出一个结论：
