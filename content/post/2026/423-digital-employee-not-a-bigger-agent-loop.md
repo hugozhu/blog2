@@ -4,6 +4,8 @@ subtitle: "A Digital Employee Is Not a Bigger Agent Loop"
 date: 2026-09-28
 share_img: "/img/2026/digital-employee-not-a-bigger-agent-loop.png"
 tags: ["ai-agent", "digital-employee", "agent-architecture", "agent-runtime", "dingtalk"]
+ingested: 2026-09-28
+sha256: 294280cd2a7a381197aec995e593f6ac4b23988674de48cf316b71be840150ef
 ---
 
 早上 8 点整，没有人给「涌现」发消息，它已经起床干活了。
