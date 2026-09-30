@@ -4,6 +4,8 @@ subtitle: "Daily Release, 10% Gains, and 15-Minute Debugging Are One Time-Consta
 date: 2026-09-30
 share_img: "/img/2026/ai-product-iteration-time-constants.png"
 tags: ["ai-product", "engineering-management", "iteration-speed", "ai-agent", "devtools"]
+ingested: 2026-09-30
+sha256: 8d705f3117131c7aec1e1bdf01027926c419e8bb0e2e72541e3c9d749decefe5
 ---
 
 Manus 的 changelog 里藏着一个数字。2025 年 12 月 29 日宣布加入 Meta，2026 年 4 月 27 日被监管叫停收购，9 月 1 日恢复独立运营——命运悬置的这八个月里，它发了 29 个版本（官方自计：宣布到叫停 11 项，叫停到独立 18 项）。整条时间线 63 项重大更新摊在约 572 天上，平均 9 天一发，监管风暴期间节奏没断过。
