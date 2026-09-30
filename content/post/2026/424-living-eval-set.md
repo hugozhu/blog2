@@ -4,6 +4,8 @@ subtitle: "Tens of Thousands of Employees as a Living Eval Set"
 date: 2026-09-29
 share_img: "/img/2026/living-eval-set.png"
 tags: ["ai-agent", "evals", "meta-muse", "dogfooding", "agent-engineering"]
+ingested: 2026-09-29
+sha256: 2b55899271f7f947393a582bc3429ce3e12153f829b4ee84227c2e9cc4a2be6f
 ---
 
 9 月的最后一周，Meta 的个人 Agent「Muse」已经冲上了美国 App Store 免费榜第一。同一周，路透社看到的内部发帖记录里是这样的景象：

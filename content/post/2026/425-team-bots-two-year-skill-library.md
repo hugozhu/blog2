@@ -4,6 +4,8 @@ subtitle: "The Most Expensive Part of Team Bots Is Not the Bot — It Is the Two
 date: 2026-09-29
 share_img: "/img/2026/team-bots-two-year-skill-library.png"
 tags: ["ai-agent", "skill-library", "grok-bot", "digital-employee", "knowledge-asset"]
+ingested: 2026-09-29
+sha256: ec4ffcf6c89c7458d1a71781dae7b43ca26308e9e01dbaf91e68d0b2b82f4747
 ---
 
 xAI 的数据分析团队每天要接几十个一次性的分析请求——查一个数、核一个口径、拉一张表。按老办法，要么排队等分析师，要么申请数据仓库权限自己折腾。
