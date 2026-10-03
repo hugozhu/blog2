@@ -5,12 +5,16 @@ date: 2026-10-03
 share_img: "/img/2026/ventuno-q-banner.png"
 tags: ["edge-ai", "local-llm", "arduino", "ventuno-q", "personal-knowledge", "tutorial"]
 ingested: 2026-10-03
-sha256: 2e6a30a2539d43a9bc548d452fbb3b04cff0a0fc9277fcfa270a9daabd0a8734
+sha256: 38e3ece718aaae519fe70a41e14a9bc47030efd354a086fcb01066c32159f767
 ---
 
 本地跑大模型这件事，门槛从来不是模型——Qwen3-4B 的权重谁都能下。门槛是那块能把 4B 模型跑到「可用」的芯片，以及为它付的几百上千美金和几十瓦电费。
 
-我花 299 美金买了一块 Arduino VENTUNO Q，把这件事的门槛砸到了地板上：一块 160×100mm 的开发板，NPU 上跑 Qwen3-4B 文本 **16.6 tok/s**、跑 Qwen3-VL-4B 看图 **13 tok/s**，纯本地、零边际成本、常驻不关机。这篇是完整上手教程——从开箱到把它变成一个 OpenAI 兼容的常驻服务，接进你的 Agent 工具链。中间有三个能让你白耗一个下午的坑，我一并写清楚。
+我花 299 美金买了一块 Arduino VENTUNO Q，把这件事的门槛砸到了地板上：一块 160×100mm 的开发板，NPU 上跑 Qwen3-4B 文本 **16.6 tok/s**、跑 Qwen3-VL-4B 看图 **13 tok/s**，纯本地、零边际成本、常驻不关机。
+
+开始教程之前，先把一件事说清楚：**这篇文章的所有配置，都是用 OpenCode 以对话方式完成的，没有一行命令是我手敲的，效率比手工高得多。** OpenCode 作为 agent 直接在板子上执行 shell、读写文件，背后配 DeepSeek V4 Flash（快、便宜、上下文长），查资料、装环境、部署模型、写服务、排错，甚至板子上那份上手文档的初稿，全部在一个会话里贯通。这种做法的效率提升非常直接：不用手工复制命令，不用在搜索引擎和终端之间来回切换，agent 踩了坑当场修，下文的每一条命令都是它当时实际执行、验证通过的记录。最后配出来的本地 VLM 服务本身就是一个 OpenAI 兼容后端，又反过来接进 OpenCode 用——用 AI 搭 AI，闭环了。
+
+这篇是完整上手教程——从开箱到把它变成一个 OpenAI 兼容的常驻服务，接进你的 Agent 工具链。中间有三个能让你白耗一个下午的坑，我一并写清楚。
 
 [![Arduino VENTUNO Q 官方产品图](/img/2026/ventuno-q-board-thumb.jpg)](/img/2026/ventuno-q-board.png)
 
@@ -172,7 +176,7 @@ docker exec tailscale-hugo tailscale serve --bg --tcp=8080 tcp://host.docker.int
 
 SSH 进去，`do-release-upgrade` 会热情地提示你有 26.04.1 LTS 可升。别升。这是 Ubuntu 通用版本列表的锅，它不知道你这台是带厂商 BSP 的 VENTUNO Q。Arduino 官方在论坛里已经确认这是 bug，原话：
 
-> "After further testing we determined that there are **incompatibilities between Ubuntu 26.04 and the VENTUNO Q**. The update offer is the result of a bug. If you have installed the update, please **reflash** the operating system to revert back to the officially supported Ubuntu 24.04."
+> 「After further testing we determined that there are **incompatibilities between Ubuntu 26.04 and the VENTUNO Q**. The update offer is the result of a bug. If you have installed the update, please **reflash** the operating system to revert back to the officially supported Ubuntu 24.04.」
 
 升级后你会遇到：串口消失（Arduino IDE 串口监视器失效）、`adb shell` 进去变成 root 而不是 `arduino`（定制版 `adbd` 被上游版顶掉了）。想启用适配 26.04 的新内核 PPA？大概率 **开不了机**。而这板子是 UEFI + GRUB + eMMC、**没有 A/B 分区回滚**——起不来的唯一出路是重刷 eMMC 镜像，数据全丢。
 
