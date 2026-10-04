@@ -4,6 +4,8 @@ subtitle: "More Responsive, Less CPU: Replacing a HID Poll Loop with a Blocking 
 date: 2026-10-04
 share_img: "/img/2026/poll-to-blocking-hid-read.png"
 tags: ["streamdeck", "performance-optimization", "hid", "python", "system-monitoring"]
+ingested: 2026-10-04
+sha256: 9563547ce0eccfb19cb27384628480286d599269a82a50365c37b616cc39f2ff
 ---
 
 我在这台 8 核 ARM 小主机上挂了一块 Stream Deck Mini，当常驻系统监控面板：6 个按键，实时显示 CPU、内存、温度、磁盘，翻页键切到每核占用，长按熄屏。它已经默默跑了很久。
