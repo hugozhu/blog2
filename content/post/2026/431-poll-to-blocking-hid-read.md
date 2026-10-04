@@ -2,10 +2,10 @@
 title: "更跟手，反而更省 CPU：把监控面板空闲占用从 3% 压到 0.4%"
 subtitle: "More Responsive, Less CPU: Replacing a HID Poll Loop with a Blocking Read"
 date: 2026-10-04
-share_img: "/img/2026/poll-to-blocking-hid-read.png"
+share_img: "/img/2026/poll-to-blocking-hid-read.jpg"
 tags: ["streamdeck", "performance-optimization", "hid", "python", "system-monitoring"]
 ingested: 2026-10-04
-sha256: 9563547ce0eccfb19cb27384628480286d599269a82a50365c37b616cc39f2ff
+sha256: 99cf998059117a371e60119c2955ec87a0dafd2957e678fe3ed6debf8e8da6ca
 ---
 
 我在这台 8 核 ARM 小主机上挂了一块 Stream Deck Mini，当常驻系统监控面板：6 个按键，实时显示 CPU、内存、温度、磁盘，翻页键切到每核占用，长按熄屏。它已经默默跑了很久。
@@ -16,7 +16,7 @@ sha256: 9563547ce0eccfb19cb27384628480286d599269a82a50365c37b616cc39f2ff
 
 这篇讲我怎么把它的空闲占用压到 **0.4%**，而且按键 **反而更跟手了**。中间踩了一个坑：在 SDK 里把「非阻塞读」改成「阻塞读」会死锁。这个坑值得单独讲，因为它不只属于 Stream Deck——任何「轮询 → 事件驱动」的改造都会遇到。
 
-[![More Responsive, Less CPU: Replacing a HID Poll Loop with a Blocking Read](/img/2026/poll-to-blocking-hid-read-thumb.jpg)](/img/2026/poll-to-blocking-hid-read.png)
+[![More Responsive, Less CPU: Replacing a HID Poll Loop with a Blocking Read](/img/2026/poll-to-blocking-hid-read-thumb.jpg)](/img/2026/poll-to-blocking-hid-read.jpg)
 
 <!--more-->
 
