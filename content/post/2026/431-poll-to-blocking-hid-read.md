@@ -1,26 +1,30 @@
 ---
-title: "人主动适配 AI 执行任务拿结果，设备空闲占用从 3% 压到 0.4%"
-subtitle: "Humans Now Adapt to the Agent: A HID Poll Loop Became a Blocking Read, Idle CPU 3% to 0.4%"
+title: "人应该主动去适配 AI 任务执行范式"
+subtitle: "Adapting to the Agent's Way of Working: A HID Poll Loop Became a Blocking Read, Idle CPU 3% to 0.4%"
 date: 2026-10-04
 share_img: "/img/2026/poll-to-blocking-hid-read.jpg"
 tags: ["streamdeck", "performance-optimization", "hid", "python", "system-monitoring"]
 ingested: 2026-10-04
-sha256: 7c59410ce63f968007ed5c8b1775155bb6357f7e1662467e516ea0db9fdbbdd9
+sha256: c3f8a3d7a2e0b41aabd9ed73abe9b6a62c4dcfd80d35ccb15314c60487f9cd80
 ---
 
 十一假期，今天早上我翻出一个搁了很久的单片机项目想做实验——不为别的，就想亲自感受一下现在的 AI 到底能把活干到什么程度。模型用的是 DeepSeek V4.1 Flash，9 月刚发布，图它便宜（输入 $0.30/百万 token）。
+
+先交代一下实验对象：**Stream Deck Mini** 是 Elgato 出的一块小实体键盘，6 个按键，每个键就是一块小 LCD 屏，USB 一插即用（标准 HID 设备）。它本来是给主播切场景、绑快捷键用的，但按键能显示任意图案、也能上报按键事件——拿来做常驻监控面板，是块现成的好料。
+
+[![Stream Deck Mini 监控面板实拍](/img/2026/poll-to-blocking-hid-read-thumb.jpg)](/img/2026/poll-to-blocking-hid-read.jpg)
+
+*Stream Deck Mini 监控面板实拍：CPU、温度、负载、内存、磁盘、运行时长，六键两页，长按熄屏*
 
 我新开一个工程，直接把 Stream Deck Mini 的驱动库拖进来，建了个子目录 [mybox](https://github.com/hugozhu/python-elgato-streamdeck/tree/master/mybox)，然后用 OpenCode 下了一条任务指令：
 
 > 读一下本工程，实现能显示系统 CPU、Load、温度信息，要能翻页，长按灭屏，再按亮屏，图标显示要美观。
 
-十几分钟不到，原型就出来了：这块 Stream Deck Mini 挂在我那台 8 核 ARM 小主机上，6 个按键实时显示 CPU、内存、温度、磁盘，翻页键切到每核占用，长按熄屏——一个常驻的系统监控面板。跑通之后我 `top` 了一下，排在最前面的不是哪个服务，而是这个监控程序自己：python 进程占着约 **3%** 的 CPU，比它监控的大部分服务都费电。一个监控工具，把自己变成了最该被监控的对象。
+十几分钟不到，原型就出来了：Stream Deck Mini 挂在我那台 8 核 ARM 小主机上，成了一个常驻的系统监控面板——任务指令里列的功能，一条不少全都有。跑通之后我 `top` 了一下，排在最前面的不是哪个服务，而是这个监控程序自己：python 进程占着约 **3%** 的 CPU，比它监控的大部分服务都费电。一个监控工具，把自己变成了最该被监控的对象。
 
 于是我提了个更高的要求——**降低它对 CPU 的占用**。接下来一个小时，是 AI 在给我方案，而我在 **配合** 它（注意，是配合）：它让我测按键灵敏性、对比不同方案的优劣，一步步逼近，最后给出了一个我过去想都没想过的做法——**用阻塞式读取按键，替代我一直用的轮询**。落地效果很好，一句话：**更跟手，反而更省 CPU**，空闲占用从 **3% 压到 0.4%**。
 
-这次实验给我最大的一句话感受是：**代码人写不过 AI，这件事不可逆——我们已经进入「人主动适配 AI 执行任务、拿结果」的阶段。** 整个过程里最值得单独讲的，是中间那个坑：在 SDK 里把「非阻塞读」改成「阻塞读」会死锁。它不只属于 Stream Deck，任何「轮询 → 事件驱动」的改造都会遇到。下面拆开讲。
-
-[![Humans Now Adapt to the Agent: A HID Poll Loop Became a Blocking Read](/img/2026/poll-to-blocking-hid-read-thumb.jpg)](/img/2026/poll-to-blocking-hid-read.jpg)
+这次实验给我最大的一句话感受是：**代码人写不过 AI，这件事不可逆——人应该主动去适配 AI 的任务执行范式，而不是反过来。** 整个过程里最值得单独讲的，是中间那个坑：在 SDK 里把「非阻塞读」改成「阻塞读」会死锁。它不只属于 Stream Deck，任何「轮询 → 事件驱动」的改造都会遇到。下面拆开讲。
 
 <!--more-->
 
@@ -250,6 +254,6 @@ class BlockingReader:
 
 但这次真正让我记住的，不是这些技术判断，而是过程本身：一个小时里，方案是 AI 出的，连「用阻塞读替代轮询」这个我过去想都没想到的点子也是它给的，我做的是配合它测试、帮它把关。这和昨天那篇《299 美金的个人知识库开发板》里我写的那句「这篇文章的所有配置，都是用 OpenCode 以对话方式完成的，没有一行命令是我手敲的」是同一件事的两次上演——只是这次，连「想到该阻塞读」这一步，也不再由人完成了。
 
-所以那句话我得再说一遍：**代码人写不过 AI，不可逆。** 剩下的问题不再是「我能不能自己写出来」，而是「我能不能把任务描述清楚、把结果验出来、在它给出我没想到的方案时认出那是个好方案」。人主动适配 AI 执行任务，适配的不是提示词的措辞，是这套新的分工。
+所以那句话我得再说一遍：**代码人写不过 AI，不可逆。** 剩下的问题不再是「我能不能自己写出来」，而是「我能不能把任务描述清楚、把结果验出来、在它给出我没想到的方案时认出那是个好方案」。人应该主动去适配 AI 的任务执行范式——适配的不是提示词的措辞，是这套新的分工。
 
 你手上有没有那种「跑了很久、从没人看过它到底占多少 CPU」的常驻脚本？欢迎留言，我们算算它一年醒了几亿次。
