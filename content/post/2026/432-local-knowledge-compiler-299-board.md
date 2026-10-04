@@ -1,16 +1,24 @@
 ---
-title: "299 美金的本地助理：我用一块边缘 AI 板子，实测了个人知识库"
-subtitle: "A $299 Edge Board as a Personal Knowledge Node: Benchmarking a Local 4B Knowledge Compiler Against a Cloud Frontier Model"
+title: "299 美金，够不够把数据留在本地？"
+subtitle: "Can a $299 Edge Board Keep Your Data Home? A Local 4B Knowledge Compiler Benchmarked Against the Cloud"
 date: 2026-10-04
 share_img: "/img/2026/local-kb-vs-cloud-banner.jpg"
 tags: ["knowledge-compiler", "local-llm", "edge-ai", "personal-knowledge", "benchmark", "mcp"]
 ingested: 2026-10-04
-sha256: 5cb2b84a4867c7d920bae96a5c7a703a4a614807453734acc184e8f48a2a6d89
+sha256: aef9d3211aae5a49cf70ad89e29de9e0d3c7a3b3cbe36679d461f268899dafbd
 ---
+
+我把自己写过的两篇长文丢进 inbox，然后让一块边缘 AI 板子慢慢嚼。21.7 分钟后，它交出 72 条论断、38 个实体、60 条关系，全部落进一个 SQLite 文件。整个过程没有联网，数据一寸都没离开那块板子。
+
+板子上跑的是一个 4B 的本地模型。我拿它做的事，是给个人知识库当编译器：把非结构化的资料，持续编译成人和 Agent 都能直接用的 Context。同一套代码，我也接上云端的前沿模型跑了一遍做对照——两边跑完，结论有点出乎我的意料：**慢 2.6 倍的那一边，质量只差一档；而它换来的是零成本、离线、数据不出板。**
 
 > 当 Muse 们把助理跑在云上，你的数据该放在哪里？
 
 > 项目地址：**[https://github.com/hugozhu/knowledge-compiler](https://github.com/hugozhu/knowledge-compiler)**
+
+[![本地知识编译器 vs 云端助理](/img/2026/local-kb-vs-cloud-banner-thumb.jpg)](/img/2026/local-kb-vs-cloud-banner.jpg)
+
+*本地 4B 与云端前沿模型的三项对照：指标只差一档，代价却完全不对称——右列的每一分领先，都要用联网、按量付费和数据出板来换*
 
 ## 一、Muse 很火，但火的方向有点让人不安
 
@@ -89,10 +97,6 @@ inbox → parse → chunk → 本地 4B 模型抽取 → SQLite + FTS5
 2. **瓶颈不在模型，在管线**：两者的论断召回都只有 0.4–0.5，因为 2000 字分批 + 合并上限把细节截掉了；**换更大的模型也救不回来**，得改管线与检索。
 3. **成本与隐私的天平**：flash 快 2.6 倍，但要联网、数据出板、按量付费；本地 4B 是 **$0、离线、数据不出板**。
 
-[![本地知识编译器 vs 云端助理](/img/2026/local-kb-vs-cloud-banner-thumb.jpg)](/img/2026/local-kb-vs-cloud-banner.jpg)
-
-*本地 4B 与云端前沿模型的三项对照：指标只差一档，代价却完全不对称——右列的每一分领先，都要用联网、按量付费和数据出板来换*
-
 ## 五、结论
 
 **够用。** 对「常驻个人知识节点」这个场景，299 美金的板子能撑起知识编译、检索和日常问答；复杂长文推理再交给云端——这正是 Local First 的意义。
@@ -137,13 +141,6 @@ Muse 代表的是「能力上云」的极致效率；而下一波一定会有人
 - 完整评测集：[`bench/cases/eval_scenarios.json`](https://github.com/hugozhu/knowledge-compiler/blob/main/bench/cases/eval_scenarios.json)
 - 评测方法与全部指标：[`bench/results/REPORT.md`](https://github.com/hugozhu/knowledge-compiler/blob/main/bench/results/REPORT.md)
 - 各题三组原始回答：[`bench/results/appendix_answers.md`](https://github.com/hugozhu/knowledge-compiler/blob/main/bench/results/appendix_answers.md)
-
----
-
-**附：朋友圈转发文案**
-
-> 299 美金的板子，能不能做个人知识库？我用本地 4B 和云端 flash 做了对照实测：够用，而且瓶颈根本不在模型，在管线。Muse 把助理搬上云，数据留在本地的那一天不会太远。代码与数据：https://github.com/hugozhu/knowledge-compiler
-
 
 ---
 
