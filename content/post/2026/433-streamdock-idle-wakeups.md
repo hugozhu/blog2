@@ -3,6 +3,8 @@ title: "阻塞读不是终点：清点常驻程序的唤醒源"
 subtitle: "Blocking Reads Are Not the Finish Line: Auditing Idle Wakeups on a 15-Key StreamDock Panel"
 date: 2026-10-04
 tags: ["streamdock", "performance-optimization", "hid", "python", "system-monitoring"]
+ingested: 2026-10-05
+sha256: 0372502613d90b0e574bb6bdf087423fa891061aea1c10cab6153bb807af3ec4
 ---
 
 上一篇 [人应该主动去适配 AI 任务执行范式](https://hugozhu.site/post/2026/431-poll-to-blocking-hid-read/) 里，我把一块 Elgato Stream Deck Mini 的输入循环从轮询改成了阻塞读，空闲 CPU 从 3% 掉到 0.4%。合上电脑前我给自己留了一道题：这个结论，是那块板子的特例，还是普适的？
