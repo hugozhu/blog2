@@ -2,7 +2,10 @@
 title: "每天 1000 条钉钉消息，我让一个 Agent 先编译再开口"
 subtitle: "Compile Your Work Stream Before Your Agent Speaks"
 date: 2026-10-27
+share_img: "/img/2026/muse-compile-work-stream-before-speaking.png"
 tags: ["ai-agent", "personal-context", "knowledge-compiler", "dingtalk", "proactive-agent", "opc"]
+ingested: 2026-10-27
+sha256: a355c7aed21a4baa216fb198d830ccb202315dfb338b4f8705b96ce05db1b6b8
 ---
 
 前几天，我对自己的工作助理打了一个 ❌。
@@ -12,6 +15,8 @@ tags: ["ai-agent", "personal-context", "knowledge-compiler", "dingtalk", "proact
 信息本身没错，每个字都对得上原话。错在 **时机**：我正在处理的事，它又来提醒我一遍。这一个 ❌ 让我意识到，我给这个助理（下文叫它 Muse）定的目标——「主动帮我管理钉钉上的工作信息流」——难点从来不在「主动」，而在主动之前那一步：**它得先知道哪件事是谁的、现在是什么状态、我此刻在干什么。**
 
 这三件事，靠一个更聪明的模型现场去翻聊天记录是翻不出来的。它们得被 **编译** 出来。
+
+[![Compile Your Work Stream Before Your Agent Speaks](/img/2026/muse-compile-work-stream-before-speaking-thumb.jpg)](/img/2026/muse-compile-work-stream-before-speaking.png)
 
 <!--more-->
 
