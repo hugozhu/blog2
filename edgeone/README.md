@@ -29,7 +29,7 @@ ai-notepad 的数据和登录 ──→ Supabase（xryosrxuoqwohyqxszhs.supabase
 |---|---|
 | `.github/workflows/tencent-edgeone.yaml` | 构建博客和 notepad 并部署到 EdgeOne，最后发钉钉通知 |
 | `edgeone/edgeone.json` | EdgeOne 配置：www→apex 跳转、`/notes`→`/notes/`、缓存头、Content-Type、CORS |
-| `edge-functions/api/functions/v1/[[default]].js` | 把 `/api/functions/v1/*` 转发到 Supabase，用于钉钉登录。**目前没有部署上去**，见"待办" |
+| `edge-functions/api/functions/v1/[[default]].js` | 把 `/api/functions/v1/*` 转发到 Supabase，用于钉钉登录。**部署不上去**（见"禁止"一节），暂时保留代码以备将来使用 |
 
 ## 仓库配置（Settings → Secrets and variables → Actions）
 
@@ -71,18 +71,29 @@ workflow 的步骤：
 - 公开仓库的 Actions 日志任何人都能看。**不要**打印 ai-notepad 的源码，也**不要**上传 artifacts。
 - 部署出去的 `/notes/` 文件本来就是公开的，前端里的 Supabase anon key 是设计上就公开的 key，不算泄露。
 
-## 生效需要时间：务必等，不要急着下结论
+## ⚠️ 禁止上传 `.edgeone` 构建包（会导致整站 404）
 
-EdgeOne 的变更**不是立即生效的**，这次迁移中遇到过以下情况：
+**只用 `edgeone pages deploy public`（直接上传静态文件）。** 不要不带目录参数部署，也不要部署 `.edgeone` 目录。这两种方式都会上传包含 `edge-functions/` 的构建包，部署后整站返回 404 "The site does not exist"。这个问题已经在生产环境复现两次：
+
+| 提交 | 方式 | 结果 |
+|---|---|---|
+| `ed8d857` | 不带目录参数，CLI 自动构建并上传 `.edgeone` | 整站 404，改回静态上传（`e46e23a`）后恢复 |
+| `012ac8b` | 先 `edgeone pages build` 再部署 `.edgeone`，`edgeone.json` 里没有构建字段 | 2026-11-16 21:20 起整站 404 约 7 分钟，改回静态上传（`aeef84d`）后，部署一完成就立即恢复 |
+
+预览环境（`-e preview`）的地址需要控制台令牌才能访问，在 CI 里没法自动验证，所以不能拿它当作上线前的保障。
+
+**每次部署后，第一件事是检查首页是否返回 200**，然后再看其他功能。
+
+## 其他需要等待的情况
+
+以下情况确实需要等一等：
 
 | 现象 | 实际原因 | 怎么办 |
 |---|---|---|
 | 默认域名 `*.edgeone.dev` / `*.edgeone.cool` 返回 **401 UNAUTHORIZED** | 默认域名只能用控制台生成的临时"预览"链接打开，不能公开访问 | 正常现象。要公开访问，必须绑定自定义域名 |
-| 部署刚完成时，部分路径返回旧内容，部分返回 404 | 新部署还在分发到各节点 | 等几分钟再测 |
 | 切换 DNS 后，HTTPS 证书是 `*.cdn.myqcloud.com` | 自定义域名的证书还没签发 | 等几分钟，证书会自动签发（TrustAsia DV） |
-| 证书已经签好，但返回 **404 "The site does not exist"** | 域名到项目的映射还没生效 | 等着，持续了十几分钟后自己恢复了 |
 
-所以：**每次操作后都要等几分钟再验证**，不要因为一时的 404 就判断配置错了，然后去回滚或改配置。
+如果出现 404 "The site does not exist"，先看最近一次部署是不是上传了构建包。如果是，立即改回静态上传，不要干等。静态上传的部署是立即生效的。
 
 ## 首次绑定域名 / 切换 DNS 的步骤
 
@@ -114,7 +125,7 @@ curl -sv https://hugozhu.site/ -o /dev/null 2>&1 | grep -E 'subject:|verify'
 - `SKILL.md` 返回 `text/markdown`。
 - `agent-skills.json` 返回 `application/json`。
 - 证书是 `CN=hugozhu.site`。
-- 钉钉登录接口在 Edge Function 部署之前会返回博客首页，部署之后应该返回 302 跳到 `login.dingtalk.com`。
+- 钉钉登录接口目前会返回博客首页，因为 EdgeOne 上没有转发。
 
 DNS 切换前，可以用 `--resolve` 直接测 EdgeOne 节点：
 
@@ -136,7 +147,7 @@ us4 的配置备份在本地的 `u4-backup/` 目录。它已被 `.gitignore` 忽
 ## 踩过的坑
 
 - **CLI 带目录参数部署时，只上传静态文件**。`edgeone pages deploy public` 不会打包 `edge-functions/`。只有不带目录参数时，CLI 才会先在当前目录执行构建，把静态文件和 `edge-functions/` 打包进 `.edgeone/` 再上传，并带上当前目录的 `edgeone.json`。
-- 曾经试过自动构建模式：在 `edgeone.json` 里加了 `"outputDirectory": "./dist"`，并在暂存目录里部署（提交 `ed8d857`）。部署后站点出现 404 "site does not exist"，于是回滚了（`e46e23a`）。但回滚后仍然 404，过了一阵才自己恢复，所以**那次的 404 很可能也只是生效慢，不能确定是自动构建模式的问题**。下次再试时，先用 `-e preview` 部署到预览环境验证。
+- **上传 `.edgeone` 构建包会让整站 404**，详见上面的"禁止"一节。所以通过 CLI 直接上传的方式部署不了 Edge Function。
 - `edgeone.json` 的 `rewrites` 只能改写站内路径，**不能代理外部 URL**。要转发到外部（比如 Supabase），只能用 Edge Function。
 - `edgeone.json` 现在放在产物根目录，所以 `/edgeone.json` 能被公开访问。里面只有缓存规则，无敏感信息。
 - 免费版不保证 SLA，官方说适合个人和非商业用途。
@@ -144,7 +155,7 @@ us4 的配置备份在本地的 `u4-backup/` 目录。它已被 `.gitignore` 忽
 ## 待办
 
 - [ ] **`www.hugozhu.site`**：在 EdgeOne 项目里绑定 www。目前 www 返回的证书不匹配，打不开。`edgeone.json` 里已经配了 www→apex 的 301 规则，绑好就会生效。
-- [ ] **钉钉登录**：把 `edge-functions/` 部署上去，让 `/api/functions/v1/*` 转发到 Supabase。先用 `-e preview` 验证。
+- [ ] **钉钉登录**：不能依赖 Edge Function。改 ai-notepad 的 `js/config.js`，让 `DINGTALK_SSO_URL` 和 `DINGTALK_AUTH_URL` 直接指向 Supabase 的完整地址，同时调整钉钉开放平台的回调地址。
 - [ ] **不存在的页面返回 200 + 首页**：应该返回 Hugo 的 `404.html` 和 404 状态码，对 SEO 更友好。
 - [ ] **ai-notepad 自动触发**：在 ai-notepad 的 workflow 里加一步 `gh api repos/hugozhu/blog2/dispatches -f event_type=notepad-updated`，需要一个对 blog2 有 Contents: Read and write 权限的 PAT。
 - [ ] 确认稳定后，停掉 us4 上的 Caddy 和 ai-notepad 容器。frp、shadowsocks、tailscale 不受影响。
