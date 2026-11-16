@@ -95,11 +95,19 @@ jobs:
           rm -rf .ai-notepad
           echo "notes files: $(find "$dest" -type f | wc -l)"
 
-      - name: Add EdgeOne config
-        run: cp edgeone/edgeone.json public/edgeone.json
+      - name: Stage EdgeOne project
+        # Deploying WITHOUT a directory argument makes the CLI build .edgeone/
+        # (static assets from ./dist + compiled edge-functions/) and upload it
+        # together with ./edgeone.json. Passing a directory uploads static files only.
+        run: |
+          mkdir -p .eo-deploy
+          mv public .eo-deploy/dist
+          cp -r edge-functions .eo-deploy/
+          cp edgeone/edgeone.json .eo-deploy/edgeone.json
 
       - name: Deploy to EdgeOne Pages
-        run: npx --yes edgeone@latest pages deploy public -n "${{ vars.EDGEONE_PROJECT }}" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+        working-directory: .eo-deploy
+        run: npx --yes edgeone@latest pages deploy -n "${{ vars.EDGEONE_PROJECT }}" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
 
   notify:
     runs-on: ubuntu-latest
