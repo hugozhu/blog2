@@ -1,0 +1,116 @@
+# Build the Hugo blog + ai-notepad (/notes) and deploy to Tencent EdgeOne Pages.
+# Independent of hugo.yaml (GitHub Pages); disable this workflow from the Actions tab to stop it.
+#
+# Required repo settings:
+#   vars.EDGEONE_PROJECT        EdgeOne Pages project name (workflow is skipped when unset)
+#   secrets.EDGEONE_API_TOKEN   EdgeOne Pages API token
+#   secrets.NOTEPAD_READ_TOKEN  fine-grained PAT, repo hugozhu/ai-notepad only, Contents: read
+#
+# blog2 is PUBLIC and ai-notepad is PRIVATE: never print ai-notepad sources, never upload
+# artifacts, and never add pull_request / pull_request_target triggers to this workflow.
+name: Deploy to Tencent EdgeOne Pages
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [notepad-updated]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tencent-edgeone
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    if: vars.EDGEONE_PROJECT != ''
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.161.1
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -q -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Checkout blog2
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN }}
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Checkout ai-notepad (private)
+        uses: actions/checkout@v4
+        with:
+          repository: hugozhu/ai-notepad
+          token: ${{ secrets.NOTEPAD_READ_TOKEN }}
+          path: .ai-notepad
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build blog with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: Asia/Shanghai
+        run: |
+          rm -rf public
+          hugo --gc --minify
+          rm -f public/CNAME
+          mkdir -p public/js/search
+          node scripts/build-search-index.mjs \
+            --from-index public/index.json \
+            --out public/search \
+            --meta-out public/js/search/build-meta.js
+
+      - name: Build ai-notepad into /notes
+        # Mirrors the COPY lines of ai-notepad's Dockerfile; only public static files are copied.
+        run: |
+          (cd .ai-notepad && node scripts/build-skill-docs.js > /dev/null)
+          dest=public/notes
+          mkdir -p "$dest/js" "$dest/skills/ai-notepad"
+          cp .ai-notepad/{index.html,manifest.json,sw.js,styles.css} "$dest/"
+          cp -r .ai-notepad/js/. "$dest/js/"
+          rm -f "$dest/js/config.local.js"
+          cp .ai-notepad/skills/ai-notepad/{index.html,SKILL.md,cli} "$dest/skills/ai-notepad/"
+          mkdir -p public/.well-known
+          cat > public/.well-known/agent-skills.json <<'EOF'
+          {"skills":[{"name":"ai-notepad","url":"https://hugozhu.site/notes/skills/ai-notepad/SKILL.md","cli_url":"https://hugozhu.site/notes/skills/ai-notepad/cli","docs":"https://hugozhu.site/notes/skills/ai-notepad/","description":"Manage Hugo's Notebook notes from terminal"}],"format":"https://hugozhu.site/notes/skills/{name}/SKILL.md"}
+          EOF
+          rm -rf .ai-notepad
+          echo "notes files: $(find "$dest" -type f | wc -l)"
+
+      - name: Add EdgeOne config
+        run: cp edgeone/edgeone.json public/edgeone.json
+
+      - name: Deploy to EdgeOne Pages
+        run: npx --yes edgeone@latest pages deploy public -n "${{ vars.EDGEONE_PROJECT }}" -t "${{ secrets.EDGEONE_API_TOKEN }}"
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: always() && needs.deploy.result != 'skipped'
+    steps:
+      - name: DingTalk Notification
+        uses: hugozhu/dingtalk-github-action@v1
+        with:
+          token: ${{ secrets.DINGTALK_TOKEN }}
+          title: "${{ needs.deploy.result == 'success' && '✅' || '❌' }} EdgeOne deploy ${{ needs.deploy.result }}"
+          type: text
+          content: |
+            > Tencent EdgeOne Pages: **${{ needs.deploy.result }}** (${{ github.event_name }})
+            > ${{ github.event.head_commit.message || github.event.action || '' }}
+            > Run: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
