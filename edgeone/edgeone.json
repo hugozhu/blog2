@@ -1,7 +1,4 @@
 {
-  "outputDirectory": "./dist",
-  "installCommand": "",
-  "buildCommand": "",
   "redirects": [
     { "source": "$wwwhost", "destination": "$host", "statusCode": 301 },
     { "source": "/notes", "destination": "/notes/", "statusCode": 301 }
