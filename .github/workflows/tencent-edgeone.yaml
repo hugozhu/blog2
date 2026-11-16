@@ -69,7 +69,9 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           submodules: recursive
-          fetch-depth: 0
+          # Shallow clone (also applies to the theme submodule): a full clone of
+          # beautifulhugo took ~85s. Build does not need history (enableGitInfo is off).
+          fetch-depth: 1
 
       - name: Checkout ai-notepad (private)
         uses: actions/checkout@v4
@@ -152,7 +154,8 @@ jobs:
       - name: Guard production homepage (auto-rollback to static on failure)
         if: env.WITH_FUNCTIONS == 'true' && env.IS_PRODUCTION == 'true'
         run: |
-          for i in $(seq 1 12); do
+          # 4 checks x 15s (~1 min); was 12 x 15s = 3 min even when healthy.
+          for i in $(seq 1 4); do
             code=$(curl -s -o /dev/null -w '%{http_code}' -m 10 "$SITE_URL" || true)
             echo "check $i: $code"
             if [ "$code" != 200 ]; then
