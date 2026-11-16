@@ -23,6 +23,8 @@ hugo --gc --minify
 
 Automated via GitHub Actions (`.github/workflows/hugo.yaml`). Pushing to `main` triggers a build that publishes to the `hugozhu/hugozhu.github.com` repo (GitHub Pages). A DingTalk notification is sent after deployment.
 
+hugozhu.site (blog + ai-notepad at `/notes`) is served by Tencent EdgeOne Pages via `.github/workflows/tencent-edgeone.yaml`; GitHub Pages is kept as a cold backup. See `edgeone/README.md` for setup, DNS cutover, verification, rollback, and known pitfalls (EdgeOne changes take several minutes to take effect).
+
 ## Content Structure
 
 - `content/post/{YEAR}/` — Blog posts organized by year. Filenames use a numeric prefix: `{ID}-{slug}.md` (e.g., `121-desktop-screen-recording-rpa-best-practices.md`)
