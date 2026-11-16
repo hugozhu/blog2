@@ -25,9 +25,9 @@ on:
         type: string
         default: ''
       with_functions:
-        description: Also deploy edge-functions/ (bundle upload; test with environment=preview first)
+        description: Deploy edge-functions/ too (default). Uncheck for an emergency static-only deploy (functions will be gone).
         type: boolean
-        default: false
+        default: true
       environment:
         description: EdgeOne environment (preview is isolated from production)
         type: choice
@@ -52,7 +52,9 @@ jobs:
     env:
       HUGO_VERSION: 0.161.1
       PROJECT: ${{ inputs.project || vars.EDGEONE_PROJECT }}
-      WITH_FUNCTIONS: ${{ inputs.with_functions == true }}
+      # push / repository_dispatch have no inputs -> deploy with functions.
+      # Every EdgeOne deployment is a full snapshot, so a static-only deploy removes the functions.
+      WITH_FUNCTIONS: ${{ github.event_name != 'workflow_dispatch' || inputs.with_functions }}
       EO_ENV: ${{ inputs.environment || 'production' }}
       IS_PRODUCTION: ${{ (inputs.project || vars.EDGEONE_PROJECT) == vars.EDGEONE_PROJECT && (inputs.environment || 'production') == 'production' }}
       SITE_URL: https://hugozhu.site/
