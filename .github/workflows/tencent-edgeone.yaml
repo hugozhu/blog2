@@ -19,6 +19,15 @@ on:
   repository_dispatch:
     types: [notepad-updated]
   workflow_dispatch:
+    inputs:
+      project:
+        description: EdgeOne project name (empty = vars.EDGEONE_PROJECT, i.e. production)
+        type: string
+        default: ''
+      with_functions:
+        description: Also deploy edge-functions/ (bundle upload; test on a non-production project first)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -37,6 +46,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.161.1
+      PROJECT: ${{ inputs.project || vars.EDGEONE_PROJECT }}
+      WITH_FUNCTIONS: ${{ inputs.with_functions == true }}
+      IS_PRODUCTION: ${{ (inputs.project || vars.EDGEONE_PROJECT) == vars.EDGEONE_PROJECT }}
+      SITE_URL: https://hugozhu.site/
     steps:
       - name: Install Hugo CLI
         run: |
@@ -98,8 +111,47 @@ jobs:
       - name: Add EdgeOne config
         run: cp edgeone/edgeone.json public/edgeone.json
 
-      - name: Deploy to EdgeOne Pages
-        run: npx --yes edgeone@latest pages deploy public -n "${{ vars.EDGEONE_PROJECT }}" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+      # ---- Default: static upload only (safe, takes effect immediately) ----
+      - name: Deploy to EdgeOne Pages (static)
+        if: env.WITH_FUNCTIONS != 'true'
+        run: npx --yes edgeone@latest pages deploy public -n "$PROJECT" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+
+      # ---- Optional: static + edge-functions bundle ----
+      # `deploy <dir>` ignores edge-functions/, so build .edgeone/ first and deploy that.
+      # The CLI names the zip root after the CURRENT DIRECTORY, so the staging dir must NOT
+      # start with a dot (".eo-deploy" produced an empty site: 404 "The site does not exist").
+      - name: Build EdgeOne bundle (static + edge functions)
+        if: env.WITH_FUNCTIONS == 'true'
+        run: |
+          mkdir -p eo-deploy
+          cp -r public eo-deploy/dist
+          rm -f eo-deploy/dist/edgeone.json
+          cp -r edge-functions eo-deploy/
+          cd eo-deploy
+          jq '. + {outputDirectory: "./dist", installCommand: "", buildCommand: ""}' ../edgeone/edgeone.json > edgeone.json
+          npx --yes edgeone@latest pages build
+          cp ../edgeone/edgeone.json edgeone.json
+          test -f .edgeone/edge-functions/index.js
+          echo "assets: $(find .edgeone/assets -type f | wc -l) files"
+
+      - name: Deploy to EdgeOne Pages (with functions)
+        if: env.WITH_FUNCTIONS == 'true'
+        working-directory: eo-deploy
+        run: npx --yes edgeone@latest pages deploy .edgeone -n "$PROJECT" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+
+      - name: Guard production homepage (auto-rollback to static on failure)
+        if: env.WITH_FUNCTIONS == 'true' && env.IS_PRODUCTION == 'true'
+        run: |
+          for i in $(seq 1 12); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -m 10 "$SITE_URL" || true)
+            echo "check $i: $code"
+            if [ "$code" != 200 ]; then
+              echo "::error::Homepage returned $code after function deploy; rolling back to static upload"
+              npx --yes edgeone@latest pages deploy public -n "$PROJECT" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+              exit 1
+            fi
+            sleep 15
+          done
 
   notify:
     runs-on: ubuntu-latest
