@@ -25,9 +25,14 @@ on:
         type: string
         default: ''
       with_functions:
-        description: Also deploy edge-functions/ (bundle upload; test on a non-production project first)
+        description: Also deploy edge-functions/ (bundle upload; test with environment=preview first)
         type: boolean
         default: false
+      environment:
+        description: EdgeOne environment (preview is isolated from production)
+        type: choice
+        options: [production, preview]
+        default: production
 
 permissions:
   contents: read
@@ -48,7 +53,8 @@ jobs:
       HUGO_VERSION: 0.161.1
       PROJECT: ${{ inputs.project || vars.EDGEONE_PROJECT }}
       WITH_FUNCTIONS: ${{ inputs.with_functions == true }}
-      IS_PRODUCTION: ${{ (inputs.project || vars.EDGEONE_PROJECT) == vars.EDGEONE_PROJECT }}
+      EO_ENV: ${{ inputs.environment || 'production' }}
+      IS_PRODUCTION: ${{ (inputs.project || vars.EDGEONE_PROJECT) == vars.EDGEONE_PROJECT && (inputs.environment || 'production') == 'production' }}
       SITE_URL: https://hugozhu.site/
     steps:
       - name: Install Hugo CLI
@@ -114,7 +120,7 @@ jobs:
       # ---- Default: static upload only (safe, takes effect immediately) ----
       - name: Deploy to EdgeOne Pages (static)
         if: env.WITH_FUNCTIONS != 'true'
-        run: npx --yes edgeone@latest pages deploy public -n "$PROJECT" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+        run: npx --yes edgeone@latest pages deploy public -n "$PROJECT" -a overseas -e "$EO_ENV" -t "${{ secrets.EDGEONE_API_TOKEN }}"
 
       # ---- Optional: static + edge-functions bundle ----
       # `deploy <dir>` ignores edge-functions/, so build .edgeone/ first and deploy that.
@@ -137,7 +143,7 @@ jobs:
       - name: Deploy to EdgeOne Pages (with functions)
         if: env.WITH_FUNCTIONS == 'true'
         working-directory: eo-deploy
-        run: npx --yes edgeone@latest pages deploy .edgeone -n "$PROJECT" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+        run: npx --yes edgeone@latest pages deploy .edgeone -n "$PROJECT" -a overseas -e "$EO_ENV" -t "${{ secrets.EDGEONE_API_TOKEN }}"
 
       - name: Guard production homepage (auto-rollback to static on failure)
         if: env.WITH_FUNCTIONS == 'true' && env.IS_PRODUCTION == 'true'
