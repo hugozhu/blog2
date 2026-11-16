@@ -17,5 +17,10 @@ export async function onRequest({ request, params }) {
   const resp = await fetch(target, { method: 'GET', headers, redirect: 'manual' });
   const out = new Headers(resp.headers);
   out.set('content-type', 'text/html; charset=utf-8');
+  // Supabase also sends `content-security-policy: default-src 'none'; sandbox`, which blocks the
+  // page's inline <style>/<script> and CDN assets (marked, highlight.js) -> raw/blank page.
+  // Drop it, plus upstream cookies scoped to supabase.co.
+  out.delete('content-security-policy');
+  out.delete('set-cookie');
   return new Response(resp.body, { status: resp.status, statusText: resp.statusText, headers: out });
 }
