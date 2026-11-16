@@ -19,6 +19,12 @@ on:
   repository_dispatch:
     types: [notepad-updated]
   workflow_dispatch:
+    inputs:
+      environment:
+        description: EdgeOne environment (use preview to test before production)
+        type: choice
+        options: [production, preview]
+        default: production
 
 permissions:
   contents: read
@@ -95,11 +101,27 @@ jobs:
           rm -rf .ai-notepad
           echo "notes files: $(find "$dest" -type f | wc -l)"
 
-      - name: Add EdgeOne config
-        run: cp edgeone/edgeone.json public/edgeone.json
+      - name: Build EdgeOne bundle (static assets + edge functions)
+        # `edgeone pages deploy <dir>` uploads static files only and ignores edge-functions/.
+        # So build .edgeone/ (assets + compiled edge-functions) first, using a throwaway
+        # config that only says where the static files are; then put the clean
+        # edgeone.json (routing/headers only) next to .edgeone/ — the CLI uploads it with
+        # the bundle when the deploy directory is named .edgeone.
+        run: |
+          mkdir -p .eo-deploy
+          mv public .eo-deploy/dist
+          cp -r edge-functions .eo-deploy/
+          cd .eo-deploy
+          jq '. + {outputDirectory: "./dist", installCommand: "", buildCommand: ""}' ../edgeone/edgeone.json > edgeone.json
+          npx --yes edgeone@latest pages build
+          cp ../edgeone/edgeone.json edgeone.json
+          test -f .edgeone/edge-functions/index.js
+          echo "assets: $(find .edgeone/assets -type f | wc -l) files"
+          cat .edgeone/edge-functions/config.json
 
       - name: Deploy to EdgeOne Pages
-        run: npx --yes edgeone@latest pages deploy public -n "${{ vars.EDGEONE_PROJECT }}" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
+        working-directory: .eo-deploy
+        run: npx --yes edgeone@latest pages deploy .edgeone -n "${{ vars.EDGEONE_PROJECT }}" -a overseas -e "${{ inputs.environment || 'production' }}" -t "${{ secrets.EDGEONE_API_TOKEN }}"
 
   notify:
     runs-on: ubuntu-latest
