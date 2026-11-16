@@ -3,6 +3,8 @@
 #
 # Required repo settings:
 #   vars.EDGEONE_PROJECT        EdgeOne Pages project name (workflow is skipped when unset)
+#                               Area is "overseas" = Global (MLC excluded), no ICP filing needed.
+#                               Area is fixed at project creation; "global" would include mainland China.
 #   secrets.EDGEONE_API_TOKEN   EdgeOne Pages API token
 #   secrets.NOTEPAD_READ_TOKEN  fine-grained PAT, repo hugozhu/ai-notepad only, Contents: read
 #
@@ -97,7 +99,7 @@ jobs:
         run: cp edgeone/edgeone.json public/edgeone.json
 
       - name: Deploy to EdgeOne Pages
-        run: npx --yes edgeone@latest pages deploy public -n "${{ vars.EDGEONE_PROJECT }}" -t "${{ secrets.EDGEONE_API_TOKEN }}"
+        run: npx --yes edgeone@latest pages deploy public -n "${{ vars.EDGEONE_PROJECT }}" -a overseas -t "${{ secrets.EDGEONE_API_TOKEN }}"
 
   notify:
     runs-on: ubuntu-latest
