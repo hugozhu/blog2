@@ -102,14 +102,16 @@ jobs:
         run: |
           (cd .ai-notepad && node scripts/build-skill-docs.js > /dev/null)
           dest=public/notes
-          mkdir -p "$dest/js" "$dest/skills/ai-notepad"
+          mkdir -p "$dest/js"
           cp .ai-notepad/{index.html,manifest.json,sw.js,styles.css} "$dest/"
           cp -r .ai-notepad/js/. "$dest/js/"
           rm -f "$dest/js/config.local.js"
-          cp .ai-notepad/skills/ai-notepad/{index.html,SKILL.md,cli} "$dest/skills/ai-notepad/"
-          mkdir -p public/.well-known
+          # Skill docs + CLI live at the site root, as in the original Dockerfile:
+          #   /skills/ai-notepad/ (index.html), /skills/ai-notepad/SKILL.md, /skills/ai-notepad/cli
+          mkdir -p public/skills/ai-notepad public/.well-known
+          cp .ai-notepad/skills/ai-notepad/{index.html,SKILL.md,cli} public/skills/ai-notepad/
           cat > public/.well-known/agent-skills.json <<'EOF'
-          {"skills":[{"name":"ai-notepad","url":"https://hugozhu.site/notes/skills/ai-notepad/SKILL.md","cli_url":"https://hugozhu.site/notes/skills/ai-notepad/cli","docs":"https://hugozhu.site/notes/skills/ai-notepad/","description":"Manage Hugo's Notebook notes from terminal"}],"format":"https://hugozhu.site/notes/skills/{name}/SKILL.md"}
+          {"skills":[{"name":"ai-notepad","url":"https://hugozhu.site/skills/ai-notepad/SKILL.md","cli_url":"https://hugozhu.site/skills/ai-notepad/cli","docs":"https://hugozhu.site/skills/ai-notepad/","description":"Manage Hugo's Notebook notes from terminal"}],"format":"https://hugozhu.site/skills/{name}/SKILL.md"}
           EOF
           rm -rf .ai-notepad
           echo "notes files: $(find "$dest" -type f | wc -l)"

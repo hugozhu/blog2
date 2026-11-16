@@ -25,7 +25,7 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
     },
     {
-      "source": "/notes/skills/ai-notepad/SKILL.md",
+      "source": "/skills/ai-notepad/SKILL.md",
       "headers": [
         { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=60" },
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "source": "/notes/skills/ai-notepad/cli",
+      "source": "/skills/ai-notepad/cli",
       "headers": [
         { "key": "Content-Type", "value": "text/x-shellscript; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=60" },
