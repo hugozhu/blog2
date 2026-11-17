@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-11-17: #451 AI 重塑企业工作流（演讲稿 → Mode D 扩写）
+
+用户给完整演讲稿（11-17 EC 会议），明确要求「不要大改」。按 Mode D 执行：六节结构、全部金句逐字保留，只加连接 prose、4 处交叉引用（#450/#444/#447+#445/#443）、1 张 ASCII 执行者替换图、1 张传统咨询 vs FDE 对照表。
+
+**有效的动作：**
+- 演讲稿转博客的先例对齐 #443（曾鸣公开课整理稿）：编辑性引子交代演讲出处 + 真实实验 grounding，金句用 blockquote/加粗保留原话
+- Adversarial Pass 抓到「形状不变」的最强反方（Agent-native 流程会压缩步骤）→ 只补一句骨架粒度澄清（概念澄清，不加新论点），符合「不要大改」约束
+- hook 补一个真实冲突细节（台账替我记承诺、到期主动提醒，源自 #444 已发布机制），不编新案例
+
+**新反模式 / 环境教训：**
+- `image_generate` 默认 provider 凭证失效（Invalid credential）且 skill 写的 Gemini 代理（192.168.1.1:4000）在本机不可达、无 hermes 时：**用 Pillow 程序化绘制同风格 banner 是可靠 fallback**——Claude 暖色扁平 + Hiragino Sans GB W6/W3 中文渲染零乱码，几何信息图比 AI 生图更可控。脚本模式：2x 画布（2752×1536）→ LANCZOS 缩到 1376 宽 → PNG <1MB + 800px JPG q85 thumb
+- litterbox.catbox.moe 返回 `Invalid uploader`（换浏览器 UA 仍失败）→ 预览链接不可用时直接在会话内展示 banner，不死重试
+
+**评分：** hook 5 / insight 4 / framework 5 / technical 4 = 18 → publish 档（opinion 型，technical 评工程具体性而非可运行代码）
+
+---
+
 ## 2026-10-28: #445 企业上下文编译器（已发布稿 → 优化重写）
 
 原稿是抽象类比开头、无 `<!--more-->`、无反方、与 #439 / #444 部分重复。
