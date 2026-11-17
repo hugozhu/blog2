@@ -155,9 +155,17 @@ curl -sk --resolve hugozhu.site:443:<IP> -o /dev/null -w '%{http_code}\n' https:
 
 ## 回滚
 
-us4 上的 Caddy（`~/Projects/hugozhu.site`）一直保留着完整配置：博客反代、`/notes`、`/api/functions/v1/*` 转发 Supabase。回滚只要改 DNS：
+us4 上的 Caddy（`~/Projects/hugozhu.site`）一直保留着和 EdgeOne 等价的完整配置：博客反代、`/notes`（ai-notepad 容器）、`/skills/*` 和 `/.well-known/agent-skills.json`（ai-notepad 容器）、`/api/functions/v1/*` 和 `/notes/p/<slug>`（转发 Supabase）。回滚只要改 DNS：
 
 - 在 DNSPod 把 `hugozhu.site` 的 CNAME 删掉，改回 **A 记录 `146.235.235.251`**（us4）。`www` 跟着它走，不用动。
+
+回滚前，可以用 `--resolve` 先确认 us4 能正常提供服务：
+
+```bash
+curl -s --resolve hugozhu.site:443:146.235.235.251 -o /dev/null -w '%{http_code}\n' https://hugozhu.site/notes/p/W5KBbEDu
+```
+
+**停用 us4 的 Caddy 和 ai-notepad 容器之前**，记得它们是唯一的回滚目标。以后在 EdgeOne 上新增路由时，也要同步加到 us4 的 Caddyfile 里。
 
 us4 的配置备份在本地的 `u4-backup/` 目录。它已被 `.gitignore` 忽略，因为里面有 DNSPod token。
 
