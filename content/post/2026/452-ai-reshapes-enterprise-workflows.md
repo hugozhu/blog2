@@ -4,6 +4,9 @@ subtitle: "The Workflow Keeps Its Shape — AI Replaces Who Executes Each Step"
 date: 2026-11-17
 share_img: "/img/2026/ai-reshapes-enterprise-workflows.png"
 tags: ["enterprise-ai", "knowledge-compilation", "digital-employee", "fde", "ai-native", "workflow"]
+aliases: ["/post/2026/451-ai-reshapes-enterprise-workflows/"]
+ingested: 2026-11-17
+sha256: a708a2d5c96518335c2a048a7fd76536770d38dc8f640ad11a0410061362f55f
 ---
 
 *基于 11 月 17 日 EC 会议的演讲稿*
