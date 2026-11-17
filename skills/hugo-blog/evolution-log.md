@@ -19,6 +19,10 @@
 
 **评分：** hook 5 / insight 4 / framework 5 / technical 4 = 18 → publish 档（opinion 型，technical 评工程具体性而非可运行代码）
 
+**发布验证教训：**
+- 本仓库 hugozhu.site 走 **Tencent EdgeOne Pages** 分支（非 GitHub Pages）：历史成功耗时 241-440s，skill 写的「等 ~90s」不够。3 次 URL 检查预算耗尽后不要盲重试——改查 Actions API（runs → jobs → steps）定位部署分支进度，等 deploy job success 后再验一次 URL
+- 本机 blog2 remote 是 HTTPS + credential helper，skill 的 `id_ed25519` SSH 条款不适用；远端常有另一台机器的新提交，push 被 reject 时 `pull --rebase` 后重推
+
 ---
 
 ## 2026-10-28: #445 企业上下文编译器（已发布稿 → 优化重写）
