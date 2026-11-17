@@ -5,7 +5,7 @@ date: 2026-11-17
 share_img: "/img/2026/compiling-digital-employee.png"
 tags: ["digital-employee", "dsh", "deepseek-harness", "build-pipeline", "silent-failure", "engineering", "ai-native"]
 ingested: 2026-11-17
-sha256: 02b69746915617f406bbf30fa47413a2bcdd4641fbd95a26d7425683527209bd
+sha256: dd9e2536fd340df216dcab796ddabe911f5f7b7d95778a82a0290af15229a242
 ---
 
 > 面向在 Agent harness 上做应用的工程师。你已经会写插件、调 persona。这篇讲一件更朴素的事：**一个员工的定义，是怎么变成一个能跑的进程目录的** —— 以及这一步里那些「违反时不报错」的坑。
@@ -31,6 +31,8 @@ employees/<name>/   ──make build──▶   var/<name>/   ──make start�
 
 第 3 条反过来约束了设计：**凡是必须手工在产物目录里做一次的事，都是 bug。** 后面会看到好几处为此付出的代价。
 
+<!--more-->
+
 仓库里其实有三个编译步骤，形状一样：
 
 | 编译 | 源 | 产物 | 入口 |
@@ -40,8 +42,6 @@ employees/<name>/   ──make build──▶   var/<name>/   ──make start�
 | npm 运行模板 | 已跟踪的公开源文件 | `dist/template/` | `pnpm run build:npm` |
 
 本文主讲第一个，第二个在第八节。
-
-<!--more-->
 
 ## 二、流水线全貌
 
