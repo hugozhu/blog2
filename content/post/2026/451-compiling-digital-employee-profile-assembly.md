@@ -14,6 +14,8 @@ sha256: dd9e2536fd340df216dcab796ddabe911f5f7b7d95778a82a0290af15229a242
 
 [![Compiling a Digital Employee: The Silent Traps of Profile Assembly](/img/2026/compiling-digital-employee-thumb.jpg)](/img/2026/compiling-digital-employee.png)
 
+<!--more-->
+
 ## 一、为什么叫「编译」
 
 这个项目里没有 tsc、没有 webpack，但有一个货真价实的编译步骤：
@@ -30,8 +32,6 @@ employees/<name>/   ──make build──▶   var/<name>/   ──make start�
 3. **产物可丢弃**：`var/<name>/` 整目录 gitignore，删掉重跑 build 即可重建（会话状态除外，那是运行期数据，不是产物）。
 
 第 3 条反过来约束了设计：**凡是必须手工在产物目录里做一次的事，都是 bug。** 后面会看到好几处为此付出的代价。
-
-<!--more-->
 
 仓库里其实有三个编译步骤，形状一样：
 

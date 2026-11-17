@@ -373,11 +373,18 @@ tags: ["tag1", "tag2"]
 
 ## Structure
 
+### `<!--more-->` Placement (STRICT)
+
+- `<!--more-->` MUST sit immediately after the header banner image line (`[![subtitle](...-thumb.jpg)](...png)`), before the first section heading.
+- Homepage excerpt = opening hook paragraph(s) + banner image, nothing more. Thesis and body stay behind the fold.
+- Never place `<!--more-->` after the thesis sentence, after a body infographic, or anywhere else in the body. Exactly one `<!--more-->` per post.
+- The outlines below list logical content order; the banner + `<!--more-->` always comes right after the opening hook.
+
 ### Opinion
 
 1. Hook（真实故事开头）
-2. Thesis（核心观点）
-3. <!--more-->
+2. 头图 + <!--more-->
+3. Thesis（核心观点）
 4. 问题定义
 5. 传统认知的问题
 6. 新框架（核心）
@@ -388,7 +395,7 @@ tags: ["tag1", "tag2"]
 
 1. 为什么要解决（真实问题）
 2. 方案对比（为什么选这个）
-3. <!--more-->
+3. 头图 + <!--more-->
 4. 背景（最少必要）
 5. 实现（必须解释 WHY）
 6. 坑 & 限制
@@ -397,8 +404,8 @@ tags: ["tag1", "tag2"]
 ### Hybrid (RECOMMENDED)
 
 1. 故事开头
-2. 本质问题
-3. <!--more-->
+2. 头图 + <!--more-->
+3. 本质问题
 4. 思维框架
 5. 技术实现
 6. 框架 × 技术结合
@@ -637,7 +644,7 @@ Requires `/restart` to reload plugin. **Default**: `gemini-image`.
    tags: ["tag1", "tag2"]
    ---
    ```
-7. **Insert into article** — place after opening paragraph(s), before `<!--more-->`, using the `subtitle` as alt text:
+7. **Insert into article** — place after opening paragraph(s), immediately before `<!--more-->` (the separator sits right after the banner), using the `subtitle` as alt text:
    ```markdown
    [![{subtitle}](/img/{YEAR}/{slug}-thumb.jpg)](/img/{YEAR}/{slug}.png)
    ```
@@ -1020,7 +1027,7 @@ For AI-generated images (Wan2.7, Gemini, etc.), see the **Auto-Illustration** se
 
 - Alt text should be descriptive
 - Click opens original PNG in new tab
-- Place image after opening paragraph(s), before `<!--more-->`
+- Place image after opening paragraph(s), immediately before `<!--more-->` (separator goes right after the banner)
 
 ### Why JPG over PNG for thumbnails
 
@@ -1035,6 +1042,7 @@ For AI-generated images (Wan2.7, Gemini, etc.), see the **Auto-Illustration** se
 # Pitfalls
 
 - **Never auto-publish** — always wait for user confirmation before git push
+- **`<!--more-->` placement** — immediately after the header banner image, never after the thesis sentence or a body infographic; the homepage excerpt is hook + banner only
 - **SSH key** — blog2 needs `id_ed25519` for push (not `wiki_rsa`, not `id_rsa`)
 - **Case studies must be real** — user rejects abstract/hypothetical examples
 - **Depth over breadth** — user prefers deep exploration of 2-3 cases over shallow coverage of many
