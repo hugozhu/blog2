@@ -126,7 +126,15 @@ jobs:
       # ---- Default: static upload only (safe, takes effect immediately) ----
       - name: Deploy to EdgeOne Pages (static)
         if: env.WITH_FUNCTIONS != 'true'
-        run: npx --yes edgeone@latest pages deploy public -n "$PROJECT" -a overseas -e "$EO_ENV" -t "${{ secrets.EDGEONE_API_TOKEN }}"
+        # EdgeOne occasionally reports "Deployment failed with status: Failed" (~2 in 14 runs);
+        # the live site keeps the previous version and a re-run succeeds, so retry.
+        run: |
+          for attempt in 1 2 3; do
+            npx --yes edgeone@latest pages deploy public -n "$PROJECT" -a overseas -e "$EO_ENV" -t "${{ secrets.EDGEONE_API_TOKEN }}" && exit 0
+            echo "::warning::EdgeOne deploy attempt $attempt failed"
+            [ "$attempt" -lt 3 ] && sleep 30
+          done
+          exit 1
 
       # ---- Optional: static + edge-functions bundle ----
       # `deploy <dir>` ignores edge-functions/, so build .edgeone/ first and deploy that.
@@ -149,7 +157,15 @@ jobs:
       - name: Deploy to EdgeOne Pages (with functions)
         if: env.WITH_FUNCTIONS == 'true'
         working-directory: eo-deploy
-        run: npx --yes edgeone@latest pages deploy .edgeone -n "$PROJECT" -a overseas -e "$EO_ENV" -t "${{ secrets.EDGEONE_API_TOKEN }}"
+        # EdgeOne occasionally reports "Deployment failed with status: Failed" (~2 in 14 runs);
+        # the live site keeps the previous version and a re-run succeeds, so retry.
+        run: |
+          for attempt in 1 2 3; do
+            npx --yes edgeone@latest pages deploy .edgeone -n "$PROJECT" -a overseas -e "$EO_ENV" -t "${{ secrets.EDGEONE_API_TOKEN }}" && exit 0
+            echo "::warning::EdgeOne deploy attempt $attempt failed"
+            [ "$attempt" -lt 3 ] && sleep 30
+          done
+          exit 1
 
       - name: Guard production homepage (auto-rollback to static on failure)
         if: env.WITH_FUNCTIONS == 'true' && env.IS_PRODUCTION == 'true'
