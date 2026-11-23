@@ -5,7 +5,7 @@ date: 2026-11-23
 share_img: "/img/2026/proactive-agent-from-automation-to-initiative.png"
 tags: ["ai-agent", "proactive-agent", "enterprise-ai", "context-compiler", "digital-employee", "agent-evaluation"]
 ingested: 2026-11-23
-sha256: b69b02901020af0dd6c8b11baefbda2e3abf8a2b21908f248cea27f3264c7384
+sha256: 3ba86c167f80f0917df1a6150223377390a56bb22575b4c383f9419059361a33
 ---
 
 过去两年，AI Agent 的发展非常快。
@@ -257,11 +257,11 @@ Agent 应该能够：
 
 节制的这一半，我在 [数字员工的活人感，一半是知道什么时候闭嘴](https://hugozhu.site/post/2026/434-digital-employee-silence-is-half-liveliness/) 里专门写过：没有节制的主动性，比没有主动性更糟。
 
-## 八、我们的实践：小钉
+## 八、我们的实践：千问小钉
 
 我们正在尝试把这些理念应用到企业工作场景。
 
-小钉的定位不是普通聊天机器人，也不是一个定时执行任务的 Agent。
+千问小钉的定位不是普通聊天机器人，也不是一个定时执行任务的 Agent。
 
 它希望成为企业工作场景的个性化推荐引擎。
 
@@ -274,7 +274,7 @@ Agent 应该能够：
 - 钉钉：工作信息、沟通协作和事件入口。
 - CC：持续编译个人与企业上下文。
 - EC：承载企业知识、业务关系和权限。
-- 小钉与千问办公：负责主动决策、推荐和任务执行。
+- 千问小钉与千问办公：负责主动决策、推荐和任务执行。
 
 最终形成一个闭环：
 
