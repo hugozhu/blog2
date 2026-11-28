@@ -3,6 +3,8 @@ title: "AI 中台：当运营业务的是 AI，系统要为它准备什么"
 subtitle: "From Data Platform to AI Platform: Read Wide, Write Narrow"
 date: 2026-11-28
 tags: ["enterprise-ai", "ai-agent", "system-design", "data-platform", "ai-governance"]
+ingested: 2026-11-23
+sha256: 623b6f9d8bdf2492f2422a3c2ce323e660e78b536714b9bea0da5db613efb488
 ---
 
 最近一次架构讨论里，有人把问题抛得很直接：
