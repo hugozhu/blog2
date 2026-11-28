@@ -2,9 +2,10 @@
 title: "AI 中台：当运营业务的是 AI，系统要为它准备什么"
 subtitle: "From Data Platform to AI Platform: Read Wide, Write Narrow"
 date: 2026-11-28
+share_img: "/img/2026/ai-platform-for-ai-operated-business.png"
 tags: ["enterprise-ai", "ai-agent", "system-design", "data-platform", "ai-governance"]
 ingested: 2026-11-23
-sha256: 623b6f9d8bdf2492f2422a3c2ce323e660e78b536714b9bea0da5db613efb488
+sha256: bba1577c92a71d598882b8c123187f472cda712bc65f43440ae52549d71518e7
 ---
 
 最近一次架构讨论里，有人把问题抛得很直接：
@@ -12,6 +13,8 @@ sha256: 623b6f9d8bdf2492f2422a3c2ce323e660e78b536714b9bea0da5db613efb488
 过去我们建数据中台，是为了让人来运营业务。今天如果要让 AI 来运营业务，是不是需要一个新的中台，姑且叫 AI 中台？系统是不是都要为这个 AI 做好准备？这个 AI 是不是该有最高权限？产品的实现代码和执行日志要不要对它开放？数据是复制一份给它，直接对它开放，还是让它自己决定怎么存取？
 
 五个问题，每一个单拎出来都能吵一下午。但它们其实是同一个问题的不同侧面：**当系统的主要使用者从人变成 AI，中台的重心应该放在哪里？**
+
+[![From Data Platform to AI Platform: Read Wide, Write Narrow](/img/2026/ai-platform-for-ai-operated-business-thumb.jpg)](/img/2026/ai-platform-for-ai-operated-business.png)
 
 <!--more-->
 
